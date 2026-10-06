@@ -212,7 +212,22 @@ The record, from one machine on 5 October 2026: of nine bounded edits to the sit
 
 Are we distilling models? Not in the machine-learning sense: we train and fine-tune nothing, this work downloaded no model, and nothing in the loop downloads one by itself. Our "distill loop" means turning a lesson into a test that must pass. What we do try is writing down how a stronger model solved a task, here notes on the mistakes it expected a small model to make and a code outline, and handing that to the local worker as instructions. We have tried it once, on one task, six runs each: with such notes the worker's checker was accepted in three runs, without them in four. That shows no sign that the notes help, and six runs each cannot show that they do not, so the question is still open.
 
-Credit where it is due: much of the planning, review and writing here was done with Anthropic's Claude models. The lab is independent of Anthropic; Anthropic has not reviewed or endorsed it. Product names belong to their owners.
+Credit where it is due: much of the planning, review and writing here was done with Anthropic's Claude models. The lab is independent of Anthropic; Anthropic has not reviewed or endorsed it.
+
+### Thanks to the tools
+
+Thank you to the people who make the tools below. Open tools make careful work easier to do in the open.
+
+| Tool | What the lab uses it for | Where to see it |
+| --- | --- | --- |
+| Visual Studio Code | One window for the three repositories and the Files folder; its browser tools for quick page checks | [cf-lab.code-workspace](cf-lab.code-workspace), [playwright-browser-testing](.claude/skills/playwright-browser-testing/SKILL.md) |
+| GitHub | Hosting, [Discussions](https://github.com/senseiewok/cf-lab/discussions), and CodeQL code scanning of the Python code through GitHub Actions | This repository and its pull requests |
+| GitHub Copilot | Reads the same [AGENTS.md](AGENTS.md) and skills as every other agent here | [.github/copilot-instructions.md](.github/copilot-instructions.md) |
+| PowerShell 7 | The routing tests, the task board, and the delegation and gate scripts | [Prerequisites](#prerequisites) |
+| Playwright (open source from Microsoft, Apache-2.0) and Microsoft Edge | Read-only page observations; an installed Edge is tried first, so no browser is downloaded | [Browser testing](#browser-testing) |
+| Git, Python and Ollama | Setup, the tests and research tools, and the local worker | [Prerequisites](#prerequisites), [A local model](#a-local-model) |
+
+Sensei Ewok's CF Lab is one person's project, built on the maintainer's own time, hardware and paid accounts. No company has funded, reviewed or endorsed it, and the tool credits above are thanks, not recommendations. Product names belong to their owners.
 
 ## Repositories in this workspace
 
