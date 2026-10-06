@@ -77,6 +77,17 @@ Optional, not run by setup: browser testing with Playwright. See "Optional piece
 
 Git prints its own clone progress between those lines. Running setup again is safe: it says `already present` for each folder and overwrites nothing. Then open `cf-lab.code-workspace` in VS Code to see all three repositories at once, or just read [tasks/BOARD.md](tasks/BOARD.md) to see what the lab is doing. More detail: [Setup instructions](#setup-instructions).
 
+### Open the workspace
+
+Keep the four folders side by side with the names setup gave them. Then pick one:
+
+- **VS Code:** open `cf-lab.code-workspace`.
+- **Claude Code:** start it in the `cf-lab` folder and add the siblings: `claude --add-dir ../cf-skills ../cf-research`. To add them to every session, copy `.claude/settings.local.json.example` to `.claude/settings.local.json` and put in absolute paths. That file is git-ignored, and it gives file access only; the siblings' skills still need `--add-dir`.
+
+Start agent sessions in `cf-lab`, because the shared safety rules load only from the folder a session starts in. [Working across the sibling repos](AGENTS.md#working-across-the-sibling-repos) explains why.
+
+To check the layout, run `python .claude/skills/workspace-siblings/scripts/check-workspace.py` from `cf-lab`. Each line says `PASS` or `FAIL`; a `FAIL` line names what to fix.
+
 ## Prerequisites
 
 Only Git is needed for setup. The rest depends on what you want to run.
@@ -106,6 +117,7 @@ Run these from the `cf-lab` folder. Each one is offline and prints its result on
 | `python .claude/skills/ascii-art/scripts/test-check-ascii.py` | The text-art checker | `VERIFIED` |
 | `pwsh -NoProfile -File ./.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1 -SelfTest` | How the delegation script checks a model's reply; no model needed | `All 28 local reply/name/think tests passed; no profile, model, GPU or network required` |
 | `python .claude/skills/playwright-browser-testing/scripts/test-setup-browser-testing.py` | The optional browser-testing setup, without downloading anything | `VERIFIED` |
+| `python .claude/skills/workspace-siblings/scripts/check-workspace.py --self-test` | The workspace checker, on temporary folders (needs Git) | `self-test: 5/5 passed` |
 
 The counts are the ones these commands printed on 6 October 2026 on Windows; they grow as tests are added. A line starting with `FAIL` names what broke.
 
@@ -247,7 +259,8 @@ cf-lab/
 │   └── loop-orchestrator/        # Early (non-functional) auto-loop prototype — do not run
 ├── .claude/
 │   ├── skills/                   # Agent skills (SKILL.md per folder) — single source of truth
-│   └── settings.json             # Shared agent security (deny/ask) rules
+│   ├── settings.json             # Shared agent security (deny/ask) rules
+│   └── settings.local.json.example # local settings template
 ├── cf-projects/                  # Advisory Cystic Fibrosis project ideas
 ├── tasks/                        # Task board: board.json is the source, BOARD.md is generated
 ├── Modelfile                     # Local Ollama model definition
