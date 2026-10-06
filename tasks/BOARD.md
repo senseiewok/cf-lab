@@ -4,7 +4,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 97 tasks, 96 created by a model, 0 with a measured outcome. Estimated effort 217.6 to 396 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
-## in progress (24)
+## in progress (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -19,7 +19,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0065 | P2 | Delegation: a sequential batch runner and a verifier-suspect hint | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/05/2026 | elevated | medium | cloud |  |
 | T-0067 | P2 | Decision: treat robots.txt groups that name AI agents as applying to our fetch sources | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/05/2026 | full |  |  |  |
 | T-0028 | P2 | Add a reviewed lesson to ai-loop-council: a verbatim-quote check does not verify inferences, and a truncated quote can produce a false 'differs' claim | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated | medium | local |  |
-| T-0025 | P2 | Fix three fetch_sources.py defects: failed downloads exit 0, --dest can write an absolute path into the tracked manifest, --verify cannot check manually saved files | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine | low | local |  |
 | T-0024 | P2 | Board enhancement: add complexity, recommended_route (local, cloud or frontier) and route_rationale to tasks | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated | medium | cloud |  |
 | T-0012 | P2 | Unit tests for tools/sources/fetch_sources.py | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 10/04/2026 | routine | low | local |  |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 10/04/2026 | routine | medium | cloud |  |
@@ -31,7 +30,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0052 | P2 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated | medium | local | T-0037 |
 | T-0026 | P3 | Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals | cf-research | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine | low | local |  |
 | T-0040 | P3 | Read terms and record access values for UK, Canadian, Australian, and Irish CF registry annual reports | cf-research | 1.5-3 | 3 | 13.3 | no | model: claude-fable-5-1 | 10/04/2026 | routine | medium | cloud | T-0008 |
-| T-0054 | P3 | fetch_sources.py: make --verify honour --only | cf-research | 0.5-1 | 1 | 13.3 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine | low | local |  |
 
 ## ready (4)
 
@@ -115,6 +113,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0053 | P3 | Data Commons provider in cf-evidence-loop for population denominators (if the admission is accepted) | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 10/04/2026 | full |  |  | T-0048 |
 | T-0087 | P3 | Faster site and package test suites with the same assertions | cf-research | 3-6 | 2 | 4.4 | no | model: claude-sonnet-5-5 | 10/06/2026 | routine | medium |  |  |
 | T-0036 | P3 | Admission run for the two installed local models (Gemma 4 31B, Laguna XS 2.1) as reviewers | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 10/04/2026 | full |  |  |  |
+
+## done (2)
+
+| ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| T-0025 | P2 | Fix three fetch_sources.py defects: failed downloads exit 0, --dest can write an absolute path into the tracked manifest, --verify cannot check manually saved files | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine | low | local |  |
+| T-0054 | P3 | fetch_sources.py: make --verify honour --only | cf-research | 0.5-1 | 1 | 13.3 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine | low | local |  |
 
 ## Detail
 
@@ -385,7 +390,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Already implemented before this session; verified rather than rebuilt.
 - **Acceptance:** With a failing URL (local test double, no real host) the fetcher exits non-zero; with --dest outside the repo the manifest holds no absolute path; after saving a manual file, a documented command records its hash and --verify then reports it; tools/sources/README.md exit codes match the code. No request to cff.org, databases.lovd.nl or cftr2.org is made.
 - **Evidence:** research/tools/sources/fetch_sources.py read 2026-10-04: download errors are caught and the run returns 0 (tools/sources/README.md documents 0 as success); build_manifest writes str(dest) when --dest is outside the repo and the manifest is tracked; the --manual footer says to re-run --verify but verify() skips records that have no sha256, and a manual file has none until a plain run rewrites the manifest.
-- **Notes:** Found while preparing the 2026-10-04 PRs. Not fixed there, because the packet says apply the proposals and do not improve other code. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Verified 2026-10-05: the three defects were already fixed (bb571f1); 16 tests pass and the README exit codes match the code.
+- **Notes:** Found while preparing the 2026-10-04 PRs. Not fixed there, because the packet says apply the proposals and do not improve other code. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Verified 2026-10-05: the three defects were already fixed (bb571f1); 16 tests pass and the README exit codes match the code. \| Verified done 2026-10-06 on origin/main a7c0a30, set done on the maintainer's instruction in session: test_fetch_sources and test_fetch_conduct run 38 tests, all OK; the named tests pass for a failing download (exit 1, the entry named), a --dest outside the repo (no absolute path in the manifest), and --record then --verify on a hand-saved file; tools/sources/README.md exit codes 0, 1 and 2 match the code's return values; the tests name none of cff.org, databases.lovd.nl or cftr2.org. Run against the pre-fix source, the new tests error (14 errors), so a clean fails-before is not shown for this task. The earlier session recorded no actual hours, so roi.actual_hours stays null and roi.measured stays false.
 
 ### T-0024 Board enhancement: add complexity, recommended_route (local, cloud or frontier) and route_rationale to tasks
 
@@ -735,7 +740,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Worker drafted it on attempt 1 in 17 s against a verifier of 16 unit tests; the controller tidied it.
 - **Acceptance:** A unit test in tools/sources/test_fetch_sources.py fails before the change and passes after: with two files in the manifest, --only ID --verify reports '1 match, 0 changed, 0 missing'; without --only it still reports 2. python -m unittest test_fetch_sources exits 0.
 - **Evidence:** Running python tools/sources/fetch_sources.py --only ecfspr-adr-2022 --verify on 2026-10-04 printed '6 match, 0 changed, 0 missing': --verify re-hashed all six local files and ignored --only. The publish packet expected '1 match'.
-- **Notes:** Proposed by a model; only a human moves it to ready. Alternative: document that --verify always checks every file. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research db4aaaf: 16 tests pass (4 new). Live: '--only ecfspr-adr-2022 --verify' prints '1 match, 0 changed, 0 missing'.
+- **Notes:** Proposed by a model; only a human moves it to ready. Alternative: document that --verify always checks every file. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research db4aaaf: 16 tests pass (4 new). Live: '--only ecfspr-adr-2022 --verify' prints '1 match, 0 changed, 0 missing'. \| Verified done 2026-10-06 on origin/main a7c0a30, set done on the maintainer's instruction in session: the four test_verify_only_* tests fail against the pre-fix source and pass now; test_verify_only_checks_just_the_named_entry asserts '1 match, 0 changed, 0 missing' with --only and '2 match, 0 changed, 0 missing' without; test_fetch_sources and test_fetch_conduct run 38 tests, all OK. The earlier session recorded no actual hours, so roi.actual_hours stays null and roi.measured stays false.
 
 ### T-0050 Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow
 
