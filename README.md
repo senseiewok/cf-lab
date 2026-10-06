@@ -115,7 +115,7 @@ Run these from the `cf-lab` folder. Each one is offline and prints its result on
 | `pwsh -NoProfile -File tasks/test-render-board.ps1` | The board renderer itself | `17/17 passed` |
 | `python .claude/skills/ascii-art/scripts/test-asciicanvas.py` | The text-art canvas library | `VERIFIED` |
 | `python .claude/skills/ascii-art/scripts/test-check-ascii.py` | The text-art checker | `VERIFIED` |
-| `pwsh -NoProfile -File ./.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1 -SelfTest` | How the delegation script checks a model's reply; no model needed | `All 28 local reply/name/think tests passed; no profile, model, GPU or network required` |
+| `pwsh -NoProfile -File ./.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1 -SelfTest` | How the delegation script checks a model's reply; no model needed | `All 35 local reply/name/think/usage tests passed; no profile, model, GPU or network required` |
 | `python .claude/skills/playwright-browser-testing/scripts/test-setup-browser-testing.py` | The optional browser-testing setup, without downloading anything | `VERIFIED` |
 | `python .claude/skills/workspace-siblings/scripts/check-workspace.py --self-test` | The workspace checker, on temporary folders (needs Git) | `self-test: 5/5 passed` |
 

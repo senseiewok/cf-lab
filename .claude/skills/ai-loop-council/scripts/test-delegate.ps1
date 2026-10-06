@@ -8,12 +8,13 @@ function Check([string] $name, [bool] $ok, [string] $detail = '') { $script:n++;
 
 # The stub worker: reply-<n>.txt from $env:STUB_DIR, and a log of how it was called.
 Set-Content (Join-Path $base 'stub.ps1') @'
-param([string] $PromptFile, [string] $ProfileFile, [string] $Model, [string] $SystemFile, [int] $NumCtx, [int] $MaxOutputTokens, [string] $ThinkMode, [string] $ThinkingFile, [string] $LogFile, [string] $Tag)
+param([string] $PromptFile, [string] $ProfileFile, [string] $Model, [string] $SystemFile, [int] $NumCtx, [int] $MaxOutputTokens, [string] $ThinkMode, [string] $ThinkingFile, [string] $LogFile, [string] $Tag, [int] $Attempt, [string] $Mode)
 $d = $env:STUB_DIR
 $cf = Join-Path $d 'count.txt'; $i = 1 + $(if (Test-Path $cf) { [int](Get-Content $cf) } else { 0 }); Set-Content $cf $i
-Add-Content (Join-Path $d 'calls.txt') ("call=$i profile=$ProfileFile model=$Model think=$ThinkMode maxout=$MaxOutputTokens thinkingfile=$ThinkingFile logfile=$LogFile tag=$Tag")
+Add-Content (Join-Path $d 'calls.txt') ("call=$i profile=$ProfileFile model=$Model think=$ThinkMode maxout=$MaxOutputTokens thinkingfile=$ThinkingFile logfile=$LogFile numctx=$NumCtx attempt=$Attempt mode=$Mode tag=$Tag")
 if ($ThinkingFile) { Set-Content $ThinkingFile "stub thinking $i" }
-if ($LogFile) { Add-Content $LogFile '{"output_tokens":123,"thinking_chars":45}' }
+if (Test-Path (Join-Path $d "nolog-$i.txt")) { throw 'connection refused (stub: this call writes no usage line)' }
+if ($LogFile) { Add-Content $LogFile ('{"output_tokens":123,"thinking_chars":45,"attempt":' + $Attempt + ',"mode":"' + $Mode + '"}') }
 Copy-Item $PromptFile (Join-Path $d "seen-prompt-$i.md")
 $r = Join-Path $d "reply-$i.txt"
 $reply = if (Test-Path $r) { Get-Content -Raw $r } else { 'no scripted reply' }
@@ -51,7 +52,7 @@ function NewCase([string[]] $replies) {
 }
 function Delegate([string] $d, [string[]] $extra = @(), [string] $verifier = 'verify.ps1') {
     $env:STUB_DIR = $d
-    $o = & pwsh -NoProfile -File $Script -TaskFile (Join-Path $base 'task.md') -Verify (Join-Path $base $verifier) -OutFile (Join-Path $d 'out.ps1') -InvokeScript (Join-Path $base 'stub.ps1') -WorkDir (Join-Path $d 'work') -OutcomeLog (Join-Path $d 'outcomes.jsonl') @extra 2>&1 | Out-String
+    $o = & pwsh -NoProfile -File $Script -TaskFile (Join-Path $base 'task.md') -Verify (Join-Path $base $verifier) -OutFile (Join-Path $d 'out.ps1') -InvokeScript (Join-Path $base 'stub.ps1') -WorkDir (Join-Path $d 'work') -OutcomeLog (Join-Path $d 'outcomes.jsonl') -UsageLog (Join-Path $d 'central.jsonl') @extra 2>&1 | Out-String
     return @{ Code = $LASTEXITCODE; Out = $o; Dir = $d }
 }
 $fence = '```'
@@ -148,6 +149,53 @@ try {
     Check 'the thinking text is kept per attempt' ((Test-Path (Join-Path $c 'work\thinking-1.txt')) -and (Test-Path (Join-Path $c 'work\thinking-2.txt')))
     Check 'the delegation uses its own usage log' ($log[0] -match 'logfile=.*work.usage.jsonl') ($log -join ' | ')
     Check 'the attempt line shows output tokens and thinking size' ($r.Out -match '123 tokens, thinking 45 chars') $r.Out
+
+    # 14b. V2-06a: -NumCtx is passed only when the caller sets it, so a profile's own num_ctx (65,536) is not overridden by a hidden 32,768
+    $c = NewCase @("$fence`nGOOD`n$fence")
+    $r = Delegate $c @('-FastProfile', 'FAST.json')
+    Check 'no -NumCtx from the caller: none is passed to the worker (numctx stays unset)' (@(Get-Content (Join-Path $c 'calls.txt'))[0] -match 'numctx=0 ') @(Get-Content (Join-Path $c 'calls.txt'))[0]
+    $c = NewCase @("$fence`nGOOD`n$fence")
+    $r = Delegate $c @('-FastProfile', 'FAST.json', '-NumCtx', '4096')
+    Check 'an explicit -NumCtx 4096 reaches the worker' (@(Get-Content (Join-Path $c 'calls.txt'))[0] -match 'numctx=4096 ') @(Get-Content (Join-Path $c 'calls.txt'))[0]
+
+    # 14c. V2-06a: every attempt is written to the work-folder log AND to the central usage log, with equal token counts, and says which attempt and mode it was
+    $c = NewCase @("$fence`nbad`n$fence", "$fence`nbad`n$fence", "$fence`nGOOD`n$fence")
+    $r = Delegate $c @('-Tag', 'unit-test')
+    $wl = @(Get-Content (Join-Path $c 'work\usage.jsonl') | ForEach-Object { $_ | ConvertFrom-Json })
+    $cl = @(Get-Content (Join-Path $c 'central.jsonl') | ForEach-Object { $_ | ConvertFrom-Json })
+    Check 'one central line per attempt (3), as in the work-folder log' ($wl.Count -eq 3 -and $cl.Count -eq 3) "work=$($wl.Count) central=$($cl.Count)"
+    Check 'the central log carries the same token counts as the work-folder log' ($cl.Count -eq 3 -and (@(0..2 | Where-Object { $cl[$_].output_tokens -ne $wl[$_].output_tokens }).Count -eq 0)) ($cl | ConvertTo-Json -Compress)
+    Check 'the central lines say attempt 1, 2, 3 and mode default, default, thinking' ($cl.Count -eq 3 -and ($cl.attempt -join ',') -eq '1,2,3' -and ($cl.mode -join ',') -eq 'default,default,thinking') ($cl | ConvertTo-Json -Compress)
+    Check 'the caller passes attempt and mode to the worker, so the work-folder log has them too' ($wl.Count -eq 3 -and ($wl.attempt -join ',') -eq '1,2,3' -and ($wl.mode -join ',') -eq 'default,default,thinking') ($wl | ConvertTo-Json -Compress)
+    Check 'the central lines carry the tag' ($cl.Count -eq 3 -and @($cl | Where-Object { $_.tag -ne 'unit-test' }).Count -eq 0) ($cl | ConvertTo-Json -Compress)
+    $centralText = Get-Content -Raw (Join-Path $c 'central.jsonl')
+    Check 'the central log holds no prompt text, reply text or path' ($centralText -notmatch 'write a thing|GOOD|bad|work\\|case-') $centralText
+    # a capped call still logged its usage (the worker logs before it checks the reply), so it counts once and the next attempt counts once
+    $c = NewCase @('@@CAP@@', "$fence`nGOOD`n$fence")
+    $r = Delegate $c @('-MaxAttempts', '2')
+    $cl = @(Get-Content (Join-Path $c 'central.jsonl') | ForEach-Object { $_ | ConvertFrom-Json })
+    Check 'a capped attempt and the attempt after it each have one central line (attempts 1 and 2)' ($cl.Count -eq 2 -and ($cl.attempt -join ',') -eq '1,2') ($cl | ConvertTo-Json -Compress)
+    # a call that fails before it writes any usage line adds nothing: the previous attempt's line must not be copied a second time
+    $c = NewCase @("$fence`nbad`n$fence", "$fence`nGOOD`n$fence")
+    New-Item -ItemType File (Join-Path $c 'nolog-2.txt') | Out-Null
+    $r = Delegate $c @('-MaxAttempts', '2')
+    $cl = @(Get-Content (Join-Path $c 'central.jsonl') | ForEach-Object { $_ | ConvertFrom-Json })
+    Check 'a call with no usage line adds no central line (only attempt 1 is there, no stale copy)' ($cl.Count -eq 1 -and $cl[0].attempt -eq 1) ($cl | ConvertTo-Json -Compress)
+
+    # 14d. parallel delegations share one central log: no line may be lost to a file-lock collision (16 parallel runs lost 1 line before the fix)
+    Set-Content (Join-Path $base 'stub-fast.ps1') @'
+param([string] $PromptFile, [string] $ProfileFile, [string] $Model, [string] $SystemFile, [int] $NumCtx, [int] $MaxOutputTokens, [string] $ThinkMode, [string] $ThinkingFile, [string] $LogFile, [string] $Tag, [int] $Attempt, [string] $Mode)
+if ($LogFile) { Add-Content $LogFile ('{"output_tokens":1,"attempt":' + $Attempt + ',"mode":"' + $Mode + '"}') }
+'```' + "`nGOOD`n" + '```'
+'@ -Encoding utf8
+    $par = Join-Path $base 'parallel'; New-Item -ItemType Directory $par | Out-Null
+    $parN = 24
+    $procs = 1..$parN | ForEach-Object { Start-Process pwsh -ArgumentList '-NoProfile', '-File', $Script, '-TaskFile', (Join-Path $base 'task.md'), '-Verify', (Join-Path $base 'verify.ps1'), '-OutFile', (Join-Path $par "out$_.ps1"), '-InvokeScript', (Join-Path $base 'stub-fast.ps1'), '-WorkDir', (Join-Path $par "w$_"), '-OutcomeLog', (Join-Path $par "o$_.jsonl"), '-UsageLog', (Join-Path $par 'central.jsonl') -PassThru -WindowStyle Hidden }
+    $procs | Wait-Process -Timeout 180
+    $got = if (Test-Path (Join-Path $par 'central.jsonl')) { @(Get-Content (Join-Path $par 'central.jsonl')).Count } else { 0 }
+    Check "$parN parallel delegations write $parN central usage lines (none lost to a lock collision)" ($got -eq $parN) "got $got"
+    $bad = @(Get-Content (Join-Path $par 'central.jsonl') | Where-Object { try { $null = $_ | ConvertFrom-Json; $false } catch { $true } })
+    Check 'every central line is whole, valid JSON (no interleaved writes)' ($bad.Count -eq 0) "$($bad.Count) bad lines"
 
     # 15. SALVAGE: the thinking attempt hits the token cap, but its thinking text holds a complete answer that passes the verifier
     $five = { param($w) (1..5 | ForEach-Object { "$w line $_" }) -join "`n" }

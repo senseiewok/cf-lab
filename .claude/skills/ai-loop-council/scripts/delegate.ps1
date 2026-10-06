@@ -53,7 +53,8 @@ param(
     [string] $Model = $env:LOCAL_WORKER_MODEL,
     [string] $FastProfile = $env:LOCAL_WORKER_PROFILE,
     [string] $ThinkingProfile = $env:LOCAL_WORKER_THINKING_PROFILE,
-    [int] $NumCtx = 32768,
+    # Passed to the worker only when given: otherwise the profile's own num_ctx applies (the helper's 32,768 only when there is no profile either).
+    [int] $NumCtx,
     [ValidateRange(1, 16384)] [int] $MaxOutputTokens = 8192,
     [switch] $NoFence,
     [string] $WorkDir,
@@ -61,7 +62,9 @@ param(
     # A short label for this task, passed to the worker's usage entries and written to the outcome line. Default: LOCAL_WORKER_TAG.
     [string] $Tag = $env:LOCAL_WORKER_TAG,
     # One JSON line per run is appended here (git-ignored .loop-logs by default): tag, task file name, outcome, attempts, seconds, tokens, work folder. Never prompts or replies.
-    [string] $OutcomeLog = $(if ($env:LOCAL_WORKER_OUTCOME_LOG) { $env:LOCAL_WORKER_OUTCOME_LOG } else { Join-Path $PSScriptRoot '../../../../.loop-logs/delegations.jsonl' })
+    [string] $OutcomeLog = $(if ($env:LOCAL_WORKER_OUTCOME_LOG) { $env:LOCAL_WORKER_OUTCOME_LOG } else { Join-Path $PSScriptRoot '../../../../.loop-logs/delegations.jsonl' }),
+    # The central usage log (git-ignored .loop-logs by default, the same file invoke-local-model.ps1 writes when called alone): every attempt's usage line is appended here as well as to the work folder's usage.jsonl.
+    [string] $UsageLog = $(if ($env:LOCAL_WORKER_USAGE_LOG) { $env:LOCAL_WORKER_USAGE_LOG } else { Join-Path $PSScriptRoot '../../../../.loop-logs/local-model-usage.jsonl' })
 )
 $ErrorActionPreference = 'Stop'
 $default = [bool]($PSBoundParameters.ContainsKey('InvokeScript'))
@@ -89,6 +92,39 @@ function Write-Outcome([string] $Outcome, [int] $Attempts) {
         if (-not (Test-Path -LiteralPath $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
         @{ ts = (Get-Date).ToUniversalTime().ToString('o'); tag = $(if ($Tag) { $Tag } else { $null }); task = (Split-Path -Leaf $TaskFile); outcome = $Outcome; attempts = $Attempts
            max_attempts = $MaxAttempts; seconds = [int]$runWatch.Elapsed.TotalSeconds; output_tokens = $tokens; work_dir = $WorkDir } | ConvertTo-Json -Compress | Add-Content -LiteralPath $OutcomeLog
+    } catch { }
+}
+
+# The work folder's usage.jsonl holds one line per model call that logged. Count them before a call; after it, a NEW line (and only a new one, so a
+# call that failed before logging cannot copy the previous attempt's line again) is appended to the central usage log with the attempt, mode and tag.
+# Parallel delegations append to one central file, and a line was lost (16 parallel runs gave 15 lines, 48 gave 39). Two causes to avoid:
+# Add-Content throws when another writer holds the file, and a shared open with FileMode.Append seeks to the end when it OPENS, so two writers
+# that open together overwrite each other with no error. An EXCLUSIVE open makes that seek safe; a sharing violation just means wait and retry.
+function Add-SharedLine([string] $Path, [string] $Line) {
+    $bytes = [Text.UTF8Encoding]::new($false).GetBytes($Line + [Environment]::NewLine)
+    for ($try = 1; $try -le 200; $try++) {
+        try {
+            $fs = [IO.File]::Open($Path, [IO.FileMode]::Append, [IO.FileAccess]::Write, [IO.FileShare]::None)
+            try { $fs.Write($bytes, 0, $bytes.Length) } finally { $fs.Dispose() }
+            return
+        } catch [IO.IOException] { Start-Sleep -Milliseconds (Get-Random -Minimum 5 -Maximum 40) }
+    }
+    Write-Host 'warning: a usage line could not be written to the central usage log (it is still in the work folder)'
+}
+function Get-UsageCount { $u = Join-Path $WorkDir 'usage.jsonl'; if (Test-Path -LiteralPath $u) { return @(Get-Content -LiteralPath $u).Count } else { return 0 } }
+function Copy-UsageToCentral([int] $Before, [int] $Attempt, [string] $Mode) {
+    try {
+        $u = Join-Path $WorkDir 'usage.jsonl'
+        if (-not (Test-Path -LiteralPath $u)) { return }
+        $lines = @(Get-Content -LiteralPath $u)
+        if ($lines.Count -le $Before) { return }
+        $e = $lines[-1] | ConvertFrom-Json
+        $e | Add-Member -NotePropertyName attempt -NotePropertyValue $Attempt -Force
+        $e | Add-Member -NotePropertyName mode -NotePropertyValue $Mode -Force
+        if ($Tag) { $e | Add-Member -NotePropertyName tag -NotePropertyValue $Tag -Force }
+        $dir = Split-Path -Parent ([IO.Path]::GetFullPath($UsageLog))
+        if (-not (Test-Path -LiteralPath $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
+        Add-SharedLine $UsageLog ($e | ConvertTo-Json -Compress)
     } catch { }
 }
 
@@ -182,7 +218,8 @@ for ($n = 1; $n -le $MaxAttempts; $n++) {
     # A thinking attempt can spend its whole budget before it writes the answer (seen at the default and at 16,384): ask for the answer first, from the start.
     if ($thinking) { $prompt += "`n`n--- Write the complete answer FIRST, in one fenced block, briefly. Do not re-verify it at length: the independent verifier will." }
     $pf = Join-Path $WorkDir "prompt-$n.md"; Set-Content -LiteralPath $pf -Value $prompt -Encoding utf8
-    $params = @{ PromptFile = $pf; NumCtx = $NumCtx; MaxOutputTokens = $(if ($thinking) { $thinkBudget } else { $MaxOutputTokens }) }
+    $params = @{ PromptFile = $pf; MaxOutputTokens = $(if ($thinking) { $thinkBudget } else { $MaxOutputTokens }); Attempt = $n; Mode = $mode }
+    if ($PSBoundParameters.ContainsKey('NumCtx')) { $params.NumCtx = $NumCtx }
     if ($Tag) { $params.Tag = $Tag }
     $profile = if ($thinking -and $ThinkingProfile) { $ThinkingProfile } elseif ($FastProfile) { $FastProfile } else { $null }
     if ($profile) { $params.ProfileFile = $profile }
@@ -195,8 +232,10 @@ for ($n = 1; $n -le $MaxAttempts; $n++) {
     $params.LogFile = Join-Path $WorkDir 'usage.jsonl'
     if ($SystemFile) { $params.SystemFile = $SystemFile }
     $sw = [Diagnostics.Stopwatch]::StartNew()
+    $usageBefore = Get-UsageCount
     try { $reply = (& $InvokeScript @params | Out-String) }
     catch {
+        Copy-UsageToCentral $usageBefore $n $mode
         $msg = $_.Exception.Message
         Write-Host "attempt $n ($mode): model call failed: $msg"
         if ($msg -match 'Generated-token limit reached') {
@@ -218,6 +257,7 @@ for ($n = 1; $n -le $MaxAttempts; $n++) {
         continue
     }
     $sw.Stop()
+    Copy-UsageToCentral $usageBefore $n $mode
     $usage = ''
     $ulog = Join-Path $WorkDir 'usage.jsonl'
     if (Test-Path -LiteralPath $ulog) {
