@@ -45,6 +45,7 @@ if errorlevel 1 set "RC=1" & goto finish
 
 echo.
 echo Done. Open cf-lab.code-workspace in this checkout in VS Code.
+echo Optional, not run by setup: browser testing with Playwright. See "Optional pieces" in README.md.
 set "RC=0" & goto finish
 
 :ensure_repo
