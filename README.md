@@ -69,7 +69,7 @@ The folder tree with every file is under [Structure](#structure).
   🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹
   🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹
   ╔═════════════════════════════════════════════╗
-  ║        S E N S E I      E   W O K          ║
+  ║        S E N S E I      E W O K           ║
   ║                 L A B                     ║
   ║                                           ║
   ║   Think with machines.                    ║
