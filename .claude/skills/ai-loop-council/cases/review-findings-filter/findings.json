@@ -1,0 +1,176 @@
+{
+  "findings": [
+    {
+      "id": "A3-1",
+      "claim": "One SEO038 finding is emitted for each stylesheet that holds @font-face, so two stylesheets give two findings.",
+      "spec_quote": "SEO038 | info | a `<link rel=\"stylesheet\">` resolves to an existing site file containing `@font-face`, and no `<link>` has `rel` including `preload` with `as=\"font\"`",
+      "failing_input": {
+        "args": [
+          "{input_dir}/site",
+          "--json"
+        ],
+        "expect": {
+          "output_regex": "(?s)SEO038.*SEO038"
+        },
+        "files": {
+          "site/index.html": "<html><head><link rel=\"stylesheet\" href=\"a.css\"><link rel=\"stylesheet\" href=\"b.css\"></head><body><h1>x</h1></body></html>",
+          "site/a.css": "@font-face {}",
+          "site/b.css": "@font-face {}"
+        }
+      }
+    },
+    {
+      "id": "A3-2",
+      "claim": "A robots rule `Disallow: /secret$` wrongly matches the indexed page /secrets/ (the $ is ignored, so it behaves as a prefix).",
+      "spec_quote": "SEO026 | error | ... a trailing `$` anchors the end, otherwise prefix match",
+      "failing_input": {
+        "args": [
+          "{input_dir}/site",
+          "--base-url",
+          "https://example.test",
+          "--json"
+        ],
+        "expect": {
+          "output_regex": "SEO026"
+        },
+        "files": {
+          "site/index.html": "<html><head><title>t</title></head><body><h1>Home</h1></body></html>",
+          "site/secrets/index.html": "<html><head><title>t</title></head><body><h1>Secrets</h1></body></html>",
+          "site/robots.txt": "User-agent: *\nDisallow: /secret$\n"
+        }
+      }
+    },
+    {
+      "id": "A3-3",
+      "claim": "SEO041 is reported for an object inside @graph although only top-level objects are covered, and the top-level object has an @context.",
+      "spec_quote": "SEO041 | warn | JSON-LD parses | a top-level object (the JSON itself, or each element if it is a list) has no `@context`",
+      "failing_input": {
+        "args": [
+          "{input_dir}/site",
+          "--json"
+        ],
+        "expect": {
+          "output_regex": "SEO041"
+        },
+        "files": {
+          "site/index.html": "<html><head><script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"WebPage\"}]}</script></head><body><h1>Home</h1></body></html>"
+        }
+      }
+    },
+    {
+      "id": "A3-4",
+      "claim": "The content checks are skipped for 404.html, so a 404 page without an h1 gets no SEO030.",
+      "spec_quote": "Content checks (SEO030 to SEO052) run on every page, the 404 included.",
+      "failing_input": {
+        "args": [
+          "{input_dir}/site",
+          "--json"
+        ],
+        "expect": {
+          "output_regex": "404\\.html",
+          "output_not_regex": "SEO030"
+        },
+        "files": {
+          "site/404.html": "<html><body>Error</body></html>"
+        }
+      }
+    },
+    {
+      "id": "A4-1",
+      "claim": "A relative og:image gets SEO016 (not checked) where SEO014 should be reported.",
+      "spec_quote": "SEO016 ... Fires when: it is not an absolute http(s):// URL ... 'not checked'",
+      "failing_input": {
+        "args": [
+          "{input_dir}/site",
+          "--json"
+        ],
+        "expect": {
+          "output_regex": "SEO016",
+          "output_not_regex": "SEO014"
+        },
+        "files": {
+          "site/index.html": "<html><head><title>t</title><meta property=\"og:image\" content=\"/valid.png\"></head><body><h1>Home</h1></body></html>"
+        }
+      }
+    },
+    {
+      "id": "A4-2",
+      "claim": "A robots rule `Disallow: /admin/$` is matched as a prefix, so a page below /admin/ is reported.",
+      "spec_quote": "SEO026 | error | ... a trailing `$` anchors the end, otherwise prefix match",
+      "failing_input": {
+        "args": [
+          "{input_dir}/site",
+          "--base-url",
+          "https://example.test",
+          "--json"
+        ],
+        "expect": {
+          "output_regex": "SEO026"
+        },
+        "files": {
+          "site/index.html": "<html><head><title>t</title></head><body><h1>Home</h1></body></html>",
+          "site/admin/sub/index.html": "<html><head><title>t</title></head><body><h1>Sub</h1></body></html>",
+          "site/robots.txt": "User-agent: *\nDisallow: /admin/$\n"
+        }
+      }
+    },
+    {
+      "id": "B1-4",
+      "claim": "Two images without alt give one SEO033 finding, not one per image.",
+      "spec_quote": "SEO033 ... one per image",
+      "failing_input": {
+        "args": [
+          "{input_dir}/site",
+          "--json"
+        ],
+        "expect": {
+          "output_regex": "SEO033",
+          "output_not_regex": "(?s)SEO033.*SEO033"
+        },
+        "files": {
+          "site/index.html": "<html><head><title>t</title></head><body><h1>Home</h1><img src=\"a.png\" width=\"1\" height=\"1\"><img src=\"b.png\" width=\"1\" height=\"1\"></body></html>"
+        }
+      }
+    },
+    {
+      "id": "B1-10",
+      "claim": "Two empty links with different hrefs are merged into one SEO036 finding.",
+      "spec_quote": "SEO036 ... one finding per link",
+      "failing_input": {
+        "args": [
+          "{input_dir}/site",
+          "--json"
+        ],
+        "expect": {
+          "output_regex": "SEO036",
+          "output_not_regex": "(?s)SEO036.*SEO036"
+        },
+        "files": {
+          "site/index.html": "<html><head><title>t</title></head><body><h1>Home</h1><a href=\"/1\"></a><a href=\"/2\"></a></body></html>"
+        }
+      }
+    },
+    {
+      "id": "B1-2",
+      "claim": "An og:image of ../secret.png makes the checker read a file outside the site and report SEO014 or SEO015 for it.",
+      "spec_quote": "resolve_site_file must refuse a path that leaves the site folder",
+      "failing_input": {
+        "args": [
+          "{input_dir}/site",
+          "--json"
+        ],
+        "expect": {
+          "output_regex": "SEO01[45]"
+        },
+        "files": {
+          "site/index.html": "<html><head><title>t</title><meta property=\"og:image\" content=\"../secret.png\"></head><body><h1>Home</h1></body></html>"
+        }
+      }
+    },
+    {
+      "id": "A1-1",
+      "claim": "The script uses `re` on HTML.",
+      "spec_quote": "Parsing must not use regular expressions on HTML."
+    }
+  ]
+}
