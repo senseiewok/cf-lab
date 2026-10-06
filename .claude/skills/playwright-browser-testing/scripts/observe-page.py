@@ -10,14 +10,17 @@ text: pass it to a model only inside a data boundary (see security-browsing sect
 Usage:
     observe-page.py URL [--viewport 390x844] [--selector CSS ...] [--reduced-motion]
                         [--screenshot PATH] [--out PATH] [--wait-ms 1500]
-    observe-page.py --self-test
+                        [--channel msedge|chrome]
+    observe-page.py --self-test [--channel msedge|chrome]
 
 URL rules: https only, or http on loopback (a local dev server). file:, private and
 link-local literal IPs, and other schemes are refused. DNS names are not resolved here,
 so this is not an SSRF defence on its own; keep fetch approvals on.
 
 Exit codes: 0 observed, 2 URL refused, 3 navigation failed, 4 self-test failed.
-Needs: pip install playwright; python -m playwright install chromium
+Needs: Playwright for Python and a browser. setup-browser-testing.py (beside this file) installs
+both after asking; with --channel msedge or chrome an installed Edge or Chrome is used instead of
+Playwright's Chromium download.
 """
 
 from __future__ import annotations
@@ -65,7 +68,7 @@ def check_url(url: str) -> str | None:
 
 
 def observe(url: str, viewport: tuple[int, int], selectors: list[str], reduced_motion: bool,
-            screenshot: str | None, wait_ms: int) -> dict:
+            screenshot: str | None, wait_ms: int, channel: str | None = None) -> dict:
     from playwright.sync_api import Error as PlaywrightError
     from playwright.sync_api import sync_playwright
 
@@ -77,7 +80,7 @@ def observe(url: str, viewport: tuple[int, int], selectors: list[str], reduced_m
                  "requested_url": url, "viewport_requested": {"width": viewport[0], "height": viewport[1]},
                  "reduced_motion": reduced_motion}
     with sync_playwright() as pw:
-        browser = pw.chromium.launch(headless=True)
+        browser = pw.chromium.launch(headless=True, channel=channel) if channel else pw.chromium.launch(headless=True)
         try:
             ctx = browser.new_context(
                 viewport={"width": viewport[0], "height": viewport[1]},
@@ -135,7 +138,7 @@ SELF_TEST_PAGE = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 console.error('fixture console error');</script></body></html>"""
 
 
-def self_test() -> int:
+def self_test(channel: str | None = None) -> int:
     problems: list[str] = []
     for bad in ("file:///etc/passwd", "http://example.com/", "https://169.254.169.254/", "ftp://example.com/", "https:///x"):
         if check_url(bad) is None:
@@ -157,7 +160,7 @@ def self_test() -> int:
             port = srv.server_address[1]
             threading.Thread(target=srv.serve_forever, daemon=True).start()
             try:
-                o = observe(f"http://127.0.0.1:{port}/", (390, 844), [".rose", ".hidden-note"], False, None, 300)
+                o = observe(f"http://127.0.0.1:{port}/", (390, 844), [".rose", ".hidden-note"], False, None, 300, channel)
             finally:
                 srv.shutdown()
     checks = {
@@ -191,10 +194,12 @@ def main() -> int:
     ap.add_argument("--screenshot", help="write a viewport screenshot here (screenshots can hold personal data)")
     ap.add_argument("--out", help="write the JSON here instead of stdout")
     ap.add_argument("--wait-ms", type=int, default=1500, help="settle time after load for script-rendered content")
+    ap.add_argument("--channel", choices=["msedge", "chrome"],
+                    help="use an installed Microsoft Edge or Google Chrome instead of Playwright's Chromium")
     ap.add_argument("--self-test", action="store_true")
     a = ap.parse_args()
     if a.self_test:
-        return self_test()
+        return self_test(a.channel)
     if not a.url:
         ap.error("URL required")
     reason = check_url(a.url)
@@ -205,7 +210,7 @@ def main() -> int:
         w, h = (int(x) for x in a.viewport.lower().split("x"))
     except ValueError:
         ap.error("--viewport must look like 390x844")
-    obs = observe(a.url, (w, h), a.selector, a.reduced_motion, a.screenshot, a.wait_ms)
+    obs = observe(a.url, (w, h), a.selector, a.reduced_motion, a.screenshot, a.wait_ms, a.channel)
     text = json.dumps(obs, indent=2, ensure_ascii=False)
     if a.out:
         Path(a.out).write_text(text + "\n", encoding="utf-8")

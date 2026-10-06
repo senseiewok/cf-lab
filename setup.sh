@@ -82,4 +82,5 @@ fi
 
 # --- 8. Done ---
 printf '\nDone. Open cf-lab.code-workspace in this checkout in VS Code.\n'
+printf 'Optional, not run by setup: browser testing with Playwright. See "Optional pieces" in README.md.\n'
 exit 0

@@ -91,18 +91,20 @@ Playwright also provides optional `planner`, `generator`, and `healer` agent def
 
 `scripts/observe-page.py` loads one page and prints a bounded JSON observation: status, title, headings, the hosts the page requested, failed requests, console errors, counts of elements matching selectors (total and visible, so script-rendered content such as a rose field is counted after it renders), the viewport actually applied, horizontal overflow, and which security headers the main document sent. It never clicks, types, submits or downloads; it accepts only `https`, or `http` on loopback for a local dev server, and refuses `file:` and private addresses; a screenshot is written only if `--screenshot` is given.
 
-```powershell
-# One-time setup, outside every repo. It downloads Chromium, so get authorization first.
-python -m venv "$env:LOCALAPPDATA\lab-playwright\venv"
-& "$env:LOCALAPPDATA\lab-playwright\venv\Scripts\python.exe" -m pip install playwright
-& "$env:LOCALAPPDATA\lab-playwright\venv\Scripts\python.exe" -m playwright install chromium
+One-time setup is opt-in and never part of `setup.cmd` or `setup.sh`. `scripts/setup-browser-testing.py` (standard library only) creates a virtual environment outside every repository (default: `%LOCALAPPDATA%\lab-playwright` on Windows, `${XDG_DATA_HOME:-~/.local/share}/lab-playwright` elsewhere), installs the pinned `playwright==1.63.0` from PyPI, and then uses an installed Microsoft Edge or Google Chrome (`--channel msedge` or `chrome`; no browser download) or, when neither is found or `--browser chromium` is given, downloads Playwright's Chromium from `cdn.playwright.dev`. It prints the plan with the exact commands and waits for a typed `yes` (or `--yes`); `--dry-run` prints the plan and touches nothing. It ends by running the self-test below. It downloads software, so get authorization before running it without `--dry-run`. Tests: `python scripts/test-setup-browser-testing.py` (prints VERIFIED; downloads nothing).
 
-$py = "$env:LOCALAPPDATA\lab-playwright\venv\Scripts\python.exe"
-& $py .claude/skills/playwright-browser-testing/scripts/observe-page.py --self-test   # no external network
-& $py .claude/skills/playwright-browser-testing/scripts/observe-page.py https://example.com --viewport 390x844 --selector '.rose' --reduced-motion --out obs.json
+The pin was read from PyPI's JSON API on 2026-10-06: 1.63.0 was the latest release (uploaded 2026-09-15), requires Python 3.10 or newer, depends on `pyee` and `greenlet`, and listed no known vulnerabilities. Change the pin in one place, `PLAYWRIGHT_VERSION` in the script, and re-run its tests and the self-test.
+
+```powershell
+python .claude/skills/playwright-browser-testing/scripts/setup-browser-testing.py --dry-run   # show the plan
+python .claude/skills/playwright-browser-testing/scripts/setup-browser-testing.py             # ask, then install
+
+$py = "$env:LOCALAPPDATA\lab-playwright\Scripts\python.exe"   # macOS, Linux: ~/.local/share/lab-playwright/bin/python
+& $py .claude/skills/playwright-browser-testing/scripts/observe-page.py --self-test --channel msedge   # no external network; omit --channel for Playwright's Chromium
+& $py .claude/skills/playwright-browser-testing/scripts/observe-page.py https://example.com --viewport 390x844 --selector '.rose' --reduced-motion --out obs.json --channel msedge
 ```
 
-Checked 2026-10-04 with Playwright 1.63.0: the self-test passes (it serves a fixture on loopback and asserts a script-rendered count, visibility, viewport read-back, console error, failed request and URL refusals), and one run against a real public page returned the page's real third-party hosts, which a text-only fetch had missed. Limits: one page and one viewport per call; DNS names are not resolved, so it is not an SSRF defence; it observes, it does not decide. A pass or fail comes from your own assertion on the JSON, not from the script.
+Checked 2026-10-04 with Playwright 1.63.0 (and on 2026-10-06 with `--channel msedge` and with Playwright's Chromium, on Windows): the self-test passes (it serves a fixture on loopback and asserts a script-rendered count, visibility, viewport read-back, console error, failed request and URL refusals), and one run against a real public page returned the page's real third-party hosts, which a text-only fetch had missed. Limits: one page and one viewport per call; DNS names are not resolved, so it is not an SSRF defence; it observes, it does not decide. A pass or fail comes from your own assertion on the JSON, not from the script.
 
 ## Playwright and local models (Qwen)
 

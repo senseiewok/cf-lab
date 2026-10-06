@@ -29,19 +29,87 @@ Much of the code and writing was drafted with AI models, in a loop: one agent pr
 
 What this is not: a medical organisation, a clinic, a charity, or part of the Cystic Fibrosis Foundation. Nothing here is medical advice, nothing here promises a cure, a timeline or a clinical benefit, and no patient data belongs in any of these repositories.
 
-## Try it
+## Quick start
 
-Setup needs only Git. The policy tests need PowerShell 7 (`pwsh`) and nothing else: no GPU, no Ollama, no cloud account, and nothing downloads a model.
+Setup needs only Git. It clones `cf-skills` and `cf-research` beside this folder if they are missing and creates an untracked `cf-lab-files` folder for local notes, so start in an empty folder of your choosing: it will hold four folders side by side. Setup downloads nothing else, installs nothing and never touches a model.
 
-```sh
-./setup.sh          # macOS, Linux. On Windows: setup.cmd (double-click works)
-pwsh -NoProfile -File ./.claude/skills/ai-loop-council/scripts/select-work-route.ps1 -SelfTest
-pwsh -File tasks/render-board.ps1 -Check
+### Windows
+
+Install Git if you do not have it (`winget install --id Git.Git -e`), then in PowerShell:
+
+```powershell
+mkdir cf-work; cd cf-work
+git clone https://github.com/senseiewok/cf-lab
+cd cf-lab
+.\setup.cmd /nopause
 ```
 
-The first clones `cf-skills` and `cf-research` beside this folder if they are missing and creates an untracked `cf-lab-files` folder for local notes. The second runs the routing policy's own tests. The third checks that `tasks/BOARD.md` matches `tasks/board.json`. Then open `cf-lab.code-workspace` in VS Code to see all three repositories at once, or just read [tasks/BOARD.md](tasks/BOARD.md) to see what the lab is doing. Full steps: [Setup instructions](#setup-instructions).
+Double-clicking `setup.cmd` in File Explorer works too. Started that way, or from PowerShell without `/nopause`, it waits for a key at the end so the window does not vanish.
 
-## What's inside
+### macOS
+
+If Git is missing, `xcode-select --install` provides it. Then in Terminal:
+
+```sh
+mkdir cf-work && cd cf-work
+git clone https://github.com/senseiewok/cf-lab
+cd cf-lab
+./setup.sh
+```
+
+`setup.sh` is written for a plain POSIX shell and is tested under dash and bash with a stand-in for Git. It has not yet been run on a real Mac; board task T-0058 asks for that run.
+
+### Linux
+
+Install Git with your distribution's package manager, then run the same four commands as on macOS. The same caveat applies: tested under dash and bash, not yet on a real Linux machine, which T-0058 also asks for.
+
+### What you should see
+
+```console
+Setting up Sensei Ewok's CF Lab...
+- Cloning senseiewok/cf-skills ...
+- Cloning senseiewok/cf-research ...
+- Created cf-lab-files
+
+Done. Open cf-lab.code-workspace in this checkout in VS Code.
+Optional, not run by setup: browser testing with Playwright. See "Optional pieces" in README.md.
+```
+
+Git prints its own clone progress between those lines. Running setup again is safe: it says `already present` for each folder and overwrites nothing. Then open `cf-lab.code-workspace` in VS Code to see all three repositories at once, or just read [tasks/BOARD.md](tasks/BOARD.md) to see what the lab is doing. More detail: [Setup instructions](#setup-instructions).
+
+## Prerequisites
+
+Only Git is needed for setup. The rest depends on what you want to run.
+
+| Tool | Needed for | Check | Get it |
+| --- | --- | --- | --- |
+| Git | Setup, and everything after it | `git --version` | Windows: `winget install --id Git.Git -e`; macOS: `xcode-select --install`; [all systems](https://git-scm.com/downloads) |
+| Python 3.10 or newer | The setup and art tests, the evidence tool in `cf-skills` (which also needs `requests` and PyYAML), the research tools in `cf-research`, browser testing | `python --version` (often `python3` on macOS and Linux) | Windows: `winget install --id Python.Python.3.13 -e`; [all systems](https://www.python.org/downloads/) |
+| PowerShell 7 (`pwsh`) | The routing tests, the task board, the delegation, gate and env-loading scripts | `pwsh --version` | Windows: `winget install --id Microsoft.PowerShell -e`; [all systems](https://learn.microsoft.com/powershell/scripting/install/installing-powershell) |
+| VS Code (optional) | Opening `cf-lab.code-workspace` with all folders at once | | [code.visualstudio.com](https://code.visualstudio.com/) |
+| Ollama and a local model (optional) | A local worker for delegated drafts and reviews | | See [Optional pieces](#optional-pieces) |
+| Playwright (optional) | Browser checks of web pages | | See [Optional pieces](#optional-pieces) |
+
+No GPU, no Ollama and no cloud account are needed for the checks below, and nothing in them downloads a model.
+
+## Check that it works
+
+Run these from the `cf-lab` folder. Each one is offline and prints its result on the last line.
+
+| Command | What it checks | Last line when it passes |
+| --- | --- | --- |
+| `pwsh -NoProfile -File ./.claude/skills/ai-loop-council/scripts/select-work-route.ps1 -SelfTest` | The routing policy that decides local or cloud work | `All 52 routing/setting tests passed; no models, GPU, Ollama, credentials or network required` |
+| `python .claude/skills/lab-versioning/scripts/test-setup.py` | Both setup scripts against a stand-in for Git, the workspace file and `VERSION` | `VERIFIED` (on macOS and Linux it first prints `skip: setup.cmd needs Windows`) |
+| `pwsh -File tasks/render-board.ps1 -Check` | `tasks/BOARD.md` matches `tasks/board.json` | `BOARD.md is current` |
+| `pwsh -NoProfile -File tasks/test-render-board.ps1` | The board renderer itself | `17/17 passed` |
+| `python .claude/skills/ascii-art/scripts/test-asciicanvas.py` | The text-art canvas library | `VERIFIED` |
+| `python .claude/skills/ascii-art/scripts/test-check-ascii.py` | The text-art checker | `VERIFIED` |
+| `pwsh -NoProfile -File ./.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1 -SelfTest` | How the delegation script checks a model's reply; no model needed | `All 28 local reply/name/think tests passed; no profile, model, GPU or network required` |
+| `python .claude/skills/playwright-browser-testing/scripts/test-setup-browser-testing.py` | The optional browser-testing setup, without downloading anything | `VERIFIED` |
+
+The counts are the ones these commands printed on 6 October 2026 on Windows; they grow as tests are added. A line starting with `FAIL` names what broke.
+
+## Where things live
 
 | Where | What | Start with |
 | --- | --- | --- |
@@ -51,6 +119,11 @@ The first clones `cf-skills` and `cf-research` beside this folder if they are mi
 | `tasks/` | The task board: `board.json` is the source, `BOARD.md` is rendered from it | [tasks/README.md](tasks/README.md) |
 | `cf-projects/` | Advisory project ideas for CF research tooling | `CF-Project-Ideas.md` |
 | `SECURITY.md`, `CONTRIBUTING.md`, `LICENSE.md` | Reporting a vulnerability, helping, and the MIT licence (each skill declares its own, CC0-1.0 so far) | |
+| `setup.cmd`, `setup.sh` | Setup for Windows, and for macOS and Linux | [Quick start](#quick-start) |
+| `.env.example` | The template for your one git-ignored `.env` of keys and settings | [One env file](#one-env-file-for-keys-and-settings) |
+| `../cf-skills`, `../cf-research` | The two sibling repositories setup clones beside this one | [Repositories in this workspace](#repositories-in-this-workspace) |
+| `../cf-lab-files` | Untracked local notes and agent memory; never published, no keys or patient data | [Local files and memory](AGENTS.md#local-files-and-memory) |
+| Outside every repository | The optional browser-testing environment, only if you install it | [Optional pieces](#optional-pieces) |
 
 The folder tree with every file is under [Structure](#structure).
 
@@ -177,6 +250,8 @@ cf-lab/
 
 ## Setup instructions
 
+The exact commands for each system are in [Quick start](#quick-start); this is what they do.
+
 1. From this checkout, run `setup.cmd` (Windows; double-click works) or `./setup.sh` (macOS, Linux). Setup itself needs only Git. It clones `cf-skills` and `cf-research` beside this repo if they are missing, and creates a **`cf-lab-files`** folder there for untracked local memory (see [Local files and memory](AGENTS.md#local-files-and-memory)). The lab's checks and gate scripts still use PowerShell 7 (`pwsh`).
 2. Open `cf-lab.code-workspace` (tracked in this repo) in Visual Studio Code. It contains this control repo, CF Skills, CF Research and Files.
 
@@ -199,6 +274,52 @@ Set it up:
 3. Check that Git ignores it: `git check-ignore -v .env` prints a rule, and `git status` does not list `.env`.
 4. Run a command with the settings loaded, without typing them: `pwsh -NoProfile -File .claude/skills/security-git/scripts/run-with-env.ps1 -- <command> <args>`. It works from any folder, loads this one file into that one command, and prints nothing. It refuses a tracked file.
 5. Never paste a key into chat, an issue, a pull request, a task or a commit message. The shared agent settings stop agents from reading `.env`. If a key leaks, revoke it at the provider and make a new one; deleting it from Git history is not enough.
+
+## Optional pieces
+
+None of these is needed to read the work, run the checks above or contribute. Each one downloads software, so each is a separate, deliberate step.
+
+### A local model
+
+A local worker is a model on your own machine that drafts small, bounded changes and gives first-pass reviews; a test still decides what is kept. The lab uses Ollama for this. Nothing in the lab downloads a model for you.
+
+1. Install [Ollama](https://ollama.com/download) (Windows: `winget install --id Ollama.Ollama -e`) and pull a model you trust from the official library. Read the [security-runtime](.claude/skills/security-runtime/SKILL.md) skill first: it keeps Ollama on your own machine only and says which models to trust, and the [model-onboarding](.claude/skills/model-onboarding/SKILL.md) checklist covers comparing one.
+2. Put its name in `.env` as `LOCAL_WORKER_MODEL=<your model>`. The template ships with the lab's own choice, `qwen3.8:27b-64k`; change it to yours, or delete the line to have no local worker. Optional sampling profiles go in `LOCAL_WORKER_PROFILE` and `LOCAL_WORKER_THINKING_PROFILE` (see `.env.example`).
+3. The scripts read settings from the environment, not from the file, so run them through the loader: `pwsh -NoProfile -File .claude/skills/security-git/scripts/run-with-env.ps1 -- pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/invoke-local-model.ps1 -PromptFile task.md`.
+
+With no model set, there is no local worker and all work is cloud-only; nothing falls back to a particular model. The lab's measured profiles are in the `model-qwen3-8-27b`, `model-qwen3-coder-next` and `model-deepseek-r1-32b` skills, and the `Modelfile` here is the lab's own Ollama definition, not a requirement.
+
+### The cloud gate
+
+Sending work from one AI provider to another is off unless `.env` sets `COUNCIL_CROSS_PROVIDER_DELEGATION=true`. Off, an agent stays with its current provider or stops and says so. On, routine work still stays local, and only a named hard problem gets one bounded, approved cloud plan or review. There is no automatic dispatcher, and approval to use the cloud never covers sending secrets, patient data or private material. The full rules and the review tiers are in [AGENTS.md](AGENTS.md#ai-loop-and-delegation).
+
+### Browser testing
+
+The [playwright-browser-testing](.claude/skills/playwright-browser-testing/SKILL.md) skill uses Playwright for Python to observe a web page: what loaded, what failed, what the page asked for. One script sets it up, and only when you ask it to:
+
+```sh
+python .claude/skills/playwright-browser-testing/scripts/setup-browser-testing.py --dry-run   # show the plan, change nothing
+python .claude/skills/playwright-browser-testing/scripts/setup-browser-testing.py             # show the plan, ask, then install
+```
+
+Before it changes anything it prints each step with its exact command, and it continues only when you type `yes` (or pass `--yes`). It:
+
+1. creates a Python virtual environment outside every repository: `%LOCALAPPDATA%\lab-playwright` on Windows, `~/.local/share/lab-playwright` elsewhere (or `--venv PATH`);
+2. installs `playwright==1.63.0` from the Python Package Index (pypi.org), with the packages it needs;
+3. uses Microsoft Edge or Google Chrome if one is installed in its usual place, so no browser is downloaded; otherwise, or with `--browser chromium`, it downloads Playwright's Chromium build from `cdn.playwright.dev`, several hundred MB on disk;
+4. runs the observation script's self-test against a page served on your own machine.
+
+It needs Python 3.10 or newer. It is never run by `setup.cmd` or `setup.sh`, which only print a pointer to this section. Playwright is a third-party dependency; the version is pinned in one place in the script. To remove it, delete the virtual environment folder; a downloaded Chromium lives in Playwright's own cache folder, which `python -m playwright install --dry-run chromium`, run with the environment's Python, names.
+
+## Troubleshooting
+
+| You see | What it means | What to do |
+| --- | --- | --- |
+| `error: Git is required and was not found.` | Setup could not find `git`. | Install Git (the message names the command for your system), open a new terminal, and run setup again. |
+| `error: cf-skills exists but is not a git checkout; no files were overwritten.` | A folder with that name already sits beside `cf-lab` and is not a clone. The same applies to `cf-research`. | Move or rename that folder, then run setup again. Setup never overwrites it. |
+| `error: Failed to clone senseiewok/cf-skills.` | Git could not download the repository; Git's own message just above says why, often the network or a proxy. | Fix the cause and run setup again; it skips what is already there. |
+| `./setup.sh: Permission denied` (macOS, Linux) | Your checkout is older than the version that marks `setup.sh` as executable. | Run `sh setup.sh` instead. |
+| `No local worker is configured, so delegation is cloud-only.` | The delegation script found no model name in its environment. | Set `LOCAL_WORKER_MODEL` in `.env` and run the script through `run-with-env.ps1`, as in [A local model](#a-local-model). Without a local model, this is the expected answer. |
 
 ## Skills
 
