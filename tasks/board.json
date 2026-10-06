@@ -3318,6 +3318,190 @@
       "completed_at": null,
       "completed_by": null,
       "notes": "Does not duplicate T-0083 (the release review itself); it is the re-run after the fix. Human step: the merge and the publish decision stay with the maintainer."
+    },
+    {
+      "id": "T-0093",
+      "title": "Post the welcome note in the cf-lab GitHub Discussions",
+      "repo": "cf-lab",
+      "area": "content",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-06T21:40:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code (VS Code)",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "board follow-ups from the deploy and review work, 2026-10-06"
+      },
+      "source_evidence": "README.md, 'Thanks to the tools' table: the GitHub row links https://github.com/senseiewok/cf-lab/discussions as a place the lab uses. Observed on 2026-10-06 with the GitHub API: the repository reports has_discussions true and the GraphQL discussions totalCount is 0, so the linked page is empty.",
+      "effort_hours": {
+        "low": 0.5,
+        "high": 1.5
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: a visitor who follows the README link lands on an empty page; a short, plain welcome with one clear invitation costs little and sets the tone before anyone else posts.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A human writes or approves the text under the lab-voice skill (a letter: warm, one invitation, no invented biography, no clinical promise, no claim to speak for a community) and posts it. Then: gh api graphql -f query='{repository(owner:\"senseiewok\",name:\"cf-lab\"){discussions(first:5){totalCount nodes{title url}}}}' reports totalCount of 1 or more and the note's URL; the README's Discussions link opens a page that shows it.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-06T21:40:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "notes": "Human step: the wording and the posting are the maintainer's. Proposed by a model; a draft may be offered, but a model does not post it. Community-facing text, so the lab-voice review applies.",
+      "complexity": "low"
+    },
+    {
+      "id": "T-0094",
+      "title": "Decide, after the review memo, whether the AI-agent robots.txt rule from T-0067 ships, then merge it in both repos",
+      "repo": "cf-skills",
+      "area": "security",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-06T21:40:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code (VS Code)",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "board follow-ups from the deploy and review work, 2026-10-06"
+      },
+      "source_evidence": "T-0067's notes record the decision to honour robots.txt groups that name AI agents and say the change was done in working trees, not yet committed. Checked on 2026-10-06 with git grep on each origin/main: cf-skills (commit 3844785) has no AI_AGENT_TOKENS and no mention of ClaudeBot or anthropic-ai; cf-research already calls ev.robots_allows in tools/sources/fetch_sources.py and ships the --audit-robots option, so the fetch tool is ahead of the shared rule it depends on.",
+      "effort_hours": {
+        "low": 1,
+        "high": 2
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: the two repos should state one rule; today the one that fetches documents is published and the one that defines the rule is not, and the rule is policy, so a person should read the reviewer's memo before it is public.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A human reads the review memo and records yes or no in T-0067. If yes: the cf-skills change is merged to its main with its tests (the evidence skill's unit tests pass, and one fails when a group for any of Claude, ClaudeBot, anthropic-ai, GPTBot, ChatGPT-User, CCBot, Google-Extended or PerplexityBot disallows the path); git grep -n AI_AGENT_TOKENS origin/main in cf-skills finds the list; NETWORK-RULES R3 and security-browsing say so; in cf-research python tools/sources/fetch_sources.py --audit-robots exits 0, or names each refused entry. If no: the cf-research use of the rule is reverted or documented as the project's own choice, and T-0067 says why.",
+      "review_tier": "full",
+      "depends_on": [
+        "T-0067"
+      ],
+      "updated_at": "2026-10-06T21:40:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "notes": "Human decision (policy, not code). Does not replace T-0067, which holds the decision and the working-tree change; this task is the publication step after the review memo. Full tier because the change governs how the lab's tools treat other sites.",
+      "complexity": "medium"
+    },
+    {
+      "id": "T-0095",
+      "title": "Make the website's footer and credit wording agree with the README's 'Thanks to the tools' section",
+      "repo": "cf-lab",
+      "area": "content",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-06T21:40:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code (VS Code)",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "board follow-ups from the deploy and review work, 2026-10-06"
+      },
+      "source_evidence": "README.md, section 'Thanks to the tools' (the table of Visual Studio Code, GitHub, GitHub Copilot, PowerShell 7, Playwright and Microsoft Edge, Git, Python and Ollama, plus the line that no company has funded, reviewed or endorsed the lab) and the sentence above it crediting Anthropic's Claude models and stating the lab is independent. The website is a separate, private repository whose footer I did not read for this task, so whether the two agree is not known.",
+      "effort_hours": {
+        "low": 0.5,
+        "high": 1.5
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: two public places that thank different vendors, or word the independence line differently, read as careless and can imply an endorsement that does not exist.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A human compares the two texts and decides what each should say. Check: from the README run sed -n '/^### Thanks to the tools/,/^## Repositories/p' README.md | grep -o -i -E 'Visual Studio Code|GitHub Copilot|GitHub|PowerShell|Playwright|Microsoft Edge|Ollama|Python|Git|Anthropic' | sort -u, run the same grep over the website's footer and credits text, and the two sorted lists are equal or each difference is listed with its reason; the footer carries the same non-endorsement sentence as the README or a shorter one that says the same.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-06T21:40:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "notes": "Human decision: which vendors the site names, and in what words. Needs access to the private website repository; the repo field names cf-lab for the README side. Names are credits, not recommendations.",
+      "complexity": "low"
+    },
+    {
+      "id": "T-0096",
+      "title": "Run the optional Playwright browser-testing setup on a real Mac and a Linux machine",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-06T21:40:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code (VS Code)",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "board follow-ups from the deploy and review work, 2026-10-06"
+      },
+      "source_evidence": "README.md, 'Browser testing': off Windows the setup script puts its virtual environment in ~/.local/share/lab-playwright and looks for Edge or Chrome in fixed paths; .claude/skills/playwright-browser-testing/scripts/test-setup-browser-testing.py checks those paths only with an injected platform name (test_mac_and_linux_paths and the default_venv case), never on a real macOS or Linux machine. README.md and T-0058 say setup.sh itself has not run on a real Mac or Linux either; T-0058 covers setup.sh and test-setup.py, this task covers only the optional Playwright script.",
+      "effort_hours": {
+        "low": 0.5,
+        "high": 1.5
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: the README promises the optional step works on macOS and Linux; a virtual-environment path, a browser lookup and a Playwright install differ per system, and a stand-in cannot show that they work.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "On macOS, then on one Linux machine with Python 3.10 or newer: python .claude/skills/playwright-browser-testing/scripts/test-setup-browser-testing.py prints VERIFIED; python .claude/skills/playwright-browser-testing/scripts/setup-browser-testing.py --dry-run prints the plan with the virtual environment under ~/.local/share/lab-playwright, ends with 'Dry run: nothing was downloaded, created or changed.' and leaves that folder absent; the script without --dry-run, answered yes, ends with 'Done. Playwright 1.63.0 is installed in ' followed by the folder and exits 0 (its observation self-test passed); deleting that folder undoes it. Paste the endings into this task's notes; a failure becomes its own task with the output.",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0058"
+      ],
+      "updated_at": "2026-10-06T21:40:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "notes": "Needs a human with a Mac and one Linux machine. Proposed by a model. The script downloads Playwright from the Python Package Index and, if no Edge or Chrome is found, a Chromium build; run it only where that is acceptable. Do not claim macOS or Linux support for this step until it passes.",
+      "complexity": "low"
+    },
+    {
+      "id": "T-0097",
+      "title": "Re-run the local reviewer evaluation on a second, different script",
+      "repo": "cf-lab",
+      "area": "delegation",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-06T21:40:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code (VS Code)",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "board follow-ups from the deploy and review work, 2026-10-06"
+      },
+      "source_evidence": "scratch/qwen-local/reviewer-eval.md, 'Design' and the caveats: one task, one script (an 808-line SEO checker the worker had written and the verifier had accepted), one spec, 4 runs per arm; the ground truth of 17 defects came from one stronger-model review of that script. T-0090's own acceptance says the result holds 'for one script and one spec'. T-0090 repeats the same script with more runs; no task yet tests a different script.",
+      "effort_hours": {
+        "low": 6,
+        "high": 12
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: a reviewer measured on one script may be good or bad at that script only; a second script with its own ground truth shows whether the pattern (what it finds, and which kinds of false positive it claims) carries over before the lab relies on the reviewer role.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A second script of similar size, written by the local worker and accepted by its verifier, is chosen and named in the report. Its ground truth is a list of defects found by a stronger review reading the script against its spec, each defect confirmed by a failing test before any local run, with at least 8 defects. The same design as the first evaluation is run: bare and card arms, identical packet format, the same profile and temperature, runs alternated, each reply scored by a blind judge from a different model family than the worker. The report gives per-run counts, means, an exact permutation test, the false-positive claims by kind, and a section that says which findings of the first evaluation repeat and which do not; no change to the review card or to the reviewer role in the skills is made from one script.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-06T21:40:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "notes": "Human step: the maintainer picks the moment (it occupies the local worker for hours) and the second script. Related to T-0090 (same script, more runs and the thinking profile) and T-0089 (filter for false positives); neither covers a second script. Do not run while another Ollama experiment is using the worker.",
+      "complexity": "medium"
     }
   ]
 }
