@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "<workspace>/cf-skills",
+      "<workspace>/cf-research",
+      "<workspace>/cf-lab-files"
+    ]
+  }
+}

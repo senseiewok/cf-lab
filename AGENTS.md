@@ -25,6 +25,34 @@ Each sibling is its own git repository. Don't assume files from one exist in ano
 - No shared package manager at the `cf-lab` level — each sibling repo manages its own dependencies.
 - A standalone `cf-lab` clone can run the routing policy tests with PowerShell 7: `pwsh -NoProfile -File ./.claude/skills/ai-loop-council/scripts/select-work-route.ps1 -SelfTest`. No GPU, Ollama, cloud account, sibling repo or model downloads are needed. Model execution requires an explicitly configured usable local profile or an approved cloud handoff; the large lab profiles are optional.
 
+## Working across the sibling repos
+
+The siblings must sit beside `cf-lab` under these exact names: `cf-skills`, `cf-research`, `cf-lab-files`. Setup puts them there. Three layouts work:
+
+| Layout | How | What loads from the siblings |
+| --- | --- | --- |
+| VS Code | Open `cf-lab.code-workspace` | All four folders in one window |
+| Claude Code, one session | From `cf-lab`: `claude --add-dir ../cf-skills ../cf-research`, or `/add-dir <path>` during a session | Files, plus their `.claude/skills/` (reloaded live) |
+| Claude Code, every session | `permissions.additionalDirectories` in your own git-ignored `.claude/settings.local.json`, with absolute paths (copy `.claude/settings.local.json.example`) | Files only. Their skills still need `--add-dir` or `/add-dir` |
+
+From an added sibling, Claude Code does not load its `AGENTS.md`, nor the deny and ask rules in its `.claude/settings.json`. Its `CLAUDE.md` loads only with `CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1`. Check what a session sees with `/skills` and `/permissions`.
+
+**Rule:** the shared deny and ask rules load only from the folder a Claude Code session starts in, with no fallback to a parent folder. So start sessions in `cf-lab`. Never start one at the parent folder. Start one inside a sibling only when that sibling has its own `.claude/settings.json` with the secret-file deny rules. A relative rule such as `Read(.env)` there still does not cover `../cf-lab/.env`.
+
+Check the layout with `python .claude/skills/workspace-siblings/scripts/check-workspace.py`. It prints PASS or FAIL lines and never reads `.env`.
+
+- One repo per commit, one pull request per repo. A change that spans repos is a pull request in each, linked in both bodies.
+- Agents work in new git worktrees, never in a person's main checkout.
+
+| Change | Goes in |
+| --- | --- |
+| Agent rules, shared skills, security settings, setup, task board | `cf-lab` |
+| Research notes, the source catalog, registry-reading skills, research tools | `cf-research` |
+| Skills for anyone's agent, the evidence tool, install docs | `cf-skills` |
+| Session notes, scratch, machine details | `cf-lab-files` (never published) |
+
+Details, checks per repo and the pull request steps: the `workspace-siblings` skill.
+
 ## Local files and memory
 
 `../cf-lab-files` (a sibling of `cf-lab`; not a git repo; never published) holds the untracked layer of memory. Its README lists what must never go there: keys, `.env`, patient data, private site details, transcripts, third-party instructions, email addresses. At the start of a session read, in order: this file, the `in_progress` rows of `tasks/BOARD.md` with their notes, `Status: proposed` files in `../cf-research/proposals/`, then `memory/handoff.md` last if it exists and is under 7 days old. When it disagrees with the board, the board wins; say so.
@@ -70,6 +98,7 @@ Current skills:
 - `ai-provider-compatible-skills` — how to write skills that work across Claude Code, Copilot, Qwen3-Coder, etc.
 - `windows-powershell-commands` — PowerShell equivalents for Linux commands and tool checks
 - `lab-versioning` — the `VERSION` source of truth and compatibility-based semantic version bumps
+- `workspace-siblings` — the side-by-side layout of the three repos: how to confirm it, run each repo's checks, and open one pull request per repo
 
 Every `SKILL.md` needs YAML frontmatter with `name` (matching the folder name) and `description`; keep `license` and `compatibility` consistent with the existing skills.
 
