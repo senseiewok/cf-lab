@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "severity": { "type": "string", "enum": ["high", "medium", "low"] },
+          "file": { "type": "string" },
+          "line": { "type": "integer" },
+          "quote": { "type": "string" },
+          "problem": { "type": "string" },
+          "fix": { "type": "string" },
+          "how_to_verify": { "type": "string" }
+        },
+        "required": ["severity", "file", "quote", "problem", "fix", "how_to_verify"]
+      }
+    },
+    "checked_but_fine": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["findings", "checked_but_fine"]
+}

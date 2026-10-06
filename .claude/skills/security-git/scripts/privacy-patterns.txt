@@ -1,0 +1,18 @@
+# Patterns for check-staged.ps1. One per line, TAB-separated: category, regex, canary.
+# The canary is a string the regex MUST match. If it does not, the scan fails: a pattern
+# that has never been seen to fire proves nothing. Categories follow security-git section 3.
+# Case-sensitive unless the regex starts with (?i).
+
+local-path	[A-Za-z]:\\(Users|senseiewok)\\	C:\Users\someone\file.txt
+local-path	/home/[a-z][a-z0-9_-]+/	/home/someone/file.txt
+local-path	/Users/[a-z][A-Za-z0-9_-]+/	/Users/someone/file.txt
+identity-email	(?i)[A-Za-z0-9._%+-]+@(gmail|outlook|hotmail|yahoo|icloud|proton|protonmail)\.[a-z]+	someone@gmail.com
+hardware	(?i)\b(RTX|GTX)\s?\d{3,4}\b	RTX 5090
+hardware	(?i)\b\d{1,3}\s?GB\s+(VRAM|of VRAM)\b	24 GB VRAM
+network	\b(192\.168|10\.\d{1,3}|172\.(1[6-9]|2\d|3[01]))\.\d{1,3}\.\d{1,3}\b	192.168.1.20
+network	\b169\.254\.\d{1,3}\.\d{1,3}\b	169.254.169.254
+secret	BEGIN [A-Z ]*PRIVATE KEY	-----BEGIN RSA PRIVATE KEY-----
+secret	\bAKIA[0-9A-Z]{16}\b	AKIAABCDEFGHIJKLMNOP
+secret	\bgh[pousr]_[A-Za-z0-9]{30,}	ghp_abcdefghijklmnopqrstuvwxyz0123456789
+secret	\bsk-[A-Za-z0-9]{20,}	sk-abcdefghijklmnopqrstuvwxyz
+private-project	(?i)deploy-to-godaddy|DEPLOYMENT-INSTRUCTIONS|\bgodaddy\b	deploy-to-godaddy.ps1

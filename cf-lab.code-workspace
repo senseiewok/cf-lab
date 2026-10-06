@@ -1,0 +1,13 @@
+{
+  "folders": [
+    { "path": ".", "name": "\ud83e\udd16 Sensei Ewok's CF Lab" },
+    { "path": "../cf-skills", "name": "\u26a1 CF Skills" },
+    { "path": "../cf-research", "name": "\ud83d\ude80 CF Research" },
+    { "path": "../cf-lab-files", "name": "\ud83d\udcc1 Files" }
+  ],
+  "settings": {
+    "files.exclude": { "**/node_modules": true, "**/.git": true, "**/.svn": true, "**/.hg": true, "**/CVS": true, "**/.DS_Store": true, "**/Thumbs.db": true, "**/*.tmp": true },
+    "search.exclude": { "**/cf-lab-files/scratch/**": true, "**/node_modules": true, "**/bower_components": true, "**/*.min.js": true, "**/*.min.css": true, "**/node_modules/**": true, "**/.git/**": true, "**/.svn/**": true, "**/.hg/**": true, "**/CVS/**": true, "**/.DS_Store": true, "**/Thumbs.db": true, "**/*.tmp": true },
+    "files.watcherExclude": { "**/node_modules": true, "**/bower_components": true, "**/*.min.js": true, "**/*.min.css": true, "**/node_modules/**": true, "**/.git/**": true, "**/.svn/**": true, "**/.hg/**": true, "**/CVS/**": true, "**/.DS_Store": true, "**/Thumbs.db": true, "**/*.tmp": true }
+  }
+}

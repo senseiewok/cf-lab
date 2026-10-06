@@ -1,0 +1,9 @@
+Definitions
+
+Registry definitions changed between report years.
+
+Chronic infection is defined as at least three positive cultures in 12 months
+(modified Leeds criteria), or one positive culture plus raised antibody titres.
+The 2020 report used the same definition. Fewer than five centres reported outliers (e.g. when samples were lost). See Fig. 3 for details.
+
+The “core” group – adults only – was larger.

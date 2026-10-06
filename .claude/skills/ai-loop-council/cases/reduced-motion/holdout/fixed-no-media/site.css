@@ -1,0 +1,2 @@
+.spinner { animation: spin 1s linear infinite; }
+.btn { transition: background 0.2s; }

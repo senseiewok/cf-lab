@@ -1,0 +1,3 @@
+@media (prefers-reduced-motion: reduce) {
+  .b { transition-property: opacity; }
+}

@@ -1,0 +1,4 @@
+# Line endings that must not depend on a contributor's git settings.
+# cmd.exe misreads labels in LF-only batch files; a CR before the shebang breaks a POSIX script.
+*.cmd text eol=crlf
+*.sh text eol=lf

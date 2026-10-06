@@ -1,0 +1,4 @@
+.logo { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .logo { animation: spin 2s infinite; }
+}

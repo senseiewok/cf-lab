@@ -1,0 +1,1 @@
+Two different functions whose names differ only in capitalization. JavaScript names are case-sensitive, but PowerShell's -in, -contains and -eq ignore case; use -cin, -ccontains or -ceq to compare names.

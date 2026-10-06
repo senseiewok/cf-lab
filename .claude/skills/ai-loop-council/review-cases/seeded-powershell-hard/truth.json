@@ -1,0 +1,12 @@
+{
+  "note": "Subtler planted defects than the first review case, each demonstrated by running its logic before it was planted. A finding hits a defect when its quote contains the anchor text or any \"also\" anchor, or its line number is one of those anchors' lines. clean-*.ps1 files have no planted defects: every finding there is a candidate false alarm, to be read by a person. Anchors were fixed before any model reviewed these files.",
+  "defects": [
+    { "id": "version-text-sort",   "file": "list-versions.ps1", "anchor": "$releases | Sort-Object -Descending",             "what": "version names sorted as text: 1.9.0 sorts above 1.10.0" },
+    { "id": "string-vs-number",    "file": "check-count.ps1",   "anchor": "if ($Count -gt 9)",                               "what": "$Count is a string, so '10' -gt 9 is False and 10 workers pass a limit-9 check" },
+    { "id": "prune-or-not-and",    "file": "prune-logs.ps1",    "anchor": "$_.LastWriteTime -lt $cutoff -or $_.Length -gt 1MB", "what": "-or deletes every old log and every big log; the comment says old AND big" },
+    { "id": "release-unanchored",  "file": "latest-release.ps1", "anchor": "\"^release-$Major\"",                             "what": "^release-1 also matches release-10.0 and release-11.2" },
+    { "id": "path-wildcard",       "file": "copy-config.ps1",   "anchor": "Test-Path -Path $Name", "also": ["Copy-Item -Path $Name"], "what": "-Path treats [1] as a wildcard, so app[1].config is reported as not found" },
+    { "id": "native-exit-ignored", "file": "build-and-tag.ps1", "anchor": "dotnet build --configuration Release", "also": ["git tag \"build-$(Get-Date -Format yyyyMMdd)\"", "'Build finished and tagged'"], "what": "ErrorActionPreference Stop doesn't stop on a failed native command, so a broken build is tagged and reported as finished" },
+    { "id": "replace-is-regex",    "file": "replace-text.ps1",  "anchor": "$text -replace $Old, $New",                       "what": "-replace takes a regex: '1.5' also replaces '1x5', and $ in the new text is special" }
+  ]
+}

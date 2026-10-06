@@ -1,0 +1,74 @@
+{
+  "note": "Planted defects. A finding hits a defect when its quote contains the anchor text or any \"also\" anchor (a defect can be described on more than one line), or its line number is one of those anchors' lines. clean-*.ps1 files have no planted defects: every finding there is a candidate false alarm, to be read by a person.",
+  "defects": [
+    {
+      "id": "upload-insecure",
+      "file": "upload.ps1",
+      "anchor": "--insecure",
+      "what": "turns off TLS certificate checks on the upload"
+    },
+    {
+      "id": "upload-password",
+      "file": "upload.ps1",
+      "anchor": "-u \"${User}:${Password}\"",
+      "what": "password passed on the command line, visible in the process list"
+    },
+    {
+      "id": "cleanup-empty",
+      "file": "cleanup.ps1",
+      "anchor": "Remove-Item -Recurse -Force \"$BuildDir\\*\"",
+      "what": "an empty BuildDir expands to \\* and deletes from the drive root",
+      "also": [
+        "param([string] $BuildDir = $env:BUILD_OUTPUT_DIR)"
+      ]
+    },
+    {
+      "id": "task-remote-exec",
+      "file": "run-task.ps1",
+      "anchor": "$config.Content",
+      "what": "downloads and runs remote code with no verification",
+      "also": [
+        "$config = Invoke-WebRequest"
+      ]
+    },
+    {
+      "id": "task-injection",
+      "file": "run-task.ps1",
+      "anchor": "tasks\\$Name.txt",
+      "what": "caller-supplied Name is inserted into a command string run by Invoke-Expression"
+    },
+    {
+      "id": "settings-split",
+      "file": "read-settings.ps1",
+      "anchor": "$parts[1].Trim()",
+      "what": "values containing = are cut short, and a line with no = throws a null error",
+      "also": [
+        "$parts = $line -split '='"
+      ]
+    },
+    {
+      "id": "wait-forever",
+      "file": "wait-for-service.ps1",
+      "anchor": "while ($true)",
+      "what": "no timeout: loops forever if the service never starts"
+    },
+    {
+      "id": "wait-swallow",
+      "file": "wait-for-service.ps1",
+      "anchor": "catch { }",
+      "what": "empty catch hides every error, including a wrong URL"
+    },
+    {
+      "id": "log-secret",
+      "file": "write-log.ps1",
+      "anchor": "$Message, $ApiToken",
+      "what": "writes the API token to the log file in plain text"
+    },
+    {
+      "id": "log-traversal",
+      "file": "write-log.ps1",
+      "anchor": "Join-Path $LogDir \"$Name.log\"",
+      "what": "unvalidated Name such as ..\\..\\x writes outside the log folder"
+    }
+  ]
+}

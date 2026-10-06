@@ -1,0 +1,3 @@
+@media screen and (prefers-reduced-motion: reduce) {
+  .hero { animation: float 4s infinite; }
+}

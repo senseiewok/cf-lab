@@ -1,0 +1,20 @@
+{
+  "models": {
+    "primary": "qwen3.8:27b",
+    "challenger": "qwen3.8:27b",
+    "council": ["qwen3.8:27b"]
+  },
+  "execution": {
+    "auto_verify": true,
+    "auto_commit": false,
+    "max_retries": 3
+  },
+  "monitoring": {
+    "enabled": true,
+    "directories": ["src", ".github"]
+  },
+  "learning": {
+    "enabled": true,
+    "store_learnings": true
+  }
+}

@@ -1,0 +1,14 @@
+after-heading	PASS
+heading-only	PASS
+complete	PASS
+complete-no-final-period	PASS
+truncated-prefix	FAIL ends mid-sentence
+suffix-only	FAIL starts mid-sentence
+middle-fragment	FAIL starts mid-sentence
+two-sentences	PASS
+abbreviation-inside	PASS
+abbreviation-fig	PASS
+ends-at-abbreviation	FAIL ends mid-sentence
+typographic	PASS
+not-found	FAIL not found
+empty	FAIL not found

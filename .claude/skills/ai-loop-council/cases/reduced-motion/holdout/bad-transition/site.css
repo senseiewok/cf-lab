@@ -1,0 +1,3 @@
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: transform 0.3s ease; }
+}

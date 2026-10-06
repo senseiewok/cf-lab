@@ -1,0 +1,38 @@
+{
+  "triggers": {
+    "file_change": {
+      "enabled": true,
+      "paths": [
+        "src/**/*.css",
+        "src/**/*.js",
+        "**/*.md",
+        ".github/**/*.md"
+      ],
+      "debounce": 5000
+    },
+    "schedule": {
+      "enabled": true,
+      "interval_hours": 6
+    },
+    "prompt": {
+      "enabled": true,
+      "keywords": [
+        "review",
+        "council",
+        "loop",
+        "auto",
+        "autonomous"
+      ]
+    }
+  },
+  "models": {
+    "primary": "qwen3.8:27b",
+    "challenger": "qwen3.8:27b",
+    "council": ["qwen3.8:27b"]
+  },
+  "execution": {
+    "auto_verify": true,
+    "auto_commit": false,
+    "max_retries": 3
+  }
+}

@@ -1,0 +1,82 @@
+# Secrets — never commit these
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+auth.json
+*service-account*.json
+*.p12
+*.pfx
+*.ppk
+id_rsa*
+id_ed25519*
+.npmrc
+
+# Deploy tool configs that store passwords in plain text
+.vscode/sftp.json
+sftp-config.json
+.ftpconfig
+
+# Local agent settings
+.claude/settings.local.json
+CLAUDE.local.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.tmp
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependencies (sibling repos manage their own, this covers any local tooling here)
+node_modules/
+
+# Build artifacts
+dist/
+build/
+
+# Log files
+*.log
+logs/
+
+# IDE config files
+.vscode/settings.json
+# Workspace files: the shared one (cf-lab.code-workspace) is tracked. The maintainer's private
+# cf-lab-admin*.code-workspace (it also holds private folders), the earlier workspace-admin*.code-workspace name and the
+# legacy generated workspace.code-workspace are never committed.
+*.code-workspace
+!/cf-lab.code-workspace
+cf-lab-admin*.code-workspace
+workspace-admin*.code-workspace
+workspace.code-workspace
+
+# Loop orchestrator runtime state
+.loop-state.json
+
+# Local model usage logs (machine-specific, never commit)
+.loop-logs/
+
+# Distill-loop attempt logs (timestamps and model output; keep local)
+attempts.jsonl
+
+# Fixture files for the distill-loop secret case (placeholder and fake values only)
+!.claude/skills/ai-loop-council/cases/**/.env.example
+!.claude/skills/ai-loop-council/cases/**/.env.sample
+
+# The one tracked template for local keys (placeholder values only)
+!/.env.example
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Third-party skills installed locally for trial (see THIRD_PARTY_SKILLS.md); never committed to this public repo
+.claude/skills/frontend-design/
+.claude/skills/skill-creator/
+.claude/skills/algorithmic-art/
+.claude/skills/theme-factory/

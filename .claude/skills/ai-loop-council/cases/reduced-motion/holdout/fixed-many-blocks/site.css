@@ -1,0 +1,9 @@
+@media (prefers-reduced-motion: no-preference) {
+  .a { animation: spin 2s infinite; transition: all 0.3s; }
+}
+@media (min-width: 600px) {
+  .b { animation: slide 1s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .a { animation: none; }
+}

@@ -1,0 +1,14 @@
+# Allowed hits for check-staged.ps1. One per line, TAB-separated: path regex, category (or *).
+# Use sparingly. Each entry is a place where the text legitimately talks ABOUT a forbidden
+# pattern (a rule that lists examples, a test fixture, this scanner's own files), or a
+# deliberately public contact address. A line can also carry the marker "privacy-scan: allow".
+
+^\.claude/skills/security-git/	*
+^\.claude/skills/security-baseline/SKILL\.md$	*
+^\.claude/skills/windows-powershell-commands/SKILL\.md$	local-path
+^\.claude/skills/ai-loop-council/(cases|review-cases)/	*
+^SECURITY\.md$	identity-email
+^proposals/.*packet.md$	*
+# The cloud metadata address 169.254.169.254 appears as the thing NOT to fetch (a rule) and as a test input that must be refused.
+^\.claude/skills/security-browsing/SKILL\.md$	network
+^\.claude/skills/playwright-browser-testing/scripts/observe-page\.py$	network

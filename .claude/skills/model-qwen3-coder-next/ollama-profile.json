@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-coder-next:latest",
+  "num_ctx": 32768,
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "top_k": 40,
+  "min_p": 0.01
+}

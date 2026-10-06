@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVG line drawing that respects reduced motion</title>
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; background: #0b0b10; color: #eee; }
+  figure { margin: 0; padding: 1rem; max-width: 36rem; }
+  svg { display: block; width: 100%; height: auto; background: #000; }
+  .draw-path { fill: none; stroke: #e0a526; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: none; stroke-dashoffset: 0; }
+  /* The drawing effect exists only when the visitor has not asked for less motion. Otherwise the finished line is simply there. */
+  @media (prefers-reduced-motion: no-preference) {
+    .draw-path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2s ease forwards; }
+    .paused .draw-path { animation-play-state: paused; }
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  button { min-height: 2.75rem; padding: .4rem 1rem; font: inherit; }
+  pre { color: #9aa; font-size: .8rem; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<figure id="fig">
+  <!-- role="img" makes this one image for assistive technology; the name comes from the title, the longer text from the desc. Nothing inside is focusable. -->
+  <svg viewBox="0 0 200 80" role="img" aria-labelledby="t d">
+    <title id="t">A line that curves up and over, drawn in gold</title>
+    <desc id="d">A single smooth gold curve rising from the left edge to a peak near the middle and falling to the right edge. It is a drawing for a test and carries no data.</desc>
+    <path class="draw-path" pathLength="1" d="M10 65 C 50 5, 90 5, 110 40 S 170 75, 190 20"/>
+  </svg>
+  <button id="toggle" type="button" aria-pressed="false">Pause</button>
+  <pre id="probe">pending</pre>
+</figure>
+<script>
+(function () {
+  var fig = document.getElementById('fig'), button = document.getElementById('toggle');
+  button.addEventListener('click', function () {
+    var p = fig.classList.toggle('paused'); button.setAttribute('aria-pressed', String(p)); button.textContent = p ? 'Play' : 'Pause';
+  });
+  // Report what a test needs: whether reduced motion is on, how many animations are running, and how the path is styled.
+  setTimeout(function () {                      // a timer, not requestAnimationFrame: headless dump mode paints no frames
+    var path = document.querySelector('.draw-path'), cs = getComputedStyle(path);
+    document.getElementById('probe').textContent = JSON.stringify({
+      ok: true,
+      reduce: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      animations: document.getAnimations().length,
+      dasharray: cs.strokeDasharray,
+      hasName: !!document.querySelector('svg[role="img"] title')
+    });
+  }, 100);
+})();
+</script>
+</body>
+</html>

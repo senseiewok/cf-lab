@@ -1,0 +1,3 @@
+@media (prefers-reduced-motion) {
+  .hero { animation: zoom 3s infinite; }
+}

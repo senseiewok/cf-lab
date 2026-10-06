@@ -1,0 +1,7 @@
+@media (prefers-reduced-motion: reduce) {
+  .a { animation: none; }
+}
+.x { color: red; }
+@media (prefers-reduced-motion: reduce) {
+  .b { animation-name: wobble; }
+}

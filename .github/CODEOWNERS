@@ -1,0 +1,10 @@
+# Agent instructions and runnable scripts control what AI agents do on contributors' machines.
+# A pull request that changes them is a prompt-injection path, so the maintainer reviews every one.
+# Takes effect when the branch ruleset requires code owner review (see security-git).
+*                             @senseiewok
+/AGENTS.md                    @senseiewok
+/.claude/                     @senseiewok
+/.github/                     @senseiewok
+/Modelfile                    @senseiewok
+/setup.ps1                   @senseiewok
+/VERSION                     @senseiewok

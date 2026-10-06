@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raw WebGL2 example: a triangle that survives context loss</title>
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; background: #0b0b10; color: #eee; }
+  figure { margin: 0; padding: 1rem; max-width: 40rem; }
+  canvas { display: block; width: 100%; height: 14rem; background: #000; }
+  figcaption { margin-top: .5rem; font-size: .95rem; }
+  button { min-height: 2.75rem; padding: .4rem 1rem; font: inherit; }
+  pre { color: #9aa; font-size: .8rem; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<!-- A runnable, dependency-free WebGL2 skeleton. The script is inline here so the file runs on its own; under a strict Content-Security-Policy move it to a file. -->
+<figure>
+  <canvas id="c" role="img" aria-label="An orange triangle slowly turning on a black background. It is a drawing for a test, not data.">
+    Your browser could not start WebGL. This page would show an orange triangle on a black background.
+  </canvas>
+  <figcaption>
+    <button id="toggle" type="button" aria-pressed="false">Pause</button>
+    <span id="status">Starting.</span>
+  </figcaption>
+  <pre id="probe">pending</pre>
+</figure>
+<script>
+(function () {
+  var canvas = document.getElementById('c');
+  var button = document.getElementById('toggle');
+  var statusEl = document.getElementById('status');
+  var probe = document.getElementById('probe');
+  var gl = canvas.getContext('webgl2', { preserveDrawingBuffer: true });   // preserveDrawingBuffer only because the test reads pixels back
+  if (!gl) { probe.textContent = JSON.stringify({ ok: false, reason: 'no webgl2' }); statusEl.textContent = 'WebGL2 is not available.'; return; }
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var paused = reduce.matches;            // start still when the visitor asked for less motion
+  var visible = true, onscreen = true, raf = 0, angle = 0, last = 0;
+  var res = null, lostAndRecovered = false;
+
+  var VS = '#version 300 es\nuniform float a; in vec2 p; void main(){ float c=cos(a), s=sin(a); gl_Position = vec4(c*p.x - s*p.y, s*p.x + c*p.y, 0.0, 1.0); }';
+  var FS = '#version 300 es\nprecision mediump float; out vec4 o; void main(){ o = vec4(1.0, 0.5, 0.0, 1.0); }';
+
+  function compile(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
+
+  function build() {                      // every GL object is created here, so it can be created again after a context loss
+    var vs = compile(gl.VERTEX_SHADER, VS), fs = compile(gl.FRAGMENT_SHADER, FS);
+    var prog = gl.createProgram(); gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { throw new Error(gl.getProgramInfoLog(prog) || 'link failed'); }   // check the link status, then read logs only on failure
+    gl.deleteShader(vs); gl.deleteShader(fs);                                                                               // delete what is no longer needed
+    var vao = gl.createVertexArray(); gl.bindVertexArray(vao);
+    var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-0.7, -0.6, 0.7, -0.6, 0.0, 0.7]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(prog, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    res = { prog: prog, vao: vao, buf: buf, a: gl.getUniformLocation(prog, 'a') };
+    if (gl.getError() !== gl.NO_ERROR) { throw new Error('GL error while building'); }   // check once after allocation, not every frame
+  }
+
+  function destroy() {                    // explicit disposal; do not wait for garbage collection
+    if (!res) return;
+    gl.deleteBuffer(res.buf); gl.deleteVertexArray(res.vao); gl.deleteProgram(res.prog); res = null;
+  }
+
+  function resize() {                     // drawing buffer = CSS size x devicePixelRatio (capped at 2), floored
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = Math.max(1, Math.floor(canvas.clientWidth * dpr)), h = Math.max(1, Math.floor(canvas.clientHeight * dpr));
+    if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+    gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+  }
+
+  function draw() {
+    if (!res) return;
+    resize();
+    gl.clearColor(0, 0, 0, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.useProgram(res.prog); gl.bindVertexArray(res.vao); gl.uniform1f(res.a, angle);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+
+  function frame(t) {                     // advance by the timestamp, not by frames, so speed does not depend on the display's refresh rate
+    raf = 0;
+    if (!paused) { angle += (t - last) * 0.0004; }
+    last = t; draw();
+    schedule();
+  }
+  function schedule() { if (!raf && !paused && visible && onscreen && res) { raf = requestAnimationFrame(function (t) { last = t; raf = requestAnimationFrame(frame); }); } }
+  function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+
+  document.addEventListener('visibilitychange', function () { visible = !document.hidden; visible ? schedule() : stop(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) { onscreen = e[0].isIntersecting; onscreen ? schedule() : stop(); }).observe(canvas);
+  }
+  button.addEventListener('click', function () {
+    paused = !paused; button.setAttribute('aria-pressed', String(paused)); button.textContent = paused ? 'Play' : 'Pause';
+    statusEl.textContent = paused ? 'Paused.' : 'Playing.'; paused ? stop() : schedule();
+  });
+  reduce.addEventListener('change', function () { if (reduce.matches && !paused) { button.click(); } });
+
+  canvas.addEventListener('webglcontextlost', function (e) {
+    e.preventDefault();                   // without this the context is never restored
+    stop(); res = null;                   // every object made before the loss is invalid
+    statusEl.textContent = 'Graphics were interrupted. Waiting to recover.';
+  });
+  canvas.addEventListener('webglcontextrestored', function () {
+    build(); draw(); schedule(); lostAndRecovered = true;
+    statusEl.textContent = 'Recovered.';
+    report();
+  });
+
+  function report() {
+    var px = new Uint8Array(4); gl.readPixels(Math.floor(canvas.width / 2), Math.floor(canvas.height / 2), 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
+    probe.textContent = JSON.stringify({ ok: px[0] === 255 && px[1] === 128, r: px[0], g: px[1], recovered: lostAndRecovered, paused: paused, error: gl.getError() });
+  }
+
+  try { build(); } catch (err) { probe.textContent = JSON.stringify({ ok: false, reason: String(err.message || err) }); return; }
+  button.textContent = paused ? 'Play' : 'Pause'; button.setAttribute('aria-pressed', String(paused));
+  statusEl.textContent = paused ? 'Still, because less motion was requested.' : 'Playing.';
+  draw(); report(); schedule();
+
+  // Test hook: ?lose in the address makes the page lose and restore its own context, to prove recovery works.
+  if (location.search.indexOf('lose') >= 0) {
+    var ext = gl.getExtension('WEBGL_lose_context');
+    if (ext) { setTimeout(function () { ext.loseContext(); setTimeout(function () { ext.restoreContext(); }, 200); }, 200); }
+  }
+  window.__destroy = destroy;             // exposed so a test can prove disposal does not throw
+})();
+</script>
+</body>
+</html>
