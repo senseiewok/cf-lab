@@ -10,7 +10,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 CHECKER = HERE / "check-animated-page.py"
-FX = HERE / "fixtures-animated"
+MESH_REF = HERE.parent / "examples" / "lit-torus.html"
+SVG_REF = HERE.parent.parent / "svg-animation" / "examples" / "draw-on.html"
 fails = []
 
 
@@ -72,8 +73,7 @@ def derive(src, edits):
 
 with tempfile.TemporaryDirectory() as tmp:
     tmp = Path(tmp)
-    for kind, ref_name, stubs in (("svg-draw", "svg-draw-ref.html", SVG_STUBS), ("webgl-mesh", "webgl-mesh-ref.html", MESH_STUBS)):
-        ref = FX / ref_name
+    for kind, ref, stubs in (("svg-draw", SVG_REF, SVG_STUBS), ("webgl-mesh", MESH_REF, MESH_STUBS)):
         if not ref.exists():
             check(f"{kind}: the reference page exists", False, str(ref))
             continue
@@ -97,7 +97,7 @@ with tempfile.TemporaryDirectory() as tmp:
     # the rest of the interface
     code, out, err = run("svg-draw", tmp / "no-such-page.html")
     check("a missing page exits 2 with an ERROR line", code == 2 and out.startswith("ERROR"), f"exit={code} {out[:100]!r}")
-    p = subprocess.run([sys.executable, str(CHECKER), "--kind", "nonsense", str(FX / "svg-draw-ref.html")], capture_output=True, text=True, timeout=60)
+    p = subprocess.run([sys.executable, str(CHECKER), "--kind", "nonsense", str(SVG_REF)], capture_output=True, text=True, timeout=60)
     check("an unknown --kind exits 2", p.returncode == 2, f"exit={p.returncode}")
 
 print("VERIFIED" if not fails else f"{len(fails)} failing check(s)")
