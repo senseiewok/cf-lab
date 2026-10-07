@@ -113,7 +113,7 @@ function Add-OutcomeLine([string] $Json) {
 function Write-AttemptRow([int] $N, [string] $Mode, $Label, $Cand, $Usage, [double] $Seconds, [bool] $Salvaged = $false) {
     try {
         $row = [ordered]@{ kind = 'attempt'; ts = (Get-Date).ToUniversalTime().ToString('o'); run = $runId; tag = $(if ($Tag) { $Tag } else { $null }); n = $N; mode = $Mode; label = $Label
-            prompt_tokens = $Usage.prompt_tokens; output_tokens = $Usage.output_tokens; seconds = [math]::Round($Seconds, 1); done_reason = $Usage.done_reason
+            prompt_tokens = $Usage.prompt_tokens; output_tokens = $Usage.output_tokens; prompt_eval_duration = $Usage.prompt_eval_duration; eval_duration = $Usage.eval_duration; seconds = [math]::Round($Seconds, 1); done_reason = $Usage.done_reason
             candidate_sha256 = $(if ($null -ne $Cand) { Get-Sha256Hex ([string]$Cand) } else { $null }) }
         if ($Salvaged) { $row.salvaged = $true }
         Add-OutcomeLine ($row | ConvertTo-Json -Compress)

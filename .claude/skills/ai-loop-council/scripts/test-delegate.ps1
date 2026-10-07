@@ -14,7 +14,7 @@ $cf = Join-Path $d 'count.txt'; $i = 1 + $(if (Test-Path $cf) { [int](Get-Conten
 Add-Content (Join-Path $d 'calls.txt') ("call=$i profile=$ProfileFile model=$Model think=$ThinkMode maxout=$MaxOutputTokens thinkingfile=$ThinkingFile logfile=$LogFile numctx=$NumCtx attempt=$Attempt mode=$Mode tag=$Tag")
 if ($ThinkingFile) { Set-Content $ThinkingFile "stub thinking $i" }
 if (Test-Path (Join-Path $d "nolog-$i.txt")) { throw 'connection refused (stub: this call writes no usage line)' }
-if ($LogFile) { Add-Content $LogFile ('{"prompt_tokens":77,"output_tokens":123,"thinking_chars":45,"done_reason":"stop","attempt":' + $Attempt + ',"mode":"' + $Mode + '"}') }
+if ($LogFile) { Add-Content $LogFile ('{"prompt_tokens":77,"output_tokens":123,"prompt_eval_duration":150000000,"eval_duration":900000000,"thinking_chars":45,"done_reason":"stop","attempt":' + $Attempt + ',"mode":"' + $Mode + '"}') }
 if ($LogFile -and (Test-Path (Join-Path $d "cancel-after-$i.txt"))) { New-Item -ItemType File -Force (Join-Path (Split-Path $LogFile) 'CANCEL') | Out-Null }
 Copy-Item $PromptFile (Join-Path $d "seen-prompt-$i.md")
 $r = Join-Path $d "reply-$i.txt"
@@ -373,6 +373,7 @@ exit 1
     Check 'two attempts: two attempt rows, then one run row, which is the LAST line' ($at.Count -eq 2 -and $rows.Count -eq 3 -and $rows[-1].kind -eq 'run') ($rows | ConvertTo-Json -Compress)
     Check 'the attempt rows and the run row share one run id' ($run.run -match '^[0-9a-f]{12}$' -and @($at | Where-Object { $_.run -ne $run.run }).Count -eq 0) ($rows | ConvertTo-Json -Compress)
     Check 'attempt rows carry n, mode, tokens, seconds and done_reason' ($at[0].n -eq 1 -and $at[1].n -eq 2 -and $at[0].mode -eq 'default' -and $at[0].prompt_tokens -eq 77 -and $at[0].output_tokens -eq 123 -and $at[0].done_reason -eq 'stop' -and $null -ne $at[0].seconds -and $at[0].seconds -ge 0 -and $at[0].tag -eq 'rows') ($at | ConvertTo-Json -Compress)
+    Check 'attempt rows carry the prompt-eval and eval durations (nanoseconds, as Ollama returns them), so a report needs no second log' ($at[0].prompt_eval_duration -eq 150000000 -and $at[0].eval_duration -eq 900000000) ($at[0] | ConvertTo-Json -Compress)
     Check 'the passing attempt has no label and the SHA-256 of its candidate' ($null -eq $at[1].label -and $at[1].candidate_sha256 -ceq (Get-HashFull 'GOOD thing')) ($at[1] | ConvertTo-Json -Compress)
     Check 'the run row keeps its old fields and gains the state' ($run.outcome -eq 'accepted' -and $run.attempts -eq 2 -and $run.state -eq 'accepted' -and $run.tag -eq 'rows') ($run | ConvertTo-Json -Compress)
     $allStates += $run.state
@@ -392,7 +393,7 @@ exit 1
     $c = NewCase @("$fence`nbad`n$fence", "$fence`nGOOD`n$fence")
     New-Item -ItemType File (Join-Path $c 'nolog-1.txt') | Out-Null
     $r = Delegate $c @('-MaxAttempts', '2'); $at = Get-Attempts $c
-    Check 'a model call that fails (not a token cap) is FAILED, counts as an attempt and has no tokens' ($at[0].label -ceq 'FAILED' -and $null -eq $at[0].output_tokens -and $null -eq $at[0].candidate_sha256 -and $at.Count -eq 2) ($at | ConvertTo-Json -Compress)
+    Check 'a model call that fails (not a token cap) is FAILED, counts as an attempt and has no tokens or durations (null, not zero)' ($at[0].label -ceq 'FAILED' -and $null -eq $at[0].output_tokens -and $null -eq $at[0].prompt_eval_duration -and $null -eq $at[0].candidate_sha256 -and $at.Count -eq 2) ($at | ConvertTo-Json -Compress)
 
     # 24. PARSE and LINT (a .ps1 output file): a candidate that does not parse, and one that parses but fails lint-powershell.ps1; lint stops before the verifier
     Set-Content (Join-Path $base 'verify-logged.ps1') @'
