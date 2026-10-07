@@ -507,9 +507,10 @@
       "acceptance": "Decision recorded in .ai/README.md; text unchanged or replaced accordingly.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-07T19:52:58Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": " 2026-10-07: Audit: the old tagline is gone and a test forbids it, but the decision is not recorded where the acceptance asks. Partly done."
     },
     {
       "id": "T-0015",
@@ -541,9 +542,10 @@
       "acceptance": "Sentence either removed or links to hq/tasks/BOARD.md with a true description of how tasks are scheduled.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-07T19:52:58Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": " 2026-10-07: Audit: the site no longer makes the claim and a test forbids it; the acceptance allows 'removed'. A human sets done."
     },
     {
       "id": "T-0016",
@@ -575,10 +577,10 @@
       "acceptance": "Playwright test asserts document.querySelectorAll('#rose-field > *').length === 65 at two viewports and that animation is disabled under prefers-reduced-motion; test committed under .ai/tests/.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-07T19:52:58Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Checked 2026-10-04 on the repo source (not the deployed page) served from a loopback static server, with Playwright 1.63.0 and Chromium, at 390x844 and 1280x800, each with and without prefers-reduced-motion. Result in all four: 65 elements match '#rose-field .rose' (65 in the page in total), 65 visible, no console errors, no horizontal overflow. With reduced motion the computed animation is 'none'; without it, 'rose-drift 18s'. This counts the rendered SVG nodes only; it does not judge how they look. The live site is an older version with no rose field. A human sets done."
+      "notes": "Checked 2026-10-04 on the repo source (not the deployed page) served from a loopback static server, with Playwright 1.63.0 and Chromium, at 390x844 and 1280x800, each with and without prefers-reduced-motion. Result in all four: 65 elements match '#rose-field .rose' (65 in the page in total), 65 visible, no console errors, no horizontal overflow. With reduced motion the computed animation is 'none'; without it, 'rose-drift 18s'. This counts the rendered SVG nodes only; it does not judge how they look. The live site is an older version with no rose field. A human sets done. 2026-10-07: Audit: Playwright tests count 65 roses on every page, test reduced motion, and carry a negative control. A human sets done."
     },
     {
       "id": "T-0017",
@@ -610,9 +612,10 @@
       "acceptance": "No request to fonts.googleapis.com, fonts.gstatic.com, or images.unsplash.com in a Playwright network log; fonts load from /fonts/.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-07T19:52:58Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": " 2026-10-07: Audit: fonts load from the site and tests forbid third-party font hosts and the old preconnect. Not checked against a live network log. A human sets done."
     },
     {
       "id": "T-0018",
@@ -644,9 +647,10 @@
       "acceptance": "The phrase 'not affiliated' appears once on the page, adjacent to the donation call.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-07T19:52:58Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": " 2026-10-07: Audit: the not-affiliated line sits next to the donate link and in the footers. It now appears several times, where the acceptance says once; the maintainer decides the wording."
     },
     {
       "id": "T-0019",
@@ -823,9 +827,10 @@
       "acceptance": "Each approval year on the page links to an FDA or DailyMed record with a checked date.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-07T19:52:58Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": " 2026-10-07: Audit: the approval years are stated and checked on the evidence page, but not linked individually to FDA or DailyMed records as the acceptance asks. Partly done."
     },
     {
       "id": "T-0024",
@@ -1191,8 +1196,8 @@
       "acceptance": "A HEAD request to the live site shows Strict-Transport-Security, X-Content-Type-Options, Referrer-Policy and a frame restriction; if a Content-Security-Policy is added it is tested in a browser (Playwright check of the rendered page and console, no blocked resources the page needs); the page still renders; the change is dry-run or explained before any deploy, and no credential is read or printed.",
       "review_tier": "full",
       "depends_on": [],
-      "notes": "Deployment-adjacent, so full review tier: a human runs the deploy. Header rules live in the host configuration, which is private; do not copy host details or credentials into any public file. Self-hosting the fonts (T-0017) would let a strict policy drop the third-party font hosts.",
-      "updated_at": "2026-10-04T21:00:00Z",
+      "notes": "Deployment-adjacent, so full review tier: a human runs the deploy. Header rules live in the host configuration, which is private; do not copy host details or credentials into any public file. Self-hosting the fonts (T-0017) would let a strict policy drop the third-party font hosts. 2026-10-07: Audit: the live site sends the response headers this task names; the strict-transport-security lifetime is short (a stage-one value). A human sets done.",
+      "updated_at": "2026-10-07T19:52:58Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -2904,10 +2909,10 @@
       "acceptance": "A written information architecture (sitemap, page inventory, what moves, what is retired) from a council (Fable, local Qwen, controlling agent) that the maintainer approves; verified scientific copy preserved word for word; nothing is deployed until the maintainer approves; the implementation is a separate task in the private repo. Standing condition from the maintainer (2026-10-05): the site must honour the CF community. Dignity and not drama; no pity, hype or promise of a cure anywhere, microcopy included; playful effects stay off the CF pages; calm, optional motion and short reading paths for tired readers; the donate link optional and plain; a person with CF or a carer reviews the pages before launch (see T-0011), and no page claims community review until that happens.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-07T15:00:00Z",
+      "updated_at": "2026-10-07T19:52:58Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. The site and its deployment details stay out of public repos. 2026-10-05: the maintainer chose to keep the original dark cyberpunk look and the 65-rose field (the first light 'notebook' attempt was dropped; the old files are kept in legacy/), and gave the builder creative licence inside the safety rails. The new structure and content decisions stand. 2026-10-05 later: a seven-page structure, the original style and the 65-rose field are being rebuilt by Fable in the private repo; the site tests use headless Chromium and the maintainer asked for Playwright tests after the build (the venv exists). The live site still runs the old page. 2026-10-05 built and verified in the private repo, uncommitted: seven pages plus 404 in the original cyberpunk style with the 65-rose field, a command palette, a sourced 'Who is still waiting' section and a time-free design; tests/test_site.py (32 checks) and tests/test_site_playwright.py (20 checks and 4 detectors that must fail) pass; generated evidence blocks must be re-run after any ledger or catalogue change. Open: a phone's first screen is mostly banner and header; the verified note on the 65 roses says 'at the top of this page' while the field drifts behind the whole page (as in the original); the word 'Donate' on the banner button; a person with CF or a carer has not reviewed it. | 2026-10-07: the maintainer asked to start on the site. No written information architecture or council yet (the acceptance's first clause is still open). What was done instead: new public research is on the site in a pull request in the private repo (a 'What we measured next' section on the AI-loop page and a list of public research notes on the Evidence page; drafted by the local worker from public facts, claim-checked blind, no person has reviewed it yet, nothing deployed). The open items listed above (phone first screen, the 65-rose note wording, the Donate word, a CF person's review) are unchanged. | 2026-10-07 later: the written information architecture now exists as a draft (sitemap, page inventory, what moved or was retired from the legacy page, the standing conditions) with eleven points from a blind council (Opus, Gemma 4 31B, Qwen3.8 27B), each checked against the site's files and left for the maintainer: private-site pull request 10, documentation only, nothing deployed. Still open from the acceptance: the maintainer's approval of the architecture, and the CF-person review (T-0011). The council's real tensions: the draft CFTR page sits second in the main menu; the drifting 65-rose field against 'no play, calm motion'; the boundaries section is the 7th of 10 on the CF page; a 232 px first phone screen; no corrections route."
+      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. The site and its deployment details stay out of public repos. 2026-10-05: the maintainer chose to keep the original dark cyberpunk look and the 65-rose field (the first light 'notebook' attempt was dropped; the old files are kept in legacy/), and gave the builder creative licence inside the safety rails. The new structure and content decisions stand. 2026-10-05 later: a seven-page structure, the original style and the 65-rose field are being rebuilt by Fable in the private repo; the site tests use headless Chromium and the maintainer asked for Playwright tests after the build (the venv exists). The live site still runs the old page. 2026-10-05 built and verified in the private repo, uncommitted: seven pages plus 404 in the original cyberpunk style with the 65-rose field, a command palette, a sourced 'Who is still waiting' section and a time-free design; tests/test_site.py (32 checks) and tests/test_site_playwright.py (20 checks and 4 detectors that must fail) pass; generated evidence blocks must be re-run after any ledger or catalogue change. Open: a phone's first screen is mostly banner and header; the verified note on the 65 roses says 'at the top of this page' while the field drifts behind the whole page (as in the original); the word 'Donate' on the banner button; a person with CF or a carer has not reviewed it. | 2026-10-07: the maintainer asked to start on the site. No written information architecture or council yet (the acceptance's first clause is still open). What was done instead: new public research is on the site in a pull request in the private repo (a 'What we measured next' section on the AI-loop page and a list of public research notes on the Evidence page; drafted by the local worker from public facts, claim-checked blind, no person has reviewed it yet, nothing deployed). The open items listed above (phone first screen, the 65-rose note wording, the Donate word, a CF person's review) are unchanged. | 2026-10-07 later: the written information architecture now exists as a draft (sitemap, page inventory, what moved or was retired from the legacy page, the standing conditions) with eleven points from a blind council (Opus, Gemma 4 31B, Qwen3.8 27B), each checked against the site's files and left for the maintainer: private-site pull request 10, documentation only, nothing deployed. Still open from the acceptance: the maintainer's approval of the architecture, and the CF-person review (T-0011). The council's real tensions: the draft CFTR page sits second in the main menu; the drifting 65-rose field against 'no play, calm motion'; the boundaries section is the 7th of 10 on the CF page; a 232 px first phone screen; no corrections route. 2026-10-07: First council review of the page text written up in the private site repo (PR 13): one blind Opus review, every finding re-checked against the files. Confirmed findings and the maintainer's decisions are listed there; one finding was rejected because it contradicts the maintainer's approved wording, and two sit in verified copy that only its owner edits. Text only: no screenshots read, no person with CF or a carer has reviewed the pages (T-0011)."
     },
     {
       "id": "T-0081",
