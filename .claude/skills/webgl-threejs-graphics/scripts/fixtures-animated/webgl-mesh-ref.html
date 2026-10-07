@@ -1,0 +1,81 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Lit torus</title>
+<style>html, body { margin: 0; background: #101820; } canvas { display: block; }</style>
+<canvas id="c" width="400" height="300"></canvas>
+<pre id="probe" hidden></pre>
+<script>
+"use strict";
+const probe = document.getElementById('probe');
+const gl = document.getElementById('c').getContext('webgl2');
+function fail(msg) { probe.textContent = JSON.stringify({ ok: false, error: msg }); throw new Error(msg); }
+if (!gl) fail('no webgl2');
+const vsSrc = `#version 300 es
+in vec3 aPos; in vec3 aNormal; uniform mat4 uModel; uniform mat4 uProj; out vec3 vNormal;
+void main() { vNormal = mat3(uModel) * aNormal; gl_Position = uProj * uModel * vec4(aPos, 1.0); }`;
+const fsSrc = `#version 300 es
+precision mediump float; in vec3 vNormal; out vec4 outColor;
+void main() {
+  vec3 n = normalize(vNormal); vec3 l = normalize(vec3(0.5, 0.8, 0.6));
+  float d = max(dot(n, l), 0.0); vec3 base = vec3(0.9, 0.45, 0.2);
+  outColor = vec4(base * (0.15 + 0.85 * d), 1.0);
+}`;
+function shader(type, src) {
+  const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) fail('shader: ' + gl.getShaderInfoLog(s));
+  return s;
+}
+const prog = gl.createProgram();
+gl.attachShader(prog, shader(gl.VERTEX_SHADER, vsSrc)); gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, fsSrc));
+gl.linkProgram(prog);
+if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) fail('link: ' + gl.getProgramInfoLog(prog));
+gl.useProgram(prog);
+
+// a torus built in code: major radius 0.8, minor radius 0.3
+const U = 48, V = 24, R = 0.8, r = 0.3, pos = [], nor = [], idx = [];
+for (let i = 0; i <= U; i++) {
+  const u = i / U * 2 * Math.PI, cu = Math.cos(u), su = Math.sin(u);
+  for (let j = 0; j <= V; j++) {
+    const v = j / V * 2 * Math.PI, cv = Math.cos(v), sv = Math.sin(v);
+    pos.push((R + r * cv) * cu, r * sv, (R + r * cv) * su);
+    nor.push(cv * cu, sv, cv * su);
+  }
+}
+for (let i = 0; i < U; i++) for (let j = 0; j < V; j++) {
+  const a = i * (V + 1) + j, b = a + V + 1;
+  idx.push(a, b, a + 1, b, b + 1, a + 1);
+}
+function attrib(name, data, size) {
+  const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(data), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(prog, name); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, size, gl.FLOAT, false, 0, 0);
+}
+const vao = gl.createVertexArray(); gl.bindVertexArray(vao);
+attrib('aPos', pos, 3); attrib('aNormal', nor, 3);
+const ib = gl.createBuffer(); gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib);
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(idx), gl.STATIC_DRAW);
+
+function mul(a, b) { const o = new Array(16).fill(0); for (let c = 0; c < 4; c++) for (let rr = 0; rr < 4; rr++) for (let k = 0; k < 4; k++) o[c * 4 + rr] += a[k * 4 + rr] * b[c * 4 + k]; return o; }
+function rotX(a) { const c = Math.cos(a), s = Math.sin(a); return [1,0,0,0, 0,c,s,0, 0,-s,c,0, 0,0,0,1]; }
+function rotY(a) { const c = Math.cos(a), s = Math.sin(a); return [c,0,-s,0, 0,1,0,0, s,0,c,0, 0,0,0,1]; }
+function trans(x, y, z) { return [1,0,0,0, 0,1,0,0, 0,0,1,0, x,y,z,1]; }
+function persp(fovy, aspect, n, f) { const t = 1 / Math.tan(fovy / 2); return [t / aspect,0,0,0, 0,t,0,0, 0,0,(f + n) / (n - f),-1, 0,0,2 * f * n / (n - f),0]; }
+const proj = persp(Math.PI / 4, 400 / 300, 0.1, 10);
+gl.uniformMatrix4fv(gl.getUniformLocation(prog, 'uProj'), false, proj);
+const uModel = gl.getUniformLocation(prog, 'uModel');
+gl.enable(gl.DEPTH_TEST); gl.clearColor(0.063, 0.094, 0.125, 1);
+
+function angleAt(t) { return t * 2 * Math.PI / 6; }   // one turn every 6 seconds
+function draw(t) {
+  gl.viewport(0, 0, 400, 300); gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+  // tilt the torus first, then spin the whole thing about the vertical axis
+  gl.uniformMatrix4fv(uModel, false, mul(trans(0, 0, -3), mul(rotY(angleAt(t)), rotX(0.6))));
+  gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_SHORT, 0);
+}
+const hook = new URLSearchParams(location.search).get('t');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduced) draw(0);
+else if (hook !== null) draw(parseFloat(hook));
+else { const t0 = performance.now(); (function loop(now) { draw((now - t0) / 1000); requestAnimationFrame(loop); })(t0); }
+probe.textContent = JSON.stringify({ ok: true, error: gl.getError(), triangles: idx.length / 3 });
+</script>
