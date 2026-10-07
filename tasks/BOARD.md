@@ -4,32 +4,26 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 100 tasks, 99 created by a model, 0 with a measured outcome. Estimated effort 225.1 to 409 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
-## in progress (22)
+## in progress (16)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| T-0004 | P1 | Gate .github/loop-orchestrator/loop.py with a hard failure | cf-lab | 0.25-0.25 | 3 | 120 | no | model: claude-fable-5-1 | 10/04/2026 | routine |  |  |  |
 | T-0037 | P1 | Add Retraction Watch (via Crossref) retraction check to the catalog and to the claim-check harness design | cf-research | 1-2 | 5 | 33.3 | no | model: claude-fable-5-1 | 10/04/2026 | routine |  |  |  |
-| T-0022 | P1 | Adopt the task board: every new task carries created_by, evidence, and an ROI estimate; render BOARD.md in CI or pre-commit | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 10/04/2026 | routine |  |  |  |
 | T-0003 | P1 | Apply the HQ skill-update proposal (security-browsing, cf-research-context, ai-loop-council, model-onboarding) | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 10/04/2026 | elevated |  |  |  |
 | T-0077 | P1 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 10/05/2026 | full |  |  | T-0078 |
-| T-0013 | P2 | Read CFTR2 terms of use; set catalog access accordingly | cf-research | 0.5-0.5 | 2 | 40 | no | model: claude-fable-5-1 | 10/04/2026 | routine | low | cloud |  |
 | T-0038 | P2 | Add openFDA drug label and Drugs@FDA approval endpoints to the catalog; resolve approval-year claims from them | cf-research | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 10/04/2026 | routine |  |  |  |
 | T-0067 | P2 | Decision: treat robots.txt groups that name AI agents as applying to our fetch sources | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/05/2026 | full |  |  |  |
 | T-0065 | P2 | Delegation: a sequential batch runner and a verifier-suspect hint | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/05/2026 | elevated | medium | cloud |  |
 | T-0062 | P2 | A generated manual-downloads page with links, file names and a prompt to run when the files are saved | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/05/2026 | elevated | low | local |  |
 | T-0024 | P2 | Board enhancement: add complexity, recommended_route (local, cloud or frontier) and route_rationale to tasks | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated | medium | cloud |  |
 | T-0028 | P2 | Add a reviewed lesson to ai-loop-council: a verbatim-quote check does not verify inferences, and a truncated quote can produce a false 'differs' claim | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated | medium | local |  |
-| T-0012 | P2 | Unit tests for tools/sources/fetch_sources.py | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 10/04/2026 | routine | low | local |  |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 10/04/2026 | routine | medium | cloud |  |
 | T-0048 | P2 | Admission review of Google's Data Commons MCP server for population denominators (layer 5) | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-fable-5-1 | 10/04/2026 | elevated |  |  |  |
-| T-0059 | P2 | delegate.ps1: let a model-only setup run fast, and make the token budget and thinking mode explicit | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated | medium | cloud |  |
 | T-0064 | P2 | More sources: UKRI Gateway to Research, CORDIS, EU Clinical Trials Register, WHO ICTRP, PubPeer, ClinGen, and the CFF 2025 highlights link | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 10/05/2026 | full | medium | cloud |  |
 | T-0056 | P2 | check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 10/04/2026 | full | medium | cloud |  |
 | T-0063 | P2 | ascii-art skill: a craft process, a canvas library, a rendering and accessibility checker, one new piece, and the research behind them | cf-lab | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 10/05/2026 | elevated | medium | local |  |
 | T-0052 | P2 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated | medium | local | T-0037 |
 | T-0026 | P3 | Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals | cf-research | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine | low | local |  |
-| T-0040 | P3 | Read terms and record access values for UK, Canadian, Australian, and Irish CF registry annual reports | cf-research | 1.5-3 | 3 | 13.3 | no | model: claude-fable-5-1 | 10/04/2026 | routine | medium | cloud | T-0008 |
 
 ## ready (4)
 
@@ -117,12 +111,18 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0087 | P3 | Faster site and package test suites with the same assertions | cf-research | 3-6 | 2 | 4.4 | no | model: claude-sonnet-5-5 | 10/06/2026 | routine | medium |  |  |
 | T-0036 | P3 | Admission run for the two installed local models (Gemma 4 31B, Laguna XS 2.1) as reviewers | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 10/04/2026 | full |  |  |  |
 
-## done (2)
+## done (8)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| T-0004 | P1 | Gate .github/loop-orchestrator/loop.py with a hard failure | cf-lab | 0.25-0.25 | 3 | 120 | no | model: claude-fable-5-1 | 10/04/2026 | routine |  |  |  |
+| T-0022 | P1 | Adopt the task board: every new task carries created_by, evidence, and an ROI estimate; render BOARD.md in CI or pre-commit | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 10/04/2026 | routine |  |  |  |
+| T-0013 | P2 | Read CFTR2 terms of use; set catalog access accordingly | cf-research | 0.5-0.5 | 2 | 40 | no | model: claude-fable-5-1 | 10/04/2026 | routine | low | cloud |  |
 | T-0025 | P2 | Fix three fetch_sources.py defects: failed downloads exit 0, --dest can write an absolute path into the tracked manifest, --verify cannot check manually saved files | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine | low | local |  |
+| T-0012 | P2 | Unit tests for tools/sources/fetch_sources.py | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 10/04/2026 | routine | low | local |  |
+| T-0059 | P2 | delegate.ps1: let a model-only setup run fast, and make the token budget and thinking mode explicit | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated | medium | cloud |  |
 | T-0054 | P3 | fetch_sources.py: make --verify honour --only | cf-research | 0.5-1 | 1 | 13.3 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine | low | local |  |
+| T-0040 | P3 | Read terms and record access values for UK, Canadian, Australian, and Irish CF registry annual reports | cf-research | 1.5-3 | 3 | 13.3 | no | model: claude-fable-5-1 | 10/04/2026 | routine | medium | cloud | T-0008 |
 
 ## Detail
 
@@ -138,7 +138,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** AGENTS.md documents it as reporting success unconditionally. A verifier that always passes is worse than none. *(confidence: high)*
 - **Acceptance:** python .github/loop-orchestrator/loop.py exits non-zero; AGENTS.md mention updated.
 - **Evidence:** hq/AGENTS.md section 'AI loop and delegation'
-- **Notes:** Applied 2026-10-04 by claude-sonnet-5-5: .github/loop-orchestrator/loop.py exits non-zero on start with 'not implemented'; the AGENTS.md mention and the loop README status note were updated. A human sets done after seeing the acceptance output.
+- **Notes:** Applied 2026-10-04 by claude-sonnet-5-5: .github/loop-orchestrator/loop.py exits non-zero on start with 'not implemented'; the AGENTS.md mention and the loop README status note were updated. A human sets done after seeing the acceptance output. \| Verified done 2026-10-07 (first-hand, then by a read-only audit), set done on the maintainer's instruction in session: python .github/loop-orchestrator/loop.py prints 'not implemented: this prototype reports success unconditionally' and exits 1; AGENTS.md says loop.py now exits non-zero on start; the loop README says 'Status: not functional'. No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
 
 ### T-0002 Fix YouTube About text: remove 'accelerate the cure', add research-not-advice and independence lines
 
@@ -178,7 +178,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Without provenance, model-generated tasks and human decisions become indistinguishable within a week. The board is only useful if it is the single list. *(confidence: medium)*
 - **Acceptance:** hq/tasks/README.md adopted; render-board.ps1 runs clean; no task list exists elsewhere in hq.
 - **Evidence:** hq/tasks/ created 2026-10-04
-- **Notes:** Adopted 2026-10-04: tasks/README.md, board.json and render-board.ps1 are in place and the manual 'render-board.ps1 -Check' step is noted in copilot-instructions.md because the repo has no pre-commit hook or CI. A human sets done after seeing the acceptance output.
+- **Notes:** Adopted 2026-10-04: tasks/README.md, board.json and render-board.ps1 are in place and the manual 'render-board.ps1 -Check' step is noted in copilot-instructions.md because the repo has no pre-commit hook or CI. A human sets done after seeing the acceptance output. \| Verified done 2026-10-07 (first-hand, then by a read-only audit), set done on the maintainer's instruction in session: tasks/README.md and tasks/render-board.ps1 exist; render-board.ps1 -Check prints 'BOARD.md is current'; the renderer requires created_by, source_evidence, roi, acceptance and review_tier; board.json is the only task list in cf-lab. Caveats: the repo has no pre-commit hook or CI step for the render (the manual -Check step is documented, as the earlier note says), and cf-research landscape/medical-ai-landscape.md holds a four-item research to-do checklist that the audit judged a survey list and not a task list; the maintainer may disagree. No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
 
 ### T-0072 Decision: cloud-model use on reports with unread terms; permission requests to the CFF Registry and the CF Trust; the CC0 label on skills that carry quotations
 
@@ -313,7 +313,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - A web read and a verbatim-quote check need a networked controller; the local worker has no tools and was not given untrusted page text.
 - **Acceptance:** catalog.yaml cftr2 entry has robots/terms fields filled, a check date, and claim_label: verified.
 - **Evidence:** research/sources/catalog.yaml entry cftr2
-- **Notes:** Human reads; agent records. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research 8704050 and cf-skills e821f8e: cftr2 entry now access manual, robots allow (checked 2026-10-05, Crawl-delay 10 honoured), claim_label verified, terms_url set; three sentences quoted verbatim and complete (check-quote-completeness 3 of 3). Acceptance output: 'fields ok: 27 keys documented'; sync_skill_catalog --check 'in sync'; fetch_sources.py --manual lists cftr2.
+- **Notes:** Human reads; agent records. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research 8704050 and cf-skills e821f8e: cftr2 entry now access manual, robots allow (checked 2026-10-05, Crawl-delay 10 honoured), claim_label verified, terms_url set; three sentences quoted verbatim and complete (check-quote-completeness 3 of 3). Acceptance output: 'fields ok: 27 keys documented'; sync_skill_catalog --check 'in sync'; fetch_sources.py --manual lists cftr2. \| Verified done 2026-10-07 (first-hand, then by a read-only audit), set done on the maintainer's instruction in session: the cftr2 entry in sources/catalog.yaml has access manual, robots allow, robots_checked 2026-10-05, terms_url and claim_label verified; the earlier note records the dated terms reading. Not re-checked: the quoted terms sentences against the source page (no network use in the audit). No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
 
 ### T-0071 Put the ClinGen and gnomAD catalog conflicts into the BioMCP admission test
 
@@ -436,7 +436,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Already implemented before this session; verified rather than rebuilt.
 - **Acceptance:** pytest passes; tests assert manual/forbidden/request entries never reach download(); manifest round-trip tested with a temp dir.
 - **Evidence:** research/tools/sources/fetch_sources.py
-- **Notes:**  Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Verified 2026-10-05: tools/sources/test_fetch_sources.py has 16 tests and they pass.
+- **Notes:**  Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Verified 2026-10-05: tools/sources/test_fetch_sources.py has 16 tests and they pass. \| Verified done 2026-10-07 (first-hand, then by a read-only audit), set done on the maintainer's instruction in session: pytest on tools/sources/test_fetch_sources.py and test_fetch_conduct.py gives 38 passed; forbidden, request and manual entries never reach download() (test_forbidden_request_and_manual_entries_are_never_downloaded_even_when_named); the manifest round-trip uses a temp dir. Caveat: running pytest on the whole tools/sources folder does not collect everything, because two test files there are plain scripts (T-0098 proposes fixing that). No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
 
 ### T-0039 Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER
 
@@ -466,7 +466,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Controller-written PowerShell in the delegation driver; the change was to the driver itself, which the worker cannot test.
 - **Acceptance:** test-delegate.ps1 gains cases that fail before and pass after: (a) with only a model set, the first attempts send think=false; (b) a -MaxOutputTokens parameter is passed through to the invoke script; (c) the cap error message names the cap and how to raise it. pwsh -File test-delegate.ps1 exits 0 and a mutation of each change makes a case fail.
 - **Evidence:** 2026-10-04: with only LOCAL_WORKER_MODEL set (no profiles) all three delegate attempts for a 130-line shell script stopped with 'Generated-token limit reached' at the hard-coded 8192 tokens, so the model had been thinking; with the fast profile (think false) the same task returned in 12 to 16 seconds. The thinking profile also hit the cap on the one task tried. MaxOutputTokens is fixed at 8192 inside delegate.ps1.
-- **Notes:** Proposed by a model; only a human moves it to ready. A human may prefer to require a profile instead; that is a design choice. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-lab 42681c2: model-only runs think off, explicit -MaxOutputTokens up to 16384, an actionable cap error; test-delegate and test-invoke-config extended.
+- **Notes:** Proposed by a model; only a human moves it to ready. A human may prefer to require a profile instead; that is a design choice. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-lab 42681c2: model-only runs think off, explicit -MaxOutputTokens up to 16384, an actionable cap error; test-delegate and test-invoke-config extended. \| Verified done 2026-10-07 (first-hand, then by a read-only audit that planted mutants in a scratch copy), set done on the maintainer's instruction in session: test-delegate.ps1 93/93 and test-invoke-config.ps1 15/15 pass; they cover a model-only setup sending think off on the fast attempts and on for the last, -MaxOutputTokens reaching the worker, and the cap error naming the cap and how to raise it; each mutation (dropping think off, hard-coding the token budget to 8192, changing the cap message text) made a case fail. The note's commit hash is not in the rebuilt history; the code is on main. No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
 
 ### T-0030 Docs tier 3: make AGENTS.md the only rule source; shrink copilot-instructions.md; fix the skill-authoring skill's internal contradictions
 
@@ -765,7 +765,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Same as T-0039, plus fetching three PDFs through fetch_sources.py and reading their first pages.
 - **Acceptance:** Four catalog entries with tested access values; fetch_sources.py --manual lists the manual ones correctly.
 - **Evidence:** research/proposals/2026-10-04-researcher-sources.md layer 5
-- **Notes:** Human reads terms; agent records. Comparability notes required before any cross-registry row. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research bef18d5 and cf-skills 2438d44: four entries (UK, Australia, Ireland fetch; Canada manual because its PDF host disallows *.pdf). fetch_sources.py downloaded the three and --verify says '3 match, 0 changed, 0 missing'; --manual lists ccfr-adr-2024. Data years from title pages for UK, Australia and Ireland; Canada's is from link text and is marked unverified. Terms differ: UK forbids reproduction without permission, Ireland states CC BY 4.0 for the 2024 report only, Australia states no licence.
+- **Notes:** Human reads terms; agent records. Comparability notes required before any cross-registry row. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research bef18d5 and cf-skills 2438d44: four entries (UK, Australia, Ireland fetch; Canada manual because its PDF host disallows *.pdf). fetch_sources.py downloaded the three and --verify says '3 match, 0 changed, 0 missing'; --manual lists ccfr-adr-2024. Data years from title pages for UK, Australia and Ireland; Canada's is from link text and is marked unverified. Terms differ: UK forbids reproduction without permission, Ireland states CC BY 4.0 for the 2024 report only, Australia states no licence. \| Verified done 2026-10-07 (first-hand, then by a read-only audit), set done on the maintainer's instruction in session: the catalog has ukcfr-adr-2024, acfdr-adr-2025 and cfri-adr-2024 (fetch, verified) and ccfr-adr-2024 (manual, its host disallows automated access); fetch_sources.py --manual lists ccfr-adr-2024 with its file name and --verify prints '29 match, 0 changed, 0 missing'. No live fetch was re-tested. Caveat: its depends_on entry T-0008 is still proposed. No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
 
 ### T-0050 Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow
 
