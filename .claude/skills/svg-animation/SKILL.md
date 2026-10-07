@@ -82,6 +82,8 @@ Under `style-src` without `unsafe-inline`, `<style>` elements, `style="..."` att
 
 **Do not judge a free-running animation from screenshots.** Measured here (headless Chromium, virtual time): three screenshots of one CSS draw-on animation taken at the same virtual-time budget came out blank, blank and fully drawn, while a static page was identical in all 15 runs. Give the page a test hook, `?t=SECONDS`, that freezes the animation at that time, and judge only frozen frames and the reduced-motion state. MDN says a negative `animation-delay` makes an animation begin immediately but partway through its cycle; combining it with `animation-play-state: paused` gave an exact, repeatable frame (measured here; the MDN page does not say how the two interact). `examples/draw-on.html` does this, and `webgl-threejs-graphics/scripts/check-animated-page.py --kind svg-draw` checks such a page: console clean, a hidden probe, nothing visible at t=0, part way at t=1, finished by t=2.3, the finished path shown at once under reduced motion, nothing animating in the frozen or reduced-motion state, and no external reference. Its test, `python webgl-threejs-graphics/scripts/test-check-animated-page.py`, proves it on this example and on bad stubs of it.
 
+Optionally, `scripts/test-playwright.py` runs the same claims for both examples through real Playwright for Python (run it with the python of the environment `playwright-browser-testing` sets up; it prints `VERIFIED`, and with a bad page of its own it proves it can fail).
+
 ## Tooling
 
 - Run illustrations through SVGO to strip editor cruft, then check the output still has the `id`s, `viewBox`, `<title>` and `<desc>` you need; behaviour depends on the SVGO version and configuration.
