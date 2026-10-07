@@ -1,0 +1,12 @@
+[
+  {
+    "name": "say-good",
+    "task": "task.md",
+    "verify": "verifier/verify.ps1",
+    "out": "out/say-good.txt",
+    "priority": 10,
+    "tag": "batch-example",
+    "max_attempts": 2,
+    "max_output_tokens": 1024
+  }
+]

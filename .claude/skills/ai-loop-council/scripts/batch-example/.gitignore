@@ -1,0 +1,7 @@
+# What a real run of this example writes next to the batch file.
+out/
+work-*/
+log-*.txt
+*.results.json
+*.results.json.tmp-*
+CANCEL
