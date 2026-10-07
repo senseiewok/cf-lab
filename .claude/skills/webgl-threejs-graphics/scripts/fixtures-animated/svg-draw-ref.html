@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Draw-on path</title>
+<style>
+  body { margin: 0; background: #fff; }
+  svg { display: block; }
+  path { fill: none; stroke: #c0392b; stroke-width: 6; stroke-linecap: round;
+         stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: draw 2s linear forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { path { animation: none; stroke-dashoffset: 0; } }
+</style>
+<svg width="400" height="300" viewBox="0 0 400 300" role="img" aria-label="A wave drawn on">
+  <path id="p" d="M20 150 C 80 20, 140 280, 200 150 S 320 20, 380 150"/>
+</svg>
+<pre id="probe" hidden></pre>
+<script>
+  const p = document.getElementById('p');
+  const len = p.getTotalLength();
+  p.style.setProperty('--len', len);
+  // test hook: ?t=SECONDS freezes the animation at that time
+  const t = new URLSearchParams(location.search).get('t');
+  if (t !== null) { p.style.animationPlayState = 'paused'; p.style.animationDelay = (-parseFloat(t)) + 's'; }
+  document.getElementById('probe').textContent = JSON.stringify({ ok: true, pathLength: Math.round(len) });
+</script>

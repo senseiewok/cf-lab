@@ -206,6 +206,28 @@ Each attempt took 55 to 71 seconds and 9,700 to 11,800 output tokens. The fast a
 - The checks that found the real faults were the ones a "does it draw?" test would skip: reduced motion, a console error, a missing required element. Keep them in any verifier for model-written graphics.
 - For a page like this, plan on cloud (or the controlling agent) writing it, with Qwen at most drafting a piece with its own small verifier. Fall back to cloud without asking.
 - Small sample: one task, six attempts. It shows this loop did not get a 20-item page past a strict verifier, not that Qwen cannot write WebGL.
+### Two small animated pages: an SVG path and a lit rotating mesh (2026-10-07)
+
+Two bounded tasks, each a one-file page with a freeze-at-time test hook (`?t=SECONDS`), a hidden probe element and a reduced-motion state: **svg-draw** (an inline SVG path that draws itself on over 2 seconds) and **webgl-mesh** (a lit, rotating raw-WebGL2 mesh with at least 400 triangles). Ten runs of the `delegate.ps1` loop (fast, fast, thinking; the 64K profiles), checked by `webgl-threejs-graphics/scripts/check-animated-page.py`, which was proved on a reference page of each kind and on bad stubs (17 before the first run, 30 at the end) that must each fail for their own reason. **The verifier was strengthened twice during the experiment, because reading and rendering the accepted pages found faults it had missed, so the rounds are not comparable.** Verifier 1: frozen frames, console, probe, source. Verifier 2 added an injected recorder (what the page really draws and whether its loop continues). Verifier 3 added that the probe stays hidden.
+
+| Run | Verifier | Result | Fast attempts failed on | What reading the accepted page found |
+| --- | --- | --- | --- | --- |
+| svg 1 | 1 | accepted, attempt 3 (thinking) | reduced motion not showing the finished path; drew nothing at the frozen times | correct; passes verifier 3 |
+| svg 2 | 1 | accepted, attempt 3 (thinking) | no probe element; reduced motion | correct; passes verifier 3 |
+| svg 3 | 2 | accepted, attempt 3 (thinking) | the same reduced-motion line twice (labelled SUSPECT on attempt 2) | correct; passes verifier 3 |
+| svg 4 | 2 | accepted, attempt 2 | not read | correct; passes verifier 3 |
+| mesh 1 | 1 | accepted, attempt 1 | | drew a third of the mesh (the count passed to `drawElements` was triangles, not indices); the loop stopped after the first frame; probe made visible; its rotation showed only because the missing parts broke the symmetry (spin applied before the tilt) |
+| mesh 2 | 1 | accepted, attempt 2 | not lit enough | the same one-third draw count; probe made visible |
+| mesh 3 | 2 | not accepted | attempt 2 byte-identical to attempt 1; thinking also failed | the torus was spun about its own axis (the spin applied before the tilt), so every frame was identical; the packet warned about this |
+| mesh 4 | 2 | accepted, attempt 3 (thinking) | attempt 2 byte-identical to attempt 1 | correct, but the probe text is visible on the page (fails verifier 3 only) |
+| mesh 5 | 3 | accepted, attempt 2 | | correct; 24 of 24 checks |
+| mesh 6 | 3 | not accepted | three different failures | its best page draws a count that covers half the element array |
+
+- **Counts.** Accepted on a fast attempt 4 times (svg 4, mesh 1, 2 and 5), only on the thinking attempt 4 times (svg 1, 2, 3, mesh 4), not accepted 2 times (mesh 3 and 6). All four SVG pages are correct by the final verifier. Of six mesh pages, **one** meets the whole specification by the final verifier; three drew only part of the mesh (two by passing a triangle count where an index count belongs, one drawing half the element array), one spun a torus about its own axis so every frame was identical, and four of the six unhid the probe.
+- **Where the worker was not accepted** (mesh 3 and 6), the controlling agent's own page, written beforehand from the same specification (it passes 24 of 24), is the cloud fallback.
+- **Fast attempts repeat themselves.** In two of the six mesh runs attempt 2 was byte-identical to attempt 1, and in the SVG runs the failing line repeated; the thinking attempt fixed it in four runs and not in two. This matches the earlier measurement that the second fast attempt rarely changes anything.
+- **What the verifier needed.** (1) A freeze hook: headless screenshots of a free-running animation are not repeatable (one budget gave blank, blank, then drawn; a static page was identical in all 15 runs). (2) A check of what the page actually draws, not what its probe says: the probe reported 3,072 triangles while the page drew 1,024. (3) Free-running behaviour cannot be judged from frozen frames, and animation frames under headless virtual time arrive at an unpredictable rate (1, 2 or 4 depending on flags), so the check only asks that the page starts animating. (4) Reading the code and rendering the frames of the accepted pages is what found the faults the first verifier missed (the one-third draw count, the stopped loop, the visible probe); do that before trusting an accepted graphics page.
+- **Small sample, and not a ranking.** Ten runs, two tasks, a verifier that changed between rounds, one machine. It shows what this loop produced and what a verifier has to look at; it does not show that Qwen cannot write WebGL or SVG. The SVG task was easier for it than the mesh task, with the same worker.
 
 ## Safety: following instructions hidden in content
 
