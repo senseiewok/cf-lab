@@ -19,7 +19,8 @@
 param(
     [Parameter(Mandatory)] [string] $Batch,
     [string] $DelegateScript = (Join-Path $PSScriptRoot 'delegate.ps1'),
-    [int] $NumCtx = 32768,
+    # Passed to delegate.ps1 only when given, so a profile's own num_ctx is not overridden.
+    [int] $NumCtx,
     [ValidateRange(1, 16384)] [int] $MaxOutputTokens = 8192,
     [string] $Model,
     [string] $FastProfile,
@@ -52,7 +53,8 @@ foreach ($it in $items) {
     if ($missing) {
         $row.detail = 'missing file: ' + (Split-Path -Leaf $missing[0])
     } else {
-        $args2 = @('-NoProfile', '-File', $DelegateScript, '-TaskFile', $task, '-Verify', $verify, '-OutFile', $out, '-WorkDir', $work, '-NumCtx', $NumCtx, '-MaxOutputTokens', $MaxOutputTokens)
+        $args2 = @('-NoProfile', '-File', $DelegateScript, '-TaskFile', $task, '-Verify', $verify, '-OutFile', $out, '-WorkDir', $work, '-MaxOutputTokens', $MaxOutputTokens)
+        if ($PSBoundParameters.ContainsKey('NumCtx')) { $args2 += '-NumCtx', $NumCtx }
         if ($Model) { $args2 += '-Model', $Model }
         if ($FastProfile) { $args2 += '-FastProfile', $FastProfile }
         if ($ThinkingProfile) { $args2 += '-ThinkingProfile', $ThinkingProfile }

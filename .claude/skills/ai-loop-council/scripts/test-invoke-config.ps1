@@ -24,6 +24,30 @@ try {
     Check 'an explicit -Model works without any env' ($r.Code -ne 0 -and $r.Out -match 'reviewed cloud handoff') $r.Out
     $o = & pwsh -NoProfile -File $Script -SelfTest 2>&1 | Out-String
     Check 'the self-test passes and covers the token-cap message (it names the cap and how to raise it)' ($LASTEXITCODE -eq 0 -and $o -match 'token-cap error names the cap') $o
+    Check 'the self-test covers the usage entry (timings, num_ctx sent, seed sent, attempt and mode)' ($o -match 'usage entry carries') $o
+    # V2-06a: what is SENT. -DumpRequest writes the request body to a file and stops before any call to Ollama, so these need no model.
+    $profDirReq = Join-Path $PSScriptRoot '../../model-qwen3-8-27b'
+    $fast64 = Join-Path $profDirReq 'ollama-profile.64k.fast.json'
+    $dumpN = 0
+    function Dump([string[]] $extra) {
+        $script:dumpN++
+        $f = Join-Path $tmp "req-$script:dumpN.json"; $lf = Join-Path $tmp "log-$script:dumpN.jsonl"
+        $r = Run @{} (@('-DumpRequest', $f, '-LogFile', $lf) + $extra)
+        $body = if (Test-Path $f) { Get-Content -Raw $f | ConvertFrom-Json } else { $null }
+        return @{ Code = $r.Code; Out = $r.Out; Body = $body; Log = $lf }
+    }
+    $d = Dump @('-ProfileFile', $fast64)
+    Check 'a profile with num_ctx 65536 and no -NumCtx: the body sent carries 65536' ($d.Code -eq 0 -and $d.Body.options.num_ctx -eq 65536) $d.Out
+    Check '-DumpRequest contacts no model and writes no usage entry' (-not (Test-Path $d.Log)) $d.Out
+    $d = Dump @('-ProfileFile', $fast64, '-NumCtx', '4096')
+    Check 'an explicit -NumCtx beats the profile' ($d.Body.options.num_ctx -eq 4096) $d.Out
+    $d = Dump @('-Model', 'test-local:small')
+    Check 'no profile and no -NumCtx: the script default 32768 is sent' ($d.Body.options.num_ctx -eq 32768) $d.Out
+    Check 'no -Seed: no seed is sent' ($null -eq $d.Body.options.seed -and -not ($d.Body.options.PSObject.Properties.Name -contains 'seed')) $d.Out
+    $d = Dump @('-Model', 'test-local:small', '-Seed', '7')
+    Check '-Seed 7 is sent as options.seed' ($d.Body.options.seed -eq 7) $d.Out
+    $d = Dump @('-Model', 'test-local:small', '-Seed', '0')
+    Check '-Seed 0 is sent too (zero is a seed, not "unset")' ($d.Body.options.PSObject.Properties.Name -contains 'seed' -and $d.Body.options.seed -eq 0) $d.Out
     # the four 64K profiles: the model-card sampling sets, one thinking setting each, and the context the alias is built with
     $profDir = Join-Path $PSScriptRoot '../../model-qwen3-8-27b'
     $think = @{ temperature = 1.0; top_p = 0.95; top_k = 20; min_p = 0.0; presence_penalty = 0.0 }

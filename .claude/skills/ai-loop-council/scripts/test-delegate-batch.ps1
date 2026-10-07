@@ -6,11 +6,14 @@ New-Item -ItemType Directory $base | Out-Null
 $fail = @(); $n = 0
 # keep the tests' outcome lines out of the real central log
 $env:LOCAL_WORKER_OUTCOME_LOG = Join-Path $base 'outcomes.jsonl'
+$env:LOCAL_WORKER_USAGE_LOG = Join-Path $base 'usage-central.jsonl'
+$env:BATCH_STUB_DIR = $base
 function Check([string] $name, [bool] $ok, [string] $detail = '') { $script:n++; Write-Output (('PASS ', 'FAIL ')[-not $ok] + $name + $(if (-not $ok) { "  ($detail)" })); if (-not $ok) { $script:fail += $name } }
 
 # A stub worker: answers GOOD when the task text contains MAKE-GOOD, otherwise a reply the verifier rejects.
 Set-Content (Join-Path $base 'stub.ps1') @'
-param([string] $PromptFile, [string] $ProfileFile, [string] $Model, [string] $SystemFile, [int] $NumCtx, [int] $MaxOutputTokens, [string] $ThinkMode, [string] $ThinkingFile, [string] $LogFile)
+param([string] $PromptFile, [string] $ProfileFile, [string] $Model, [string] $SystemFile, [int] $NumCtx, [int] $MaxOutputTokens, [string] $ThinkMode, [string] $ThinkingFile, [string] $LogFile, [string] $Tag, [int] $Attempt, [string] $Mode)
+Add-Content (Join-Path $env:BATCH_STUB_DIR 'numctx.txt') "numctx=$NumCtx"
 $p = Get-Content -Raw $PromptFile
 $f = '```'
 if ($p -match 'MAKE-GOOD') { "here:`n$f`nGOOD thing`n$f`n" } else { "here:`n$f`nnope`n$f`n" }
@@ -60,6 +63,15 @@ try {
     Set-Content (Join-Path $base 'salvage-delegate.ps1') 'Write-Host "SALVAGED on attempt 3 (thinking): the call hit the token cap, but a complete answer inside its thinking text passed the verifier"; exit 0' -Encoding utf8
     $r = Run ('[' + (& $item 's' 'good.md') + ']') @('-DelegateScript', (Join-Path $base 'salvage-delegate.ps1'))
     Check 'a salvaged answer is accepted and flagged, not reported as an error' ($r.Code -eq 0 -and $r.Out -match 's\s+accepted\s+\d+s\s+attempt 3 SALVAGED' -and $r.Out -notmatch 'error') "$($r.Code) $($r.Out)"
+
+    # 3c. V2-06a: -NumCtx reaches a worker only when the batch caller sets it (a profile's own num_ctx must not be overridden by a hidden default)
+    $nc = Join-Path $base 'numctx.txt'
+    Remove-Item $nc -ErrorAction SilentlyContinue
+    $r = Run ('[' + (& $item 'n1' 'good.md') + ']')
+    Check 'no -NumCtx on the batch: the worker is called with none' ($r.Code -eq 0 -and (Test-Path $nc) -and (Get-Content $nc) -contains 'numctx=0') "$($r.Code) $($r.Out)"
+    Remove-Item $nc -ErrorAction SilentlyContinue
+    $r = Run ('[' + (& $item 'n2' 'good.md') + ']') @('-NumCtx', '4096')
+    Check 'an explicit -NumCtx 4096 on the batch reaches the worker' ($r.Code -eq 0 -and (Test-Path $nc) -and (Get-Content $nc) -contains 'numctx=4096') "$($r.Code) $($r.Out)"
 
     # 4. usage errors exit 2
     $r = Run '[]'

@@ -47,7 +47,14 @@ param(
     # Opt-in: save the model's thinking text here (local file; the thinking can quote the packet, so keep it out of repos).
     [string] $ThinkingFile,
     # A short label written into this call's usage entry (which task it was for), so the central log can be grouped by task later. Default: LOCAL_WORKER_TAG.
-    [string] $Tag = $env:LOCAL_WORKER_TAG
+    [string] $Tag = $env:LOCAL_WORKER_TAG,
+    # Sampling seed sent as options.seed (0 is a seed). Not sent unless given; the usage entry records what was sent.
+    [int] $Seed,
+    # Which attempt of a delegation this call is, and its mode (default or thinking). Passed by delegate.ps1; written to the usage entry only.
+    [int] $Attempt,
+    [string] $Mode,
+    # Write the request body to this file and stop before any call to Ollama. For tests and debugging; the body holds the prompt, so keep the file out of repos.
+    [string] $DumpRequest
 )
 
 $ErrorActionPreference = 'Stop'
@@ -78,6 +85,47 @@ function Resolve-Think($ProfileThink, [string] $Mode, [string] $Level) {
     if ($Mode -ne 'default') { $think = ($Mode -eq 'on') }
     if ($Level -ne 'default') { $Level = $Level.ToLowerInvariant(); $think = if ($Level -eq 'on') { $true } elseif ($Level -eq 'off') { $false } else { $Level } }
     return $think
+}
+
+# Several local tasks run in parallel and share one usage log. Add-Content throws when another writer holds the file (after the model has already
+# answered), and a shared FileMode.Append open seeks to the end when it OPENS, so two writers that open together overwrite each other with no error
+# (48 parallel writers kept 39 lines). An EXCLUSIVE open makes the seek safe; a sharing violation means wait and retry. delegate.ps1 has the same helper.
+function Add-SharedLine([string] $Path, [string] $Line) {
+    $bytes = [Text.UTF8Encoding]::new($false).GetBytes($Line + [Environment]::NewLine)
+    for ($try = 1; $try -le 200; $try++) {
+        try {
+            $fs = [IO.File]::Open($Path, [IO.FileMode]::Append, [IO.FileAccess]::Write, [IO.FileShare]::None)
+            try { $fs.Write($bytes, 0, $bytes.Length) } finally { $fs.Dispose() }
+            return
+        } catch [IO.IOException] { Start-Sleep -Milliseconds (Get-Random -Minimum 5 -Maximum 40) }
+    }
+    Write-Host 'warning: a usage line could not be written to the usage log'
+}
+
+# One usage entry: counts, timings and settings only, never a prompt or a reply. The durations are Ollama's own, in nanoseconds; $null when the reply has none.
+# num_ctx and seed are what was SENT (seed is $null when none was). Attempt 0 and an empty mode mean the caller did not say.
+function New-UsageEntry($Reply, [string] $Model, [double] $Seconds, [bool] $Structured, [string] $Tag, $Think, [int] $NumCtx, $Seed, [int] $Attempt, [string] $Mode) {
+    return [ordered]@{
+        ts                   = (Get-Date).ToUniversalTime().ToString('o')
+        model                = $Model
+        prompt_tokens        = $Reply.prompt_eval_count
+        output_tokens        = $Reply.eval_count
+        seconds              = [math]::Round($Seconds, 1)
+        prompt_eval_duration = $Reply.prompt_eval_duration
+        eval_duration        = $Reply.eval_duration
+        num_ctx              = $NumCtx
+        seed                 = $Seed
+        attempt              = if ($Attempt -gt 0) { $Attempt } else { $null }
+        mode                 = if ($Mode) { $Mode } else { $null }
+        structured           = $Structured
+        # $null when no setting was sent: the model then uses its own default (the qwen3.8 alias thinks by default), so it is not the same as false
+        tag                  = if ($Tag) { $Tag } else { $null }
+        think                = if ($null -eq $Think) { $null } else { [bool]$Think }
+        think_level          = if ($Think -is [string]) { $Think } else { $null }
+        done_reason          = $Reply.done_reason
+        # output_tokens includes reasoning tokens when thinking is on.
+        thinking_chars       = if ($Reply.message.thinking) { $Reply.message.thinking.Length } else { 0 }
+    }
 }
 
 if ($SelfTest) {
@@ -134,7 +182,38 @@ if ($SelfTest) {
         if (-not $rejected) { throw "An unknown think value in a profile was accepted: '$bad'" }
         "PASS: a profile think value of '$bad' is rejected"
     }
-    'All 28 local reply/name/think tests passed; no profile, model, GPU or network required'
+    # V2-06a: the usage entry. A fake reply as Ollama returns it: durations are in nanoseconds.
+    $fake = [pscustomobject]@{ prompt_eval_count = 1200; eval_count = 340; prompt_eval_duration = 1500000000; eval_duration = 8250000000; done_reason = 'stop'; message = [pscustomobject]@{ thinking = 'abcde' } }
+    $e = New-UsageEntry -Reply $fake -Model 'test-local:small' -Seconds 10.2 -Structured $false -Tag 'unit' -Think $false -NumCtx 65536 -Seed 7 -Attempt 2 -Mode 'default'
+    if ($e.prompt_eval_duration -ne 1500000000 -or $e.eval_duration -ne 8250000000) { throw 'The usage entry must carry the prompt-eval and eval durations as Ollama returned them' }
+    'PASS: usage entry carries the prompt-eval and eval durations as returned'
+    if ($e.num_ctx -ne 65536 -or $e.seed -ne 7) { throw 'The usage entry must carry the num_ctx and seed that were sent' }
+    'PASS: usage entry carries the num_ctx and seed that were sent'
+    if ($e.attempt -ne 2 -or $e.mode -cne 'default') { throw 'The usage entry must carry the attempt and mode the caller passed' }
+    'PASS: usage entry carries the attempt and mode the caller passed'
+    if ($e.prompt_tokens -ne 1200 -or $e.output_tokens -ne 340 -or $e.tag -cne 'unit' -or $e.thinking_chars -ne 5 -or $e.done_reason -cne 'stop' -or $e.model -cne 'test-local:small') { throw 'The usage entry lost one of the existing fields' }
+    'PASS: usage entry carries the existing fields unchanged'
+    $e2 = New-UsageEntry -Reply ([pscustomobject]@{ prompt_eval_count = 3; eval_count = 2; done_reason = 'stop'; message = [pscustomobject]@{} }) -Model 'm' -Seconds 0.1 -Structured $false -Tag '' -Think $null -NumCtx 32768 -Seed $null -Attempt 0 -Mode ''
+    if ($null -ne $e2.prompt_eval_duration -or $null -ne $e2.eval_duration -or $null -ne $e2.seed -or $null -ne $e2.attempt -or $null -ne $e2.mode -or $e2.num_ctx -ne 32768) { throw 'Missing durations, no seed, attempt 0 and an empty mode must be null, not zero or empty text; num_ctx is always recorded' }
+    'PASS: usage entry carries null for what was not given (no timings, no seed, no attempt, no mode)'
+    # Add-SharedLine: lines are kept whole and in order, a locked file is waited for, and an existing file is appended to, not replaced. (The parallel case is tested through delegate.ps1.)
+    $tmpLog = Join-Path ([IO.Path]::GetTempPath()) ('usage-lines-' + [guid]::NewGuid().ToString('N') + '.jsonl')
+    try {
+        Add-SharedLine $tmpLog '{"n":1}'
+        Add-SharedLine $tmpLog '{"n":2}'
+        $got = @(Get-Content -LiteralPath $tmpLog)
+        if ($got.Count -ne 2 -or $got[0] -cne '{"n":1}' -or $got[1] -cne '{"n":2}') { throw "Add-SharedLine must append whole lines in order, got: $($got -join ' | ')" }
+        'PASS: usage lines are appended whole and in order'
+        $held = [IO.File]::Open($tmpLog, [IO.FileMode]::Open, [IO.FileAccess]::Read, [IO.FileShare]::None)
+        $job = if (Get-Command Start-ThreadJob -ErrorAction SilentlyContinue) { Start-ThreadJob { $h = $using:held; Start-Sleep -Milliseconds 300; $h.Dispose() } } else { $null }
+        if ($job) {
+            Add-SharedLine $tmpLog '{"n":3}'
+            $null = Wait-Job $job; Remove-Job $job
+            if (@(Get-Content -LiteralPath $tmpLog).Count -ne 3) { throw 'Add-SharedLine must wait for a locked file and then write' }
+            'PASS: a locked usage log is waited for, then written'
+        } else { $held.Dispose(); 'SKIP: no ThreadJob module here; the lock-wait case is covered by the parallel test in test-delegate.ps1' }
+    } finally { Remove-Item -LiteralPath $tmpLog -ErrorAction SilentlyContinue }
+    'All 35 local reply/name/think/usage tests passed; no profile, model, GPU or network required'
     exit 0
 }
 
@@ -195,27 +274,20 @@ for ($i = 1; $i -le $Samples; $i++) {
     if ($format) { $body.format = $format }
     if ($null -ne $think) { $body.think = $think }
     if ($null -ne $presencePenalty) { $body.options.presence_penalty = $presencePenalty }
+    $seedSent = $null
+    if ($PSBoundParameters.ContainsKey('Seed')) { $body.options.seed = $Seed; $seedSent = $Seed }
 
+    if ($DumpRequest) {
+        Set-Content -LiteralPath $DumpRequest -Value ($body | ConvertTo-Json -Depth 32) -Encoding utf8
+        return
+    }
     $sw = [Diagnostics.Stopwatch]::StartNew()
     $r = Invoke-RestMethod -Uri 'http://localhost:11434/api/chat' -Method Post `
         -Body ($body | ConvertTo-Json -Depth 32) -ContentType 'application/json' -TimeoutSec $TimeoutSec
     $sw.Stop()
 
-    @{
-        ts            = (Get-Date).ToUniversalTime().ToString('o')
-        model         = $Model
-        prompt_tokens = $r.prompt_eval_count
-        output_tokens = $r.eval_count
-        seconds       = [math]::Round($sw.Elapsed.TotalSeconds, 1)
-        structured    = [bool]$format
-        # $null when no setting was sent: the model then uses its own default (the qwen3.8 alias thinks by default), so it is not the same as false
-        tag           = if ($Tag) { $Tag } else { $null }
-        think         = if ($null -eq $think) { $null } else { [bool]$think }
-        think_level   = if ($think -is [string]) { $think } else { $null }
-        done_reason   = $r.done_reason
-        # output_tokens includes reasoning tokens when thinking is on.
-        thinking_chars = if ($r.message.thinking) { $r.message.thinking.Length } else { 0 }
-    } | ConvertTo-Json -Compress | Add-Content -Path $LogFile
+    New-UsageEntry -Reply $r -Model $Model -Seconds $sw.Elapsed.TotalSeconds -Structured ([bool]$format) -Tag $Tag -Think $think `
+        -NumCtx $body.options.num_ctx -Seed $seedSent -Attempt $Attempt -Mode $Mode | ConvertTo-Json -Compress | ForEach-Object { Add-SharedLine $LogFile $_ }
     if ($ThinkingFile -and $r.message.thinking) {
         New-Item -ItemType Directory -Force -Path (Split-Path -Parent ([IO.Path]::GetFullPath($ThinkingFile))) | Out-Null
         Set-Content -LiteralPath $ThinkingFile -Value $r.message.thinking -Encoding utf8
