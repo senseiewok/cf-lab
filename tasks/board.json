@@ -854,7 +854,7 @@
       "title": "Fix three fetch_sources.py defects: failed downloads exit 0, --dest can write an absolute path into the tracked manifest, --verify cannot check manually saved files",
       "repo": "cf-research",
       "area": "tooling",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T18:00:00Z",
       "created_by": {
@@ -874,15 +874,19 @@
         "confidence": "medium",
         "measured": false,
         "actual_hours": null,
-        "measured_outcome": null
+        "measured_outcome": "Already fixed before the 2026-10-06 verification; verified, not rebuilt. Actual hours were not recorded."
       },
       "acceptance": "With a failing URL (local test double, no real host) the fetcher exits non-zero; with --dest outside the repo the manifest holds no absolute path; after saving a manual file, a documented command records its hash and --verify then reports it; tools/sources/README.md exit codes match the code. No request to cff.org, databases.lovd.nl or cftr2.org is made.",
       "review_tier": "routine",
       "depends_on": [],
-      "notes": "Found while preparing the 2026-10-04 PRs. Not fixed there, because the packet says apply the proposals and do not improve other code. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Verified 2026-10-05: the three defects were already fixed (bb571f1); 16 tests pass and the README exit codes match the code.",
-      "updated_at": "2026-10-05T04:30:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "notes": "Found while preparing the 2026-10-04 PRs. Not fixed there, because the packet says apply the proposals and do not improve other code. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Verified 2026-10-05: the three defects were already fixed (bb571f1); 16 tests pass and the README exit codes match the code. | Verified done 2026-10-06 on origin/main a7c0a30, set done on the maintainer's instruction in session: test_fetch_sources and test_fetch_conduct run 38 tests, all OK; the named tests pass for a failing download (exit 1, the entry named), a --dest outside the repo (no absolute path in the manifest), and --record then --verify on a hand-saved file; tools/sources/README.md exit codes 0, 1 and 2 match the code's return values; the tests name none of cff.org, databases.lovd.nl or cftr2.org. Run against the pre-fix source, the new tests error (14 errors), so a clean fails-before is not shown for this task. The earlier session recorded no actual hours, so roi.actual_hours stays null and roi.measured stays false.",
+      "updated_at": "2026-10-06T23:52:52Z",
+      "completed_at": "2026-10-06T23:52:52Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Claude Code, on the maintainer's instruction in session",
+        "model_id": "claude-sonnet-5-5"
+      },
       "complexity": "low",
       "recommended_route": "local",
       "route_rationale": "Already implemented before this session; verified rather than rebuilt."
@@ -1902,7 +1906,7 @@
       "title": "fetch_sources.py: make --verify honour --only",
       "repo": "cf-research",
       "area": "tooling",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P3",
       "created_at": "2026-10-04T22:40:00Z",
       "created_by": {
@@ -1922,15 +1926,19 @@
         "confidence": "medium",
         "measured": false,
         "actual_hours": null,
-        "measured_outcome": null
+        "measured_outcome": "Already fixed before the 2026-10-06 verification; verified, not rebuilt. Actual hours were not recorded."
       },
       "acceptance": "A unit test in tools/sources/test_fetch_sources.py fails before the change and passes after: with two files in the manifest, --only ID --verify reports '1 match, 0 changed, 0 missing'; without --only it still reports 2. python -m unittest test_fetch_sources exits 0.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-05T04:30:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Proposed by a model; only a human moves it to ready. Alternative: document that --verify always checks every file. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-research db4aaaf: 16 tests pass (4 new). Live: '--only ecfspr-adr-2022 --verify' prints '1 match, 0 changed, 0 missing'.",
+      "updated_at": "2026-10-06T23:52:52Z",
+      "completed_at": "2026-10-06T23:52:52Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Claude Code, on the maintainer's instruction in session",
+        "model_id": "claude-sonnet-5-5"
+      },
+      "notes": "Proposed by a model; only a human moves it to ready. Alternative: document that --verify always checks every file. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-research db4aaaf: 16 tests pass (4 new). Live: '--only ecfspr-adr-2022 --verify' prints '1 match, 0 changed, 0 missing'. | Verified done 2026-10-06 on origin/main a7c0a30, set done on the maintainer's instruction in session: the four test_verify_only_* tests fail against the pre-fix source and pass now; test_verify_only_checks_just_the_named_entry asserts '1 match, 0 changed, 0 missing' with --only and '2 match, 0 changed, 0 missing' without; test_fetch_sources and test_fetch_conduct run 38 tests, all OK. The earlier session recorded no actual hours, so roi.actual_hours stays null and roi.measured stays false.",
       "complexity": "low",
       "recommended_route": "local",
       "route_rationale": "Worker drafted it on attempt 1 in 17 s against a verifier of 16 unit tests; the controller tidied it."
