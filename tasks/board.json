@@ -3510,6 +3510,116 @@
       "completed_by": null,
       "notes": "Human step: the maintainer picks the moment (it occupies the local worker for hours) and the second script. Related to T-0090 (same script, more runs and the thinking profile) and T-0089 (filter for false positives); neither covers a second script. Do not run while another Ollama experiment is using the worker.",
       "complexity": "medium"
+    },
+    {
+      "id": "T-0098",
+      "title": "cf-research: make the script-style tests in tools/sources collectable by python -m unittest",
+      "repo": "cf-research",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-07T02:52:27Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code (VS Code)",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "Loop v2.1 V2-01 and V2-05 build session, 2026-10-06"
+      },
+      "source_evidence": "Observed 2026-10-06 in cf-research tools/sources: python -m unittest reports 40 tests and 2 errors, because test_check_catalog_fields.py and test_make_manual_downloads.py are plain scripts that call sys.exit at import (the README says to run python -m unittest -v, which therefore cannot pass). Run directly (python test_<name>.py) both are fine. The CRLF fix in cf-research PR 3 touched the second file but not this.",
+      "effort_hours": {
+        "low": 1,
+        "high": 2
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: one documented command that runs every test removes a recurring false alarm for contributors and for any agent that runs the README command.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "From tools/sources, python -m unittest discovers every test file and exits 0 on a clean checkout (including a CRLF checkout), or the README names one command that runs all of them and that command exits 0; the two script-style files keep their current checks (a planted failure in either still fails the run); no dependency is added.",
+      "review_tier": "routine",
+      "depends_on": [],
+      "updated_at": "2026-10-07T02:52:27Z",
+      "completed_at": null,
+      "completed_by": null,
+      "notes": "Proposed by a model; only a human moves it to ready. Two shapes: convert the two files to unittest, or add a tiny runner that executes each script and fails on a non-zero exit.",
+      "complexity": "low",
+      "recommended_route": "local",
+      "route_rationale": "Bounded edit with a deterministic check (the command and a planted failure)."
+    },
+    {
+      "id": "T-0099",
+      "title": "Add a reviewed lesson to ai-loop-council: appends to a log shared by parallel runs lose lines unless the file is opened exclusively",
+      "repo": "cf-lab",
+      "area": "delegation",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-07T02:52:27Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code (VS Code)",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "Loop v2.1 V2-01 and V2-05 build session, 2026-10-06"
+      },
+      "source_evidence": "Observation O-6 (2026-10-06): 16 parallel delegate.ps1 runs appending to one usage log kept 15 lines and 48 kept 39, with no error; a shared FileMode.Append open seeks to the end when it opens, so writers that open together overwrite each other, and Add-Content throws instead. Fixed in cf-lab PR 7 (usage log) and PR 9 (outcome log) with an exclusive open and a retry; 3 rounds of 48 parallel runs then kept 144 of 144 lines. test-delegate.ps1 has a 24-way parallel test for each log. Reproduce with the 48-process stress in the observation.",
+      "effort_hours": {
+        "low": 0.5,
+        "high": 1
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: any future script that several local tasks append to would repeat the loss silently; a short reviewed lesson with a failing repro and the check that catches it is cheap against that.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A narrow edit to the owning skill (ai-loop-council) states the rule (open a shared log exclusively and retry on a sharing violation; test it with 24 or more parallel writers, because a sequential test cannot see the loss) and names the existing parallel tests as the check; the edit is read by a person; the observation is deleted afterwards as the lab process says.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-07T02:52:27Z",
+      "completed_at": null,
+      "completed_by": null,
+      "notes": "Proposed by a model; only a human moves it to ready. Per the lab process an observation becomes a lesson only through this task.",
+      "complexity": "low"
+    },
+    {
+      "id": "T-0100",
+      "title": "Loop v2.1 V2-02: freeze the verifier with a manifest hash and a safe re-verify path",
+      "repo": "cf-lab",
+      "area": "delegation",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-07T02:52:27Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code (VS Code)",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "Loop v2.1 V2-01 and V2-05 build session, 2026-10-06"
+      },
+      "source_evidence": "The Loop v2.1 design (private notes) counts 5 incidents in 2 days where a verifier or a fixture it reads changed during a run and the run still passed unrecorded. delegate.ps1 hashes nothing today: a verifier edited mid-run, or a fixture it imports, changes what accepted means with no trace. V2-01 (cf-lab PR 9) added per-attempt rows and reserved the states blocked and accepted-after-verifier-edit for this task.",
+      "effort_hours": {
+        "low": 6,
+        "high": 10
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: an accepted result is only worth what its verifier is worth; hashing everything the verifier uses makes a changed verifier visible and blocks the run, and a recorded safe path keeps legitimate fixes possible.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "delegate.ps1 hashes the verifier, every file in its directory tree, any files named by -VerifierFiles, and the candidate; it re-hashes before each verifier run and before writing accepted; a change mid-run exits 3 with state blocked and no accepted row, and the output file is restored (a test edits a fixture the verifier imports mid-run). A -ReverifyOf <run id> path re-proves the new verifier on the empty stub, the unchanged file and the previously rejected candidate, records the old hash, the new hash and the diff, and ends in accepted-after-verifier-edit, never accepted (a test runs it and asserts the three re-proofs and both hashes). A verifier that reads a file outside its manifest is refused before the first model call (a test). lint-powershell.ps1 is clean on delegate.ps1 and every existing test still passes.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-07T02:52:27Z",
+      "completed_at": null,
+      "completed_by": null,
+      "notes": "Proposed by a model; only a human moves it to ready. Full tier: a blind different-family challenger on the hashing logic, then a person reads the diff. Open design decision for the maintainer: how a read outside the manifest is detected (run the verifier in a copy of its manifest, as verify-in-copy.py does, is the candidate). Controller-built, not delegated: it edits the harness.",
+      "complexity": "high"
     }
   ]
 }
