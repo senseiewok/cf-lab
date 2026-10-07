@@ -268,6 +268,12 @@ def compute_block(runs):
         s = state_of(r)
         if s in states:
             states[s] += 1
+    # The two states the verifier freeze (V2-02) writes are counted on their own, so the states line stays as it was when there are none.
+    verifier_stops = {'blocked': 0, 'accepted-after-verifier-edit': 0}
+    for r in runs:
+        raw = r.run_row.get('state') if r.run_row is not None else None
+        if raw in verifier_stops:
+            verifier_stops[raw] += 1
 
     K = None
     for r in runs:
@@ -373,6 +379,7 @@ def compute_block(runs):
     return {
         'R': R,
         'states': states,
+        'verifier_stops': verifier_stops,
         'K': K,
         'accepted_on_attempt': accepted_on_attempt,
         'pass_at': pass_at,
@@ -427,6 +434,9 @@ def fmt_block(name, stats, pass_k_line):
     st = stats['states']
     lines.append('states: accepted %d, budget exhausted %d, failed %d, cancelled %d, interrupted %d' % (
         st['accepted'], st['budget exhausted'], st['failed'], st['cancelled'], st['interrupted']))
+    vs = stats['verifier_stops']
+    if vs['blocked'] or vs['accepted-after-verifier-edit']:
+        lines.append('verifier freeze: blocked %d, accepted-after-verifier-edit %d (neither is counted in the states above)' % (vs['blocked'], vs['accepted-after-verifier-edit']))
 
     K = stats['K']
     aoa = stats['accepted_on_attempt']

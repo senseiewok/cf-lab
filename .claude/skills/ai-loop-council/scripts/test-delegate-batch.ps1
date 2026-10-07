@@ -18,7 +18,8 @@ $p = Get-Content -Raw $PromptFile
 $f = '```'
 if ($p -match 'MAKE-GOOD') { "here:`n$f`nGOOD thing`n$f`n" } else { "here:`n$f`nnope`n$f`n" }
 '@ -Encoding utf8
-Set-Content (Join-Path $base 'verify.ps1') @'
+New-Item -ItemType Directory (Join-Path $base 'v') | Out-Null   # the verifier gets a folder of its own: delegate.ps1 freezes the verifier's whole folder (V2-02)
+Set-Content (Join-Path $base 'v/verify.ps1') @'
 param([string] $Script)
 if ((Get-Content -Raw $Script) -match 'GOOD') { Write-Output '1/1 passed'; exit 0 }
 Write-Output 'FAIL candidate does not say GOOD'; Write-Output '0/1 passed'; exit 1
@@ -33,7 +34,7 @@ function Run([string] $json, [string[]] $extra = @()) {
     $o = & pwsh -NoProfile -File $Script -Batch $b -InvokeScript $stub @extra 2>&1 | Out-String
     return @{ Code = $LASTEXITCODE; Out = $o; Batch = $b }
 }
-$item = { param($name, $task) "{ `"name`": `"$name`", `"task`": `"$task`", `"verify`": `"verify.ps1`", `"out`": `"out-$name.ps1`" }" }
+$item = { param($name, $task) "{ `"name`": `"$name`", `"task`": `"$task`", `"verify`": `"v/verify.ps1`", `"out`": `"out-$name.ps1`" }" }
 try {
     # 1. one good, one never good, one with a missing task file: the batch goes on, exit 1, a results file, a log per item
     $json = '[' + (& $item 'one' 'good.md') + ',' + (& $item 'two' 'bad.md') + ',' + (& $item 'three' 'nothere.md') + ',' + (& $item 'four' 'good.md') + ']'
@@ -70,6 +71,20 @@ try {
     Check 'a cancelled item is reported as cancelled with the attempt it stopped before, not as an error' ($r.Out -match 'c1\s+cancelled\s+\d+s\s+before attempt 2' -and $r.Out -notmatch 'error') $r.Out
     Check 'a cancelled item does not stop the batch and the batch exits 1 (not every item was accepted)' ($r.Out -match 'c2\s+cancelled' -and $r.Code -eq 1 -and $r.Out -match '0 of 2 accepted') "$($r.Code) $($r.Out)"
 
+    # 3b3. V2-02: a blocked run (exit 3: the verifier changed mid-run) and a refused one (exit 2 before the first call) are named, not reported as an error; the batch goes on
+    Set-Content (Join-Path $base 'blocked-delegate.ps1') 'Write-Host "BLOCKED (verifier-changed) at attempt 1: nothing was accepted, and the output file was put back."; exit 3' -Encoding utf8
+    Set-Content (Join-Path $base 'refused-delegate.ps1') 'Write-Host "REFUSED (preflight-cannot-fail): the verifier accepted an empty file (exit 0), so it cannot fail."; exit 2' -Encoding utf8
+    $r = Run ('[' + (& $item 'k1' 'good.md') + ',' + (& $item 'k2' 'good.md') + ']') @('-DelegateScript', (Join-Path $base 'blocked-delegate.ps1'))
+    Check 'a blocked item is reported as blocked with its reason, and the batch goes on' ($r.Out -match 'k1\s+blocked\s+\d+s\s+verifier-changed' -and $r.Out -match 'k2\s+blocked' -and $r.Out -notmatch 'error' -and $r.Code -eq 1) $r.Out
+    $r = Run ('[' + (& $item 'f1' 'good.md') + ']') @('-DelegateScript', (Join-Path $base 'refused-delegate.ps1'))
+    Check 'a refused item is reported as refused with its reason' ($r.Out -match 'f1\s+refused\s+\d+s\s+preflight-cannot-fail') $r.Out
+
+    # 3b4. V2-02: an item's verifier_files reach delegate.ps1 as -VerifierFiles, resolved against the batch folder
+    Set-Content (Join-Path $base 'args-delegate.ps1') 'param([string] $TaskFile, [string] $Verify, [string] $OutFile, [string] $WorkDir, [int] $MaxOutputTokens, [string[]] $VerifierFiles, [string] $InvokeScript); Set-Content (Join-Path (Split-Path -Parent $OutFile) "vf.txt") ($VerifierFiles -join "|"); Write-Host "ACCEPTED on attempt 1"; exit 0' -Encoding utf8
+    $r = Run '[{ "name": "vf", "task": "good.md", "verify": "v/verify.ps1", "out": "out-vf.ps1", "verifier_files": ["data", "C:\\abs\\x"] }]' @('-DelegateScript', (Join-Path $base 'args-delegate.ps1'))
+    $vfSeen = Get-Content -Raw (Join-Path (Split-Path $r.Batch) 'vf.txt')
+    Check 'verifier_files reach delegate.ps1, a relative one resolved against the batch folder and an absolute one kept' ($r.Code -eq 0 -and $vfSeen.Trim() -eq ((Join-Path (Split-Path $r.Batch) 'data') + ',C:\abs\x')) "$vfSeen $($r.Out)"
+
     # 3c. V2-06a: -NumCtx reaches a worker only when the batch caller sets it (a profile's own num_ctx must not be overridden by a hidden default)
     $nc = Join-Path $base 'numctx.txt'
     Remove-Item $nc -ErrorAction SilentlyContinue
@@ -84,7 +99,7 @@ try {
     Check 'an empty batch is a usage error' ($r.Code -eq 2) "$($r.Code) $($r.Out)"
     $r = Run 'not json'
     Check 'invalid JSON is a usage error' ($r.Code -eq 2 -and $r.Out -match 'not valid JSON') $r.Out
-    $r = Run '[{ "name": "a", "task": "good.md", "verify": "verify.ps1" }]'
+    $r = Run '[{ "name": "a", "task": "good.md", "verify": "v/verify.ps1" }]'
     Check 'an item without out is a usage error' ($r.Code -eq 2 -and $r.Out -match "missing 'out'") $r.Out
     $r = Run ('[' + (& $item 'dup' 'good.md') + ',' + (& $item 'dup' 'good.md') + ']')
     Check 'duplicate names are a usage error' ($r.Code -eq 2 -and $r.Out -match 'unique') $r.Out
