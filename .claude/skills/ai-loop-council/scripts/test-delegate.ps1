@@ -14,7 +14,8 @@ $cf = Join-Path $d 'count.txt'; $i = 1 + $(if (Test-Path $cf) { [int](Get-Conten
 Add-Content (Join-Path $d 'calls.txt') ("call=$i profile=$ProfileFile model=$Model think=$ThinkMode maxout=$MaxOutputTokens thinkingfile=$ThinkingFile logfile=$LogFile numctx=$NumCtx attempt=$Attempt mode=$Mode tag=$Tag")
 if ($ThinkingFile) { Set-Content $ThinkingFile "stub thinking $i" }
 if (Test-Path (Join-Path $d "nolog-$i.txt")) { throw 'connection refused (stub: this call writes no usage line)' }
-if ($LogFile) { Add-Content $LogFile ('{"output_tokens":123,"thinking_chars":45,"attempt":' + $Attempt + ',"mode":"' + $Mode + '"}') }
+if ($LogFile) { Add-Content $LogFile ('{"prompt_tokens":77,"output_tokens":123,"prompt_eval_duration":150000000,"eval_duration":900000000,"thinking_chars":45,"done_reason":"stop","attempt":' + $Attempt + ',"mode":"' + $Mode + '"}') }
+if ($LogFile -and (Test-Path (Join-Path $d "cancel-after-$i.txt"))) { New-Item -ItemType File -Force (Join-Path (Split-Path $LogFile) 'CANCEL') | Out-Null }
 Copy-Item $PromptFile (Join-Path $d "seen-prompt-$i.md")
 $r = Join-Path $d "reply-$i.txt"
 $reply = if (Test-Path $r) { Get-Content -Raw $r } else { 'no scripted reply' }
@@ -354,6 +355,134 @@ exit 1
     $r = Delegate $c
     $line = (Get-Content (Join-Path $c 'outcomes.jsonl') | Select-Object -Last 1) | ConvertFrom-Json
     Check 'a failed run is logged as not accepted with no tag, and the worker is not given a tag' ($line.outcome -eq 'not accepted' -and $null -eq $line.tag -and @(Get-Content (Join-Path $c 'calls.txt'))[0] -match 'tag=$')
+
+    # ---- V2-01: one row per attempt, a label set by this script's code, and a terminal state on the run row ----
+    function Get-Hash8([string] $s) { return ([BitConverter]::ToString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($s))) -replace '-', '').ToLowerInvariant().Substring(0, 8) }
+    function Get-HashFull([string] $s) { return ([BitConverter]::ToString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($s))) -replace '-', '').ToLowerInvariant() }
+    function Get-Rows([string] $d) { return @(Get-Content (Join-Path $d 'outcomes.jsonl') | ForEach-Object { $_ | ConvertFrom-Json }) }
+    function Get-Attempts([string] $d) { return @(Get-Rows $d | Where-Object { $_.kind -eq 'attempt' }) }
+    function Get-RunRow([string] $d) { return @(Get-Rows $d | Where-Object { $_.kind -eq 'run' })[-1] }
+    $labelRe = '^[A-Z]+(:[0-9a-f]{8})?$'
+    $states = @('accepted', 'accepted-after-verifier-edit', 'blocked', 'budget exhausted', 'failed', 'cancelled')
+    $allStates = @()
+
+    # 21. a pass on attempt 2: two attempt rows, then the run row LAST, sharing one run id; the pass has no label; fields are counts, hashes and codes
+    $c = NewCase @("$fence`nnope`n$fence", "$fence`nGOOD thing`n$fence")
+    $r = Delegate $c @('-Tag', 'rows')
+    $rows = Get-Rows $c; $at = Get-Attempts $c; $run = Get-RunRow $c
+    Check 'two attempts: two attempt rows, then one run row, which is the LAST line' ($at.Count -eq 2 -and $rows.Count -eq 3 -and $rows[-1].kind -eq 'run') ($rows | ConvertTo-Json -Compress)
+    Check 'the attempt rows and the run row share one run id' ($run.run -match '^[0-9a-f]{12}$' -and @($at | Where-Object { $_.run -ne $run.run }).Count -eq 0) ($rows | ConvertTo-Json -Compress)
+    Check 'attempt rows carry n, mode, tokens, seconds and done_reason' ($at[0].n -eq 1 -and $at[1].n -eq 2 -and $at[0].mode -eq 'default' -and $at[0].prompt_tokens -eq 77 -and $at[0].output_tokens -eq 123 -and $at[0].done_reason -eq 'stop' -and $null -ne $at[0].seconds -and $at[0].seconds -ge 0 -and $at[0].tag -eq 'rows') ($at | ConvertTo-Json -Compress)
+    Check 'attempt rows carry the prompt-eval and eval durations (nanoseconds, as Ollama returns them), so a report needs no second log' ($at[0].prompt_eval_duration -eq 150000000 -and $at[0].eval_duration -eq 900000000) ($at[0] | ConvertTo-Json -Compress)
+    Check 'the passing attempt has no label and the SHA-256 of its candidate' ($null -eq $at[1].label -and $at[1].candidate_sha256 -ceq (Get-HashFull 'GOOD thing')) ($at[1] | ConvertTo-Json -Compress)
+    Check 'the run row keeps its old fields and gains the state' ($run.outcome -eq 'accepted' -and $run.attempts -eq 2 -and $run.state -eq 'accepted' -and $run.tag -eq 'rows') ($run | ConvertTo-Json -Compress)
+    $allStates += $run.state
+
+    # 22. WRONG: the verifier said no. The label carries an 8-hex hash of the FIRST failing line, which the test computes itself
+    Check 'a failing attempt is WRONG plus the hash of its first failing line, and carries its candidate hash' ($at[0].label -ceq ('WRONG:' + (Get-Hash8 'FAIL candidate does not say GOOD')) -and $at[0].candidate_sha256 -ceq (Get-HashFull 'nope')) ($at[0] | ConvertTo-Json -Compress)
+
+    # 23. NOFENCE, IDENT, CAP, FAILED, each exactly as named, with no hash
+    $c = NewCase @('just prose, no code block', "$fence`nsame`n$fence", "$fence`nsame`n$fence")
+    $r = Delegate $c @('-MaxAttempts', '3'); $at = Get-Attempts $c
+    Check 'a reply with no fenced block is NOFENCE and has no candidate hash' ($at[0].label -ceq 'NOFENCE' -and $null -eq $at[0].candidate_sha256) ($at | ConvertTo-Json -Compress)
+    Check 'a candidate byte-equal to the previous one is IDENT (and still carries its hash); the first of them was WRONG' ($at[1].label -match '^WRONG:' -and $at[2].label -ceq 'IDENT' -and $at[2].candidate_sha256 -ceq $at[1].candidate_sha256) ($at | ConvertTo-Json -Compress)
+    $allStates += (Get-RunRow $c).state
+    $c = NewCase @('@@CAP@@', "$fence`nGOOD`n$fence")
+    $r = Delegate $c @('-MaxAttempts', '2'); $at = Get-Attempts $c
+    Check 'a token cap with no salvageable block is CAP, has no candidate, and the next attempt can pass' ($at[0].label -ceq 'CAP' -and $null -eq $at[0].candidate_sha256 -and $null -eq $at[1].label -and $r.Code -eq 0) ($at | ConvertTo-Json -Compress)
+    $c = NewCase @("$fence`nbad`n$fence", "$fence`nGOOD`n$fence")
+    New-Item -ItemType File (Join-Path $c 'nolog-1.txt') | Out-Null
+    $r = Delegate $c @('-MaxAttempts', '2'); $at = Get-Attempts $c
+    Check 'a model call that fails (not a token cap) is FAILED, counts as an attempt and has no tokens or durations (null, not zero)' ($at[0].label -ceq 'FAILED' -and $null -eq $at[0].output_tokens -and $null -eq $at[0].prompt_eval_duration -and $null -eq $at[0].candidate_sha256 -and $at.Count -eq 2) ($at | ConvertTo-Json -Compress)
+
+    # 24. PARSE and LINT (a .ps1 output file): a candidate that does not parse, and one that parses but fails lint-powershell.ps1; lint stops before the verifier
+    Set-Content (Join-Path $base 'verify-logged.ps1') @'
+param([string] $Script)
+Add-Content (Join-Path $env:STUB_DIR 'verifier-calls.txt') 'called'
+if ((Get-Content -Raw $Script) -match 'GOOD') { Write-Output '1/1 passed'; exit 0 }
+Write-Output 'FAIL candidate does not say GOOD'; exit 1
+'@ -Encoding utf8
+    $c = NewCase @("$fence`nif (`n$fence", "$fence`nGOOD`n$fence")
+    $r = Delegate $c @('-MaxAttempts', '2') 'verify-logged.ps1'; $at = Get-Attempts $c
+    Check 'a candidate that does not parse is PARSE plus a hash, and the verifier is not called for it' ($at[0].label -match '^PARSE:[0-9a-f]{8}$' -and @(Get-Content (Join-Path $c 'verifier-calls.txt')).Count -eq 1) (($at | ConvertTo-Json -Compress) + ' calls=' + (Get-Content (Join-Path $c 'verifier-calls.txt') -ErrorAction SilentlyContinue))
+    $c = NewCase @("$fence`nStart-Process -NoProfile foo`n$fence", "$fence`nGOOD`n$fence")
+    $r = Delegate $c @('-MaxAttempts', '2') 'verify-logged.ps1'; $at = Get-Attempts $c
+    $p2 = Get-Content -Raw (Join-Path $c 'seen-prompt-2.md')
+    Check 'a candidate that parses but fails the lint is LINT plus a hash, and the verifier is not called for it' ($at[0].label -match '^LINT:[0-9a-f]{8}$' -and @(Get-Content (Join-Path $c 'verifier-calls.txt')).Count -eq 1) (($at | ConvertTo-Json -Compress) + ' calls=' + (Get-Content (Join-Path $c 'verifier-calls.txt') -ErrorAction SilentlyContinue))
+    Check 'the lint lines are the feedback: the rule id and message reach the worker, the file path does not' ($p2 -match 'PSL006' -and $p2 -match 'Start-Process -NoProfile' -and $p2 -notmatch [regex]::Escape($c)) $p2
+    Check 'a clean candidate that passes is not slowed into a LINT label' ($at[1].label -eq $null -and $r.Code -eq 0) ($at | ConvertTo-Json -Compress)
+    # a LINT candidate ranks 500: worse than a verifier failure with a few failing lines, better than one that does not parse (1000). The output file
+    # of a failed run holds the BEST attempt, so it shows the ranking.
+    $c = NewCase @("$fence`nif (`n$fence", "$fence`nStart-Process -NoProfile foo`n$fence", "$fence`nif ((`n$fence")
+    $r = Delegate $c @('-MaxAttempts', '3') 'verify-count.ps1'
+    $held = (Get-Content -Raw (Join-Path $c 'out.ps1')).Trim()
+    Check 'ranking: LINT (500) is better than a candidate that does not parse (1000), so it becomes the best attempt' ($r.Code -eq 1 -and $held -match 'Start-Process -NoProfile foo') "held=[$held]"
+    $allStates += (Get-RunRow $c).state
+    $c = NewCase @("$fence`nStart-Process -NoProfile foo`n$fence", "$fence`na`nb`nc`n$fence", "$fence`nStart-Process -NoProfile bar`n$fence")
+    $r = Delegate $c @('-MaxAttempts', '3') 'verify-count.ps1'
+    $held = (Get-Content -Raw (Join-Path $c 'out.ps1')).Trim()
+    Check 'ranking: a verifier failure with 3 failing lines is better than LINT (500), so it stays the best attempt' ($r.Code -eq 1 -and $held -match '^a' -and $held -notmatch 'Start-Process') "held=[$held]"
+
+    # 25. SUSPECT: the same single failure on two different candidates; the hash is that of the failing line
+    $c = NewCase @("$fence`nnope1`n$fence", "$fence`nnope2`n$fence", "$fence`nnope3`n$fence")
+    $r = Delegate $c; $at = Get-Attempts $c
+    $h = Get-Hash8 'FAIL candidate does not say GOOD'
+    Check 'attempt 1 is WRONG; attempts 2 and 3 repeat its single failure on a new candidate, so they are SUSPECT with the same hash' ($at[0].label -ceq "WRONG:$h" -and $at[1].label -ceq "SUSPECT:$h" -and $at[2].label -ceq "SUSPECT:$h") ($at | ConvertTo-Json -Compress)
+    Check 'budget spent with verifier failures: state is budget exhausted and the old outcome field still says not accepted' ((Get-RunRow $c).state -eq 'budget exhausted' -and (Get-RunRow $c).outcome -eq 'not accepted' -and $r.Code -eq 1) ((Get-RunRow $c) | ConvertTo-Json -Compress)
+    $allStates += (Get-RunRow $c).state
+
+    # 26. every label in every row matches the fixed pattern, over all the runs above
+    $every = @(); foreach ($d in Get-ChildItem $base -Directory -Filter 'case-*') { if (Test-Path (Join-Path $d.FullName 'outcomes.jsonl')) { $every += @(Get-Attempts $d.FullName) } }
+    $bad = @($every | Where-Object { $null -ne $_.label -and $_.label -cnotmatch $labelRe })
+    Check "every label in $($every.Count) attempt rows matches ^[A-Z]+(:[0-9a-f]{8})?$" ($every.Count -gt 20 -and $bad.Count -eq 0) "bad=$($bad.label -join ',')"
+    $known = @('PARSE', 'LINT', 'WRONG', 'CAP', 'NOFENCE', 'IDENT', 'SUSPECT', 'FAILED')
+    Check 'and every label is one of the eight in the fixed list' (@($every | Where-Object { $null -ne $_.label -and ($_.label -split ':')[0] -cnotin $known }).Count -eq 0) (($every.label | Sort-Object -Unique) -join ',')
+
+    # 27. terminal states: failed (the worker never answered), cancelled before a call, cancelled between attempts, salvaged counts as accepted
+    $c = NewCase @("$fence`nbad`n$fence")
+    foreach ($i in 1..3) { New-Item -ItemType File (Join-Path $c "nolog-$i.txt") | Out-Null }
+    $r = Delegate $c; $run = Get-RunRow $c
+    Check 'every call failed: state is failed, every attempt is FAILED, exit 1' ($run.state -eq 'failed' -and @(Get-Attempts $c | Where-Object { $_.label -ceq 'FAILED' }).Count -eq 3 -and $r.Code -eq 1) ($run | ConvertTo-Json -Compress)
+    $allStates += $run.state
+    $c = NewCase @("$fence`nGOOD`n$fence")
+    New-Item -ItemType Directory (Join-Path $c 'work') | Out-Null; New-Item -ItemType File (Join-Path $c 'work\CANCEL') | Out-Null
+    $r = Delegate $c; $run = Get-RunRow $c
+    Check 'a CANCEL file in the work folder stops the run before any call: state cancelled, no attempt rows, no model call, exit 1' ($run.state -eq 'cancelled' -and $run.attempts -eq 0 -and (Get-Attempts $c).Count -eq 0 -and -not (Test-Path (Join-Path $c 'calls.txt')) -and $r.Code -eq 1 -and $r.Out -match 'CANCELLED') "$($r.Out) $($run | ConvertTo-Json -Compress)"
+    $allStates += $run.state
+    $c = NewCase @("$fence`nbad`n$fence", "$fence`nGOOD`n$fence")
+    New-Item -ItemType File (Join-Path $c 'cancel-after-1.txt') | Out-Null
+    Set-Content (Join-Path $c 'out.ps1') 'ORIGINAL CONTENT' -Encoding utf8
+    $r = Delegate $c; $run = Get-RunRow $c
+    Check 'a CANCEL file that appears during attempt 1 stops the run after it: one attempt row, state cancelled, the original output file is back' ($run.state -eq 'cancelled' -and $run.attempts -eq 1 -and (Get-Attempts $c).Count -eq 1 -and @(Get-Content (Join-Path $c 'calls.txt')).Count -eq 1 -and (Get-Content -Raw (Join-Path $c 'out.ps1')) -match 'ORIGINAL CONTENT') "$($r.Out) $($run | ConvertTo-Json -Compress)"
+    $c = NewCase @("$fence`nbad`n$fence", "$fence`nworse`n$fence", '@@CAP@@')
+    Set-Content (Join-Path $c 'think-3.txt') ("$fence`n" + (& $five 'GOOD') + "`n$fence") -Encoding utf8
+    $r = Delegate $c @('-MaxAttempts', '3'); $run = Get-RunRow $c; $at = Get-Attempts $c
+    Check 'a salvaged answer: the old outcome says salvaged, the state says accepted, and attempt 3 is marked salvaged with no label' ($run.outcome -eq 'salvaged' -and $run.state -eq 'accepted' -and $at[2].salvaged -eq $true -and $null -eq $at[2].label) (($run | ConvertTo-Json -Compress) + ' ' + ($at[2] | ConvertTo-Json -Compress))
+    $allStates += $run.state
+    Check 'across all the runs, every state is one of the six names, and the four reachable ones were each seen' (@($allStates | Where-Object { $_ -cnotin $states }).Count -eq 0 -and (@('accepted', 'budget exhausted', 'failed', 'cancelled') | Where-Object { $_ -cnotin $allStates }).Count -eq 0) ($allStates -join ',')
+
+    # 28. CANARY: a marker in the packet, in a candidate and in verifier output reaches neither log
+    $mark = 'CANARYQ7ZX9'
+    Set-Content (Join-Path $base 'verify-canary.ps1') @'
+param([string] $Script)
+if ((Get-Content -Raw $Script) -match 'GOOD') { Write-Output '1/1 passed'; exit 0 }
+Write-Output 'FAIL expected CANARYQ7ZX9-from-the-verifier, got something else'; exit 1
+'@ -Encoding utf8
+    Set-Content (Join-Path $base 'task-canary.md') "write a thing. CANARYQ7ZX9-in-the-packet" -Encoding utf8
+    $c = NewCase @("$fence`nbad CANARYQ7ZX9-in-the-candidate`n$fence", "$fence`nbad2 CANARYQ7ZX9-in-the-candidate`n$fence", "$fence`nbad3 CANARYQ7ZX9-in-the-candidate`n$fence")
+    $env:STUB_DIR = $c
+    $o = & pwsh -NoProfile -File $Script -TaskFile (Join-Path $base 'task-canary.md') -Verify (Join-Path $base 'verify-canary.ps1') -OutFile (Join-Path $c 'out.ps1') -InvokeScript (Join-Path $base 'stub.ps1') -WorkDir (Join-Path $c 'work') -OutcomeLog (Join-Path $c 'outcomes.jsonl') -UsageLog (Join-Path $c 'central.jsonl') -Tag 'canary' 2>&1 | Out-String
+    $logs = (Get-Content -Raw (Join-Path $c 'outcomes.jsonl')) + (Get-Content -Raw (Join-Path $c 'central.jsonl'))
+    Check 'the canary run really exercised packet, candidate and verifier text (the work folder has the marker)' ((Get-Content -Raw (Join-Path $c 'work\prompt-2.md')) -match $mark -and (Get-Content -Raw (Join-Path $c 'work\reply-1.txt')) -match $mark -and (Get-Content -Raw (Join-Path $c 'work\verifier-last.txt')) -match $mark) $o
+    Check 'but the marker is in neither the outcome log nor the central usage log' ($logs -notmatch $mark -and $logs.Length -gt 200) $logs
+
+    # 29. parallel runs share one outcome log: 24 runs write 24 attempt rows and 24 run rows, all whole JSON (the same lost-line hazard as the usage log)
+    $par2 = Join-Path $base 'parallel2'; New-Item -ItemType Directory $par2 | Out-Null
+    $procs = 1..$parN | ForEach-Object { Start-Process pwsh -ArgumentList '-NoProfile', '-File', $Script, '-TaskFile', (Join-Path $base 'task.md'), '-Verify', (Join-Path $base 'verify.ps1'), '-OutFile', (Join-Path $par2 "out$_.ps1"), '-InvokeScript', (Join-Path $base 'stub-fast.ps1'), '-WorkDir', (Join-Path $par2 "w$_"), '-OutcomeLog', (Join-Path $par2 'outcomes.jsonl'), '-UsageLog', (Join-Path $par2 'central.jsonl') -PassThru -WindowStyle Hidden }
+    $procs | Wait-Process -Timeout 180
+    $pl = @(Get-Content (Join-Path $par2 'outcomes.jsonl'))
+    $pbad = @($pl | Where-Object { try { $null = $_ | ConvertFrom-Json; $false } catch { $true } })
+    Check "$parN parallel runs share one outcome log: $($parN * 2) whole lines ($parN attempt rows and $parN run rows)" ($pl.Count -eq $parN * 2 -and $pbad.Count -eq 0 -and @($pl | ForEach-Object { ($_ | ConvertFrom-Json).kind } | Where-Object { $_ -eq 'run' }).Count -eq $parN) "lines=$($pl.Count) bad=$($pbad.Count)"
 } finally { Remove-Item -Recurse -Force $base -ErrorAction SilentlyContinue; Remove-Item Env:STUB_DIR -ErrorAction SilentlyContinue }
 Write-Output "$($n - $fail.Count)/$n passed"
 exit ([int]($fail.Count -gt 0))

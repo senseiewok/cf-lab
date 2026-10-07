@@ -42,7 +42,19 @@
   pwsh -NoProfile -File delegate.ps1 -TaskFile task.md -Verify verify.ps1 -OutFile out/check.ps1
 
 .NOTES
-  Exit codes: 0 accepted, 1 not accepted after all attempts, 2 not configured or usage error.
+  Exit codes: 0 accepted, 1 not accepted after all attempts or cancelled, 2 not configured or usage error.
+
+.NOTES
+  The outcome log (V2-01): one `attempt` row per attempt, then one `run` row, in that order, sharing a run id. Rows hold counts, hashes and codes,
+  never prompts, replies or verifier text. An attempt's label is set here, by code, never by the worker:
+    NOFENCE  no complete fenced block      IDENT   byte-equal to the previous candidate (not re-verified)
+    PARSE:h  a .ps1 does not parse, or the verifier reported a compile error    LINT:h  a .ps1 parses but fails lint-powershell.ps1 (ranked 500)
+    WRONG:h  the verifier failed it        SUSPECT:h  the same single check failed on a different candidate
+    CAP      token cap with no passing block in the thinking text     FAILED  the model call failed
+  h is the first 8 hex digits of the SHA-256 of the first failing line. A passing attempt has no label. The run row's state is accepted,
+  budget exhausted, failed (no call was ever answered) or cancelled. blocked and accepted-after-verifier-edit are reserved for the verifier
+  hash check (V2-02) and are not produced yet. To cancel a run, create a file named CANCEL in its work folder: it stops before the next call.
+  An interrupted process (Ctrl+C) writes no run row, so an attempt row with no run row after it is an interrupted run.
 #>
 param(
     [Parameter(Mandatory)] [string] $TaskFile,
@@ -61,7 +73,9 @@ param(
     [string] $InvokeScript = (Join-Path $PSScriptRoot 'invoke-local-model.ps1'),
     # A short label for this task, passed to the worker's usage entries and written to the outcome line. Default: LOCAL_WORKER_TAG.
     [string] $Tag = $env:LOCAL_WORKER_TAG,
-    # One JSON line per run is appended here (git-ignored .loop-logs by default): tag, task file name, outcome, attempts, seconds, tokens, work folder. Never prompts or replies.
+    # The PowerShell lint run on a .ps1 candidate after it parses and before the verifier. A candidate that fails it is labelled LINT and is not sent to the verifier.
+    [string] $LintScript = (Join-Path $PSScriptRoot 'lint-powershell.ps1'),
+    # One `attempt` row per attempt and one `run` row per run are appended here (git-ignored .loop-logs by default): tag, task file name, labels, hashes, counts, state, work folder. Never prompts, replies or verifier text.
     [string] $OutcomeLog = $(if ($env:LOCAL_WORKER_OUTCOME_LOG) { $env:LOCAL_WORKER_OUTCOME_LOG } else { Join-Path $PSScriptRoot '../../../../.loop-logs/delegations.jsonl' }),
     # The central usage log (git-ignored .loop-logs by default, the same file invoke-local-model.ps1 writes when called alone): every attempt's usage line is appended here as well as to the work folder's usage.jsonl.
     [string] $UsageLog = $(if ($env:LOCAL_WORKER_USAGE_LOG) { $env:LOCAL_WORKER_USAGE_LOG } else { Join-Path $PSScriptRoot '../../../../.loop-logs/local-model-usage.jsonl' })
@@ -82,16 +96,39 @@ $hadOut = Test-Path -LiteralPath $outFull -PathType Leaf
 if ($hadOut) { Copy-Item -LiteralPath $outFull -Destination (Join-Path $WorkDir 'out-before.txt') -Force }
 $runWatch = [Diagnostics.Stopwatch]::StartNew()
 
-# One line per run in the central outcome log, so results can be counted by tag without keeping scratch folders. Never allowed to break a run.
-function Write-Outcome([string] $Outcome, [int] $Attempts) {
+$runId = [guid]::NewGuid().ToString('N').Substring(0, 12)
+$anyAnswered = $false   # did any model call come back (a token cap counts: the model answered)? Decides failed against budget exhausted.
+
+function Get-Sha256Hex([string] $Text) { return ([BitConverter]::ToString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($Text))) -replace '-', '').ToLowerInvariant() }
+# A label is a fixed code, plus (for WRONG, SUSPECT, PARSE, LINT) the first 8 hex digits of the SHA-256 of the first failing line. Never the line itself.
+function Get-Label([string] $Code, [string] $FirstFailingLine) { if ($FirstFailingLine) { return "${Code}:" + (Get-Sha256Hex $FirstFailingLine).Substring(0, 8) } else { return $Code } }
+
+# One line in the central outcome log. Never allowed to break a run.
+function Add-OutcomeLine([string] $Json) {
+    $dir = Split-Path -Parent ([IO.Path]::GetFullPath($OutcomeLog))
+    if (-not (Test-Path -LiteralPath $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
+    Add-SharedLine $OutcomeLog $Json
+}
+# One row per attempt, written before the run row: counts, hashes and codes, never text. $Usage is the worker's usage line for this call (or $null when it logged none).
+function Write-AttemptRow([int] $N, [string] $Mode, $Label, $Cand, $Usage, [double] $Seconds, [bool] $Salvaged = $false) {
+    try {
+        $row = [ordered]@{ kind = 'attempt'; ts = (Get-Date).ToUniversalTime().ToString('o'); run = $runId; tag = $(if ($Tag) { $Tag } else { $null }); n = $N; mode = $Mode; label = $Label
+            prompt_tokens = $Usage.prompt_tokens; output_tokens = $Usage.output_tokens; prompt_eval_duration = $Usage.prompt_eval_duration; eval_duration = $Usage.eval_duration; seconds = [math]::Round($Seconds, 1); done_reason = $Usage.done_reason
+            candidate_sha256 = $(if ($null -ne $Cand) { Get-Sha256Hex ([string]$Cand) } else { $null }) }
+        if ($Salvaged) { $row.salvaged = $true }
+        Add-OutcomeLine ($row | ConvertTo-Json -Compress)
+    } catch { }
+}
+# One line per run, after its attempt rows, so results can be counted by tag without keeping scratch folders. $Outcome is the older field (accepted, salvaged,
+# not accepted, cancelled); $State is the terminal state. Never allowed to break a run.
+function Write-Outcome([string] $Outcome, [int] $Attempts, [string] $State) {
     try {
         $tokens = 0
         $ulog = Join-Path $WorkDir 'usage.jsonl'
         if (Test-Path -LiteralPath $ulog) { foreach ($l in Get-Content -LiteralPath $ulog) { try { $tokens += [int](($l | ConvertFrom-Json).output_tokens) } catch { } } }
-        $dir = Split-Path -Parent ([IO.Path]::GetFullPath($OutcomeLog))
-        if (-not (Test-Path -LiteralPath $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
-        @{ ts = (Get-Date).ToUniversalTime().ToString('o'); tag = $(if ($Tag) { $Tag } else { $null }); task = (Split-Path -Leaf $TaskFile); outcome = $Outcome; attempts = $Attempts
-           max_attempts = $MaxAttempts; seconds = [int]$runWatch.Elapsed.TotalSeconds; output_tokens = $tokens; work_dir = $WorkDir } | ConvertTo-Json -Compress | Add-Content -LiteralPath $OutcomeLog
+        $row = [ordered]@{ kind = 'run'; run = $runId; ts = (Get-Date).ToUniversalTime().ToString('o'); tag = $(if ($Tag) { $Tag } else { $null }); task = (Split-Path -Leaf $TaskFile); outcome = $Outcome; state = $State; attempts = $Attempts
+            max_attempts = $MaxAttempts; seconds = [int]$runWatch.Elapsed.TotalSeconds; output_tokens = $tokens; work_dir = $WorkDir }
+        Add-OutcomeLine ($row | ConvertTo-Json -Compress)
     } catch { }
 }
 
@@ -109,15 +146,16 @@ function Add-SharedLine([string] $Path, [string] $Line) {
             return
         } catch [IO.IOException] { Start-Sleep -Milliseconds (Get-Random -Minimum 5 -Maximum 40) }
     }
-    Write-Host 'warning: a usage line could not be written to the central usage log (it is still in the work folder)'
+    Write-Host "warning: a line could not be written to $(Split-Path -Leaf $Path) (another process kept it locked)"
 }
 function Get-UsageCount { $u = Join-Path $WorkDir 'usage.jsonl'; if (Test-Path -LiteralPath $u) { return @(Get-Content -LiteralPath $u).Count } else { return 0 } }
+# Returns the usage entry it copied (the attempt row reads its token counts from it), or $null when the call logged nothing new.
 function Copy-UsageToCentral([int] $Before, [int] $Attempt, [string] $Mode) {
     try {
         $u = Join-Path $WorkDir 'usage.jsonl'
-        if (-not (Test-Path -LiteralPath $u)) { return }
+        if (-not (Test-Path -LiteralPath $u)) { return $null }
         $lines = @(Get-Content -LiteralPath $u)
-        if ($lines.Count -le $Before) { return }
+        if ($lines.Count -le $Before) { return $null }
         $e = $lines[-1] | ConvertFrom-Json
         $e | Add-Member -NotePropertyName attempt -NotePropertyValue $Attempt -Force
         $e | Add-Member -NotePropertyName mode -NotePropertyValue $Mode -Force
@@ -125,7 +163,8 @@ function Copy-UsageToCentral([int] $Before, [int] $Attempt, [string] $Mode) {
         $dir = Split-Path -Parent ([IO.Path]::GetFullPath($UsageLog))
         if (-not (Test-Path -LiteralPath $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
         Add-SharedLine $UsageLog ($e | ConvertTo-Json -Compress)
-    } catch { }
+        return $e
+    } catch { return $null }
 }
 
 function Get-Candidate([string] $Reply, [bool] $Plain) {
@@ -150,6 +189,16 @@ function Test-Candidate([string] $Cand) {
         if ($errs -and $errs.Count) {
             $msg = 'FAIL does not parse: ' + (($errs | Select-Object -First 4 | ForEach-Object { "line $($_.Extent.StartLineNumber): $($_.Message)" }) -join '; ')
             return [pscustomobject]@{ Ok = $false; Stage = 'parse'; Failing = @($msg); Summary = 'does not parse' }
+        }
+        # It parses: lint it before the verifier. lint-powershell.ps1 exits 1 on findings; any other exit (2, or it could not run) is no verdict, so the verifier decides.
+        if (Test-Path -LiteralPath $LintScript -PathType Leaf) {
+            $lo = & pwsh -NoProfile -File $LintScript $outFull 2>&1 | Out-String
+            if ($LASTEXITCODE -eq 1) {
+                # <path>:<line>:<col>: PSLnnn <message>  ->  FAIL lint line <line>:<col> PSLnnn <message>  (the path is dropped: it is noise to the worker and a private detail)
+                $findings = @($lo -split "`r?`n" | Where-Object { $_ -match ':\d+:\d+: PSL\d{3} ' } | ForEach-Object { 'FAIL lint ' + ($_ -replace '^.*?:(\d+):(\d+): (PSL\d{3}) ', 'line $1:$2 $3 ') })
+                if (-not $findings.Count) { $findings = @('FAIL lint reported findings') }
+                return [pscustomobject]@{ Ok = $false; Stage = 'lint'; Failing = $findings; Summary = 'fails lint' }
+            }
         }
     }
     $v = if ($Verify -match '\.py$') { & python $Verify $outFull 2>&1 | Out-String } else { & pwsh -NoProfile -File $Verify -Script $outFull 2>&1 | Out-String }
@@ -206,6 +255,13 @@ $note = ''       # one extra sentence for the next prompt: regression, identical
 $prevKey = $null # the single failing line of the previous attempt, for the verifier-suspect hint
 $suspect = $false
 for ($n = 1; $n -le $MaxAttempts; $n++) {
+    # A CANCEL file in the work folder stops the run before the next call is paid. The output file is put back as it was, or holds the best attempt so far.
+    if (Test-Path -LiteralPath (Join-Path $WorkDir 'CANCEL')) {
+        Restore-OutFile
+        Write-Outcome 'cancelled' ($n - 1) 'cancelled'
+        Write-Host "CANCELLED before attempt ${n}: a CANCEL file is in the work folder, so no further call was made. Work dir: $WorkDir"
+        exit 1
+    }
     $thinking = ($n -eq $MaxAttempts -and $MaxAttempts -ge 3)
     $mode = if ($thinking) { 'thinking' } else { 'default' }
     $prompt = $task
@@ -235,10 +291,11 @@ for ($n = 1; $n -le $MaxAttempts; $n++) {
     $usageBefore = Get-UsageCount
     try { $reply = (& $InvokeScript @params | Out-String) }
     catch {
-        Copy-UsageToCentral $usageBefore $n $mode
+        $callUsage = Copy-UsageToCentral $usageBefore $n $mode
         $msg = $_.Exception.Message
         Write-Host "attempt $n ($mode): model call failed: $msg"
         if ($msg -match 'Generated-token limit reached') {
+            $anyAnswered = $true   # the model did answer; it ran out of tokens
             # A thinking model may have written a complete answer inside its thinking before it ran out of tokens (seen 2026-10-05:
             # 50 KB of thinking, a passing program on lines 669-852, cut off before the answer). Try those blocks, last first; only the
             # independent verifier can accept one.
@@ -247,17 +304,24 @@ for ($n = 1; $n -le $MaxAttempts; $n++) {
                 if ($r.Ok) {
                     Write-Host "SALVAGED on attempt $n ($mode): the call hit the token cap, but a complete answer inside its thinking text passed the verifier -> $outFull"
                     Write-Host "  It was never returned as an answer: read it with extra care before you rely on it. Work dir: $WorkDir"
-                    Write-Outcome 'salvaged' $n
+                    Write-AttemptRow $n $mode $null $blk $callUsage $sw.Elapsed.TotalSeconds $true
+                    Write-Outcome 'salvaged' $n 'accepted'
                     exit 0
                 }
             }
             $feedback = 'The call ran out of output tokens while thinking and returned no answer. Write the complete answer FIRST, briefly; do not re-verify it at length.'
-        } else { $feedback = 'The model call failed.' }
+            Write-AttemptRow $n $mode 'CAP' $null $callUsage $sw.Elapsed.TotalSeconds
+        } else {
+            $feedback = 'The model call failed.'
+            Write-AttemptRow $n $mode 'FAILED' $null $callUsage $sw.Elapsed.TotalSeconds
+        }
         $note = ''
         continue
     }
     $sw.Stop()
-    Copy-UsageToCentral $usageBefore $n $mode
+    $anyAnswered = $true
+    $callUsage = Copy-UsageToCentral $usageBefore $n $mode
+    $callSeconds = $sw.Elapsed.TotalSeconds
     $usage = ''
     $ulog = Join-Path $WorkDir 'usage.jsonl'
     if (Test-Path -LiteralPath $ulog) {
@@ -269,33 +333,46 @@ for ($n = 1; $n -le $MaxAttempts; $n++) {
     if ($null -eq $cand) {
         $feedback = 'The reply contained no complete fenced block.'
         $note = ' Your last reply had no complete fenced block; return the whole result in ONE fenced block.'
+        Write-AttemptRow $n $mode 'NOFENCE' $null $callUsage $callSeconds
         Write-Host "attempt $n ($mode, $secs): no fenced block"; continue
     }
     if ($null -ne $last -and $cand -ceq $last) {
         $note = ' Your last answer was IDENTICAL to the one before it, so the feedback was not applied. Change the specific thing named in the first failing line below.'
+        Write-AttemptRow $n $mode 'IDENT' $cand $callUsage $callSeconds
         Write-Host "attempt $n ($mode, $secs): identical to the previous attempt; the feedback did not change the answer"
         continue
     }
     $last = $cand
     $r = Test-Candidate $cand
     Write-Host "attempt $n ($mode, $secs): $($r.Summary)"
-    if ($r.Ok) { Write-Host "ACCEPTED on attempt $n -> $outFull  (read it before you rely on it; work dir: $WorkDir)"; Write-Outcome 'accepted' $n; exit 0 }
+    if ($r.Ok) {
+        Write-AttemptRow $n $mode $null $cand $callUsage $callSeconds
+        Write-Host "ACCEPTED on attempt $n -> $outFull  (read it before you rely on it; work dir: $WorkDir)"; Write-Outcome 'accepted' $n 'accepted'; exit 0
+    }
     # A candidate that does not parse or compile is the WORST outcome, even when the verifier reports it as a single failing line (a prose reply once counted as 'better' than a nearly passing script).
-    $count = if ($r.Stage -eq 'parse' -or @($r.Failing | Where-Object { $_ -match 'does not compile|SyntaxError|IndentationError|does not parse' }).Count) { 1000 } else { $r.Failing.Count }
+    # One that parses but fails the lint ranks 500: worse than any realistic count of failing checks, better than one that does not parse.
+    $isParse = ($r.Stage -eq 'parse') -or ($r.Stage -ne 'lint' -and @($r.Failing | Where-Object { $_ -match 'does not compile|SyntaxError|IndentationError|does not parse' }).Count -gt 0)
+    $count = if ($isParse) { 1000 } elseif ($r.Stage -eq 'lint') { 500 } else { $r.Failing.Count }
     # One check failing, with the same message, on two DIFFERENT candidates: more often the expectation is wrong than the worker (seen three
     # times on 2026-10-05). Say so; do not stop, because a thinking attempt may still pass if the verifier is right.
     $key = if ($r.Stage -eq 'verifier' -and $r.Failing.Count -eq 1) { [string]$r.Failing[0] } else { $null }
+    $suspectNow = $false
     if ($key -and $null -ne $prevKey -and $key -ceq $prevKey) {
-        $suspect = $true
+        $suspect = $true; $suspectNow = $true
         Write-Host "attempt ${n}: VERIFIER SUSPECT: the same single check failed on two different candidates ($key). Read that check against the spec by hand before blaming the worker."
     }
     $prevKey = $key
+    # The attempt's label, from the code path that decided it. The hash is of the first failing line; the line itself is never logged.
+    $firstFail = ([string]($r.Failing | Select-Object -First 1)).Trim()
+    $label = if ($suspectNow) { Get-Label 'SUSPECT' $firstFail } elseif ($isParse) { Get-Label 'PARSE' $firstFail } elseif ($r.Stage -eq 'lint') { Get-Label 'LINT' $firstFail } else { Get-Label 'WRONG' $firstFail }
+    Write-AttemptRow $n $mode $label $cand $callUsage $callSeconds
     $note = ''
     if ($best -and $count -gt $best.Count) { $note = " Your latest attempt had $count failing checks, MORE than the $($best.Count) of your best attempt, so it was set aside: change only the part the failures below name." }
     if (-not $best -or $count -le $best.Count) { $best = [pscustomobject]@{ Cand = $cand; Failing = $r.Failing; Count = $count; Attempt = $n } }
 }
 Restore-OutFile
-Write-Outcome 'not accepted' $MaxAttempts
+# budget exhausted: the model answered at least once and no attempt passed. failed: no call was ever answered (every one errored).
+Write-Outcome 'not accepted' $MaxAttempts $(if ($anyAnswered) { 'budget exhausted' } else { 'failed' })
 Write-Host "NOT ACCEPTED after $MaxAttempts attempt(s). Last verifier output: $(Join-Path $WorkDir 'verifier-last.txt')"
 if ($hadOut) { Write-Host "Your existing output file was put back unchanged. The best failed attempt is in $(Join-Path $WorkDir 'best-candidate.txt')." }
 elseif ($best) { Write-Host "The output file holds the BEST failed attempt (attempt $($best.Attempt), $($best.Count) failing checks), not a finished result." }
