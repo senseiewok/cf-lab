@@ -64,6 +64,12 @@ try {
     $r = Run ('[' + (& $item 's' 'good.md') + ']') @('-DelegateScript', (Join-Path $base 'salvage-delegate.ps1'))
     Check 'a salvaged answer is accepted and flagged, not reported as an error' ($r.Code -eq 0 -and $r.Out -match 's\s+accepted\s+\d+s\s+attempt 3 SALVAGED' -and $r.Out -notmatch 'error') "$($r.Code) $($r.Out)"
 
+    # 3b2. V2-01: a CANCELLED run (a CANCEL file in an item's work folder) is reported as cancelled, not as an error, and the batch goes on
+    Set-Content (Join-Path $base 'cancel-delegate.ps1') 'Write-Host "CANCELLED before attempt 2: a CANCEL file is in the work folder, so no further call was made."; exit 1' -Encoding utf8
+    $r = Run ('[' + (& $item 'c1' 'good.md') + ',' + (& $item 'c2' 'good.md') + ']') @('-DelegateScript', (Join-Path $base 'cancel-delegate.ps1'))
+    Check 'a cancelled item is reported as cancelled with the attempt it stopped before, not as an error' ($r.Out -match 'c1\s+cancelled\s+\d+s\s+before attempt 2' -and $r.Out -notmatch 'error') $r.Out
+    Check 'a cancelled item does not stop the batch and the batch exits 1 (not every item was accepted)' ($r.Out -match 'c2\s+cancelled' -and $r.Code -eq 1 -and $r.Out -match '0 of 2 accepted') "$($r.Code) $($r.Out)"
+
     # 3c. V2-06a: -NumCtx reaches a worker only when the batch caller sets it (a profile's own num_ctx must not be overridden by a hidden default)
     $nc = Join-Path $base 'numctx.txt'
     Remove-Item $nc -ErrorAction SilentlyContinue

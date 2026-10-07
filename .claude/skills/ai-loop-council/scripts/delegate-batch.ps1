@@ -67,6 +67,8 @@ foreach ($it in $items) {
         # delegate.ps1 exits 0 with "SALVAGED on attempt N" when a capped call's thinking held a complete answer that passed the verifier: accepted, but flagged for an extra careful read.
         elseif ($text -match 'SALVAGED on attempt (\d+)') { $row.status = 'accepted'; $row.detail = "attempt $($Matches[1]) SALVAGED from thinking text: read with extra care" }
         elseif ($text -match 'NOT ACCEPTED after (\d+)') { $row.status = 'not accepted'; $row.detail = "after $($Matches[1]) attempt(s)" }
+        # delegate.ps1 exits 1 with "CANCELLED before attempt N" when a CANCEL file is in the item's work folder: a decision by a person, not a failure of the worker or the script.
+        elseif ($text -match 'CANCELLED before attempt (\d+)') { $row.status = 'cancelled'; $row.detail = "before attempt $($Matches[1])" }
         else { $row.status = 'error'; $row.detail = "delegate.ps1 exit $code" }
         Set-Content -LiteralPath (Join-Path $dir ("log-" + $it.name + '.txt')) -Value $text -Encoding utf8
     }
