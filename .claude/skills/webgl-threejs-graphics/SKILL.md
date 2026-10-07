@@ -21,7 +21,7 @@ See `THIRD_PARTY_SKILLS.md` in the control repo for what was reviewed and how to
 
 ## Choosing: raw WebGL2 or three.js
 
-- **Raw WebGL2** (start from `examples/triangle.html`): no dependency, nothing to vendor, about 100 lines for a drawing with sizing, pause, and context-loss recovery. Shaders are GLSL ES 3.00 and begin with `#version 300 es`.
+- **Raw WebGL2** (start from `examples/triangle.html`; `examples/lit-torus.html` is a lit, rotating 3D mesh): no dependency, nothing to vendor, about 100 lines for a drawing with sizing, pause, and context-loss recovery. Shaders are GLSL ES 3.00 and begin with `#version 300 es`.
 - **three.js**: use it for scene graphs, instancing, loaders and post-processing. Vendor a pinned copy (see below).
 
 ## Raw WebGL2: what the example does, and why
@@ -34,6 +34,8 @@ Each point is either tested by `scripts/test-check-webgl.py` or sourced (the URL
 - **The loop.** `requestAnimationFrame` is paused in background tabs in most browsers. Advance animation by the callback's timestamp, not by frame count, or it runs faster on high-refresh screens. Pause the loop when the tab is hidden (`visibilitychange`) and, as our own inference, when the canvas is offscreen (`IntersectionObserver`).
 - **Errors and reading back.** Call `getError()` after allocation, not every frame (it can force a round trip to the GPU). `readPixels` blocks the pipeline: fine in a test, not per frame. Reading after presentation may need `preserveDrawingBuffer`.
 - **Fewer draw calls.** Batch, use texture atlases, and use `drawArraysInstanced` with `vertexAttribDivisor` for repeated shapes.
+- **`drawElements` counts indices.** The `count` argument is the number of elements of the bound element array buffer to render, so for `gl.TRIANGLES` it is the index count (three per triangle in that mode), not the triangle count. Passing the triangle count draws the first third of the mesh and raises no error and no GL error. Measured in this lab: three of six pages written by the local worker passed a count that covered only part of the element array (two passed the triangle count, one half the indices) and drew a partial mesh (an open, partial torus in the two frames that were viewed); two of them still reported the full triangle count in their probe. Compute both from the same array: `indices.length` to `drawElements`, `indices.length / 3` for any triangle count you report. `type` is `UNSIGNED_BYTE` or `UNSIGNED_SHORT`; `UNSIGNED_INT` is listed there only with the `OES_element_index_uint` extension (the page read does not say how WebGL 2 differs).
+- **A lit mesh** needs a normal for every vertex, a light fixed in world space, and the model's rotation applied to the normals as well as the positions. A shape that is symmetric about the axis it spins around looks identical in every frame (measured with a torus spun about its own axis), so a spin that is applied before the tilt shows nothing; tilt first, then spin. Measured: two of six worker pages applied the spin before the tilt; one of them was identical in every frame, and the other passed a rotation check, which we infer is because its missing triangles broke the symmetry (not tested).
 
 ## three.js
 
@@ -97,5 +99,6 @@ Animated pages need a different check, because a free-running animation cannot b
 - three.js documentation: https://threejs.org/docs/pages/WebGLRenderer.html and https://threejs.org/docs/pages/InstancedMesh.html
 - W3C, WCAG 2.2 Understanding pages for 1.1.1, 2.2.2, 2.3.1 and 2.3.3: https://www.w3.org/WAI/WCAG22/Understanding/
 - web.dev, rendering performance (a 10 ms frame budget during animation): https://web.dev/articles/rendering-performance
+- MDN, `drawElements` (re-read 2026-10-07 through a summarising fetch tool; the page defines `count` as the number of elements of the bound element array buffer to be rendered): https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements
 
 Not found in any source read, so not claimed here: a recommended `devicePixelRatio` cap, a frame-time or draw-call budget for WebGL, and a rule on untrusted GLSL strings.
