@@ -465,3 +465,10 @@ Adding a new model? Follow `model-onboarding`: provenance, memory fit, behaviour
 - Structured feedback in agent repair loops: [arXiv:2607.14167](https://arxiv.org/abs/2607.14167)
 - Token and time cost of agent runs: [SWE-Effi, arXiv:2509.09853](https://arxiv.org/abs/2509.09853)
 - Ollama structured outputs: [docs.ollama.com](https://docs.ollama.com/capabilities/structured-outputs)
+
+## Reading the delegation log
+
+`python .claude/skills/ai-loop-council/scripts/loop-report.py .loop-logs/delegations.jsonl` prints one block per tag and one for all runs, from the `attempt` and `run` rows that `delegate.ps1` writes: runs and their states; how many were accepted on attempt 1, 2, 3 (`pass@k` is cumulative); `pass^k` (tasks with k or more runs where every run was accepted; `--k`, default 2); output and prompt tokens and output tokens per accepted artifact; IDENT and SUSPECT attempts; comparable retries and how many were identical (a retry is comparable when it and the attempt before it both have a reply: a candidate or a NOFENCE label); the share of output tokens spent in thinking mode; token-cap hits; prompt-eval seconds; and the output tokens spent by runs that reached attempt 3. It prints counts and shares, never a path, a prompt or a reply, and writes nothing unless `--write-rows` is given.
+
+Runs logged before V2-01 have no attempt rows. `--backfill .loop-logs/delegations.jsonl` rebuilds them from each run's work folder (`usage.jsonl` and `reply-N.txt`, found through the old row's `work_dir`, or `--root` for relative ones). A backfilled attempt is labelled NOFENCE, CAP, IDENT or UNKNOWN, because the reason a failed attempt failed was not recorded; a run whose work folder is gone is skipped with a note. `--write-rows FILE` saves the rebuilt rows. Counts from one machine and a few days are a baseline to compare against, not a ranking; name the n whenever you quote one.
+
