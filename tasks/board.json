@@ -2724,7 +2724,7 @@
       "updated_at": "2026-10-05T14:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. Nothing from the clone is copied into a public repo. 2026-10-05: the maintainer decided the lab's skills are layered on top of Anthropic's in the lab's own repos (nothing copied; base named, labelled third party, layer works alone): THIRD_PARTY_SKILLS.md lists the pairs and ai-provider-compatible-skills section 11 holds the rule. The trial still decides whether to adapt any idea."
+      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. Nothing from the clone is copied into a public repo. 2026-10-05: the maintainer decided the lab's skills are layered on top of Anthropic's in the lab's own repos (nothing copied; base named, labelled third party, layer works alone): THIRD_PARTY_SKILLS.md lists the pairs and ai-provider-compatible-skills section 11 holds the rule. The trial still decides whether to adapt any idea. 2026-10-07 progress: the trial note and its tools are merged in cf-research (PR 5): proposals/2026-10-07-public-skills-trial.md, status proposed. It covers what was run, the with-and-without results from checks that run, the description and body token costs, the reproducible discovery check, and which scripts were read or run. Left for the maintainer: adopt, adapt or drop for each skill (suggested: adapt both, install neither). Not done: a blind different-family review of the note. The task stays ready until the maintainer decides."
     },
     {
       "id": "T-0076",
