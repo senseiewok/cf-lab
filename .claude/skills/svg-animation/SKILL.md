@@ -64,6 +64,14 @@ Set `pathLength="1"` on the `<path>` so dash values are measured against 1 whate
 - **Decorative SVG**: `aria-hidden="true"` and no `<title>` or `<desc>`. Never put `aria-hidden` on something focusable or on an ancestor of something focusable.
 - For pages that speak about cystic fibrosis: calm, sober visuals, no flashing, no suggestion of what any person's body or treatment will do, a drawing labelled "schematic" when it is one, and a source and checked date for every scientific caption (leave out any you cannot source).
 
+## Restraint
+
+The idea is adapted from the `frontend-design` base above, rewritten here; the rules are this lab's preference for calm pages, not a measured result. A small with-and-without trial (five pages per arm, one task, checks on accessibility and verified copy only; `cf-research/proposals/2026-10-07-public-skills-trial.md`) leaned the same way but did not test how the pages look.
+
+- **Move one thing.** Pick the one element a reader should notice and animate that. Keep everything around it still.
+- **Give each movement a reason.** Self-starting motion is for drawing attention to one thing, once. A fade-in on every section or a hover effect on every card is decoration: leave it out.
+- **Answer the person.** Motion that responds to an action (opening, expanding, confirming) is welcome when it shows what changed, and it still honours reduced motion.
+
 ## Content-Security-Policy
 
 Under `style-src` without `unsafe-inline`, `<style>` elements, `style="..."` attributes and `setAttribute('style', ...)` are blocked, while setting a property directly (`element.style.opacity = '0.5'`) is not. Prefer classes in an external stylesheet and toggle them. Nothing read says how SMIL attributes behave under a strict policy, so test it. The examples inline their CSS and script only so each file runs on its own.
