@@ -3,6 +3,7 @@ param([string] $Script = (Join-Path $PSScriptRoot 'delegate.ps1'))
 $ErrorActionPreference = 'Stop'
 $base = Join-Path ([IO.Path]::GetTempPath()) ('delegate-test-' + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory $base | Out-Null
+$vdir = Join-Path $base 'v'; New-Item -ItemType Directory $vdir | Out-Null   # verifiers live in a folder of their own: the loop freezes the verifier's whole folder (V2-02)
 $fail = @(); $n = 0
 function Check([string] $name, [bool] $ok, [string] $detail = '') { $script:n++; Write-Output (('PASS ', 'FAIL ')[-not $ok] + $name + $(if (-not $ok) { "  ($detail)" })); if (-not $ok) { $script:fail += $name } }
 
@@ -25,20 +26,20 @@ if ($reply.TrimStart().StartsWith('@@CAP@@')) {
 }
 $reply
 '@ -Encoding utf8
-Set-Content (Join-Path $base 'verify.ps1') @'
+Set-Content (Join-Path $vdir 'verify.ps1') @'
 param([string] $Script)
 $t = Get-Content -Raw $Script
 if ($t -match 'GOOD') { Write-Output '1/1 passed'; exit 0 }
 Write-Output 'FAIL candidate does not say GOOD'; Write-Output '0/1 passed'; exit 1
 '@ -Encoding utf8
-Set-Content (Join-Path $base 'verify-count.ps1') @'
+Set-Content (Join-Path $vdir 'verify-count.ps1') @'
 param([string] $Script)
 $lines = @(Get-Content $Script)
 if (($lines -join "`n") -match 'GOOD') { Write-Output '1/1 passed'; exit 0 }
 foreach ($l in $lines) { Write-Output "FAIL $l" }
 exit 1
 '@ -Encoding utf8
-Set-Content (Join-Path $base 'verify-echo.ps1') @'
+Set-Content (Join-Path $vdir 'verify-echo.ps1') @'
 param([string] $Script)
 $first = (Get-Content $Script | Select-Object -First 1)
 if ($first -match 'GOOD') { Write-Output '1/1 passed'; exit 0 }
@@ -53,7 +54,7 @@ function NewCase([string[]] $replies) {
 }
 function Delegate([string] $d, [string[]] $extra = @(), [string] $verifier = 'verify.ps1') {
     $env:STUB_DIR = $d
-    $o = & pwsh -NoProfile -File $Script -TaskFile (Join-Path $base 'task.md') -Verify (Join-Path $base $verifier) -OutFile (Join-Path $d 'out.ps1') -InvokeScript (Join-Path $base 'stub.ps1') -WorkDir (Join-Path $d 'work') -OutcomeLog (Join-Path $d 'outcomes.jsonl') -UsageLog (Join-Path $d 'central.jsonl') @extra 2>&1 | Out-String
+    $o = & pwsh -NoProfile -File $Script -TaskFile (Join-Path $base 'task.md') -Verify (Join-Path $vdir $verifier) -OutFile (Join-Path $d 'out.ps1') -InvokeScript (Join-Path $base 'stub.ps1') -WorkDir (Join-Path $d 'work') -OutcomeLog (Join-Path $d 'outcomes.jsonl') -UsageLog (Join-Path $d 'central.jsonl') @extra 2>&1 | Out-String
     return @{ Code = $LASTEXITCODE; Out = $o; Dir = $d }
 }
 $fence = '```'
@@ -105,12 +106,12 @@ try {
 
     # 8. cloud-only when nothing is configured (no stub override)
     foreach ($k in 'LOCAL_WORKER_MODEL', 'LOCAL_WORKER_PROFILE', 'LOCAL_WORKER_THINKING_PROFILE') { [Environment]::SetEnvironmentVariable($k, $null, 'Process') }
-    $o = & pwsh -NoProfile -File $Script -TaskFile (Join-Path $base 'task.md') -Verify (Join-Path $base 'verify.ps1') -OutFile (Join-Path $base 'x.ps1') 2>&1 | Out-String
+    $o = & pwsh -NoProfile -File $Script -TaskFile (Join-Path $base 'task.md') -Verify (Join-Path $vdir 'verify.ps1') -OutFile (Join-Path $base 'x.ps1') 2>&1 | Out-String
     Check 'nothing configured: exit 2, says cloud-only, calls no model' ($LASTEXITCODE -eq 2 -and $o -match 'cloud-only') $o
 
     # 9. refuses to write inside .git
     $c = NewCase @("$fence`nGOOD`n$fence")
-    $o = & pwsh -NoProfile -File $Script -TaskFile (Join-Path $base 'task.md') -Verify (Join-Path $base 'verify.ps1') -OutFile (Join-Path $c '.git\hook.ps1') -InvokeScript (Join-Path $base 'stub.ps1') 2>&1 | Out-String
+    $o = & pwsh -NoProfile -File $Script -TaskFile (Join-Path $base 'task.md') -Verify (Join-Path $vdir 'verify.ps1') -OutFile (Join-Path $c '.git\hook.ps1') -InvokeScript (Join-Path $base 'stub.ps1') 2>&1 | Out-String
     Check 'refuses an output path inside .git' ($LASTEXITCODE -eq 2 -and $o -match '\.git') $o
 
     # 10. T-0059: a model-only setup (no profile) sends think off for the fast attempts and think on for the last one
@@ -191,7 +192,7 @@ if ($LogFile) { Add-Content $LogFile ('{"output_tokens":1,"attempt":' + $Attempt
 '@ -Encoding utf8
     $par = Join-Path $base 'parallel'; New-Item -ItemType Directory $par | Out-Null
     $parN = 24
-    $procs = 1..$parN | ForEach-Object { Start-Process pwsh -ArgumentList '-NoProfile', '-File', $Script, '-TaskFile', (Join-Path $base 'task.md'), '-Verify', (Join-Path $base 'verify.ps1'), '-OutFile', (Join-Path $par "out$_.ps1"), '-InvokeScript', (Join-Path $base 'stub-fast.ps1'), '-WorkDir', (Join-Path $par "w$_"), '-OutcomeLog', (Join-Path $par "o$_.jsonl"), '-UsageLog', (Join-Path $par 'central.jsonl') -PassThru -WindowStyle Hidden }
+    $procs = 1..$parN | ForEach-Object { Start-Process pwsh -ArgumentList '-NoProfile', '-File', $Script, '-TaskFile', (Join-Path $base 'task.md'), '-Verify', (Join-Path $vdir 'verify.ps1'), '-OutFile', (Join-Path $par "out$_.ps1"), '-InvokeScript', (Join-Path $base 'stub-fast.ps1'), '-WorkDir', (Join-Path $par "w$_"), '-OutcomeLog', (Join-Path $par "o$_.jsonl"), '-UsageLog', (Join-Path $par 'central.jsonl') -PassThru -WindowStyle Hidden }
     $procs | Wait-Process -Timeout 180
     $got = if (Test-Path (Join-Path $par 'central.jsonl')) { @(Get-Content (Join-Path $par 'central.jsonl')).Count } else { 0 }
     Check "$parN parallel delegations write $parN central usage lines (none lost to a lock collision)" ($got -eq $parN) "got $got"
@@ -311,7 +312,7 @@ if ($LogFile) { Add-Content $LogFile ('{"output_tokens":1,"attempt":' + $Attempt
     Check 'with no existing file, the output file holds the BEST failed attempt (fewest failing lines), not the last' ($r.Code -eq 1 -and $held -ceq 'bad') "held=[$held] $($r.Out)"
 
     # 17b. a candidate that does not compile is never the 'best' attempt, even though the verifier reports it as ONE failing line
-    Set-Content (Join-Path $base 'verify-compile.ps1') @'
+    Set-Content (Join-Path $vdir 'verify-compile.ps1') @'
 param([string] $Script)
 $lines = @(Get-Content $Script)
 if (($lines -join "`n") -match 'GOOD') { Write-Output '1/1 passed'; exit 0 }
@@ -332,7 +333,7 @@ exit 1
     Check 'the thinking attempt carries the answer-first instruction and the fast ones do not' ($p3 -match 'Write the complete answer FIRST' -and $p1 -notmatch 'Write the complete answer FIRST') $p3
 
     # 20. identical failure lines reach the worker once, with a count, so one cause does not hide the others
-    Set-Content (Join-Path $base 'verify-many.ps1') @'
+    Set-Content (Join-Path $vdir 'verify-many.ps1') @'
 param([string] $Script)
 if ((Get-Content -Raw $Script) -match 'GOOD') { Write-Output '1/1 passed'; exit 0 }
 1..5 | ForEach-Object { Write-Output 'FAIL page /x: title length 85 not in 20..70' }
@@ -396,7 +397,7 @@ exit 1
     Check 'a model call that fails (not a token cap) is FAILED, counts as an attempt and has no tokens or durations (null, not zero)' ($at[0].label -ceq 'FAILED' -and $null -eq $at[0].output_tokens -and $null -eq $at[0].prompt_eval_duration -and $null -eq $at[0].candidate_sha256 -and $at.Count -eq 2) ($at | ConvertTo-Json -Compress)
 
     # 24. PARSE and LINT (a .ps1 output file): a candidate that does not parse, and one that parses but fails lint-powershell.ps1; lint stops before the verifier
-    Set-Content (Join-Path $base 'verify-logged.ps1') @'
+    Set-Content (Join-Path $vdir 'verify-logged.ps1') @'
 param([string] $Script)
 Add-Content (Join-Path $env:STUB_DIR 'verifier-calls.txt') 'called'
 if ((Get-Content -Raw $Script) -match 'GOOD') { Write-Output '1/1 passed'; exit 0 }
@@ -404,11 +405,12 @@ Write-Output 'FAIL candidate does not say GOOD'; exit 1
 '@ -Encoding utf8
     $c = NewCase @("$fence`nif (`n$fence", "$fence`nGOOD`n$fence")
     $r = Delegate $c @('-MaxAttempts', '2') 'verify-logged.ps1'; $at = Get-Attempts $c
-    Check 'a candidate that does not parse is PARSE plus a hash, and the verifier is not called for it' ($at[0].label -match '^PARSE:[0-9a-f]{8}$' -and @(Get-Content (Join-Path $c 'verifier-calls.txt')).Count -eq 1) (($at | ConvertTo-Json -Compress) + ' calls=' + (Get-Content (Join-Path $c 'verifier-calls.txt') -ErrorAction SilentlyContinue))
+    # The verifier runs once on the empty stub before the first call (V2-02 pre-flight) and once for the attempt that parses and lints clean: 2 calls, not 1 and not 3.
+    Check 'a candidate that does not parse is PARSE plus a hash, and the verifier is not called for it' ($at[0].label -match '^PARSE:[0-9a-f]{8}$' -and @(Get-Content (Join-Path $c 'verifier-calls.txt')).Count -eq 2) (($at | ConvertTo-Json -Compress) + ' calls=' + (Get-Content (Join-Path $c 'verifier-calls.txt') -ErrorAction SilentlyContinue))
     $c = NewCase @("$fence`nStart-Process -NoProfile foo`n$fence", "$fence`nGOOD`n$fence")
     $r = Delegate $c @('-MaxAttempts', '2') 'verify-logged.ps1'; $at = Get-Attempts $c
     $p2 = Get-Content -Raw (Join-Path $c 'seen-prompt-2.md')
-    Check 'a candidate that parses but fails the lint is LINT plus a hash, and the verifier is not called for it' ($at[0].label -match '^LINT:[0-9a-f]{8}$' -and @(Get-Content (Join-Path $c 'verifier-calls.txt')).Count -eq 1) (($at | ConvertTo-Json -Compress) + ' calls=' + (Get-Content (Join-Path $c 'verifier-calls.txt') -ErrorAction SilentlyContinue))
+    Check 'a candidate that parses but fails the lint is LINT plus a hash, and the verifier is not called for it' ($at[0].label -match '^LINT:[0-9a-f]{8}$' -and @(Get-Content (Join-Path $c 'verifier-calls.txt')).Count -eq 2) (($at | ConvertTo-Json -Compress) + ' calls=' + (Get-Content (Join-Path $c 'verifier-calls.txt') -ErrorAction SilentlyContinue))
     Check 'the lint lines are the feedback: the rule id and message reach the worker, the file path does not' ($p2 -match 'PSL006' -and $p2 -match 'Start-Process -NoProfile' -and $p2 -notmatch [regex]::Escape($c)) $p2
     Check 'a clean candidate that passes is not slowed into a LINT label' ($at[1].label -eq $null -and $r.Code -eq 0) ($at | ConvertTo-Json -Compress)
     # a LINT candidate ranks 500: worse than a verifier failure with a few failing lines, better than one that does not parse (1000). The output file
@@ -463,7 +465,7 @@ Write-Output 'FAIL candidate does not say GOOD'; exit 1
 
     # 28. CANARY: a marker in the packet, in a candidate and in verifier output reaches neither log
     $mark = 'CANARYQ7ZX9'
-    Set-Content (Join-Path $base 'verify-canary.ps1') @'
+    Set-Content (Join-Path $vdir 'verify-canary.ps1') @'
 param([string] $Script)
 if ((Get-Content -Raw $Script) -match 'GOOD') { Write-Output '1/1 passed'; exit 0 }
 Write-Output 'FAIL expected CANARYQ7ZX9-from-the-verifier, got something else'; exit 1
@@ -471,14 +473,14 @@ Write-Output 'FAIL expected CANARYQ7ZX9-from-the-verifier, got something else'; 
     Set-Content (Join-Path $base 'task-canary.md') "write a thing. CANARYQ7ZX9-in-the-packet" -Encoding utf8
     $c = NewCase @("$fence`nbad CANARYQ7ZX9-in-the-candidate`n$fence", "$fence`nbad2 CANARYQ7ZX9-in-the-candidate`n$fence", "$fence`nbad3 CANARYQ7ZX9-in-the-candidate`n$fence")
     $env:STUB_DIR = $c
-    $o = & pwsh -NoProfile -File $Script -TaskFile (Join-Path $base 'task-canary.md') -Verify (Join-Path $base 'verify-canary.ps1') -OutFile (Join-Path $c 'out.ps1') -InvokeScript (Join-Path $base 'stub.ps1') -WorkDir (Join-Path $c 'work') -OutcomeLog (Join-Path $c 'outcomes.jsonl') -UsageLog (Join-Path $c 'central.jsonl') -Tag 'canary' 2>&1 | Out-String
+    $o = & pwsh -NoProfile -File $Script -TaskFile (Join-Path $base 'task-canary.md') -Verify (Join-Path $vdir 'verify-canary.ps1') -OutFile (Join-Path $c 'out.ps1') -InvokeScript (Join-Path $base 'stub.ps1') -WorkDir (Join-Path $c 'work') -OutcomeLog (Join-Path $c 'outcomes.jsonl') -UsageLog (Join-Path $c 'central.jsonl') -Tag 'canary' 2>&1 | Out-String
     $logs = (Get-Content -Raw (Join-Path $c 'outcomes.jsonl')) + (Get-Content -Raw (Join-Path $c 'central.jsonl'))
     Check 'the canary run really exercised packet, candidate and verifier text (the work folder has the marker)' ((Get-Content -Raw (Join-Path $c 'work\prompt-2.md')) -match $mark -and (Get-Content -Raw (Join-Path $c 'work\reply-1.txt')) -match $mark -and (Get-Content -Raw (Join-Path $c 'work\verifier-last.txt')) -match $mark) $o
     Check 'but the marker is in neither the outcome log nor the central usage log' ($logs -notmatch $mark -and $logs.Length -gt 200) $logs
 
     # 29. parallel runs share one outcome log: 24 runs write 24 attempt rows and 24 run rows, all whole JSON (the same lost-line hazard as the usage log)
     $par2 = Join-Path $base 'parallel2'; New-Item -ItemType Directory $par2 | Out-Null
-    $procs = 1..$parN | ForEach-Object { Start-Process pwsh -ArgumentList '-NoProfile', '-File', $Script, '-TaskFile', (Join-Path $base 'task.md'), '-Verify', (Join-Path $base 'verify.ps1'), '-OutFile', (Join-Path $par2 "out$_.ps1"), '-InvokeScript', (Join-Path $base 'stub-fast.ps1'), '-WorkDir', (Join-Path $par2 "w$_"), '-OutcomeLog', (Join-Path $par2 'outcomes.jsonl'), '-UsageLog', (Join-Path $par2 'central.jsonl') -PassThru -WindowStyle Hidden }
+    $procs = 1..$parN | ForEach-Object { Start-Process pwsh -ArgumentList '-NoProfile', '-File', $Script, '-TaskFile', (Join-Path $base 'task.md'), '-Verify', (Join-Path $vdir 'verify.ps1'), '-OutFile', (Join-Path $par2 "out$_.ps1"), '-InvokeScript', (Join-Path $base 'stub-fast.ps1'), '-WorkDir', (Join-Path $par2 "w$_"), '-OutcomeLog', (Join-Path $par2 'outcomes.jsonl'), '-UsageLog', (Join-Path $par2 'central.jsonl') -PassThru -WindowStyle Hidden }
     $procs | Wait-Process -Timeout 180
     $pl = @(Get-Content (Join-Path $par2 'outcomes.jsonl'))
     $pbad = @($pl | Where-Object { try { $null = $_ | ConvertFrom-Json; $false } catch { $true } })

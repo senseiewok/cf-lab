@@ -377,6 +377,13 @@ with tempfile.TemporaryDirectory() as t:
     code, so, se = run([run_rows(blocked)])
     b = blocks(so).get("== tag: z ==", [])
     check("a run state this report does not list (blocked) counts as a run but in none of the state counts", "runs: 1" in b and "states: accepted 0, budget exhausted 0, failed 0, cancelled 0, interrupted 0" in b, str(b[:3]))
+    check("with the verifier freeze states present, they get their own line (blocked 1, accepted-after-verifier-edit 0)", "verifier freeze: blocked 1, accepted-after-verifier-edit 0 (neither is counted in the states above)" in b, str(b[:4]))
+    reverified = blocked + [{"kind": "run", "run": "z2", "tag": "z", "task": "t.md", "outcome": "reverified", "state": "accepted-after-verifier-edit", "attempts": 0, "max_attempts": 3}]
+    code, so, se = run([run_rows(reverified)])
+    b2 = blocks(so).get("== tag: z ==", [])
+    check("a re-verified run is counted on the freeze line, never as accepted", "verifier freeze: blocked 1, accepted-after-verifier-edit 1 (neither is counted in the states above)" in b2 and "states: accepted 0, budget exhausted 0, failed 0, cancelled 0, interrupted 0" in b2, str(b2[:4]))
+    code, so, se = run([run_rows(list(two))])
+    check("with no freeze states, the report has no freeze line (every earlier report is unchanged)", "verifier freeze" not in so, so[:200])
     stray = [{"kind": "note", "text": "hello"}, {"tag": "old", "outcome": "accepted"}] + two
     code, so, se = run([run_rows(stray)])
     check("rows of another kind, or with no kind, are ignored silently (no stderr note)", code == 0 and se == "" and "== tag: k ==" in so, f"code={code} stderr={se[:120]!r}")

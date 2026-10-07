@@ -7,11 +7,13 @@
   so running delegations sequentially loses nothing and needs no lock. Each item is delegated with delegate.ps1, exactly as if
   you had run it by hand; this script adds nothing to what is trusted. The verifier of each item still decides.
 
-  The batch file is a JSON array of objects: name, task, verify, out (paths relative to the batch file's folder). Each item
+  The batch file is a JSON array of objects: name, task, verify, out (paths relative to the batch file's folder), and optionally
+  verifier_files (an array of files or folders the verifier needs besides its own folder, passed as -VerifierFiles). A verifier needs a folder of
+  its own: delegate.ps1 freezes the whole folder, so neither the output file nor the work folder may be inside it. Each item
   gets a work folder next to the batch file, work-<name>. A missing file in one item is reported for that item and the batch
   goes on, unless -StopOnFail is given. The results are printed, and written next to the batch file as <batch>.results.json.
 
-  Exit code: 0 when every item was accepted, 1 when any was not, 2 on a usage error.
+  Exit code: 0 when every item was accepted, 1 when any was not, 2 on a usage error. An item that delegate.ps1 blocked (exit 3: the verifier changed\n  mid-run) or refused before the first call (exit 2: the verifier cannot fail, or cannot run from its copy) is reported as blocked or refused.
 
 .EXAMPLE
   pwsh -NoProfile -File delegate-batch.ps1 -Batch .\batch.json -NumCtx 65536 -MaxOutputTokens 16384
@@ -59,6 +61,7 @@ foreach ($it in $items) {
         if ($FastProfile) { $args2 += '-FastProfile', $FastProfile }
         if ($ThinkingProfile) { $args2 += '-ThinkingProfile', $ThinkingProfile }
         if ($InvokeScript) { $args2 += '-InvokeScript', $InvokeScript }
+        if ($it.PSObject.Properties['verifier_files']) { $vf = @(@($it.verifier_files) | Where-Object { $_ } | ForEach-Object { Resolve-Item ([string]$_) }); if ($vf.Count) { $args2 += '-VerifierFiles'; $args2 += ($vf -join ',') } }
         $sw = [Diagnostics.Stopwatch]::StartNew()
         $text = (& pwsh @args2 2>&1 | Out-String)
         $row.seconds = [int]$sw.Elapsed.TotalSeconds
@@ -69,6 +72,9 @@ foreach ($it in $items) {
         elseif ($text -match 'NOT ACCEPTED after (\d+)') { $row.status = 'not accepted'; $row.detail = "after $($Matches[1]) attempt(s)" }
         # delegate.ps1 exits 1 with "CANCELLED before attempt N" when a CANCEL file is in the item's work folder: a decision by a person, not a failure of the worker or the script.
         elseif ($text -match 'CANCELLED before attempt (\d+)') { $row.status = 'cancelled'; $row.detail = "before attempt $($Matches[1])" }
+        # V2-02: the verifier was frozen and then changed (exit 3), or it was refused before the first call (exit 2). Nothing was accepted, and the worker is not to blame.
+        elseif ($text -match 'BLOCKED \((\S+)\)') { $row.status = 'blocked'; $row.detail = $Matches[1] }
+        elseif ($text -match 'REFUSED \((\S+)\)') { $row.status = 'refused'; $row.detail = $Matches[1] }
         else { $row.status = 'error'; $row.detail = "delegate.ps1 exit $code" }
         Set-Content -LiteralPath (Join-Path $dir ("log-" + $it.name + '.txt')) -Value $text -Encoding utf8
     }
