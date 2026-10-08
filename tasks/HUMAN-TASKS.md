@@ -2,7 +2,7 @@
 
 What only a person can do, kept as one checklist so nothing waits unseen. `board.json` stays the lab's single task list; this file is a hand-kept view of the rows and pull requests that need a human. **When this file and the board disagree, the board wins.** Tick a box when it is done and add the date.
 
-Last reviewed: 2026-10-08. Items about the private site repository are kept out of this public file; they live in that repository's own notes.
+Last reviewed: 2026-10-08 (after the merges of that day). Items about the private site repository are kept out of this public file; they live in that repository's own notes.
 
 ## 1. Pull requests waiting for a person to merge
 
@@ -10,12 +10,10 @@ A pull request is a proposal until a person merges it. Agents never merge.
 
 | Repo | PR | What | What it needs |
 | --- | --- | --- | --- |
-| cf-research | #8 | A ClinVar evidence profile tool (`tools/variant_profile`) | Read, merge; and decide which variant its test fixture should use |
 | cf-research | #10 (draft) | Six API candidates in the source catalog, none admitted | The different-family blind review is done (local Qwen, every flag checked); a person still reads the diff (Full tier: licensing) |
-| cf-research | #11 | Ranked sources and the sign-up table | Read, decide which sign-ups to do |
-| cf-research | #12 | Four registry permission letters (drafts) | Read, edit, then send (section 3) |
-| cf-skills | #4 | `brief drug/variant/trial` in cf-evidence-loop: one question, several sources, cross-checks | Read, merge; decide the version bump |
-| cf-lab | #25 (this file) | This checklist | Read, merge |
+| cf-research | #17 | Variant tool fix: re-lands the six-lookup fix that missed the squash of #8 | Read, merge |
+| cf-skills | #7 | `cite-check` in cf-evidence-loop, re-landed on main (it missed the squash of #4) | Read, merge; decide the version bump |
+| cf-lab | this PR | Instructions and skills brought up to date: answer tiers, the scope rule, the one-command check, stale paths | Read, merge, and confirm the tiers and the scope rule (section 4) |
 
 ## 2. Board decisions only a person can make
 
@@ -46,6 +44,7 @@ Use a lab-owned address, never a personal one. Keys go only in the git-ignored `
 
 ## 4. Decisions that are not code
 
+- [ ] Confirm the answer tiers T0 to T3 and the scope-record rule for widening words as lab rules (written into `cf-research-context` and `AGENTS.md` by this PR from cf-research's strategy proposal)
 - [ ] Registry reuse and cloud use (T-0072): whether sources with unread terms go only to local models, whether to ask the Foundation and the Trust for permission to quote, and the licence wording for skills that carry quotations
 - [ ] Whether to open Discussions on cf-lab with the welcome post (a draft exists)
 - [ ] After each merge: remove the agent's worktree (an agent does it when asked)
