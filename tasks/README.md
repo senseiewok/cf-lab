@@ -7,6 +7,7 @@ The lab's single task list. Every task records **who proposed it** (a named mode
 | `board.json` | Source of truth. Edit this |
 | `BOARD.md` | Rendered view, grouped by status, sorted by priority, then ROI index, then id. Never edit by hand |
 | `render-board.ps1` | Renders and validates. `-Check` exits 1 when `BOARD.md` is stale, 2 when `board.json` is invalid |
+| `HUMAN-TASKS.md` | A hand-kept checklist of what only a person can do (merges, board decisions, sign-ups). A view, not a second list: the board wins on any disagreement |
 
 ```powershell
 pwsh -File tasks/render-board.ps1          # after editing board.json
