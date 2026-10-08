@@ -108,7 +108,7 @@ A test decides what is kept, never the model's own word. The lab's measured resu
 
 - You name your model once, as `LOCAL_WORKER_MODEL` in `.env`.
 - If it is not set, there is no local worker, and all work stays with your cloud assistant. Nothing falls back to a default model.
-- The lab's own choice, Qwen3.8 27B, is what the template names. It is not a requirement.
+- The lab's own choice, Qwen3.8 27B, is suggested in a comment in the template, which leaves the line switched off. It is not a requirement.
 
 ### Check it without downloading anything
 

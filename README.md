@@ -298,7 +298,7 @@ There is a single lab env file, `.env` in this folder. It holds every key and ev
 
 - **API keys**, for example `DC_API_KEY` (the Data Commons review).
 - **The single source catalog**: `EVIDENCE_CATALOG` points at `../cf-research/sources/catalog.yaml`, the one place that records what each external source permits and its API settings. The evidence skill reads it; its own `catalog.yaml` is a generated copy.
-- **Your preferred local model**: `LOCAL_WORKER_MODEL` (for example `qwen3.8:27b-64k`). If it is unset, there is no local worker and all work is cloud-only.
+- **Your preferred local model**: `LOCAL_WORKER_MODEL` (for example `qwen3.8:27b`). If it is unset, there is no local worker and all work is cloud-only.
 
 Set it up:
 

@@ -55,10 +55,10 @@ ollama pull <model>
 The lab reads one setting, `LOCAL_WORKER_MODEL`, from the `.env` file in `cf-lab`.
 
 1. If you have no `.env` yet, make one from the template, in PowerShell 7 from the `cf-lab` folder: `Copy-Item .env.example .env` ([full steps](../README.md#one-env-file-for-keys-and-settings)).
-2. Open `.env` in a text editor and set the line to the exact name from `ollama list`, for example `LOCAL_WORKER_MODEL=qwen3.8:27b`. No quotes, no spaces around `=`.
+2. Open `.env` in a text editor, remove the `#` at the start of the `LOCAL_WORKER_MODEL` line and set it to the exact name from `ollama list`, for example `LOCAL_WORKER_MODEL=qwen3.8:27b`. No quotes, no spaces around `=`.
 3. Optional: choose settings from a profile. A **profile** is a small file with a model's recommended settings, kept next to its skill. Add `LOCAL_WORKER_PROFILE=.claude/skills/model-qwen3-8-27b/ollama-profile.fast.json` for quick drafts (thinking off). `LOCAL_WORKER_THINKING_PROFILE` names the profile for the last, slower attempt of a delegated task. The template shows both lines commented out.
 
-Watch for one trap. The template ships `LOCAL_WORKER_MODEL=qwen3.8:27b-64k`. That is a name the lab made on its own computer for the same model with a larger working memory (context); `ollama pull` does not give you that name. If `ollama list` does not show it, change the line to the name it does show.
+Watch for one trap. The lab's own profiles use the name `qwen3.8:27b-64k`, a local alias the lab made for the same model with a larger working memory (context). `ollama pull` does not give you that name, so the template leaves the line commented out: remove the `#` only after you have the exact name from `ollama list`.
 
 The scripts read these settings from the environment, not from the file itself, so run them through the `.env` loader, `run-with-env.ps1`, as steps 5 and 6 show.
 
