@@ -3689,6 +3689,42 @@
       "completed_by": null,
       "notes": "Proposed by a model; only a human moves it to ready. Not started. Open questions for the maintainer: does the Pro licence include API access or is a separate key needed; which data may ever go (the lab's rule: only reviewed shareable packets, never secrets, patient data or private site details); and whether the manual handoff is enough. Antigravity itself can be used by hand on a worktree that has no .env and no private folders.",
       "complexity": "medium"
+    },
+    {
+      "id": "T-0102",
+      "title": "Bring the lab's sources together: one question, one cross-checked record, then the variant layer",
+      "repo": "cf-research",
+      "area": "evidence",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-08T14:40:09Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-08 session, answering the maintainer's wish to bring sources together and to know what to sign up for"
+      },
+      "source_evidence": "2026-10-08: the maintainer said the lab's strength is bringing sources together and asked for a list of APIs, MCP servers and data in order of impact. cf-research/sources/catalog.yaml already holds 14 sources with access: api and six more are drafted (two api, four manual) (cf-research proposals/2026-10-07-api-candidates.md, draft pull request). The ranked plan and the sign-up steps only the maintainer can do are in cf-research proposals/2026-10-08-source-plan-and-signups.md. The catalog marks OpenAlex and Data Commons as key-required and NCBI and openFDA as optional-key; of the keys, only DC_API_KEY has a slot in .env.example today.",
+      "effort_hours": {
+        "low": 10,
+        "high": 24
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: the lab's differentiator is answering one CF question from several checked sources at once; the approved sources already exist, so most of the value is wiring and tests, not new access.",
+        "confidence": "low",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Step 1: a documented, tested run of one fixed CF question through the evidence loop returns records from at least four catalogued sources, each with its source id, URL, retrieval date and a 'not stated' where a source is silent; a test with a deliberately wrong record shows the cross-check flags it. Step 2: the variant layer (the variant_profile tool, MyVariant, and AlphaMissense only if the catalog entry is admitted) gives one profile for a fixed public variant with every number tied to a source field. Each new key gets a slot in .env.example (names only) and is read only through run-with-env.ps1; no agent reads .env. Every pull request names each new external network call and dependency. The maintainer does every sign-up, licence acceptance and permission request in the proposal's table; no source becomes reachable until the maintainer admits it in the catalog. A Full-tier review applies where a key or a licence is involved.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-08T14:40:09Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "high",
+      "notes": "2026-10-08: proposed by a model; only the maintainer can set it ready. Not started. Sign-ups (maintainer only, with a lab-owned address and keys only in the git-ignored .env): OpenAlex key first, then optional NCBI and openFDA keys, the CFF and ECFSPR permission requests (T-0006), connector sign-ins, and the decisions on Semantic Scholar, Data Commons, Gemini and any paid item. Costs and the terms of the sources marked unread in the proposal have not been checked."
     }
   ]
 }
