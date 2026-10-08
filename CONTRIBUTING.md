@@ -3,6 +3,7 @@
 Thank you for helping. This is a small, donated-time lab, so a short, scoped change that explains itself is the best kind.
 
 - **Read [AGENTS.md](AGENTS.md) first.** It holds the rules every contributor and every AI agent follows here, including the review tiers.
+- **New here?** [docs/SETUP.md](docs/SETUP.md) sets the lab up with a cloud assistant only or with a local model; [docs/local-models-ollama.md](docs/local-models-ollama.md) covers Ollama.
 - **Keep a change in one repo and one purpose.** Describe what it changes and what evidence supports it.
 - **No secrets, patient data or personal details.** Not in files, examples, screenshots, logs or commit messages. Use synthetic data.
 - **This is research, not medical advice.** Do not add dosing, treatment recommendations, eligibility rules or cure claims.

@@ -31,6 +31,11 @@ What this is not: a medical organisation, a clinic, a charity, or part of the Cy
 
 ## Quick start
 
+| Pick your path | Read |
+| --- | --- |
+| A cloud assistant only (Claude, Claude Code, Codex, Gemini CLI, Copilot); no GPU or local model | [docs/SETUP.md](docs/SETUP.md), Path A |
+| Add a local model through Ollama | [docs/SETUP.md](docs/SETUP.md), Path B, then [docs/local-models-ollama.md](docs/local-models-ollama.md) |
+
 Setup needs only Git. It clones `cf-skills` and `cf-research` beside this folder if they are missing and creates an untracked `cf-lab-files` folder for local notes, so start in an empty folder of your choosing: it will hold four folders side by side. Setup downloads nothing else, installs nothing and never touches a model.
 
 ### Windows
@@ -309,13 +314,8 @@ None of these is needed to read the work, run the checks above or contribute. Ea
 
 ### A local model
 
-A local worker is a model on your own machine that drafts small, bounded changes and gives first-pass reviews; a test still decides what is kept. The lab uses Ollama for this. Nothing in the lab downloads a model for you.
-
-1. Install [Ollama](https://ollama.com/download) (Windows: `winget install --id Ollama.Ollama -e`) and pull a model you trust from the official library. Read the [security-runtime](.claude/skills/security-runtime/SKILL.md) skill first: it keeps Ollama on your own machine only and says which models to trust, and the [model-onboarding](.claude/skills/model-onboarding/SKILL.md) checklist covers comparing one.
-2. Put its name in `.env` as `LOCAL_WORKER_MODEL=<your model>`. The template ships with the lab's own choice, `qwen3.8:27b-64k`; change it to yours, or delete the line to have no local worker. Optional sampling profiles go in `LOCAL_WORKER_PROFILE` and `LOCAL_WORKER_THINKING_PROFILE` (see `.env.example`).
-3. The scripts read settings from the environment, not from the file, so run them through the loader: `pwsh -NoProfile -File .claude/skills/security-git/scripts/run-with-env.ps1 -- pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/invoke-local-model.ps1 -PromptFile task.md`.
-
-With no model set, there is no local worker and all work is cloud-only; nothing falls back to a particular model. The lab's measured profiles are in the `model-qwen3-8-27b`, `model-qwen3-coder-next` and `model-deepseek-r1-32b` skills, and the `Modelfile` here is the lab's own Ollama definition, not a requirement.
+A model on your own machine, through Ollama, for small drafts and first-pass reviews; a test still decides what is kept, and nothing in the lab downloads a model for you. With `LOCAL_WORKER_MODEL` unset in `.env`, all work is cloud-only.
+Install, model choice, settings, offline checks and safety: [docs/local-models-ollama.md](docs/local-models-ollama.md).
 
 ### The cloud gate
 
