@@ -11,10 +11,11 @@ A pull request is a proposal until a person merges it. Agents never merge.
 | Repo | PR | What | What it needs |
 | --- | --- | --- | --- |
 | cf-research | #8 | A ClinVar evidence profile tool (`tools/variant_profile`) | Read, merge; and decide which variant its test fixture should use |
-| cf-research | #10 (draft) | Six API candidates in the source catalog, none admitted | A different-family blind review, then a person reading the diff (Full tier: licensing) |
+| cf-research | #10 (draft) | Six API candidates in the source catalog, none admitted | The different-family blind review is done (local Qwen, every flag checked); a person still reads the diff (Full tier: licensing) |
 | cf-research | #11 | Ranked sources and the sign-up table | Read, decide which sign-ups to do |
 | cf-research | #12 | Four registry permission letters (drafts) | Read, edit, then send (section 3) |
-| cf-lab | this PR | This file | Read, merge |
+| cf-skills | #4 | `brief drug/variant/trial` in cf-evidence-loop: one question, several sources, cross-checks | Read, merge; decide the version bump |
+| cf-lab | #25 (this file) | This checklist | Read, merge |
 
 ## 2. Board decisions only a person can make
 
