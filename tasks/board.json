@@ -1089,8 +1089,8 @@
       "depends_on": [
         "T-0029"
       ],
-      "notes": "Human gate: agent instructions and .claude/; a human approves the diff. Human decided 2026-10-04: yes, AGENTS.md becomes the only rule source. Wait until the current hq branch has merged so --against main is meaningful. Do not change what any rule means. Draft by a cloud or frontier model is reasonable; the meaning-preservation check is the human's.",
-      "updated_at": "2026-10-04T20:00:00Z",
+      "notes": "Human gate: agent instructions and .claude/; a human approves the diff. Human decided 2026-10-04: yes, AGENTS.md becomes the only rule source. Wait until the current hq branch has merged so --against main is meaningful. Do not change what any rule means. Draft by a cloud or frontier model is reasonable; the meaning-preservation check is the human's. 2026-10-08: Audit evidence: AGENTS.md is 2,962 words and the README 4,683 words, duplicating layout, env and tiers; every session reads a 165 KB BOARD.md. Suggest: rules only in AGENTS.md, narrative in the README, done or dropped rows archived out of BOARD.md.",
+      "updated_at": "2026-10-08T17:32:37Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1268,8 +1268,8 @@
       "depends_on": [
         "T-0030"
       ],
-      "notes": "Human gate: AGENTS.md, .claude/ and .github/ (CODEOWNERS-protected). Decisions 1 and 3 of the design note are the human's. Do not do this before they are answered.",
-      "updated_at": "2026-10-04T23:00:00Z",
+      "notes": "Human gate: AGENTS.md, .claude/ and .github/ (CODEOWNERS-protected). Decisions 1 and 3 of the design note are the human's. Do not do this before they are answered. 2026-10-08: Audit evidence: ai-loop-council/SKILL.md is 478 lines and 11,420 words (next largest 5,539) with 14 'proposed' or 'design only' sections mixed in with rules; about 15k tokens a load. Suggested split: a core of about 150 lines of policy plus references (delegation, routing, experiments with cases kept as fixtures). The dead .github/loop-orchestrator prototype (566 lines, exits on its first statement) is still named in README, AGENTS.md and copilot-instructions.",
+      "updated_at": "2026-10-08T17:32:37Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -2071,10 +2071,10 @@
       "acceptance": "grep -n 'setup' .github/CODEOWNERS shows /setup.cmd and /setup.sh owned by @senseiewok and no /setup.ps1; grep -rn -E 'hq|Research Lab' .github returns nothing in cf-lab; the CI workflow drafts (kept by the maintainer outside the repos, one per repo) are in .github/workflows of each repo (see T-0061).",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-05T01:10:00Z",
+      "updated_at": "2026-10-08T17:32:37Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human only. Proposed by a model. Workflow drafts are in the release folder, outside the repos, and are untested."
+      "notes": "Human only. Proposed by a model. Workflow drafts are in the release folder, outside the repos, and are untested. 2026-10-08: Audit evidence for the human edits: .github/copilot-instructions.md still says hq, workspace.code-workspace and ../skills; .github/CODEOWNERS owns /setup.ps1, which does not exist (setup.cmd and setup.sh are covered only by the * line); .github/loop-orchestrator/ is dead code; .claude/settings.json denies .env, .env.local and .env.production but .gitignore ignores all of .env.*, so .env.test or .env.staging stays readable (Read rules also do not stop a shell read)."
     },
     {
       "id": "T-0058",
@@ -2222,10 +2222,10 @@
       "depends_on": [
         "T-0057"
       ],
-      "updated_at": "2026-10-05T01:10:00Z",
+      "updated_at": "2026-10-08T17:32:37Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model; only a human moves it to ready. The workflow drafts, kept by the maintainer outside the repos, are UNTESTED: they have not run on GitHub. Adding a workflow adds a third-party service dependency (GitHub Actions and the actions/* actions), which AGENTS.md asks to flag."
+      "notes": "Proposed by a model; only a human moves it to ready. The workflow drafts, kept by the maintainer outside the repos, are UNTESTED: they have not run on GitHub. Adding a workflow adds a third-party service dependency (GitHub Actions and the actions/* actions), which AGENTS.md asks to flag. 2026-10-08: Audit evidence: none of the three repositories has a workflow that runs its tests. cf-research's test suite reached main with four import errors and cf-skills' two suites are not run on pull requests. As of 2026-10-08 the lab has check-all.ps1 (cf-lab pull request 27) as the one command a workflow can call; cf-research and cf-skills have their own documented commands. Windows and Ubuntu are both worth covering."
     },
     {
       "id": "T-0062",
@@ -3725,6 +3725,150 @@
       "completed_by": null,
       "complexity": "high",
       "notes": "2026-10-08: proposed by a model; only the maintainer can set it ready. Not started. Sign-ups (maintainer only, with a lab-owned address and keys only in the git-ignored .env): OpenAlex key first, then optional NCBI and openFDA keys, the CFF and ECFSPR permission requests (T-0006), connector sign-ins, and the decisions on Semantic Scholar, Data Commons, Gemini and any paid item. Costs and the terms of the sources marked unread in the proposal have not been checked."
+    },
+    {
+      "id": "T-0103",
+      "title": "One Ollama client module for the probe and delegation scripts",
+      "repo": "cf-lab",
+      "area": "delegation",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-08T17:32:37Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-08 session: an independent read-only audit of the three repositories (three Opus audits, findings re-checked by the controlling agent)"
+      },
+      "source_evidence": "2026-10-08 audit of cf-lab: six scripts (invoke-local-model.ps1, speed-probe.ps1, injection-probe.ps1, coexistence-probe.ps1, review-diversity.ps1, restart-ollama.ps1) each hard-code http://localhost:11434 and carry their own request code; the probes skip the reply checks that invoke-local-model.ps1 has tests for.",
+      "effort_hours": {
+        "low": 6,
+        "high": 14
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: a port, host or API change is one fix instead of six, and the probes gain the reply checks.",
+        "confidence": "low",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "One PowerShell module holds the host, the request, the reply checks and the timeouts; the six scripts use it; OLLAMA_HOST is honoured in one place; every existing self-test still passes and a new test shows a changed host reaches all of them; no model is called by any test.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-08T17:32:37Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-08: proposed by a model from an audit; only the maintainer can set it ready. Not started."
+    },
+    {
+      "id": "T-0104",
+      "title": "cf-research: make proposals/ a decision log (status header, index, archive)",
+      "repo": "cf-research",
+      "area": "docs",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-08T17:32:37Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-08 session: an independent read-only audit of the three repositories (three Opus audits, findings re-checked by the controlling agent)"
+      },
+      "source_evidence": "2026-10-08 audit of cf-research: 26 files in proposals/, status lines in at least 8 free-text forms, 13 never referenced from anywhere, 3 numbers-allow.txt lists with no inbound links, applied packets mixed with open decisions.",
+      "effort_hours": {
+        "low": 3,
+        "high": 6
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: a reader can tell which decisions are open in one glance.",
+        "confidence": "low",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A fixed header (Status: open|decided|applied|superseded|record, Decided-by, Board) on every proposal; a generated proposals/INDEX.md that a check keeps current; applied or superseded packets moved to an archive folder with links updated; the allow-lists moved beside the notes they serve; the checker passes; board and PR links to moved files updated.",
+      "review_tier": "routine",
+      "depends_on": [],
+      "updated_at": "2026-10-08T17:32:37Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-08: proposed by a model from an audit; only the maintainer can set it ready. Not started."
+    },
+    {
+      "id": "T-0105",
+      "title": "Source catalog: schema, kind-sorted layout and a licence note on the copy in cf-skills",
+      "repo": "cf-research",
+      "area": "evidence",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-08T17:32:37Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-08 session: an independent read-only audit of the three repositories (three Opus audits, findings re-checked by the controlling agent)"
+      },
+      "source_evidence": "2026-10-08 audits: catalog.yaml is 1,130 lines for 53 entries grouped by date added, 13 of 14 api entries repeat kind: api with access: api, check_catalog_fields.py checks key names only; the copy in cf-skills (CC0 skill) comes from a CC BY 4.0 repository, 41 of 53 entries are unused there, and cf-skills has no check against drift.",
+      "effort_hours": {
+        "low": 8,
+        "high": 16
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: the two repositories stop breaking each other and the CC0 claim becomes accurate.",
+        "confidence": "low",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A JSON Schema stating which fields each access type requires, checked by the existing field checker; the entries sorted by kind with a generated readable table; the cf-skills copy trimmed to the entries the skill can use with its own drift check against a pinned research-repo hash, and a stated licence for the copy decided by the maintainer. Full tier: licensing.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-08T17:32:37Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "high",
+      "notes": "2026-10-08: proposed by a model from an audit; only the maintainer can set it ready. Not started."
+    },
+    {
+      "id": "T-0106",
+      "title": "One shared module for network rules (robots.txt, user agent, rate limits) across the evidence tool, the fetcher and variant_profile",
+      "repo": "cf-skills",
+      "area": "evidence",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-08T17:32:37Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-08 session: an independent read-only audit of the three repositories (three Opus audits, findings re-checked by the controlling agent)"
+      },
+      "source_evidence": "2026-10-08 audit of cf-research: three request paths exist (fetch_sources.py imports the evidence client by inserting a sibling-repo path into sys.path; variant_profile has its own urllib client with the catalog's limits copied by hand), so robots, user-agent and rate-limit rules can drift apart between copies. Browser-finding code is also duplicated.",
+      "effort_hours": {
+        "low": 8,
+        "high": 20
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: one place to fix a conduct rule, fewer ways to break the rate limit.",
+        "confidence": "low",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "The evidence skill's HTTP client is the only place that implements the conduct rules; the fetcher and variant_profile use it (pinned, not a sys.path insert) and read base_url and max_rps from the catalog; all conduct tests pass in both repositories; a pull request in each repository, linked. A new external dependency edge is named in the pull request.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-08T17:32:37Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "high",
+      "notes": "2026-10-08: proposed by a model from an audit; only the maintainer can set it ready. Not started."
     }
   ]
 }
