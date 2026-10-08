@@ -9,7 +9,8 @@ Usage:
     python tasks/check-skill-frontmatter.py PATH [PATH ...]  only the given SKILL.md files
     python tasks/check-skill-frontmatter.py --against main PATH [PATH ...]
 
-Needs PyYAML (see research/tools/sources/requirements.txt). Exits 1 on any failure.
+Needs PyYAML (`python -m pip install "PyYAML>=6.0"`, the pin in the sibling repo's
+../cf-research/tools/sources/requirements.txt). Exits 1 on any failure.
 """
 
 from __future__ import annotations
