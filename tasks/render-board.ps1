@@ -3,7 +3,7 @@
   Render tasks/board.json to tasks/BOARD.md. No dependencies beyond PowerShell 5.1+.
 
 .DESCRIPTION
-  board.json is the source of truth. This script sorts tasks by priority then ROI index,
+  board.json is the source of truth. This script sorts tasks by priority, then ROI index, then id,
   groups them by status, and writes a Markdown board a human can read in the repo.
   Run it after editing board.json. With -Check it exits 1 when BOARD.md is stale, so it
   can serve as a pre-commit or CI guard.
@@ -64,8 +64,26 @@ function Who($t) {
     return "human: $($t.created_by.name)"
 }
 function Esc($s) { return ([string]$s) -replace '\|', '\|' -replace "`r?`n", ' ' }
+# PowerShell 7 parses ISO timestamps in JSON to DateTime, Windows PowerShell 5.1 keeps them as strings, and a
+# culture-formatted DateTime ([string] or .ToString()) differs between the two. Normalise either form to the UTC
+# calendar date in culture-invariant ISO form, so both shells render byte-identical output.
+function IsoDate($v) {
+    $inv = [System.Globalization.CultureInfo]::InvariantCulture
+    if ($null -eq $v) { return '' }
+    if ($v -is [datetimeoffset]) { return $v.UtcDateTime.ToString('yyyy-MM-dd', $inv) }
+    if ($v -is [datetime]) {
+        $d = if ($v.Kind -eq [DateTimeKind]::Local) { $v.ToUniversalTime() } else { $v }
+        return $d.ToString('yyyy-MM-dd', $inv)
+    }
+    $s = [string]$v
+    $styles = [System.Globalization.DateTimeStyles]::AssumeUniversal
+    $parsed = [datetimeoffset]::MinValue
+    if ([datetimeoffset]::TryParse($s, $inv, $styles, [ref]$parsed)) { return $parsed.UtcDateTime.ToString('yyyy-MM-dd', $inv) }
+    return $s
+}
 
-$sorted = $board.tasks | Sort-Object @{Expression='priority'}, @{Expression={ -(RoiIndex $_) }}
+# id is the final tie-breaker: Sort-Object is stable in PowerShell 7 but not in 5.1, so ties need a fixed order.
+$sorted = $board.tasks | Sort-Object @{Expression='priority'}, @{Expression={ -(RoiIndex $_) }}, @{Expression='id'}
 $statuses = 'in_progress','ready','proposed','blocked','done','dropped'
 $total = $board.tasks.Count
 $measured = @($board.tasks | Where-Object { $_.roi.measured }).Count
@@ -92,7 +110,7 @@ foreach ($s in $statuses) {
         $hours = "$($t.effort_hours.low)-$($t.effort_hours.high)"
         $deps = if ($t.depends_on) { ($t.depends_on -join ', ') } else { '' }
         $meas = if ($t.roi.measured) { 'yes' } else { 'no' }
-        $date = ([string]$t.created_at).Substring(0,10)
+        $date = IsoDate $t.created_at
         [void]$sb.AppendLine("| $($t.id) | $($t.priority) | $(Esc $t.title) | $($t.repo) | $hours | $($t.roi.benefit) | $(RoiIndex $t) | $meas | $(Who $t) | $date | $($t.review_tier) | $($t.complexity) | $($t.recommended_route) | $deps |")
     }
     [void]$sb.AppendLine()

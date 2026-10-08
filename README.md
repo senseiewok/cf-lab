@@ -96,7 +96,8 @@ Only Git is needed for setup. The rest depends on what you want to run.
 | --- | --- | --- | --- |
 | Git | Setup, and everything after it | `git --version` | Windows: `winget install --id Git.Git -e`; macOS: `xcode-select --install`; [all systems](https://git-scm.com/downloads) |
 | Python 3.10 or newer | The setup and art tests, the evidence tool in `cf-skills` (which also needs `requests` and PyYAML), the research tools in `cf-research`, browser testing | `python --version` (often `python3` on macOS and Linux) | Windows: `winget install --id Python.Python.3.13 -e`; [all systems](https://www.python.org/downloads/) |
-| PowerShell 7 (`pwsh`) | The routing tests, the task board, the delegation, gate and env-loading scripts | `pwsh --version` | Windows: `winget install --id Microsoft.PowerShell -e`; [all systems](https://learn.microsoft.com/powershell/scripting/install/installing-powershell) |
+| PyYAML (optional) | `tasks/check-skill-frontmatter.py`, which checks the skills' frontmatter; `check-all.ps1` skips it without PyYAML | `python -c "import yaml"` | `python -m pip install "PyYAML>=6.0"` |
+| PowerShell 7 (`pwsh`) | The check runner `check-all.ps1`, the routing tests, the task board, the delegation, gate and env-loading scripts | `pwsh --version` | Windows: `winget install --id Microsoft.PowerShell -e`; [all systems](https://learn.microsoft.com/powershell/scripting/install/installing-powershell) |
 | VS Code (optional) | Opening `cf-lab.code-workspace` with all folders at once | | [code.visualstudio.com](https://code.visualstudio.com/) |
 | Ollama and a local model (optional) | A local worker for delegated drafts and reviews | | See [Optional pieces](#optional-pieces) |
 | Playwright (optional) | Browser checks of web pages | | See [Optional pieces](#optional-pieces) |
@@ -105,21 +106,30 @@ No GPU, no Ollama and no cloud account are needed for the checks below, and noth
 
 ## Check that it works
 
-Run these from the `cf-lab` folder. Each one is offline and prints its result on the last line.
+Run every offline check at once from the `cf-lab` folder:
+
+```sh
+pwsh -NoProfile -File ./check-all.ps1
+```
+
+It prints one `PASS`, `FAIL` or `SKIPPED` line per check with the command it ran, then a count such as `37 passed, 0 failed, 6 skipped`, and exits 1 only when a check failed. A skipped check names what it needs (Windows, PyYAML, git, Python). Checks that need a browser are listed and always skipped: the runner never starts a browser, calls a model or Ollama, or uses the network. Each check has a timeout (`-TimeoutSec`, default 300 seconds); a full run took about six minutes on Windows on 8 October 2026. `-List` prints the checks without running them, and `-Only <name>` runs one.
+
+The main checks one by one, each offline, with its result on the last line:
 
 | Command | What it checks | Last line when it passes |
 | --- | --- | --- |
 | `pwsh -NoProfile -File ./.claude/skills/ai-loop-council/scripts/select-work-route.ps1 -SelfTest` | The routing policy that decides local or cloud work | `All 52 routing/setting tests passed; no models, GPU, Ollama, credentials or network required` |
 | `python .claude/skills/lab-versioning/scripts/test-setup.py` | Both setup scripts against a stand-in for Git, the workspace file and `VERSION` | `VERIFIED` (on macOS and Linux it first prints `skip: setup.cmd needs Windows`) |
 | `pwsh -File tasks/render-board.ps1 -Check` | `tasks/BOARD.md` matches `tasks/board.json` | `BOARD.md is current` |
-| `pwsh -NoProfile -File tasks/test-render-board.ps1` | The board renderer itself | `17/17 passed` |
+| `pwsh -NoProfile -File tasks/test-render-board.ps1` | The board renderer itself | `20/20 passed` |
+| `python tasks/check-skill-frontmatter.py` | Every skill's `SKILL.md` frontmatter (needs PyYAML) | `19 passed, 0 failed` |
 | `python .claude/skills/ascii-art/scripts/test-asciicanvas.py` | The text-art canvas library | `VERIFIED` |
 | `python .claude/skills/ascii-art/scripts/test-check-ascii.py` | The text-art checker | `VERIFIED` |
 | `pwsh -NoProfile -File ./.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1 -SelfTest` | How the delegation script checks a model's reply; no model needed | `All 35 local reply/name/think/usage tests passed; no profile, model, GPU or network required` |
 | `python .claude/skills/playwright-browser-testing/scripts/test-setup-browser-testing.py` | The optional browser-testing setup, without downloading anything | `VERIFIED` |
 | `python .claude/skills/workspace-siblings/scripts/check-workspace.py --self-test` | The workspace checker, on temporary folders (needs Git) | `self-test: 5/5 passed` |
 
-The counts are the ones these commands printed on 6 October 2026 on Windows; they grow as tests are added. A line starting with `FAIL` names what broke.
+The counts are the ones these commands printed on 8 October 2026 on Windows; they grow as tests are added. A line starting with `FAIL` names what broke.
 
 ## Where things live
 
@@ -143,7 +153,7 @@ The folder tree with every file is under [Structure](#structure).
 
 - **Tests decide, not models.** A small edit goes to the local worker with a test written first and shown to fail on the unchanged file; the worker's reply goes to that test, and after three attempts the loop stops and says so. Every accepted result is still read by a person or another model. The counts, from one machine on one day, are in [How the work is divided](#how-the-work-is-divided); they are small, and we say so there.
 - **Three review tiers.** Routine (docs, small low-risk edits), elevated (features, agent instructions) and full (security, credentials, patient data, licensing), each adding a reviewer; work that touches security needs a reviewer from a different model family than the one that wrote it. The table is in [AGENTS.md](AGENTS.md#ai-loop-and-delegation).
-- **The board is checked before every commit.** `tasks/render-board.ps1 -Check` fails when the rendered board drifts from `board.json`, and `tasks/test-render-board.ps1` tests the renderer. On 2026-10-05 the board held 88 tasks, counted from `board.json`: 87 proposed by a model and 1 by a person. A model may propose a task; only a person moves it to `ready`.
+- **The board is checked before every commit.** `tasks/render-board.ps1 -Check` fails when the rendered board drifts from `board.json`, and `tasks/test-render-board.ps1` tests the renderer. On 2026-10-08 the board held 102 tasks, counted from `board.json`: 101 proposed by a model and 1 by a person. A model may propose a task; only a person moves it to `ready`.
 - **Setup and the skills carry their own tests.** `python .claude/skills/lab-versioning/scripts/test-setup.py` runs both setup scripts against a stub `git`, and the skills' scripts ship with test files beside them (for example `ascii-art/scripts/test-asciicanvas.py` and `test-check-ascii.py`).
 - **Statements about CF go through the guardrails** in the `cf-research-context` skill: every number from a source line or a command's output, "not stated" where the source is silent, and a different model reading each claim beside its evidence as a lead to confirm on the source, never a vote. The website's [Evidence](https://senseiewok.ai/evidence/) page shows where the published numbers come from and the ledger of mistakes we have caught.
 
@@ -268,6 +278,7 @@ cf-lab/
 ├── SECURITY.md                   # Vulnerability reporting policy
 ├── LICENSE.md                    # MIT license (skills declare their own, CC0-1.0)
 ├── CONTRIBUTING.md               # How to contribute
+├── check-all.ps1                # Runs every offline check
 ├── VERSION                      # Lab contract version
 ├── cf-lab.code-workspace        # The shared VS Code workspace (this repo, siblings, Files)
 ├── setup.cmd                    # Windows: clone siblings, make the cf-lab-files folder

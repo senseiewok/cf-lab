@@ -8,6 +8,10 @@
   starts the Ollama app again, optionally preloads a model, and prints the server's
   context length and bind address from its log.
 
+  Windows only: it uses the Windows install path of the Ollama app and Get-NetTCPConnection.
+  On any other system it prints a message and exits 2 before it touches a process.
+  test-restart-ollama.ps1 checks that guard without running the script.
+
 .EXAMPLE
   ./restart-ollama.ps1 -Preload qwen3.8:27b
 #>
@@ -16,6 +20,15 @@ param(
     [string] $Preload,
     [string] $KeepAlive = '30m'
 )
+
+# OS guard: keep these four statements first, before anything that reads settings or stops a process.
+function Get-PlatformRefusal([bool] $OnWindows) {
+    if ($OnWindows) { return $null }
+    return 'This script is Windows only; restart Ollama the way your system does.'
+}
+$onWindows = ($PSVersionTable.PSEdition -eq 'Desktop') -or ($IsWindows -eq $true)
+$refusal = Get-PlatformRefusal $onWindows
+if ($refusal) { [Console]::Error.WriteLine($refusal); exit 2 }
 
 $ErrorActionPreference = 'Stop'
 # A stale OLLAMA_HOST in this shell would point the restarted app and the CLI at the wrong address.

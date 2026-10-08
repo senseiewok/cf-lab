@@ -5,7 +5,7 @@ The lab's single task list. Every task records **who proposed it** (a named mode
 | File | Role |
 | --- | --- |
 | `board.json` | Source of truth. Edit this |
-| `BOARD.md` | Rendered view, grouped by status, sorted by priority then ROI index. Never edit by hand |
+| `BOARD.md` | Rendered view, grouped by status, sorted by priority, then ROI index, then id. Never edit by hand |
 | `render-board.ps1` | Renders and validates. `-Check` exits 1 when `BOARD.md` is stale, 2 when `board.json` is invalid |
 
 ```powershell
