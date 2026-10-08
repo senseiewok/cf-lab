@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-102 tasks, 101 created by a model, 1 with a measured outcome. Estimated effort 239.1 to 441 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+106 tasks, 105 created by a model, 1 with a measured outcome. Estimated effort 264.1 to 497 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (17)
 
@@ -34,7 +34,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 
-## proposed (73)
+## proposed (77)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -110,7 +110,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0055 | P3 | EMA medicines provider: read the downloaded JSON report as evidence records (marketing authorisation date, status) | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  |  |
 | T-0101 | P3 | A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK | cf-lab | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | medium |  |  |
 | T-0087 | P3 | Faster site and package test suites with the same assertions | cf-research | 3-6 | 2 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine | medium |  |  |
+| T-0104 | P3 | cf-research: make proposals/ a decision log (status header, index, archive) | cf-research | 3-6 | 2 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-08 | routine | low |  |  |
 | T-0036 | P3 | Admission run for the two installed local models (Gemma 4 31B, Laguna XS 2.1) as reviewers | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | full |  |  |  |
+| T-0103 | P3 | One Ollama client module for the probe and delegation scripts | cf-lab | 6-14 | 3 | 3 | no | model: claude-sonnet-5-5 | 2026-10-08 | elevated | medium |  |  |
+| T-0105 | P3 | Source catalog: schema, kind-sorted layout and a licence note on the copy in cf-skills | cf-research | 8-16 | 3 | 2.5 | no | model: claude-sonnet-5-5 | 2026-10-08 | full | high |  |  |
+| T-0106 | P3 | One shared module for network rules (robots.txt, user agent, rate limits) across the evidence tool, the fetcher and variant_profile | cf-skills | 8-20 | 3 | 2.1 | no | model: claude-sonnet-5-5 | 2026-10-08 | full | high |  |  |
 
 ## done (9)
 
@@ -472,14 +476,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Estimate: a public repo that accepts pull requests should show whether its own tests pass; one matrix job also verifies setup.sh on macOS and Linux. *(confidence: medium)*
 - **Acceptance:** Each repo has a workflow that runs on pull_request and on pushes to main and is green on a pull request: cf-lab runs test-setup.py on windows-latest, ubuntu-latest and macos-latest plus the frontmatter check and render-board -Check; cf-skills runs pytest; cf-research runs the fetcher tests, the catalog parse, the sync self-check and the ledger tally self-check. Every workflow sets permissions: contents: read, uses pull_request (not pull_request_target), and pins actions/checkout and actions/setup-python at a major version or commit SHA. Paste the three run URLs into the task notes.
 - **Evidence:** 2026-10-04: none of the three repos has a .github/workflows folder, so every test and gate runs only on the maintainer's machine; a pull request shows no check. The setup scripts, the evidence skill (44 tests) and the board checks are all deterministic and cheap to run. T-0058 (real macOS run) needs a macOS runner.
-- **Notes:** Proposed by a model; only a human moves it to ready. The workflow drafts, kept by the maintainer outside the repos, are UNTESTED: they have not run on GitHub. Adding a workflow adds a third-party service dependency (GitHub Actions and the actions/* actions), which AGENTS.md asks to flag.
+- **Notes:** Proposed by a model; only a human moves it to ready. The workflow drafts, kept by the maintainer outside the repos, are UNTESTED: they have not run on GitHub. Adding a workflow adds a third-party service dependency (GitHub Actions and the actions/* actions), which AGENTS.md asks to flag. 2026-10-08: Audit evidence: none of the three repositories has a workflow that runs its tests. cf-research's test suite reached main with four import errors and cf-skills' two suites are not run on pull requests. As of 2026-10-08 the lab has check-all.ps1 (cf-lab pull request 27) as the one command a workflow can call; cf-research and cf-skills have their own documented commands. Windows and Ubuntu are both worth covering.
 
 ### T-0030 Docs tier 3: make AGENTS.md the only rule source; shrink copilot-instructions.md; fix the skill-authoring skill's internal contradictions
 
 - **Why / ROI rationale:** Two always-loaded instruction files that overlap will drift. The authoring skill is the binding rule document for every other skill but has duplicate section numbers, a .skills/ tree that contradicts its own location rule, and a generic section that is not about skills. *(confidence: medium)*
 - **Acceptance:** copilot-instructions.md is at most 40 lines and holds no rule that is not also in AGENTS.md; the authoring skill has unique section numbers and no .skills/ tree; check-skill-frontmatter.py --against main passes; lab-versioning/scripts/test-setup.py passes; VERSION is bumped as a PATCH.
 - **Evidence:** research/proposals/2026-10-04-docs-organization-and-memory-design.md; the findings for this tier were re-checked against the files on 2026-10-04.
-- **Notes:** Human gate: agent instructions and .claude/; a human approves the diff. Human decided 2026-10-04: yes, AGENTS.md becomes the only rule source. Wait until the current hq branch has merged so --against main is meaningful. Do not change what any rule means. Draft by a cloud or frontier model is reasonable; the meaning-preservation check is the human's.
+- **Notes:** Human gate: agent instructions and .claude/; a human approves the diff. Human decided 2026-10-04: yes, AGENTS.md becomes the only rule source. Wait until the current hq branch has merged so --against main is meaningful. Do not change what any rule means. Draft by a cloud or frontier model is reasonable; the meaning-preservation check is the human's. 2026-10-08: Audit evidence: AGENTS.md is 2,962 words and the README 4,683 words, duplicating layout, env and tiers; every session reads a 165 KB BOARD.md. Suggest: rules only in AGENTS.md, narrative in the README, done or dropped rows archived out of BOARD.md.
 
 ### T-0076 Make the skills repo installable as a Claude Code plugin marketplace
 
@@ -506,7 +510,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** The gate design recommends a blind different-family challenger at the elevated tier for public-facing artifacts and changed factual claims, a council skill about 7,300 words against a 500-line cap, and deleting a prototype whose config names one model as worker, challenger and council. All three change agent instructions. *(confidence: low)*
 - **Acceptance:** AGENTS.md tier table states the elevated challenger condition and stays under 2,500 words; ai-loop-council/SKILL.md is under 500 lines with the moved sections kept as research proposals that carry Status lines; .github/loop-orchestrator/ is removed and no file still links to it; check-skill-frontmatter.py passes; the setup self-test passes; no rule changes meaning except the one decided.
 - **Evidence:** research/proposals/2026-10-04-ai-loop-gate-design.md and research/ledger/2026-10-04-first-session.md (23 logged errors from one session by one agent).
-- **Notes:** Human gate: AGENTS.md, .claude/ and .github/ (CODEOWNERS-protected). Decisions 1 and 3 of the design note are the human's. Do not do this before they are answered.
+- **Notes:** Human gate: AGENTS.md, .claude/ and .github/ (CODEOWNERS-protected). Decisions 1 and 3 of the design note are the human's. Do not do this before they are answered. 2026-10-08: Audit evidence: ai-loop-council/SKILL.md is 478 lines and 11,420 words (next largest 5,539) with 14 'proposed' or 'design only' sections mixed in with rules; about 15k tokens a load. Suggested split: a core of about 150 lines of policy plus references (delegation, routing, experiments with cases kept as fixtures). The dead .github/loop-orchestrator prototype (566 lines, exits on its first statement) is still named in README, AGENTS.md and copilot-instructions.
 
 ### T-0041 Website section for the evidence loop: how the lab answers a research question, with the seven layers and a live example record
 
@@ -691,7 +695,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Estimate: without the new paths the setup scripts lose their required reviewer. *(confidence: high)*
 - **Acceptance:** grep -n 'setup' .github/CODEOWNERS shows /setup.cmd and /setup.sh owned by @senseiewok and no /setup.ps1; grep -rn -E 'hq\|Research Lab' .github returns nothing in cf-lab; the CI workflow drafts (kept by the maintainer outside the repos, one per repo) are in .github/workflows of each repo (see T-0061).
 - **Evidence:** .github/CODEOWNERS line 9 still lists /setup.ps1, which was replaced by setup.cmd and setup.sh on 2026-10-04. .github/copilot-instructions.md and .github/loop-orchestrator/README.md still say 'Sensei Ewok Research Lab (hq)'; the repos are now cf-lab, cf-research and cf-skills (GitHub renamed 2026-10-04). No repo has a .github/workflows folder (verified 2026-10-04). Files under .github/ are write-protected from automated agents here, so none of this was edited.
-- **Notes:** Human only. Proposed by a model. Workflow drafts are in the release folder, outside the repos, and are untested.
+- **Notes:** Human only. Proposed by a model. Workflow drafts are in the release folder, outside the repos, and are untested. 2026-10-08: Audit evidence for the human edits: .github/copilot-instructions.md still says hq, workspace.code-workspace and ../skills; .github/CODEOWNERS owns /setup.ps1, which does not exist (setup.cmd and setup.sh are covered only by the * line); .github/loop-orchestrator/ is dead code; .claude/settings.json denies .env, .env.local and .env.production but .gitignore ignores all of .env.*, so .env.test or .env.staging stays readable (Read rules also do not stop a shell read).
 
 ### T-0023 Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy
 
@@ -842,10 +846,38 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** The same test counts pass; the nested package suites run concurrently; fixed sleeps replaced by state polling; wall time before and after recorded; the mutation harness still catches all 44 faults and treats an unapplied mutant as a failed proof.
 - **Evidence:** scratch/site-updates/log-assessment.md section 2: the site suite took about 290 s, 137 s of it re-running 60 package browser tests serially, plus fixed sleeps.
 
+### T-0104 cf-research: make proposals/ a decision log (status header, index, archive)
+
+- **Why / ROI rationale:** Estimate: a reader can tell which decisions are open in one glance. *(confidence: low)*
+- **Acceptance:** A fixed header (Status: open\|decided\|applied\|superseded\|record, Decided-by, Board) on every proposal; a generated proposals/INDEX.md that a check keeps current; applied or superseded packets moved to an archive folder with links updated; the allow-lists moved beside the notes they serve; the checker passes; board and PR links to moved files updated.
+- **Evidence:** 2026-10-08 audit of cf-research: 26 files in proposals/, status lines in at least 8 free-text forms, 13 never referenced from anywhere, 3 numbers-allow.txt lists with no inbound links, applied packets mixed with open decisions.
+- **Notes:** 2026-10-08: proposed by a model from an audit; only the maintainer can set it ready. Not started.
+
 ### T-0036 Admission run for the two installed local models (Gemma 4 31B, Laguna XS 2.1) as reviewers
 
 - **Why / ROI rationale:** A different model family would give real diversity, but neither model is admitted: lineage and licence are unread here and no injection probe or review-diversity run exists for them. Admission follows model-onboarding; until then they are benchmark subjects only. *(confidence: low)*
 - **Acceptance:** Per model-onboarding: provenance and licence read from the model card, fit with a pinned context size, thinking and JSON behaviour, the injection probe, and review-diversity on a fresh held-out set against an equal-budget Qwen baseline with a pre-registered threshold. Results recorded with sample sizes. No default is changed.
 - **Evidence:** research/proposals/2026-10-04-ai-loop-gate-design.md and research/ledger/2026-10-04-first-session.md (23 logged errors from one session by one agent).
 - **Notes:** Local compute; no cloud, no downloads. Depends on a human choosing the held-out set. Shadow review of real work only after the injection probe passes, never counted as the challenger.
+
+### T-0103 One Ollama client module for the probe and delegation scripts
+
+- **Why / ROI rationale:** Estimate: a port, host or API change is one fix instead of six, and the probes gain the reply checks. *(confidence: low)*
+- **Acceptance:** One PowerShell module holds the host, the request, the reply checks and the timeouts; the six scripts use it; OLLAMA_HOST is honoured in one place; every existing self-test still passes and a new test shows a changed host reaches all of them; no model is called by any test.
+- **Evidence:** 2026-10-08 audit of cf-lab: six scripts (invoke-local-model.ps1, speed-probe.ps1, injection-probe.ps1, coexistence-probe.ps1, review-diversity.ps1, restart-ollama.ps1) each hard-code http://localhost:11434 and carry their own request code; the probes skip the reply checks that invoke-local-model.ps1 has tests for.
+- **Notes:** 2026-10-08: proposed by a model from an audit; only the maintainer can set it ready. Not started.
+
+### T-0105 Source catalog: schema, kind-sorted layout and a licence note on the copy in cf-skills
+
+- **Why / ROI rationale:** Estimate: the two repositories stop breaking each other and the CC0 claim becomes accurate. *(confidence: low)*
+- **Acceptance:** A JSON Schema stating which fields each access type requires, checked by the existing field checker; the entries sorted by kind with a generated readable table; the cf-skills copy trimmed to the entries the skill can use with its own drift check against a pinned research-repo hash, and a stated licence for the copy decided by the maintainer. Full tier: licensing.
+- **Evidence:** 2026-10-08 audits: catalog.yaml is 1,130 lines for 53 entries grouped by date added, 13 of 14 api entries repeat kind: api with access: api, check_catalog_fields.py checks key names only; the copy in cf-skills (CC0 skill) comes from a CC BY 4.0 repository, 41 of 53 entries are unused there, and cf-skills has no check against drift.
+- **Notes:** 2026-10-08: proposed by a model from an audit; only the maintainer can set it ready. Not started.
+
+### T-0106 One shared module for network rules (robots.txt, user agent, rate limits) across the evidence tool, the fetcher and variant_profile
+
+- **Why / ROI rationale:** Estimate: one place to fix a conduct rule, fewer ways to break the rate limit. *(confidence: low)*
+- **Acceptance:** The evidence skill's HTTP client is the only place that implements the conduct rules; the fetcher and variant_profile use it (pinned, not a sys.path insert) and read base_url and max_rps from the catalog; all conduct tests pass in both repositories; a pull request in each repository, linked. A new external dependency edge is named in the pull request.
+- **Evidence:** 2026-10-08 audit of cf-research: three request paths exist (fetch_sources.py imports the evidence client by inserting a sibling-repo path into sys.path; variant_profile has its own urllib client with the catalog's limits copied by hand), so robots, user-agent and rate-limit rules can drift apart between copies. Browser-finding code is also duplicated.
+- **Notes:** 2026-10-08: proposed by a model from an audit; only the maintainer can set it ready. Not started.
 
