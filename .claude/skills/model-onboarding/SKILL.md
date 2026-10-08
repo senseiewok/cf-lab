@@ -61,7 +61,7 @@ ollama ps                  # record intentional CPU/GPU placement and context
 | `failed-hidden-only` | Fits the examples but doesn't generalise |
 | `rejected-unsafe` | Reached for a command outside the read-only allowlist |
 
-**Proposal, design only.** Build `research/tools/sources/fixtures/claim-mapping-v0.json` from the extracted ECFSPR summary indicators: 30 claims the table supports, 20 it contradicts, 10 it does not cover. Score models on verdict accuracy and on abstention discipline separately; a model that answers confidently on the 10 out-of-scope claims fails regardless of its accuracy on the rest. Report with the same small-sample caveats the injection probe uses.
+**Proposal, design only.** Build `../cf-research/tools/sources/fixtures/claim-mapping-v0.json` from the extracted ECFSPR summary indicators: 30 claims the table supports, 20 it contradicts, 10 it does not cover. Score models on verdict accuracy and on abstention discipline separately; a model that answers confidently on the 10 out-of-scope claims fails regardless of its accuracy on the rest. Report with the same small-sample caveats the injection probe uses.
 
 This should not be built until the extraction schema is frozen; otherwise the fixture encodes a schema that will change.
 

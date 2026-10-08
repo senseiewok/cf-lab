@@ -56,7 +56,7 @@ Don't paste workspace files into online formatters, validators, pastebins or "AI
 4. **Go slowly.** One request at a time, about one per second at most unless an API allows more. On `429` or `503`, honour `Retry-After` and back off; never retry in a tight loop.
 5. **Don't disguise the agent.** No fake browser user agents, CAPTCHA solving, rotating IPs, or headless tricks to get past bot protection, paywalls or logins. A block is the site's answer for that request and access method; do not infer that every URL or approved tool on the domain is blocked. In this workspace, an earlier script received `403` from CFF, while the approved fetch tool retrieved some CFF pages in this research and other URLs returned `404`. Use only a permitted official source; if the needed content remains blocked or unavailable, report the gap or ask a human to review it. Never route around the block.
 
-   **Tested 2026-10-04 from a datacentre IP with a plain Python client** (evidence and dates in `research/landscape/registry-data-access.md`):
+   **Tested 2026-10-04 from a datacentre IP with a plain Python client** (evidence and dates in `../cf-research/landscape/registry-data-access.md`):
 
    | Site | Result | What it means for agents |
    | --- | --- | --- |
@@ -65,7 +65,7 @@ Don't paste workspace files into online formatters, validators, pastebins or "AI
    | `pr.ecfs.eu` | `200`; `robots.txt` is `User-agent: *` / `Disallow:` (empty) | Automated retrieval of ECFSPR annual report PDFs is permitted. Plain HTTP suffices; browser automation adds nothing |
    | `cftr2.org` | `200`, terms not yet read | Treat as manual until someone reads the terms and records the outcome |
 
-   The machine-readable record of these permissions is `research/sources/catalog.yaml`. Its `access` field is a permission, not a hint: an agent may automate retrieval only when it reads `fetch` or `api`. A source absent from the catalog has no permission. See `research/sources/README.md`.
+   The machine-readable record of these permissions is `../cf-research/sources/catalog.yaml`. Its `access` field is a permission, not a hint: an agent may automate retrieval only when it reads `fetch` or `api`. A source absent from the catalog has no permission. See `research/sources/README.md`.
 
 6. **Respect AI-use signals.** Some sites state AI preferences, for example `robots.txt` rules for AI crawlers, a `TDM-Reservation` header, or the IETF AIPREF vocabulary (still a draft in 2026). If a site says no to AI use, don't use its content for that purpose.
 
