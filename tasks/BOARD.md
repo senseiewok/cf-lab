@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-101 tasks, 100 created by a model, 1 with a measured outcome. Estimated effort 229.1 to 417 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+102 tasks, 101 created by a model, 1 with a measured outcome. Estimated effort 239.1 to 441 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (17)
 
@@ -34,7 +34,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 10/05/2026 | elevated |  |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 10/05/2026 | elevated |  |  |  |
 
-## proposed (72)
+## proposed (73)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -90,23 +90,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0097 | P2 | Re-run the local reviewer evaluation on a second, different script | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 10/06/2026 | elevated | medium |  |  |
 | T-0090 | P2 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 10/06/2026 | elevated | medium |  | T-0083 |
 | T-0010 | P2 | Claim-check harness + frozen 60-claim evaluation set | cf-research | 12-16 | 4 | 2.9 | no | model: claude-fable-5-1 | 10/04/2026 | elevated |  |  | T-0009 |
+| T-0102 | P2 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer | cf-research | 10-24 | 4 | 2.4 | no | model: claude-sonnet-5-5 | 10/08/2026 | full | high |  |  |
 | T-0057 | P3 | Human edits to the protected .github folder after the rename: CODEOWNERS, copilot-instructions names, CI workflows | cf-lab | 0.1-0.25 | 1 | 57.1 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine |  |  |  |
 | T-0023 | P3 | Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy | .ai | 0.5-0.5 | 2 | 40 | no | model: claude-fable-5-1 | 10/04/2026 | routine |  |  |  |
-| T-0029 | P3 | Docs tier 2: hq housekeeping outside .claude (README tree, loop README status line, retire committed PR descriptions) | cf-lab | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine |  |  |  |
 | T-0032 | P3 | Docs tier 5: tidy per-user agent memory outside the repos | cf-lab | 0.25-0.5 | 1 | 26.7 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine |  |  |  |
+| T-0029 | P3 | Docs tier 2: hq housekeeping outside .claude (README tree, loop README status line, retire committed PR descriptions) | cf-lab | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine |  |  |  |
+| T-0068 | P3 | review-diff.ps1: the gate's local-worker review row as one command | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/05/2026 | elevated |  |  |  |
 | T-0096 | P3 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 10/06/2026 | elevated | low |  | T-0058 |
 | T-0095 | P3 | Make the website's footer and credit wording agree with the README's 'Thanks to the tools' section | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 10/06/2026 | elevated | low |  |  |
-| T-0068 | P3 | review-diff.ps1: the gate's local-worker review row as one command | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 10/05/2026 | elevated |  |  |  |
 | T-0088 | P3 | Keep everything a verifier reads inside its temp copy | cf-lab | 1-3 | 3 | 15 | no | model: claude-sonnet-5-5 | 10/06/2026 | routine |  | local |  |
 | T-0031 | P3 | Docs tier 4: move the idea inventory to research, make the first commit in skills, decide the private-repo naming boundary | cf-lab | 1-2 | 2 | 13.3 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated |  |  | T-0020 |
 | T-0098 | P3 | cf-research: make the script-style tests in tools/sources collectable by python -m unittest | cf-research | 1-2 | 2 | 13.3 | no | model: claude-sonnet-5-5 | 10/07/2026 | routine | low | local |  |
 | T-0050 | P3 | Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow | cf-lab | 2-3 | 3 | 12 | no | model: claude-fable-5-1 | 10/04/2026 | elevated |  |  |  |
 | T-0069 | P3 | Provider for the UKRI Gateway to Research API in cf-evidence-loop | cf-skills | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 10/05/2026 | elevated |  |  |  |
 | T-0091 | P3 | Depth probe on realistic text with a second fact at a different depth | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 10/06/2026 | routine | low | local | T-0086 |
-| T-0021 | P3 | Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008) | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 10/04/2026 | routine |  |  | T-0008, T-0010 |
 | T-0044 | P3 | Paper-trail layer: Unpaywall and Semantic Scholar providers | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 10/04/2026 | elevated |  |  |  |
-| T-0055 | P3 | EMA medicines provider: read the downloaded JSON report as evidence records (marketing authorisation date, status) | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated |  |  |  |
+| T-0021 | P3 | Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008) | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 10/04/2026 | routine |  |  | T-0008, T-0010 |
 | T-0053 | P3 | Data Commons provider in cf-evidence-loop for population denominators (if the admission is accepted) | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 10/04/2026 | full |  |  | T-0048 |
+| T-0055 | P3 | EMA medicines provider: read the downloaded JSON report as evidence records (marketing authorisation date, status) | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated |  |  |  |
 | T-0101 | P3 | A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK | cf-lab | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 10/07/2026 | full | medium |  |  |
 | T-0087 | P3 | Faster site and package test suites with the same assertions | cf-research | 3-6 | 2 | 4.4 | no | model: claude-sonnet-5-5 | 10/06/2026 | routine | medium |  |  |
 | T-0036 | P3 | Admission run for the two installed local models (Gemma 4 31B, Laguna XS 2.1) as reviewers | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 10/04/2026 | full |  |  |  |
@@ -122,8 +123,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0012 | P2 | Unit tests for tools/sources/fetch_sources.py | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 10/04/2026 | routine | low | local |  |
 | T-0059 | P2 | delegate.ps1: let a model-only setup run fast, and make the token budget and thinking mode explicit | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 10/04/2026 | elevated | medium | cloud |  |
 | T-0079 | P2 | Measure whether the local models can write WebGL and SVG: a verifier-first test | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 10/05/2026 | elevated |  |  |  |
-| T-0040 | P3 | Read terms and record access values for UK, Canadian, Australian, and Irish CF registry annual reports | cf-research | 1.5-3 | 3 | 13.3 | no | model: claude-fable-5-1 | 10/04/2026 | routine | medium | cloud | T-0008 |
 | T-0054 | P3 | fetch_sources.py: make --verify honour --only | cf-research | 0.5-1 | 1 | 13.3 | no | model: claude-sonnet-5-5 | 10/04/2026 | routine | low | local |  |
+| T-0040 | P3 | Read terms and record access values for UK, Canadian, Australian, and Irish CF registry annual reports | cf-research | 1.5-3 | 3 | 13.3 | no | model: claude-fable-5-1 | 10/04/2026 | routine | medium | cloud | T-0008 |
 
 ## Detail
 
@@ -577,14 +578,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4c; ai.google.dev Deep Research docs read 2026-10-04
 - **Notes:** Human decision: spend. Check current preview status and pricing on ai.google.dev at pilot time. Add generativelanguage.googleapis.com to the catalog as access: api with terms_url before any code calls it.
 
-### T-0056 check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not
-
-- **Why / ROI rationale:** Estimate: a folder that agents can read and that collects notes is where a key or a patient detail would end up unseen. *(confidence: medium)*
-- **Route:** cloud - The worker failed three attempts on PowerShell scoping and return values; the controller wrote it. Local is not yet reliable for PowerShell with a state-heavy spec.
-- **Acceptance:** pwsh -File .claude/skills/security-git/scripts/check-lab-files.ps1 -SelfTest exits 0, and the self-test proves (a) a seeded violation is caught for each rule and (b) a clean folder passes. Rules: no file named .env* or with a key/cert extension, no private-key header or token-shaped string or email address in memory/, no .git inside, at most 3 files directly in memory/, and any private terms taken from a LAB_PRIVATE_TERMS line in .env (never committed). Run once on the real folder and report the output.
-- **Evidence:** A frontier design review on 2026-10-04 (read-only) judged the Files folder safe only with one check: the folder sits inside the agents' workspace, is not a git repo, and has no history. AGENTS.md lists the never-store items; nothing enforces them.
-- **Notes:** Proposed by a model; only a human moves it to ready. Do not read .env; the check receives only the terms variable through run-with-env.ps1. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-lab c47ca94: check-lab-files.ps1 and its outside-in test pass; the real folder reports 'lab files clean: 45'.
-
 ### T-0075 Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
@@ -599,13 +592,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** research/proposals/2026-10-04-ai-loop-gate-design.md and research/ledger/2026-10-04-first-session.md (23 logged errors from one session by one agent).
 - **Notes:** Draft by a cloud agent, tests drafted by the local worker, human approves the .claude/ diff. Does not judge inferences; it only settles what a script can settle.
 
-### T-0064 More sources: UKRI Gateway to Research, CORDIS, EU Clinical Trials Register, WHO ICTRP, PubPeer, ClinGen, and the CFF 2025 highlights link
+### T-0056 check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not
 
-- **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
-- **Route:** cloud - Web reading with conduct and quote verification needs a networked controller.
-- **Acceptance:** fields ok: 27 keys documented; sync_skill_catalog --check in sync; each quoted sentence verbatim and complete (11 of 11 checked); fetch_sources.py --manual and sources/manual-downloads.md list the manual, request and forbidden ones.
-- **Evidence:** 2026-10-05: the maintainer asked to bring more sources; the researcher-sources proposal listed integrity, funding, trial-register and curation gaps. The CFF highlights URL was given by the maintainer.
-- **Notes:** Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-research dd0d64e and 1b09df8. ukri-gtr is an api source, tested live (724 records). pubpeer and clingen are forbidden (terms and robots refuse automated access); who-ictrp is request; cordis is manual with CC BY 4.0 reuse; eu-ctr is manual and unverified; cffpr-highlights-2025 is manual and unread because www.cff.org refuses automated clients. No provider uses ukri-gtr yet.
+- **Why / ROI rationale:** Estimate: a folder that agents can read and that collects notes is where a key or a patient detail would end up unseen. *(confidence: medium)*
+- **Route:** cloud - The worker failed three attempts on PowerShell scoping and return values; the controller wrote it. Local is not yet reliable for PowerShell with a state-heavy spec.
+- **Acceptance:** pwsh -File .claude/skills/security-git/scripts/check-lab-files.ps1 -SelfTest exits 0, and the self-test proves (a) a seeded violation is caught for each rule and (b) a clean folder passes. Rules: no file named .env* or with a key/cert extension, no private-key header or token-shaped string or email address in memory/, no .git inside, at most 3 files directly in memory/, and any private terms taken from a LAB_PRIVATE_TERMS line in .env (never committed). Run once on the real folder and report the output.
+- **Evidence:** A frontier design review on 2026-10-04 (read-only) judged the Files folder safe only with one check: the folder sits inside the agents' workspace, is not a git repo, and has no history. AGENTS.md lists the never-store items; nothing enforces them.
+- **Notes:** Proposed by a model; only a human moves it to ready. Do not read .env; the check receives only the terms variable through run-with-env.ps1. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-lab c47ca94: check-lab-files.ps1 and its outside-in test pass; the real folder reports 'lab files clean: 45'.
 
 ### T-0066 Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules
 
@@ -614,13 +607,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-05: reading terms pages used an untracked script that followed redirects to other hosts without re-checking robots, used the system trust store (a self-signed certificate in the chain on api.reporter.nih.gov while certifi worked) and matched robots groups with the standard library, which the evidence package avoids. Fixed in the scratch copy only.
 - **Notes:** Proposed by a model; only a human moves it to ready. It needs no catalog entry (it exists to read terms before an entry exists), so say clearly in its README that it is for a human-started reading of terms pages, not for data. New network-facing code in a public skill: flag for review.
 
-### T-0063 ascii-art skill: a craft process, a canvas library, a rendering and accessibility checker, one new piece, and the research behind them
+### T-0064 More sources: UKRI Gateway to Research, CORDIS, EU Clinical Trials Register, WHO ICTRP, PubPeer, ClinGen, and the CFF 2025 highlights link
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
-- **Route:** local - Both scripts have exact verifiers; the checker needed a thinking attempt after fast attempts failed on my spec errors.
-- **Acceptance:** python .claude/skills/ascii-art/scripts/test-asciicanvas.py and test-check-ascii.py print VERIFIED; check-ascii.py on GALLERY.md reports 0 errors; SKILL.md sections 6 to 10 name each source and how far it was read; a human reads gallery piece 7 before any CF-facing use.
-- **Evidence:** 2026-10-05: the maintainer asked for the ascii-art skill to become truly creative and artistic, researched online, with the READMEs updated. The skill covered tone and tools but not how to make a good piece, and models read ASCII better than they draw it (arXiv 2604.14641).
-- **Notes:** Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-lab a602e23. The worker drafted the canvas (attempt 2) and the checker (thinking attempt); 20-mutant and 18-mutant proofs. Sources: two read as abstracts and quotes verified verbatim, two through a summarising tool and marked as such, search summaries marked unverified.
+- **Route:** cloud - Web reading with conduct and quote verification needs a networked controller.
+- **Acceptance:** fields ok: 27 keys documented; sync_skill_catalog --check in sync; each quoted sentence verbatim and complete (11 of 11 checked); fetch_sources.py --manual and sources/manual-downloads.md list the manual, request and forbidden ones.
+- **Evidence:** 2026-10-05: the maintainer asked to bring more sources; the researcher-sources proposal listed integrity, funding, trial-register and curation gaps. The CFF highlights URL was given by the maintainer.
+- **Notes:** Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-research dd0d64e and 1b09df8. ukri-gtr is an api source, tested live (724 records). pubpeer and clingen are forbidden (terms and robots refuse automated access); who-ictrp is request; cordis is manual with CC BY 4.0 reuse; eu-ctr is manual and unverified; cffpr-highlights-2025 is manual and unread because www.cff.org refuses automated clients. No provider uses ukri-gtr yet.
 
 ### T-0019 Add model profile skills for Gemma 4 31B and Laguna XS 2.1, or remove them from the site's field guide
 
@@ -634,6 +627,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Offline script changes with an existing test file; the controller reads the diff.
 - **Acceptance:** test-delegate.ps1 gains cases for grouped feedback with expected/actual on the first failure, and for an answer-first reminder in thinking attempts; the lint rejects the three observed PowerShell causes before the verifier runs; delegations.jsonl before/after on two replayed tasks.
 - **Evidence:** scratch/site-updates/log-assessment.md sections 3 and 5; scratch/qwen-local/design.md section 4; observed this session: 12 identical FAIL lines, cap exhaustion with the answer already in the thinking text, a non-compiling reply ranked best (fixed).
+
+### T-0063 ascii-art skill: a craft process, a canvas library, a rendering and accessibility checker, one new piece, and the research behind them
+
+- **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Route:** local - Both scripts have exact verifiers; the checker needed a thinking attempt after fast attempts failed on my spec errors.
+- **Acceptance:** python .claude/skills/ascii-art/scripts/test-asciicanvas.py and test-check-ascii.py print VERIFIED; check-ascii.py on GALLERY.md reports 0 errors; SKILL.md sections 6 to 10 name each source and how far it was read; a human reads gallery piece 7 before any CF-facing use.
+- **Evidence:** 2026-10-05: the maintainer asked for the ascii-art skill to become truly creative and artistic, researched online, with the READMEs updated. The skill covered tone and tools but not how to make a good piece, and models read ASCII better than they draw it (arXiv 2604.14641).
+- **Notes:** Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-lab a602e23. The worker drafted the canvas (attempt 2) and the checker (thinking attempt); 20-mutant and 18-mutant proofs. Sources: two read as abstracts and quotes verified verbatim, two through a summarising tool and marked as such, search summaries marked unverified.
 
 ### T-0052 Close the findings a frontier-model review deferred in cf-evidence-loop v0.1
 
@@ -678,6 +679,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** >=90% correct verdicts; all 10 out-of-scope claims return out_of_scope; set frozen before any model sees it.
 - **Evidence:** cf-first-project-scoping-memo.md (private session document, not in the repo) section 4 and 6
 
+### T-0102 Bring the lab's sources together: one question, one cross-checked record, then the variant layer
+
+- **Why / ROI rationale:** Estimate: the lab's differentiator is answering one CF question from several checked sources at once; the approved sources already exist, so most of the value is wiring and tests, not new access. *(confidence: low)*
+- **Acceptance:** Step 1: a documented, tested run of one fixed CF question through the evidence loop returns records from at least four catalogued sources, each with its source id, URL, retrieval date and a 'not stated' where a source is silent; a test with a deliberately wrong record shows the cross-check flags it. Step 2: the variant layer (the variant_profile tool, MyVariant, and AlphaMissense only if the catalog entry is admitted) gives one profile for a fixed public variant with every number tied to a source field. Each new key gets a slot in .env.example (names only) and is read only through run-with-env.ps1; no agent reads .env. Every pull request names each new external network call and dependency. The maintainer does every sign-up, licence acceptance and permission request in the proposal's table; no source becomes reachable until the maintainer admits it in the catalog. A Full-tier review applies where a key or a licence is involved.
+- **Evidence:** 2026-10-08: the maintainer said the lab's strength is bringing sources together and asked for a list of APIs, MCP servers and data in order of impact. cf-research/sources/catalog.yaml already holds 14 sources with access: api and six more are drafted (two api, four manual) (cf-research proposals/2026-10-07-api-candidates.md, draft pull request). The ranked plan and the sign-up steps only the maintainer can do are in cf-research proposals/2026-10-08-source-plan-and-signups.md. The catalog marks OpenAlex and Data Commons as key-required and NCBI and openFDA as optional-key; of the keys, only DC_API_KEY has a slot in .env.example today.
+- **Notes:** 2026-10-08: proposed by a model; only the maintainer can set it ready. Not started. Sign-ups (maintainer only, with a lab-owned address and keys only in the git-ignored .env): OpenAlex key first, then optional NCBI and openFDA keys, the CFF and ECFSPR permission requests (T-0006), connector sign-ins, and the decisions on Semantic Scholar, Data Commons, Gemini and any paid item. Costs and the terms of the sources marked unread in the proposal have not been checked.
+
 ### T-0057 Human edits to the protected .github folder after the rename: CODEOWNERS, copilot-instructions names, CI workflows
 
 - **Why / ROI rationale:** Estimate: without the new paths the setup scripts lose their required reviewer. *(confidence: high)*
@@ -692,19 +700,19 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** handoff site_text.txt (private session artifact, not in the repo) 'Modulators and drug development'
 - **Notes:**  2026-10-07: Audit: the approval years are stated and checked on the evidence page, but not linked individually to FDA or DailyMed records as the acceptance asks. Partly done.
 
-### T-0029 Docs tier 2: hq housekeeping outside .claude (README tree, loop README status line, retire committed PR descriptions)
-
-- **Why / ROI rationale:** Small fixes to documents that currently mislead: the README structure tree omits tasks/ and Modelfile, and the loop-orchestrator README still advertises consensus voting that AGENTS.md forbids. Committed PR descriptions go stale at merge. *(confidence: medium)*
-- **Acceptance:** grep -c 'tasks/' README.md is 1 or more; the first five lines of .github/loop-orchestrator/README.md contain 'not functional'; render-board.ps1 -Check exits 0; after merge no .github/PR-*.md is tracked and its provenance is in the notes of the tasks it completed.
-- **Evidence:** research/proposals/2026-10-04-docs-organization-and-memory-design.md; the findings for this tier were re-checked against the files on 2026-10-04.
-- **Notes:** Human gate: .github/ is CODEOWNERS-protected, so a human commits. Do not touch loop.py, settings or skills. Human decided 2026-10-04: stop committing PR descriptions; delete .github/PR-2026-10-04.md (and the research one) at merge after copying their provenance into the notes of T-0003, T-0004 and T-0022. README tree edit and loop README status note were prepared on branch chore/docs-org-tier2; the .github change is staged for a human to commit.
-
 ### T-0032 Docs tier 5: tidy per-user agent memory outside the repos
 
 - **Why / ROI rationale:** Per-user memory lives in a home-folder project unrelated to the lab repos and is partly misfiled. The design limits that layer to machine-specific operational facts and bars model-identity claims and lab lessons. *(confidence: medium)*
 - **Acceptance:** A listing of the memory folder shows files only under the lab's own project folder, none holding lab rules, task state, model-identity claims or secrets.
 - **Evidence:** research/proposals/2026-10-04-docs-organization-and-memory-design.md; the findings for this tier were re-checked against the files on 2026-10-04.
 - **Notes:** Human only and private: nothing is committed. The author of the design did not read the contents, so this task starts with the human reading them.
+
+### T-0029 Docs tier 2: hq housekeeping outside .claude (README tree, loop README status line, retire committed PR descriptions)
+
+- **Why / ROI rationale:** Small fixes to documents that currently mislead: the README structure tree omits tasks/ and Modelfile, and the loop-orchestrator README still advertises consensus voting that AGENTS.md forbids. Committed PR descriptions go stale at merge. *(confidence: medium)*
+- **Acceptance:** grep -c 'tasks/' README.md is 1 or more; the first five lines of .github/loop-orchestrator/README.md contain 'not functional'; render-board.ps1 -Check exits 0; after merge no .github/PR-*.md is tracked and its provenance is in the notes of the tasks it completed.
+- **Evidence:** research/proposals/2026-10-04-docs-organization-and-memory-design.md; the findings for this tier were re-checked against the files on 2026-10-04.
+- **Notes:** Human gate: .github/ is CODEOWNERS-protected, so a human commits. Do not touch loop.py, settings or skills. Human decided 2026-10-04: stop committing PR descriptions; delete .github/PR-2026-10-04.md (and the research one) at merge after copying their provenance into the notes of T-0003, T-0004 and T-0022. README tree edit and loop README status note were prepared on branch chore/docs-org-tier2; the .github change is staged for a human to commit.
 
 ### T-0026 Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals
 
@@ -713,6 +721,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** Every key used in sources/catalog.yaml appears in the sources/README.md Fields table (a short script can diff them), and no key listed there is unused or it is marked optional; the two proposals are consistent about naming the public domain, and website-review.md carries no private-repo file names or deploy-mechanism detail beyond what a human keeps on purpose.
 - **Evidence:** research/sources/README.md Fields table omits pages, text_layer, priority, reference_doi, base_url, auth and etiquette, all used in catalog.yaml, while the catalog header names the README as the field reference. proposals/2026-10-04-youtube-about.md names the website domain twice; proposals/2026-10-04-website-review.md describes the deploy mechanism and names two private-repo files. AGENTS.md says to keep private project identities, domains and deployment details out of public repos.
 - **Notes:** Human decided 2026-10-04: the website domain is public (an older version of the site is live and the YouTube channel links to it), so it may be named in public repos and the earlier redaction of it in website-review.md was precautionary. Remaining: whether to keep the generic description of the deploy mechanism and the names of two private-repo files in website-review.md. The private repo's source, deploy details and local paths stay out of public repos. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research e5991ed: check_catalog_fields.py prints 'fields ok: 27 keys documented'; 13 test cases pass; two public notes lost deploy-mechanism detail.
+
+### T-0068 review-diff.ps1: the gate's local-worker review row as one command
+
+- **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Acceptance:** A script builds a packet from git diff (range or staged), sends it with findings.schema.json for N samples, prints one line per finding and the reminder that a worker review is a prompt, not a gate; a test with a stub worker and a throwaway repository covers range, staged, paths, context, empty diff, oversize diff and bad revision, with a mutation proof.
+- **Evidence:** 2026-10-05: the full-tier gate lists a local-worker review row, and it was not run for any of the week's commits until I built a packet by hand for the T-0052 diff; the worker's two samples gave three findings, none true. A helper makes the row cheap and keeps the packet text the same.
+- **Notes:** Proposed by a model after the maintainer interrupted an attempt to add it; only a human moves it to ready.
 
 ### T-0096 Run the optional Playwright browser-testing setup on a real Mac and a Linux machine
 
@@ -728,13 +743,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** README.md, section 'Thanks to the tools' (the table of Visual Studio Code, GitHub, GitHub Copilot, PowerShell 7, Playwright and Microsoft Edge, Git, Python and Ollama, plus the line that no company has funded, reviewed or endorsed the lab) and the sentence above it crediting Anthropic's Claude models and stating the lab is independent. The website is a separate, private repository whose footer I did not read for this task, so whether the two agree is not known.
 - **Notes:** Human decision: which vendors the site names, and in what words. Needs access to the private website repository; the repo field names cf-lab for the README side. Names are credits, not recommendations.
 
-### T-0068 review-diff.ps1: the gate's local-worker review row as one command
-
-- **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
-- **Acceptance:** A script builds a packet from git diff (range or staged), sends it with findings.schema.json for N samples, prints one line per finding and the reminder that a worker review is a prompt, not a gate; a test with a stub worker and a throwaway repository covers range, staged, paths, context, empty diff, oversize diff and bad revision, with a mutation proof.
-- **Evidence:** 2026-10-05: the full-tier gate lists a local-worker review row, and it was not run for any of the week's commits until I built a packet by hand for the T-0052 diff; the worker's two samples gave three findings, none true. A helper makes the row cheap and keeps the packet text the same.
-- **Notes:** Proposed by a model after the maintainer interrupted an attempt to add it; only a human moves it to ready.
-
 ### T-0088 Keep everything a verifier reads inside its temp copy
 
 - **Why / ROI rationale:** Estimate: avoids wasted attempts and false failures during a long unattended run. *(confidence: medium)*
@@ -743,20 +751,20 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** A verifier for site edits read the sibling research repo through a link; editing that repo during the run (new ledger entries) made the evidence-page check fail on two otherwise correct attempts and cost a thinking attempt (scratch/site-updates/qwen-results.md).
 - **Notes:** Lesson candidate, reproduce with: start a delegation, then edit cf-research/ledger/*.md, and watch tools/make_evidence.py --check fail in the verifier copy.
 
+### T-0054 fetch_sources.py: make --verify honour --only
+
+- **Why / ROI rationale:** Estimate: a small clarity fix so a restricted verify matches what its flags say. *(confidence: medium)*
+- **Route:** local - Worker drafted it on attempt 1 in 17 s against a verifier of 16 unit tests; the controller tidied it.
+- **Acceptance:** A unit test in tools/sources/test_fetch_sources.py fails before the change and passes after: with two files in the manifest, --only ID --verify reports '1 match, 0 changed, 0 missing'; without --only it still reports 2. python -m unittest test_fetch_sources exits 0.
+- **Evidence:** Running python tools/sources/fetch_sources.py --only ecfspr-adr-2022 --verify on 2026-10-04 printed '6 match, 0 changed, 0 missing': --verify re-hashed all six local files and ignored --only. The publish packet expected '1 match'.
+- **Notes:** Proposed by a model; only a human moves it to ready. Alternative: document that --verify always checks every file. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research db4aaaf: 16 tests pass (4 new). Live: '--only ecfspr-adr-2022 --verify' prints '1 match, 0 changed, 0 missing'. \| Verified done 2026-10-06 on origin/main a7c0a30, set done on the maintainer's instruction in session: the four test_verify_only_* tests fail against the pre-fix source and pass now; test_verify_only_checks_just_the_named_entry asserts '1 match, 0 changed, 0 missing' with --only and '2 match, 0 changed, 0 missing' without; test_fetch_sources and test_fetch_conduct run 38 tests, all OK. The earlier session recorded no actual hours, so roi.actual_hours stays null and roi.measured stays false.
+
 ### T-0031 Docs tier 4: move the idea inventory to research, make the first commit in skills, decide the private-repo naming boundary
 
 - **Why / ROI rationale:** Two idea inventories live in two repos, and lab-versioning already says the hq copy is outside the lab contract. The skills repo has no commits, and whether the private website repo's identity is private is undecided, which affects public board text. *(confidence: medium)*
 - **Acceptance:** CF-Project-Ideas.md exists in exactly one repo with one commit per repo; links to it resolve in hq and research; the skills repo has at least one commit; tasks/README.md states that board text carries no site domain, local paths or deploy details.
 - **Evidence:** research/proposals/2026-10-04-docs-organization-and-memory-design.md; the findings for this tier were re-checked against the files on 2026-10-04.
 - **Notes:** Human only. Human decided 2026-10-04: move after the human review of the scope-triage table (T-0020), and keep the website repo's board key while writing the no-domain, no-paths, no-deploy-detail rule into tasks/README.md. One commit per repo. Publishing any skill package is not part of this task.
-
-### T-0040 Read terms and record access values for UK, Canadian, Australian, and Irish CF registry annual reports
-
-- **Why / ROI rationale:** Extends the registry table beyond US and EU. Each is either fetchable like ECFSPR or manual like CFF; the fetcher already handles both. *(confidence: medium)*
-- **Route:** cloud - Same as T-0039, plus fetching three PDFs through fetch_sources.py and reading their first pages.
-- **Acceptance:** Four catalog entries with tested access values; fetch_sources.py --manual lists the manual ones correctly.
-- **Evidence:** research/proposals/2026-10-04-researcher-sources.md layer 5
-- **Notes:** Human reads terms; agent records. Comparability notes required before any cross-registry row. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research bef18d5 and cf-skills 2438d44: four entries (UK, Australia, Ireland fetch; Canada manual because its PDF host disallows *.pdf). fetch_sources.py downloaded the three and --verify says '3 match, 0 changed, 0 missing'; --manual lists ccfr-adr-2024. Data years from title pages for UK, Australia and Ireland; Canada's is from link text and is marked unverified. Terms differ: UK forbids reproduction without permission, Ireland states CC BY 4.0 for the 2024 report only, Australia states no licence. \| Verified done 2026-10-07 (first-hand, then by a read-only audit), set done on the maintainer's instruction in session: the catalog has ukcfr-adr-2024, acfdr-adr-2025 and cfri-adr-2024 (fetch, verified) and ccfr-adr-2024 (manual, its host disallows automated access); fetch_sources.py --manual lists ccfr-adr-2024 with its file name and --verify prints '29 match, 0 changed, 0 missing'. No live fetch was re-tested. Caveat: its depends_on entry T-0008 is still proposed. No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
 
 ### T-0098 cf-research: make the script-style tests in tools/sources collectable by python -m unittest
 
@@ -766,13 +774,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** Observed 2026-10-06 in cf-research tools/sources: python -m unittest reports 40 tests and 2 errors, because test_check_catalog_fields.py and test_make_manual_downloads.py are plain scripts that call sys.exit at import (the README says to run python -m unittest -v, which therefore cannot pass). Run directly (python test_<name>.py) both are fine. The CRLF fix in cf-research PR 3 touched the second file but not this.
 - **Notes:** Proposed by a model; only a human moves it to ready. Two shapes: convert the two files to unittest, or add a tiny runner that executes each script and fails on a non-zero exit.
 
-### T-0054 fetch_sources.py: make --verify honour --only
+### T-0040 Read terms and record access values for UK, Canadian, Australian, and Irish CF registry annual reports
 
-- **Why / ROI rationale:** Estimate: a small clarity fix so a restricted verify matches what its flags say. *(confidence: medium)*
-- **Route:** local - Worker drafted it on attempt 1 in 17 s against a verifier of 16 unit tests; the controller tidied it.
-- **Acceptance:** A unit test in tools/sources/test_fetch_sources.py fails before the change and passes after: with two files in the manifest, --only ID --verify reports '1 match, 0 changed, 0 missing'; without --only it still reports 2. python -m unittest test_fetch_sources exits 0.
-- **Evidence:** Running python tools/sources/fetch_sources.py --only ecfspr-adr-2022 --verify on 2026-10-04 printed '6 match, 0 changed, 0 missing': --verify re-hashed all six local files and ignored --only. The publish packet expected '1 match'.
-- **Notes:** Proposed by a model; only a human moves it to ready. Alternative: document that --verify always checks every file. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research db4aaaf: 16 tests pass (4 new). Live: '--only ecfspr-adr-2022 --verify' prints '1 match, 0 changed, 0 missing'. \| Verified done 2026-10-06 on origin/main a7c0a30, set done on the maintainer's instruction in session: the four test_verify_only_* tests fail against the pre-fix source and pass now; test_verify_only_checks_just_the_named_entry asserts '1 match, 0 changed, 0 missing' with --only and '2 match, 0 changed, 0 missing' without; test_fetch_sources and test_fetch_conduct run 38 tests, all OK. The earlier session recorded no actual hours, so roi.actual_hours stays null and roi.measured stays false.
+- **Why / ROI rationale:** Extends the registry table beyond US and EU. Each is either fetchable like ECFSPR or manual like CFF; the fetcher already handles both. *(confidence: medium)*
+- **Route:** cloud - Same as T-0039, plus fetching three PDFs through fetch_sources.py and reading their first pages.
+- **Acceptance:** Four catalog entries with tested access values; fetch_sources.py --manual lists the manual ones correctly.
+- **Evidence:** research/proposals/2026-10-04-researcher-sources.md layer 5
+- **Notes:** Human reads terms; agent records. Comparability notes required before any cross-registry row. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research bef18d5 and cf-skills 2438d44: four entries (UK, Australia, Ireland fetch; Canada manual because its PDF host disallows *.pdf). fetch_sources.py downloaded the three and --verify says '3 match, 0 changed, 0 missing'; --manual lists ccfr-adr-2024. Data years from title pages for UK, Australia and Ireland; Canada's is from link text and is marked unverified. Terms differ: UK forbids reproduction without permission, Ireland states CC BY 4.0 for the 2024 report only, Australia states no licence. \| Verified done 2026-10-07 (first-hand, then by a read-only audit), set done on the maintainer's instruction in session: the catalog has ukcfr-adr-2024, acfdr-adr-2025 and cfri-adr-2024 (fetch, verified) and ccfr-adr-2024 (manual, its host disallows automated access); fetch_sources.py --manual lists ccfr-adr-2024 with its file name and --verify prints '29 match, 0 changed, 0 missing'. No live fetch was re-tested. Caveat: its depends_on entry T-0008 is still proposed. No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
 
 ### T-0050 Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow
 
@@ -795,24 +803,17 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** model-qwen3-8-27b SKILL.md, 'Depth of a fact in a 64K prompt': synthetic repetitive filler, one fact, one question, one code format, one seed; every cell 2/2 up to 62,764 counted prompt tokens (depth-probe-3), and the skill itself says a real document with many similar facts is a harder task and that fast-mode samples at temperature 0 are not independent.
 - **Notes:** Choose public-domain prose or the lab's own text; no fetched or private text. Reproduce with the commands in the profile skill, with the new corpus option.
 
-### T-0021 Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008)
-
-- **Why / ROI rationale:** A public, aggregate, unambiguous fixture for 'map claim to source or abstain', which is the exact job the local worker must do well. *(confidence: low)*
-- **Acceptance:** Fixture JSON with 30/20/10 split committed; at least one model scored with abstention reported separately from accuracy.
-- **Evidence:** research/proposals/2026-10-04-hq-skill-updates.md item 5
-
 ### T-0044 Paper-trail layer: Unpaywall and Semantic Scholar providers
 
 - **Why / ROI rationale:** Turns a cited DOI into a legally readable copy and shows who built on a result. Both need a contact or key, which catalog auth already models. *(confidence: medium)*
 - **Acceptance:** Providers with tests; EVIDENCE_CONTACT used for Unpaywall only; no key committed; live check on 10.1038/ng.2745 returns an OA location and citation graph summary.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 3
 
-### T-0055 EMA medicines provider: read the downloaded JSON report as evidence records (marketing authorisation date, status)
+### T-0021 Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008)
 
-- **Why / ROI rationale:** Estimate: answers 'approved where, for whom' for the EU, which openFDA cannot. The legal notice requires EMA to be acknowledged as the source, so every record's limitations must say so. *(confidence: low)*
-- **Acceptance:** Offline tests on a saved slice of the JSON: a known authorised product returns its marketing authorisation date; a missing product returns not_found (positive control: delete the record from the fixture and the test must fail); every record's limitations name EMA as the source and the file's own last-updated timestamp. The skill reads only a file the fetcher placed under sources/downloads; it opens no network connection. A human decides how the skill locates the file (design question, not settled here).
-- **Evidence:** Catalog entry ema-medicines-json (access fetch). Downloaded once 2026-10-04: 6,777,246 bytes, valid JSON, 2,746 records; Kaftrio (authorised 2020-08-21) and Orkambi (2015-11-19) are present. The data page names no API, so this is a file-reading provider, not an http.py provider.
-- **Notes:** Proposed by a model; only a human moves it to ready. The terms were read through a summarising tool; a human should read the legal notice first.
+- **Why / ROI rationale:** A public, aggregate, unambiguous fixture for 'map claim to source or abstain', which is the exact job the local worker must do well. *(confidence: low)*
+- **Acceptance:** Fixture JSON with 30/20/10 split committed; at least one model scored with abstention reported separately from accuracy.
+- **Evidence:** research/proposals/2026-10-04-hq-skill-updates.md item 5
 
 ### T-0053 Data Commons provider in cf-evidence-loop for population denominators (if the admission is accepted)
 
@@ -820,6 +821,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** After a human sets base_url and admits the source: offline tests on a saved response fixture pass, including a positive control (a fixture with no observation returns not_found); EVIDENCE_DRY_RUN=1 prints only the catalogued host; the record's limitations name the underlying Census method and date; DC_API_KEY appears in git grep only as a placeholder or documentation.
 - **Evidence:** research/proposals/2026-10-04-datacommons-admission.md section 4: Count_Person for country/USA and geoId/53 returned date 2025 with measurementMethod CensusPEPSurvey and a provenanceUrl; no CF or SCD indicator found. The catalog entry has api_root but no base_url, so the skill cannot reach it until a human admits it.
 - **Notes:** Proposed by a model; only a human moves it to ready. Do not write it before the admission decision.
+
+### T-0055 EMA medicines provider: read the downloaded JSON report as evidence records (marketing authorisation date, status)
+
+- **Why / ROI rationale:** Estimate: answers 'approved where, for whom' for the EU, which openFDA cannot. The legal notice requires EMA to be acknowledged as the source, so every record's limitations must say so. *(confidence: low)*
+- **Acceptance:** Offline tests on a saved slice of the JSON: a known authorised product returns its marketing authorisation date; a missing product returns not_found (positive control: delete the record from the fixture and the test must fail); every record's limitations name EMA as the source and the file's own last-updated timestamp. The skill reads only a file the fetcher placed under sources/downloads; it opens no network connection. A human decides how the skill locates the file (design question, not settled here).
+- **Evidence:** Catalog entry ema-medicines-json (access fetch). Downloaded once 2026-10-04: 6,777,246 bytes, valid JSON, 2,746 records; Kaftrio (authorised 2020-08-21) and Orkambi (2015-11-19) are present. The data page names no API, so this is a file-reading provider, not an http.py provider.
+- **Notes:** Proposed by a model; only a human moves it to ready. The terms were read through a summarising tool; a human should read the legal notice first.
 
 ### T-0101 A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK
 
