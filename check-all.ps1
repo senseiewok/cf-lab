@@ -78,6 +78,7 @@ $Checks = @(
     @{ name = 'test-check-quote';         exe = 'python';     args = @("$s/ai-loop-council/scripts/test-check-quote-completeness.py");                     needs = @('python') }
     @{ name = 'test-depth-probe';         exe = 'python';     args = @("$s/ai-loop-council/scripts/test_depth_probe.py");                                  needs = @('python') }
     @{ name = 'test-filter-findings';     exe = 'python';     args = @("$s/ai-loop-council/scripts/test_filter_review_findings.py");                       needs = @('python') }
+    @{ name = 'test-findings-evidence';   exe = 'python';     args = @("$s/ai-loop-council/scripts/test_check_findings_evidence.py");                      needs = @('python') }
     @{ name = 'test-loop-report';         exe = 'python';     args = @("$s/ai-loop-council/scripts/test_loop_report.py");                                  needs = @('python') }
     @{ name = 'test-verify-in-copy';      exe = 'python';     args = @("$s/ai-loop-council/scripts/test_verify_in_copy.py");                               needs = @('python') }
     # security-git

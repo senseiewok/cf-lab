@@ -1,0 +1,53 @@
+{
+  "findings": [
+    {
+      "severity": "medium",
+      "where": "example-web-services",
+      "quote": "Nothing read forbids automated retrieval or redistribution for a public, non-commercial repo.",
+      "problem": "This widening sentence reads as a licence ruling, but the entry itself says the copyright status is not established, so the ruling has no basis in the text.",
+      "fix": "Replace with the terms actually read and label the conclusion as an inference."
+    },
+    {
+      "severity": "high",
+      "where": "example-web-services",
+      "quote": "the API was not called",
+      "problem": "The entry records the access date.",
+      "fix": "Leave as is."
+    },
+    {
+      "severity": "high",
+      "where": "example-web-services",
+      "quote": "The entry was hand-edited after generation.",
+      "problem": "A generated file was edited by hand.",
+      "fix": "Regenerate it."
+    },
+    {
+      "severity": "medium",
+      "where": "example-web-services",
+      "quote": "not stated in the packet",
+      "problem": "The entry lacks a base_url, so no tool can reach it.",
+      "fix": "Add one after a human decides."
+    },
+    {
+      "severity": "low",
+      "where": "example-web-services",
+      "quote": "not stated in the packet",
+      "problem": "Whether a rate limit is published is unknown from this text.",
+      "fix": "Ask the publisher."
+    },
+    {
+      "severity": "low",
+      "where": "example-web-services",
+      "quote": "",
+      "problem": "The robots value should be checked again.",
+      "fix": "Re-check."
+    },
+    {
+      "severity": "low",
+      "where": "example-web-services",
+      "quote": "Pages fetched 2026-10-07 with   the lab user agent",
+      "problem": "Extra spaces in the quote still match after whitespace is collapsed.",
+      "fix": "Leave as is."
+    }
+  ]
+}
