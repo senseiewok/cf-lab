@@ -3905,6 +3905,404 @@
       "completed_by": null,
       "complexity": "low",
       "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it."
+    },
+    {
+      "id": "T-0108",
+      "title": "Block the agent web tool for catalog hosts marked manual, request or forbidden",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-09T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-opus-5-5",
+        "session_ref": "2026-10-09 session, log review by a blind council (two Fable, two Opus reviewers; findings checked by the controller)"
+      },
+      "source_evidence": "2026-10-07: the agent web tool sent requests to one manual and one forbidden catalog host (no content returned); the tool does not read the catalog. Confirmed on the session transcript by the controller.",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Estimate: the catalog's permission field is then enforced by the tool, not by memory.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Deny rules for the agent web tool cover every host of a manual, request or forbidden catalog entry, and a check-all row derived from ../cf-research/sources/catalog.yaml fails when one is missing.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-09T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. The shared .claude/settings.json is a human-only edit; an agent may draft the host list and the check."
+    },
+    {
+      "id": "T-0109",
+      "title": "A rule for questions about one real person: generalise before any search",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-09T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-opus-5-5",
+        "session_ref": "2026-10-09 session, log review by a blind council (two Fable, two Opus reviewers; findings checked by the controller)"
+      },
+      "source_evidence": "2026-10-07: after a question about one real person's care and coverage, web searches carried a combination of that person's attributes. Nothing reached a repo or a note (grep). security-browsing already says health data about individuals never goes into queries.",
+      "effort_hours": {
+        "low": 1,
+        "high": 3
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Estimate: small CF cohorts re-identify; one combined query can identify a person.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "security-browsing and cf-research-context say: before any search or cloud call, rewrite the question in general terms, say so, and keep nothing about the person; a session-close scan lists web-tool inputs that combine a health term with age, origin, status, place or a date.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-09T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides the wording and whether such questions are in scope."
+    },
+    {
+      "id": "T-0110",
+      "title": "Rulesets on main for the public repos",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-09T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-opus-5-5",
+        "session_ref": "2026-10-09 session, log review by a blind council (two Fable, two Opus reviewers; findings checked by the controller)"
+      },
+      "source_evidence": "2026-10-09: gh api shows no ruleset on main; CODEOWNERS says it takes effect only with one. A mistaken or injected push to main is not blocked by GitHub.",
+      "effort_hours": {
+        "low": 0.5,
+        "high": 1
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Estimate: the only control that holds whatever mode the agent runs in.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Each public repo has a ruleset on main: pull request required, force push blocked, code-owner review; gh api repos/<r>/rulesets is non-empty.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-09T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. GitHub settings are human-only. The private site repo keeps its own list in its notes."
+    },
+    {
+      "id": "T-0111",
+      "title": "Harden the commit gate: commit only on pass, fail on stray files, show open rows",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-09T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-opus-5-5",
+        "session_ref": "2026-10-09 session, log review by a blind council (two Fable, two Opus reviewers; findings checked by the controller)"
+      },
+      "source_evidence": "2026-10-09 log review: -Expected was built from git diff --cached after git add -A, so the scope check always passed, and a filter hid the rows a model or a person must do. The privacy scan still ran on every staged file.",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: the gate is the main control between agents and public commits.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "run-gate.ps1 takes -MessageFile and commits only on exit 0, fails when git status shows files outside -Expected, and ends with OPEN ROWS: n; the skill says -Expected comes from the plan; a self-test with a stray file fails.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-09T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. An agent may build it; it changes an agent-control script, so the maintainer reads the diff."
+    },
+    {
+      "id": "T-0112",
+      "title": "A merge check: catch commits a squash merge dropped",
+      "repo": "cf-lab",
+      "area": "reliability",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-09T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-opus-5-5",
+        "session_ref": "2026-10-09 session, log review by a blind council (two Fable, two Opus reviewers; findings checked by the controller)"
+      },
+      "source_evidence": "2026-10-07 to 2026-10-09: squash merges dropped commits pushed after the merge four times (one a security fix); each was found by checking main by hand.",
+      "effort_hours": {
+        "low": 2,
+        "high": 3
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: replaces many hand checks and catches a lost fix before a worktree is removed.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "check-merged.ps1 -Repo -Pr confirms the PR's last commit and files are on origin/main; workspace-siblings says to run it after every merge and before removing a worktree; a pre-push check refuses a branch whose PR is merged.",
+      "review_tier": "routine",
+      "depends_on": [],
+      "updated_at": "2026-10-09T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready."
+    },
+    {
+      "id": "T-0113",
+      "title": "Eval tallies as data: commit verdict rows, recount the grid, state judge drift",
+      "repo": "cf-skills",
+      "area": "grounding",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-09T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-opus-5-5",
+        "session_ref": "2026-10-09 session, log review by a blind council (two Fable, two Opus reviewers; findings checked by the controller)"
+      },
+      "source_evidence": "2026-10-09: the published grid counts match the verdict files (recounted by script), but those files sit only in a temporary folder; re-judging the same old replies moved one count from 14 to 19 passes, more than the gain reported; three translation cases send no text.",
+      "effort_hours": {
+        "low": 3,
+        "high": 6
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: public pass counts then come from data a script can recount.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Verdict rows per run are committed (invented cases only), make_tested_grid.py --check recomputes every cell, the grid note states the judge drift, and check_repo.py fails a case that refers to pasted text with an empty message.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-09T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. A person writes the text for the faulty cases."
+    },
+    {
+      "id": "T-0114",
+      "title": "Test CI for the three public repos",
+      "repo": "cf-lab",
+      "area": "reliability",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-09T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-opus-5-5",
+        "session_ref": "2026-10-09 session, log review by a blind council (two Fable, two Opus reviewers; findings checked by the controller)"
+      },
+      "source_evidence": "2026-10-09: the public repos run only CodeQL and dependency graph in Actions; every test behind a merge is the agent's local run.",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: a red check is visible to everyone, not only the agent.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Each public repo runs its standard-library tests on pull requests with read-only permissions and actions pinned by SHA.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-09T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Adds workflows; the maintainer decides."
+    },
+    {
+      "id": "T-0115",
+      "title": "Record the agent's permission mode and deny GitHub settings commands",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-09T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-opus-5-5",
+        "session_ref": "2026-10-09 session, log review by a blind council (two Fable, two Opus reviewers; findings checked by the controller)"
+      },
+      "source_evidence": "2026-10-06 to 2026-10-09: sessions ran in auto mode and no prompt appears for pushes. On 2026-10-06 an agent tried to change an organisation role through the API; the classifier denied it and the maintainer did it by hand.",
+      "effort_hours": {
+        "low": 1,
+        "high": 2
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: makes the ask list's real effect known and closes settings changes to agents.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "security-runtime records the mode the lab runs in and what the ask list does under it, checked by a dated test; deny rules cover gh api -X PUT/PATCH/DELETE, gh secret and gh repo edit; check-workspace.py asserts them.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-09T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Settings edits are human-only; the maintainer decides the mode while away."
+    },
+    {
+      "id": "T-0116",
+      "title": "Pin the third-party skills by hash",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-09T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-opus-5-5",
+        "session_ref": "2026-10-09 session, log review by a blind council (two Fable, two Opus reviewers; findings checked by the controller)"
+      },
+      "source_evidence": "2026-10-09: four third-party skills are loaded by every session; one spawns nested agents; review was a grep, not a line-by-line read.",
+      "effort_hours": {
+        "low": 1,
+        "high": 2
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: a changed third-party skill would otherwise load silently.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "check-all fails when a third-party skill folder's hash differs from the one pinned in THIRD_PARTY_SKILLS.md.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-09T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides whether skill-creator keeps its scripts."
+    },
+    {
+      "id": "T-0117",
+      "title": "Identity in public files: one role address, one way to sign",
+      "repo": "cf-lab",
+      "area": "compliance",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-09T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-opus-5-5",
+        "session_ref": "2026-10-09 session, log review by a blind council (two Fable, two Opus reviewers; findings checked by the controller)"
+      },
+      "source_evidence": "2026-10-09: public files use a first-name address; the two letter drafts disagree on signing and on where replies go; organisation contact addresses sit in the catalog; READMEs credit an AI vendor; commit author addresses are mixed.",
+      "effort_hours": {
+        "low": 1,
+        "high": 3
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: keeps the lab separate from the maintainer's identity.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "One role address in public files, letters signed by the lab, the catalog names 'the contact in the terms' instead of addresses, a recorded decision on vendor credit, and commit author addresses checked by the gate.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-09T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice."
+    },
+    {
+      "id": "T-0118",
+      "title": "Decide read and discard (cf-research #23)",
+      "repo": "cf-research",
+      "area": "grounding",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-09T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-opus-5-5",
+        "session_ref": "2026-10-09 session, log review by a blind council (two Fable, two Opus reviewers; findings checked by the controller)"
+      },
+      "source_evidence": "2026-10-09: cf-research #23 proposes grounding on sources we may cite but not copy, without keeping them; six decisions are listed.",
+      "effort_hours": {
+        "low": 0.5,
+        "high": 1
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: lets the lab check a claim on such a source without copying it.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "The maintainer answers the six decisions in #23; nothing is built before then.",
+      "review_tier": "full",
+      "depends_on": [
+        "T-0108"
+      ],
+      "updated_at": "2026-10-09T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. T-0108 comes first."
     }
   ]
 }
