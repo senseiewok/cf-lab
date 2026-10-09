@@ -37,7 +37,7 @@ A missing sibling: run `setup.cmd` (Windows) or `./setup.sh` from `cf-lab`. It c
 | `cf-skills` | `python ../cf-skills/scripts/check_repo.py`; `python ../cf-skills/scripts/make_index.py --check`; in `../cf-skills`: `python -m unittest discover tests` |
 | `cf-research` | in `../cf-research/tools/sources`: `python -m unittest -v` |
 
-Then run the gate for the tier against the repo you changed: `pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier <tier> -Expected <files> -RepoPath <repo>`.
+Then run the gate for the tier against the repo you changed: `pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier <tier> -Expected <files> -RepoPath <repo> -MessageFile <file>`. `-Expected` comes from the plan, never from `git diff --cached`; with `-MessageFile` the gate commits only when its rows pass.
 
 ## A change that spans repos
 

@@ -33,10 +33,12 @@ This skill describes **roles**, not models. The actual model in each role is cho
 Before a commit, run the deterministic rows for the tier and tick the model and human rows from real output:
 
 ```powershell
-pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier elevated -Expected README.md,tasks/board.json
+pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier elevated -Expected README.md,tasks/board.json -MessageFile ../commit-msg.txt
 ```
 
-It runs `security-git/scripts/check-staged.ps1` (the staged set equals what you named; no private detail is added; each privacy pattern matches its own canary) and `scripts/check-changed.ps1` (staged scripts and data parse; the owning checker passes), then prints the checklist for the tier. `scripts/count-rendered.ps1` asserts a rendered count such as the 65 roses. Each script has an independent test beside it (`test-*.ps1`, and `check-staged.ps1 -SelfTest`).
+It runs `security-git/scripts/check-staged.ps1` (the staged set equals what you named; no private detail is added; each privacy pattern matches its own canary), fails on any STRAY file that `git status --porcelain` shows outside `-Expected` (modified or untracked, staged or not), and runs `scripts/check-changed.ps1` (staged scripts and data parse; the owning checker passes), then prints the checklist for the tier. The last line is `OPEN ROWS: n`, the rows a model or a human still has to tick; do not filter the output so that section 3 is hidden. With `-MessageFile` the gate runs `git commit -F` itself, only when every deterministic row passed, and refuses (exit 1, no commit) otherwise; commit through the gate rather than after it. Keep the message file outside the repo, or it is a stray. `scripts/count-rendered.ps1` asserts a rendered count such as the 65 roses. Each script has an independent test beside it (`test-*.ps1`, and `check-staged.ps1 -SelfTest`).
+
+- **`-Expected` comes from the plan, never from `git diff --cached`.** Write down the files the plan says you will change before staging, stage only those (never `git add -A`), and pass that list. A list read back from the index always equals the staged set, so that row passes whatever was staged; a log review found exactly this, with the output filtered so the open rows were hidden and one commit run after a failed gate. The stray check catches a file left outside the index, not one that `git add -A` swept in: only a list written from the plan does.
 
 - **A verifier that has never failed proves nothing.** Give each one a known-bad input before trusting "none found".
 - **A verbatim-quote check does not clear an inference.** For any "only", "none", "every", "differs" or "absent" claim, read the complete sentence from every unit in scope and search raw text, not a parsed structure.
