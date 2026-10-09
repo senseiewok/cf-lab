@@ -51,7 +51,18 @@ Then run the gate for the tier against the repo you changed: `pwsh -NoProfile -F
 - Work in a new worktree: `git -C <repo> fetch origin`, then `git -C <repo> worktree add -b <branch> <new folder> origin/main`.
 - Never check out, reset, clean or stash in a person's main checkout.
 - A worktree folder is not named `cf-skills` or `cf-research`, so `../` paths from it do not reach the siblings. Pass `--root <cf-lab checkout>` to the checker, or point tools at the real sibling folders.
-- Remove a worktree you made once its pull request is open and nothing else needs it: `git -C <repo> worktree remove <folder>`.
+- Remove a worktree you made once its pull request is open and nothing else needs it: `git -C <repo> worktree remove <folder>`. If the pull request has merged by then, run `check-merged.ps1` (next section) with `-RepoPath` first.
+
+## After a merge: check nothing was left behind
+
+A squash merge takes the branch as it was at that moment. A commit pushed afterwards never reaches `main`, and GitHub does not warn. This lost four commits in three days, one of them a security fix, each found only by hand.
+
+- Run the check after every merge, and before removing the worktree:
+  `pwsh -NoProfile -File .claude/skills/workspace-siblings/scripts/check-merged.ps1 -Repo <owner/name> -Pr <n> [-RepoPath <local clone>]`.
+  It makes read-only `gh api` calls (and read-only git commands with `-RepoPath`, no fetch) and prints PASS, FAIL or INFO lines; exit 1 on any FAIL. It fails when the PR is not merged, when a stacked PR's merge commit never reached the default branch, when the branch moved after the merge, when a file the branch touched differs from the merge commit, and (with `-RepoPath`) when the local branch or its worktree holds unpushed or uncommitted work. It compares with the merge commit because that never changes; today's `main` is printed only as INFO, since later merges may change those files legitimately. `-SelfTest` runs it on canned data with no network.
+- Never push to a branch whose PR is merged. Before pushing, check `gh pr list -R <owner/name> --head <branch> --state merged`. If it lists anything, put the commit on a new branch from `origin/main` and open a new PR.
+- Do not stack PRs (a PR whose base is another feature branch). When the lower one merges first, the upper one merges into a branch that has already gone to `main`, and its changes stop there. Base every PR on `main`; if one depends on another, wait for the first to merge, then rebase.
+- A FAIL is a lead, not a verdict: read the listed commits and files, and if the change is still missing from `main`, open a new PR that carries it.
 
 ## Where Claude Code's limits come from
 
