@@ -1,0 +1,12 @@
+{
+  "comment": "Expected label per finding of findings.json, in order. Synthetic fixture; the packet quotes no real source.",
+  "labels": [
+    "KEPT scope check",
+    "KEPT",
+    "DROPPED quote not found",
+    "DROPPED unquoted claim",
+    "KEPT abstained",
+    "DROPPED no evidence",
+    "KEPT"
+  ]
+}
