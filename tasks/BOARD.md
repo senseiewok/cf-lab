@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-102 tasks, 101 created by a model, 1 with a measured outcome. Estimated effort 239.1 to 441 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+107 tasks, 106 created by a model, 1 with a measured outcome. Estimated effort 247.6 to 461 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (17)
 
@@ -34,7 +34,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 
-## proposed (73)
+## proposed (78)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -45,10 +45,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0045 | P1 | Decide and document the install/link mechanism for using skills/cf-evidence-loop from hq without copying it | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |
 | T-0072 | P1 | Decision: cloud-model use on reports with unread terms; permission requests to the CFF Registry and the CF Trust; the CC0 label on skills that carry quotations | cf-research | 1-2 | 4 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  |  |
 | T-0092 | P1 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated |  |  | T-0083 |
+| T-0104 | P1 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low |  |  |
 | T-0008 | P1 | Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256) | cf-research | 2-3 | 4 | 16 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  | T-0005 |
 | T-0081 | P1 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  | T-0077 |
+| T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low |  |  |
 | T-0007 | P1 | Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md | cf-research | 2-3 | 3 | 12 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
 | T-0083 | P1 | Release review of the site-seo-review skill | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated |  |  |  |
+| T-0103 | P1 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium |  |  |
 | T-0082 | P1 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated |  |  |  |
 | T-0060 | P1 | Refresh the private .ai website for the first release: new repo names, evidence loop, setup, claim fixes | .ai | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  | T-0041 |
 | T-0009 | P1 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 16-20 | 4 | 2.2 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  | T-0008 |
@@ -66,6 +69,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0093 | P2 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low |  |  |
 | T-0094 | P2 | Decide, after the review memo, whether the AI-agent robots.txt rule from T-0067 ships, then merge it in both repos | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | full | medium |  | T-0067 |
+| T-0106 | P2 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low |  |  |
 | T-0046 | P2 | Sickle cell disease coverage: HBB variant checks, ASH guideline source terms, and an SCD worked example in SKILL.md | cf-skills | 2-3 | 4 | 16 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  | T-0043 |
 | T-0061 | P2 | Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows) | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  | T-0057 |
 | T-0030 | P2 | Docs tier 3: make AGENTS.md the only rule source; shrink copilot-instructions.md; fix the skill-authoring skill's internal contradictions | cf-lab | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  | T-0029 |
@@ -95,6 +99,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0023 | P3 | Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy | .ai | 0.5-0.5 | 2 | 40 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
 | T-0029 | P3 | Docs tier 2: hq housekeeping outside .claude (README tree, loop README status line, retire committed PR descriptions) | cf-lab | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine |  |  |  |
 | T-0032 | P3 | Docs tier 5: tidy per-user agent memory outside the repos | cf-lab | 0.25-0.5 | 1 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine |  |  |  |
+| T-0107 | P3 | Take the conference banner down after NACFC 2026 | site | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | routine | low |  |  |
 | T-0068 | P3 | review-diff.ps1: the gate's local-worker review row as one command | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0095 | P3 | Make the website's footer and credit wording agree with the README's 'Thanks to the tools' section | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low |  |  |
 | T-0096 | P3 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low |  | T-0058 |
@@ -203,6 +208,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** scratch/qwen-local/reviewer-eval.md, 'An 18th defect': with no --base-url and an absolute canonical the SEO008 path comparison is skipped (spec section 4); reproduced on 2026-10-06 in the original A3 and in shipped/seo_audit.py, while reference/seo_audit.py reports SEO008. Spec text in scratch/seo-skill/spec.md SEO008 row; fix notes in scratch/seo-skill/seo008-fix.md.
 - **Notes:** Does not duplicate T-0083 (the release review itself); it is the re-run after the fix. Human step: the merge and the publish decision stay with the maintainer.
 
+### T-0104 Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US
+
+- **Why / ROI rationale:** Estimate: the strict form is broken often by correct replies; deciding it once avoids shipping a rule the tests keep failing. *(confidence: low)*
+- **Acceptance:** The maintainer chooses one form and writes it on this row; the checker, the eval cases and the two core lines match it, check_repo and the paste-box tests pass, and the 12-message test is re-run on the new wording with counts reported next to the old ones.
+- **Evidence:** 2026-10-09: cf-skills #12 allows exactly '(911 in the US)'. In 366 Claude replies the exact bracket appeared 58 times and 28 other mentions of 911 or 112 broke the rule, most of them in forms a reader would find right; all three models wrote 112 in the Germany case. 988 and the order of the CF-team and emergency lines are open for a clinician.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. A clinician should also answer whether 988 belongs in the box and whether emergency services come before the CF team's line.
+
 ### T-0008 Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256)
 
 - **Why / ROI rationale:** Everything downstream (extraction, harness, fixture) encodes the schema; changing it later multiplies cost. *(confidence: medium)*
@@ -215,6 +227,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A blind read by a model of a different family against the checked-facts packet (flags confirmed on the source, never by vote); the three statements marked 'to confirm' in the packet (nucleotide-binding wording, 'most common variant', Trikafta wording) read on their sources; a person with CF or a carer reads the page and their changes are made; the maintainer decides to publish. Nothing is deployed before all four.
 - **Evidence:** The page's captions were checked by the controlling agent against the structure files and UniProt, and a storyboard came from Fable; no other model family and no person has read the final wording.
 - **Notes:** Human steps: the community read, the decision to publish. The page says 'Draft, in review' until then.
+
+### T-0105 A CF clinician or social worker reads the safe-use box wording and the open questions
+
+- **Why / ROI rationale:** Estimate: no clinician has read the wording that tells people what to do in an emergency; it is the biggest gap for the highest-risk text. *(confidence: low)*
+- **Acceptance:** A named-or-anonymous clinician or social worker returns the reply form for cf-ai-safe-use; each answer is recorded in a pull request or the private notes; any change they ask for is made through a pull request with the evidence file updated.
+- **Evidence:** 2026-10-09: the wording was decided by a council of models plus one caregiver's request; no clinician has read it. cf-research proposals/2026-10-09-permission-and-review-letters.md has an invitation letter and reply form.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Related to T-0011 (a person with CF or a carer, and a registry scientist). Sending the invitation is the maintainer's step.
 
 ### T-0007 Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md
 
@@ -242,6 +261,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A person reads SKILL.md, references and the checker; check_repo.py passes; the checker passes its tests under Python 3.9 and 3.13 on Windows and Linux; the licence is confirmed by the maintainer; a different model family reads the health-site section for overclaims.
 - **Evidence:** scratch/seo-skill: spec, 72 tests, a reference solution passing 72 of 72 and 8 of 8 planted faults rejected; the checker script was written by the local worker (see the bare-versus-card record in scratch/site-updates/qwen-results.md).
 - **Notes:** Human steps: licence and publish decision.
+
+### T-0103 Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts
+
+- **Why / ROI rationale:** Estimate: most care teams use one of these three products, and the grid still shows them as pending, so nobody should assume the boxes work there. *(confidence: low)*
+- **Acceptance:** Someone with access to each product runs each skill's eval cases in a fresh chat with the STANDARD box, scores each reply against its expected and forbidden lines, and edits docs/tested-with.json; python scripts/make_tested_grid.py --check passes and the page shows counts, not Pending, for the cells run. Invented cases only.
+- **Evidence:** 2026-10-08: cf-skills docs/tested-with.md lists Gemini, GPT and Copilot as Pending; the boxes were run only on three Claude models (366 replies, blind judges).
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Needs a person with access to those products; an agent cannot run them from the lab's machine.
 
 ### T-0082 Try each agent's install path from the skills hub in a real client
 
@@ -429,6 +455,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A human reads the review memo and records yes or no in T-0067. If yes: the cf-skills change is merged to its main with its tests (the evidence skill's unit tests pass, and one fails when a group for any of Claude, ClaudeBot, anthropic-ai, GPTBot, ChatGPT-User, CCBot, Google-Extended or PerplexityBot disallows the path); git grep -n AI_AGENT_TOKENS origin/main in cf-skills finds the list; NETWORK-RULES R3 and security-browsing say so; in cf-research python tools/sources/fetch_sources.py --audit-robots exits 0, or names each refused entry. If no: the cf-research use of the rule is reverted or documented as the project's own choice, and T-0067 says why.
 - **Evidence:** T-0067's notes record the decision to honour robots.txt groups that name AI agents and say the change was done in working trees, not yet committed. Checked on 2026-10-06 with git grep on each origin/main: cf-skills (commit 3844785) has no AI_AGENT_TOKENS and no mention of ClaudeBot or anthropic-ai; cf-research already calls ev.robots_allows in tools/sources/fetch_sources.py and ships the --audit-robots option, so the fetch tool is ahead of the shared rule it depends on.
 - **Notes:** Human decision (policy, not code). Does not replace T-0067, which holds the decision and the working-tree change; this task is the publication step after the review memo. Full tier because the change governs how the lab's tools treat other sites.
+
+### T-0106 Send the permission letters and record every reply in the source catalog
+
+- **Why / ROI rationale:** Estimate: the model page's own CFTR2 data and the neighbourhood-index guide both wait on written permission or a clear no. *(confidence: low)*
+- **Acceptance:** Each letter is sent from the lab address; every reply or its absence is recorded by pull request in sources/catalog.yaml with the date and exactly what is allowed; no source is used beyond what is allowed.
+- **Evidence:** 2026-10-09: cf-research #19 holds drafts for CFTR2, the Child Opportunity Index and a review invitation; nothing has been sent. The catalog marks CFTR2 manual and link-only.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Maintainer's step. Silence is not permission.
 
 ### T-0046 Sickle cell disease coverage: HBB variant checks, ASH guideline source terms, and an SCD worked example in SKILL.md
 
@@ -721,6 +754,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A listing of the memory folder shows files only under the lab's own project folder, none holding lab rules, task state, model-identity claims or secrets.
 - **Evidence:** research/proposals/2026-10-04-docs-organization-and-memory-design.md; the findings for this tier were re-checked against the files on 2026-10-04.
 - **Notes:** Human only and private: nothing is committed. The author of the design did not read the contents, so this task starts with the human reading them.
+
+### T-0107 Take the conference banner down after NACFC 2026
+
+- **Why / ROI rationale:** Estimate: the banner is dated and its copy would become wrong after the event. *(confidence: low)*
+- **Acceptance:** The marked block and its CSS are deleted, the generator and its checks pass, and no page names the conference (a test already forbids it on the AI-in-care page).
+- **Evidence:** 2026-10-09: the banner is a marked block in the site's chrome generator and a CSS block, labelled REMOVE AFTER THE CONFERENCE.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it.
 
 ### T-0068 review-diff.ps1: the gate's local-worker review row as one command
 
