@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-107 tasks, 106 created by a model, 1 with a measured outcome. Estimated effort 247.6 to 461 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+118 tasks, 117 created by a model, 1 with a measured outcome. Estimated effort 263.6 to 494 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (17)
 
@@ -34,20 +34,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 
-## proposed (78)
+## proposed (89)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0001 | P0 | Replace hq LICENSE.md with a named OSI license; add a LICENSE to research, .ai, skills | cf-lab | 0.5-1.5 | 5 | 50 | no | model: claude-fable-5-1 | 2026-10-04 | full |  |  |  |
 | T-0002 | P1 | Fix YouTube About text: remove 'accelerate the cure', add research-not-advice and independence lines | channel | 0.25-0.5 | 4 | 106.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |
 | T-0006 | P1 | Send permissions emails to CFF registry contact and ECFSPR | cf-research | 0.5-0.5 | 4 | 80 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
+| T-0110 | P1 | Rulesets on main for the public repos | cf-lab | 0.5-1 | 5 | 66.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low |  |  |
 | T-0005 | P1 | Download CFF Patient Registry PDFs by hand into research/sources/downloads | cf-research | 0.5-0.75 | 4 | 64 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
 | T-0045 | P1 | Decide and document the install/link mechanism for using skills/cf-evidence-loop from hq without copying it | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |
 | T-0072 | P1 | Decision: cloud-model use on reports with unread terms; permission requests to the CFF Registry and the CF Trust; the CC0 label on skills that carry quotations | cf-research | 1-2 | 4 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  |  |
+| T-0109 | P1 | A rule for questions about one real person: generalise before any search | cf-lab | 1-3 | 5 | 25 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |
 | T-0092 | P1 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated |  |  | T-0083 |
 | T-0104 | P1 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low |  |  |
+| T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |
 | T-0008 | P1 | Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256) | cf-research | 2-3 | 4 | 16 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  | T-0005 |
 | T-0081 | P1 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  | T-0077 |
+| T-0111 | P1 | Harden the commit gate: commit only on pass, fail on stray files, show open rows | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low |  |  |
 | T-0007 | P1 | Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md | cf-research | 2-3 | 3 | 12 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
 | T-0083 | P1 | Release review of the site-seo-review skill | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated |  |  |  |
@@ -59,10 +63,12 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
 | T-0014 | P2 | Decide the 'CF - until there's a cure' site tagline against lab-voice | .ai | 0.25-0.5 | 2 | 53.3 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
 | T-0058 | P2 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  |  |
+| T-0118 | P2 | Decide read and discard (cf-research #23) | cf-research | 0.5-1 | 4 | 53.3 | no | model: claude-opus-5-5 | 2026-10-09 | full | low |  | T-0108 |
 | T-0015 | P2 | Reconcile the website's 'M365 Copilot drives the lab's task scheduling' claim with reality | .ai | 0.25-1 | 3 | 48 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
 | T-0071 | P2 | Put the ClinGen and gnomAD catalog conflicts into the BioMCP admission test | cf-lab | 0.5-1 | 3 | 40 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  | T-0042 |
 | T-0099 | P2 | Add a reviewed lesson to ai-loop-council: appends to a log shared by parallel runs lose lines unless the file is opened exclusively | cf-lab | 0.5-1 | 3 | 40 | no | model: claude-sonnet-5-5 | 2026-10-07 | elevated | low |  |  |
 | T-0033 | P2 | Send standard security response headers on the live website (HSTS, X-Content-Type-Options, Referrer-Policy, frame and content restrictions) | .ai | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | full |  |  |  |
+| T-0115 | P2 | Record the agent's permission mode and deny GitHub settings commands | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low |  |  |
 | T-0016 | P2 | Verify exactly 65 rose motifs render, and that reduced-motion is honoured, with a Playwright count | .ai | 1-1.5 | 3 | 24 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
 | T-0017 | P2 | Self-host the two web fonts; remove the unused images.unsplash.com preconnect | .ai | 1-1.5 | 3 | 24 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
 | T-0073 | P2 | A tool-limited agent definition for read-only reviewers | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
@@ -70,7 +76,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0093 | P2 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low |  |  |
 | T-0094 | P2 | Decide, after the review memo, whether the AI-agent robots.txt rule from T-0067 ships, then merge it in both repos | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | full | medium |  | T-0067 |
 | T-0106 | P2 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low |  |  |
+| T-0116 | P2 | Pin the third-party skills by hash | cf-lab | 1-2 | 3 | 20 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |
 | T-0046 | P2 | Sickle cell disease coverage: HBB variant checks, ASH guideline source terms, and an SCD worked example in SKILL.md | cf-skills | 2-3 | 4 | 16 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  | T-0043 |
+| T-0112 | P2 | A merge check: catch commits a squash merge dropped | cf-lab | 2-3 | 4 | 16 | no | model: claude-opus-5-5 | 2026-10-09 | routine | low |  |  |
+| T-0117 | P2 | Identity in public files: one role address, one way to sign | cf-lab | 1-3 | 3 | 15 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |
 | T-0061 | P2 | Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows) | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  | T-0057 |
 | T-0030 | P2 | Docs tier 3: make AGENTS.md the only rule source; shrink copilot-instructions.md; fix the skill-authoring skill's internal contradictions | cf-lab | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  | T-0029 |
 | T-0076 | P2 | Make the skills repo installable as a Claude Code plugin marketplace | cf-skills | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  | T-0051 |
@@ -81,7 +90,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0042 | P2 | Admission review of BioMCP as a discovery tool alongside cf-evidence-loop | cf-lab | 3-5 | 4 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full |  |  |  |
 | T-0070 | P2 | Read the terms and robots.txt of Ensembl REST, NCBI Variation Services, UniProt and ClinVar bulk files with the lab's reader; propose catalog entries | cf-research | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  |  |
 | T-0086 | P2 | Depth probe for the 64K local alias | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine |  | local |  |
+| T-0114 | P2 | Test CI for the three public repos | cf-lab | 2-4 | 3 | 10 | no | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |
 | T-0089 | P2 | Mechanical filter for local review findings: reproduce each failing input in a temp copy | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |
+| T-0113 | P2 | Eval tallies as data: commit verdict rows, recount the grid, state judge drift | cf-skills | 3-6 | 4 | 8.9 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium |  |  |
 | T-0051 | P2 | Decide and implement how the control repo consumes the evidence skill | cf-lab | 2-5 | 3 | 8.6 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  | T-0037 |
 | T-0043 | P2 | Variant layer: MyVariant.info and gnomAD providers (aggregate frequencies only) | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full |  |  | T-0042 |
@@ -160,6 +171,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** research/landscape/registry-data-access.md 'Email draft'
 - **Notes:** Human task.
 
+### T-0110 Rulesets on main for the public repos
+
+- **Why / ROI rationale:** Estimate: the only control that holds whatever mode the agent runs in. *(confidence: medium)*
+- **Acceptance:** Each public repo has a ruleset on main: pull request required, force push blocked, code-owner review; gh api repos/<r>/rulesets is non-empty.
+- **Evidence:** 2026-10-09: gh api shows no ruleset on main; CODEOWNERS says it takes effect only with one. A mistaken or injected push to main is not blocked by GitHub.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. GitHub settings are human-only. The private site repo keeps its own list in its notes.
+
 ### T-0005 Download CFF Patient Registry PDFs by hand into research/sources/downloads
 
 - **Why / ROI rationale:** Unblocks the US half of cf-registry-extract. Human-only step by policy. *(confidence: medium)*
@@ -201,6 +219,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-05: proposals/2026-10-05-compliance-review.md. The UK report asks for permission before reproduction in publications, the CFF has a figure-permissions notice, the Canadian and ECFSPR terms are unread, and the CC0 header on the ECFSPR skill sits over third-party quotations.
 - **Notes:** Proposed by a model. Policy and law, not code. A human decides, and a lawyer's view is worth having if the lab ever needs certainty.
 
+### T-0109 A rule for questions about one real person: generalise before any search
+
+- **Why / ROI rationale:** Estimate: small CF cohorts re-identify; one combined query can identify a person. *(confidence: medium)*
+- **Acceptance:** security-browsing and cf-research-context say: before any search or cloud call, rewrite the question in general terms, say so, and keep nothing about the person; a session-close scan lists web-tool inputs that combine a health term with age, origin, status, place or a date.
+- **Evidence:** 2026-10-07: after a question about one real person's care and coverage, web searches carried a combination of that person's attributes. Nothing reached a repo or a note (grep). security-browsing already says health data about individuals never goes into queries.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides the wording and whether such questions are in scope.
+
 ### T-0092 Re-run the SEO skill release review after the SEO008 fix
 
 - **Why / ROI rationale:** Estimate: T-0083's release review would otherwise approve a script with a known, reproduced defect in its checker. This task only re-checks after the fix and records it; T-0083 stays the release task. *(confidence: medium)*
@@ -215,6 +240,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-09: cf-skills #12 allows exactly '(911 in the US)'. In 366 Claude replies the exact bracket appeared 58 times and 28 other mentions of 911 or 112 broke the rule, most of them in forms a reader would find right; all three models wrote 112 in the Germany case. 988 and the order of the CF-team and emergency lines are open for a clinician.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. A clinician should also answer whether 988 belongs in the box and whether emergency services come before the CF team's line.
 
+### T-0108 Block the agent web tool for catalog hosts marked manual, request or forbidden
+
+- **Why / ROI rationale:** Estimate: the catalog's permission field is then enforced by the tool, not by memory. *(confidence: medium)*
+- **Acceptance:** Deny rules for the agent web tool cover every host of a manual, request or forbidden catalog entry, and a check-all row derived from ../cf-research/sources/catalog.yaml fails when one is missing.
+- **Evidence:** 2026-10-07: the agent web tool sent requests to one manual and one forbidden catalog host (no content returned); the tool does not read the catalog. Confirmed on the session transcript by the controller.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The shared .claude/settings.json is a human-only edit; an agent may draft the host list and the check.
+
 ### T-0008 Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256)
 
 - **Why / ROI rationale:** Everything downstream (extraction, harness, fixture) encodes the schema; changing it later multiplies cost. *(confidence: medium)*
@@ -227,6 +259,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A blind read by a model of a different family against the checked-facts packet (flags confirmed on the source, never by vote); the three statements marked 'to confirm' in the packet (nucleotide-binding wording, 'most common variant', Trikafta wording) read on their sources; a person with CF or a carer reads the page and their changes are made; the maintainer decides to publish. Nothing is deployed before all four.
 - **Evidence:** The page's captions were checked by the controlling agent against the structure files and UniProt, and a storyboard came from Fable; no other model family and no person has read the final wording.
 - **Notes:** Human steps: the community read, the decision to publish. The page says 'Draft, in review' until then.
+
+### T-0111 Harden the commit gate: commit only on pass, fail on stray files, show open rows
+
+- **Why / ROI rationale:** Estimate: the gate is the main control between agents and public commits. *(confidence: medium)*
+- **Acceptance:** run-gate.ps1 takes -MessageFile and commits only on exit 0, fails when git status shows files outside -Expected, and ends with OPEN ROWS: n; the skill says -Expected comes from the plan; a self-test with a stray file fails.
+- **Evidence:** 2026-10-09 log review: -Expected was built from git diff --cached after git add -A, so the scope check always passed, and a filter hid the rows a model or a person must do. The privacy scan still ran on every staged file.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. An agent may build it; it changes an agent-control script, so the maintainer reads the diff.
 
 ### T-0105 A CF clinician or social worker reads the safe-use box wording and the open questions
 
@@ -324,6 +363,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** setup.sh was written by the local worker and verified only under dash and bash from Git for Windows with a stub git, plus a lint for constructs old macOS shells reject. No macOS or Linux machine ran it.
 - **Notes:** Needs a human with a Mac. Proposed by a model. Until it is done, README and AGENTS.md should not say macOS is supported beyond 'written to be portable and tested under dash and bash'. A macos-latest GitHub Actions runner (T-0061) would run test-setup.py on a real macOS shell without owning a Mac; that run's output would satisfy this task for macOS.
 
+### T-0118 Decide read and discard (cf-research #23)
+
+- **Why / ROI rationale:** Estimate: lets the lab check a claim on such a source without copying it. *(confidence: medium)*
+- **Acceptance:** The maintainer answers the six decisions in #23; nothing is built before then.
+- **Evidence:** 2026-10-09: cf-research #23 proposes grounding on sources we may cite but not copy, without keeping them; six decisions are listed.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. T-0108 comes first.
+
 ### T-0015 Reconcile the website's 'M365 Copilot drives the lab's task scheduling' claim with reality
 
 - **Why / ROI rationale:** hq had no task board until today. Either the board becomes what the sentence describes, or the sentence goes. Honesty about tooling is part of the lab's pitch. *(confidence: high)*
@@ -366,6 +412,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** catalog.yaml has openfda entries with access: api; the three approval years on the website each resolve to a Drugs@FDA record with the lookup output committed.
 - **Evidence:** research/proposals/2026-10-04-researcher-sources.md layer 4
 - **Notes:** Built 2026-10-04 in skills/cf-evidence-loop (moved from research/tools/evidence 2026-10-04 at the user's request for a portable skill) (providers crossref, openfda); live-checked and unit-tested. Awaiting human review of the acceptance output before done. 2026-10-04 later: network-conduct rules R1-R9 enforced in the client with 37 tests; catalogs now carry terms_url/max_rps for every API source.
+
+### T-0115 Record the agent's permission mode and deny GitHub settings commands
+
+- **Why / ROI rationale:** Estimate: makes the ask list's real effect known and closes settings changes to agents. *(confidence: medium)*
+- **Acceptance:** security-runtime records the mode the lab runs in and what the ask list does under it, checked by a dated test; deny rules cover gh api -X PUT/PATCH/DELETE, gh secret and gh repo edit; check-workspace.py asserts them.
+- **Evidence:** 2026-10-06 to 2026-10-09: sessions ran in auto mode and no prompt appears for pushes. On 2026-10-06 an agent tried to change an organisation role through the API; the classifier denied it and the maintainer did it by hand.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Settings edits are human-only; the maintainer decides the mode while away.
 
 ### T-0016 Verify exactly 65 rose motifs render, and that reduced-motion is honoured, with a Playwright count
 
@@ -463,11 +516,25 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-09: cf-research #19 holds drafts for CFTR2, the Child Opportunity Index and a review invitation; nothing has been sent. The catalog marks CFTR2 manual and link-only.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Maintainer's step. Silence is not permission.
 
+### T-0116 Pin the third-party skills by hash
+
+- **Why / ROI rationale:** Estimate: a changed third-party skill would otherwise load silently. *(confidence: medium)*
+- **Acceptance:** check-all fails when a third-party skill folder's hash differs from the one pinned in THIRD_PARTY_SKILLS.md.
+- **Evidence:** 2026-10-09: four third-party skills are loaded by every session; one spawns nested agents; review was a grep, not a line-by-line read.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides whether skill-creator keeps its scripts.
+
 ### T-0046 Sickle cell disease coverage: HBB variant checks, ASH guideline source terms, and an SCD worked example in SKILL.md
 
 - **Why / ROI rationale:** The user states SCD matters to this community. The loop already runs for SCD; this makes it visible, adds the guideline source once terms are read, and keeps the CF-SCD funding comparison paper as a sourced example. *(confidence: medium)*
 - **Acceptance:** SKILL.md example section runs clean; catalog has an ASH guidelines entry with access value and check date; ledger shows the Farooq 2020 DOI resolved with no retraction notice.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4
+
+### T-0112 A merge check: catch commits a squash merge dropped
+
+- **Why / ROI rationale:** Estimate: replaces many hand checks and catches a lost fix before a worktree is removed. *(confidence: medium)*
+- **Acceptance:** check-merged.ps1 -Repo -Pr confirms the PR's last commit and files are on origin/main; workspace-siblings says to run it after every merge and before removing a worktree; a pre-push check refuses a branch whose PR is merged.
+- **Evidence:** 2026-10-07 to 2026-10-09: squash merges dropped commits pushed after the merge four times (one a security fix); each was found by checking main by hand.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready.
 
 ### T-0012 Unit tests for tools/sources/fetch_sources.py
 
@@ -484,6 +551,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** Four new catalog entries, each with robots/terms fields, a check date, and claim_label: verified.
 - **Evidence:** research/proposals/2026-10-04-researcher-sources.md recommended order 3-5
 - **Notes:** Human reads terms; agent records. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-research 79203fd and cf-skills 1723bf6: nih-reporter and clinvar verified with their policy sentences quoted (8 of 8 quotes verbatim and complete); biorxiv records medRxiv's terms but stays unverified because bioRxiv's own page answered 429 and was not retried; Cochrane added as manual and link-only because its robots.txt disallows the Claude agent. The acceptance wants four verified entries: two verified, one added unverified, one downgraded to unverified. A human decides whether to retry bioRxiv later.
+
+### T-0117 Identity in public files: one role address, one way to sign
+
+- **Why / ROI rationale:** Estimate: keeps the lab separate from the maintainer's identity. *(confidence: medium)*
+- **Acceptance:** One role address in public files, letters signed by the lab, the catalog names 'the contact in the terms' instead of addresses, a recorded decision on vendor credit, and commit author addresses checked by the gate.
+- **Evidence:** 2026-10-09: public files use a first-name address; the two letter drafts disagree on signing and on where replies go; organisation contact addresses sit in the catalog; READMEs credit an AI vendor; commit author addresses are mixed.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice.
 
 ### T-0048 Admission review of Google's Data Commons MCP server for population denominators (layer 5)
 
@@ -575,6 +649,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** depth-probe.ps1 -SelfTest passes; counts per depth for the fast and thinking profiles are recorded in the profile skill with a negative control.
 - **Evidence:** scratch/qwen-local/design.md section 5: no controlled measurement exists of whether a fact placed deep in a 64K prompt is used; nine prompts over 12K tokens in the usage log, none a probe.
 
+### T-0114 Test CI for the three public repos
+
+- **Why / ROI rationale:** Estimate: a red check is visible to everyone, not only the agent. *(confidence: medium)*
+- **Acceptance:** Each public repo runs its standard-library tests on pull requests with read-only permissions and actions pinned by SHA.
+- **Evidence:** 2026-10-09: the public repos run only CodeQL and dependency graph in Actions; every test behind a merge is the agent's local run.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Adds workflows; the maintainer decides.
+
 ### T-0089 Mechanical filter for local review findings: reproduce each failing input in a temp copy
 
 - **Why / ROI rationale:** Estimate: the evaluation's judges ran every input by hand, one site folder and one run per finding. A tool does that step and leaves the controller only the spec reading, which the 8-of-14 figure shows cannot be skipped. *(confidence: medium)*
@@ -582,6 +663,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A tool takes a local worker's review findings, each with a runnable failing input, runs the input against the candidate inside a temp copy (nothing read outside it) and keeps only findings whose claimed output appears; a test with recorded findings from the reviewer evaluation separates reproducing from non-reproducing ones, treats a finding with no input as a lead and not a finding, and its output tells the controller to check the quoted spec sentence of each kept finding. The tool never ranks or accepts a finding by itself.
 - **Evidence:** scratch/qwen-local/reviewer-eval.md, 'What an accept a review rule should be' and 'False positives, by kind': 14 false-positive claims in 8 runs; running the given input against the unpatched candidate removed 5 of 14 and 2 matched findings whose inputs went through a path the script never reads; 8 of 14 reproduced exactly and were still wrong about the spec (7 of them one rule misread), so reproduction alone is not acceptance.
 - **Notes:** Reproduce with: the recorded replies in scratch/qwen-local/reviewer-eval/out and the judge reports in judge-reports. Follows T-0088 (verifier reads only its temp copy). Raw records stay private; the test fixtures must be synthetic or cut down before anything is published.
+
+### T-0113 Eval tallies as data: commit verdict rows, recount the grid, state judge drift
+
+- **Why / ROI rationale:** Estimate: public pass counts then come from data a script can recount. *(confidence: medium)*
+- **Acceptance:** Verdict rows per run are committed (invented cases only), make_tested_grid.py --check recomputes every cell, the grid note states the judge drift, and check_repo.py fails a case that refers to pasted text with an empty message.
+- **Evidence:** 2026-10-09: the published grid counts match the verdict files (recounted by script), but those files sit only in a temporary folder; re-judging the same old replies moved one count from 14 to 19 passes, more than the gain reported; three translation cases send no text.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. A person writes the text for the faulty cases.
 
 ### T-0051 Decide and implement how the control repo consumes the evidence skill
 

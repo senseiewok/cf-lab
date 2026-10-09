@@ -2,7 +2,7 @@
 
 What only a person can do, kept as one checklist so nothing waits unseen. `board.json` stays the lab's single task list; this file is a hand-kept view of the rows and pull requests that need a human. **When this file and the board disagree, the board wins.** Tick a box when it is done and add the date.
 
-Last reviewed: 2026-10-09 (after the AI-in-care, CFTR page and emergency-number merges). Items about the private site repository are kept out of this public file; they live in that repository's own notes.
+Last reviewed: 2026-10-09 (after the log review by a blind council: security and compliance first). Items about the private site repository are kept out of this public file; they live in that repository's own notes.
 
 ## 1. Pull requests waiting for a person to merge
 
@@ -10,7 +10,8 @@ A pull request is a proposal until a person merges it. Agents never merge.
 
 | Repo | PR | What | What it needs |
 | --- | --- | --- | --- |
-| cf-research | #10 (draft) | Six API candidates in the source catalog, none admitted | The different-family blind review is done (local Qwen, every flag checked); a person still reads the diff (Full tier: licensing) |
+| cf-research | #10 (draft) | Six API candidates in the source catalog, all held at `manual` | A council reviewed it on 2026-10-09 and its fixes are in; a person reads the diff (Full tier: licensing) and answers its four decisions |
+| cf-research | #23 | Read and discard: grounding on sources we may cite but not copy (a proposal, nothing built) | Read it and answer its six decisions (T-0118) |
 | cf-research | #19 | Three letters to send (CFTR2 permission, Child Opportunity Index use, a review invitation): drafts only, nothing sent | Read, merge, then send them yourself from the lab address (section 3) |
 
 ## 2. Board decisions only a person can make
@@ -27,6 +28,15 @@ A pull request is a proposal until a person merges it. Agents never merge.
 | T-0105 | A clinician or social worker reads the safe-use box wording; also whether 988 belongs in it and whether emergency services come before the CF team's line |
 | T-0106 | Send the permission letters and record every reply in the catalog |
 | T-0107 | Take the conference banner down after NACFC 2026 (say the date) |
+| T-0108 | Add deny rules so the agent web tool cannot reach catalog hosts marked manual, request or forbidden (a settings edit only you make; an agent can draft the host list) |
+| T-0109 | Word the rule for questions about one real person: generalise before any search, keep nothing about the person |
+| T-0110 | Turn on a ruleset for `main` in each public repo (pull request required, no force push, code-owner review) |
+| T-0111 | Read the diff when the commit-gate hardening arrives (it changes an agent-control script) |
+| T-0114 | Decide whether the public repos get test CI |
+| T-0115 | Decide the permission mode agents run in while you are away; add deny rules for GitHub settings commands |
+| T-0116 | Decide whether the third-party skill-creator keeps its scripts |
+| T-0117 | Choose one role address for public files, how letters are signed, and whether the READMEs credit an AI vendor |
+| T-0118 | Answer the six decisions in cf-research #23 |
 | T-0011 | Arrange the review by a person with CF or a carer, and a registry scientist. No page may claim community review until it happens |
 
 ## 3. Sign-ups, licences and requests (nothing is done until you do it)
