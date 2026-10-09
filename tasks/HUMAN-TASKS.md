@@ -2,7 +2,7 @@
 
 What only a person can do, kept as one checklist so nothing waits unseen. `board.json` stays the lab's single task list; this file is a hand-kept view of the rows and pull requests that need a human. **When this file and the board disagree, the board wins.** Tick a box when it is done and add the date.
 
-Last reviewed: 2026-10-08 (after the merges of that day). Items about the private site repository are kept out of this public file; they live in that repository's own notes.
+Last reviewed: 2026-10-09 (after the AI-in-care, CFTR page and emergency-number merges). Items about the private site repository are kept out of this public file; they live in that repository's own notes.
 
 ## 1. Pull requests waiting for a person to merge
 
@@ -11,9 +11,7 @@ A pull request is a proposal until a person merges it. Agents never merge.
 | Repo | PR | What | What it needs |
 | --- | --- | --- | --- |
 | cf-research | #10 (draft) | Six API candidates in the source catalog, none admitted | The different-family blind review is done (local Qwen, every flag checked); a person still reads the diff (Full tier: licensing) |
-| cf-research | #17 | Variant tool fix: re-lands the six-lookup fix that missed the squash of #8 | Read, merge |
-| cf-skills | #7 | `cite-check` in cf-evidence-loop, re-landed on main (it missed the squash of #4) | Read, merge; decide the version bump |
-| cf-lab | this PR | Instructions and skills brought up to date: answer tiers, the scope rule, the one-command check, stale paths | Read, merge, and confirm the tiers and the scope rule (section 4) |
+| cf-research | #19 | Three letters to send (CFTR2 permission, Child Opportunity Index use, a review invitation): drafts only, nothing sent | Read, merge, then send them yourself from the lab address (section 3) |
 
 ## 2. Board decisions only a person can make
 
@@ -24,6 +22,11 @@ A pull request is a proposal until a person merges it. Agents never merge.
 | T-0098, T-0099 | Set `ready` so they can be built |
 | T-0101 | Say whether the Pro licence covers API use (an API key is separate from an IDE licence) |
 | T-0102 | Set `ready` (bring the lab's sources together). It was asked for in chat on 2026-10-08, but only the board status makes it official |
+| T-0103 | Try the five paste-ready boxes on Gemini, ChatGPT and Copilot (needs a person with access to each) |
+| T-0104 | Decide the form of the one allowed emergency number: exact `(911 in the US)`, or 911 whenever it sits next to US |
+| T-0105 | A clinician or social worker reads the safe-use box wording; also whether 988 belongs in it and whether emergency services come before the CF team's line |
+| T-0106 | Send the permission letters and record every reply in the catalog |
+| T-0107 | Take the conference banner down after NACFC 2026 (say the date) |
 | T-0011 | Arrange the review by a person with CF or a carer, and a registry scientist. No page may claim community review until it happens |
 
 ## 3. Sign-ups, licences and requests (nothing is done until you do it)
@@ -32,6 +35,7 @@ Use a lab-owned address, never a personal one. Keys go only in the git-ignored `
 
 - [ ] OpenAlex API key (the catalog says a key is required). First, because it unlocks the most
 - [ ] Optional NCBI and openFDA keys (they raise request limits; the new limits are unread)
+- [ ] Send the CFTR2 letter, the Child Opportunity Index letter and the review invitation (cf-research PR #19; fill the placeholders, confirm each addressee on its own site first)
 - [ ] Send the CF Foundation Patient Registry letter (cf-research PR #12), and record the reply in `landscape/registry-data-access.md`
 - [ ] Send the ECFSPR letter
 - [ ] Send the UK registry (Cystic Fibrosis Trust) letter
@@ -46,6 +50,7 @@ Use a lab-owned address, never a personal one. Keys go only in the git-ignored `
 
 - [ ] Confirm the answer tiers T0 to T3 and the scope-record rule for widening words as lab rules (written into `cf-research-context` and `AGENTS.md` by this PR from cf-research's strategy proposal)
 - [ ] Registry reuse and cloud use (T-0072): whether sources with unread terms go only to local models, whether to ask the Foundation and the Trust for permission to quote, and the licence wording for skills that carry quotations
+- [ ] Try the CFTR model page on a real phone (touch, the bottom sheet, double-tap): it was tested only in headless Chromium
 - [ ] Whether to open Discussions on cf-lab with the welcome post (a draft exists)
 - [ ] After each merge: remove the agent's worktree (an agent does it when asked)
 

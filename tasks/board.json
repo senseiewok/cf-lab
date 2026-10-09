@@ -3725,6 +3725,186 @@
       "completed_by": null,
       "complexity": "high",
       "notes": "2026-10-08: proposed by a model; only the maintainer can set it ready. Not started. Sign-ups (maintainer only, with a lab-owned address and keys only in the git-ignored .env): OpenAlex key first, then optional NCBI and openFDA keys, the CFF and ECFSPR permission requests (T-0006), connector sign-ins, and the decisions on Semantic Scholar, Data Commons, Gemini and any paid item. Costs and the terms of the sources marked unread in the proposal have not been checked."
+    },
+    {
+      "id": "T-0103",
+      "title": "Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts",
+      "repo": "cf-skills",
+      "area": "skills",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-09T12:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-09 session, after the AI-in-care skills tests and the emergency-number change"
+      },
+      "source_evidence": "2026-10-08: cf-skills docs/tested-with.md lists Gemini, GPT and Copilot as Pending; the boxes were run only on three Claude models (366 replies, blind judges).",
+      "effort_hours": {
+        "low": 4,
+        "high": 8
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: most care teams use one of these three products, and the grid still shows them as pending, so nobody should assume the boxes work there.",
+        "confidence": "low",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Someone with access to each product runs each skill's eval cases in a fresh chat with the STANDARD box, scores each reply against its expected and forbidden lines, and edits docs/tested-with.json; python scripts/make_tested_grid.py --check passes and the page shows counts, not Pending, for the cells run. Invented cases only.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-09T12:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Needs a person with access to those products; an agent cannot run them from the lab's machine."
+    },
+    {
+      "id": "T-0104",
+      "title": "Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US",
+      "repo": "cf-skills",
+      "area": "skills",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-09T12:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-09 session, after the AI-in-care skills tests and the emergency-number change"
+      },
+      "source_evidence": "2026-10-09: cf-skills #12 allows exactly '(911 in the US)'. In 366 Claude replies the exact bracket appeared 58 times and 28 other mentions of 911 or 112 broke the rule, most of them in forms a reader would find right; all three models wrote 112 in the Germany case. 988 and the order of the CF-team and emergency lines are open for a clinician.",
+      "effort_hours": {
+        "low": 1,
+        "high": 3
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: the strict form is broken often by correct replies; deciding it once avoids shipping a rule the tests keep failing.",
+        "confidence": "low",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "The maintainer chooses one form and writes it on this row; the checker, the eval cases and the two core lines match it, check_repo and the paste-box tests pass, and the 12-message test is re-run on the new wording with counts reported next to the old ones.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-09T12:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. A clinician should also answer whether 988 belongs in the box and whether emergency services come before the CF team's line."
+    },
+    {
+      "id": "T-0105",
+      "title": "A CF clinician or social worker reads the safe-use box wording and the open questions",
+      "repo": "cf-skills",
+      "area": "science",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-09T12:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-09 session, after the AI-in-care skills tests and the emergency-number change"
+      },
+      "source_evidence": "2026-10-09: the wording was decided by a council of models plus one caregiver's request; no clinician has read it. cf-research proposals/2026-10-09-permission-and-review-letters.md has an invitation letter and reply form.",
+      "effort_hours": {
+        "low": 2,
+        "high": 6
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Estimate: no clinician has read the wording that tells people what to do in an emergency; it is the biggest gap for the highest-risk text.",
+        "confidence": "low",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A named-or-anonymous clinician or social worker returns the reply form for cf-ai-safe-use; each answer is recorded in a pull request or the private notes; any change they ask for is made through a pull request with the evidence file updated.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-09T12:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Related to T-0011 (a person with CF or a carer, and a registry scientist). Sending the invitation is the maintainer's step."
+    },
+    {
+      "id": "T-0106",
+      "title": "Send the permission letters and record every reply in the source catalog",
+      "repo": "cf-research",
+      "area": "sources",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-09T12:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-09 session, after the AI-in-care skills tests and the emergency-number change"
+      },
+      "source_evidence": "2026-10-09: cf-research #19 holds drafts for CFTR2, the Child Opportunity Index and a review invitation; nothing has been sent. The catalog marks CFTR2 manual and link-only.",
+      "effort_hours": {
+        "low": 1,
+        "high": 2
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: the model page's own CFTR2 data and the neighbourhood-index guide both wait on written permission or a clear no.",
+        "confidence": "low",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Each letter is sent from the lab address; every reply or its absence is recorded by pull request in sources/catalog.yaml with the date and exactly what is allowed; no source is used beyond what is allowed.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-09T12:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Maintainer's step. Silence is not permission."
+    },
+    {
+      "id": "T-0107",
+      "title": "Take the conference banner down after NACFC 2026",
+      "repo": "site",
+      "area": "distribution",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-09T12:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-09 session, after the AI-in-care skills tests and the emergency-number change"
+      },
+      "source_evidence": "2026-10-09: the banner is a marked block in the site's chrome generator and a CSS block, labelled REMOVE AFTER THE CONFERENCE.",
+      "effort_hours": {
+        "low": 0.5,
+        "high": 1
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: the banner is dated and its copy would become wrong after the event.",
+        "confidence": "low",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "The marked block and its CSS are deleted, the generator and its checks pass, and no page names the conference (a test already forbids it on the AI-in-care page).",
+      "review_tier": "routine",
+      "depends_on": [],
+      "updated_at": "2026-10-09T12:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it."
     }
   ]
 }
