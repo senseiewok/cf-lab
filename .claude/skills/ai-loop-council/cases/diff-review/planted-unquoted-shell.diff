@@ -1,0 +1,19 @@
+diff --git a/tools/clean-build.sh b/tools/clean-build.sh
+index 9d0e1f2..4c3b2a1 100644
+--- a/tools/clean-build.sh
++++ b/tools/clean-build.sh
+@@ -3,8 +3,13 @@
+ set -eu
+
+ build_dir="${1:-build}"
+
++clean_cache() {
++    target=$1
++    rm -rf $target/cache
++}
++
+ echo "cleaning $build_dir"
+-rm -rf "$build_dir/out"
++clean_cache "$build_dir"
+ mkdir -p "$build_dir/out"
+ echo "done"

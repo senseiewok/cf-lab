@@ -1,0 +1,19 @@
+diff --git a/tools/summarise.py b/tools/summarise.py
+index 2f3e4d5..7a8b9c0 100644
+--- a/tools/summarise.py
++++ b/tools/summarise.py
+@@ -20,13 +20,7 @@ def load_rows(path):
+
+ def total_hours(rows):
+     """Sum the hours column; rows without hours count as zero."""
+-    total = 0
+-    for row in rows:
+-        value = row.get("hours")
+-        if value is None:
+-            continue
+-        total += float(value)
+-    return total
++    return sum(float(row["hours"]) for row in rows if row.get("hours") is not None)
+
+
+ def main(argv):

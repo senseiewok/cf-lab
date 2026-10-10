@@ -65,6 +65,38 @@ try {
     & git -C $tmp2 checkout -q -- a.md
     $u = Run @('-Tier', 'routine', '-Expected', 'b.md', '-MessageFile', (Join-Path $msgDir 'missing.txt')) $tmp2
     Check 'a missing message file is a usage error, no commit' ($u.Code -eq 2 -and (Commits $tmp2) -eq 1) $u.Out
+
+    # -LocalReview with a FAKE review script (no model): it writes its arguments to a marker outside the repo.
+    function New-FakeReview([string] $name, [string[]] $lines, [int] $code) {
+        $f = Join-Path $msgDir "$name.ps1"; $marker = Join-Path $msgDir "$name.args"
+        Set-Content -LiteralPath $f -Value (@("Set-Content -LiteralPath '$marker' -Value (`$args -join ' ')") + @($lines | ForEach-Object { "'$_'" }) + "exit $code") -Encoding utf8
+        @{ Script = $f; Marker = $marker }
+    }
+    $two = New-FakeReview 'two' @('== local diff review (staged) ==', 'SURVIVORS: 2') 1
+    $nr = Run @('-Tier', 'routine', '-Expected', 'b.md', '-ReviewScript', $two.Script) $tmp2
+    Check 'without -LocalReview the review script is not run' ($nr.Code -eq 0 -and -not (Test-Path $two.Marker) -and $nr.Out -notmatch 'local review') $nr.Out
+    $lr = Run @('-Tier', 'routine', '-Expected', 'b.md', '-LocalReview', '-ReviewScript', $two.Script, '-MessageFile', $msg) $tmp2
+    $rowsLr = ([regex]::Matches($lr.Out, '\[ \]')).Count
+    Check '-LocalReview runs on the staged diff and survivors do not block the commit' ($lr.Code -eq 0 -and (Get-Content -Raw $two.Marker) -match '-Staged' -and $lr.Out -match '(?m)^COMMITTED' -and (Commits $tmp2) -eq 2) $lr.Out
+    Check 'the review row says how many survivors a person must read, and stays open' ($lr.Out -match '\[ \] Local worker review of the diff .* -- local review ran: 2 survivor\(s\) for a person to read' -and $rowsLr -eq $rows -and $lr.Last -eq "OPEN ROWS: $rows") $lr.Out
+    Set-Content (Join-Path $tmp2 'c.md') 'c' -Encoding utf8; & git -C $tmp2 -c core.safecrlf=false add c.md 2>&1 | Out-Null
+    $err = New-FakeReview 'err' @('error: the model call failed') 2
+    $le = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $err.Script, '-MessageFile', $msg) $tmp2
+    Check 'a review script error fails closed: no commit' ($le.Code -eq 1 -and $le.Out -match 'GATE FAILED: local-review' -and $le.Out -match 'NOT COMMITTED' -and (Commits $tmp2) -eq 2) $le.Out
+    $noline = New-FakeReview 'noline' @('something else') 1
+    $ln = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $noline.Script) $tmp2
+    Check 'a review result without its SURVIVORS line fails closed' ($ln.Code -eq 1 -and $ln.Out -match 'GATE FAILED: local-review') $ln.Out
+    $nw = New-FakeReview 'nw' @('no local worker configured: nothing reviewed') 3
+    $lw = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $nw.Script) $tmp2
+    Check 'no local worker (exit 3) is printed on the row and does not block' ($lw.Code -eq 0 -and $lw.Out -match '-- local review not run: no local worker configured') $lw.Out
+    $full = New-FakeReview 'full' @('challenger handoff: needs-review, sha256 AB, 10 words: x', 'SURVIVORS: 0') 0
+    $lf = Run @('-Tier', 'full', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $full.Script) $tmp2
+    Check 'full tier asks for the challenger handoff and keeps the challenger row open' ($lf.Code -eq 0 -and (Get-Content -Raw $full.Marker) -match '-ChallengerHandoff' -and $lf.Out -match 'different model family.*handoff packet written \(not sent\); open until a challenger''s answer is recorded' -and $lf.Last -eq "OPEN ROWS: $fr") $lf.Out
+    Set-Content (Join-Path $tmp2 'stray.txt') 'left over' -Encoding utf8
+    $skip = New-FakeReview 'skip' @('SURVIVORS: 0') 0
+    $ls = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $skip.Script) $tmp2
+    Check 'the review is not run when a deterministic row failed' ($ls.Code -eq 1 -and -not (Test-Path $skip.Marker) -and $ls.Out -match 'not run: a deterministic row failed') $ls.Out
+    Remove-Item (Join-Path $tmp2 'stray.txt')
 } finally {
     Remove-Item -Recurse -Force $tmp, $tmp2, $msgDir -ErrorAction SilentlyContinue
     Remove-Item Env:GIT_AUTHOR_NAME, Env:GIT_AUTHOR_EMAIL, Env:GIT_COMMITTER_NAME, Env:GIT_COMMITTER_EMAIL -ErrorAction SilentlyContinue

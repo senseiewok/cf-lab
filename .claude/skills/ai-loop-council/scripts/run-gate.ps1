@@ -24,6 +24,14 @@
   deterministic row passed; otherwise it refuses (exit 1, no commit). The commit's own exit
   code is returned as is. Without -MessageFile the gate never commits.
 
+  -LocalReview (opt-in, default off): after the deterministic rows pass and before any commit, run review-diff.ps1 on
+  the staged diff (the local worker, two fast samples, findings checked for exact quotes) and print its count on the
+  "Local worker review of the diff" row. Survivors never block the commit: the row stays open and says how many a
+  person must read. The gate fails closed (no commit, exit 1) only when the review script itself errors (exit 2 or an
+  unreadable result); "no local worker configured" (exit 3) is printed on the row and does not block. On the full tier
+  it also asks review-diff.ps1 for a blind challenger handoff packet (written, never sent); the challenger row stays
+  open until a challenger's answer is recorded. -ReviewScript replaces review-diff.ps1 (tests pass a fake one).
+
   No opt-out for the stray check: agents work in their own worktree (AGENTS.md), where an
   unexpected file is a finding; ignored files (.gitignore) are not listed by git status.
 
@@ -40,7 +48,9 @@ param(
     [Parameter(Mandatory)] [ValidateSet('routine', 'elevated', 'full')] [string] $Tier,
     [Parameter(Mandatory)] [string[]] $Expected,
     [string] $RepoPath = '.',
-    [string] $MessageFile
+    [string] $MessageFile,
+    [switch] $LocalReview,
+    [string] $ReviewScript = (Join-Path $PSScriptRoot 'review-diff.ps1')
 )
 $ErrorActionPreference = 'Stop'
 $skills = Split-Path -Parent $PSScriptRoot | Split-Path -Parent
@@ -78,13 +88,36 @@ Write-Host '-- 2. staged files parse; owning checkers'
 & pwsh -NoProfile -File $checkChanged -RepoPath $RepoPath
 if ($LASTEXITCODE -ne 0) { $failed += 'check-changed' }
 
+$reviewNote = ''; $challengerNote = ''
+if ($LocalReview) {
+    Write-Host '-- 2b. local worker review of the staged diff (review-diff.ps1; never blocks on findings)'
+    if ($failed.Count -gt 0) { $reviewNote = ' -- local review not run: a deterministic row failed'; Write-Host 'not run: a deterministic row failed' }
+    elseif (-not (Test-Path -LiteralPath $ReviewScript -PathType Leaf)) { Write-Host "error: missing $ReviewScript"; $failed += 'local-review' }
+    else {
+        $rvArgs = @('-NoProfile', '-File', $ReviewScript, '-RepoPath', $repo, '-Staged')
+        if ($Tier -eq 'full') { $rvArgs += '-ChallengerHandoff' }
+        $rv = @(& pwsh @rvArgs 2>&1 | ForEach-Object { "$_" })
+        $rvCode = $LASTEXITCODE
+        $rv | ForEach-Object { Write-Host "  $_" }
+        $count = @($rv | Where-Object { $_ -match '^SURVIVORS: \d+$' } | Select-Object -Last 1)
+        if ($rvCode -in 0, 1 -and $count.Count -eq 1) {
+            $reviewNote = " -- local review ran: $($count[0] -replace '^SURVIVORS: ', '') survivor(s) for a person to read (output above)"
+            if ($Tier -eq 'full') {
+                $hand = @($rv | Where-Object { $_ -match '^challenger handoff: needs-review' })
+                $challengerNote = if ($hand.Count) { ' -- handoff packet written (not sent); open until a challenger''s answer is recorded' } else { ' -- no handoff packet was made; open until a challenger''s answer is recorded' }
+            }
+        } elseif ($rvCode -eq 3) { $reviewNote = ' -- local review not run: no local worker configured' }
+        else { Write-Host "error: the review script failed (exit $rvCode)"; $failed += 'local-review' }
+    }
+}
+
 $rows = @(
-    @{ T = 'routine'; Text = 'Local worker review of the diff (findings schema, 2 fast samples) when the diff is over about 20 lines; verify each finding against the file' },
+    @{ T = 'routine'; Text = 'Local worker review of the diff (findings schema, 2 fast samples) when the diff is over about 20 lines; verify each finding against the file' + $reviewNote },
     @{ T = 'elevated'; Text = 'Claim ledger: each factual claim has a type, a check and an evidence id; counts come from checker output, not typed' },
     @{ T = 'elevated'; Text = 'Re-read the complete sentences behind every "only / none / every / differs / absent" claim; search raw text for each year or file in scope' },
     @{ T = 'elevated'; Text = 'Local worker thinking pass over the claim ledger: which claims does the quoted evidence not support? (verify each finding)' },
     @{ T = 'elevated'; Text = 'Blind different-family review when the artifact is public-facing or a factual claim changed (proposal; see the loop design)' },
-    @{ T = 'full'; Text = 'Blind challenger from a different model family reviewed the same packet before seeing any other findings; unavailable means blocked' },
+    @{ T = 'full'; Text = 'Blind challenger from a different model family reviewed the same packet before seeing any other findings; unavailable means blocked' + $challengerNote },
     @{ T = 'full'; Text = 'No secret material, PHI or deployment specifics were sent to any model' },
     @{ T = 'any'; Text = 'A human reads the printed staged list and approves the commit (full tier: reads the diff)' }
 )
