@@ -4712,6 +4712,190 @@
       "completed_by": null,
       "complexity": "low",
       "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Security first: the document names places and steps, not secrets."
+    },
+    {
+      "id": "T-0130",
+      "title": "CF trial endpoint atlas from a dated ClinicalTrials.gov snapshot (flagship showcase)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-10T21:30:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the maintainer asked for a showcase of advanced research and for the disabled tests to be checked; blind Opus and Sonnet reviews"
+      },
+      "source_evidence": "2026-10-10: the maintainer asked for a showcase that proves the lab can do advanced research for researchers and clinicians (inspired by NACFC posters, which stay private leads). A read-only scan of the three repos ranked this first: it answers a question researchers hand-code today, uses only the catalog entry clinicaltrials-gov (access: api), and shows the whole loop. It overlaps the 'living map of therapy trials' scenario in cf-research/proposals/2026-10-09-research-leader-brief-and-pilot.md section B and partly T-0102 and T-0126.",
+      "effort_hours": {
+        "low": 12,
+        "high": 24
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Estimate: a reproducible, checkable table a trialist can cite and re-run; shows deterministic code, a local worker held to exact quotes and a blind reviewer working together.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "One condition query is snapshotted once and hashed (query, date and hash recorded; the raw snapshot is committed only if the catalog entry allows redistribution). Endpoints are tagged into about 8 classes plus 'other / not stated'. A person labels a frozen set of 50 rows before any model runs. An offline script (a) recomputes every committed count from the snapshot and fails on drift, (b) fails any model tag whose quote is not an exact substring of its record, (c) prints precision and recall against the 50 frozen rows, (d) fails a deliberately perturbed fixture. Every count is worded as 'registered text in snapshot D, query Q, mentions X': no claim about efficacy, about which endpoint is better, or about anyone's eligibility. Nothing is published until the maintainer has read it.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-10T21:30:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "high",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Registry text is wrapped as untrusted data for any model. Show endpoint, phase, status and dates only, never intervention detail. Scheduled re-runs are the maintainer's decision under the evidence skill's network rules."
+    },
+    {
+      "id": "T-0131",
+      "title": "Skip guard: make skipped tests visible and budgeted in CI, and discover every test",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-10T21:30:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the maintainer asked for a showcase of advanced research and for the disabled tests to be checked; blind Opus and Sonnet reviews"
+      },
+      "source_evidence": "2026-10-10: the first CI runs showed OK with skips (cf-research 28, cf-lab 6 by design, cf-skills 3), and unittest and check-all treat a skip as success, so a test that starts skipping by accident looks green. cf-research's workflow lists four cftr-model modules by hand, which is how test_viewer and test_research were left out. Both reviewers (Opus, Sonnet) ranked this first.",
+      "effort_hours": {
+        "low": 3,
+        "high": 6
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: keeps a green build meaning something without a person reading logs.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Each repo's CI prints a skip summary (test id and reason) in the job summary and compares the set of skipped test ids with a committed expected-skip list, failing when it grows or when an entry no longer skips (so the list cannot go stale). The cf-research workflow discovers its cftr-model tests instead of naming modules. A test proves the guard fails on an added skip and on a removed one. By-design skips (symlink and platform) are listed with a reason. No new third-party dependency.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-10T21:30:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. One shared script or one per repo: decide once (the lab does not keep independently maintained copies). Run the checks in the repo whose workflow they guard."
+    },
+    {
+      "id": "T-0132",
+      "title": "Make the 11 skipped cftr-model data tests run: commit the five hashed structure files",
+      "repo": "cf-research",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-10T21:30:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the maintainer asked for a showcase of advanced research and for the disabled tests to be checked; blind Opus and Sonnet reviews"
+      },
+      "source_evidence": "2026-10-10: test_data skips 11 tests because sources/downloads (git-ignored) is absent in CI. sources/manifest.json already records size and sha256 for all five files (about 1.3 MB). The catalog lists them access: fetch, redistribute: true. Opus recommended committing them under a tracked fixtures path; Sonnet preferred small fixtures plus a monthly real-file check (it had not checked sizes). Fetching on every run was rejected by both.",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: turns 11 dead tests into live ones with no network call.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A person confirms the attribution wording for each file (RCSB entries, UniProt record) before anything is committed. The five files sit under a tracked path with their attribution; CI verifies them against the manifest sha256 and the 11 tests run offline; the skip guard (T-0131) lists no test_data skip.",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0131"
+      ],
+      "updated_at": "2026-10-10T21:30:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not change the manifest's meaning: it records what was fetched and when. If a person prefers zero binary growth, fall back to Sonnet's option: small fixtures for the parsing logic and a manually run real-file check."
+    },
+    {
+      "id": "T-0133",
+      "title": "Opt-in browser-test job for the lab's graphics and viewer tests",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-10T21:30:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the maintainer asked for a showcase of advanced research and for the disabled tests to be checked; blind Opus and Sonnet reviews"
+      },
+      "source_evidence": "2026-10-10: six checks in check-all and several cf-research tests always skip because no browser runs in CI. Both reviewers advised an opt-in separate job (not on every pull request) that uses the Chrome or Edge already on the runner through Playwright's channel option, with Playwright and its dependencies pinned with hashes, and a flag that turns a missing browser into a failure so the job cannot pass while running nothing.",
+      "effort_hours": {
+        "low": 4,
+        "high": 8
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: covers the web-graphics skills' browser checks; worth it only if those skills change often.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A person approves the new third-party dependency first (the lab rule). Then: a workflow_dispatch plus weekly job on a pinned runner image, read-only token, no secrets, hashed requirements file, tests load only local pages; run once as non-blocking for about a week and record flakiness. Remove the row if ten scheduled runs are green and have never caught anything.",
+      "review_tier": "full",
+      "depends_on": [
+        "T-0131"
+      ],
+      "updated_at": "2026-10-10T21:30:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Measured minutes and WebGL behaviour on a GPU-less runner are unknown: the reviewers estimated 3 to 6 minutes."
+    },
+    {
+      "id": "T-0134",
+      "title": "Which 10 percent? A definitions ledger for modulator-eligibility denominators, after the April 2026 label change",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-10T21:30:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the maintainer asked for a showcase of advanced research and for the disabled tests to be checked; blind Opus and Sonnet reviews"
+      },
+      "source_evidence": "2026-10-10: several NACFC posters (private leads, T0) use 'about 10%' for different groups; a news search (T0) says the FDA widened the Trikafta and Alyftrek labels on 2026-04-01 to about 95% of US people with CF. The FDA label itself has not been read. Second of the reviewers' candidates; extends the cf-genetics-reading skill.",
+      "effort_hours": {
+        "low": 8,
+        "high": 16
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: one place that says what each registry and label counts, with dates.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "First, the maintainer or an agent reads the current regulator labels (primary sources) and records the exact eligibility wording with date. Then one quote-checked row per registry report (base population, age rule, variant list and date, page, short quote); the claims checker and the source-overlap checker pass; a test asserts that no field holds a value computed across rows. Fetchable reports only (the Foundation's is manual: a person saves it). No cross-registry arithmetic and nothing about any person's eligibility; a registry scientist reviews before publication (T-0011). Posters are never cited.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-10T21:30:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "high",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Overlaps T-0008, T-0009 and T-0011. Do not repeat a press number: use the label."
     }
   ]
 }
