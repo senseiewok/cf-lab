@@ -119,6 +119,8 @@ pwsh -NoProfile -File ./check-all.ps1
 
 It prints one `PASS`, `FAIL` or `SKIPPED` line per check with the command it ran, then a count such as `37 passed, 0 failed, 6 skipped`, and exits 1 only when a check failed. A skipped check names what it needs (Windows, PyYAML, git, Python). Checks that need a browser are listed and always skipped: the runner never starts a browser, calls a model or Ollama, or uses the network. Each check has a timeout (`-TimeoutSec`, default 300 seconds); a full run took about six minutes on Windows on 8 October 2026. `-List` prints the checks without running them, and `-Only <name>` runs one.
 
+The same command runs on a hosted Windows runner on every pull request and every push to `main` ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)); run it locally before you open one.
+
 The main checks one by one, each offline, with its result on the last line:
 
 | Command | What it checks | Last line when it passes |

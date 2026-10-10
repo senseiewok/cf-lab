@@ -1,0 +1,63 @@
+# Runs the lab's offline checks (check-all.ps1) on every pull request to main and every push to main.
+# Read-only token, actions pinned by full commit SHA, no secrets, no caches, no artifacts.
+# Nothing from a pull request (title, branch name, body) is used in a run step.
+#
+# Runner: Windows, because the lab is Windows-first and two checks (render-board-ps51 and the
+# PowerShell 5.1 case inside test-render-board) need Windows PowerShell 5.1, which only a Windows
+# runner has; on Linux the first would be SKIPPED and the second would not exercise 5.1.
+#
+# Skipped by check-all.ps1 itself, which prints each with its reason: the six checks that need a
+# browser (observe-page-selftest, test-check-webgl, test-check-animated-page, webgl-playwright,
+# svg-examples, svg-playwright). The runner never starts a browser, calls a model or Ollama, or
+# reads a sibling repository, so none of those is needed here.
+name: ci
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+defaults:
+  run:
+    shell: pwsh
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  # Process scope only: lets the Windows PowerShell 5.1 checks run the repository's own scripts,
+  # whatever the image's machine policy is. It changes no check and nothing outside this job.
+  PSExecutionPolicyPreference: Bypass
+
+jobs:
+  check-all:
+    name: check-all.ps1 (offline checks)
+    runs-on: windows-2025
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      # PyYAML is needed by the skill-frontmatter check (tasks/check-skill-frontmatter.py), which
+      # check-all.ps1 would otherwise skip. This repository ships no requirements file with hashes,
+      # so it is pinned to an exact version and installed with --no-deps (it has no dependencies).
+      - name: install PyYAML (pinned)
+        run: 'python -m pip install --no-deps --only-binary=:all: PyYAML==6.0.3'
+      - name: tool versions
+        run: |
+          $PSVersionTable.PSVersion.ToString()
+          powershell.exe -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
+          python --version
+          git --version
+      - name: check-all.ps1
+        run: pwsh -NoProfile -File ./check-all.ps1
