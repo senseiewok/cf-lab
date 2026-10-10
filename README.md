@@ -145,7 +145,7 @@ The counts are the ones these commands printed on 8 October 2026 on Windows; the
 | `.claude/settings.json` | Shared agent permissions: deny and ask rules, not to be loosened in the shared file | the `security-runtime` skill explains them |
 | `tasks/` | The task board: `board.json` is the source, `BOARD.md` is rendered from it | [tasks/README.md](tasks/README.md) |
 | `cf-projects/` | Advisory project ideas for CF research tooling | `CF-Project-Ideas.md` |
-| `SECURITY.md`, `CONTRIBUTING.md`, `LICENSE.md` | Reporting a vulnerability, helping, and the MIT licence (each skill declares its own, CC0-1.0 so far) | |
+| `SECURITY.md`, `CONTRIBUTING.md`, `LICENSE.md` | Reporting a vulnerability, the rules for changes (no outside contributions), and the MIT licence (each skill declares its own, CC0-1.0 so far) | |
 | `setup.cmd`, `setup.sh` | Setup for Windows, and for macOS and Linux | [Quick start](#quick-start) |
 | `.env.example` | The template for your one git-ignored `.env` of keys and settings | [One env file](#one-env-file-for-keys-and-settings) |
 | `../cf-skills`, `../cf-research` | The two sibling repositories setup clones beside this one | [Repositories in this workspace](#repositories-in-this-workspace) |
@@ -248,7 +248,7 @@ Thank you to the people who make the tools below. Open tools make careful work e
 | Tool | What the lab uses it for | Where to see it |
 | --- | --- | --- |
 | Visual Studio Code | One window for the three repositories and the Files folder; its browser tools for quick page checks | [cf-lab.code-workspace](cf-lab.code-workspace), [playwright-browser-testing](.claude/skills/playwright-browser-testing/SKILL.md) |
-| GitHub | Hosting, [Discussions](https://github.com/senseiewok/cf-lab/discussions), and CodeQL code scanning of the Python code through GitHub Actions | This repository and its pull requests |
+| GitHub | Hosting and CodeQL code scanning of the Python code through GitHub Actions | This repository and its pull requests |
 | GitHub Copilot | Reads the same [AGENTS.md](AGENTS.md) and skills as every other agent here | [.github/copilot-instructions.md](.github/copilot-instructions.md) |
 | PowerShell 7 | The routing tests, the task board, and the delegation and gate scripts | [Prerequisites](#prerequisites) |
 | Playwright (open source from Microsoft, Apache-2.0) and Microsoft Edge | Read-only page observations; an installed Edge is tried first, so no browser is downloaded | [Browser testing](#browser-testing) |
@@ -282,7 +282,7 @@ cf-lab/
 ├── AGENTS.md                     # Universal agent instructions (works across tools)
 ├── SECURITY.md                   # Vulnerability reporting policy
 ├── LICENSE.md                    # MIT license (skills declare their own, CC0-1.0)
-├── CONTRIBUTING.md               # How to contribute
+├── CONTRIBUTING.md               # Rules for changes (no outside contributions)
 ├── check-all.ps1                # Runs every offline check
 ├── VERSION                      # Lab contract version
 ├── cf-lab.code-workspace        # The shared VS Code workspace (this repo, siblings, Files)
@@ -321,7 +321,7 @@ Set it up:
 
 ## Optional pieces
 
-None of these is needed to read the work, run the checks above or contribute. Each one downloads software, so each is a separate, deliberate step.
+None of these is needed to read the work, run the checks above or work on a change. Each one downloads software, so each is a separate, deliberate step.
 
 ### A local model
 
