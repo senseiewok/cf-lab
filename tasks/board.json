@@ -4344,6 +4344,261 @@
       "completed_by": null,
       "complexity": "medium",
       "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. A clean pass from a fast local model on a long diff is weak evidence (measured in model-qwen3-8-27b), so the script reports what it covered; it supports the person's reading and does not replace it. Related: the Qwen training round 1 verifier (#34). 2026-10-10: started 2026-10-10 on the maintainer's instruction 'if the checks are not free, learn from them'. Built: build-review-packet.py, review-exclude.txt, review-diff.ps1, run-gate.ps1 -LocalReview (opt-in), offline tests with a fake model script, and six fixture diffs with one measured run each (cases/diff-review/RESULTS.md). Taken from GitHub's AI findings check (a pull-request reviewer with a security detector, a file-exclusion list, a network allow-list and restricted result publication): a security pass first, then correctness; a published exclusion list so generated, binary, minified, lock and bulk data files are not reviewed, with every excluded file named; a finding is shown only after a script finds its quote in the diff (and only in the diff, not in the instructions around it); and the reviewing model has no tools and no network. Not taken: posting comments on the pull request. 2026-10-10, after a blind Opus challenger review of the first commit: crash and spoofing fail closed (exit 10 for survivors, results read from review.json with a run id), unreviewed files named and never shown as clean (exit 4), cloud-routed model names and non-loopback hosts refused, scripts never excluded by a pattern, a random nonce in the boundary tag, evidence limited to the numbered diff lines, strict sample separators, the output folder new or empty and deleted afterwards; six-fixture run 2 in RESULTS.md. After a second blind Opus review: empty decided from the raw diff, linear packet assembly and timeouts, a partial status (exit 5), a same-file check on quotes, hidden-character and lookalike counts on the gate row, wider risk ranking and named lock files, -NoProxy in invoke-local-model.ps1 with a syntax-tree test, an unusable model reply as nothing reviewed (exit 4, not blocking); run 3 in RESULTS.md. After a third blind review of the gate: exit 3 needs its own review.json, the review cannot change the staged tree or the working tree, coverage numbers cross-checked against the gate's staged count, review.json type-checked, a minimal environment for the review, names capped on the row, a temp folder inside the repository refused. Open: the maintainer switches the GitHub workflow off in each repository; a blind challenger's answer for Full-tier changes is still a manual step."
+    },
+    {
+      "id": "T-0120",
+      "title": "An intermittent WebKit failure in the site's policy test",
+      "repo": ".ai",
+      "area": "reliability",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-10T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the Resources page, map and evidence pin, and the maintainer's request to triage a Gemini strategy report"
+      },
+      "source_evidence": "2026-10-10: tests.test_site_playwright PolicyViolationTests.test_the_browsers_refuse_html_strings_and_style_attributes_under_this_policy failed in WebKit in two full runs on the evidence-pin branch and in about 1 of 8 runs on unchanged main (the builder's count); it passed in every run by the controlling agent.",
+      "effort_hours": {
+        "low": 1,
+        "high": 3
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: a flaky check teaches people to ignore red; fixing it keeps the browser suite trustworthy.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Run the test 30 times in a clean worktree of main and record the failure rate and the failure message; find the cause (a race between the policy violation event and the assertion is the first thing to check); make the test deterministic or fix the page; 30 consecutive passes in WebKit and Chromium.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-10T19:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not skip or widen the test to hide it; the test guards the Content-Security-Policy."
+    },
+    {
+      "id": "T-0121",
+      "title": "Stop the evidence tool's catalog copy needing a pull request after every catalog change",
+      "repo": "cf-skills",
+      "area": "reliability",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-10T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the Resources page, map and evidence pin, and the maintainer's request to triage a Gemini strategy report"
+      },
+      "source_evidence": "2026-10-10: every change to cf-research's sources/catalog.yaml needed a follow-up pull request in cf-skills to sync the evidence tool's generated copy (sync_skill_catalog.py --check reports DRIFT until it lands): four such pull requests in one day, with the site's counts needing the same until the evidence pin (.ai #38).",
+      "effort_hours": {
+        "low": 3,
+        "high": 5
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: removes a recurring manual step and the red checks between merges, while the public skill keeps a standalone copy.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "The copy is pinned like the site's data: a pin tool records the research commit and hashes, a status command says how far behind the pin is, and the check in cf-skills compares the copy with the PINNED commit (not with main), so a catalog change in cf-research no longer turns cf-skills red. Moving the pin is one pull request. Tests with fakes; the skill still works standalone.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-10T19:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Follows the pattern of .ai #38 (tools/pin_evidence.py) and the Resources pin."
+    },
+    {
+      "id": "T-0122",
+      "title": "Decide whether the Evidence page's mistake count includes the second ledger file",
+      "repo": ".ai",
+      "area": "content",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-10T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the Resources page, map and evidence pin, and the maintainer's request to triage a Gemini strategy report"
+      },
+      "source_evidence": "2026-10-10: the page counts mistakes from ledger/2026-10-04-first-session.md only (98 rows); cf-research/ledger/2026-10-07-second-session.md holds 40 more rows that the page has never counted (found by the evidence-pin builder).",
+      "effort_hours": {
+        "low": 0.5,
+        "high": 1.5
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: the page's headline number should say what it counts.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "The maintainer decides: count both files, or say plainly 'from the first session's ledger'. If both, the pin tool and the generator read both files, the lock records both hashes, and the page says '138 mistakes recorded as of <date>' from the data, not typed.",
+      "review_tier": "routine",
+      "depends_on": [],
+      "updated_at": "2026-10-10T19:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. A content decision first; the code is small."
+    },
+    {
+      "id": "T-0123",
+      "title": "Decide how the Resources page grows: per-country pages, or count only the scripts a page loads",
+      "repo": ".ai",
+      "area": "web",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-10T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the Resources page, map and evidence pin, and the maintainer's request to triage a Gemini strategy report"
+      },
+      "source_evidence": "2026-10-10: the Resources page measured 239,778 bytes against its limit (raised from 224 KB to 236 KB for 36 rows; the page HTML alone is 76,912 bytes and grows about 2 KB per row); the proposal planned /resources/<code>/ pages when a page passes 80 percent of its cap.",
+      "effort_hours": {
+        "low": 3,
+        "high": 6
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: keeps the page fast on a phone and the size guard honest as rows are added.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A choice is made and recorded: (a) split into /resources/ (map, jump list, filters) plus /resources/<country>/ pages with the filters per country; or (b) change the weight test to count only the scripts a page loads. The chosen option is built with tests; no limit is raised by hand again without a dated reason.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-10T19:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Option (a) keeps pages small for people on a phone; check how the CSS-only filter and the map would work across pages before choosing."
+    },
+    {
+      "id": "T-0124",
+      "title": "A reusable intake tool so local agents can propose Resources rows from any permitted site",
+      "repo": "cf-research",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-10T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the Resources page, map and evidence pin, and the maintainer's request to triage a Gemini strategy report"
+      },
+      "source_evidence": "2026-10-10: the 25 rows for the UK, Canada, Australia and Ireland were drafted by hand-written scripts (robots.txt read, one page at a time with the project user agent, same-host only, screenshots, a local model's wording checked blind); the maintainer wants the list filled over time by local agents.",
+      "effort_hours": {
+        "low": 6,
+        "high": 12
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: turns a one-off manual process into a tested, conduct-safe tool; a person still confirms every row.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A tool takes a host whose catalog entry says fetch and a list of addresses; reads robots.txt first (every agent group, unreadable means stop); loads one page at a time under the project user agent, same-host only, three seconds apart, with a size cap; keeps screenshots and text only in a scratch folder outside every repository and deletes them on request; asks the local worker (inside a data boundary, no tools) for a draft row; drops any draft that breaks the checker's rules (word cap, no digits or contact details); writes lead_only rows. Offline tests with fake pages cover robots and redirect cases, the user agent, the size cap and the data boundary; a dry run on one real host is described. A person confirms; the tool never writes confirmed_by.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-10T19:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "high",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Reuse the conduct code in cf-skills' evidence client and cf-research's fetch_sources.py; do not rewrite them. Spanish and other languages: summaries in the maintainer's chosen language rules only."
+    },
+    {
+      "id": "T-0125",
+      "title": "A public review record for each page (reviewer role, version reviewed, date, open issues)",
+      "repo": ".ai",
+      "area": "governance",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-10T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the Resources page, map and evidence pin, and the maintainer's request to triage a Gemini strategy report"
+      },
+      "source_evidence": "2026-10-10: a Gemini strategy report the maintainer shared (an AI-written, unsourced triage reviewed by the controlling agent) asked for formal review records and visible accountability; the site already stamps pages 'Draft, in review' but records no reviewer.",
+      "effort_hours": {
+        "low": 3,
+        "high": 5
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: makes the review status of each page checkable, which the lab already promises in words.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A data file lists each page, its review status, the reviewer's ROLE (no names unless the identity decision T-0117 allows it), the version or date reviewed, issues raised and not yet resolved, and the next review date; a page (or a section of About) renders it from the data; tests refuse a page marked reviewed with no entry. Nothing is marked reviewed until the clinician reading (T-0105) has happened.",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0105",
+        "T-0117"
+      ],
+      "updated_at": "2026-10-10T19:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not invent reviewers; with none recorded the table says so."
+    },
+    {
+      "id": "T-0126",
+      "title": "A small public benchmark of the lab's own checks (20 to 30 frozen tasks)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-10T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: the Resources page, map and evidence pin, and the maintainer's request to triage a Gemini strategy report"
+      },
+      "source_evidence": "2026-10-10: the same shared report noted, fairly, that nothing published shows the AI loop helps; the lab has small measurements (an injection probe, the findings verifier, six fixture diffs for the local review) but no frozen public set.",
+      "effort_hours": {
+        "low": 8,
+        "high": 16
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: replaces demonstrations with measured results, including negative ones, on lawful public data.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "20 to 30 tasks with fixed inputs and expected outputs built from public data the catalog permits (for example evidence-record lookups, quote-checking, claim-to-source matching); a runner; results for the local worker with and without the lab's checks, including failures; a short note on what the numbers do not show. The set is frozen with hashes. No patient data, no invented expected answers (each expected output has a source line).",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-10T19:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "high",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Start from what the lab already measures and publish negatives; a person reviews the expected answers."
     }
   ]
 }
