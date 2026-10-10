@@ -2,7 +2,18 @@
 
 What only a person can do, kept as one checklist so nothing waits unseen. `board.json` stays the lab's single task list; this file is a hand-kept view of the rows and pull requests that need a human. **When this file and the board disagree, the board wins.** Tick a box when it is done and add the date.
 
-Last reviewed: 2026-10-09 (after the log review by a blind council: security and compliance first). Items about the private site repository are kept out of this public file; they live in that repository's own notes.
+Last reviewed: 2026-10-10 (a second blind council reprioritised the board; section 0 is its order). Items about the private site repository are kept out of this public file; they live in that repository's own notes.
+
+## 0. Order for the next two weeks (a blind council of three models, 2026-10-10, checked against the repos by the controlling agent)
+
+**Only you can do these, in this order**
+1. **T-0110**: turn on a ruleset for `main` in cf-lab, cf-research and cf-skills (all three have none today).
+2. **T-0128**: make GitHub's settings match "the repos do not take outside contributions" (Discussions off, issues and pull requests limited), and switch off GitHub's AI findings workflow (the T-0119 close-out; GitHub refuses to disable it through the API).
+3. **Close what is finished**: T-0024, T-0026, T-0056 and T-0065 (their own notes say Done), and decide **T-0001**: the three public repos already carry named licences; only the private website repo has none.
+4. **T-0072, then T-0106** (T-0006 folds in): decide, then send the permission letters; replies take weeks and gate the registry chain.
+5. **T-0105**: find the clinician or social worker reader; then **T-0117** (one role address and one way to sign).
+
+**Agents can do next, with review**: T-0108 (block the web tool for manual hosts), T-0115, T-0109, T-0121 (stop the cf-skills catalog-sync pull requests), T-0114 with T-0061 (no public repo has CI today; T-0057 first), T-0116.
 
 ## 1. Pull requests waiting for a person to merge
 
