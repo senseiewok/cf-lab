@@ -91,7 +91,9 @@ def good_local(base):
 
 class Base(unittest.TestCase):
     def setUp(self):
-        self.tmp = Path(tempfile.mkdtemp(prefix="cw-test-"))
+        # Resolved, because the checker resolves --root: a temp folder given as an 8.3 short name
+        # (such as RUNNER~1 on a hosted Windows runner) would not match the paths written into settings.local.json.
+        self.tmp = Path(tempfile.mkdtemp(prefix="cw-test-")).resolve()
         self.mod = load_module()
 
     def tearDown(self):
