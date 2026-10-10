@@ -8,7 +8,7 @@
       "repo": "cf-lab",
       "area": "governance",
       "status": "proposed",
-      "priority": "P0",
+      "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
         "kind": "model",
@@ -32,10 +32,10 @@
       "acceptance": "Each of the four repos has a LICENSE file whose first line names a recognised license (MIT, Apache-2.0, CC0-1.0, or CC-BY-4.0 for notes); hq README and website link to it.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Prepared 2026-10-04 on the release branches (not yet merged): hq LICENSE.md is MIT; research LICENSE is CC BY 4.0 with tools/LICENSE MIT; skills LICENSE is CC0 1.0; texts for CC BY and CC0 are the official legal code from creativecommons.org. A human sets done after the PRs merge and the licenses show on GitHub. The website repo was not covered."
+      "notes": "Prepared 2026-10-04 on the release branches (not yet merged): hq LICENSE.md is MIT; research LICENSE is CC BY 4.0 with tools/LICENSE MIT; skills LICENSE is CC0 1.0; texts for CC BY and CC0 are the official legal code from creativecommons.org. A human sets done after the PRs merge and the licenses show on GitHub. The website repo was not covered. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P0 to P2: the three public repos already carry named licences (cf-lab MIT, cf-research CC BY 4.0, cf-skills CC0 1.0, all detected by GitHub); only the private website repo has no LICENSE. The title still says hq. Narrow it to that decision; the maintainer may raise it again."
     },
     {
       "id": "T-0002",
@@ -221,7 +221,7 @@
       "repo": "cf-research",
       "area": "content",
       "status": "proposed",
-      "priority": "P1",
+      "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
         "kind": "model",
@@ -245,9 +245,10 @@
       "acceptance": "grep count of claim labels > 0 in each file; every [verified] has an inline URL and date.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: benefit 3, no dependents."
     },
     {
       "id": "T-0008",
@@ -291,7 +292,7 @@
       "repo": "cf-research",
       "area": "research",
       "status": "proposed",
-      "priority": "P1",
+      "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
         "kind": "model",
@@ -317,9 +318,10 @@
       "depends_on": [
         "T-0008"
       ],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work."
     },
     {
       "id": "T-0010",
@@ -542,10 +544,10 @@
       "acceptance": "Sentence either removed or links to hq/tasks/BOARD.md with a true description of how tasks are scheduled.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-07T19:52:58Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": " 2026-10-07: Audit: the site no longer makes the claim and a test forbids it; the acceptance allows 'removed'. A human sets done."
+      "notes": "2026-10-07: Audit: the site no longer makes the claim and a test forbids it; the acceptance allows 'removed'. A human sets done. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done (check): the 'M365 Copilot drives task scheduling' claim is no longer on any page; the remaining Copilot mentions are factual (GitHub Copilot as a tool)."
     },
     {
       "id": "T-0016",
@@ -647,10 +649,10 @@
       "acceptance": "The phrase 'not affiliated' appears once on the page, adjacent to the donation call.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-07T19:52:58Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": " 2026-10-07: Audit: the not-affiliated line sits next to the donate link and in the footers. It now appears several times, where the acceptance says once; the maintainer decides the wording."
+      "notes": "2026-10-07: Audit: the not-affiliated line sits next to the donate link and in the footers. It now appears several times, where the acceptance says once; the maintainer decides the wording. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done (check): 'Not affiliated with the Cystic Fibrosis Foundation' is in the footer of every page on 2026-10-10."
     },
     {
       "id": "T-0019",
@@ -862,8 +864,8 @@
       "acceptance": "board.json tasks may carry complexity (low, medium, high), recommended_route (local, cloud, frontier) and route_rationale (non-empty when a route is set); render-board.ps1 rejects other values with exit 2, shows complexity and route columns, and -Check exits 0 after rendering; tasks/README.md documents the three fields; existing task statuses are unchanged.",
       "review_tier": "elevated",
       "depends_on": [],
-      "notes": "Design points for the human. (1) local means the configured Ollama worker profile (Qwen3.8 27B is the lab default, not a requirement) for bounded drafts and first-pass review. (2) cloud means the human's discounted Copilot routing, including auto: advisory, not a known model capability. (3) frontier is for planning, risky design and review of full-tier work; planners are frontier by default. (4) cloud and frontier need the existing cloud and data-sharing approvals, and a route never authorizes sending secrets, PHI or private material; a route is advice, not automatic delegation. (5) Default order stays safety/blockers, then priority, then dependencies, then ROI index; route and complexity inform but do not reorder. (6) Do not equate an expensive route with a valuable task. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-lab bb10fdf: tasks/test-render-board.ps1 has 17 checks and a 9-mutant proof; 'render-board.ps1 -Check' is the acceptance command.",
-      "updated_at": "2026-10-05T04:30:00Z",
+      "notes": "Design points for the human. (1) local means the configured Ollama worker profile (Qwen3.8 27B is the lab default, not a requirement) for bounded drafts and first-pass review. (2) cloud means the human's discounted Copilot routing, including auto: advisory, not a known model capability. (3) frontier is for planning, risky design and review of full-tier work; planners are frontier by default. (4) cloud and frontier need the existing cloud and data-sharing approvals, and a route never authorizes sending secrets, PHI or private material; a route is advice, not automatic delegation. (5) Default order stays safety/blockers, then priority, then dependencies, then ROI index; route and complexity inform but do not reorder. (6) Do not equate an expensive route with a valuable task. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-lab bb10fdf: tasks/test-render-board.ps1 has 17 checks and a 9-mutant proof; 'render-board.ps1 -Check' is the acceptance command. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output.",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
@@ -942,8 +944,8 @@
       "acceptance": "Every key used in sources/catalog.yaml appears in the sources/README.md Fields table (a short script can diff them), and no key listed there is unused or it is marked optional; the two proposals are consistent about naming the public domain, and website-review.md carries no private-repo file names or deploy-mechanism detail beyond what a human keeps on purpose.",
       "review_tier": "routine",
       "depends_on": [],
-      "notes": "Human decided 2026-10-04: the website domain is public (an older version of the site is live and the YouTube channel links to it), so it may be named in public repos and the earlier redaction of it in website-review.md was precautionary. Remaining: whether to keep the generic description of the deploy mechanism and the names of two private-repo files in website-review.md. The private repo's source, deploy details and local paths stay out of public repos. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-research e5991ed: check_catalog_fields.py prints 'fields ok: 27 keys documented'; 13 test cases pass; two public notes lost deploy-mechanism detail.",
-      "updated_at": "2026-10-05T04:30:00Z",
+      "notes": "Human decided 2026-10-04: the website domain is public (an older version of the site is live and the YouTube channel links to it), so it may be named in public repos and the earlier redaction of it in website-review.md was precautionary. Remaining: whether to keep the generic description of the deploy mechanism and the names of two private-repo files in website-review.md. The private repo's source, deploy details and local paths stay out of public repos. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-research e5991ed: check_catalog_fields.py prints 'fields ok: 27 keys documented'; 13 test cases pass; two public notes lost deploy-mechanism detail. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output.",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
@@ -1052,8 +1054,8 @@
       "acceptance": "grep -c 'tasks/' README.md is 1 or more; the first five lines of .github/loop-orchestrator/README.md contain 'not functional'; render-board.ps1 -Check exits 0; after merge no .github/PR-*.md is tracked and its provenance is in the notes of the tasks it completed.",
       "review_tier": "routine",
       "depends_on": [],
-      "notes": "Human gate: .github/ is CODEOWNERS-protected, so a human commits. Do not touch loop.py, settings or skills. Human decided 2026-10-04: stop committing PR descriptions; delete .github/PR-2026-10-04.md (and the research one) at merge after copying their provenance into the notes of T-0003, T-0004 and T-0022. README tree edit and loop README status note were prepared on branch chore/docs-org-tier2; the .github change is staged for a human to commit.",
-      "updated_at": "2026-10-04T20:00:00Z",
+      "notes": "Human gate: .github/ is CODEOWNERS-protected, so a human commits. Do not touch loop.py, settings or skills. Human decided 2026-10-04: stop committing PR descriptions; delete .github/PR-2026-10-04.md (and the research one) at merge after copying their provenance into the notes of T-0003, T-0004 and T-0022. README tree edit and loop README status note were prepared on branch chore/docs-org-tier2; the .github change is staged for a human to commit. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check).",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1089,8 +1091,8 @@
       "depends_on": [
         "T-0029"
       ],
-      "notes": "Human gate: agent instructions and .claude/; a human approves the diff. Human decided 2026-10-04: yes, AGENTS.md becomes the only rule source. Wait until the current hq branch has merged so --against main is meaningful. Do not change what any rule means. Draft by a cloud or frontier model is reasonable; the meaning-preservation check is the human's.",
-      "updated_at": "2026-10-04T20:00:00Z",
+      "notes": "Human gate: agent instructions and .claude/; a human approves the diff. Human decided 2026-10-04: yes, AGENTS.md becomes the only rule source. Wait until the current hq branch has merged so --against main is meaningful. Do not change what any rule means. Draft by a cloud or frontier model is reasonable; the meaning-preservation check is the human's. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check).",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1126,8 +1128,8 @@
       "depends_on": [
         "T-0020"
       ],
-      "notes": "Human only. Human decided 2026-10-04: move after the human review of the scope-triage table (T-0020), and keep the website repo's board key while writing the no-domain, no-paths, no-deploy-detail rule into tasks/README.md. One commit per repo. Publishing any skill package is not part of this task.",
-      "updated_at": "2026-10-04T20:00:00Z",
+      "notes": "Human only. Human decided 2026-10-04: move after the human review of the scope-triage table (T-0020), and keep the website repo's board key while writing the no-domain, no-paths, no-deploy-detail rule into tasks/README.md. One commit per repo. Publishing any skill package is not part of this task. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check).",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1161,8 +1163,8 @@
       "acceptance": "A listing of the memory folder shows files only under the lab's own project folder, none holding lab rules, task state, model-identity claims or secrets.",
       "review_tier": "routine",
       "depends_on": [],
-      "notes": "Human only and private: nothing is committed. The author of the design did not read the contents, so this task starts with the human reading them.",
-      "updated_at": "2026-10-04T20:00:00Z",
+      "notes": "Human only and private: nothing is committed. The author of the design did not read the contents, so this task starts with the human reading them. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check).",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1196,8 +1198,8 @@
       "acceptance": "A HEAD request to the live site shows Strict-Transport-Security, X-Content-Type-Options, Referrer-Policy and a frame restriction; if a Content-Security-Policy is added it is tested in a browser (Playwright check of the rendered page and console, no blocked resources the page needs); the page still renders; the change is dry-run or explained before any deploy, and no credential is read or printed.",
       "review_tier": "full",
       "depends_on": [],
-      "notes": "Deployment-adjacent, so full review tier: a human runs the deploy. Header rules live in the host configuration, which is private; do not copy host details or credentials into any public file. Self-hosting the fonts (T-0017) would let a strict policy drop the third-party font hosts. 2026-10-07: Audit: the live site sends the response headers this task names; the strict-transport-security lifetime is short (a stage-one value). A human sets done.",
-      "updated_at": "2026-10-07T19:52:58Z",
+      "notes": "Deployment-adjacent, so full review tier: a human runs the deploy. Header rules live in the host configuration, which is private; do not copy host details or credentials into any public file. Self-hosting the fonts (T-0017) would let a strict policy drop the third-party font hosts. 2026-10-07: Audit: the live site sends the response headers this task names; the strict-transport-security lifetime is short (a stage-one value). A human sets done. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done: on 2026-10-10 the live site sent the stricter headers (a Content-Security-Policy with Trusted Types, nosniff, no-referrer, frame denial, permissions policy, HSTS at 300 seconds) and the deploy's live check passed. The maintainer can close it after reading the acceptance text; raising HSTS is a separate step.",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1268,8 +1270,8 @@
       "depends_on": [
         "T-0030"
       ],
-      "notes": "Human gate: AGENTS.md, .claude/ and .github/ (CODEOWNERS-protected). Decisions 1 and 3 of the design note are the human's. Do not do this before they are answered.",
-      "updated_at": "2026-10-04T23:00:00Z",
+      "notes": "Human gate: AGENTS.md, .claude/ and .github/ (CODEOWNERS-protected). Decisions 1 and 3 of the design note are the human's. Do not do this before they are answered. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check).",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1303,8 +1305,8 @@
       "acceptance": "Per model-onboarding: provenance and licence read from the model card, fit with a pinned context size, thinking and JSON behaviour, the injection probe, and review-diversity on a fresh held-out set against an equal-budget Qwen baseline with a pre-registered threshold. Results recorded with sample sizes. No default is changed.",
       "review_tier": "full",
       "depends_on": [],
-      "notes": "Local compute; no cloud, no downloads. Depends on a human choosing the held-out set. Shadow review of real work only after the injection probe passes, never counted as the challenger.",
-      "updated_at": "2026-10-04T23:00:00Z",
+      "notes": "Local compute; no cloud, no downloads. Depends on a human choosing the held-out set. Shadow review of real work only after the injection probe passes, never counted as the challenger. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0019 (same two models) or drop both and remove the models from the site's field guide (check).",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1605,7 +1607,7 @@
       "repo": "cf-lab",
       "area": "governance",
       "status": "proposed",
-      "priority": "P1",
+      "priority": "P2",
       "created_at": "2026-10-04T21:40:00Z",
       "created_by": {
         "kind": "model",
@@ -1629,9 +1631,10 @@
       "acceptance": "AGENTS.md names the mechanism (submodule, symlink, path convention, or install script) and an agent in hq can run the skill's live retraction check following only AGENTS.md.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-04T21:40:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: overlaps T-0051 (how the control repo consumes the evidence skill): decide once, merge the rows (check)."
     },
     {
       "id": "T-0046",
@@ -1844,8 +1847,8 @@
       "depends_on": [
         "T-0037"
       ],
-      "notes": "Link or install mechanism is open: a documented sibling-checkout path with a launcher script, or an installable package. The tested virtual environment lives outside the repos and must be referenced, not recreated. Do not add a second copy of catalog.yaml to hq. The gate change (this repo has no pre-commit hook; the gate is run-gate.ps1) should only trigger when either catalog file is staged.",
-      "updated_at": "2026-10-04T22:00:00Z",
+      "notes": "Link or install mechanism is open: a documented sibling-checkout path with a launcher script, or an installable package. The tested virtual environment lives outside the repos and must be referenced, not recreated. Do not add a second copy of catalog.yaml to hq. The gate change (this repo has no pre-commit hook; the gate is run-gate.ps1) should only trigger when either catalog file is staged. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0045 and put T-0076 behind the merged row (check).",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -2033,10 +2036,10 @@
       "acceptance": "pwsh -File .claude/skills/security-git/scripts/check-lab-files.ps1 -SelfTest exits 0, and the self-test proves (a) a seeded violation is caught for each rule and (b) a clean folder passes. Rules: no file named .env* or with a key/cert extension, no private-key header or token-shaped string or email address in memory/, no .git inside, at most 3 files directly in memory/, and any private terms taken from a LAB_PRIVATE_TERMS line in .env (never committed). Run once on the real folder and report the output.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-05T04:30:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model; only a human moves it to ready. Do not read .env; the check receives only the terms variable through run-with-env.ps1. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-lab c47ca94: check-lab-files.ps1 and its outside-in test pass; the real folder reports 'lab files clean: 45'.",
+      "notes": "Proposed by a model; only a human moves it to ready. Do not read .env; the check receives only the terms variable through run-with-env.ps1. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-lab c47ca94: check-lab-files.ps1 and its outside-in test pass; the real folder reports 'lab files clean: 45'. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output.",
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "The worker failed three attempts on PowerShell scoping and return values; the controller wrote it. Local is not yet reliable for PowerShell with a state-heavy spec."
@@ -2159,7 +2162,7 @@
       "repo": ".ai",
       "area": "website",
       "status": "proposed",
-      "priority": "P1",
+      "priority": "P2",
       "created_at": "2026-10-05T01:10:00Z",
       "created_by": {
         "kind": "model",
@@ -2185,10 +2188,10 @@
       "depends_on": [
         "T-0041"
       ],
-      "updated_at": "2026-10-05T01:10:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model; only a human moves it to ready. The .ai repo is private: a human opens it, or says explicitly that an agent may. Do not copy site source or deploy details into any public repo or note."
+      "notes": "Proposed by a model; only a human moves it to ready. The .ai repo is private: a human opens it, or says explicitly that an agent may. Do not copy site source or deploy details into any public repo or note. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 9 hours and needs T-0041, itself P2."
     },
     {
       "id": "T-0061",
@@ -2196,7 +2199,7 @@
       "repo": "cf-lab",
       "area": "tooling",
       "status": "proposed",
-      "priority": "P2",
+      "priority": "P1",
       "created_at": "2026-10-05T01:10:00Z",
       "created_by": {
         "kind": "model",
@@ -2222,10 +2225,10 @@
       "depends_on": [
         "T-0057"
       ],
-      "updated_at": "2026-10-05T01:10:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model; only a human moves it to ready. The workflow drafts, kept by the maintainer outside the repos, are UNTESTED: they have not run on GitHub. Adding a workflow adds a third-party service dependency (GitHub Actions and the actions/* actions), which AGENTS.md asks to flag."
+      "notes": "Proposed by a model; only a human moves it to ready. The workflow drafts, kept by the maintainer outside the repos, are UNTESTED: they have not run on GitHub. Adding a workflow adds a third-party service dependency (GitHub Actions and the actions/* actions), which AGENTS.md asks to flag. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: same gap as T-0114; one of the two should absorb the other (check). T-0057 (a 10-minute .github edit) blocks it."
     },
     {
       "id": "T-0062",
@@ -2371,10 +2374,10 @@
       "acceptance": "pwsh -File .claude/skills/ai-loop-council/scripts/test-delegate-batch.ps1 prints 19/19 passed; test-delegate.ps1 prints 42/42 passed; mutation proofs of 15 and 5 mutants are rejected.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-05T03:58:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-lab 4faf09e.",
+      "notes": "Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-lab 4faf09e. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output.",
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "PowerShell driver changes; the worker has not been reliable on state-heavy PowerShell."
@@ -2621,10 +2624,10 @@
       "acceptance": "A human decides each of three points and the review's rules are adjusted to match: (1) whether sources with unread terms go only to local models, and the account's data-retention and training settings are confirmed; (2) whether to ask the Foundation and the Trust for permission to quote; (3) the licence wording for skills with quotations.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-05T04:39:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model. Policy and law, not code. A human decides, and a lawyer's view is worth having if the lab ever needs certainty."
+      "notes": "Proposed by a model. Policy and law, not code. A human decides, and a lawyer's view is worth having if the lab ever needs certainty. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): decide this first, then send the permission letters (T-0106; T-0006 folds into it): replies take weeks and gate the registry chain (T-0005, T-0008, T-0009)."
     },
     {
       "id": "T-0073",
@@ -2800,10 +2803,10 @@
       "depends_on": [
         "T-0078"
       ],
-      "updated_at": "2026-10-05T20:55:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. Scientific claims need the full review tier and the cf-research-context rules. Decide first whether to write raw WebGL2 or vendor three.js (a new dependency to flag). 2026-10-05: the site builder found that the only verified statements in the repos (cf-research/cystic-fibrosis.md) support no caption about chloride, folding or the cell surface, so the CFTR page is a labelled planned-not-built placeholder. The schematic needs a sourced scientific packet first (primary sources for each caption, then the full review tier). 2026-10-05 later: the maintainer said the goal is a 3D model that matters to the CF community. The page was rebuilt around four real published structures instead of a hand-drawn schematic (RCSB PDB 6MSM, 5UAK, 8EIQ, 8EJ1, CC0; UniProt P13569): backbone traces, coloured by part, residue 508 marked and shown absent in the two F508del structures, unmodelled stretches shown as dashed bridges, a walk-along-the-chain control, an overlay with computed distances. Captions use only facts checked against the files (a Fable storyboard was cut where the data did not support it). Built, tested and mutation-proven in the private site repo (tests/test_cftr_viewer.py, test_cftr_superpose.py). NOT done: the cell-scale 'misfolding and the surface' drawing (no checked source yet), an outside scientific review of the captions, a read by a person with CF or a carer, and anything public. Acceptance above is for the earlier schematic idea; the structure viewer replaces its first half and the misfolding drawing stays open."
+      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. Scientific claims need the full review tier and the cf-research-context rules. Decide first whether to write raw WebGL2 or vendor three.js (a new dependency to flag). 2026-10-05: the site builder found that the only verified statements in the repos (cf-research/cystic-fibrosis.md) support no caption about chloride, folding or the cell surface, so the CFTR page is a labelled planned-not-built placeholder. The schematic needs a sourced scientific packet first (primary sources for each caption, then the full review tier). 2026-10-05 later: the maintainer said the goal is a 3D model that matters to the CF community. The page was rebuilt around four real published structures instead of a hand-drawn schematic (RCSB PDB 6MSM, 5UAK, 8EIQ, 8EJ1, CC0; UniProt P13569): backbone traces, coloured by part, residue 508 marked and shown absent in the two F508del structures, unmodelled stretches shown as dashed bridges, a walk-along-the-chain control, an overlay with computed distances. Captions use only facts checked against the files (a Fable storyboard was cut where the data did not support it). Built, tested and mutation-proven in the private site repo (tests/test_cftr_viewer.py, test_cftr_superpose.py). NOT done: the cell-scale 'misfolding and the surface' drawing (no checked source yet), an outside scientific review of the captions, a read by a person with CF or a carer, and anything public. Acceptance above is for the earlier schematic idea; the structure viewer replaces its first half and the misfolding drawing stays open. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): stalled: needs T-0078, which is only 'ready'; either start T-0078 or reset this row's acceptance and park it."
     },
     {
       "id": "T-0078",
@@ -2957,7 +2960,7 @@
       "repo": "cf-skills",
       "area": "skills",
       "status": "proposed",
-      "priority": "P1",
+      "priority": "P2",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
         "kind": "model",
@@ -2981,10 +2984,10 @@
       "acceptance": "For each agent the maintainer can run (Claude Code, Copilot, Codex, Gemini CLI, Cursor at least): the documented install step and the pasted prompt are run on a throwaway project; the result (folder written, skill listed, one call made) is recorded in docs/install.md with the agent version; every row that fails is corrected or relabelled; `python scripts/check_repo.py` passes.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-06T03:45:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human steps: access to each client and its account. The prompts have a safe-fetch clause; check an agent actually asks first."
+      "notes": "Human steps: access to each client and its account. The prompts have a safe-fetch clause; check an agent actually asks first. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 7 hours of client trying; blocks nothing."
     },
     {
       "id": "T-0083",
@@ -2992,7 +2995,7 @@
       "repo": "cf-skills",
       "area": "skills",
       "status": "proposed",
-      "priority": "P1",
+      "priority": "P2",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
         "kind": "model",
@@ -3016,10 +3019,10 @@
       "acceptance": "A person reads SKILL.md, references and the checker; check_repo.py passes; the checker passes its tests under Python 3.9 and 3.13 on Windows and Linux; the licence is confirmed by the maintainer; a different model family reads the health-site section for overclaims.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-06T03:45:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human steps: licence and publish decision."
+      "notes": "Human steps: licence and publish decision. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: a release review of one skill; blocks nothing (T-0092 re-runs it: consider merging them)."
     },
     {
       "id": "T-0084",
@@ -3315,10 +3318,10 @@
       "depends_on": [
         "T-0086"
       ],
-      "updated_at": "2026-10-06T07:40:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Choose public-domain prose or the lab's own text; no fetched or private text. Reproduce with the commands in the profile skill, with the new corpus option.",
+      "notes": "Choose public-domain prose or the lab's own text; no fetched or private text. Reproduce with the commands in the profile skill, with the new corpus option. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0086 into one depth probe (check).",
       "recommended_route": "local",
       "complexity": "low",
       "route_rationale": "Extends a script the local worker already wrote and had accepted on the first attempt with 12 of 12 tests; exact-match scoring is the verifier."
@@ -3329,7 +3332,7 @@
       "repo": "cf-skills",
       "area": "skills",
       "status": "proposed",
-      "priority": "P1",
+      "priority": "P2",
       "created_at": "2026-10-06T07:40:00Z",
       "created_by": {
         "kind": "model",
@@ -3355,10 +3358,10 @@
       "depends_on": [
         "T-0083"
       ],
-      "updated_at": "2026-10-06T07:40:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Does not duplicate T-0083 (the release review itself); it is the re-run after the fix. Human step: the merge and the publish decision stay with the maintainer."
+      "notes": "Does not duplicate T-0083 (the release review itself); it is the re-run after the fix. Human step: the merge and the publish decision stay with the maintainer. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: needs T-0083, so cannot start first."
     },
     {
       "id": "T-0093",
@@ -3538,10 +3541,10 @@
       "acceptance": "A second script of similar size, written by the local worker and accepted by its verifier, is chosen and named in the report. Its ground truth is a list of defects found by a stronger review reading the script against its spec, each defect confirmed by a failing test before any local run, with at least 8 defects. The same design as the first evaluation is run: bare and card arms, identical packet format, the same profile and temperature, runs alternated, each reply scored by a blind judge from a different model family than the worker. The report gives per-run counts, means, an exact permutation test, the false-positive claims by kind, and a section that says which findings of the first evaluation repeat and which do not; no change to the review card or to the reviewer role in the skills is made from one script.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-06T21:40:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human step: the maintainer picks the moment (it occupies the local worker for hours) and the second script. Related to T-0090 (same script, more runs and the thinking profile) and T-0089 (filter for false positives); neither covers a second script. Do not run while another Ollama experiment is using the worker.",
+      "notes": "Human step: the maintainer picks the moment (it occupies the local worker for hours) and the second script. Related to T-0090 (same script, more runs and the thinking profile) and T-0089 (filter for false positives); neither covers a second script. Do not run while another Ollama experiment is using the worker. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0090 into one re-measurement plan (check).",
       "complexity": "medium"
     },
     {
@@ -3732,7 +3735,7 @@
       "repo": "cf-skills",
       "area": "skills",
       "status": "proposed",
-      "priority": "P1",
+      "priority": "P2",
       "created_at": "2026-10-09T12:00:00Z",
       "created_by": {
         "kind": "model",
@@ -3756,11 +3759,11 @@
       "acceptance": "Someone with access to each product runs each skill's eval cases in a fresh chat with the STANDARD box, scores each reply against its expected and forbidden lines, and edits docs/tested-with.json; python scripts/make_tested_grid.py --check passes and the page shows counts, not Pending, for the cells run. Invented cases only.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-09T12:00:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Needs a person with access to those products; an agent cannot run them from the lab's machine."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Needs a person with access to those products; an agent cannot run them from the lab's machine. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 6 hours; blocks nothing; needs a person with access to each assistant."
     },
     {
       "id": "T-0104",
@@ -3864,11 +3867,11 @@
       "acceptance": "Each letter is sent from the lab address; every reply or its absence is recorded by pull request in sources/catalog.yaml with the date and exactly what is allowed; no source is used beyond what is allowed.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-09T12:00:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Maintainer's step. Silence is not permission."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Maintainer's step. Silence is not permission. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): send the letters together with T-0006 once T-0072 is decided."
     },
     {
       "id": "T-0107",
@@ -4128,7 +4131,7 @@
       "repo": "cf-lab",
       "area": "reliability",
       "status": "proposed",
-      "priority": "P2",
+      "priority": "P1",
       "created_at": "2026-10-09T20:00:00Z",
       "created_by": {
         "kind": "model",
@@ -4152,11 +4155,11 @@
       "acceptance": "Each public repo runs its standard-library tests on pull requests with read-only permissions and actions pinned by SHA.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-09T20:00:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Adds workflows; the maintainer decides."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Adds workflows; the maintainer decides. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: verified 2026-10-10: none of cf-lab, cf-research or cf-skills has a CI workflow (only CodeQL and GitHub's AI check), so their tests run only on the maintainer's machine. Merge T-0061 into this row (check)."
     },
     {
       "id": "T-0115",
@@ -4164,7 +4167,7 @@
       "repo": "cf-lab",
       "area": "security",
       "status": "proposed",
-      "priority": "P2",
+      "priority": "P1",
       "created_at": "2026-10-09T20:00:00Z",
       "created_by": {
         "kind": "model",
@@ -4188,11 +4191,11 @@
       "acceptance": "security-runtime records the mode the lab runs in and what the ask list does under it, checked by a dated test; deny rules cover gh api -X PUT/PATCH/DELETE, gh secret and gh repo edit; check-workspace.py asserts them.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-09T20:00:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Settings edits are human-only; the maintainer decides the mode while away."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Settings edits are human-only; the maintainer decides the mode while away. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: security, 1.5h, benefit 4; all three reviewers placed it in the first ten."
     },
     {
       "id": "T-0116",
@@ -4339,11 +4342,11 @@
       "acceptance": "A script (for example review-diff.ps1 in the ai-loop-council skill) builds a packet from the staged diff inside a data boundary, gives it to the local worker (two fast samples, a findings schema), drops every finding whose quote is not an exact line of the packet with check-findings-evidence.py, prints the survivors and the count, and the gate prints that count on its 'local worker review' row. A fixture diff with a planted defect is found, and a fixture with none yields no invented finding. For Full-tier changes it also writes the packet for a blind cloud challenger with new-cloud-handoff.ps1 and the gate says the row stays open until a challenger's answer is recorded. Nothing is sent to any service by the script itself. The GitHub AI findings workflow is switched off by the maintainer in each repository (one action each; it can be switched back on) and nothing requires it.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T17:56:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. A clean pass from a fast local model on a long diff is weak evidence (measured in model-qwen3-8-27b), so the script reports what it covered; it supports the person's reading and does not replace it. Related: the Qwen training round 1 verifier (#34). 2026-10-10: started 2026-10-10 on the maintainer's instruction 'if the checks are not free, learn from them'. Built: build-review-packet.py, review-exclude.txt, review-diff.ps1, run-gate.ps1 -LocalReview (opt-in), offline tests with a fake model script, and six fixture diffs with one measured run each (cases/diff-review/RESULTS.md). Taken from GitHub's AI findings check (a pull-request reviewer with a security detector, a file-exclusion list, a network allow-list and restricted result publication): a security pass first, then correctness; a published exclusion list so generated, binary, minified, lock and bulk data files are not reviewed, with every excluded file named; a finding is shown only after a script finds its quote in the diff (and only in the diff, not in the instructions around it); and the reviewing model has no tools and no network. Not taken: posting comments on the pull request. 2026-10-10, after a blind Opus challenger review of the first commit: crash and spoofing fail closed (exit 10 for survivors, results read from review.json with a run id), unreviewed files named and never shown as clean (exit 4), cloud-routed model names and non-loopback hosts refused, scripts never excluded by a pattern, a random nonce in the boundary tag, evidence limited to the numbered diff lines, strict sample separators, the output folder new or empty and deleted afterwards; six-fixture run 2 in RESULTS.md. After a second blind Opus review: empty decided from the raw diff, linear packet assembly and timeouts, a partial status (exit 5), a same-file check on quotes, hidden-character and lookalike counts on the gate row, wider risk ranking and named lock files, -NoProxy in invoke-local-model.ps1 with a syntax-tree test, an unusable model reply as nothing reviewed (exit 4, not blocking); run 3 in RESULTS.md. After a third blind review of the gate: exit 3 needs its own review.json, the review cannot change the staged tree or the working tree, coverage numbers cross-checked against the gate's staged count, review.json type-checked, a minimal environment for the review, names capped on the row, a temp folder inside the repository refused. Open: the maintainer switches the GitHub workflow off in each repository; a blind challenger's answer for Full-tier changes is still a manual step."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. A clean pass from a fast local model on a long diff is weak evidence (measured in model-qwen3-8-27b), so the script reports what it covered; it supports the person's reading and does not replace it. Related: the Qwen training round 1 verifier (#34). 2026-10-10: started 2026-10-10 on the maintainer's instruction 'if the checks are not free, learn from them'. Built: build-review-packet.py, review-exclude.txt, review-diff.ps1, run-gate.ps1 -LocalReview (opt-in), offline tests with a fake model script, and six fixture diffs with one measured run each (cases/diff-review/RESULTS.md). Taken from GitHub's AI findings check (a pull-request reviewer with a security detector, a file-exclusion list, a network allow-list and restricted result publication): a security pass first, then correctness; a published exclusion list so generated, binary, minified, lock and bulk data files are not reviewed, with every excluded file named; a finding is shown only after a script finds its quote in the diff (and only in the diff, not in the instructions around it); and the reviewing model has no tools and no network. Not taken: posting comments on the pull request. 2026-10-10, after a blind Opus challenger review of the first commit: crash and spoofing fail closed (exit 10 for survivors, results read from review.json with a run id), unreviewed files named and never shown as clean (exit 4), cloud-routed model names and non-loopback hosts refused, scripts never excluded by a pattern, a random nonce in the boundary tag, evidence limited to the numbered diff lines, strict sample separators, the output folder new or empty and deleted afterwards; six-fixture run 2 in RESULTS.md. After a second blind Opus review: empty decided from the raw diff, linear packet assembly and timeouts, a partial status (exit 5), a same-file check on quotes, hidden-character and lookalike counts on the gate row, wider risk ranking and named lock files, -NoProxy in invoke-local-model.ps1 with a syntax-tree test, an unusable model reply as nothing reviewed (exit 4, not blocking); run 3 in RESULTS.md. After a third blind review of the gate: exit 3 needs its own review.json, the review cannot change the staged tree or the working tree, coverage numbers cross-checked against the gate's staged count, review.json type-checked, a minimal environment for the review, names capped on the row, a temp folder inside the repository refused. Open: the maintainer switches the GitHub workflow off in each repository; a blind challenger's answer for Full-tier changes is still a manual step. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): the code is merged (cf-lab #36). What remains is the maintainer's: switch off GitHub's AI findings workflow (GitHub refuses to disable it through the API), then close this row."
     },
     {
       "id": "T-0120",
@@ -4351,7 +4354,7 @@
       "repo": ".ai",
       "area": "reliability",
       "status": "proposed",
-      "priority": "P3",
+      "priority": "P2",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
         "kind": "model",
@@ -4375,11 +4378,11 @@
       "acceptance": "Run the test 30 times in a clean worktree of main and record the failure rate and the failure message; find the cause (a race between the policy violation event and the assertion is the first thing to check); make the test deterministic or fix the page; 30 consecutive passes in WebKit and Chromium.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T19:00:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not skip or widen the test to hide it; the test guards the Content-Security-Policy."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not skip or widen the test to hide it; the test guards the Content-Security-Policy. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P3 to P2: a flaky browser test erodes trust in the gate (one reviewer; the controlling agent proposed the row)."
     },
     {
       "id": "T-0121",
@@ -4387,7 +4390,7 @@
       "repo": "cf-skills",
       "area": "reliability",
       "status": "proposed",
-      "priority": "P2",
+      "priority": "P1",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
         "kind": "model",
@@ -4411,11 +4414,11 @@
       "acceptance": "The copy is pinned like the site's data: a pin tool records the research commit and hashes, a status command says how far behind the pin is, and the check in cf-skills compares the copy with the PINNED commit (not with main), so a catalog change in cf-research no longer turns cf-skills red. Moving the pin is one pull request. Tests with fakes; the skill still works standalone.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T19:00:00Z",
+      "updated_at": "2026-10-10T20:00:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Follows the pattern of .ai #38 (tools/pin_evidence.py) and the Resources pin."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Follows the pattern of .ai #38 (tools/pin_evidence.py) and the Resources pin. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: all three reviewers named it: every catalog change needed a sync pull request in cf-skills (four in one day)."
     },
     {
       "id": "T-0122",
@@ -4599,6 +4602,116 @@
       "completed_by": null,
       "complexity": "high",
       "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Start from what the lab already measures and publish negatives; a person reviews the expected answers."
+    },
+    {
+      "id": "T-0127",
+      "title": "A board consistency check in render-board",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-10T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: board review by a blind council, and the maintainer's word that the repos cannot be contributed to"
+      },
+      "source_evidence": "2026-10-10: two reviewers asked for it; the board has an in_progress row whose dependency is only 'ready' (T-0077 on T-0078), several rows whose notes say Done but are not closed, and 20 proposed P1 rows.",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: keeps the board true without a person reading 126 rows.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "tasks/render-board.ps1 -Check fails (or warns, where a rule needs a decision) when: an in_progress row needs a task that is not done; a row's notes say Done and it is not closed; a task has a higher priority than a task it depends on; the number of proposed P1 rows passes a cap the maintainer sets. Tests with fixtures; existing rows may need a one-time fix, listed in the pull request.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": "2026-10-10T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not auto-fix; the check reports."
+    },
+    {
+      "id": "T-0128",
+      "title": "Match GitHub's settings to 'the repos do not take outside contributions'",
+      "repo": "cf-lab",
+      "area": "governance",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-10T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: board review by a blind council, and the maintainer's word that the repos cannot be contributed to"
+      },
+      "source_evidence": "2026-10-10: the maintainer said the repos cannot be contributed to. The files now say so (cf-lab #38, cf-research #32, cf-skills #19), but a stranger can still open issues, discussions and pull requests, and GitHub refuses to change several settings through the API.",
+      "effort_hours": {
+        "low": 0.5,
+        "high": 1
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: makes the stated policy true in the settings, not only in the words.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "The maintainer decides and sets, in each of cf-lab, cf-research and cf-skills (and the website repo if it is ever made public): Discussions off; issues off or limited; pull request creation limited to collaborators where GitHub offers it; a ruleset on main (T-0110); whether to archive a repo that should be fully read-only; private vulnerability reporting on (SECURITY.md points reporters there or to the role address chosen in T-0117). Then a stranger's attempt to open an issue or pull request is checked from a signed-out browser.",
+      "review_tier": "full",
+      "depends_on": [
+        "T-0110"
+      ],
+      "updated_at": "2026-10-10T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Settings changes are the maintainer's; an agent cannot make them and must not try. Also close the open question in SECURITY.md about which address reporters use (T-0117)."
+    },
+    {
+      "id": "T-0129",
+      "title": "A continuity note: what a second person needs to keep the lab running",
+      "repo": "cf-lab",
+      "area": "governance",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-10T20:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-10 session: board review by a blind council, and the maintainer's word that the repos cannot be contributed to"
+      },
+      "source_evidence": "2026-10-10: one reviewer asked what a second person would need to merge, deploy or take down the site if the maintainer is unavailable.",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: protects the lab's public pages and its security if the one person is away.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A short document in the private lab files (never in a public repo, and with no secret in it) lists where each thing lives and who may do it: the deploy path and how to stop it, how to take the site down, how to rotate the deploy credential, which accounts matter, and what to tell visitors. A person other than the maintainer has read it and says whether it is enough. No credentials, no host details in any public file.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": "2026-10-10T20:00:00Z",
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Security first: the document names places and steps, not secrets."
     }
   ]
 }
