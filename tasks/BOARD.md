@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-118 tasks, 117 created by a model, 1 with a measured outcome. Estimated effort 263.6 to 494 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+119 tasks, 118 created by a model, 1 with a measured outcome. Estimated effort 266.6 to 500 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (17)
 
@@ -34,7 +34,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 
-## proposed (89)
+## proposed (90)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -93,6 +93,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0114 | P2 | Test CI for the three public repos | cf-lab | 2-4 | 3 | 10 | no | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |
 | T-0089 | P2 | Mechanical filter for local review findings: reproduce each failing input in a temp copy | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |
 | T-0113 | P2 | Eval tallies as data: commit verdict rows, recount the grid, state judge drift | cf-skills | 3-6 | 4 | 8.9 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium |  |  |
+| T-0119 | P2 | A local AI review of a diff in the gate, so the lab does not depend on GitHub's quota-limited AI check | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium |  |  |
 | T-0051 | P2 | Decide and implement how the control repo consumes the evidence skill | cf-lab | 2-5 | 3 | 8.6 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  | T-0037 |
 | T-0043 | P2 | Variant layer: MyVariant.info and gnomAD providers (aggregate frequencies only) | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full |  |  | T-0042 |
@@ -670,6 +671,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** Verdict rows per run are committed (invented cases only), make_tested_grid.py --check recomputes every cell, the grid note states the judge drift, and check_repo.py fails a case that refers to pasted text with an empty message.
 - **Evidence:** 2026-10-09: the published grid counts match the verdict files (recounted by script), but those files sit only in a temporary folder; re-judging the same old replies moved one count from 14 to 19 passes, more than the gain reported; three translation cases send no text.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. A person writes the text for the faulty cases.
+
+### T-0119 A local AI review of a diff in the gate, so the lab does not depend on GitHub's quota-limited AI check
+
+- **Why / ROI rationale:** Estimate: every pull request gets the same bounded review without a quota, and the review's findings are checked against the diff before anyone reads them; today the open rows are ticked from memory or skipped. *(confidence: medium)*
+- **Acceptance:** A script (for example review-diff.ps1 in the ai-loop-council skill) builds a packet from the staged diff inside a data boundary, gives it to the local worker (two fast samples, a findings schema), drops every finding whose quote is not an exact line of the packet with check-findings-evidence.py, prints the survivors and the count, and the gate prints that count on its 'local worker review' row. A fixture diff with a planted defect is found, and a fixture with none yields no invented finding. For Full-tier changes it also writes the packet for a blind cloud challenger with new-cloud-handoff.ps1 and the gate says the row stays open until a challenger's answer is recorded. Nothing is sent to any service by the script itself. The GitHub AI findings workflow is switched off by the maintainer in each repository (one action each; it can be switched back on) and nothing requires it.
+- **Evidence:** 2026-10-10: the dynamic workflow 'Code scanning AI findings on PR' failed on cf-research #28 and .ai #32 with 'You have exceeded your monthly quota' (HTTP 402) while every required check passed. The gate (run-gate.ps1) leaves rows open for a local-worker review of the diff and a blind review, which people and agents have been doing by hand each time.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. A clean pass from a fast local model on a long diff is weak evidence (measured in model-qwen3-8-27b), so the script reports what it covered; it supports the person's reading and does not replace it. Related: the Qwen training round 1 verifier (#34).
 
 ### T-0051 Decide and implement how the control repo consumes the evidence skill
 
