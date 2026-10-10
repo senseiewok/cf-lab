@@ -26,15 +26,18 @@
 
   -LocalReview (opt-in, default off): after the deterministic rows pass and before any commit, run review-diff.ps1 on
   the staged diff (the local worker, two fast samples, findings checked for exact quotes) and print its count on the
-  "Local worker review of the diff" row: "reviewed X of Y files, Z not reviewed", the risk-rank-0 files NOT reviewed by
-  name, and the survivor count. The result is read from review.json in a fresh temp folder the gate chose and tagged
-  with the gate's own run id (never from the console text), and the folder is deleted afterwards. Survivors never
-  block the commit, and neither does "nothing reviewed" (exit 4, shown as such, never as 0 survivors): the row stays
-  open. The gate fails closed (no commit, exit 1) when the review script errors (exit 2, an unexpected exit code, or a
-  missing, stale or inconsistent review.json); "no local worker configured" (exit 3) is printed on the row and does not
-  block. On the full tier it also asks for a blind challenger handoff packet (made, never sent); the challenger row
-  stays open until a challenger's answer is recorded. -ReviewScript replaces review-diff.ps1 (tests pass a fake one).
-  The privacy scan of section 1 runs before the review, and the review only runs when every deterministic row passed.
+  "Local worker review of the diff" row: "reviewed X of Y files" (or "partial: ..., Z not reviewed (names)"), the
+  risk-rank-0 files NOT reviewed, the lock files excluded, the hidden-character and boundary-lookalike counts, and the
+  survivor count. The result is read from review.json in a fresh temp folder the gate chose and tagged with the gate's
+  own run id (never from the console text); the folder is deleted afterwards and a failed delete is reported. Valid
+  review exit codes are 0 (reviewed or empty), 5 (partial), 10 (survivors), 4 (nothing reviewed, including an unusable
+  model reply) and 3 (no local worker); each must agree with review.json. None of these blocks the commit: the row
+  stays open and says what was and was not reviewed. Any other exit code (2 for a script error; 1 when PowerShell
+  could not even bind the parameters), or a missing, stale or inconsistent review.json, fails the gate closed (no
+  commit, exit 1). On the full tier it also asks for a blind challenger handoff packet (made, never sent); the
+  challenger row stays open until a challenger's answer is recorded. -ReviewScript replaces review-diff.ps1 (tests pass
+  a fake one). The privacy scan of section 1 runs before the review, and the review only runs when every deterministic
+  row passed. Without -LocalReview the gate behaves exactly as before.
 
   No opt-out for the stray check: agents work in their own worktree (AGENTS.md), where an
   unexpected file is a finding; ignored files (.gitignore) are not listed by git status.
@@ -57,10 +60,15 @@ param(
     [string] $ReviewScript = (Join-Path $PSScriptRoot 'review-diff.ps1')
 )
 $ErrorActionPreference = 'Stop'
-# Text from the review is shown on a terminal: controls, C1, line separators, bidi and zero-width characters become '?'.
-function Get-Printable([object] $Value) { return ([string]$Value) -replace '[\x00-\x1F\x7F-\x9F\u061c\u200b-\u200f\u2028-\u202e\u2060-\u2069\ufeff]', '?' }
-foreach ($pair in @(@('RepoPath', $RepoPath), @('MessageFile', $MessageFile), @('ReviewScript', $ReviewScript))) {
-    if ($pair[1] -and $pair[1].StartsWith('-')) { Write-Host "error: -$($pair[0]) must not start with '-'"; exit 2 }
+# Text from the review is shown on a terminal: C0 and C1 controls, DEL, line separators, bidi, zero-width, variation
+# selectors, tag characters and other default-ignorable characters become '?'.
+$script:Unprintable = [regex]::new('[\x00-\x1F\x7F-\x9F\u00ad\u034f\u061c\u115f\u1160\u17b4\u17b5\u180b-\u180f\u200b-\u200f\u2028-\u202e\u2060-\u206f\u3164\ufe00-\ufe0f\ufeff\uffa0\ufff0-\ufff8]|[' + [char]0xD82F + [char]0xD834 + '][' + [char]0xDC00 + '-' + [char]0xDFFF + ']|[' + [char]0xDB40 + '-' + [char]0xDB43 + '][' + [char]0xDC00 + '-' + [char]0xDFFF + ']')
+function Get-Printable([object] $Value) { return $script:Unprintable.Replace([string]$Value, '?') }
+if ($LocalReview) {
+    # Values handed on to the review script must not be read as options; checked only when the review runs.
+    foreach ($pair in @(@('RepoPath', $RepoPath), @('MessageFile', $MessageFile), @('ReviewScript', $ReviewScript))) {
+        if ($pair[1] -and $pair[1].StartsWith('-')) { Write-Host "error: -$($pair[0]) must not start with '-'"; exit 2 }
+    }
 }
 $skills = Split-Path -Parent $PSScriptRoot | Split-Path -Parent
 $checkStaged = Join-Path $skills 'security-git/scripts/check-staged.ps1'
@@ -117,19 +125,30 @@ if ($LocalReview) {
                 $rj = $null
                 $rf = Join-Path $gOut 'review.json'
                 if (Test-Path -LiteralPath $rf -PathType Leaf) { try { $rj = Get-Content -Raw -LiteralPath $rf | ConvertFrom-Json } catch { $rj = $null } }
+                # Only 0, 4, 5 and 10 (and 3, above) are results; each must agree with review.json.
                 $valid = $null -ne $rj -and ([string]$rj.run_id) -ceq $gid -and $rj.exit_code -eq $rvCode -and (
                     ($rvCode -eq 0 -and ($rj.status -eq 'empty' -or ($rj.status -eq 'reviewed' -and $rj.survivors_count -eq 0))) -or
-                    ($rvCode -eq 10 -and $rj.status -eq 'reviewed' -and $rj.survivors_count -gt 0) -or
+                    ($rvCode -eq 5 -and $rj.status -eq 'partial' -and $rj.survivors_count -eq 0) -or
+                    ($rvCode -eq 10 -and $rj.status -in @('reviewed', 'partial') -and $rj.survivors_count -gt 0) -or
                     ($rvCode -eq 4 -and $rj.status -eq 'nothing_reviewed'))
                 if (-not $valid) { Write-Host "error: the review script failed or left no valid result for this run (exit $rvCode)"; $failed += 'local-review' }
                 else {
-                    $nNot = @($rj.files_not_reviewed).Count
+                    $notList = @($rj.files_not_reviewed | ForEach-Object { Get-Printable $_.path })
+                    $names = if ($notList.Count -gt 10) { ($notList[0..9] -join ', ') + ", and $($notList.Count - 10) more" } else { $notList -join ', ' }
+                    $notText = if ($notList.Count) { ", $($notList.Count) not reviewed ($names)" } else { '' }
                     $r0 = @($rj.rank0_not_reviewed | ForEach-Object { Get-Printable $_ })
-                    $r0Text = if ($r0.Count) { '; NOT reviewed: ' + ($r0 -join ', ') } else { '' }
+                    $extra = ''
+                    if ($r0.Count) { $extra += '; NOT reviewed, risk rank 0: ' + ($r0 -join ', ') }
+                    foreach ($lf in @($rj.excluded_lock_files | Where-Object { $_ })) { $extra += "; excluded: $(Get-Printable $lf) (lock file)" }
+                    if ([int]$rj.hidden_chars_total -gt 0 -or [int]$rj.boundary_lookalikes_total -gt 0) { $extra += "; $([int]$rj.hidden_chars_total) hidden characters, $([int]$rj.boundary_lookalikes_total) boundary lookalikes in the diff" }
+                    if ($rj.model_note) { $extra += "; $(Get-Printable $rj.model_note)" }
+                    if ($rj.masking -ne 'on') { $extra += '; masking unavailable' }
+                    $count = [int]$rj.survivors_count
                     $reviewNote = switch ($rj.status) {
                         'empty' { ' -- local review: the staged diff is empty' }
-                        'nothing_reviewed' { " -- local review saw nothing: reviewed 0 of $($rj.files_in_diff) files, $nNot not reviewed$r0Text; read the diff yourself" }
-                        default { " -- local review: reviewed $($rj.files_reviewed) of $($rj.files_in_diff) files, $nNot not reviewed$r0Text; $($rj.survivors_count) survivor(s) for a person to read (output above)" }
+                        'nothing_reviewed' { " -- local review saw nothing: reviewed 0 of $($rj.files_in_diff) files$notText$extra; read the diff yourself" }
+                        'partial' { " -- local review partial: reviewed $($rj.files_reviewed) of $($rj.files_in_diff) files$notText$extra; $(if ($count) { "$count survivor(s) for a person to read (output above)" } else { 'no survivors in the reviewed part only' })" }
+                        default { " -- local review: reviewed $($rj.files_reviewed) of $($rj.files_in_diff) files$extra; $count survivor(s) for a person to read (output above)" }
                     }
                     if ($Tier -eq 'full') {
                         $h = $rj.challenger_handoff
@@ -141,7 +160,10 @@ if ($LocalReview) {
                     }
                 }
             }
-        } finally { Remove-Item -LiteralPath $gOut -Recurse -Force -ErrorAction SilentlyContinue }
+        } finally {
+            Remove-Item -LiteralPath $gOut -Recurse -Force -ErrorAction SilentlyContinue
+            if (Test-Path -LiteralPath $gOut) { Write-Host "warning: could not delete the review folder: $gOut" }
+        }
     }
 }
 

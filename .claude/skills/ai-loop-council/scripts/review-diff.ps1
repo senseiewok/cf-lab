@@ -1,51 +1,57 @@
 <#
 .SYNOPSIS
   A local, tool-free AI review of a diff: build a bounded packet, ask the local worker for findings (two fast samples),
-  drop every finding whose quote is not in the reviewed diff lines, and print the survivors and what was covered and
-  what was NOT reviewed (board T-0119).
+  drop every finding whose quote is not in a numbered line of the file it names, and print the survivors, what was
+  covered and what was NOT reviewed (board T-0119).
 
 .DESCRIPTION
   1. build-review-packet.py makes the packet from the staged diff (-Staged), from <Base>...HEAD (-Base) or from a saved
      git diff (-DiffFile): the diff inside a data boundary whose tag carries a random per-run nonce, two passes
      (security, then correctness), the findings fields and the closing lines. Files matching ../review-exclude.txt
-     (never a script, executable code or a risk-rank-0 name), binary files and files over the size cap are not
-     reviewed; when the packet is over -MaxChars the highest-risk files are kept. Every file not reviewed is named.
+     (never a rank-0 file or executable code), binary files and files over a size cap are not reviewed, and named.
   2. invoke-local-model.ps1 runs the packet with findings.schema.json: two samples with thinking off, or with -Think one
-     sample with thinking on. Only its standard output is parsed; its standard error goes to a file in -OutDir. The
-     output must have exactly one "===== sample k of n =====" line per sample, in order, and each reply must be JSON,
-     or the review fails closed.
-  3. check-findings-evidence.py checks each reply against evidence.txt: only the numbered diff lines of the reviewed
-     files. A quote of a file header, a file name, the list of files left out or the prompt is dropped.
-  4. It prints the coverage ("reviewed X of Y files, Z not reviewed", and the risk-rank-0 files NOT reviewed), each
-     sample's counts, the survivors (one per quoted text in a file) with their scope-check labels, and a warning when
-     a long diff gets no survivors. It writes the same as review.json in -OutDir. The last line is "SURVIVORS: n",
-     "NOTHING REVIEWED" when no file was reviewed, or "EMPTY DIFF".
+     sample with thinking on. Only its standard output is parsed; its standard error goes to a file in -OutDir. Every
+     child process (git, Python, the model script) runs with a timeout.
+  3. check-findings-evidence.py checks each reply against evidence.txt (only the numbered lines of reviewed files);
+     then each kept finding's quote must be in a numbered line of the file the finding names (lines.json), or it is
+     dropped as "wrong file".
+  4. It prints the coverage, the hidden-character and boundary-lookalike counts, each sample's counts, the survivors
+     with their labels, and writes the same as review.json in -OutDir.
+
+  Status and exit codes (review.json "status" and "exit_code" agree):
+    0   reviewed: every file reviewed, no survivors; or empty: the raw diff is blank ("EMPTY DIFF")
+    5   partial: some files (or one sample) not reviewed, no survivors in what was reviewed ("PARTIAL")
+    10  survivors to read ("SURVIVORS: n"), whether the review was complete or partial (a partial note is printed)
+    4   nothing_reviewed: no file reviewed, or the model call failed or its replies were unusable (not JSON, no
+        findings list, over the token limit, timed out). This never blocks a commit in run-gate.ps1: a diff can steer a
+        model into a bad reply, so a bad reply must not be able to stop the gate. It is printed loudly.
+    3   no local worker configured
+    2   an error of this script: bad usage, a diff that cannot be parsed, a failed integrity check (sample separators,
+        run id, an output folder that is not new), or any unexpected exception (the body runs in one try/catch).
+  PowerShell itself exits 1 when parameter binding fails before the script body runs; run-gate.ps1 treats every code
+  outside 0, 3, 4, 5 and 10 as invalid and fails closed.
 
   The model is chosen as everywhere else in the lab: -Model, else LOCAL_WORKER_MODEL, else the profile's model
-  (-ProfileFile or LOCAL_WORKER_PROFILE). With none, it prints "no local worker configured: nothing reviewed" and exits
-  3; it never falls back to a particular model. A cloud-routed model name (ending in -cloud, or containing :cloud or
-  -cloud:) is refused, and so is an OLLAMA_HOST that is not a loopback address or a model script whose -Uri
-  names a non-loopback address: Ollama can forward a "-cloud" model's prompt to a remote service. (A local alias copied from a
-  cloud model is not detected by its name.)
+  (-ProfileFile or LOCAL_WORKER_PROFILE); with none, exit 3, and it never falls back to a particular model. Refused
+  before any call (exit 2): a cloud-routed model name (ending in -cloud, or containing :cloud or -cloud:), an
+  OLLAMA_HOST that is not 127.0.0.1, ::1 or localhost, and a model script whose web calls do not use a literal
+  loopback -Uri with -NoProxy. That last check reads the script's syntax tree: it is best-effort (it cannot see a URL
+  built at run time or a .NET HTTP client), and a local alias copied from a cloud model is not detected by its name.
 
-  What it writes: only -OutDir (default: a new folder in the system temp folder; a given folder must be new or empty,
-  and its real path, links resolved, must be outside the reviewed repository and this lab repository). The folder is
-  deleted at the end unless -KeepOutDir is given. invoke-local-model.ps1 appends one counts-only usage line (model,
-  token counts, seconds; no prompt, no reply) to its git-ignored .loop-logs folder; no review content is written
-  inside any repository. It sends nothing to any other service and never reads .env.
+  What it writes: only -OutDir (default: a new folder in the system temp folder, mode 0700 on Linux and macOS; a given
+  folder must be new or empty), whose real path, links, junctions and short names resolved, must be outside the
+  reviewed repository and this lab repository. A folder this run created is deleted at the end unless -KeepOutDir; in
+  a given empty folder only this run's files are deleted. A failed delete is reported. invoke-local-model.ps1 appends
+  one counts-only usage line (model, token counts, seconds; no prompt, no reply) to its git-ignored .loop-logs folder;
+  no review content is written inside any repository. It sends nothing to any other service and never reads .env.
 
-  The console output can quote staged lines (survivor quotes and problems). Text that matches the lab's privacy
-  patterns (security-git/scripts/privacy-patterns.txt) is masked, but that list is not complete: run the
-  deterministic privacy scan first (run-gate.ps1 does), and never paste the output into a public place.
+  The console output can quote staged lines. Every printed line that came from the diff or the model is masked with
+  the lab's privacy patterns (security-git/scripts/privacy-patterns.txt; a missing or empty list is reported as
+  "masking unavailable") and made terminal-safe, but the pattern list is not complete: run the deterministic privacy
+  scan first (run-gate.ps1 does) and never paste the output into a public place.
 
-  -ChallengerHandoff also writes challenger-handoff.json (the reviewed diff lines, the local findings withheld for a
-  blind first pass) and runs new-cloud-handoff.ps1 on it without an approval: that prints the packet hash and
-  "needs-review". Nothing is sent. Use -KeepOutDir to keep the packet for a person to check and approve.
-
-  Exit codes: 0 reviewed with no survivors, or an empty diff; 10 reviewed, survivors to read; 4 nothing reviewed (every
-  file excluded, binary, over the file cap or over the packet cap); 3 no local worker configured; 2 usage, setup or
-  any other error, including an unexpected exception (the whole script runs inside one try/catch, so an unhandled
-  error, which PowerShell reports as exit 1, cannot happen and 1 is never a result).
+  -ChallengerHandoff also writes challenger-handoff.json (the reviewed diff lines, the local findings withheld) and
+  runs new-cloud-handoff.ps1 on it without an approval ("needs-review" and a hash). Nothing is sent.
 
 .PARAMETER InvokeScript
   The script that runs the model, default invoke-local-model.ps1 beside this one. Tests pass a stub that prints canned
@@ -75,16 +81,60 @@ param(
     [ValidateRange(4000, 500000)] [int] $MaxChars = 60000,
     # A reviewed diff at least this long (characters of numbered lines) with no survivors gets the weak-evidence warning.
     [int] $LargeDiffChars = 10000,
+    [ValidateRange(10, 86400)] [int] $ModelTimeoutSec = 1800,
     [switch] $ChallengerHandoff,
     [string] $InvokeScript = (Join-Path $PSScriptRoot 'invoke-local-model.ps1')
 )
 $ErrorActionPreference = 'Stop'
-$script:ownsOut = $false
+$script:createdOut = $false
+$script:usedOut = $false
+$script:Privacy = @()
+$script:MaskingOk = $false
+$HelperTimeoutSec = 300
 
-# Text from the diff or the model is printed to a terminal: controls (C0, DEL, C1), line and paragraph separators,
-# bidi and zero-width characters are shown as '?', so nothing can move the cursor, start a new line or reorder text.
+# Text from the diff or the model is printed to a terminal: C0 and C1 controls, DEL, line and paragraph separators,
+# bidi, zero-width, variation selectors, tag characters and other default-ignorable characters are shown as '?'.
+$script:Unprintable = [regex]::new('[\x00-\x1F\x7F-\x9F\u00ad\u034f\u061c\u115f\u1160\u17b4\u17b5\u180b-\u180f\u200b-\u200f\u2028-\u202e\u2060-\u206f\u3164\ufe00-\ufe0f\ufeff\uffa0\ufff0-\ufff8]|[' + [char]0xD82F + [char]0xD834 + '][' + [char]0xDC00 + '-' + [char]0xDFFF + ']|[' + [char]0xDB40 + '-' + [char]0xDB43 + '][' + [char]0xDC00 + '-' + [char]0xDFFF + ']')
 function Get-Printable([object] $Value) {
-    return ([string]$Value) -replace '[\x00-\x1F\x7F-\x9F\u061c\u200b-\u200f\u2028-\u202e\u2060-\u2069\ufeff]', '?'
+    return $script:Unprintable.Replace([string]$Value, '?')
+}
+
+function Get-PrivacyPatterns {
+    $file = Join-Path $PSScriptRoot '../../security-git/scripts/privacy-patterns.txt'
+    $list = [Collections.Generic.List[object]]::new()
+    if (Test-Path -LiteralPath $file) {
+        foreach ($l in (Get-Content -LiteralPath $file -Encoding utf8)) {
+            if (-not $l -or $l.StartsWith('#')) { continue }
+            $f = $l -split "`t"
+            if ($f.Count -ge 2) { $list.Add([pscustomobject]@{ Name = $f[0]; Regex = [regex]::new($f[1], [Text.RegularExpressions.RegexOptions]::None, [TimeSpan]::FromMilliseconds(500)) }) }
+        }
+    }
+    return , $list
+}
+
+# Replace each privacy-pattern match with a label. A MatchEvaluator returns the label as it is (a "$" in a pattern name
+# is not a substitution); a pattern that times out masks the whole text.
+function Hide-Private([string] $Text) {
+    if (-not $Text) { return $Text }
+    $t = $Text
+    foreach ($p in $script:Privacy) {
+        $label = "[masked: $($p.Name)]"
+        $evaluator = [Text.RegularExpressions.MatchEvaluator] { param($m) $label }.GetNewClosure()
+        try { $t = $p.Regex.Replace($t, $evaluator) }
+        catch [Text.RegularExpressions.RegexMatchTimeoutException] { return '[masked: the privacy check timed out]' }
+    }
+    return $t
+}
+
+# Every printed line that came from the diff or the model goes through this.
+function Out-Safe([object] $Value) { return Get-Printable (Hide-Private ([string]$Value)) }
+
+function Get-Norm([string] $Text) {
+    $t = [string]$Text
+    foreach ($pair in @(@(0x2018, "'"), @(0x2019, "'"), @(0x201C, '"'), @(0x201D, '"'), @(0x2013, '-'), @(0x2014, '-'), @(0x00A0, ' '))) {
+        $t = $t.Replace([string][char]$pair[0], $pair[1])
+    }
+    return ($t -replace '\s+', ' ').Trim()
 }
 
 function Test-Inside([string] $Child, [string] $Parent) {
@@ -95,6 +145,7 @@ function Test-Inside([string] $Child, [string] $Parent) {
 }
 
 # The real path: every existing component that is a link (symbolic link or junction) is replaced by its final target.
+# Short (8.3) names are resolved by the builder's realpath check after the folder exists.
 function Resolve-RealPath([string] $Path) {
     $full = [IO.Path]::GetFullPath($Path)
     $root = [IO.Path]::GetPathRoot($full)
@@ -117,6 +168,33 @@ function Test-LoopbackHost([string] $HostText) {
     return $h.ToLowerInvariant() -in @('127.0.0.1', '::1', 'localhost')
 }
 
+# Best-effort, from the syntax tree: every Invoke-RestMethod/Invoke-WebRequest call in the model script must have a
+# literal loopback -Uri and -NoProxy. It cannot see a URL built at run time or a .NET HTTP client. Returns '' when fine.
+function Test-ModelScriptLoopback([string] $Path) {
+    $tokens = $null; $errs = $null
+    $ast = [Management.Automation.Language.Parser]::ParseFile($Path, [ref]$tokens, [ref]$errs)
+    if ($errs.Count -gt 0) { return 'the model script does not parse' }
+    $web = @('Invoke-RestMethod', 'Invoke-WebRequest', 'irm', 'iwr', 'curl', 'wget')
+    $calls = $ast.FindAll({ param($n) $n -is [Management.Automation.Language.CommandAst] -and $n.GetCommandName() -in $web }, $true)
+    foreach ($c in $calls) {
+        $els = $c.CommandElements
+        $uri = $null; $noProxy = $false
+        for ($k = 1; $k -lt $els.Count; $k++) {
+            $e = $els[$k]
+            if ($e -is [Management.Automation.Language.CommandParameterAst]) {
+                if ($e.ParameterName -eq 'NoProxy') { $noProxy = $true }
+                if ($e.ParameterName -eq 'Uri') { $uri = if ($e.Argument) { $e.Argument } elseif ($k + 1 -lt $els.Count) { $els[$k + 1] } else { $null } }
+            }
+        }
+        if ($null -eq $uri -and $els.Count -gt 1 -and $els[1] -is [Management.Automation.Language.StringConstantExpressionAst]) { $uri = $els[1] }
+        $line = $c.Extent.StartLineNumber
+        if ($uri -isnot [Management.Automation.Language.StringConstantExpressionAst]) { return "a web call in the model script has no literal -Uri (line $line)" }
+        if (-not (Test-LoopbackHost $uri.Value)) { return "the model script calls a non-loopback address ($(Get-Printable $uri.Value), line $line)" }
+        if (-not $noProxy) { return "a web call in the model script does not pass -NoProxy (line $line), so a proxy setting could route it elsewhere" }
+    }
+    return ''
+}
+
 function Get-PythonCommand {
     foreach ($name in 'python', 'python3') {
         $cmd = Get-Command $name -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
@@ -127,23 +205,22 @@ function Get-PythonCommand {
     return @()
 }
 
-function Get-PrivacyPatterns {
-    $file = Join-Path $PSScriptRoot '../../security-git/scripts/privacy-patterns.txt'
-    $list = [Collections.Generic.List[object]]::new()
-    if (Test-Path -LiteralPath $file) {
-        foreach ($l in (Get-Content -LiteralPath $file -Encoding utf8)) {
-            if (-not $l -or $l.StartsWith('#')) { continue }
-            $f = $l -split "`t"
-            if ($f.Count -ge 2) { $list.Add(@($f[0], $f[1])) }
-        }
-    }
-    return , $list
-}
-
-function Hide-Private([string] $Text, $Patterns) {
-    $t = $Text
-    foreach ($p in $Patterns) { $t = [regex]::Replace($t, $p[1], "[masked: $($p[0])]") }
-    return $t
+# Run one process with an argument list (no shell), stdin closed, and a timeout (the process tree is killed).
+function Invoke-Proc([string] $Exe, [string[]] $Arguments, [int] $TimeoutSec) {
+    $psi = [Diagnostics.ProcessStartInfo]::new($Exe)
+    foreach ($a in $Arguments) { $psi.ArgumentList.Add($a) }
+    $psi.UseShellExecute = $false
+    $psi.RedirectStandardOutput = $true; $psi.RedirectStandardError = $true; $psi.RedirectStandardInput = $true
+    $psi.StandardOutputEncoding = [Text.UTF8Encoding]::new($false); $psi.StandardErrorEncoding = [Text.UTF8Encoding]::new($false)
+    $psi.Environment['PYTHONIOENCODING'] = 'utf-8'
+    $p = [Diagnostics.Process]::Start($psi)
+    $p.StandardInput.Close()
+    $o = $p.StandardOutput.ReadToEndAsync(); $e = $p.StandardError.ReadToEndAsync()
+    $done = $p.WaitForExit($TimeoutSec * 1000)
+    if (-not $done) { try { $p.Kill($true) } catch { $null = $_ }; $null = $p.WaitForExit(10000) } else { $p.WaitForExit() }
+    $out = ''; $err = ''
+    try { $out = $o.GetAwaiter().GetResult(); $err = $e.GetAwaiter().GetResult() } catch { $null = $_ }
+    return [pscustomobject]@{ Code = $(if ($done) { $p.ExitCode } else { $null }); TimedOut = -not $done; Out = $out; Err = $err }
 }
 
 function Write-Result($Result) {
@@ -182,25 +259,26 @@ function Invoke-Review {
         Write-Host "error: refusing to run: OLLAMA_HOST is '$(Get-Printable $env:OLLAMA_HOST)', not a loopback address (127.0.0.1, ::1 or localhost)"
         return 2
     }
-    foreach ($m in [regex]::Matches((Get-Content -Raw -LiteralPath $InvokeScript), '(?i)-Uri\s+[''"]?https?://(\[[^\]]+\]|[^/:\s''"`]+)')) {
-        if (-not (Test-LoopbackHost $m.Groups[1].Value)) {
-            Write-Host "error: refusing to run: the model script names a non-loopback address ($(Get-Printable $m.Groups[1].Value))"
-            return 2
-        }
-    }
+    $why = Test-ModelScriptLoopback $InvokeScript
+    if ($why) { Write-Host "error: refusing to run: $why"; return 2 }
+
+    $script:Privacy = Get-PrivacyPatterns
+    $script:MaskingOk = $script:Privacy.Count -gt 0
+    if (-not $script:MaskingOk) { Write-Host 'warning: masking unavailable: the privacy pattern list is missing or empty' }
 
     $python = @(Get-PythonCommand)
     if ($python.Count -eq 0) { Write-Host 'error: Python 3 not found'; return 2 }
     $pyExe = $python[0]
     $pyPre = @($python | Select-Object -Skip 1)
+    $pwshExe = (Get-Process -Id $PID).Path
 
     # ------------------------------------------------------------------------------------------ the output folder
     $guarded = @((Resolve-RealPath (Join-Path $PSScriptRoot '../../../..')))
     if (-not $DiffFile -or $RepoPath) {
         $rp = if ($RepoPath) { $RepoPath } else { '.' }
-        $top = & git -C $rp -c core.fsmonitor=false rev-parse --show-toplevel 2>$null
-        if ($LASTEXITCODE -ne 0 -or -not $top) { Write-Host "error: not a git repository: $(Get-Printable $rp)"; return 2 }
-        $guarded += Resolve-RealPath ([string]$top)
+        $g = Invoke-Proc 'git' @('-C', $rp, '-c', 'core.fsmonitor=false', 'rev-parse', '--show-toplevel') 120
+        if ($g.TimedOut -or $g.Code -ne 0 -or -not $g.Out.Trim()) { Write-Host "error: not a git repository (or git timed out): $(Get-Printable $rp)"; return 2 }
+        $guarded += Resolve-RealPath $g.Out.Trim()
     }
     if (-not $OutDir) { $script:OutDir = Join-Path ([IO.Path]::GetTempPath()) ('review-diff-' + $id) }
     $script:OutDir = [IO.Path]::GetFullPath($OutDir)
@@ -209,55 +287,83 @@ function Invoke-Review {
         if (-not $item.PSIsContainer -or ($item.Attributes -band [IO.FileAttributes]::ReparsePoint)) { Write-Host 'error: -OutDir must be a plain folder, not a file or a link'; return 2 }
         if (@(Get-ChildItem -LiteralPath $OutDir -Force).Count -gt 0) { Write-Host 'error: -OutDir must be new or empty: a folder with files in it is never reused'; return 2 }
     }
-    $real = Resolve-RealPath $OutDir
-    foreach ($g in $guarded) {
-        if (Test-Inside $real $g) { Write-Host "error: -OutDir must be outside the repository ($(Get-Printable $g)), links resolved: the packet holds the diff"; return 2 }
+    foreach ($gr in $guarded) {
+        if (Test-Inside (Resolve-RealPath $OutDir) $gr) { Write-Host "error: -OutDir must be outside the repository ($(Get-Printable $gr)), links resolved: the packet holds the diff"; return 2 }
     }
-    $null = New-Item -ItemType Directory -Force -Path $OutDir
-    $script:ownsOut = $true
+    if (-not (Test-Path -LiteralPath $OutDir)) {
+        $null = New-Item -ItemType Directory -Path $OutDir
+        $script:createdOut = $true
+        if (-not $IsWindows) { [IO.File]::SetUnixFileMode($OutDir, [IO.UnixFileMode]'UserRead, UserWrite, UserExecute') }
+    }
+    $script:usedOut = $true
     if ((Get-Item -LiteralPath $OutDir -Force).Attributes -band [IO.FileAttributes]::ReparsePoint) { Write-Host 'error: -OutDir became a link'; return 2 }
+    foreach ($gr in $guarded) {
+        if (Test-Inside (Resolve-RealPath $OutDir) $gr) { Write-Host 'error: -OutDir resolves into the repository after creation'; return 2 }
+    }
 
     # --------------------------------------------------------------------------------------------------- 1. packet
     $builder = Join-Path $PSScriptRoot 'build-review-packet.py'
     $checker = Join-Path $PSScriptRoot 'check-findings-evidence.py'
     $schema = Join-Path $PSScriptRoot 'findings.schema.json'
-    $bArgs = @('-I', $builder, "--out-dir=$OutDir", "--max-chars=$MaxChars", "--run-id=$id")
+    $bArgs = @($pyPre) + @('-I', $builder, "--out-dir=$OutDir", "--max-chars=$MaxChars", "--run-id=$id")
     if ($RepoPath) { $bArgs += "--repo=$RepoPath" }
     if ($Staged) { $bArgs += '--staged' } elseif ($Base) { $bArgs += "--base=$Base" } else { $bArgs += "--diff-file=$DiffFile" }
-    $bOut = & $pyExe @pyPre @bArgs 2>&1
-    if ($LASTEXITCODE -ne 0) { $bOut | ForEach-Object { Write-Host ('  | ' + (Get-Printable $_)) }; Write-Host 'error: the packet could not be built'; return 2 }
+    $b = Invoke-Proc $pyExe $bArgs $HelperTimeoutSec
+    if ($b.TimedOut -or $b.Code -ne 0) {
+        @(($b.Out + $b.Err) -split "`r?`n" | Where-Object { $_ }) | ForEach-Object { Write-Host ('  | ' + (Out-Safe $_)) }
+        Write-Host $(if ($b.TimedOut) { "error: the packet builder did not finish within $HelperTimeoutSec s" } else { 'error: the packet could not be built' })
+        return 2
+    }
     $packet = Join-Path $OutDir 'packet.md'
     $evidence = Join-Path $OutDir 'evidence.txt'
     $manifest = Get-Content -Raw -LiteralPath (Join-Path $OutDir 'manifest.json') | ConvertFrom-Json
     if ($manifest.run_id -cne $id) { Write-Host 'error: the manifest is not from this run'; return 2 }
     $records = @(Get-Content -Raw -LiteralPath (Join-Path $OutDir 'lines.json') | ConvertFrom-Json)
+    $byFile = @{}
+    foreach ($rec in $records) {
+        $k = [string]$rec.file
+        if (-not $byFile.ContainsKey($k)) { $byFile[$k] = [Collections.Generic.List[object]]::new() }
+        $byFile[$k].Add([pscustomobject]@{ At = $rec.at; Norm = (Get-Norm $rec.line); TextNorm = (Get-Norm $rec.text) })
+    }
 
     $reviewedFiles = @($manifest.files_reviewed)
     $notReviewed = @($manifest.files_not_reviewed)
     $rank0 = @($manifest.rank0_not_reviewed)
-    $result = [ordered]@{ tool = 'review-diff'; run_id = $id; source = $manifest.source; status = $manifest.status; model = $chosenModel
+    $locks = @($manifest.excluded_lock_files)
+    $status = [string]$manifest.status
+    $result = [ordered]@{ tool = 'review-diff'; run_id = $id; source = $manifest.source; status = $status; model = $chosenModel
         think = [bool]$Think; files_in_diff = [int]$manifest.files_in_diff; files_reviewed = $reviewedFiles.Count
-        files_not_reviewed = @($notReviewed | ForEach-Object { [ordered]@{ path = $_.path; reason = $_.reason; rank = $_.rank } })
-        rank0_not_reviewed = $rank0; packet_chars = $manifest.packet_chars; evidence_chars = $manifest.evidence_chars
+        files_not_reviewed = @($notReviewed | ForEach-Object { [ordered]@{ path = (Out-Safe $_.path); reason = $_.reason; rank = $_.rank } })
+        rank0_not_reviewed = @($rank0 | ForEach-Object { Out-Safe $_ }); excluded_lock_files = @($locks | ForEach-Object { Out-Safe $_ })
+        hidden_chars_total = [int]$manifest.hidden_chars_total; boundary_lookalikes_total = [int]$manifest.boundary_lookalikes_total
+        masking = $(if ($script:MaskingOk) { 'on' } else { 'unavailable' }); model_note = $null
+        packet_chars = $manifest.packet_chars; evidence_chars = $manifest.evidence_chars
         samples = @(); survivors = @(); survivors_count = 0; challenger_handoff = $null; exit_code = $null }
 
-    Write-Host "== local diff review ($(Get-Printable $manifest.source)) =="
-    Write-Host ("coverage: reviewed {0} of {1} files, {2} not reviewed; packet {3} characters, reviewed lines {4} characters (cap {5})" -f `
-            $reviewedFiles.Count, $manifest.files_in_diff, $notReviewed.Count, $manifest.packet_chars, $manifest.evidence_chars, $manifest.max_chars)
+    Write-Host "== local diff review ($(Out-Safe $manifest.source)) =="
+    Write-Host ("coverage: {0}: reviewed {1} of {2} files, {3} not reviewed; packet {4} characters, reviewed lines {5} characters (cap {6})" -f `
+            $status, $reviewedFiles.Count, $manifest.files_in_diff, $notReviewed.Count, $manifest.packet_chars, $manifest.evidence_chars, $manifest.max_chars)
     foreach ($f in $reviewedFiles) {
         $note = if ($f.exclude_pattern_ignored) { " (matched exclude pattern $(Get-Printable $f.exclude_pattern_ignored); kept: never excluded)" } else { '' }
-        Write-Host ("  reviewed: {0} ({1}){2}" -f (Get-Printable $f.path), $f.risk, $note)
+        Write-Host ("  reviewed: {0} ({1}){2}" -f (Out-Safe $f.path), $f.risk, $note)
+        if ([int]$f.hidden_chars -gt 0 -or [int]$f.boundary_lookalikes -gt 0) {
+            Write-Host ("    {0} hidden character(s), {1} boundary lookalike(s) in {2}" -f $f.hidden_chars, $f.boundary_lookalikes, (Out-Safe $f.path))
+        }
     }
-    foreach ($e in $notReviewed) { Write-Host ("  not reviewed: {0}: {1} ({2})" -f (Get-Printable $e.path), (Get-Printable $e.reason), (Get-Printable $e.detail)) }
-    if ($rank0.Count -gt 0) { Write-Host ('NOT reviewed (risk rank 0: scripts, workflows, deployment, credentials, policy): ' + (($rank0 | ForEach-Object { Get-Printable $_ }) -join ', ')) }
+    foreach ($e in $notReviewed) { Write-Host ("  not reviewed: {0}: {1} ({2})" -f (Out-Safe $e.path), (Out-Safe $e.reason), (Out-Safe $e.detail)) }
+    if ($rank0.Count -gt 0) { Write-Host ('NOT reviewed (risk rank 0: scripts, workflows, build, deployment, credentials, policy): ' + (($rank0 | ForEach-Object { Out-Safe $_ }) -join ', ')) }
+    if ($locks.Count -gt 0) { Write-Host ('excluded lock files (a supply-chain surface: read them yourself): ' + (($locks | ForEach-Object { Out-Safe $_ }) -join ', ')) }
+    if ($result.hidden_chars_total -gt 0 -or $result.boundary_lookalikes_total -gt 0) {
+        Write-Host ("WARNING: {0} hidden character(s), {1} boundary lookalike(s) in the diff: a Trojan-Source style change is a finding in itself; read those lines" -f $result.hidden_chars_total, $result.boundary_lookalikes_total)
+    }
 
-    if ($manifest.status -eq 'empty') {
+    if ($status -eq 'empty') {
         Write-Host 'empty diff: nothing to review; the model was not called'
         $result.exit_code = 0; Write-Result $result
         Write-Host 'EMPTY DIFF'
         return 0
     }
-    if ($manifest.status -ne 'reviewed') {
+    if ($status -eq 'nothing_reviewed') {
         Write-Host 'no file of the diff was reviewed; the model was not called. This is not a clean result: read the diff yourself.'
         $result.exit_code = 4; Write-Result $result
         Write-Host 'NOTHING REVIEWED'
@@ -269,16 +375,23 @@ function Invoke-Review {
     $iArgs = @('-NoProfile', '-File', $InvokeScript, "-PromptFile:$packet", "-SchemaFile:$schema", "-Model:$chosenModel", "-Samples:$samples", '-Tag:review-diff')
     if ($ProfileFile) { $iArgs += "-ProfileFile:$ProfileFile" }
     if ($Think) { $iArgs += @('-ThinkMode:on', '-MaxOutputTokens:16384') } else { $iArgs += '-ThinkMode:off' }
-    Write-Host ("model: {0}, {1} sample(s), thinking {2}" -f (Get-Printable $chosenModel), $samples, $(if ($Think) { 'on' } else { 'off' }))
-    $errFile = Join-Path $OutDir 'model-stderr.txt'
-    $raw = @(& pwsh @iArgs 2> $errFile | ForEach-Object { [string]$_ })
-    $iCode = $LASTEXITCODE
-    if ($iCode -ne 0) {
-        @(Get-Content -LiteralPath $errFile -ErrorAction SilentlyContinue | Select-Object -Last 6) | ForEach-Object { Write-Host ('  | ' + (Get-Printable $_)) }
-        Write-Host "error: the model call failed (exit $iCode): nothing reviewed"
-        return 2
+    Write-Host ("model: {0}, {1} sample(s), thinking {2}, timeout {3} s" -f (Get-Printable $chosenModel), $samples, $(if ($Think) { 'on' } else { 'off' }), $ModelTimeoutSec)
+    $call = Invoke-Proc $pwshExe $iArgs $ModelTimeoutSec
+    [IO.File]::WriteAllText((Join-Path $OutDir 'model-stderr.txt'), $call.Err, [Text.UTF8Encoding]::new($false))
+    $unusable = $null
+    if ($call.TimedOut) { $unusable = "the model call did not finish within $ModelTimeoutSec s" }
+    elseif ($call.Code -ne 0) {
+        @(($call.Err -split "`r?`n") | Where-Object { $_.Trim() } | Select-Object -Last 6) | ForEach-Object { Write-Host ('  | ' + (Out-Safe $_)) }
+        $unusable = "the model call failed (exit $($call.Code))"
     }
-    # Split strictly: exactly one separator line per sample, numbered 1..n in order, the first before any reply text.
+    if ($unusable) {
+        Write-Host "MODEL REPLY UNUSABLE: $unusable. Nothing was reviewed; this is not a clean result."
+        $result.status = 'nothing_reviewed'; $result.model_note = "model reply unusable: $unusable"; $result.exit_code = 4; Write-Result $result
+        Write-Host 'NOTHING REVIEWED'
+        return 4
+    }
+    $raw = @(($call.Out -split "`r?`n"))
+    # Integrity: exactly one separator line per sample, numbered 1..n in order, the first before any reply text.
     $sepRe = '^===== sample (\d+) of (\d+) =====$'
     $seps = @(for ($k = 0; $k -lt $raw.Count; $k++) { if ($raw[$k] -match $sepRe) { $k } })
     $parts = @()
@@ -301,63 +414,89 @@ function Invoke-Review {
     }
 
     # ---------------------------------------------------------------------------------------- 3. evidence check
-    $privacy = Get-PrivacyPatterns
     $survivors = [ordered]@{}
     $rankSev = @{ high = 3; medium = 2; low = 1 }
+    $rankLabel = @{ 'KEPT scope check' = 3; 'KEPT' = 2; 'KEPT abstained' = 1 }
+    $bad = @()
     for ($i = 1; $i -le $samples; $i++) {
         $text = $parts[$i - 1]
         try { $reply = $text | ConvertFrom-Json } catch { $reply = $null }
-        if ($null -eq $reply -or $reply -isnot [pscustomobject] -or $null -eq $reply.PSObject.Properties['findings']) { Write-Host "error: sample $i is not a JSON findings reply"; return 2 }
+        if ($null -eq $reply -or $reply -isnot [pscustomobject] -or $null -eq $reply.PSObject.Properties['findings']) {
+            Write-Host "sample ${i}: MODEL REPLY UNUSABLE (not a JSON findings reply); this sample reviewed nothing"
+            $bad += $i
+            $result.samples += [ordered]@{ sample = $i; usable = $false }
+            continue
+        }
         $replyFile = Join-Path $OutDir "sample-$i.json"
         $checkedFile = Join-Path $OutDir "checked-$i.json"
         foreach ($old in $replyFile, $checkedFile) { if (Test-Path -LiteralPath $old) { Write-Host "error: $old exists before this run wrote it"; return 2 } }
         [IO.File]::WriteAllText($replyFile, $text, [Text.UTF8Encoding]::new($false))
-        $cOut = & $pyExe @pyPre -I $checker $evidence $replyFile "--out=$checkedFile" '--text-fields=problem,fix,how_to_verify' 2>&1
-        $cCode = $LASTEXITCODE
-        if ($cCode -gt 1 -or -not (Test-Path -LiteralPath $checkedFile)) {
-            $cOut | ForEach-Object { Write-Host ('  | ' + (Get-Printable $_)) }
+        $c = Invoke-Proc $pyExe (@($pyPre) + @('-I', $checker, "--out=$checkedFile", '--text-fields=problem,fix,how_to_verify', $evidence, $replyFile)) $HelperTimeoutSec
+        if ($c.TimedOut -or $c.Code -gt 1 -or -not (Test-Path -LiteralPath $checkedFile)) {
+            @(($c.Out + $c.Err) -split "`r?`n" | Where-Object { $_ }) | ForEach-Object { Write-Host ('  | ' + (Out-Safe $_)) }
             Write-Host "error: the evidence check could not read sample $i"
             return 2
         }
         $checked = Get-Content -Raw -LiteralPath $checkedFile | ConvertFrom-Json
         if ($checked.tool -ne 'check-findings-evidence') { Write-Host "error: checked-$i.json is not the evidence check's output"; return 2 }
-        $total = @($checked.results).Count
-        $kept = @($checked.findings)
-        $dropped = $total - $kept.Count
-        $result.samples += [ordered]@{ sample = $i; findings = $total; kept = $kept.Count; dropped = $dropped }
-        Write-Host ("sample {0}: {1} finding(s), {2} kept by the evidence check, {3} dropped" -f $i, $total, $kept.Count, $dropped)
-        foreach ($r in @($checked.results)) {
-            if ($r.label -like 'DROPPED*') { Write-Host ("  {0} #{1}: {2}" -f (Get-Printable $r.label), (Get-Printable $r.index), (Get-Printable $r.reason)) }
-        }
-        foreach ($k in $kept) {
+        $results = @($checked.results)
+        $keptList = @($checked.findings)
+        $total = $results.Count
+        $kk = 0
+        $kept = 0
+        foreach ($r in $results) {
+            if ($r.label -like 'DROPPED*') { Write-Host ("  {0} #{1}: {2}" -f (Out-Safe $r.label), (Get-Printable $r.index), (Out-Safe $r.reason)); continue }
+            $k = $keptList[$kk]; $kk++
+            $file = (([string]$k.file).Trim() -replace '\\', '/') -replace '^(\./|a/|b/)', ''
+            $q = Get-Norm $k.quote
+            $label = [string]$k.evidence_check
+            $hits = @()
+            if ($label -ne 'KEPT abstained') {
+                $hits = @(if ($byFile.ContainsKey($file)) { $byFile[$file] | Where-Object { $_.Norm.Contains($q) -or $_.TextNorm.Contains($q) } })
+                if ($hits.Count -eq 0) {
+                    Write-Host ("  DROPPED wrong file #{0}: the quote is not in a numbered line of {1}" -f (Get-Printable $r.index), (Out-Safe $file))
+                    continue
+                }
+            }
+            $kept++
             # One survivor per quoted text in a file; the problems the samples gave for it are all kept.
-            $q = (([string]$k.quote) -replace '\s+', ' ').Trim()
-            $key = '{0}|{1}' -f $k.file, $q
+            $key = '{0}|{1}' -f $file, $q
             if (-not $survivors.Contains($key)) {
-                $survivors[$key] = [ordered]@{ severity = [string]$k.severity; file = [string]$k.file; line = $k.line; quote = $q; problems = @(); fixes = @()
-                    how_to_verify = @(); label = $k.evidence_check; samples = @(); found_at = @() }
+                $survivors[$key] = [ordered]@{ severity = [string]$k.severity; file = $file; line = $k.line; quote = $q; problems = @(); fixes = @()
+                    how_to_verify = @(); label = $label; samples = @(); found_at = @() }
             }
             $s = $survivors[$key]
             if ($rankSev[[string]$k.severity] -gt $rankSev[[string]$s.severity]) { $s.severity = [string]$k.severity }
-            if ($k.evidence_check -eq 'KEPT scope check') { $s.label = $k.evidence_check }
+            if ($rankLabel[$label] -gt $rankLabel[[string]$s.label]) { $s.label = $label }
             if ($null -eq $s.line -and $null -ne $k.line) { $s.line = $k.line }
             if ($i -notin $s.samples) { $s.samples += $i }
+            $s.found_at = @(@($s.found_at) + @($hits | ForEach-Object { $_.At }) | Select-Object -Unique)
             if ($k.problem -and [string]$k.problem -notin $s.problems) { $s.problems += [string]$k.problem; $s.fixes += [string]$k.fix; $s.how_to_verify += [string]$k.how_to_verify }
         }
+        $dropped = $total - $kept
+        $result.samples += [ordered]@{ sample = $i; usable = $true; findings = $total; kept = $kept; dropped = $dropped }
+        Write-Host ("sample {0}: {1} finding(s), {2} kept by the evidence check, {3} dropped" -f $i, $total, $kept, $dropped)
     }
-    # Where each quote is, from lines.json (the model often leaves "line" out); never parsed from printed headers.
-    foreach ($s in $survivors.Values) {
-        if ($s.quote) {
-            $s.found_at = @($records | Where-Object { $_.file -eq $s.file -and ((([string]$_.text) -replace '\s+', ' ').Trim()).Contains($s.quote) } | ForEach-Object { $_.at } | Select-Object -Unique)
-        }
-        $s.quote = Hide-Private $s.quote $privacy
-        $s.problems = @($s.problems | ForEach-Object { Hide-Private $_ $privacy })
-        $s.fixes = @($s.fixes | ForEach-Object { Hide-Private $_ $privacy })
-        $s.how_to_verify = @($s.how_to_verify | ForEach-Object { Hide-Private $_ $privacy })
+    if ($bad.Count -eq $samples) {
+        Write-Host 'MODEL REPLY UNUSABLE: no sample gave a JSON findings reply. Nothing was reviewed; this is not a clean result.'
+        $result.status = 'nothing_reviewed'; $result.model_note = 'model reply unusable: no sample gave a JSON findings reply'; $result.exit_code = 4; Write-Result $result
+        Write-Host 'NOTHING REVIEWED'
+        return 4
+    }
+    if ($bad.Count -gt 0) {
+        $result.model_note = "model reply unusable in sample(s) $($bad -join ', ')"
+        if ($result.status -eq 'reviewed') { $result.status = 'partial' }
     }
 
     # ------------------------------------------------------------------------------------------------- 4. report
     $list = @($survivors.Values)
+    foreach ($s in $list) {
+        $s.quote = Hide-Private $s.quote
+        $s.problems = @($s.problems | ForEach-Object { Hide-Private $_ })
+        $s.fixes = @($s.fixes | ForEach-Object { Hide-Private $_ })
+        $s.how_to_verify = @($s.how_to_verify | ForEach-Object { Hide-Private $_ })
+        $s.file = Hide-Private $s.file
+    }
     $scope = @($list | Where-Object { $_.label -eq 'KEPT scope check' }).Count
     Write-Host ("survivors: {0} (union of the samples, one per quoted text in a file); {1} labelled scope check" -f $list.Count, $scope)
     $n = 0
@@ -372,7 +511,7 @@ function Invoke-Review {
     if ($list.Count -eq 0 -and [int]$manifest.evidence_chars -ge $LargeDiffChars) {
         Write-Host 'A clean pass by a fast local model on a long diff is weak evidence; read the diff yourself'
     }
-    if ($notReviewed.Count -gt 0) { Write-Host "Not every file was reviewed: $($notReviewed.Count) file(s) above were not, and no result covers them." }
+    if ($result.status -eq 'partial') { Write-Host "PARTIAL: $($notReviewed.Count) file(s) were not reviewed$(if ($result.model_note) { "; $($result.model_note)" }); no result covers them." }
     Write-Host 'Survivors are leads: a quote that is in the diff does not prove the problem beside it. Verify each one by running something.'
     Write-Host 'This output can quote staged lines: do not paste it into a public place.'
 
@@ -388,26 +527,27 @@ function Invoke-Review {
         }
         $handFile = Join-Path $OutDir 'challenger-handoff.json'
         $hand | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $handFile -Encoding utf8
-        $hOut = @(& pwsh -NoProfile -File (Join-Path $PSScriptRoot 'new-cloud-handoff.ps1') "-PacketFile:$handFile" 2>&1 | ForEach-Object { [string]$_ })
-        if ($LASTEXITCODE -eq 0) {
-            $h = ($hOut -join "`n") | ConvertFrom-Json
-            $result.challenger_handoff = [ordered]@{ status = [string]$h.status; sha256 = [string]$h.packet_sha256; words = $h.words }
-            Write-Host ("challenger handoff: {0}, sha256 {1}, {2} words (nothing was sent)" -f (Get-Printable $h.status), (Get-Printable $h.packet_sha256), (Get-Printable $h.words))
+        $h = Invoke-Proc $pwshExe @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'new-cloud-handoff.ps1'), "-PacketFile:$handFile") $HelperTimeoutSec
+        if (-not $h.TimedOut -and $h.Code -eq 0) {
+            $hj = $h.Out | ConvertFrom-Json
+            $result.challenger_handoff = [ordered]@{ status = [string]$hj.status; sha256 = [string]$hj.packet_sha256; words = $hj.words }
+            Write-Host ("challenger handoff: {0}, sha256 {1}, {2} words (nothing was sent)" -f (Get-Printable $hj.status), (Get-Printable $hj.packet_sha256), (Get-Printable $hj.words))
             Write-Host '  a person checks it for secrets, PHI and deployment details, then approves it with new-cloud-handoff.ps1 -ApprovalFile; use -KeepOutDir to keep the packet'
         } else {
-            $why = Get-Printable ((@($hOut) | Select-Object -Last 1) -replace '\s+', ' ')
-            $result.challenger_handoff = [ordered]@{ status = 'not made'; error = $why }
-            Write-Host ('challenger handoff not made: ' + $why)
+            $whyNot = Out-Safe ((@(($h.Out + $h.Err) -split "`r?`n" | Where-Object { $_.Trim() }) | Select-Object -Last 1) -replace '\s+', ' ')
+            $result.challenger_handoff = [ordered]@{ status = 'not made'; error = $whyNot }
+            Write-Host ('challenger handoff not made: ' + $whyNot)
             Write-Host '  split the diff, or give the challenger the diff by hand; the challenger row stays open'
         }
     }
 
-    $code = if ($list.Count -gt 0) { 10 } else { 0 }
+    $code = if ($list.Count -gt 0) { 10 } elseif ($result.status -eq 'partial') { 5 } else { 0 }
     $result.survivors = $list
     $result.survivors_count = $list.Count
     $result.exit_code = $code
     Write-Result $result
-    Write-Host ("output folder: {0}{1}" -f $OutDir, $(if ($KeepOutDir) { ' (kept)' } else { ' (deleted at the end; -KeepOutDir keeps it)' }))
+    Write-Host ("output folder: {0}{1}" -f $OutDir, $(if ($KeepOutDir) { ' (kept)' } else { ' (this run''s files are deleted at the end; -KeepOutDir keeps them)' }))
+    if ($code -eq 5) { Write-Host 'PARTIAL' }
     Write-Host "SURVIVORS: $($list.Count)"
     return $code
 }
@@ -419,8 +559,15 @@ try {
     Write-Host ('error: unexpected failure, nothing reviewed: ' + (Get-Printable $_.Exception.Message))
     $exitCode = 2
 } finally {
-    if ($script:ownsOut -and -not $KeepOutDir -and $OutDir -and (Test-Path -LiteralPath $OutDir)) {
-        Remove-Item -LiteralPath $OutDir -Recurse -Force -ErrorAction SilentlyContinue
+    if ($script:usedOut -and -not $KeepOutDir -and $OutDir -and (Test-Path -LiteralPath $OutDir)) {
+        if ($script:createdOut) {
+            Remove-Item -LiteralPath $OutDir -Recurse -Force -ErrorAction SilentlyContinue
+            if (Test-Path -LiteralPath $OutDir) { Write-Host "warning: could not delete the output folder: $OutDir" }
+        } else {
+            # A given folder that was empty: delete only this run's files, keep the folder.
+            Get-ChildItem -LiteralPath $OutDir -Force | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+            if (@(Get-ChildItem -LiteralPath $OutDir -Force).Count -gt 0) { Write-Host "warning: could not delete this run's files in: $OutDir" }
+        }
     }
 }
 exit $exitCode

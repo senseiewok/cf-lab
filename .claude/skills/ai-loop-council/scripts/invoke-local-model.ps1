@@ -282,7 +282,8 @@ for ($i = 1; $i -le $Samples; $i++) {
         return
     }
     $sw = [Diagnostics.Stopwatch]::StartNew()
-    $r = Invoke-RestMethod -Uri 'http://localhost:11434/api/chat' -Method Post `
+    # -NoProxy: a proxy set in the environment or the system must never carry the prompt off this machine.
+    $r = Invoke-RestMethod -Uri 'http://localhost:11434/api/chat' -NoProxy -Method Post `
         -Body ($body | ConvertTo-Json -Depth 32) -ContentType 'application/json' -TimeoutSec $TimeoutSec
     $sw.Stop()
 

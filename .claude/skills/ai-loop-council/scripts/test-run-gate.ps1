@@ -84,13 +84,16 @@ try {
         Set-Content -LiteralPath $f -Value $body -Encoding utf8
         @{ Script = $f; Marker = $marker }
     }
-    function Result([string] $status, [int] $code, [int] $survivors, [int] $inDiff, [int] $reviewed, [string[]] $rank0 = @(), $handoff = $null) {
+    function Result([string] $status, [int] $code, [int] $survivors, [int] $inDiff, [int] $reviewed, [string[]] $rank0 = @(), $handoff = $null, [hashtable] $more = @{}) {
         $notRev = @($rank0 | ForEach-Object { @{ path = $_; reason = 'packet cap'; rank = 0 } })
         while ($notRev.Count -lt ($inDiff - $reviewed)) { $notRev += @{ path = "doc$($notRev.Count).md"; reason = 'exclude pattern'; rank = 3 } }
         @{ run_id = '__RUNID__'; status = $status; exit_code = $code; survivors_count = $survivors; files_in_diff = $inDiff; files_reviewed = $reviewed
-            files_not_reviewed = $notRev; rank0_not_reviewed = $rank0; challenger_handoff = $handoff }
+            files_not_reviewed = $notRev; rank0_not_reviewed = $rank0; challenger_handoff = $handoff; masking = 'on' } | ForEach-Object {
+            foreach ($k in $more.Keys) { $_[$k] = $more[$k] }
+            $_
+        }
     }
-    $two = New-FakeReview 'two' @('== local diff review (staged) ==', ('bell' + [char]7 + 'esc' + [char]27 + '[31m'), 'SURVIVORS: 2') 10 (Result 'reviewed' 10 2 4 3 @('deploy.sh'))
+    $two = New-FakeReview 'two' @('== local diff review (staged) ==', ('bell' + [char]7 + 'esc' + [char]27 + '[31m'), 'SURVIVORS: 2') 10 (Result 'partial' 10 2 4 3 @('deploy.sh'))
     $nr = Run @('-Tier', 'routine', '-Expected', 'b.md', '-ReviewScript', $two.Script) $tmp2
     Check 'without -LocalReview the review script is not run' ($nr.Code -eq 0 -and -not (Test-Path $two.Marker) -and $nr.Out -notmatch 'local review') $nr.Out
     $lr = Run @('-Tier', 'routine', '-Expected', 'b.md', '-LocalReview', '-ReviewScript', $two.Script, '-MessageFile', $msg) $tmp2
@@ -98,7 +101,7 @@ try {
     $mk = Get-Content -Raw $two.Marker
     $gateOut = if ($mk -match 'OutDir=(\S+)') { $Matches[1] } else { '' }
     Check '-LocalReview runs on the staged diff with its own run id and folder; survivors do not block the commit' ($lr.Code -eq 0 -and $mk -match 'Staged=True' -and $mk -match 'RunId=[0-9a-f]{32}' -and $mk -match 'Keep=True' -and $lr.Out -match '(?m)^COMMITTED' -and (Commits $tmp2) -eq 2) $lr.Out
-    Check 'the row gives coverage, the rank-0 files NOT reviewed and the survivor count, and stays open' ($lr.Out -match '\[ \] Local worker review of the diff .* -- local review: reviewed 3 of 4 files, 1 not reviewed; NOT reviewed: deploy\.sh; 2 survivor\(s\) for a person to read' -and $rowsLr -eq $rows -and $lr.Last -eq "OPEN ROWS: $rows") $lr.Out
+    Check 'the row gives coverage, the rank-0 files NOT reviewed and the survivor count, and stays open' ($lr.Out -match '\[ \] Local worker review of the diff .* -- local review partial: reviewed 3 of 4 files, 1 not reviewed \(deploy\.sh\); NOT reviewed, risk rank 0: deploy\.sh; 2 survivor\(s\) for a person to read' -and $rowsLr -eq $rows -and $lr.Last -eq "OPEN ROWS: $rows") $lr.Out
     Check 'the gate deletes the review folder it chose' ($gateOut -and -not (Test-Path -LiteralPath $gateOut)) "folder=$gateOut"
     # (the child pwsh may already strip a colour sequence when its output is redirected; the BEL must arrive as ?)
     Check 'control characters printed by the review are shown as ?' ($lr.Out.Contains('bell?esc') -and -not $lr.Out.Contains([string][char]27) -and -not $lr.Out.Contains([string][char]7)) $lr.Out
@@ -120,12 +123,28 @@ try {
     Check 'no local worker (exit 3) is printed on the row and does not block' ($lw.Code -eq 0 -and $lw.Out -match '-- local review not run: no local worker configured') $lw.Out
     $none = New-FakeReview 'none' @('NOTHING REVIEWED') 4 (Result 'nothing_reviewed' 4 0 2 0 @('a.ps1'))
     $ln = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $none.Script) $tmp2
-    Check 'nothing reviewed (exit 4) reads as such, never as 0 survivors, and names the rank-0 files' ($ln.Code -eq 0 -and $ln.Out -match '-- local review saw nothing: reviewed 0 of 2 files, 2 not reviewed; NOT reviewed: a\.ps1; read the diff yourself' -and $ln.Out -notmatch '0 survivor') $ln.Out
+    Check 'nothing reviewed (exit 4) reads as such, never as 0 survivors, and names the rank-0 files' ($ln.Code -eq 0 -and $ln.Out -match '-- local review saw nothing: reviewed 0 of 2 files, 2 not reviewed \(a\.ps1, doc1\.md\); NOT reviewed, risk rank 0: a\.ps1; read the diff yourself' -and $ln.Out -notmatch '0 survivor') $ln.Out
     $full = New-FakeReview 'full' @() 0 (Result 'reviewed' 0 0 1 1 @() @{ status = 'needs-review'; sha256 = ('AB' * 32) })
     $lf = Run @('-Tier', 'full', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $full.Script) $tmp2
     Check 'full tier asks for the challenger handoff and keeps the challenger row open' ($lf.Code -eq 0 -and (Get-Content -Raw $full.Marker) -match 'Handoff=True' -and $lf.Out -match 'different model family.*handoff packet sha256 ABABABABABAB\.\.\. made, not sent.*open until a challenger''s answer is recorded' -and $lf.Last -eq "OPEN ROWS: $fr") $lf.Out
     $bad = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', '-x.ps1') $tmp2
     Check 'a -ReviewScript value that starts with - is a usage error' ($bad.Code -eq 2) $bad.Out
+    # second challenger review: partial (5), the row's lock files, hidden characters, model note, masking, bad codes
+    $part = New-FakeReview 'part' @('PARTIAL') 5 (Result 'partial' 5 0 3 2 @() $null @{ files_not_reviewed = @(@{ path = 'package-lock.json'; reason = 'exclude pattern'; rank = 1 }); excluded_lock_files = @('package-lock.json'); hidden_chars_total = 2; boundary_lookalikes_total = 1 })
+    $lp = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $part.Script) $tmp2
+    Check 'M3: a partial review (exit 5) does not block and says partial, never "0 survivors" alone' ($lp.Code -eq 0 -and $lp.Out -match '-- local review partial: reviewed 2 of 3 files, 1 not reviewed \(package-lock\.json\); excluded: package-lock\.json \(lock file\); 2 hidden characters, 1 boundary lookalikes in the diff; no survivors in the reviewed part only') $lp.Out
+    $partBad = New-FakeReview 'partbad' @() 0 (Result 'partial' 0 0 3 2)
+    $pb = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $partBad.Script) $tmp2
+    Check 'exit 0 with status partial is inconsistent and fails closed' ($pb.Code -eq 1 -and $pb.Out -match 'GATE FAILED: local-review') $pb.Out
+    $odd = New-FakeReview 'odd' @() 7 (Result 'reviewed' 7 0 1 1)
+    $od = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $odd.Script) $tmp2
+    Check 'an exit code outside 0, 3, 4, 5 and 10 fails closed' ($od.Code -eq 1 -and $od.Out -match 'GATE FAILED: local-review') $od.Out
+    $unus = New-FakeReview 'unus' @('NOTHING REVIEWED') 4 (Result 'nothing_reviewed' 4 0 1 0 @() $null @{ model_note = 'model reply unusable: the model call failed (exit 1)'; masking = 'unavailable' })
+    $lu = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $unus.Script, '-MessageFile', $msg) $tmp2
+    Check 'L7: an unusable model reply does not block the commit and is loud on the row' ($lu.Code -eq 0 -and $lu.Out -match 'model reply unusable: the model call failed' -and $lu.Out -match 'masking unavailable' -and $lu.Out -match '(?m)^COMMITTED') $lu.Out
+    Set-Content (Join-Path $tmp2 'd.md') 'd' -Encoding utf8; & git -C $tmp2 -c core.safecrlf=false add d.md 2>&1 | Out-Null
+    $off = Run @('-Tier', 'routine', '-Expected', 'd.md', '-ReviewScript', '-x.ps1') $tmp2
+    Check 'L8: without -LocalReview a -ReviewScript value starting with - changes nothing' ($off.Code -eq 0) $off.Out
     Set-Content (Join-Path $tmp2 'stray.txt') 'left over' -Encoding utf8
     $skip = New-FakeReview 'skip' @() 0 (Result 'reviewed' 0 0 1 1)
     $ls = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $skip.Script) $tmp2

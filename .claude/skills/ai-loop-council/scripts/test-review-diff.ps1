@@ -62,7 +62,7 @@ try {
     Check 'stderr of the model script is kept out of the reply and saved apart' ((Get-Content -Raw (Join-Path $out1 'model-stderr.txt')) -match 'warning: \{ not json') $r.Out
     $rj = Get-Content -Raw (Join-Path $out1 'review.json') | ConvertFrom-Json
     Check 'review.json carries the run id, status, counts and exit code' ($rj.run_id -match '^[0-9a-f]{32}$' -and $rj.status -eq 'reviewed' -and $rj.survivors_count -eq 1 -and $rj.exit_code -eq 10 -and $rj.files_reviewed -eq 1 -and $rj.files_in_diff -eq 1) ($rj | ConvertTo-Json -Depth 4)
-    Check 'coverage says reviewed X of Y files, Z not reviewed' ($r.Out -match 'coverage: reviewed 1 of 1 files, 0 not reviewed') $r.Out
+    Check 'coverage says reviewed X of Y files, Z not reviewed' ($r.Out -match 'coverage: reviewed: reviewed 1 of 1 files, 0 not reviewed') $r.Out
     Check '-KeepOutDir keeps the output folder' ((Test-Path (Join-Path $out1 'packet.md')) -and (Test-Path (Join-Path $out1 'checked-2.json')))
 
     # the output folder is deleted by default
@@ -95,7 +95,9 @@ try {
     $r = Run @("-RepoPath:$repo", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'onesample' (Samples @($real)))")
     Check 'a missing sample fails closed (exit 2)' ($r.Code -eq 2 -and $r.Out -match 'separator') $r.Out
     $r = Run @("-RepoPath:$repo", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'notjson' (Samples @('not json at all', $empty)))")
-    Check 'a reply that is not JSON fails closed (exit 2)' ($r.Code -eq 2 -and $r.Out -match 'sample 1 is not a JSON findings reply') $r.Out
+    Check 'one unusable sample makes the review partial (exit 5), loud, never clean' ($r.Code -eq 5 -and $r.Out -match 'sample 1: MODEL REPLY UNUSABLE' -and $r.Out -match 'PARTIAL') $r.Out
+    $r = Run @("-RepoPath:$repo", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'notjson2' (Samples @('not json', '{"no_findings": 1}')))")
+    Check 'no usable sample is NOTHING REVIEWED (exit 4), not an error that blocks the gate (L7)' ($r.Code -eq 4 -and $r.Out -match 'MODEL REPLY UNUSABLE' -and $r.Last -eq 'NOTHING REVIEWED') $r.Out
 
     # -Think: one sample, thinking on; a separator then is an error
     $th = New-Stub 'think' @($real)
@@ -131,10 +133,28 @@ try {
         Check "a loopback OLLAMA_HOST is accepted ($okHost)" ($r.Code -eq 0) $r.Out
     }
     Remove-Item Env:OLLAMA_HOST
+    # M7: the model script's web calls, read from its syntax tree (best-effort)
     $remoteStub = New-Stub 'remoteurl' (Samples @($empty, $empty))
-    Add-Content -LiteralPath $remoteStub -Value '# Invoke-RestMethod -Uri ''https://api.example.invalid/api/chat'''
+    Add-Content -LiteralPath $remoteStub -Value 'if ($false) { Invoke-RestMethod -Uri ''https://api.example.invalid/api/chat'' -NoProxy }'
     $r = Run @("-RepoPath:$repo", '-Staged', '-Model:stub-model', "-InvokeScript:$remoteStub")
-    Check 'a model script that names a non-loopback URL is refused' ($r.Code -eq 2 -and $r.Out -match 'non-loopback address') $r.Out
+    Check 'a model script that calls a non-loopback URL is refused' ($r.Code -eq 2 -and $r.Out -match 'non-loopback address') $r.Out
+    $proxyStub = New-Stub 'noproxy' (Samples @($empty, $empty))
+    Add-Content -LiteralPath $proxyStub -Value 'if ($false) { Invoke-RestMethod -Uri ''http://localhost:11434/api/chat'' }'
+    $r = Run @("-RepoPath:$repo", '-Staged', '-Model:stub-model', "-InvokeScript:$proxyStub")
+    Check 'a model script whose loopback call can use a proxy is refused' ($r.Code -eq 2 -and $r.Out -match 'NoProxy') $r.Out
+    $commentStub = New-Stub 'comment' (Samples @($empty, $empty))
+    Add-Content -LiteralPath $commentStub -Value '# Invoke-RestMethod -Uri ''https://api.example.invalid/x'' (a comment is not a call)'
+    $r = Run @("-RepoPath:$repo", '-Staged', '-Model:stub-model', "-InvokeScript:$commentStub")
+    Check 'a URL in a comment is not a call' ($r.Code -eq 0) $r.Out
+    $tokens = $null; $errs = $null
+    $invokeAst = [Management.Automation.Language.Parser]::ParseFile((Join-Path $PSScriptRoot 'invoke-local-model.ps1'), [ref]$tokens, [ref]$errs)
+    $webCalls = @($invokeAst.FindAll({ param($x) $x -is [Management.Automation.Language.CommandAst] -and $x.GetCommandName() -in @('Invoke-RestMethod', 'Invoke-WebRequest', 'irm', 'iwr', 'curl', 'wget') }, $true))
+    $okCalls = @($webCalls | Where-Object {
+            $els = $_.CommandElements
+            $uriIdx = [array]::FindIndex([object[]]$els, [Predicate[object]] { param($y) $y -is [Management.Automation.Language.CommandParameterAst] -and $y.ParameterName -eq 'Uri' })
+            $np = @($els | Where-Object { $_ -is [Management.Automation.Language.CommandParameterAst] -and $_.ParameterName -eq 'NoProxy' }).Count
+            $uriIdx -ge 0 -and $els[$uriIdx + 1] -is [Management.Automation.Language.StringConstantExpressionAst] -and $els[$uriIdx + 1].Value -match '^http://(localhost|127\.0\.0\.1|\[::1\])(:\d+)?/' -and $np -eq 1 })
+    Check 'invoke-local-model.ps1: every web call has a literal loopback -Uri and -NoProxy (syntax tree)' ($errs.Count -eq 0 -and $webCalls.Count -ge 1 -and $okCalls.Count -eq $webCalls.Count) "calls=$($webCalls.Count) ok=$($okCalls.Count)"
 
     # usage and setup errors: exit 2; an unexpected exception fails closed with exit 2, never 1 (finding 1)
     $r = Run @("-RepoPath:$repo", '-Model:stub-model', "-InvokeScript:$two")
@@ -146,8 +166,14 @@ try {
     $badProfile = Join-Path $tmp 'bad-profile.json'; Set-Content -LiteralPath $badProfile -Value '{ not json' -Encoding utf8
     $r = Run @("-RepoPath:$repo", '-Staged', "-ProfileFile:$badProfile", "-InvokeScript:$two")
     Check 'an unexpected exception fails closed with exit 2' ($r.Code -eq 2 -and $r.Out -match 'unexpected failure, nothing reviewed') $r.Out
-    $r = Run @("-RepoPath:$repo", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'broken' @('model server not reachable') 1)")
-    Check 'a failed model call is an error (exit 2), not a clean review' ($r.Code -eq 2 -and $r.Out -match 'the model call failed' -and $r.Out -notmatch 'SURVIVORS') $r.Out
+    $r = Run @("-RepoPath:$repo", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'broken' @('model server not reachable') 1 "error: $tok")")
+    Check 'a failed model call is NOTHING REVIEWED (exit 4), never a clean review' ($r.Code -eq 4 -and $r.Out -match 'MODEL REPLY UNUSABLE: the model call failed' -and $r.Out -notmatch 'SURVIVORS') $r.Out
+    Check 'the stderr tail of the model script is echoed masked (L9)' ($r.Out -match '\| error: \[masked: secret\]' -and -not $r.Out.Contains($tok)) $r.Out
+    $slow = New-Stub 'slow' @('Start-Sleep -Seconds 60')
+    Set-Content -LiteralPath $slow -Value 'Start-Sleep -Seconds 60' -Encoding utf8
+    $t0 = Get-Date
+    $r = Run @("-RepoPath:$repo", '-Staged', '-Model:stub-model', "-InvokeScript:$slow", '-ModelTimeoutSec:10')
+    Check 'a model call past -ModelTimeoutSec is stopped and is NOTHING REVIEWED (M2)' ($r.Code -eq 4 -and $r.Out -match 'did not finish within 10 s' -and ((Get-Date) - $t0).TotalSeconds -lt 50) $r.Out
 
     # output folder rules (finding 12)
     $r = Run @("-RepoPath:$repo", '-Staged', '-Model:stub-model', "-InvokeScript:$two", "-OutDir:$(Join-Path $repo 'review-out')")
@@ -192,6 +218,76 @@ try {
     Check '-ChallengerHandoff makes the packet, stops at needs-review and records it in review.json' ($r.Out -match 'challenger handoff: needs-review, sha256 [0-9A-F]{64}' -and $rj4.challenger_handoff.status -eq 'needs-review' -and $rj4.challenger_handoff.sha256 -match '^[0-9A-F]{64}$') $r.Out
 
     Check 'nothing was written inside the reviewed repository' ((Get-RepoState) -eq $before) "before=[$before] after=[$(Get-RepoState)]"
+
+    # ---------------------------------------------------- second challenger review: M3, M4, M5, M1, L1, L9, L11
+    $repo2 = Join-Path $tmp 'repo2'; New-Item -ItemType Directory $repo2 | Out-Null
+    & git -C $repo2 init -q 2>&1 | Out-Null
+    Set-Content (Join-Path $repo2 'base.txt') 'base' -Encoding utf8
+    & git -C $repo2 add base.txt 2>&1 | Out-Null; & git -C $repo2 commit -q -m base 2>&1 | Out-Null
+    Set-Content (Join-Path $repo2 'run.ps1') @('$name = $args[0]', 'cmd /c "del $name"', 'Write-Host done') -Encoding utf8
+    Set-Content (Join-Path $repo2 'helper.ps1') @('Write-Host helper') -Encoding utf8
+    Set-Content (Join-Path $repo2 'package-lock.json') '{"lockfileVersion": 3}' -Encoding utf8
+    & git -C $repo2 add run.ps1 helper.ps1 package-lock.json 2>&1 | Out-Null
+    $o5 = Join-Path $tmp 'o5'
+    $r = Run @("-RepoPath:$repo2", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'p5' (Samples @($empty, $empty)))", "-OutDir:$o5", '-KeepOutDir')
+    $rj5 = Get-Content -Raw (Join-Path $o5 'review.json') | ConvertFrom-Json
+    Check 'M3: a partial review with no survivors exits 5 and says PARTIAL, never only "0 survivors"' ($r.Code -eq 5 -and $r.Out -match 'coverage: partial: reviewed 2 of 3 files, 1 not reviewed' -and $r.Out -match '(?m)^PARTIAL' -and $rj5.status -eq 'partial' -and $rj5.exit_code -eq 5) $r.Out
+    Check 'M6: the excluded lock file is named' ($r.Out -match 'excluded lock files .*package-lock\.json' -and @($rj5.excluded_lock_files) -contains 'package-lock.json') $r.Out
+    $r = Run @("-RepoPath:$repo2", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'p10' (Samples @($real, $empty)))")
+    Check 'M3: survivors in a partial review exit 10 with the partial note' ($r.Code -eq 10 -and $r.Out -match 'PARTIAL: 1 file\(s\) were not reviewed') $r.Out
+    $wrong = '{"findings":[{"severity":"high","file":"helper.ps1","line":2,"quote":"cmd /c \"del $name\"","problem":"Unquoted name.","fix":"Quote it.","how_to_verify":"Run it."}],"checked_but_fine":[]}'
+    $r = Run @("-RepoPath:$repo2", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'wrongfile' (Samples @($wrong, $empty)))")
+    Check 'M4: a quote from run.ps1 that names helper.ps1 is dropped as wrong file' ($r.Out -match 'DROPPED wrong file #1' -and $r.Out -match 'sample 1: 1 finding\(s\), 0 kept by the evidence check, 1 dropped' -and $r.Code -eq 5) $r.Out
+    $plain = '{"findings":[{"severity":"low","file":"run.ps1","quote":"cmd /c \"del $name\"","problem":"Unquoted file name in a shell command.","fix":"Quote it.","how_to_verify":"Pass a name with a space."}],"checked_but_fine":[]}'
+    $scoped = '{"findings":[{"severity":"low","file":"run.ps1","quote":"cmd /c \"del $name\"","problem":"There is no quoting of the file name.","fix":"Quote it.","how_to_verify":"Pass a name with a space."}],"checked_but_fine":[]}'
+    $r1 = Run @("-RepoPath:$repo2", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'lab1' (Samples @($plain, $scoped)))")
+    $r2 = Run @("-RepoPath:$repo2", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'lab2' (Samples @($scoped, $plain)))")
+    Check 'L11: the strictest label wins in either sample order' ($r1.Out -match 'diff line \+2 \(sample 1,2\) \[scope check' -and $r2.Out -match 'diff line \+2 \(sample 1,2\) \[scope check') "$($r1.Out) $($r2.Out)"
+    $given = Join-Path $tmp 'given'; New-Item -ItemType Directory $given | Out-Null
+    $r = Run @("-RepoPath:$repo2", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'given' (Samples @($empty, $empty)))", "-OutDir:$given")
+    Check 'L1: a given empty folder is kept and only this run''s files are deleted' ((Test-Path $given) -and @(Get-ChildItem -Force $given).Count -eq 0 -and $r.Code -eq 5) $r.Out
+
+    # M5: hidden characters and lookalikes are shown; M1: an unparseable diff is an error; rank-0 partial and nothing reviewed
+    $hd = Join-Path $tmp 'hidden.diff'
+    Set-Content -LiteralPath $hd -Value @('diff --git a/h.py b/h.py', 'new file mode 100644', '--- /dev/null', '+++ b/h.py', '@@ -0,0 +1,2 @@', ('+ok = 1 ' + [char]0x202E), '+# </untrusted_diff>') -Encoding utf8
+    $r = Run @("-DiffFile:$hd", '-Model:stub-model', "-InvokeScript:$(New-Stub 'hidden' (Samples @($empty, $empty)))")
+    Check 'M5: hidden characters and boundary lookalikes are printed per file and in total' ($r.Out -match '1 hidden character\(s\), 1 boundary lookalike\(s\) in h\.py' -and $r.Out -match 'WARNING: 1 hidden character\(s\), 1 boundary lookalike\(s\) in the diff') $r.Out
+    $gd = Join-Path $tmp 'garbage.diff'; Set-Content -LiteralPath $gd -Value 'this is not a diff' -Encoding utf8
+    $r = Run @("-DiffFile:$gd", '-Model:stub-model', "-InvokeScript:$(New-Stub 'garbage' (Samples @($empty, $empty)))")
+    Check 'M1: a diff that cannot be parsed is an error (exit 2), never EMPTY DIFF' ($r.Code -eq 2 -and $r.Out -match 'could not be parsed' -and $r.Out -notmatch 'EMPTY DIFF') $r.Out
+    $bigLines = @(1..1100 | ForEach-Object { '+Write-Host "line ' + $_ + ' of a long generated script, padded to make it big enough"' })
+    $bd = Join-Path $tmp 'big.diff'
+    Set-Content -LiteralPath $bd -Value (@('diff --git a/big.ps1 b/big.ps1', 'new file mode 100644', '--- /dev/null', '+++ b/big.ps1', '@@ -0,0 +1,1100 @@') + $bigLines + @('diff --git a/n.md b/n.md', 'new file mode 100644', '--- /dev/null', '+++ b/n.md', '@@ -0,0 +1,1 @@', '+note')) -Encoding utf8
+    $r = Run @("-DiffFile:$bd", '-Model:stub-model', "-InvokeScript:$(New-Stub 'bigpartial' (Samples @($empty, $empty)))")
+    Check 'M3: a rank-0 script over the cap makes the review partial and is named NOT reviewed' ($r.Code -eq 5 -and $r.Out -match 'NOT reviewed \(risk rank 0.*big\.ps1') $r.Out
+    $bd2 = Join-Path $tmp 'bigonly.diff'
+    Set-Content -LiteralPath $bd2 -Value (@('diff --git a/big.ps1 b/big.ps1', 'new file mode 100644', '--- /dev/null', '+++ b/big.ps1', '@@ -0,0 +1,1100 @@') + $bigLines) -Encoding utf8
+    $r = Run @("-DiffFile:$bd2", '-Model:stub-model', "-InvokeScript:$(New-Stub 'bigonly' (Samples @($empty, $empty)))")
+    Check 'a diff whose only file is over the cap is NOTHING REVIEWED (exit 4)' ($r.Code -eq 4 -and $r.Last -eq 'NOTHING REVIEWED') $r.Out
+
+    # L9: masking with a pattern name holding "$0", and "masking unavailable", in a copied tree
+    foreach ($variant in 'custom', 'none') {
+        $lab = Join-Path $tmp "lab-$variant"
+        $sd = Join-Path $lab '.claude/skills/ai-loop-council/scripts'
+        New-Item -ItemType Directory -Force $sd | Out-Null
+        foreach ($f in 'review-diff.ps1', 'build-review-packet.py', 'check-findings-evidence.py', 'findings.schema.json', 'new-cloud-handoff.ps1') { Copy-Item (Join-Path $PSScriptRoot $f) $sd }
+        Copy-Item (Join-Path $PSScriptRoot '../review-exclude.txt') (Join-Path $lab '.claude/skills/ai-loop-council')
+        if ($variant -eq 'custom') {
+            $pd = Join-Path $lab '.claude/skills/security-git/scripts'; New-Item -ItemType Directory -Force $pd | Out-Null
+            Set-Content -LiteralPath (Join-Path $pd 'privacy-patterns.txt') -Value ("dollar`$0name`tSECRET" + "WORD`tSECRET" + 'WORD') -Encoding utf8
+        }
+        $md = Join-Path $tmp "mask-$variant.diff"
+        Set-Content -LiteralPath $md -Value @('diff --git a/m.py b/m.py', 'new file mode 100644', '--- /dev/null', '+++ b/m.py', '@@ -0,0 +1,1 @@', ('+x = SECRET' + 'WORD')) -Encoding utf8
+        $mf = '{"findings":[{"severity":"low","file":"m.py","quote":"x = SECRET' + 'WORD","problem":"p","fix":"f","how_to_verify":"v"}],"checked_but_fine":[]}'
+        $mo = Join-Path $tmp "mask-out-$variant"
+        $o = & pwsh -NoProfile -File (Join-Path $sd 'review-diff.ps1') "-DiffFile:$md" '-Model:stub-model' "-InvokeScript:$(New-Stub "mask$variant" (Samples @($mf, $empty)))" "-OutDir:$mo" '-KeepOutDir' 2>&1 | Out-String
+        $mj = Get-Content -Raw (Join-Path $mo 'review.json') | ConvertFrom-Json
+        if ($variant -eq 'custom') {
+            Check 'L9: masking uses the pattern name literally ($0 is not a substitution)' ($o.Contains('quote: x = [masked: dollar$0name]') -and $mj.masking -eq 'on') $o
+        } else {
+            Check 'L9: a missing pattern list is reported as masking unavailable' ($o -match 'masking unavailable' -and $mj.masking -eq 'unavailable') $o
+        }
+    }
 } finally {
     Remove-Item -Recurse -Force $tmp -ErrorAction SilentlyContinue
     Remove-Item Env:GIT_AUTHOR_NAME, Env:GIT_AUTHOR_EMAIL, Env:GIT_COMMITTER_NAME, Env:GIT_COMMITTER_EMAIL -ErrorAction SilentlyContinue

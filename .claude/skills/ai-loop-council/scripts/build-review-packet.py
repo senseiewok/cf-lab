@@ -9,9 +9,16 @@ What it writes (into --out-dir, which must be outside the repository and empty o
     evidence.txt    only the numbered hunk lines (+, - and context) of the files that were reviewed: no file headers,
                     no list of files left out, no instructions. check-findings-evidence.py checks quotes against this
                     file, so a quote that only matches a header, a file name or the prompt is dropped.
-    lines.json      the same lines as records {file, at, text}, so a quote can be located without parsing headers.
-    manifest.json   the run id, the boundary tag, the status (reviewed, nothing_reviewed or empty), every file in the
-                    diff, reviewed or not and why not (each path once), and the risk-rank-0 files that were not reviewed.
+    lines.json      the same lines as records {file, at, text, line}, so a quote can be located in the file a finding
+                    names, without parsing printed headers.
+    manifest.json   the run id, the boundary tag, the status, every file in the diff, reviewed or not and why not (each
+                    path once), the risk-rank-0 files and lock files not reviewed, and the hidden-character and
+                    boundary-lookalike counts.
+
+Status: "empty" only when the raw diff text is blank; "reviewed" when every file was reviewed; "partial" when at least
+one file was reviewed and at least one was not (excluded, binary, over a cap); "nothing_reviewed" when no file was.
+A diff that is not blank but cannot be parsed into files (the first line is not "diff --git", or a file has no path)
+is an error (exit 2), never "empty".
 
 How the diff is shown
 ---------------------
@@ -20,35 +27,48 @@ Each file starts with "### file: <path> (<status>; risk: <group>)". Each hunk li
 new file (context). A finding quotes one line, or a part of one line, without the marker and number.
 
 Escaping, applied to every line taken from the diff (hunk lines, other lines, file names):
-    - Lookalikes of the boundary word: the line is NFKC-normalised, common Cyrillic and Greek homoglyphs are folded to
-      Latin and invisible characters are removed for matching; if "untrusted", any run of non-letters, "diff" (any
-      case) is found, the line is shown in that folded form with each match replaced by "untrusted-diff(escaped)".
+    - Lookalikes of the boundary word: a matching form of the line is made (invisible characters removed, each
+      character NFKD-decomposed, combining marks dropped, common Cyrillic and Greek homoglyphs folded to Latin). Where
+      "untrusted", any run of non-letters, "diff" (any case) is found, only that span of the ORIGINAL line is replaced
+      by "untrusted-diff(escaped)"; the rest of the line is shown as it is, and the manifest counts the lookalikes.
     - Invisible characters are shown as <U+XXXX>: categories Cc (except TAB), Cf, Co, Cs, Zl, Zp, Zs other than the
-      ASCII space, variation selectors (U+FE00-FE0F, U+E0100-E01EF), tag characters (U+E0000-E007F) and the Hangul
-      fillers (U+115F, U+1160, U+3164, U+FFA0). Bytes that are not UTF-8 are shown as <0xNN>.
+      ASCII space, and the Unicode default-ignorable code points (U+034F, U+115F-1160, U+17B4-17B5, U+180B-180F,
+      U+2060-206F, U+3164, U+FE00-FE0F, U+FFA0, U+E0000-E0FFF and others). Bytes that are not UTF-8 show as <0xNN>.
     - A CR at the end of a line (CRLF) is removed and the file is marked "CRLF".
     - Only the exact git line "\\ No newline at end of file" is passed as that marker; it is never evidence.
 
+Risk rank (the packet cap keeps lower ranks first)
+--------------------------------------------------
+    0  scripts by extension (.ps1 .sh .cmd .bat .vbs .pl .rb .php .lua .vue .mts .cts .kts .gradle ...), a shebang on
+       the first line, scripts/bin/tools Python, and names that run or configure builds, deployment, credentials or
+       policy (workflows, git hooks, Makefile, Jenkinsfile, Dockerfile, package.json, pyproject.toml, setup.py/cfg,
+       requirements*.txt, Gemfile, go.mod, settings, .env, deploy, token, secret ...).
+    1  code, configuration, files with no extension or an unknown one.
+    2  docs files under a test name or folder.
+    3  docs and other text (.md .txt .rst .adoc .csv .tsv).
+
 What is not reviewed (all listed in the manifest, each path once, with every reason)
 -----------------------------------------------------------------------------------
-    exclude pattern   a path matching ../review-exclude.txt. A script, an executable code file or a file whose name
-                      makes it risk rank 0 is never excluded by a pattern (minified .min.js/.min.mjs/.min.css files may
-                      be, unless their name is risk rank 0); the manifest notes the pattern it ignored.
+    exclude pattern   a path matching ../review-exclude.txt. A rank-0 file or executable code is never excluded by a
+                      pattern (a minified .min.js/.min.mjs/.min.css file may be, unless its name is rank 0). Lock files
+                      may be excluded but are listed by name in "excluded_lock_files".
     binary            git reports the file as binary.
     over file cap     the file's diff is over --max-file-bytes (default 61440): the packet shows its header and the
                       line "diff omitted: N bytes".
-    packet cap        the packet would exceed --max-chars (default 60000). Files are taken in risk order (0 scripts,
-                      workflows, deployment, credential and policy files; 1 code and configuration; 2 other test files;
-                      3 docs), and a file that does not fit is left out whole, never cut.
+    packet cap        the packet would exceed --max-chars (default 60000). Files are taken in risk order and a file that
+                      does not fit is left out whole, never cut. The packet size is computed incrementally. The list
+                      of files not shown is cut at 100 lines plus a count; the manifest names every file.
 
 Usage
 -----
     python build-review-packet.py [--repo=PATH] (--staged | --base=REF | --diff-file=FILE) --out-dir=DIR
                                   [--run-id=HEX] [--max-chars=60000] [--max-file-bytes=61440] [--exclude-file=FILE]
 --staged reviews `git diff --cached`; --base reviews `git diff REF...HEAD`; --diff-file reads a saved git diff. git
-runs with an argument list (no shell), with core.fsmonitor off and no external diff or textconv. A path or ref that
-starts with "-" is refused. Exit 0 on success (whatever the status), 2 on a usage or git error. Standard library only;
-no network, no model. Tests: test_build_review_packet.py.
+runs with an argument list (no shell), with core.fsmonitor off, no external diff or textconv, and a 120-second
+timeout. A path or ref that starts with "-" is refused. The output folder's final real path (links, junctions and short
+names resolved) is checked against the repositories before and after it is created; on Linux and macOS it is created
+with mode 0700. Exit 0 on success (whatever the status), 2 on a usage, parse or git error. Standard library only; no
+network, no model. Tests: test_build_review_packet.py.
 """
 
 import argparse
@@ -66,68 +86,97 @@ HERE = Path(__file__).resolve().parent
 DEFAULT_EXCLUDE = HERE.parent / "review-exclude.txt"
 DEFAULT_MAX_CHARS = 60000
 DEFAULT_MAX_FILE_BYTES = 61440
+GIT_TIMEOUT = 120
 
 BOUNDARY_WORD = re.compile(r"untrusted[\W_]*diff", re.I)
 BOUNDARY_ESCAPED = "untrusted-diff(escaped)"
-# The same word in a line whose invisible characters are already shown as <U+XXXX> or <0xNN>.
-DISPLAY_WORD = re.compile(r"untrusted(?:<U\+[0-9A-F]{4,6}>|<0x[0-9A-F]{2}>|[\W_])*diff", re.I)
+MAX_LOOKALIKE_ROUNDS = 8
 NO_NEWLINE = "\\ No newline at end of file"
+HUNK = re.compile(r"@@ -(\d+)(?:,\d+)? \+(\d+)(?:,\d+)? @@")
+TAIL_HEAD = "### files not shown or not reviewed"
+EMPTY_BODY = "(the diff is empty)"
+TAIL_MAX_LINES = 100
+TAIL_MORE = "- and %d more files not shown or not reviewed (the manifest names every one)"
 
 RISK_GROUPS = ["scripts, workflows, deployment, credentials and policy", "code and configuration", "tests",
                "docs and other text"]
 
-SCRIPT_EXT = {".ps1", ".psm1", ".psd1", ".sh", ".bash", ".zsh", ".cmd", ".bat"}
-# Executable code: never excluded by a pattern. Data and configuration: ranked as code, but a pattern may exclude it.
+SCRIPT_EXT = {".ps1", ".psm1", ".psd1", ".sh", ".bash", ".zsh", ".ksh", ".fish", ".cmd", ".bat", ".vbs", ".pl",
+              ".mts", ".cts", ".vue", ".kts", ".gradle", ".rb", ".php", ".lua"}
+# Executable code: never excluded by a pattern. Data and configuration, and unknown extensions: rank 1, excludable.
 EXEC_EXT = {".py", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".html", ".htm", ".svg", ".sql", ".go", ".rs", ".java",
-            ".cs", ".c", ".h", ".cpp", ".rb", ".php", ".lua", ".r", ".ipynb"}
-DATA_EXT = {".json", ".yaml", ".yml", ".toml", ".ini", ".cfg", ".xml", ".css"}
+            ".cs", ".c", ".h", ".cpp", ".r", ".ipynb", ".kt", ".swift", ".scala"}
+DOC_EXT = {".md", ".markdown", ".txt", ".rst", ".adoc", ".csv", ".tsv"}
 SENSITIVE_NAME = re.compile(
     r"(^|/)\.github/workflows/|(^|/)\.claude/settings|(^|/)\.gitignore$|(^|/)\.gitattributes$|(^|/)dockerfile|"
     r"(^|/)\.env|privacy-patterns|privacy-allow|deploy|credential|secret|password|passwd|token|auth|permission|"
-    r"security|(^|/)setup\.(cmd|sh|ps1)$|(^|/)agents\.md$|(^|/)claude\.md$|codeowners",
+    r"security|(^|/)setup\.(cmd|sh|ps1|py|cfg)$|(^|/)agents\.md$|(^|/)claude\.md$|codeowners|"
+    r"(^|/)\.husky/|(^|/)\.githooks/|(^|/)\.git-hooks/|(^|/)makefile$|(^|/)jenkinsfile$|(^|/)package\.json$|"
+    r"(^|/)pyproject\.toml$|(^|/)requirements[^/]*\.txt$|(^|/)gemfile$|(^|/)go\.mod$",
     re.I)
 SCRIPT_DIR_PY = re.compile(r"(^|/)(scripts|bin|tools)/.*\.py$", re.I)
 TEST_NAME = re.compile(r"(^|/)tests?/|(^|/)test[_\-][^/]*$|_test\.[^/]+$|\.test\.[^/]+$|\.spec\.[^/]+$", re.I)
 MINIFIED = re.compile(r"\.min\.(js|mjs|css)$", re.I)
+LOCK_FILE = re.compile(
+    r"(^|/)(package-lock\.json|npm-shrinkwrap\.json|yarn\.lock|pnpm-lock\.yaml|poetry\.lock|pipfile\.lock|uv\.lock|"
+    r"cargo\.lock|composer\.lock|gemfile\.lock|go\.sum|packages\.lock\.json)$|\.lock$", re.I)
 
-# Common homoglyphs of the Latin letters in "untrusted diff" (Cyrillic and Greek), folded for matching only.
-CONFUSABLES = str.maketrans({
-    "\u0430": "a", "\u0435": "e", "\u043e": "o", "\u0440": "p", "\u0441": "c", "\u0443": "y", "\u0445": "x",
-    "\u0456": "i", "\u0458": "j", "\u0455": "s", "\u0501": "d", "\u04cf": "l", "\u0442": "t", "\u0433": "r",
-    "\u043f": "n", "\u0438": "u", "\u0410": "A", "\u0415": "E", "\u041e": "O", "\u0420": "P", "\u0421": "C",
-    "\u0422": "T", "\u0405": "S", "\u0406": "I", "\u0500": "D", "\u03bf": "o", "\u03b9": "i", "\u03bd": "v",
-    "\u03c4": "t", "\u03c5": "u", "\u03b5": "e", "\u0399": "I", "\u03a4": "T", "\u0395": "E", "\u039f": "O",
-    "\u0578": "n", "\u057d": "u", "\u0581": "g",
-})
-HANGUL_FILLERS = {0x115F, 0x1160, 0x3164, 0xFFA0}
+# Common homoglyphs of the Latin letters in "untrusted diff" (Cyrillic, Greek, Armenian), folded for matching only.
+CONFUSABLES = str.maketrans({chr(k): v for k, v in {
+    0x430: "a", 0x435: "e", 0x43E: "o", 0x440: "p", 0x441: "c", 0x443: "y", 0x445: "x", 0x456: "i", 0x458: "j",
+    0x455: "s", 0x501: "d", 0x4CF: "l", 0x442: "t", 0x433: "r", 0x43F: "n", 0x438: "u", 0x410: "A", 0x415: "E",
+    0x41E: "O", 0x420: "P", 0x421: "C", 0x422: "T", 0x405: "S", 0x406: "I", 0x500: "D", 0x3BF: "o", 0x3B9: "i",
+    0x3BD: "v", 0x3C4: "t", 0x3C5: "u", 0x3B5: "e", 0x399: "I", 0x3A4: "T", 0x395: "E", 0x39F: "O", 0x578: "n",
+    0x57D: "u", 0x581: "g",
+}.items()})
+# Unicode default-ignorable code points (and related fillers), shown as <U+XXXX> and removed for lookalike matching.
+DEFAULT_IGNORABLE = [(0x00AD, 0x00AD), (0x034F, 0x034F), (0x061C, 0x061C), (0x115F, 0x1160), (0x17B4, 0x17B5),
+                     (0x180B, 0x180F), (0x200B, 0x200F), (0x202A, 0x202E), (0x2060, 0x206F), (0x3164, 0x3164),
+                     (0xFE00, 0xFE0F), (0xFEFF, 0xFEFF), (0xFFA0, 0xFFA0), (0xFFF0, 0xFFF8), (0x1BCA0, 0x1BCA3),
+                     (0x1D173, 0x1D17A), (0xE0000, 0xE0FFF)]
+
+
+class DiffParseError(ValueError):
+    pass
 
 
 # ---------------------------------------------------------------------------------------------------------- helpers
 
-def risk_rank(path):
-    """0 scripts, workflows, deployment, credential and policy files; 1 code and configuration; 2 other test files;
-    3 docs and other text. The extension and the name decide before the test-name rule, so a test script is rank 0."""
+def has_shebang(hunks):
+    """True when the first line of the new file, shown in a hunk, starts with "#!"."""
+    for i, raw in enumerate(hunks):
+        m = HUNK.match(raw.rstrip("\r"))
+        if not m or int(m.group(2)) > 1:
+            continue
+        for nxt in hunks[i + 1:]:
+            line = nxt.rstrip("\r")
+            if line.startswith("-"):
+                continue
+            return line[:1] in ("+", " ") and line[1:].startswith("#!")
+    return False
+
+
+def risk_rank(path, shebang=False):
+    """0 scripts, workflows, build, deployment, credential and policy files; 1 code, configuration and unknown types;
+    2 docs under a test name; 3 docs and other text. Extension, shebang and name decide before the test-name rule."""
     p = path.replace("\\", "/")
     ext = Path(p).suffix.lower()
-    if ext in SCRIPT_EXT or SENSITIVE_NAME.search(p) or SCRIPT_DIR_PY.search(p):
+    if ext in SCRIPT_EXT or shebang or SENSITIVE_NAME.search(p) or SCRIPT_DIR_PY.search(p):
         return 0
-    if ext in EXEC_EXT or ext in DATA_EXT:
-        return 1
-    if TEST_NAME.search(p):
-        return 2
-    return 3
+    if ext in DOC_EXT:
+        return 2 if TEST_NAME.search(p) else 3
+    return 1
 
 
-def protected(path):
-    """A file that a pattern never excludes: a script, executable code, or a risk-rank-0 name. A minified .min.js,
-    .min.mjs or .min.css file is not protected unless its name is risk rank 0."""
+def protected(path, shebang=False):
+    """A file that a pattern never excludes: rank 0 or executable code. A minified .min.js, .min.mjs or .min.css file
+    is not protected unless it is rank 0."""
     p = path.replace("\\", "/")
-    ext = Path(p).suffix.lower()
-    if SENSITIVE_NAME.search(p) or ext in SCRIPT_EXT or SCRIPT_DIR_PY.search(p):
+    if risk_rank(p, shebang) == 0:
         return True
     if MINIFIED.search(p):
         return False
-    return ext in EXEC_EXT
+    return Path(p).suffix.lower() in EXEC_EXT
 
 
 def load_patterns(path):
@@ -163,7 +212,7 @@ def is_invisible(ch):
         return True
     if cat == "Zs" and ch != " ":
         return True
-    return (0xFE00 <= o <= 0xFE0F or 0xE0100 <= o <= 0xE01EF or 0xE0000 <= o <= 0xE007F or o in HANGUL_FILLERS)
+    return any(a <= o <= b for a, b in DEFAULT_IGNORABLE)
 
 
 def escape_char(ch):
@@ -173,24 +222,55 @@ def escape_char(ch):
     return "<U+%04X>" % o
 
 
+def escape_invisibles(text):
+    return "".join(escape_char(ch) if is_invisible(ch) else ch for ch in text)
+
+
+def fold_map(text):
+    """The matching form of a text and, for each of its characters, the index of the original character."""
+    chars, idx = [], []
+    for i, ch in enumerate(text):
+        if is_invisible(ch):
+            continue
+        for c in unicodedata.normalize("NFKD", ch):
+            if unicodedata.category(c) == "Mn" or is_invisible(c):
+                continue
+            chars.append(c.translate(CONFUSABLES))
+            idx.append(i)
+    return "".join(chars), idx
+
+
 def fold(text):
-    """The matching form of a line: NFKC, homoglyphs folded, invisible characters and non-UTF-8 bytes removed."""
-    t = "".join(ch for ch in text if not is_invisible(ch))
-    return unicodedata.normalize("NFKC", t).translate(CONFUSABLES)
+    return fold_map(text)[0]
 
 
 def visible(text):
-    """Escape boundary lookalikes and invisible characters. Returns (shown text, hidden characters, lookalikes)."""
+    """Escape boundary lookalikes (only the matched span of the original text) and invisible characters.
+    Returns (shown text, hidden characters, lookalikes)."""
     hidden = sum(1 for ch in text if is_invisible(ch))
-    escaped = "".join(escape_char(ch) if is_invisible(ch) else ch for ch in text)
-    lookalikes = len(BOUNDARY_WORD.findall(fold(text)))
-    if not lookalikes:
-        return escaped, hidden, 0
-    # Show the folded form with each lookalike replaced; the <U+XXXX> markers of invisible characters stay visible.
-    shown = DISPLAY_WORD.sub(BOUNDARY_ESCAPED, unicodedata.normalize("NFKC", escaped).translate(CONFUSABLES))
-    if BOUNDARY_WORD.search(fold(shown).replace(BOUNDARY_ESCAPED, "")):
-        shown = BOUNDARY_WORD.sub(BOUNDARY_ESCAPED, fold(text))  # fall back to the plain folded line
-    return shown, hidden, lookalikes
+    pieces = [text]  # raw text pieces; None marks an escaped lookalike (a letter-like barrier for matching)
+    count = 0
+    for _ in range(MAX_LOOKALIKE_ROUNDS + 1):
+        folded, where = [], []
+        for pn, piece in enumerate(pieces):
+            if piece is None:
+                folded.append("x")
+                where.append(None)
+                continue
+            f, m = fold_map(piece)
+            folded.append(f)
+            where.extend((pn, j) for j in m)
+        match = BOUNDARY_WORD.search("".join(folded))
+        if not match:
+            break
+        if count == MAX_LOOKALIKE_ROUNDS:
+            return "(line withheld: more than %d boundary lookalikes)" % MAX_LOOKALIKE_ROUNDS, hidden, count + 1
+        (pn, a), (_, b) = where[match.start()], where[match.end() - 1]
+        piece = pieces[pn]
+        pieces[pn:pn + 1] = [piece[:a], None, piece[b + 1:]]
+        count += 1
+    shown = "".join(BOUNDARY_ESCAPED if p is None else escape_invisibles(p) for p in pieces)
+    return shown, hidden, count
 
 
 def unquote_path(s):
@@ -236,13 +316,13 @@ def header_paths(line):
     if n > 0 and rest[:2] == "a/" and rest[2 + n:5 + n] == " b/" and rest[2:2 + n] == rest[5 + n:]:
         return rest[2:2 + n], rest[5 + n:]
     m = re.match(r"a/(.*) b/(.*)$", rest)
-    return (m.group(1), m.group(2)) if m else (rest, rest)
+    return (m.group(1), m.group(2)) if m else (None, None)
 
 
 # ------------------------------------------------------------------------------------------------------ the diff
 
 def split_files(text):
-    """Split a unified git diff into one record per file."""
+    """Split a git diff into one record per file. Text before the first "diff --git" line is a parse error."""
     files = []
     cur = None
     for line in text.split("\n"):
@@ -252,8 +332,7 @@ def split_files(text):
         elif cur is not None:
             cur["lines"].append(line)
         elif line.strip():
-            cur = {"lines": [line]}  # a diff without a git header (plain unified diff)
-            files.append(cur)
+            raise DiffParseError("the diff does not start with a 'diff --git' line")
     for f in files:
         parse_file(f)
     return files
@@ -301,19 +380,21 @@ def parse_file(f):
                     status = "added"
                 if bn is None:
                     status = "deleted"
-    hdr_old = hdr_new = None
-    if lines and lines[0].startswith("diff --git "):
-        hdr_old, hdr_new = header_paths(lines[0].rstrip("\r"))
+    hdr_old, hdr_new = header_paths(lines[0].rstrip("\r"))
     if rename_from or rename_to:
         status = "renamed"
-    path = rename_to or new or old or hdr_new or hdr_old or "(unknown path)"
+    path = rename_to or new or old or hdr_new or hdr_old
+    if not path:
+        raise DiffParseError("a file in the diff has no path: %r" % lines[0][:80])
+    hunks = lines[hunk_at:] if hunk_at is not None else []
     f.update({
         "path": path,
         "old_path": rename_from or old or hdr_old,
         "status": status,
         "similarity": similarity,
         "binary": binary,
-        "hunks": lines[hunk_at:] if hunk_at is not None else [],
+        "hunks": hunks,
+        "shebang": has_shebang(hunks),
         "bytes": len("\n".join(lines).encode("utf-8", "surrogateescape")),
     })
 
@@ -336,7 +417,7 @@ def render_hunks(hunk_lines):
         if line == NO_NEWLINE:
             shown.append(line)
             continue
-        m = re.match(r"@@ -(\d+)(?:,\d+)? \+(\d+)(?:,\d+)? @@", line)
+        m = HUNK.match(line)
         if m:
             old_n, new_n = int(m.group(1)), int(m.group(2))
         if m or (line and line[0] not in "+- "):
@@ -350,23 +431,20 @@ def render_hunks(hunk_lines):
         hidden += h
         lookalikes += lk
         if marker == "+":
-            at = "+%d" % new_n
-            out = "+ %d: %s" % (new_n, text)
+            at, out = "+%d" % new_n, "+ %d: %s" % (new_n, text)
             new_n += 1
             added += 1
         elif marker == "-":
-            at = "-%d" % old_n
-            out = "- %d: %s" % (old_n, text)
+            at, out = "-%d" % old_n, "- %d: %s" % (old_n, text)
             old_n += 1
             removed += 1
         else:
-            at = "%d" % new_n
-            out = "  %d: %s" % (new_n, text)
+            at, out = "%d" % new_n, "  %d: %s" % (new_n, text)
             old_n += 1
             new_n += 1
         shown.append(out)
         body.append(out)
-        records.append({"at": at, "text": text})
+        records.append({"at": at, "text": text, "line": out})
     return {"shown": shown, "body": body, "records": records, "hidden": hidden, "lookalikes": lookalikes,
             "crlf": crlf, "added": added, "removed": removed}
 
@@ -402,9 +480,9 @@ Pass 2, correctness. Look for wrong conditions, off-by-one errors, wrong names, 
 
 Each finding has these fields:
 - severity: high, medium or low;
-- file: the path from the "### file:" line;
+- file: the path from the "### file:" line of the file the quote is in;
 - line: the number shown before the colon;
-- quote: one line, or part of one line, copied exactly from the diff, without the marker and the number. Only the numbered lines count: a finding whose quote is not in them is deleted before anyone reads it;
+- quote: one line, or part of one line, copied exactly from the diff, without the marker and the number. Only the numbered lines of the named file count: a finding whose quote is not in them is deleted before anyone reads it;
 - problem: what is wrong, in one or two sentences;
 - fix: what to change;
 - how_to_verify: a command, an input or a check a person can run to confirm the problem.
@@ -430,7 +508,10 @@ def build(diff_text, patterns, max_chars, max_file_bytes, source, nonce=None, ru
     nonce = nonce or secrets.token_hex(4)
     run_id = run_id or secrets.token_hex(8)
     tag = "untrusted_diff_%s" % nonce
+    blank = not diff_text.strip()
     files = split_files(diff_text)
+    if not blank and not files:
+        raise DiffParseError("the diff text is not blank but has no file in it")
     not_reviewed = {}  # path -> entry; each path once, every reason kept
 
     def add_nr(f, reason, detail):
@@ -442,13 +523,13 @@ def build(diff_text, patterns, max_chars, max_file_bytes, source, nonce=None, ru
             e["reasons"].append(reason)
             e["details"].append(detail)
 
-    candidates = []  # files that get a block in the packet, in risk order later
+    candidates = []  # files that get a block in the packet
     for idx, f in enumerate(files):
         f["order"] = idx
-        f["rank"] = risk_rank(f["path"])
+        f["rank"] = risk_rank(f["path"], f["shebang"])
         f["pattern_ignored"] = None
         pat = excluded_by(f["path"], patterns)
-        if pat and not protected(f["path"]):
+        if pat and not protected(f["path"], f["shebang"]):
             add_nr(f, "exclude pattern", pat)
             continue
         if pat:
@@ -470,42 +551,80 @@ def build(diff_text, patterns, max_chars, max_file_bytes, source, nonce=None, ru
     candidates.sort(key=lambda f: (f["rank"], f["order"]))
     cap_detail = "not included: the packet would exceed %d characters" % max_chars
 
-    def assemble(chosen):
-        chosen_paths = {f["path"] for f in chosen}
-        tail_entries = [e for e in not_reviewed.values() if e["path"] not in chosen_paths]
-        tail_entries += [{"path": f["path"], "reasons": ["packet cap"], "details": [cap_detail]}
-                         for f in candidates if f not in chosen and f["path"] not in not_reviewed]
-        parts = [f["block"] for f in chosen]
-        if tail_entries:
-            tail = ["### files not shown or not reviewed"]
-            for e in tail_entries:
-                t, _, _ = visible("- %s: %s" % (e["path"], "; ".join(e["reasons"])))
-                tail.append(t)
-            parts.append("\n".join(tail))
-        if not parts:
-            parts = ["(the diff is empty)"]
-        return (PREAMBLE.format(tag=tag) + "\n<%s>\n" % tag + "\n\n".join(parts) + "\n</%s>\n" % tag + CLOSING)
+    # Tail lines are computed once. A candidate's tail line is used only while it is not chosen.
+    candidate_paths = {f["path"] for f in candidates}
+    fixed_lines = [visible("- %s: %s" % (e["path"], "; ".join(e["reasons"])))[0]
+                   for e in not_reviewed.values() if e["path"] not in candidate_paths]
+    for f in candidates:
+        reasons = (not_reviewed[f["path"]]["reasons"] if f["path"] in not_reviewed else []) + ["packet cap"]
+        f["cap_line"] = visible("- %s: %s" % (f["path"], "; ".join(reasons)))[0]
 
-    # Greedy in risk order. A trial lists every candidate not (yet) chosen as capped, which is what the final packet
-    # lists when no later file fits, so the last accepted trial is the final size.
-    chosen = []
-    for f in candidates:
-        trial = chosen + [f]
-        if len(assemble(trial)) <= max_chars:
-            chosen.append(f)
-    for f in candidates:
-        if f not in chosen:
-            add_nr(f, "packet cap", cap_detail)
-    packet = assemble(chosen)
+    preamble = PREAMBLE.replace("{tag}", tag)
+    base = len(preamble) + len("\n<%s>\n" % tag) + len("\n</%s>\n" % tag) + len(CLOSING)
+
+    def size(blocks_sum, n_blocks, tail_sum, n_tail):
+        parts = n_blocks + (1 if n_tail else 0)
+        if parts == 0:
+            return base + len(EMPTY_BODY)
+        tail_len = len(TAIL_HEAD) + tail_sum + n_tail if n_tail else 0
+        return base + blocks_sum + tail_len + 2 * (parts - 1)
+
+    # Greedy in risk order, with running totals (no re-assembly per trial). When more than TAIL_MAX_LINES files could be
+    # listed, the packet lists the first TAIL_MAX_LINES and one summary line, and the trial reserves the longest such tail.
+    all_tail = fixed_lines + [f["cap_line"] for f in candidates]
+    many = len(all_tail) > TAIL_MAX_LINES
+    summary_bound = len(TAIL_MORE % len(all_tail))
+    reserve = (len(TAIL_HEAD) + sum(sorted((len(l) for l in all_tail), reverse=True)[:TAIL_MAX_LINES])
+               + TAIL_MAX_LINES + 1 + summary_bound + 2) if many else 0
+    blocks_sum = n_blocks = 0
+    tail_sum = sum(len(l) for l in all_tail)
+    n_tail = len(all_tail)
+    chosen_idx = set()
+    for i, f in enumerate(candidates):
+        if many:
+            trial = base + blocks_sum + len(f["block"]) + 2 * n_blocks + reserve
+        else:
+            trial = size(blocks_sum + len(f["block"]), n_blocks + 1, tail_sum - len(f["cap_line"]), n_tail - 1)
+        if trial <= max_chars:
+            chosen_idx.add(i)
+            blocks_sum += len(f["block"])
+            n_blocks += 1
+            tail_sum -= len(f["cap_line"])
+            n_tail -= 1
+    chosen = [f for i, f in enumerate(candidates) if i in chosen_idx]
+    capped = [f for i, f in enumerate(candidates) if i not in chosen_idx]
+    for f in capped:
+        add_nr(f, "packet cap", cap_detail)
+    tail_lines = fixed_lines + [f["cap_line"] for f in capped]
+    if len(tail_lines) > TAIL_MAX_LINES:
+        tail_lines = tail_lines[:TAIL_MAX_LINES] + [TAIL_MORE % (len(tail_lines) - TAIL_MAX_LINES)]
+    parts = [f["block"] for f in chosen]
+    if tail_lines:
+        parts.append("\n".join([TAIL_HEAD] + tail_lines))
+    body_text = "\n\n".join(parts) if parts else EMPTY_BODY
+    packet = preamble + "\n<%s>\n" % tag + body_text + "\n</%s>\n" % tag + CLOSING
 
     reviewed = [f for f in chosen if f["render"] is not None]
     evidence = "\n".join(line for f in reviewed for line in f["render"]["body"])
-    records = [{"file": f["path"], "at": r["at"], "text": r["text"]} for f in reviewed for r in f["render"]["records"]]
+    records = [dict(r, file=f["path"]) for f in reviewed for r in f["render"]["records"]]
     nr = sorted(not_reviewed.values(), key=lambda e: (e["rank"], e["path"]))
     for e in nr:
         e["reason"] = "; ".join(e.pop("reasons"))
         e["detail"] = "; ".join(e.pop("details"))
-    status = "empty" if not files else ("reviewed" if reviewed else "nothing_reviewed")
+    if blank:
+        status = "empty"
+    elif not reviewed:
+        status = "nothing_reviewed"
+    elif nr:
+        status = "partial"
+    else:
+        status = "reviewed"
+    files_reviewed = [{"path": f["path"], "status": f["status"], "old_path": f.get("old_path"), "rank": f["rank"],
+                       "risk": RISK_GROUPS[f["rank"]], "diff_bytes": f["bytes"],
+                       "lines_added": f["render"]["added"], "lines_removed": f["render"]["removed"],
+                       "crlf": f["render"]["crlf"], "hidden_chars": f["render"]["hidden"],
+                       "boundary_lookalikes": f["render"]["lookalikes"],
+                       "exclude_pattern_ignored": f["pattern_ignored"]} for f in reviewed]
     manifest = {
         "tool": "build-review-packet",
         "run_id": run_id,
@@ -513,14 +632,12 @@ def build(diff_text, patterns, max_chars, max_file_bytes, source, nonce=None, ru
         "status": status,
         "source": source,
         "files_in_diff": len(files),
-        "files_reviewed": [{"path": f["path"], "status": f["status"], "old_path": f.get("old_path"),
-                            "rank": f["rank"], "risk": RISK_GROUPS[f["rank"]], "diff_bytes": f["bytes"],
-                            "lines_added": f["render"]["added"], "lines_removed": f["render"]["removed"],
-                            "crlf": f["render"]["crlf"], "hidden_chars": f["render"]["hidden"],
-                            "boundary_lookalikes": f["render"]["lookalikes"],
-                            "exclude_pattern_ignored": f["pattern_ignored"]} for f in reviewed],
+        "files_reviewed": files_reviewed,
         "files_not_reviewed": nr,
         "rank0_not_reviewed": [e["path"] for e in nr if e["rank"] == 0],
+        "excluded_lock_files": [e["path"] for e in nr if LOCK_FILE.search(e["path"].replace("\\", "/"))],
+        "hidden_chars_total": sum(f["hidden_chars"] for f in files_reviewed),
+        "boundary_lookalikes_total": sum(f["boundary_lookalikes"] for f in files_reviewed),
         "packet_chars": len(packet),
         "evidence_chars": len(evidence),
         "max_chars": max_chars,
@@ -540,13 +657,17 @@ def run_git(repo, args):
     cmd = (["git", "-C", str(repo)] + GIT_SAFE +
            ["diff", "--no-color", "--no-ext-diff", "--no-textconv", "-M", "--unified=3",
             "--src-prefix=a/", "--dst-prefix=b/"] + args)
-    p = subprocess.run(cmd, capture_output=True)
+    try:
+        p = subprocess.run(cmd, capture_output=True, timeout=GIT_TIMEOUT)
+    except subprocess.TimeoutExpired:
+        raise RuntimeError("git diff did not finish within %d seconds" % GIT_TIMEOUT)
     if p.returncode != 0:
         raise RuntimeError("git diff failed: %s" % p.stderr.decode("utf-8", "replace").strip())
     return p.stdout.decode("utf-8", "surrogateescape")
 
 
 def inside(child, parent):
+    """True when the final real path of child (links, junctions and 8.3 short names resolved) is inside parent's."""
     try:
         Path(os.path.realpath(child)).relative_to(Path(os.path.realpath(parent)))
         return True
@@ -592,8 +713,11 @@ def main(argv=None):
             diff = Path(a.diff_file).read_bytes().decode("utf-8", "surrogateescape")
             source = "diff file %s" % Path(a.diff_file).name
         else:
-            top = subprocess.run(["git", "-C", str(repo)] + GIT_SAFE + ["rev-parse", "--show-toplevel"],
-                                 capture_output=True)
+            try:
+                top = subprocess.run(["git", "-C", str(repo)] + GIT_SAFE + ["rev-parse", "--show-toplevel"],
+                                     capture_output=True, timeout=GIT_TIMEOUT)
+            except subprocess.TimeoutExpired:
+                raise RuntimeError("git rev-parse did not finish within %d seconds" % GIT_TIMEOUT)
             if top.returncode != 0:
                 print("error: not a git repository: %s" % repo, file=sys.stderr)
                 return 2
@@ -615,9 +739,21 @@ def main(argv=None):
     if out.exists() and (not out.is_dir() or any(out.iterdir())):
         print("error: --out-dir must be a new or empty folder", file=sys.stderr)
         return 2
-    packet, evidence, records, manifest = build(diff, patterns, a.max_chars, a.max_file_bytes, source,
-                                                run_id=a.run_id)
-    out.mkdir(parents=True, exist_ok=True)
+    try:
+        packet, evidence, records, manifest = build(diff, patterns, a.max_chars, a.max_file_bytes, source,
+                                                    run_id=a.run_id)
+    except DiffParseError as e:
+        print("error: the diff could not be parsed: %s" % e, file=sys.stderr)
+        return 2
+    created = not out.exists()
+    if created:
+        out.mkdir(mode=0o700, parents=True)
+    # The final path after creation: a link or short name created in between must not lead into a repository.
+    if any(inside(out, g) for g in guarded):
+        if created:
+            out.rmdir()
+        print("error: --out-dir resolves into the repository after creation", file=sys.stderr)
+        return 2
     (out / "packet.md").write_text(packet, encoding="utf-8", errors="surrogateescape", newline="\n")
     (out / "evidence.txt").write_text(evidence, encoding="utf-8", errors="surrogateescape", newline="\n")
     (out / "lines.json").write_text(json.dumps(records, ensure_ascii=True) + "\n", encoding="utf-8", newline="\n")
