@@ -66,34 +66,68 @@ try {
     $u = Run @('-Tier', 'routine', '-Expected', 'b.md', '-MessageFile', (Join-Path $msgDir 'missing.txt')) $tmp2
     Check 'a missing message file is a usage error, no commit' ($u.Code -eq 2 -and (Commits $tmp2) -eq 1) $u.Out
 
-    # -LocalReview with a FAKE review script (no model): it writes its arguments to a marker outside the repo.
-    function New-FakeReview([string] $name, [string[]] $lines, [int] $code) {
+    # -LocalReview with a FAKE review script (no model). It records the arguments it got in a marker outside the repo,
+    # prints the given lines, and (unless told not to) writes review.json into the -OutDir the gate chose, with the
+    # gate's run id (or a wrong one), then exits with the given code.
+    function New-FakeReview([string] $name, [string[]] $lines, [int] $code, $json = $null, [switch] $WrongRunId) {
         $f = Join-Path $msgDir "$name.ps1"; $marker = Join-Path $msgDir "$name.args"
-        Set-Content -LiteralPath $f -Value (@("Set-Content -LiteralPath '$marker' -Value (`$args -join ' ')") + @($lines | ForEach-Object { "'$_'" }) + "exit $code") -Encoding utf8
+        $body = @('param([string] $RepoPath, [switch] $Staged, [string] $OutDir, [string] $RunId, [switch] $KeepOutDir, [switch] $ChallengerHandoff)',
+            "Set-Content -LiteralPath '$marker' -Value (""RepoPath=`$RepoPath Staged=`$Staged OutDir=`$OutDir RunId=`$RunId Keep=`$KeepOutDir Handoff=`$ChallengerHandoff"")")
+        foreach ($l in $lines) { $body += "Write-Host '" + ($l -replace "'", "''") + "'" }
+        if ($null -ne $json) {
+            $id = if ($WrongRunId) { "'" + ('f' * 32) + "'" } else { '$RunId' }
+            $body += 'New-Item -ItemType Directory -Force -Path $OutDir | Out-Null'
+            $body += "`$j = '" + (($json | ConvertTo-Json -Depth 5 -Compress) -replace "'", "''") + "'"
+            $body += "Set-Content -LiteralPath (Join-Path `$OutDir 'review.json') -Value (`$j -replace '__RUNID__', $id) -Encoding utf8"
+        }
+        $body += "exit $code"
+        Set-Content -LiteralPath $f -Value $body -Encoding utf8
         @{ Script = $f; Marker = $marker }
     }
-    $two = New-FakeReview 'two' @('== local diff review (staged) ==', 'SURVIVORS: 2') 1
+    function Result([string] $status, [int] $code, [int] $survivors, [int] $inDiff, [int] $reviewed, [string[]] $rank0 = @(), $handoff = $null) {
+        $notRev = @($rank0 | ForEach-Object { @{ path = $_; reason = 'packet cap'; rank = 0 } })
+        while ($notRev.Count -lt ($inDiff - $reviewed)) { $notRev += @{ path = "doc$($notRev.Count).md"; reason = 'exclude pattern'; rank = 3 } }
+        @{ run_id = '__RUNID__'; status = $status; exit_code = $code; survivors_count = $survivors; files_in_diff = $inDiff; files_reviewed = $reviewed
+            files_not_reviewed = $notRev; rank0_not_reviewed = $rank0; challenger_handoff = $handoff }
+    }
+    $two = New-FakeReview 'two' @('== local diff review (staged) ==', ('bell' + [char]7 + 'esc' + [char]27 + '[31m'), 'SURVIVORS: 2') 10 (Result 'reviewed' 10 2 4 3 @('deploy.sh'))
     $nr = Run @('-Tier', 'routine', '-Expected', 'b.md', '-ReviewScript', $two.Script) $tmp2
     Check 'without -LocalReview the review script is not run' ($nr.Code -eq 0 -and -not (Test-Path $two.Marker) -and $nr.Out -notmatch 'local review') $nr.Out
     $lr = Run @('-Tier', 'routine', '-Expected', 'b.md', '-LocalReview', '-ReviewScript', $two.Script, '-MessageFile', $msg) $tmp2
     $rowsLr = ([regex]::Matches($lr.Out, '\[ \]')).Count
-    Check '-LocalReview runs on the staged diff and survivors do not block the commit' ($lr.Code -eq 0 -and (Get-Content -Raw $two.Marker) -match '-Staged' -and $lr.Out -match '(?m)^COMMITTED' -and (Commits $tmp2) -eq 2) $lr.Out
-    Check 'the review row says how many survivors a person must read, and stays open' ($lr.Out -match '\[ \] Local worker review of the diff .* -- local review ran: 2 survivor\(s\) for a person to read' -and $rowsLr -eq $rows -and $lr.Last -eq "OPEN ROWS: $rows") $lr.Out
+    $mk = Get-Content -Raw $two.Marker
+    $gateOut = if ($mk -match 'OutDir=(\S+)') { $Matches[1] } else { '' }
+    Check '-LocalReview runs on the staged diff with its own run id and folder; survivors do not block the commit' ($lr.Code -eq 0 -and $mk -match 'Staged=True' -and $mk -match 'RunId=[0-9a-f]{32}' -and $mk -match 'Keep=True' -and $lr.Out -match '(?m)^COMMITTED' -and (Commits $tmp2) -eq 2) $lr.Out
+    Check 'the row gives coverage, the rank-0 files NOT reviewed and the survivor count, and stays open' ($lr.Out -match '\[ \] Local worker review of the diff .* -- local review: reviewed 3 of 4 files, 1 not reviewed; NOT reviewed: deploy\.sh; 2 survivor\(s\) for a person to read' -and $rowsLr -eq $rows -and $lr.Last -eq "OPEN ROWS: $rows") $lr.Out
+    Check 'the gate deletes the review folder it chose' ($gateOut -and -not (Test-Path -LiteralPath $gateOut)) "folder=$gateOut"
+    # (the child pwsh may already strip a colour sequence when its output is redirected; the BEL must arrive as ?)
+    Check 'control characters printed by the review are shown as ?' ($lr.Out.Contains('bell?esc') -and -not $lr.Out.Contains([string][char]27) -and -not $lr.Out.Contains([string][char]7)) $lr.Out
     Set-Content (Join-Path $tmp2 'c.md') 'c' -Encoding utf8; & git -C $tmp2 -c core.safecrlf=false add c.md 2>&1 | Out-Null
     $err = New-FakeReview 'err' @('error: the model call failed') 2
     $le = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $err.Script, '-MessageFile', $msg) $tmp2
     Check 'a review script error fails closed: no commit' ($le.Code -eq 1 -and $le.Out -match 'GATE FAILED: local-review' -and $le.Out -match 'NOT COMMITTED' -and (Commits $tmp2) -eq 2) $le.Out
-    $noline = New-FakeReview 'noline' @('something else') 1
-    $ln = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $noline.Script) $tmp2
-    Check 'a review result without its SURVIVORS line fails closed' ($ln.Code -eq 1 -and $ln.Out -match 'GATE FAILED: local-review') $ln.Out
+    $spoof = New-FakeReview 'spoof' @('SURVIVORS: 0') 1
+    $sp = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $spoof.Script) $tmp2
+    Check 'a "SURVIVORS: 0" line with exit 1 and no review.json fails closed (stdout is never parsed)' ($sp.Code -eq 1 -and $sp.Out -match 'GATE FAILED: local-review') $sp.Out
+    $stale = New-FakeReview 'stale' @() 0 (Result 'reviewed' 0 0 1 1) -WrongRunId
+    $st = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $stale.Script) $tmp2
+    Check 'a review.json with another run id fails closed' ($st.Code -eq 1 -and $st.Out -match 'GATE FAILED: local-review') $st.Out
+    $incons = New-FakeReview 'incons' @() 0 (Result 'reviewed' 0 2 1 1)
+    $ic = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $incons.Script) $tmp2
+    Check 'exit 0 with survivors in review.json fails closed' ($ic.Code -eq 1 -and $ic.Out -match 'GATE FAILED: local-review') $ic.Out
     $nw = New-FakeReview 'nw' @('no local worker configured: nothing reviewed') 3
     $lw = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $nw.Script) $tmp2
     Check 'no local worker (exit 3) is printed on the row and does not block' ($lw.Code -eq 0 -and $lw.Out -match '-- local review not run: no local worker configured') $lw.Out
-    $full = New-FakeReview 'full' @('challenger handoff: needs-review, sha256 AB, 10 words: x', 'SURVIVORS: 0') 0
+    $none = New-FakeReview 'none' @('NOTHING REVIEWED') 4 (Result 'nothing_reviewed' 4 0 2 0 @('a.ps1'))
+    $ln = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $none.Script) $tmp2
+    Check 'nothing reviewed (exit 4) reads as such, never as 0 survivors, and names the rank-0 files' ($ln.Code -eq 0 -and $ln.Out -match '-- local review saw nothing: reviewed 0 of 2 files, 2 not reviewed; NOT reviewed: a\.ps1; read the diff yourself' -and $ln.Out -notmatch '0 survivor') $ln.Out
+    $full = New-FakeReview 'full' @() 0 (Result 'reviewed' 0 0 1 1 @() @{ status = 'needs-review'; sha256 = ('AB' * 32) })
     $lf = Run @('-Tier', 'full', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $full.Script) $tmp2
-    Check 'full tier asks for the challenger handoff and keeps the challenger row open' ($lf.Code -eq 0 -and (Get-Content -Raw $full.Marker) -match '-ChallengerHandoff' -and $lf.Out -match 'different model family.*handoff packet written \(not sent\); open until a challenger''s answer is recorded' -and $lf.Last -eq "OPEN ROWS: $fr") $lf.Out
+    Check 'full tier asks for the challenger handoff and keeps the challenger row open' ($lf.Code -eq 0 -and (Get-Content -Raw $full.Marker) -match 'Handoff=True' -and $lf.Out -match 'different model family.*handoff packet sha256 ABABABABABAB\.\.\. made, not sent.*open until a challenger''s answer is recorded' -and $lf.Last -eq "OPEN ROWS: $fr") $lf.Out
+    $bad = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', '-x.ps1') $tmp2
+    Check 'a -ReviewScript value that starts with - is a usage error' ($bad.Code -eq 2) $bad.Out
     Set-Content (Join-Path $tmp2 'stray.txt') 'left over' -Encoding utf8
-    $skip = New-FakeReview 'skip' @('SURVIVORS: 0') 0
+    $skip = New-FakeReview 'skip' @() 0 (Result 'reviewed' 0 0 1 1)
     $ls = Run @('-Tier', 'routine', '-Expected', 'c.md', '-LocalReview', '-ReviewScript', $skip.Script) $tmp2
     Check 'the review is not run when a deterministic row failed' ($ls.Code -eq 1 -and -not (Test-Path $skip.Marker) -and $ls.Out -match 'not run: a deterministic row failed') $ls.Out
     Remove-Item (Join-Path $tmp2 'stray.txt')

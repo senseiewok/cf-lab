@@ -26,11 +26,15 @@
 
   -LocalReview (opt-in, default off): after the deterministic rows pass and before any commit, run review-diff.ps1 on
   the staged diff (the local worker, two fast samples, findings checked for exact quotes) and print its count on the
-  "Local worker review of the diff" row. Survivors never block the commit: the row stays open and says how many a
-  person must read. The gate fails closed (no commit, exit 1) only when the review script itself errors (exit 2 or an
-  unreadable result); "no local worker configured" (exit 3) is printed on the row and does not block. On the full tier
-  it also asks review-diff.ps1 for a blind challenger handoff packet (written, never sent); the challenger row stays
-  open until a challenger's answer is recorded. -ReviewScript replaces review-diff.ps1 (tests pass a fake one).
+  "Local worker review of the diff" row: "reviewed X of Y files, Z not reviewed", the risk-rank-0 files NOT reviewed by
+  name, and the survivor count. The result is read from review.json in a fresh temp folder the gate chose and tagged
+  with the gate's own run id (never from the console text), and the folder is deleted afterwards. Survivors never
+  block the commit, and neither does "nothing reviewed" (exit 4, shown as such, never as 0 survivors): the row stays
+  open. The gate fails closed (no commit, exit 1) when the review script errors (exit 2, an unexpected exit code, or a
+  missing, stale or inconsistent review.json); "no local worker configured" (exit 3) is printed on the row and does not
+  block. On the full tier it also asks for a blind challenger handoff packet (made, never sent); the challenger row
+  stays open until a challenger's answer is recorded. -ReviewScript replaces review-diff.ps1 (tests pass a fake one).
+  The privacy scan of section 1 runs before the review, and the review only runs when every deterministic row passed.
 
   No opt-out for the stray check: agents work in their own worktree (AGENTS.md), where an
   unexpected file is a finding; ignored files (.gitignore) are not listed by git status.
@@ -53,6 +57,11 @@ param(
     [string] $ReviewScript = (Join-Path $PSScriptRoot 'review-diff.ps1')
 )
 $ErrorActionPreference = 'Stop'
+# Text from the review is shown on a terminal: controls, C1, line separators, bidi and zero-width characters become '?'.
+function Get-Printable([object] $Value) { return ([string]$Value) -replace '[\x00-\x1F\x7F-\x9F\u061c\u200b-\u200f\u2028-\u202e\u2060-\u2069\ufeff]', '?' }
+foreach ($pair in @(@('RepoPath', $RepoPath), @('MessageFile', $MessageFile), @('ReviewScript', $ReviewScript))) {
+    if ($pair[1] -and $pair[1].StartsWith('-')) { Write-Host "error: -$($pair[0]) must not start with '-'"; exit 2 }
+}
 $skills = Split-Path -Parent $PSScriptRoot | Split-Path -Parent
 $checkStaged = Join-Path $skills 'security-git/scripts/check-staged.ps1'
 $checkChanged = Join-Path $PSScriptRoot 'check-changed.ps1'
@@ -94,20 +103,45 @@ if ($LocalReview) {
     if ($failed.Count -gt 0) { $reviewNote = ' -- local review not run: a deterministic row failed'; Write-Host 'not run: a deterministic row failed' }
     elseif (-not (Test-Path -LiteralPath $ReviewScript -PathType Leaf)) { Write-Host "error: missing $ReviewScript"; $failed += 'local-review' }
     else {
-        $rvArgs = @('-NoProfile', '-File', $ReviewScript, '-RepoPath', $repo, '-Staged')
-        if ($Tier -eq 'full') { $rvArgs += '-ChallengerHandoff' }
-        $rv = @(& pwsh @rvArgs 2>&1 | ForEach-Object { "$_" })
-        $rvCode = $LASTEXITCODE
-        $rv | ForEach-Object { Write-Host "  $_" }
-        $count = @($rv | Where-Object { $_ -match '^SURVIVORS: \d+$' } | Select-Object -Last 1)
-        if ($rvCode -in 0, 1 -and $count.Count -eq 1) {
-            $reviewNote = " -- local review ran: $($count[0] -replace '^SURVIVORS: ', '') survivor(s) for a person to read (output above)"
-            if ($Tier -eq 'full') {
-                $hand = @($rv | Where-Object { $_ -match '^challenger handoff: needs-review' })
-                $challengerNote = if ($hand.Count) { ' -- handoff packet written (not sent); open until a challenger''s answer is recorded' } else { ' -- no handoff packet was made; open until a challenger''s answer is recorded' }
+        # The result is read from review.json in a fresh folder the gate chose, tagged with the gate's own run id; the
+        # console output is shown, never parsed. The folder is always deleted.
+        $gid = [guid]::NewGuid().ToString('N')
+        $gOut = Join-Path ([IO.Path]::GetTempPath()) ('gate-review-' + $gid)
+        try {
+            $rvArgs = @('-NoProfile', '-File', $ReviewScript, "-RepoPath:$repo", '-Staged', "-OutDir:$gOut", "-RunId:$gid", '-KeepOutDir')
+            if ($Tier -eq 'full') { $rvArgs += '-ChallengerHandoff' }
+            & pwsh @rvArgs 2>&1 | ForEach-Object { Write-Host ('  ' + (Get-Printable "$_")) }
+            $rvCode = $LASTEXITCODE
+            if ($rvCode -eq 3) { $reviewNote = ' -- local review not run: no local worker configured' }
+            else {
+                $rj = $null
+                $rf = Join-Path $gOut 'review.json'
+                if (Test-Path -LiteralPath $rf -PathType Leaf) { try { $rj = Get-Content -Raw -LiteralPath $rf | ConvertFrom-Json } catch { $rj = $null } }
+                $valid = $null -ne $rj -and ([string]$rj.run_id) -ceq $gid -and $rj.exit_code -eq $rvCode -and (
+                    ($rvCode -eq 0 -and ($rj.status -eq 'empty' -or ($rj.status -eq 'reviewed' -and $rj.survivors_count -eq 0))) -or
+                    ($rvCode -eq 10 -and $rj.status -eq 'reviewed' -and $rj.survivors_count -gt 0) -or
+                    ($rvCode -eq 4 -and $rj.status -eq 'nothing_reviewed'))
+                if (-not $valid) { Write-Host "error: the review script failed or left no valid result for this run (exit $rvCode)"; $failed += 'local-review' }
+                else {
+                    $nNot = @($rj.files_not_reviewed).Count
+                    $r0 = @($rj.rank0_not_reviewed | ForEach-Object { Get-Printable $_ })
+                    $r0Text = if ($r0.Count) { '; NOT reviewed: ' + ($r0 -join ', ') } else { '' }
+                    $reviewNote = switch ($rj.status) {
+                        'empty' { ' -- local review: the staged diff is empty' }
+                        'nothing_reviewed' { " -- local review saw nothing: reviewed 0 of $($rj.files_in_diff) files, $nNot not reviewed$r0Text; read the diff yourself" }
+                        default { " -- local review: reviewed $($rj.files_reviewed) of $($rj.files_in_diff) files, $nNot not reviewed$r0Text; $($rj.survivors_count) survivor(s) for a person to read (output above)" }
+                    }
+                    if ($Tier -eq 'full') {
+                        $h = $rj.challenger_handoff
+                        $sha = if ($h) { Get-Printable $h.sha256 } else { '' }
+                        if ($sha.Length -gt 12) { $sha = $sha.Substring(0, 12) }
+                        $challengerNote = if ($h -and $h.status -eq 'needs-review') {
+                            " -- handoff packet sha256 $sha... made, not sent (rerun review-diff.ps1 -Staged -ChallengerHandoff -KeepOutDir to keep it); open until a challenger's answer is recorded"
+                        } else { ' -- no handoff packet was made; open until a challenger''s answer is recorded' }
+                    }
+                }
             }
-        } elseif ($rvCode -eq 3) { $reviewNote = ' -- local review not run: no local worker configured' }
-        else { Write-Host "error: the review script failed (exit $rvCode)"; $failed += 'local-review' }
+        } finally { Remove-Item -LiteralPath $gOut -Recurse -Force -ErrorAction SilentlyContinue }
     }
 }
 
