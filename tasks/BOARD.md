@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-119 tasks, 118 created by a model, 1 with a measured outcome. Estimated effort 266.6 to 500 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+126 tasks, 125 created by a model, 1 with a measured outcome. Estimated effort 291.1 to 548.5 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (18)
 
@@ -35,7 +35,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 
-## proposed (89)
+## proposed (96)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -92,6 +92,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0070 | P2 | Read the terms and robots.txt of Ensembl REST, NCBI Variation Services, UniProt and ClinVar bulk files with the lab's reader; propose catalog entries | cf-research | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  |  |
 | T-0086 | P2 | Depth probe for the 64K local alias | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine |  | local |  |
 | T-0114 | P2 | Test CI for the three public repos | cf-lab | 2-4 | 3 | 10 | no | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |
+| T-0121 | P2 | Stop the evidence tool's catalog copy needing a pull request after every catalog change | cf-skills | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium |  |  |
 | T-0089 | P2 | Mechanical filter for local review findings: reproduce each failing input in a temp copy | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |
 | T-0113 | P2 | Eval tallies as data: commit verdict rows, recount the grid, state judge drift | cf-skills | 3-6 | 4 | 8.9 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium |  |  |
 | T-0051 | P2 | Decide and implement how the control repo consumes the evidence skill | cf-lab | 2-5 | 3 | 8.6 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  | T-0037 |
@@ -102,7 +103,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0066 | P2 | Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  |  |
 | T-0019 | P2 | Add model profile skills for Gemma 4 31B and Laguna XS 2.1, or remove them from the site's field guide | cf-lab | 2-4 | 2 | 6.7 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
 | T-0085 | P2 | Delegation loop: answer-first contract, grouped verifier feedback and a PowerShell AST lint | cf-lab | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |
+| T-0123 | P2 | Decide how the Resources page grows: per-country pages, or count only the scripts a page loads | .ai | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium |  |  |
 | T-0084 | P2 | Local worker playbook cards v0 and the bare-versus-card measurement | cf-lab | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |
+| T-0124 | P2 | A reusable intake tool so local agents can propose Resources rows from any permitted site | cf-research | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high |  |  |
 | T-0090 | P2 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium |  | T-0083 |
 | T-0097 | P2 | Re-run the local reviewer evaluation on a second, different script | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium |  |  |
 | T-0010 | P2 | Claim-check harness + frozen 60-claim evaluation set | cf-research | 12-16 | 4 | 2.9 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  | T-0009 |
@@ -115,7 +118,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0068 | P3 | review-diff.ps1: the gate's local-worker review row as one command | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0095 | P3 | Make the website's footer and credit wording agree with the README's 'Thanks to the tools' section | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low |  |  |
 | T-0096 | P3 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low |  | T-0058 |
+| T-0122 | P3 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low |  |  |
 | T-0088 | P3 | Keep everything a verifier reads inside its temp copy | cf-lab | 1-3 | 3 | 15 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine |  | local |  |
+| T-0120 | P3 | An intermittent WebKit failure in the site's policy test | .ai | 1-3 | 3 | 15 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | low |  |  |
 | T-0031 | P3 | Docs tier 4: move the idea inventory to research, make the first commit in skills, decide the private-repo naming boundary | cf-lab | 1-2 | 2 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  | T-0020 |
 | T-0098 | P3 | cf-research: make the script-style tests in tools/sources collectable by python -m unittest | cf-research | 1-2 | 2 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-07 | routine | low | local |  |
 | T-0050 | P3 | Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow | cf-lab | 2-3 | 3 | 12 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |
@@ -123,11 +128,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0091 | P3 | Depth probe on realistic text with a second fact at a different depth | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine | low | local | T-0086 |
 | T-0021 | P3 | Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008) | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  | T-0008, T-0010 |
 | T-0044 | P3 | Paper-trail layer: Unpaywall and Semantic Scholar providers | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |
+| T-0125 | P3 | A public review record for each page (reviewer role, version reviewed, date, open issues) | .ai | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium |  | T-0105, T-0117 |
 | T-0053 | P3 | Data Commons provider in cf-evidence-loop for population denominators (if the admission is accepted) | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | full |  |  | T-0048 |
 | T-0055 | P3 | EMA medicines provider: read the downloaded JSON report as evidence records (marketing authorisation date, status) | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  |  |
 | T-0101 | P3 | A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK | cf-lab | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | medium |  |  |
 | T-0087 | P3 | Faster site and package test suites with the same assertions | cf-research | 3-6 | 2 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine | medium |  |  |
 | T-0036 | P3 | Admission run for the two installed local models (Gemma 4 31B, Laguna XS 2.1) as reviewers | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | full |  |  |  |
+| T-0126 | P3 | A small public benchmark of the lab's own checks (20 to 30 frozen tasks) | cf-research | 8-16 | 4 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | high |  |  |
 
 ## done (9)
 
@@ -657,6 +664,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-09: the public repos run only CodeQL and dependency graph in Actions; every test behind a merge is the agent's local run.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Adds workflows; the maintainer decides.
 
+### T-0121 Stop the evidence tool's catalog copy needing a pull request after every catalog change
+
+- **Why / ROI rationale:** Estimate: removes a recurring manual step and the red checks between merges, while the public skill keeps a standalone copy. *(confidence: medium)*
+- **Acceptance:** The copy is pinned like the site's data: a pin tool records the research commit and hashes, a status command says how far behind the pin is, and the check in cf-skills compares the copy with the PINNED commit (not with main), so a catalog change in cf-research no longer turns cf-skills red. Moving the pin is one pull request. Tests with fakes; the skill still works standalone.
+- **Evidence:** 2026-10-10: every change to cf-research's sources/catalog.yaml needed a follow-up pull request in cf-skills to sync the evidence tool's generated copy (sync_skill_catalog.py --check reports DRIFT until it lands): four such pull requests in one day, with the site's counts needing the same until the evidence pin (.ai #38).
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Follows the pattern of .ai #38 (tools/pin_evidence.py) and the Resources pin.
+
 ### T-0089 Mechanical filter for local review findings: reproduce each failing input in a temp copy
 
 - **Why / ROI rationale:** Estimate: the evaluation's judges ran every input by hand, one site folder and one run per finding. A tool does that step and leaves the controller only the spec reading, which the 8-of-14 figure shows cannot be skipped. *(confidence: medium)*
@@ -765,6 +779,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** test-delegate.ps1 gains cases for grouped feedback with expected/actual on the first failure, and for an answer-first reminder in thinking attempts; the lint rejects the three observed PowerShell causes before the verifier runs; delegations.jsonl before/after on two replayed tasks.
 - **Evidence:** scratch/site-updates/log-assessment.md sections 3 and 5; scratch/qwen-local/design.md section 4; observed this session: 12 identical FAIL lines, cap exhaustion with the answer already in the thinking text, a non-compiling reply ranked best (fixed).
 
+### T-0123 Decide how the Resources page grows: per-country pages, or count only the scripts a page loads
+
+- **Why / ROI rationale:** Estimate: keeps the page fast on a phone and the size guard honest as rows are added. *(confidence: medium)*
+- **Acceptance:** A choice is made and recorded: (a) split into /resources/ (map, jump list, filters) plus /resources/<country>/ pages with the filters per country; or (b) change the weight test to count only the scripts a page loads. The chosen option is built with tests; no limit is raised by hand again without a dated reason.
+- **Evidence:** 2026-10-10: the Resources page measured 239,778 bytes against its limit (raised from 224 KB to 236 KB for 36 rows; the page HTML alone is 76,912 bytes and grows about 2 KB per row); the proposal planned /resources/<code>/ pages when a page passes 80 percent of its cap.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Option (a) keeps pages small for people on a phone; check how the CSS-only filter and the map would work across pages before choosing.
+
 ### T-0052 Close the findings a frontier-model review deferred in cf-evidence-loop v0.1
 
 - **Why / ROI rationale:** Crash-on-unexpected-shape and missing body-size cap are reliability defects that will surface in production runs. Unstripped escape sequences and unvalidated --contact are low-severity but cheap to fix. The dry-run reporting gap and robots.txt prefix-match limitation reduce trust in the tool's output. Correct terms_url values are a data-quality fix that a human must confirm. Overall moderate benefit for moderate cost. *(confidence: medium)*
@@ -787,6 +808,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** check-card validation for at least two cards; the same three tasks run bare and with the card, three runs each, counts per cell and defects found by reading recorded in the model profile skill with the small-n caveat; a card is marked validated only where it beat the bare packet.
 - **Evidence:** scratch/qwen-local/design.md (cards, loop, benchmark); scratch/seo-skill/ab and scratch/site-updates/qwen-results.md hold the first runs: exact-patch packets with a test-shaped verifier were accepted on attempt 1 in 25 to 35 s; a 150-line script from a bare spec was not.
 - **Notes:** Distillation here means written teaching material, not training or model downloads.
+
+### T-0124 A reusable intake tool so local agents can propose Resources rows from any permitted site
+
+- **Why / ROI rationale:** Estimate: turns a one-off manual process into a tested, conduct-safe tool; a person still confirms every row. *(confidence: medium)*
+- **Acceptance:** A tool takes a host whose catalog entry says fetch and a list of addresses; reads robots.txt first (every agent group, unreadable means stop); loads one page at a time under the project user agent, same-host only, three seconds apart, with a size cap; keeps screenshots and text only in a scratch folder outside every repository and deletes them on request; asks the local worker (inside a data boundary, no tools) for a draft row; drops any draft that breaks the checker's rules (word cap, no digits or contact details); writes lead_only rows. Offline tests with fake pages cover robots and redirect cases, the user agent, the size cap and the data boundary; a dry run on one real host is described. A person confirms; the tool never writes confirmed_by.
+- **Evidence:** 2026-10-10: the 25 rows for the UK, Canada, Australia and Ireland were drafted by hand-written scripts (robots.txt read, one page at a time with the project user agent, same-host only, screenshots, a local model's wording checked blind); the maintainer wants the list filled over time by local agents.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Reuse the conduct code in cf-skills' evidence client and cf-research's fetch_sources.py; do not rewrite them. Spanish and other languages: summaries in the maintainer's chosen language rules only.
 
 ### T-0090 Re-measure the local reviewer with the thinking profile and more runs per arm
 
@@ -879,6 +907,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** README.md, 'Browser testing': off Windows the setup script puts its virtual environment in ~/.local/share/lab-playwright and looks for Edge or Chrome in fixed paths; .claude/skills/playwright-browser-testing/scripts/test-setup-browser-testing.py checks those paths only with an injected platform name (test_mac_and_linux_paths and the default_venv case), never on a real macOS or Linux machine. README.md and T-0058 say setup.sh itself has not run on a real Mac or Linux either; T-0058 covers setup.sh and test-setup.py, this task covers only the optional Playwright script.
 - **Notes:** Needs a human with a Mac and one Linux machine. Proposed by a model. The script downloads Playwright from the Python Package Index and, if no Edge or Chrome is found, a Chromium build; run it only where that is acceptable. Do not claim macOS or Linux support for this step until it passes.
 
+### T-0122 Decide whether the Evidence page's mistake count includes the second ledger file
+
+- **Why / ROI rationale:** Estimate: the page's headline number should say what it counts. *(confidence: medium)*
+- **Acceptance:** The maintainer decides: count both files, or say plainly 'from the first session's ledger'. If both, the pin tool and the generator read both files, the lock records both hashes, and the page says '138 mistakes recorded as of <date>' from the data, not typed.
+- **Evidence:** 2026-10-10: the page counts mistakes from ledger/2026-10-04-first-session.md only (98 rows); cf-research/ledger/2026-10-07-second-session.md holds 40 more rows that the page has never counted (found by the evidence-pin builder).
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. A content decision first; the code is small.
+
 ### T-0088 Keep everything a verifier reads inside its temp copy
 
 - **Why / ROI rationale:** Estimate: avoids wasted attempts and false failures during a long unattended run. *(confidence: medium)*
@@ -886,6 +921,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** The shared site verifier copies the pieces of the research repo it needs; a run started before an edit of the sibling repo gives the same result as one started after.
 - **Evidence:** A verifier for site edits read the sibling research repo through a link; editing that repo during the run (new ledger entries) made the evidence-page check fail on two otherwise correct attempts and cost a thinking attempt (scratch/site-updates/qwen-results.md).
 - **Notes:** Lesson candidate, reproduce with: start a delegation, then edit cf-research/ledger/*.md, and watch tools/make_evidence.py --check fail in the verifier copy.
+
+### T-0120 An intermittent WebKit failure in the site's policy test
+
+- **Why / ROI rationale:** Estimate: a flaky check teaches people to ignore red; fixing it keeps the browser suite trustworthy. *(confidence: medium)*
+- **Acceptance:** Run the test 30 times in a clean worktree of main and record the failure rate and the failure message; find the cause (a race between the policy violation event and the assertion is the first thing to check); make the test deterministic or fix the page; 30 consecutive passes in WebKit and Chromium.
+- **Evidence:** 2026-10-10: tests.test_site_playwright PolicyViolationTests.test_the_browsers_refuse_html_strings_and_style_attributes_under_this_policy failed in WebKit in two full runs on the evidence-pin branch and in about 1 of 8 runs on unchanged main (the builder's count); it passed in every run by the controlling agent.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Do not skip or widen the test to hide it; the test guards the Content-Security-Policy.
 
 ### T-0031 Docs tier 4: move the idea inventory to research, make the first commit in skills, decide the private-repo naming boundary
 
@@ -951,6 +993,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** Providers with tests; EVIDENCE_CONTACT used for Unpaywall only; no key committed; live check on 10.1038/ng.2745 returns an OA location and citation graph summary.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 3
 
+### T-0125 A public review record for each page (reviewer role, version reviewed, date, open issues)
+
+- **Why / ROI rationale:** Estimate: makes the review status of each page checkable, which the lab already promises in words. *(confidence: medium)*
+- **Acceptance:** A data file lists each page, its review status, the reviewer's ROLE (no names unless the identity decision T-0117 allows it), the version or date reviewed, issues raised and not yet resolved, and the next review date; a page (or a section of About) renders it from the data; tests refuse a page marked reviewed with no entry. Nothing is marked reviewed until the clinician reading (T-0105) has happened.
+- **Evidence:** 2026-10-10: a Gemini strategy report the maintainer shared (an AI-written, unsourced triage reviewed by the controlling agent) asked for formal review records and visible accountability; the site already stamps pages 'Draft, in review' but records no reviewer.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Do not invent reviewers; with none recorded the table says so.
+
 ### T-0053 Data Commons provider in cf-evidence-loop for population denominators (if the admission is accepted)
 
 - **Why / ROI rationale:** Estimate: prevalence and carrier-frequency sentences need a population base with provenance. A provider under the catalog gate carries source and vintage into limitations, which the MCP server alone does not (an MCP server bypasses the pacing the gate applies). *(confidence: low)*
@@ -984,4 +1033,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** Per model-onboarding: provenance and licence read from the model card, fit with a pinned context size, thinking and JSON behaviour, the injection probe, and review-diversity on a fresh held-out set against an equal-budget Qwen baseline with a pre-registered threshold. Results recorded with sample sizes. No default is changed.
 - **Evidence:** research/proposals/2026-10-04-ai-loop-gate-design.md and research/ledger/2026-10-04-first-session.md (23 logged errors from one session by one agent).
 - **Notes:** Local compute; no cloud, no downloads. Depends on a human choosing the held-out set. Shadow review of real work only after the injection probe passes, never counted as the challenger.
+
+### T-0126 A small public benchmark of the lab's own checks (20 to 30 frozen tasks)
+
+- **Why / ROI rationale:** Estimate: replaces demonstrations with measured results, including negative ones, on lawful public data. *(confidence: medium)*
+- **Acceptance:** 20 to 30 tasks with fixed inputs and expected outputs built from public data the catalog permits (for example evidence-record lookups, quote-checking, claim-to-source matching); a runner; results for the local worker with and without the lab's checks, including failures; a short note on what the numbers do not show. The set is frozen with hashes. No patient data, no invented expected answers (each expected output has a source line).
+- **Evidence:** 2026-10-10: the same shared report noted, fairly, that nothing published shows the AI loop helps; the lab has small measurements (an injection probe, the findings verifier, six fixture diffs for the local review) but no frozen public set.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Start from what the lab already measures and publish negatives; a person reviews the expected answers.
 
