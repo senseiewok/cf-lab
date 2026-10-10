@@ -1,0 +1,19 @@
+diff --git a/docs/usage.md b/docs/usage.md
+index 5a6b7c8..d9e0f1a 100644
+--- a/docs/usage.md
++++ b/docs/usage.md
+@@ -4,9 +4,12 @@ This folder holds the small tools the notes refer to.
+
+ ## Running the date checker
+
+-Run `python tools/check_dates.py notes/` from the repository root.
++Run `python tools/check_dates.py notes/` from the repository root. It reads
++every Markdown file under the folder you name and prints one line per date it
++could not parse, with the file name and line number.
+
+-It exits 1 when a date could not be parsed.
++It exits 0 when every date parsed, 1 when at least one did not, and 2 when the
++folder does not exist.
+
+ ## Adding a new date format
+

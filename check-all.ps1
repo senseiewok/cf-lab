@@ -71,6 +71,8 @@ $Checks = @(
     @{ name = 'test-count-rendered';      exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-count-rendered.ps1");                              needs = @() }
     @{ name = 'test-guard';               exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-guard.ps1");                                       needs = @() }
     @{ name = 'test-run-gate';            exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-run-gate.ps1");                                    needs = @('git') }
+    @{ name = 'test-build-review-packet'; exe = 'python';     args = @("$s/ai-loop-council/scripts/test_build_review_packet.py");                          needs = @('python', 'git') }
+    @{ name = 'test-review-diff';         exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-review-diff.ps1");                                 needs = @('python', 'git') }
     @{ name = 'test-delegate';            exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-delegate.ps1");                                    needs = @() }
     @{ name = 'test-delegate-batch';      exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-delegate-batch.ps1");                              needs = @() }
     @{ name = 'test-verifier-freeze';     exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-verifier-freeze.ps1");                             needs = @() }

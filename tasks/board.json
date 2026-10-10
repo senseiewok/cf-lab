@@ -4309,7 +4309,7 @@
       "title": "A local AI review of a diff in the gate, so the lab does not depend on GitHub's quota-limited AI check",
       "repo": "cf-lab",
       "area": "ai-loop",
-      "status": "proposed",
+      "status": "in_progress",
       "priority": "P2",
       "created_at": "2026-10-10T16:00:00Z",
       "created_by": {
@@ -4339,11 +4339,11 @@
       "acceptance": "A script (for example review-diff.ps1 in the ai-loop-council skill) builds a packet from the staged diff inside a data boundary, gives it to the local worker (two fast samples, a findings schema), drops every finding whose quote is not an exact line of the packet with check-findings-evidence.py, prints the survivors and the count, and the gate prints that count on its 'local worker review' row. A fixture diff with a planted defect is found, and a fixture with none yields no invented finding. For Full-tier changes it also writes the packet for a blind cloud challenger with new-cloud-handoff.ps1 and the gate says the row stays open until a challenger's answer is recorded. Nothing is sent to any service by the script itself. The GitHub AI findings workflow is switched off by the maintainer in each repository (one action each; it can be switched back on) and nothing requires it.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T16:00:00Z",
+      "updated_at": "2026-10-10T17:56:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. A clean pass from a fast local model on a long diff is weak evidence (measured in model-qwen3-8-27b), so the script reports what it covered; it supports the person's reading and does not replace it. Related: the Qwen training round 1 verifier (#34)."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. A clean pass from a fast local model on a long diff is weak evidence (measured in model-qwen3-8-27b), so the script reports what it covered; it supports the person's reading and does not replace it. Related: the Qwen training round 1 verifier (#34). 2026-10-10: started 2026-10-10 on the maintainer's instruction 'if the checks are not free, learn from them'. Built: build-review-packet.py, review-exclude.txt, review-diff.ps1, run-gate.ps1 -LocalReview (opt-in), offline tests with a fake model script, and six fixture diffs with one measured run each (cases/diff-review/RESULTS.md). Taken from GitHub's AI findings check (a pull-request reviewer with a security detector, a file-exclusion list, a network allow-list and restricted result publication): a security pass first, then correctness; a published exclusion list so generated, binary, minified, lock and bulk data files are not reviewed, with every excluded file named; a finding is shown only after a script finds its quote in the diff (and only in the diff, not in the instructions around it); and the reviewing model has no tools and no network. Not taken: posting comments on the pull request. 2026-10-10, after a blind Opus challenger review of the first commit: crash and spoofing fail closed (exit 10 for survivors, results read from review.json with a run id), unreviewed files named and never shown as clean (exit 4), cloud-routed model names and non-loopback hosts refused, scripts never excluded by a pattern, a random nonce in the boundary tag, evidence limited to the numbered diff lines, strict sample separators, the output folder new or empty and deleted afterwards; six-fixture run 2 in RESULTS.md. After a second blind Opus review: empty decided from the raw diff, linear packet assembly and timeouts, a partial status (exit 5), a same-file check on quotes, hidden-character and lookalike counts on the gate row, wider risk ranking and named lock files, -NoProxy in invoke-local-model.ps1 with a syntax-tree test, an unusable model reply as nothing reviewed (exit 4, not blocking); run 3 in RESULTS.md. After a third blind review of the gate: exit 3 needs its own review.json, the review cannot change the staged tree or the working tree, coverage numbers cross-checked against the gate's staged count, review.json type-checked, a minimal environment for the review, names capped on the row, a temp folder inside the repository refused. Open: the maintainer switches the GitHub workflow off in each repository; a blind challenger's answer for Full-tier changes is still a manual step."
     }
   ]
 }

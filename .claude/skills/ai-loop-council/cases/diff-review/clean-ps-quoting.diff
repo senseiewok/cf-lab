@@ -1,0 +1,16 @@
+diff --git a/scripts/archive-notes.ps1 b/scripts/archive-notes.ps1
+index 6c5d4e3..1b2a3f4 100644
+--- a/scripts/archive-notes.ps1
++++ b/scripts/archive-notes.ps1
+@@ -11,8 +11,9 @@ $ErrorActionPreference = 'Stop'
+ $source = Join-Path $RepoPath 'notes'
+ $target = Join-Path $ArchiveRoot (Get-Date -Format 'yyyy-MM-dd')
+
+-New-Item -ItemType Directory $target -Force | Out-Null
+-Get-ChildItem $source -Filter *.md | ForEach-Object { Copy-Item $_.FullName $target }
++New-Item -ItemType Directory -Path $target -Force | Out-Null
++Get-ChildItem -LiteralPath $source -Filter *.md -File |
++    ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $target }
+
+ $count = @(Get-ChildItem -LiteralPath $target -Filter *.md).Count
+ Write-Host "archived $count note(s) to $target"

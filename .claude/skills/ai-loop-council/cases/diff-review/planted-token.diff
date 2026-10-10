@@ -1,0 +1,16 @@
+diff --git a/scripts/tracker-report.ps1 b/scripts/tracker-report.ps1
+index 3b1c2d4..8e7f6a5 100644
+--- a/scripts/tracker-report.ps1
++++ b/scripts/tracker-report.ps1
+@@ -8,10 +8,9 @@ param(
+ $ErrorActionPreference = 'Stop'
+
+ function Get-ApiHeaders {
+-    $token = $env:LAB_TRACKER_TOKEN
+-    if (-not $token) { throw 'LAB_TRACKER_TOKEN is not set' }
++    $token = 'trk_live_5d2f8a61c94e07b3a1f6'
+     return @{ Authorization = "Bearer $token" }
+ }
+
+ $headers = Get-ApiHeaders
+ $items = Invoke-RestMethod -Uri $TrackerUrl -Headers $headers
