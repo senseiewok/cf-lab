@@ -288,6 +288,25 @@ try {
             Check 'L9: a missing pattern list is reported as masking unavailable' ($o -match 'masking unavailable' -and $mj.masking -eq 'unavailable') $o
         }
     }
+
+    # ------------------------------------------------------------ third challenger review: tree id, no_worker, note codes
+    $tree2 = (& git -C $repo2 write-tree).Trim()
+    $o6 = Join-Path $tmp 'o6'
+    $r = Run @("-RepoPath:$repo2", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'tree1' (Samples @($empty, $empty)))", "-TreeId:$tree2", "-OutDir:$o6", '-KeepOutDir')
+    $rj6 = Get-Content -Raw (Join-Path $o6 'review.json') | ConvertFrom-Json
+    Check 'G2: review.json carries the staged tree id the caller passed' ($r.Code -eq 5 -and $rj6.tree_id -ceq $tree2) $r.Out
+    $r = Run @("-RepoPath:$repo2", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'tree2' (Samples @($empty, $empty)))", "-TreeId:$('0' * 40)")
+    Check 'G2: a -TreeId that is not the staged tree is refused (exit 2)' ($r.Code -eq 2 -and $r.Out -match 'refusing to review a different index') $r.Out
+    $r = Run @("-DiffFile:$hd", '-Model:stub-model', "-InvokeScript:$(New-Stub 'tree3' (Samples @($empty, $empty)))", "-TreeId:$tree2")
+    Check 'G2: -TreeId without -Staged is a usage error' ($r.Code -eq 2 -and $r.Out -match 'needs -Staged') $r.Out
+    $o7 = Join-Path $tmp 'o7'
+    $r = Run @("-RepoPath:$repo2", '-Staged', "-InvokeScript:$(New-Stub 'nwjson' (Samples @($empty, $empty)))", "-TreeId:$tree2", "-OutDir:$o7", '-KeepOutDir')
+    $rj7 = Get-Content -Raw (Join-Path $o7 'review.json') | ConvertFrom-Json
+    Check 'G1: no local worker writes review.json (status no_worker, exit 3, the run id and tree id)' ($r.Code -eq 3 -and $rj7.status -ceq 'no_worker' -and $rj7.exit_code -eq 3 -and $rj7.tree_id -ceq $tree2 -and $rj7.run_id -match '^[0-9a-f]{32}$') $r.Out
+    $o8 = Join-Path $tmp 'o8'
+    $r = Run @("-RepoPath:$repo2", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'notecode' @('x') 1)", "-OutDir:$o8", '-KeepOutDir')
+    $rj8 = Get-Content -Raw (Join-Path $o8 'review.json') | ConvertFrom-Json
+    Check 'G7: an unusable reply is recorded as a fixed note code' ($r.Code -eq 4 -and $rj8.model_note_code -ceq 'model_call_failed') $r.Out
 } finally {
     Remove-Item -Recurse -Force $tmp -ErrorAction SilentlyContinue
     Remove-Item Env:GIT_AUTHOR_NAME, Env:GIT_AUTHOR_EMAIL, Env:GIT_COMMITTER_NAME, Env:GIT_COMMITTER_EMAIL -ErrorAction SilentlyContinue

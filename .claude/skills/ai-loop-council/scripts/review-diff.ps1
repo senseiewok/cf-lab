@@ -25,7 +25,7 @@
     4   nothing_reviewed: no file reviewed, or the model call failed or its replies were unusable (not JSON, no
         findings list, over the token limit, timed out). This never blocks a commit in run-gate.ps1: a diff can steer a
         model into a bad reply, so a bad reply must not be able to stop the gate. It is printed loudly.
-    3   no local worker configured
+    3   no local worker configured (review.json is still written: status "no_worker", with the run id and tree id)
     2   an error of this script: bad usage, a diff that cannot be parsed, a failed integrity check (sample separators,
         run id, an output folder that is not new), or any unexpected exception (the body runs in one try/catch).
   PowerShell itself exits 1 when parameter binding fails before the script body runs; run-gate.ps1 treats every code
@@ -50,12 +50,19 @@
   "masking unavailable") and made terminal-safe, but the pattern list is not complete: run the deterministic privacy
   scan first (run-gate.ps1 does) and never paste the output into a public place.
 
+  review.json gives model_note_code, a fixed code (model_call_failed, model_call_timeout, no_usable_sample,
+  some_samples_unusable) that run-gate.ps1 maps to a fixed sentence; model_note holds the same in words for a person.
+
   -ChallengerHandoff also writes challenger-handoff.json (the reviewed diff lines, the local findings withheld) and
   runs new-cloud-handoff.ps1 on it without an approval ("needs-review" and a hash). Nothing is sent.
 
 .PARAMETER InvokeScript
   The script that runs the model, default invoke-local-model.ps1 beside this one. Tests pass a stub that prints canned
   replies in the same shape (one JSON reply per sample, "===== sample k of n =====" before each when n > 1).
+
+.PARAMETER TreeId
+  With -Staged: the staged tree id (git write-tree) the caller recorded. A different index is refused (exit 2); the id
+  is checked again after the packet is built and written into review.json as tree_id.
 
 .PARAMETER RunId
   32 lowercase hex characters written into manifest.json and review.json, so a caller (run-gate.ps1) can tell its own
@@ -75,6 +82,8 @@ param(
     [string] $OutDir,
     [switch] $KeepOutDir,
     [string] $RunId,
+    # The staged tree id the caller recorded (git write-tree); with -Staged a different index is refused, and the id goes into review.json.
+    [string] $TreeId,
     [string] $Model,
     [string] $ProfileFile = $env:LOCAL_WORKER_PROFILE,
     [switch] $Think,
@@ -94,7 +103,7 @@ $HelperTimeoutSec = 300
 
 # Text from the diff or the model is printed to a terminal: C0 and C1 controls, DEL, line and paragraph separators,
 # bidi, zero-width, variation selectors, tag characters and other default-ignorable characters are shown as '?'.
-$script:Unprintable = [regex]::new('[\x00-\x1F\x7F-\x9F\u00ad\u034f\u061c\u115f\u1160\u17b4\u17b5\u180b-\u180f\u200b-\u200f\u2028-\u202e\u2060-\u206f\u3164\ufe00-\ufe0f\ufeff\uffa0\ufff0-\ufff8]|[' + [char]0xD82F + [char]0xD834 + '][' + [char]0xDC00 + '-' + [char]0xDFFF + ']|[' + [char]0xDB40 + '-' + [char]0xDB43 + '][' + [char]0xDC00 + '-' + [char]0xDFFF + ']')
+$script:Unprintable = [regex]::new('[\x00-\x1F\x7F-\x9F\u00ad\u034f\u061c\u115f\u1160\u17b4\u17b5\u180b-\u180f\u200b-\u200f\u2028-\u202e\u2060-\u206f\u3164\ufe00-\ufe0f\ufeff\uffa0\ufff0-\ufffd]|[' + [char]0xD82F + [char]0xD834 + '][' + [char]0xDC00 + '-' + [char]0xDFFF + ']|[' + [char]0xDB40 + '-' + [char]0xDB43 + '][' + [char]0xDC00 + '-' + [char]0xDFFF + ']|[' + [char]0xD800 + '-' + [char]0xDBFF + '](?![' + [char]0xDC00 + '-' + [char]0xDFFF + '])|(?<![' + [char]0xD800 + '-' + [char]0xDBFF + '])[' + [char]0xDC00 + '-' + [char]0xDFFF + ']')
 function Get-Printable([object] $Value) {
     return $script:Unprintable.Replace([string]$Value, '?')
 }
@@ -229,7 +238,7 @@ function Write-Result($Result) {
 
 function Invoke-Review {
     # ---------------------------------------------------------------------------------------------- arguments
-    foreach ($pair in @(@('RepoPath', $RepoPath), @('Base', $Base), @('DiffFile', $DiffFile), @('OutDir', $OutDir), @('ProfileFile', $ProfileFile), @('InvokeScript', $InvokeScript), @('RunId', $RunId))) {
+    foreach ($pair in @(@('RepoPath', $RepoPath), @('Base', $Base), @('DiffFile', $DiffFile), @('OutDir', $OutDir), @('ProfileFile', $ProfileFile), @('InvokeScript', $InvokeScript), @('RunId', $RunId), @('TreeId', $TreeId))) {
         if ($pair[1] -and $pair[1].StartsWith('-')) { Write-Host "usage: -$($pair[0]) must not start with '-'"; return 2 }
     }
     $sources = @(@($Staged.IsPresent, [bool]$Base, [bool]$DiffFile) | Where-Object { $_ })
@@ -237,8 +246,49 @@ function Invoke-Review {
     if ($DiffFile -and -not (Test-Path -LiteralPath $DiffFile -PathType Leaf)) { Write-Host "error: diff file not found: $(Get-Printable $DiffFile)"; return 2 }
     if (-not (Test-Path -LiteralPath $InvokeScript -PathType Leaf)) { Write-Host "error: model script not found: $(Get-Printable $InvokeScript)"; return 2 }
     if ($RunId -and $RunId -cnotmatch '^[0-9a-f]{32}$') { Write-Host 'usage: -RunId must be 32 lowercase hex characters'; return 2 }
+    if ($TreeId -and ($TreeId -cnotmatch '^([0-9a-f]{40}|[0-9a-f]{64})$' -or -not $Staged)) { Write-Host 'usage: -TreeId must be a 40 or 64 character lowercase hex tree id, and needs -Staged'; return 2 }
     $id = if ($RunId) { $RunId } else { [guid]::NewGuid().ToString('N') }
 
+    # ------------------------------------------------------------------ the repository, the staged tree, the output folder
+    $guarded = @((Resolve-RealPath (Join-Path $PSScriptRoot '../../../..')))
+    $topPath = $null
+    if (-not $DiffFile -or $RepoPath) {
+        $rp = if ($RepoPath) { $RepoPath } else { '.' }
+        $g = Invoke-Proc 'git' @('-C', $rp, '-c', 'core.fsmonitor=false', 'rev-parse', '--show-toplevel') 120
+        if ($g.TimedOut -or $g.Code -ne 0 -or -not $g.Out.Trim()) { Write-Host "error: not a git repository (or git timed out): $(Get-Printable $rp)"; return 2 }
+        $topPath = $g.Out.Trim()
+        $guarded += Resolve-RealPath $topPath
+    }
+    # The staged tree this review is about; a caller (run-gate.ps1) passes the id it recorded, and a different index is refused.
+    $stagedTree = $null
+    if ($Staged) {
+        $t = Invoke-Proc 'git' @('-C', $topPath, '-c', 'core.fsmonitor=false', 'write-tree') 120
+        if ($t.TimedOut -or $t.Code -ne 0 -or $t.Out.Trim() -cnotmatch '^([0-9a-f]{40}|[0-9a-f]{64})$') { Write-Host 'error: git write-tree failed: the staged tree is unknown'; return 2 }
+        $stagedTree = $t.Out.Trim()
+        if ($TreeId -and $stagedTree -cne $TreeId) { Write-Host "error: the staged tree is $stagedTree, not $TreeId as the caller recorded: refusing to review a different index"; return 2 }
+    }
+    if (-not $OutDir) { $script:OutDir = Join-Path ([IO.Path]::GetTempPath()) ('review-diff-' + $id) }
+    $script:OutDir = [IO.Path]::GetFullPath($OutDir)
+    if (Test-Path -LiteralPath $OutDir) {
+        $item = Get-Item -LiteralPath $OutDir -Force
+        if (-not $item.PSIsContainer -or ($item.Attributes -band [IO.FileAttributes]::ReparsePoint)) { Write-Host 'error: -OutDir must be a plain folder, not a file or a link'; return 2 }
+        if (@(Get-ChildItem -LiteralPath $OutDir -Force).Count -gt 0) { Write-Host 'error: -OutDir must be new or empty: a folder with files in it is never reused'; return 2 }
+    }
+    foreach ($gr in $guarded) {
+        if (Test-Inside (Resolve-RealPath $OutDir) $gr) { Write-Host "error: -OutDir must be outside the repository ($(Get-Printable $gr)), links resolved: the packet holds the diff"; return 2 }
+    }
+    if (-not (Test-Path -LiteralPath $OutDir)) {
+        $null = New-Item -ItemType Directory -Path $OutDir
+        $script:createdOut = $true
+        if (-not $IsWindows) { [IO.File]::SetUnixFileMode($OutDir, [IO.UnixFileMode]'UserRead, UserWrite, UserExecute') }
+    }
+    $script:usedOut = $true
+    if ((Get-Item -LiteralPath $OutDir -Force).Attributes -band [IO.FileAttributes]::ReparsePoint) { Write-Host 'error: -OutDir became a link'; return 2 }
+    foreach ($gr in $guarded) {
+        if (Test-Inside (Resolve-RealPath $OutDir) $gr) { Write-Host 'error: -OutDir resolves into the repository after creation'; return 2 }
+    }
+
+    # ------------------------------------------------------------------------------------------------- the model
     $chosenModel = $null
     if ($Model) { $chosenModel = $Model }
     elseif ($env:LOCAL_WORKER_MODEL) { $chosenModel = $env:LOCAL_WORKER_MODEL }
@@ -249,6 +299,8 @@ function Invoke-Review {
     if (-not $chosenModel) {
         Write-Host 'no local worker configured: nothing reviewed'
         Write-Host '(set LOCAL_WORKER_MODEL or LOCAL_WORKER_PROFILE, or pass -Model or -ProfileFile)'
+        # Written so a caller can tell a real "no worker" from an exit code alone.
+        Write-Result ([ordered]@{ tool = 'review-diff'; run_id = $id; tree_id = $stagedTree; status = 'no_worker'; exit_code = 3; model_note_code = $null })
         return 3
     }
     if ($chosenModel -match '(?i)-cloud$|:cloud|-cloud:|://') {
@@ -272,35 +324,6 @@ function Invoke-Review {
     $pyPre = @($python | Select-Object -Skip 1)
     $pwshExe = (Get-Process -Id $PID).Path
 
-    # ------------------------------------------------------------------------------------------ the output folder
-    $guarded = @((Resolve-RealPath (Join-Path $PSScriptRoot '../../../..')))
-    if (-not $DiffFile -or $RepoPath) {
-        $rp = if ($RepoPath) { $RepoPath } else { '.' }
-        $g = Invoke-Proc 'git' @('-C', $rp, '-c', 'core.fsmonitor=false', 'rev-parse', '--show-toplevel') 120
-        if ($g.TimedOut -or $g.Code -ne 0 -or -not $g.Out.Trim()) { Write-Host "error: not a git repository (or git timed out): $(Get-Printable $rp)"; return 2 }
-        $guarded += Resolve-RealPath $g.Out.Trim()
-    }
-    if (-not $OutDir) { $script:OutDir = Join-Path ([IO.Path]::GetTempPath()) ('review-diff-' + $id) }
-    $script:OutDir = [IO.Path]::GetFullPath($OutDir)
-    if (Test-Path -LiteralPath $OutDir) {
-        $item = Get-Item -LiteralPath $OutDir -Force
-        if (-not $item.PSIsContainer -or ($item.Attributes -band [IO.FileAttributes]::ReparsePoint)) { Write-Host 'error: -OutDir must be a plain folder, not a file or a link'; return 2 }
-        if (@(Get-ChildItem -LiteralPath $OutDir -Force).Count -gt 0) { Write-Host 'error: -OutDir must be new or empty: a folder with files in it is never reused'; return 2 }
-    }
-    foreach ($gr in $guarded) {
-        if (Test-Inside (Resolve-RealPath $OutDir) $gr) { Write-Host "error: -OutDir must be outside the repository ($(Get-Printable $gr)), links resolved: the packet holds the diff"; return 2 }
-    }
-    if (-not (Test-Path -LiteralPath $OutDir)) {
-        $null = New-Item -ItemType Directory -Path $OutDir
-        $script:createdOut = $true
-        if (-not $IsWindows) { [IO.File]::SetUnixFileMode($OutDir, [IO.UnixFileMode]'UserRead, UserWrite, UserExecute') }
-    }
-    $script:usedOut = $true
-    if ((Get-Item -LiteralPath $OutDir -Force).Attributes -band [IO.FileAttributes]::ReparsePoint) { Write-Host 'error: -OutDir became a link'; return 2 }
-    foreach ($gr in $guarded) {
-        if (Test-Inside (Resolve-RealPath $OutDir) $gr) { Write-Host 'error: -OutDir resolves into the repository after creation'; return 2 }
-    }
-
     # --------------------------------------------------------------------------------------------------- 1. packet
     $builder = Join-Path $PSScriptRoot 'build-review-packet.py'
     $checker = Join-Path $PSScriptRoot 'check-findings-evidence.py'
@@ -313,6 +336,10 @@ function Invoke-Review {
         @(($b.Out + $b.Err) -split "`r?`n" | Where-Object { $_ }) | ForEach-Object { Write-Host ('  | ' + (Out-Safe $_)) }
         Write-Host $(if ($b.TimedOut) { "error: the packet builder did not finish within $HelperTimeoutSec s" } else { 'error: the packet could not be built' })
         return 2
+    }
+    if ($Staged) {
+        $t2 = Invoke-Proc 'git' @('-C', $topPath, '-c', 'core.fsmonitor=false', 'write-tree') 120
+        if ($t2.TimedOut -or $t2.Code -ne 0 -or $t2.Out.Trim() -cne $stagedTree) { Write-Host 'error: the index changed while the packet was built: refusing to report on a diff that is not the staged tree'; return 2 }
     }
     $packet = Join-Path $OutDir 'packet.md'
     $evidence = Join-Path $OutDir 'evidence.txt'
@@ -336,7 +363,7 @@ function Invoke-Review {
         files_not_reviewed = @($notReviewed | ForEach-Object { [ordered]@{ path = (Out-Safe $_.path); reason = $_.reason; rank = $_.rank } })
         rank0_not_reviewed = @($rank0 | ForEach-Object { Out-Safe $_ }); excluded_lock_files = @($locks | ForEach-Object { Out-Safe $_ })
         hidden_chars_total = [int]$manifest.hidden_chars_total; boundary_lookalikes_total = [int]$manifest.boundary_lookalikes_total
-        masking = $(if ($script:MaskingOk) { 'on' } else { 'unavailable' }); model_note = $null
+        masking = $(if ($script:MaskingOk) { 'on' } else { 'unavailable' }); model_note = $null; model_note_code = $null; tree_id = $stagedTree
         packet_chars = $manifest.packet_chars; evidence_chars = $manifest.evidence_chars
         samples = @(); survivors = @(); survivors_count = 0; challenger_handoff = $null; exit_code = $null }
 
@@ -386,7 +413,7 @@ function Invoke-Review {
     }
     if ($unusable) {
         Write-Host "MODEL REPLY UNUSABLE: $unusable. Nothing was reviewed; this is not a clean result."
-        $result.status = 'nothing_reviewed'; $result.model_note = "model reply unusable: $unusable"; $result.exit_code = 4; Write-Result $result
+        $result.status = 'nothing_reviewed'; $result.model_note = "model reply unusable: $unusable"; $result.model_note_code = $(if ($call.TimedOut) { 'model_call_timeout' } else { 'model_call_failed' }); $result.exit_code = 4; Write-Result $result
         Write-Host 'NOTHING REVIEWED'
         return 4
     }
@@ -479,12 +506,13 @@ function Invoke-Review {
     }
     if ($bad.Count -eq $samples) {
         Write-Host 'MODEL REPLY UNUSABLE: no sample gave a JSON findings reply. Nothing was reviewed; this is not a clean result.'
-        $result.status = 'nothing_reviewed'; $result.model_note = 'model reply unusable: no sample gave a JSON findings reply'; $result.exit_code = 4; Write-Result $result
+        $result.status = 'nothing_reviewed'; $result.model_note = 'model reply unusable: no sample gave a JSON findings reply'; $result.model_note_code = 'no_usable_sample'; $result.exit_code = 4; Write-Result $result
         Write-Host 'NOTHING REVIEWED'
         return 4
     }
     if ($bad.Count -gt 0) {
         $result.model_note = "model reply unusable in sample(s) $($bad -join ', ')"
+        $result.model_note_code = 'some_samples_unusable'
         if ($result.status -eq 'reviewed') { $result.status = 'partial' }
     }
 
