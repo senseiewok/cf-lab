@@ -84,6 +84,8 @@ Paths are in the research repo (`../cf-research/`) unless named otherwise; each 
 | `brief drug\|variant\|trial` (`cf-evidence-loop`, in `../cf-skills/`) | Several catalog-permitted sources' records side by side, with `PASS`, `CHECK` or `NOT STATED` cross-checks; it adds no fact of its own | A `PASS` is not a finding about the drug, variant or trial |
 | `tools/variant_profile/variant_profile.py` | What ClinVar's official API states about one gene and protein change, each value beside its API field | Any interpretation of a classification or of a person's genotype; CFTR2 remains the CF-specific authority |
 
+For the trial endpoint atlas and for grounding any public sentence, see `trial-atlas-pipeline` and `source-grounding` in `../cf-research/.claude/skills/`.
+
 ## What "success" looks like in CF research
 
 When we evaluate a CF research tool, or write about CF trials, these are the endpoints the field uses. Name them by their actual acronyms:

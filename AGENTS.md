@@ -40,7 +40,7 @@ From an added sibling, Claude Code does not load its `AGENTS.md`, nor the deny a
 
 **Rule:** the shared deny and ask rules load only from the folder a Claude Code session starts in, with no fallback to a parent folder. So start sessions in `cf-lab`. Never start one at the parent folder. Start one inside a sibling only when that sibling has its own `.claude/settings.json` with the secret-file deny rules. A relative rule such as `Read(.env)` there still does not cover `../cf-lab/.env`.
 
-Check the layout with `python .claude/skills/workspace-siblings/scripts/check-workspace.py`. It prints PASS or FAIL lines and never reads `.env`.
+Check the layout with `python .claude/skills/workspace-siblings/scripts/check-workspace.py`. It prints PASS or FAIL lines and never reads `.env`. What loads where in Claude Code and Copilot, and the layout rules that follow: `docs/instruction-loading.md`.
 
 - One repo per commit, one pull request per repo. A change that spans repos is a pull request in each, linked in both bodies.
 - Agents work in new git worktrees, never in a person's main checkout.
@@ -93,6 +93,7 @@ Current skills:
 - `cf-research-context` — grounding and safety rules for Cystic Fibrosis work: disease basics, CFTR modulators, endpoints, data sources, 65-rose convention, what the lab may and may not claim, and the guardrails against invented claims (answer tiers T0 to T3, scope records, the claim checkers)
 - `lab-voice` — warm, plain-language research writing with dignity, evidence, and clear boundaries
 - `cf-evidence-loop` (in the `cf-skills` repo at `../cf-skills/.claude/skills/cf-evidence-loop`; not copied here, one maintained source) — the evidence-record tool agents use before citing a number, approval, trial or paper. It reads the single source catalog through `EVIDENCE_CATALOG`; its own `catalog.yaml` is generated
+- `trial-atlas-pipeline` and `source-grounding` (in the `cf-research` repo at `../cf-research/.claude/skills/`; load with `--add-dir ../cf-research`) — the trial endpoint atlas's order of work, approval gates, privacy and stop rules; and how a public sentence is grounded (computed, registry statement, open-access definition, lab position) with what each checker proves, plus packets for a local worker
 
 ### Skill authoring and tooling
 
