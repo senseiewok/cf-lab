@@ -96,6 +96,8 @@ $Checks = @(
     # browser testing: the setup script's own test downloads nothing; everything that starts a browser is skipped
     @{ name = 'test-setup-browser';       exe = 'python';     args = @("$s/playwright-browser-testing/scripts/test-setup-browser-testing.py");             needs = @('python') }
     @{ name = 'observe-page-selftest';    exe = 'python';     args = @("$s/playwright-browser-testing/scripts/observe-page.py", '--self-test');            needs = @('python', 'browser') }
+    @{ name = 'test-pr-screenshots';      exe = 'python';     args = @("$s/playwright-browser-testing/scripts/test-pr-screenshots.py");                    needs = @('python', 'git') }
+    @{ name = 'pr-screenshots-selftest';  exe = 'python';     args = @("$s/playwright-browser-testing/scripts/pr-screenshots.py", '--self-test');          needs = @('python', 'browser') }
     @{ name = 'test-check-webgl';         exe = 'python';     args = @("$s/webgl-threejs-graphics/scripts/test-check-webgl.py");                           needs = @('python', 'browser') }
     @{ name = 'test-check-animated-page'; exe = 'python';     args = @("$s/webgl-threejs-graphics/scripts/test-check-animated-page.py");                   needs = @('python', 'browser') }
     @{ name = 'webgl-playwright';         exe = 'python';     args = @("$s/webgl-threejs-graphics/scripts/test-playwright.py");                            needs = @('python', 'browser') }

@@ -80,6 +80,7 @@ Current skills:
 - `model-qwen3-8-27b` — profile for the default local worker, Qwen3.8 27B via Ollama (fast and thinking modes)
 - `model-qwen3-coder-next` — profile for the previous local worker, Qwen3-Coder-Next
 - `model-deepseek-r1-32b` — profile and benchmark results for DeepSeek-R1-Distill-Qwen-32B (a reasoning model; not the default worker)
+- `pr-review-loop` — frugal review before a pull request: checks first, one blind reviewer on the diff, verified findings, at most two rounds, the loop recorded in the body
 
 ### Web, graphics, and testing
 
@@ -169,4 +170,5 @@ Never commit secrets. Hosting credentials belong in a local, git-ignored `.env` 
 - After diagnostic DOM/CSS injection or forced state changes, repeat the final ordinary user flow on a clean page with current served HTML/CSS. When source and browser disagree, confirm the server root, response content, and live asset versions before editing again. Leave a requested preview usable; stop only task-owned processes that are no longer needed.
 - Parse generated configuration and assert consumer-recognized keys. Preserve native exit codes and rerun the failing check after repair; never suppress errors and then infer success from an old output file.
 - Flag any change that introduces a new third-party dependency or external network call.
+- Before opening a pull request run the `pr-review-loop` skill; when a change alters how a page looks, attach a few small screenshots (`playwright-browser-testing`, `pr-screenshots.py`).
 - This project is open source and donated time — be conservative with anything that could be misused (destructive scripts, broad credential access, unrestricted agent tool permissions).
