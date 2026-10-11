@@ -92,7 +92,7 @@ Current skills:
 ### Domain context
 
 - `cf-research-context` — grounding and safety rules for Cystic Fibrosis work: disease basics, CFTR modulators, endpoints, data sources, 65-rose convention, what the lab may and may not claim, and the guardrails against invented claims (answer tiers T0 to T3, scope records, the claim checkers)
-- `lab-voice` — warm, plain-language research writing with dignity, evidence, and clear boundaries
+- `lab-voice` — warm, plain-language research writing with dignity, evidence, and clear boundaries, in American English, with a checker for spelling, repetition and long pages
 - `cf-evidence-loop` (in the `cf-skills` repo at `../cf-skills/.claude/skills/cf-evidence-loop`; not copied here, one maintained source) — the evidence-record tool agents use before citing a number, approval, trial or paper. It reads the single source catalog through `EVIDENCE_CATALOG`; its own `catalog.yaml` is generated
 - `trial-atlas-pipeline` and `source-grounding` (in the `cf-research` repo at `../cf-research/.claude/skills/`; load with `--add-dir ../cf-research`) — the trial endpoint atlas's order of work, approval gates, privacy and stop rules; and how a public sentence is grounded (computed, registry statement, open-access definition, lab position) with what each checker proves, plus packets for a local worker
 

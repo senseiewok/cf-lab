@@ -17,6 +17,8 @@ Speak with the patience of someone who has learned to listen, the clarity of a r
 - **Beauty that helps understanding.** Use a concrete image when it illuminates an idea, then return to the literal explanation. One well-chosen metaphor is enough; decorative jargon and stacked metaphors obscure the work.
 - **Respect for the reader's time.** Short paragraphs, familiar words, defined acronyms, one main idea at a time. Keep technical precision available without making expertise a price of admission.
 
+**Partnership, not instruction.** Write as a partner: start from the reader's situation, offer information to discuss with their care team, and never judge choices or missed treatments. This draws on relationship-centered communication as described in the Cystic Fibrosis Foundation's Partnership Enhancement Program, which trains clinicians for conversation, not writing. The lab is inspired by it, not endorsed by or affiliated with the Foundation: no logos, no endorsement claims. Sources and what does not transfer: `references/plain-language-research.md`.
+
 ## Bridge a complex idea
 
 1. Begin with the human question: what is the reader trying to understand?
@@ -49,6 +51,38 @@ For example, an AI review loop is a cycle of proposing a change, checking it, an
 | Research explainer | A patient guide through the question, method, evidence, and limits |
 | Benchmark report | Precise counts, measured conditions, caveats; no winner beyond the evidence |
 | Agent instructions or security finding | Direct, testable, restrained; operational clarity before lyricism |
+
+## American English
+
+Write the lab's own prose in American English: license, organization, center, color, judgment, catalog, gray, program, labeled, analyze, toward, aging. Say "caregiver", never `carer`, and "health care" (two words) as a noun. Never respell what is not ours: names of organizations and publications, titles, exact quotes, Spanish (es-MX) text, file names, identifiers and URLs. The spelling table, dates, numbers, punctuation and the serial comma are in `references/american-english.md`.
+
+## Say it once
+
+- A fact or a piece of advice has one home on a page. Everywhere else, link to that home instead of restating it.
+- A summary box may point to the details ("three things help most; see below"). It does not repeat them word for word.
+- Drop a card template when its labels add nothing. Eleven cards that each say "How strong:", "What to do:" and "Read the original" make the reader read the same frame eleven times to find each new fact.
+- Repeat on purpose only for a safety caveat, placed next to the step it guards, and keep it short. Mark it (`data-voice="repeat"` in HTML, `<!-- voice: repeat -->` before a Markdown block) so the checker knows it is deliberate.
+
+## Long pages
+
+1. Give the one-screen answer first: what the page says, for whom, and what to do with it.
+2. Put details under headings that carry the point ("Inhaled antibiotics have the strongest evidence", not "Evidence"), or in collapsible sections.
+3. One idea per sentence, about 20 words on average (CDC's target); sentences of 30 or more get flagged.
+4. Define each abbreviation once, at first use.
+5. Keep strength-of-evidence and source lines short and in one place per item. A repeated label is fine when each item needs it; mark it as a deliberate repeat. Everything else appears once.
+6. Past about 1,800 words (the checker's default budget, also a lab choice), split the page or move reference detail to its own page.
+
+## Self-check for a page
+
+- [ ] The first screen answers the reader's question without scrolling.
+- [ ] Each piece of advice appears once, except a marked safety caveat next to its step; the other places link to it.
+- [ ] Headings alone tell the story of the page.
+- [ ] Evidence and source lines are short, in one place per item; labels each item needs are marked as repeats.
+- [ ] Each safety caveat repeated next to its step is marked; nothing else repeats.
+- [ ] American spelling in our prose; quotes, names and es-MX text untouched.
+- [ ] `python .claude/skills/lab-voice/scripts/check-voice.py PAGE.html` shows no ERROR, and each WARN is fixed or deliberate.
+
+The checker is `scripts/check-voice.py`, with tests in `scripts/test-check-voice.py`. It fails on British spellings. It warns on long sentences, repeated ideas anywhere on a page, repeated labels and page length, and skips marked repeats. `--allow FILE` lists names that keep their spelling. Why these rules: `references/plain-language-research.md`, with sources and its limits.
 
 ## Review before publishing
 
