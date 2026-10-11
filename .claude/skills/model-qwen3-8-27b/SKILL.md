@@ -7,7 +7,7 @@ compatibility: Requires a local Ollama server. Used with the ai-loop-council ski
 
 # Qwen3.8 27B (local, via Ollama)
 
-A model profile for the **local worker** role in `ai-loop-council`. The settings the scripts use are in `ollama-profile.json` next to this file; pass it with `-ProfileFile` (invoke script) or `-ModelProfile` (distill loop).
+A model profile for the **local worker** role in `ai-loop-council`. The settings the scripts use are in four profile files next to this file: `ollama-profile.fast.json` and `ollama-profile.json` (32K, fast and thinking) and `ollama-profile.64k.fast.json` and `ollama-profile.64k.json` (64K). Pass one with `-ProfileFile` (invoke script) or `-ModelProfile` (distill loop), or name the pair in `.env` as `LOCAL_WORKER_PROFILE` and `LOCAL_WORKER_THINKING_PROFILE`.
 
 ## Facts
 
@@ -28,9 +28,25 @@ A model profile for the **local worker** role in `ai-loop-council`. The settings
 
 Maximum supported context is not a sensible default for every machine. Memory includes weights, KV/recurrent caches, speculative draft state, and compute buffers. A larger allocation can move work from GPU memory to the CPU even when the model weights alone would fit.
 
-Keep the existing 32K tool-free profiles as the portable baseline. A 64K allocation is an optional configuration to measure, not a universal recommendation: in one matched synthetic comparison it was fully GPU-resident while a 262K allocation was only partially resident. That result establishes neither coding quality nor long-context accuracy or general task speed. Absolute timings and hardware details stay in private artifacts.
+Keep the existing 32K tool-free profiles as the portable baseline. A 64K allocation is not a universal recommendation; on the lab's own machine the maintainer chose the 64K pair as the local worker setting on 2026-10-10 (several measured runs below used it; each names its profile). It has not been compared with the 32K profiles on task quality in matched runs. In one matched synthetic comparison it was fully GPU-resident while a 262K allocation was only partially resident. That result establishes neither coding quality nor long-context accuracy or general task speed. Absolute timings and hardware details stay in private artifacts.
 
-- Pin `num_ctx` per request, through `-NumCtx 65536` in the local helper, or in a separate local alias. Changing a terminal environment variable alone does not update a running server or override an explicit request.
+- Pin `num_ctx` per request, through `-NumCtx 65536` in the local helper, or in a separate local alias. Changing a terminal environment variable alone does not update a running server or override an explicit request. The lab's helper always sends a `num_ctx` (the profile's, else `-NumCtx`, default 32768), and a sent value wins over the alias's own: `-Model qwen3.8:27b-64k` with no profile sends 32768, and `-NumCtx` beats the profile (checked with `-DumpRequest`, 2026-10-10). So the 64K profiles, not the alias name, are what give the lab's scripts 64K; the alias matters for clients that send no `num_ctx`.
+
+### Making the 64K alias (a person runs this)
+
+`ollama pull` gives only `qwen3.8:27b`. The alias is a local model built on the same weights. On the lab machine `ollama show qwen3.8:27b-64k --modelfile` lists the same two weight blobs as `qwen3.8:27b`, the base's own parameters (temperature 1, top_k 20, top_p 0.95, min_p 0, presence_penalty 0, repeat_penalty 1, draft_num_predict 4) and one addition, `num_ctx 65536`. A Modelfile that reproduces it:
+
+```text
+FROM qwen3.8:27b
+PARAMETER num_ctx 65536
+PARAMETER temperature 1
+PARAMETER top_k 20
+PARAMETER top_p 0.95
+PARAMETER min_p 0
+PARAMETER presence_penalty 0
+```
+
+Save it outside the repositories (for example `cf-lab-files/scratch/Modelfile.64k`) and run, as a person, after `ollama pull qwen3.8:27b`: `ollama create qwen3.8:27b-64k -f <that file>`. Then check `ollama show qwen3.8:27b-64k` lists `num_ctx 65536`. The sampling lines only matter for clients that send none; the profiles send their own per request. The alias points at the blobs it was made from: after a deliberate `ollama pull qwen3.8:27b` that changes the ID in `ollama list`, run the same `ollama create` again or the alias stays on the old build. The `Modelfile` in the root of `cf-lab` is a different, 32K fast-sampling definition, not this recipe.
 - Check intended placement and `context_length` in Ollama's `/api/ps`; for a full-GPU comparison, verify the reported `size_vram` equals `size`. CPU-backed operation remains legitimate when its latency meets the task budget.
 - Start a fresh chat or compact oversized history before selecting a smaller context. Never silently truncate source evidence, and ensure the client advertises the actual configured limit.
 - Compare at least three matched runs with unchanged weights, prompt, sampling, and thinking mode. Report cold-load and warm timings separately and include representative task checks. Faster token generation is not evidence of fewer tokens, better answers, or faster whole workflows.
@@ -121,6 +137,10 @@ What to do when the lab runs with the local worker alone. Everything here comes 
 - **Review.** A second pass from the same model in a different mode (thinking, a different prompt) finds leads, not verdicts. Check each flag on the source and never decide a finding by count. Untrusted text gets a data boundary and no tools: fast mode followed 9 of 16 planted instructions, thinking 0 of 16.
 - **Never without a person.** Decide a scientific claim, publish wording, push, deploy, handle secrets or patient data, or download a model.
 
+## Model landscape check, 2026-10-10
+
+No measurement in this skill says any other model is better than Qwen3.8 27B for the worker role, and none says the newer library models are worse: none of them has been run here. Installed on the lab machine (`ollama list`): `qwen3.8:27b`, `qwen3.8:27b-64k`, `gemma4:31b-it-q4_K_M`, `laguna-xs-2.1:q4_K_M`; the last two have no profile and no onboarding record. New in the Ollama library in the two weeks before (classification or "decision" models, an embedding model, and one model far too large for this machine), the candidates for the next round, and the comparison to run are in `docs/local-models-ollama.md`, "Model landscape check, 2026-10-10". Onboarding means the `model-onboarding` checklist and a person's approval to download.
+
 ## Benchmark in this workspace
 
 Comparison of 2026-09-30/10-01: same harness, 4 cases × 3 passes, up to 4 attempts per run (`bench-summary.ps1 -LabelPrefix bench3`):
@@ -172,7 +192,7 @@ Recovered completed run: `seeded-powershell-hard`, 9 scripts (7 planted defects 
 - These are automatic anchor matches, not fully adjudicated recall. Both modes also described the string-versus-number defect while quoting the parameter declaration, which the scorer does not match. Do not interpret the apparent per-pass difference as evidence that fast mode is better.
 - Fast mode's clean-script findings included an unnecessary try/catch requirement, an impossible empty group, and a file-check race concern. These need contextual review, not automatic acceptance as bugs.
 - Thinking mode is the conservative choice for harder reviews based on this small set's lower clean-script finding count. Neither mode's results prove general reliability.
-- Qwen is the retained baseline. The proposed Laguna XS 2.1/Gemma reviewer comparison in `ai-loop-council` remains separate work until quality and safety admission are completed. Installation and smoke checks alone do not establish reviewer reliability. Historical comparisons remain evidence, not a requirement to reinstall removed models.
+- Qwen is the retained baseline. The proposed Laguna XS 2.1/Gemma reviewer comparison in `ai-loop-council` remains separate work until quality and safety admission are completed. Installation and smoke checks alone do not establish reviewer reliability. Historical comparisons remain evidence, not a requirement to reinstall removed models. As of 2026-10-10 both candidates are installed on the lab machine (`gemma4:31b-it-q4_K_M`, `laguna-xs-2.1:q4_K_M`) with no profile file and no `model-onboarding` record; see "Model landscape check, 2026-10-10" in `docs/local-models-ollama.md`.
 
 ### Checking a long note against quotations (2026-10-05)
 
