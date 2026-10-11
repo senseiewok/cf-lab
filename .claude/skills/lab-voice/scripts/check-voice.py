@@ -221,7 +221,7 @@ def parse_html(text):
 
 
 MD_INLINE = [
-    (re.compile(r"<!--.*?-->"), ""),
+    (re.compile(r"<!--.*?-->", re.S), ""),
     (re.compile(r"`[^`]*`"), " "),
     (re.compile(r"<(code|q|cite|kbd|samp)\b[^>]*>.*?</\1>", re.I), " "),
     (re.compile(r"!\[([^\]]*)\]\([^)]*\)"), r"\1"),
