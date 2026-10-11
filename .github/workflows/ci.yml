@@ -59,5 +59,7 @@ jobs:
           powershell.exe -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
           python --version
           git --version
+      # test-delegate took 267 s on a passing run and timed out at the 300 s default on the next one (runner speed varies), so the
+      # per-check limit is 600 s here; the job's own limit above (25 minutes) still ends a hung run.
       - name: check-all.ps1
-        run: pwsh -NoProfile -File ./check-all.ps1
+        run: pwsh -NoProfile -File ./check-all.ps1 -TimeoutSec 600
