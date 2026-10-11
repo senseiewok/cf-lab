@@ -528,7 +528,7 @@ class Publish(Temp):
         for d in (hooks, tmpl / "hooks"):
             for h in ("pre-commit", "commit-msg", "post-checkout", "pre-push"):
                 (d / h).write_text(body, encoding="utf-8", newline="\n")
-                os.chmod(d / h, 0o755)
+                os.chmod(d / h, 0o700)
         cfg = self.tmp / "global.gitconfig"
         cfg.write_text(f"[core]\n\thooksPath = {hooks.as_posix()}\n[init]\n\ttemplateDir = {tmpl.as_posix()}\n", encoding="utf-8")
         bare = self.bare({"pr-1/a.jpg": MAGIC[".jpg"] + b"0"})
