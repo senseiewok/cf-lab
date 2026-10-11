@@ -15,7 +15,13 @@ The summary and the rule about where to start a session are in `AGENTS.md`, sect
 2. In a Claude Code session started in `cf-lab`, run `/skills` and `/permissions`. With `--add-dir` or `/add-dir`, the sibling skills (for example `cf-evidence-loop`) appear in `/skills`. With only `permissions.additionalDirectories`, they do not; that key grants file access only.
 3. `python .claude/skills/workspace-siblings/scripts/check-workspace.py --self-test` tests the checker on temporary folders.
 
-The checker reads only `.claude/settings.json` in each repo and `.claude/settings.local.json` in `cf-lab`, and asks Git for each sibling's `origin` without printing it. It never opens `.env` or any credential file.
+The checker covers three more things about how instructions and skills load (the rules and sources are in `docs/instruction-loading.md`):
+
+- No `CLAUDE.md`, `CLAUDE.local.md` or `.claude/CLAUDE.md` in `cf-lab` or any parent folder up to the drive root, and no `CLAUDE.md` in `~/.claude`. Claude Code reads `AGENTS.md` only when there is no `CLAUDE.md`, so one would silently replace it. A `FAIL` line names the file; delete it or make it only the line `@AGENTS.md`.
+- Skill names are unique across the `.claude/skills` folders of the three repos and do not collide with an entry of `~/.claude/skills` that has a `SKILL.md` (a personal skill wins over a project skill).
+- Every skill folder in the three repos has a `SKILL.md` whose frontmatter `name` equals the folder name.
+
+The checker reads only `.claude/settings.json` in each repo and `.claude/settings.local.json` in `cf-lab`, the file names `CLAUDE.md`, the frontmatter of each `SKILL.md`, and the names in `~/.claude/skills`, and asks Git for each sibling's `origin` without printing it. It never opens `.env` or any credential file. The tests point the home folder and end the parent walk with the environment variables `CF_LAB_CHECK_HOME` and `CF_LAB_CHECK_STOP`; they are for the tests only.
 
 ## The layout contract
 

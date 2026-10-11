@@ -95,8 +95,19 @@ class Base(unittest.TestCase):
         # (such as RUNNER~1 on a hosted Windows runner) would not match the paths written into settings.local.json.
         self.tmp = Path(tempfile.mkdtemp(prefix="cw-test-")).resolve()
         self.mod = load_module()
+        # The checker looks in the user's home and walks up the parent folders; keep both inside the temp folder.
+        self.home = self.tmp / "home"
+        (self.home / ".claude").mkdir(parents=True)
+        self._env = {k: os.environ.get(k) for k in ("CF_LAB_CHECK_HOME", "CF_LAB_CHECK_STOP")}
+        os.environ["CF_LAB_CHECK_HOME"] = str(self.home)
+        os.environ["CF_LAB_CHECK_STOP"] = str(self.tmp)
 
     def tearDown(self):
+        for k, v in self._env.items():
+            if v is None:
+                os.environ.pop(k, None)
+            else:
+                os.environ[k] = v
         shutil.rmtree(self.tmp, ignore_errors=True)
 
     def run_main(self, lab):
@@ -264,6 +275,128 @@ class TestFailures(Base):
         code, out = self.run_main(lab)
         self.assertEqual(code, 1, out)
         self.assertTrue(any("cf-lab" in l and "JSON" in l for l in self.fails(out)), out)
+
+
+def add_skill(repo, name, declared=None, skill_md=True):
+    folder = repo / ".claude" / "skills" / name
+    folder.mkdir(parents=True, exist_ok=True)
+    if skill_md:
+        (folder / "SKILL.md").write_text("---\nname: " + (declared or name) + "\ndescription: x\n---\nbody\n", encoding="utf-8")
+
+
+class TestInstructionLoading(Base):
+    def test_no_claude_md_passes(self):
+        lab = make_tree(self.tmp)
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 0, out)
+        self.assertTrue(any("instructions" in l for l in self.passes(out)), out)
+
+    def test_claude_md_in_lab_fails(self):
+        lab = make_tree(self.tmp)
+        (lab / "CLAUDE.md").write_text("Read AGENTS.md\n", encoding="utf-8")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 1, out)
+        f = [l for l in self.fails(out) if "CLAUDE.md" in l]
+        self.assertEqual(len(f), 1, out)
+        self.assertIn("AGENTS.md", f[0])
+        self.assertIn("@AGENTS.md", f[0])
+
+    def test_claude_local_md_and_dot_claude_variants_fail(self):
+        lab = make_tree(self.tmp)
+        (lab / "CLAUDE.local.md").write_text("x\n", encoding="utf-8")
+        (lab / ".claude" / "CLAUDE.md").write_text("x\n", encoding="utf-8")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 1, out)
+        f = self.fails(out)
+        self.assertTrue(any("CLAUDE.local.md" in l for l in f), out)
+        self.assertTrue(any(os.path.join(".claude", "CLAUDE.md") in l for l in f), out)
+
+    def test_claude_md_in_parent_fails(self):
+        lab = make_tree(self.tmp)
+        (self.tmp / "CLAUDE.md").write_text("x\n", encoding="utf-8")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 1, out)
+        self.assertTrue(any("CLAUDE.md" in l and str(self.tmp) in l for l in self.fails(out)), out)
+
+    def test_claude_md_in_home_fails(self):
+        lab = make_tree(self.tmp)
+        (self.home / ".claude" / "CLAUDE.md").write_text("x\n", encoding="utf-8")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 1, out)
+        self.assertTrue(any("CLAUDE.md" in l and "home" in l for l in self.fails(out)), out)
+
+    def test_other_md_files_do_not_fail(self):
+        lab = make_tree(self.tmp)
+        (lab / "AGENTS.md").write_text("x\n", encoding="utf-8")
+        (self.home / ".claude" / "settings.json").write_text("{}", encoding="utf-8")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 0, out)
+
+
+class TestSkills(Base):
+    def test_unique_matching_skills_pass(self):
+        lab = make_tree(self.tmp)
+        add_skill(lab, "alpha")
+        add_skill(self.tmp / "cf-skills", "beta")
+        add_skill(self.tmp / "cf-research", "gamma")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 0, out)
+        self.assertTrue(any("skill names" in l and "3 unique" in l for l in self.passes(out)), out)
+        self.assertTrue(any(l.startswith("PASS skills") and "3 skill folders" in l for l in out.splitlines()), out)
+
+    def test_duplicate_name_across_repos_fails(self):
+        lab = make_tree(self.tmp)
+        add_skill(lab, "same")
+        add_skill(self.tmp / "cf-research", "same")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 1, out)
+        self.assertTrue(any("same" in l and "cf-lab" in l and "cf-research" in l for l in self.fails(out)), out)
+
+    def test_personal_skill_collision_fails(self):
+        lab = make_tree(self.tmp)
+        add_skill(lab, "shadowed")
+        add_skill(self.home, "shadowed")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 1, out)
+        self.assertTrue(any("shadowed" in l and "~/.claude/skills" in l for l in self.fails(out)), out)
+
+    def test_personal_entry_without_skill_md_ignored(self):
+        lab = make_tree(self.tmp)
+        add_skill(lab, "plain")
+        add_skill(self.home, "plain", skill_md=False)
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 0, out)
+
+    def test_name_differs_from_folder_fails(self):
+        lab = make_tree(self.tmp)
+        add_skill(lab, "folder", declared="other")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 1, out)
+        self.assertTrue(any("folder" in l and "'other'" in l for l in self.fails(out)), out)
+
+    def test_missing_frontmatter_name_fails(self):
+        lab = make_tree(self.tmp)
+        d = self.tmp / "cf-skills" / ".claude" / "skills" / "bare"
+        d.mkdir(parents=True)
+        (d / "SKILL.md").write_text("no frontmatter here\n", encoding="utf-8")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 1, out)
+        self.assertTrue(any("bare" in l and "no name" in l for l in self.fails(out)), out)
+
+    def test_skill_folder_without_skill_md_fails(self):
+        lab = make_tree(self.tmp)
+        add_skill(self.tmp / "cf-research", "hollow", skill_md=False)
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 1, out)
+        self.assertTrue(any("hollow" in l and "no SKILL.md" in l for l in self.fails(out)), out)
+
+    def test_quoted_name_and_bom_read(self):
+        lab = make_tree(self.tmp)
+        d = lab / ".claude" / "skills" / "quoted"
+        d.mkdir(parents=True)
+        (d / "SKILL.md").write_bytes(b"\xef\xbb\xbf---\nname: \"quoted\"\ndescription: x\n---\n")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 0, out)
 
 
 class TestSafety(Base):
