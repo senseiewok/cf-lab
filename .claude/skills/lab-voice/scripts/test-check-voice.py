@@ -7,6 +7,7 @@ Every "does not warn / passes" check also asserts exit 0 and a SUMMARY line for 
 output format cannot pass as "no finding".
 """
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -248,6 +249,11 @@ p = run()
 check("no file is a usage error (exit 2)", p.returncode == 2)
 p = run("--self-test")
 check("--self-test passes", p.returncode == 0 and re.search(r"^(\d+)/\1 passed$", p.stdout, re.M), p.stdout[-300:])
+
+f = write(page("<p>Read more ↗ on our page about cystic fibrosis.</p>"), suffix=".html")
+env = {**os.environ, "PYTHONIOENCODING": "cp1252"}  # a console that cannot encode the arrow
+p = subprocess.run([sys.executable, str(cand), str(f)], capture_output=True, encoding="utf-8", errors="replace", env=env, stdin=subprocess.DEVNULL, timeout=60)
+check("a character the console cannot encode does not crash the checker", "Traceback" not in p.stderr and p.returncode in (0, 1) and "SUMMARY" in p.stdout, p.stderr[-300:])
 
 shutil.rmtree(TMP, ignore_errors=True)
 for x in fails:
