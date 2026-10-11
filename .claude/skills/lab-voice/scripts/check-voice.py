@@ -569,6 +569,9 @@ def self_test():
 
 
 def main(argv=None):
+    for stream in (sys.stdout, sys.stderr):  # a quoted title or an arrow must not crash a console that cannot encode it
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0], formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("files", nargs="*")
     ap.add_argument("--allow", help="file of phrases (names, titles) that keep their spelling, one per line")
