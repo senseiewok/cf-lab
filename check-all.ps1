@@ -93,6 +93,9 @@ $Checks = @(
     # ascii-art
     @{ name = 'test-asciicanvas';         exe = 'python';     args = @("$s/ascii-art/scripts/test-asciicanvas.py");                                        needs = @('python') }
     @{ name = 'test-check-ascii';         exe = 'python';     args = @("$s/ascii-art/scripts/test-check-ascii.py");                                        needs = @('python') }
+    # lab-voice
+    @{ name = 'test-check-voice';         exe = 'python';     args = @("$s/lab-voice/scripts/test-check-voice.py");                                        needs = @('python') }
+    @{ name = 'check-voice-selftest';     exe = 'python';     args = @("$s/lab-voice/scripts/check-voice.py", '--self-test');                              needs = @('python') }
     # browser testing: the setup script's own test downloads nothing; everything that starts a browser is skipped
     @{ name = 'test-setup-browser';       exe = 'python';     args = @("$s/playwright-browser-testing/scripts/test-setup-browser-testing.py");             needs = @('python') }
     @{ name = 'observe-page-selftest';    exe = 'python';     args = @("$s/playwright-browser-testing/scripts/observe-page.py", '--self-test');            needs = @('python', 'browser') }
