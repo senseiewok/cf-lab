@@ -56,9 +56,9 @@ The lab reads one setting, `LOCAL_WORKER_MODEL`, from the `.env` file in `cf-lab
 
 1. If you have no `.env` yet, make one from the template, in PowerShell 7 from the `cf-lab` folder: `Copy-Item .env.example .env` ([full steps](../README.md#one-env-file-for-keys-and-settings)).
 2. Open `.env` in a text editor, remove the `#` at the start of the `LOCAL_WORKER_MODEL` line and set it to the exact name from `ollama list`, for example `LOCAL_WORKER_MODEL=qwen3.8:27b`. No quotes, no spaces around `=`.
-3. Optional: choose settings from a profile. A **profile** is a small file with a model's recommended settings, kept next to its skill. Add `LOCAL_WORKER_PROFILE=.claude/skills/model-qwen3-8-27b/ollama-profile.fast.json` for quick drafts (thinking off). `LOCAL_WORKER_THINKING_PROFILE` names the profile for the last, slower attempt of a delegated task. The template shows both lines commented out.
+3. Optional: choose settings from a profile. A **profile** is a small file with a model's recommended settings, kept next to its skill. Add `LOCAL_WORKER_PROFILE=./.claude/skills/model-qwen3-8-27b/ollama-profile.fast.json` for quick drafts (thinking off). `LOCAL_WORKER_THINKING_PROFILE` names the profile for the last, slower attempt of a delegated task. The template shows both lines commented out. Start the path with `./`: the `.env` loader then resolves it from the `cf-lab` folder, while a path without it only works when the command runs from `cf-lab`.
 
-Watch for one trap. The lab's own profiles use the name `qwen3.8:27b-64k`, a local alias the lab made for the same model with a larger working memory (context). `ollama pull` does not give you that name, so the template leaves the line commented out: remove the `#` only after you have the exact name from `ollama list`.
+Watch for two traps. First, the 64K profiles (`ollama-profile.64k.fast.json` and `ollama-profile.64k.json`, the lab machine's choice since 2026-10-10) use the name `qwen3.8:27b-64k`, a local alias for the same model with a larger working memory (context). `ollama pull` does not give you that name; you make it yourself with `ollama create` from the short recipe in [model-qwen3-8-27b](../.claude/skills/model-qwen3-8-27b/SKILL.md), "Making the 64K alias". Use those profiles only after `ollama list` shows the alias. Second, `LOCAL_WORKER_MODEL` replaces the profile's model name: with a profile set, leave it unset or give it the same name.
 
 The scripts read these settings from the environment, not from the file itself, so run them through the `.env` loader, `run-with-env.ps1`, as steps 5 and 6 show.
 
@@ -68,11 +68,11 @@ Where the lab's profiles live:
 
 | Profile skill | Files | Note |
 | --- | --- | --- |
-| [model-qwen3-8-27b](../.claude/skills/model-qwen3-8-27b/SKILL.md) | `ollama-profile.fast.json` and `ollama-profile.json` (32K context); `ollama-profile.64k.fast.json` and `ollama-profile.64k.json` (64K) | The lab's default. The skill calls the 32K files the portable starting point |
+| [model-qwen3-8-27b](../.claude/skills/model-qwen3-8-27b/SKILL.md) | `ollama-profile.fast.json` and `ollama-profile.json` (32K context); `ollama-profile.64k.fast.json` and `ollama-profile.64k.json` (64K) | The lab's default. The skill calls the 32K files the portable starting point; the lab machine uses the 64K pair (needs the alias) |
 | [model-qwen3-coder-next](../.claude/skills/model-qwen3-coder-next/SKILL.md) | `ollama-profile.json` | The previous worker |
 | [model-deepseek-r1-32b](../.claude/skills/model-deepseek-r1-32b/SKILL.md) | `ollama-profile.json`, `ollama-profile.hints.json` | A reasoning model, not the default |
 
-The `Modelfile` in `cf-lab` is the lab's own Ollama definition, not something you need.
+The `Modelfile` in `cf-lab` is a separate lab definition (`qwen3.8:27b` with a 32K context and the fast sampling settings), not something you need, and not the recipe for the 64K alias.
 
 ## 5. Test it without a model
 
@@ -130,6 +130,34 @@ All from one machine, small samples, Qwen3.8 27B. Each row names where it is wri
 | Fast mode reviewing a long piece of text | Missed everything a cloud reviewer found; treat a clean fast review as no information | model-qwen3-8-27b, "Checking a long note against quotations" |
 
 What this means in practice: bounded edits with a test do well; large tasks in one go do not; a fast "no problems found" is not a review. Split large work into pieces, each with its own test.
+
+## Model landscape check, 2026-10-10
+
+A dated snapshot, not a ranking. **No model below has been measured against Qwen3.8 27B here, so none is called better or worse.** Onboarding a model means the [model-onboarding](../.claude/skills/model-onboarding/SKILL.md) checklist and a person's approval to download; nothing here authorises a pull.
+
+**Installed on the lab machine** (`ollama list`, `ollama show`; the installed Ollama meets every "needs" version below):
+
+| Model | What `ollama show` says | Status |
+| --- | --- | --- |
+| `qwen3.8:27b` | 27.3B, Q4_K_M, context length 262,144, vision, tools, thinking; needs Ollama 0.32.12 | The worker; profiles and measurements in model-qwen3-8-27b |
+| `qwen3.8:27b-64k` | The same weights with `num_ctx 65536` | The lab machine's setting since 2026-10-10, through the 64K profiles |
+| `gemma4:31b-it-q4_K_M` | 30.7B, Q4_K_M, vision, tools, thinking (on or off); needs 0.30.9 | Installed; no profile, no onboarding record. Named as a candidate reviewer in ai-loop-council |
+| `laguna-xs-2.1:q4_K_M` | 33.4B, Q4_K_M, tools, thinking (on or off), OpenMDW-1.1 licence; needs 0.32.3 | Installed; no profile, no onboarding record. Named as a candidate reviewer in ai-loop-council |
+
+The ID of `qwen3.8:27b` in `ollama list` (`aaee06c39dcf`) is the start of the SHA-256 of its local manifest file (computed here). The library's tags page showed a different digest for the same tag (`e118e4d12a70`) and "updated 2 weeks ago". If the page's digest is the same kind of hash, the library's build is newer than the local copy; that was not confirmed. A person who wants to know can run `ollama pull qwen3.8:27b` (it downloads only the layers that changed) and compare the ID before and after; after a change, re-create the 64K alias as model-qwen3-8-27b describes, then rerun the checks the lab relies on.
+
+**New in the Ollama library in the two weeks before** (read from the library page on 2026-10-10 through a summarising tool, so the wording is the page's and not checked further). Not pulled, not onboarded:
+
+| Model | What the page says | What it could be for here |
+| --- | --- | --- |
+| `nimble` | 9B "decision" model from Bespoke Labs for typed classification; text only; Apache 2.0; the prompt must fit 8,192 tokens; called through its own `/v1/systemone` endpoint with pick-from-a-list, true-or-false or rubric questions | Typed classification of registry wording. The lab's helper calls `/api/chat`, so using it needs new code, and long excerpts must be cut to fit |
+| `tev1` | 4B and 0.8B decision models from Together AI "for fast classification" | The same role, smaller |
+| `laya` | 421M decision model built on ModernBERT-large | The same role, smallest |
+| `clef`, `clef-flash` | 27B and 9B decision models from Cloudflare | The same role; not named in the next round |
+| `embeddinggemma-2` | Multimodal embedding model from Google built on Gemma 4, 270m to 740m | Embeddings for search over notes and sources, not a worker |
+| `mistral-large-4` | Open weights, 1.05T total parameters | None here: at 4 bits per weight that is about 525 GB, more than this machine's GPU and RAM together (computed) |
+
+**What would be measured, and the next round.** The lab's matched-run method (model-onboarding and model-qwen3-8-27b): the same frozen packets, prompt, verifier and output limits for every model; each model with its own card's sampling, pinned `num_ctx` and a profile; at least three samples per cell; cold and warm timings apart; the injection probe before any role. The proposed task: **a quote-verified outcome classifier** on real registry wording, where each reply gives a class id and an exact quote from the excerpt, and `check-findings-evidence.py`-style checking confirms the quote. Compare `qwen3.8:27b` at 32K, `qwen3.8:27b-64k`, `gemma4:31b-it-q4_K_M` and `laguna-xs-2.1:q4_K_M`; after a person approves the downloads, `nimble` and `tev1` for typed classification, and `embeddinggemma-2` separately for embeddings. Until then Qwen3.8 27B stays the worker.
 
 ## Safety
 
