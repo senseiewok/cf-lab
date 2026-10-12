@@ -91,7 +91,7 @@ f = write(page('<p lang="es-MX">colour organisation</p>\n<div lang="es"><p>centr
 check("non-English lang passes, nested lang=en is checked again", failed_with(run(f), ["'grey' -> 'gray'"]))
 
 f = write(page('<p title="organisation"><a href="/centre/licence.html">Read</a> <img alt="colour"></p>'))
-check("attribute values pass", clean(run(f), "ERROR"))
+check("title and alt are checked; an href is not", failed_with(run(f), ["'organisation' -> 'organization'", "'colour' -> 'color'"]) and not any("centre" in l or "licence" in l for l in run(f).stdout.splitlines()))
 
 f = write(page("<p>See https://example.org/organisation and www.centre.example then licence.txt and organisation_id and data/colour.</p>"))
 p = run(f)
@@ -250,6 +250,18 @@ check("no file is a usage error (exit 2)", p.returncode == 2)
 p = run("--self-test")
 check("--self-test passes", p.returncode == 0 and re.search(r"^(\d+)/\1 passed$", p.stdout, re.M), p.stdout[-300:])
 
+f = write(page('<img src="x.png" alt="A grey bar"><a href="#" aria-label="Open the centre page">go</a><p>Fine words here.</p>'), suffix=".html")
+p = run(f)
+check("attribute text a reader meets is checked: alt and aria-label", len(findings(p, "ERROR", "uk-spelling")) == 2 and p.returncode == 1, p.stdout)
+f = write(page('<p>Fine.</p>').replace("<head>", '<head><meta name="description" content="Help that organisations offer."><meta property="og:image:alt" content="A coloured drawing"><meta name="author" content="colour">'), suffix=".html")
+p = run(f)
+check("a meta description and social-card text are checked; other meta is not", len(findings(p, "ERROR", "uk-spelling")) == 2, p.stdout)
+f = write(page('<p lang="es-MX"><img src="y.png" alt="organización centro"></p><code title="colour">x</code><p>One short sentence.</p>'), suffix=".html")
+p = run(f)
+check("an attribute in other-language text or code is not checked", p.returncode == 0 and not findings(p, "ERROR"), p.stdout)
+f = write(page('<img src="x.png" alt="' + "word " * 40 + '"><p>Four short words.</p>'), suffix=".html")
+p = run(f)
+check("attribute text does not count as words or sentences", "SUMMARY" in p.stdout and re.search(r"SUMMARY .*: 5 words", p.stdout) and not findings(p, "WARN"), p.stdout)
 f = write(page("<p>Read more ↗ on our page about cystic fibrosis.</p>"), suffix=".html")
 env = {**os.environ, "PYTHONIOENCODING": "cp1252"}  # a console that cannot encode the arrow
 p = subprocess.run([sys.executable, str(cand), str(f)], capture_output=True, encoding="utf-8", errors="replace", env=env, stdin=subprocess.DEVNULL, timeout=60)

@@ -2,10 +2,18 @@
 """Small screenshots for a pull request: capture them from a spec, then publish them to an evidence branch.
 
 Usage:
-    pr-screenshots.py capture SPEC.json --out DIR [--quality 72] [--max-kb 150] [--channel msedge|chrome]
+    pr-screenshots.py where TOPIC [--date YYYY-MM-DD]
+    pr-screenshots.py capture SPEC.json (--out DIR | --topic TOPIC) [--quality 72] [--max-kb 150] [--channel msedge|chrome]
     pr-screenshots.py publish --dir DIR --pr N [--repo OWNER/REPO] [--branch pr-evidence]
                               [--push] [--trailer LINE ...] [--comment] [--allow-comment-only]
     pr-screenshots.py --self-test [--channel msedge|chrome]
+
+where: prints, and creates, the one folder the lab keeps screenshots in for reuse:
+<lab files>/scratch/screenshots/<YYYY-MM-DD>/<topic>/. <lab files> is $LAB_FILES, else the cf-lab-files folder
+beside the repositories (it is never published). The date is today's unless --date is given. A topic is
+letters, digits, dot, dash or underscore. Save before and after images there, named
+<before|after>-<width>-<page>.jpg, so any later task can find them. Never save a page that shows an email
+address (the Contact page) or any private data there: the folder's README forbids both.
 
 capture: SPEC.json is {"shots": [...]}; each shot has name, url, viewport {width, height}, optional
 touch (bool), device_scale_factor, one of selector | clip {x, y, width, height} (neither means the
@@ -790,6 +798,43 @@ def self_test(channel: str | None = None) -> int:
     return 0 if not failed else 4
 
 
+# ---------- where screenshots are kept ----------
+
+def lab_files_dir() -> Path:
+    """$LAB_FILES, else the cf-lab-files folder beside the repositories (found through git, so it works from a worktree)."""
+    env = os.environ.get("LAB_FILES")
+    if env:
+        return Path(env)
+    here = Path(__file__).resolve().parent
+    try:
+        g = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-common-dir"], cwd=here, capture_output=True,
+                           text=True, encoding="utf-8", errors="replace", stdin=subprocess.DEVNULL, timeout=30)
+        common = Path(g.stdout.strip()) if g.returncode == 0 and g.stdout.strip() else None
+    except (OSError, subprocess.SubprocessError):
+        common = None
+    if common is not None and common.name == ".git":
+        return common.parent.parent / "cf-lab-files"
+    return here.parents[4] / "cf-lab-files"
+
+
+def shots_dir(topic: str, date: str | None = None, create: bool = False) -> Path:
+    """<lab files>/scratch/screenshots/<date>/<topic>: the one dated place the lab keeps screenshots for reuse."""
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", topic or ""):
+        raise Refused("the topic must be letters, digits, dot, dash or underscore")
+    if date is None:
+        import datetime
+        date = datetime.date.today().isoformat()
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
+        raise Refused("the date must be YYYY-MM-DD")
+    base = lab_files_dir()
+    if not base.is_dir():
+        raise Refused(f"{base} is not a folder (set LAB_FILES, or create the cf-lab-files folder beside the repositories)")
+    path = base / "scratch" / "screenshots" / date / topic
+    if create:
+        path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
 # ---------- command line ----------
 
 def main(argv: list[str] | None = None) -> int:
@@ -799,7 +844,13 @@ def main(argv: list[str] | None = None) -> int:
     sub = ap.add_subparsers(dest="cmd")
     c = sub.add_parser("capture", help="write small JPEG screenshots from a spec")
     c.add_argument("spec", type=Path)
-    c.add_argument("--out", type=Path, required=True)
+    out_or_topic = c.add_mutually_exclusive_group(required=True)
+    out_or_topic.add_argument("--out", type=Path)
+    out_or_topic.add_argument("--topic", help="save in the dated screenshots folder (see `where`)")
+    c.add_argument("--date", help="with --topic: YYYY-MM-DD (default today)")
+    w = sub.add_parser("where", help="print (and create) the dated screenshots folder for a topic")
+    w.add_argument("topic")
+    w.add_argument("--date")
     c.add_argument("--quality", type=int, default=72)
     c.add_argument("--max-kb", type=int, default=150)
     c.add_argument("--channel", choices=["msedge", "chrome"], dest="cap_channel")
@@ -816,10 +867,14 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if a.self_test:
             return self_test(a.channel)
+        if a.cmd == "where":
+            print(shots_dir(a.topic, a.date, create=True))
+            return 0
         if a.cmd == "capture":
-            for r in capture(a.spec, a.out, a.quality, a.max_kb, a.cap_channel or a.channel):
+            out = a.out if a.out else shots_dir(a.topic, a.date, create=True)
+            for r in capture(a.spec, out, a.quality, a.max_kb, a.cap_channel or a.channel):
                 print(f"{r['file']}  {r['kb']} KB  quality {r['quality']}")
-            print(f"captions.json written to {a.out}")
+            print(f"captions.json written to {out}")
             return 0
         if a.cmd == "publish":
             return publish(a.dir, a.pr, a.repo, a.branch, a.push, a.comment, a.allow_comment_only, a.trailer)

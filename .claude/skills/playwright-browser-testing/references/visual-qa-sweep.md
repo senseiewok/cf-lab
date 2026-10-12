@@ -8,7 +8,7 @@ A frugal way to check how a set of pages looks: measure first, look at small cro
 | --- | --- | --- |
 | 1. Measure | In the browser, per page and width: horizontal overflow, text covered by positioned elements (overlap area in px²), console errors, failed requests, title, robots meta. `scripts/observe-page.py` covers most of these. | Script only |
 | 2. Widths | Phone 390, tablet 820, desktop 1280. Emulate touch (`touch: true`) wherever a control appears only on touch screens. | Script only |
-| 3. Crop | Screenshot tight crops of the parts in question (a selector or a clip), not whole pages. `scripts/pr-screenshots.py capture` keeps each under a size cap. | Small files |
+| 3. Crop | Screenshot tight crops of the parts in question (a selector or a clip), not whole pages. `scripts/pr-screenshots.py capture --topic <topic>` keeps each under a size cap and saves them in the dated folder `<lab files>/scratch/screenshots/<YYYY-MM-DD>/<topic>/` (`pr-screenshots.py where <topic>` prints it), so a later task can reuse them. | Small files |
 | 4. Triage | A local vision model may sort the crops into "look again" and "fine". In one local run, images were downscaled hard and misses were common; treat a local "fine" as weak evidence. | Local |
 | 5. One look | ONE advanced-model call with several images at once: the flagged crops plus a few random controls, the page's purpose, and the measurements from step 1. Ask for findings that name the image and the region. | One call |
 | 6. Confirm | Accept a visual finding only with a measurement or a second look at the same crop. Fix, then measure again. | Script only |

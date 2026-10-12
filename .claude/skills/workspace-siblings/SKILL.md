@@ -54,10 +54,12 @@ Then run the gate for the tier against the repo you changed: `pwsh -NoProfile -F
 
 ## Worktree etiquette for agents
 
-- Work in a new worktree: `git -C <repo> fetch origin`, then `git -C <repo> worktree add -b <branch> <new folder> origin/main`.
+- Work in a new worktree, kept in one folder: `python .claude/skills/workspace-siblings/scripts/worktrees.py new <repo> <topic>`. It fetches `origin`, then runs `git worktree add -b <topic> <root>/.worktrees/<repo>/<topic> origin/<default branch>`. `<root>` is the folder that holds the repositories. Plain git does the same: `git -C <repo> fetch origin`, then `git -C <repo> worktree add -b <branch> <root>/.worktrees/<repo>/<topic> origin/main`.
+- `<root>/.worktrees` is not inside any repository, so there is nothing to ignore and nothing to commit. It keeps `<root>` to the repositories and `cf-lab-files`.
 - Never check out, reset, clean or stash in a person's main checkout.
-- A worktree folder is not named `cf-skills` or `cf-research`, so `../` paths from it do not reach the siblings. Pass `--root <cf-lab checkout>` to the checker, or point tools at the real sibling folders.
+- A worktree folder is not named `cf-skills` or `cf-research`, and it sits two levels below `<root>`, so `../` paths from it do not reach the siblings. Pass `--root <cf-lab checkout>` to the checker, or point tools at the real sibling folders under `<root>`.
 - Remove a worktree you made once its pull request is open and nothing else needs it: `git -C <repo> worktree remove <folder>`. If the pull request has merged by then, run `check-merged.ps1` (next section) with `-RepoPath` first.
+- Tidy up with the script, and only when the person asks: `worktrees.py list --github` prints one line per worktree (uncommitted files, commits not pushed, its pull requests, and a verdict KEEP or REMOVE); `worktrees.py clean --github` prints what it would remove and `--yes` removes it. It removes a worktree only when it is clean, has no commit its upstream lacks, and its branch has a pull request and none is open. It keeps anything detached, outside `<root>`, or with a pull request state it could not read, never forces a removal, and never deletes a branch. `--github` makes read-only `gh pr list` calls, one per repository; `--pr-state <file>` reads the states from a JSON file instead. Tests: `python .claude/skills/workspace-siblings/scripts/test_worktrees.py`.
 
 ## After a merge: check nothing was left behind
 
