@@ -15,7 +15,9 @@ Rules
   INFO  reading-grade    Flesch-Kincaid grade, informational only.
 
 Never checked for spelling: text inside <blockquote>, <q>, <cite>, <code>, <pre>, <script>, <style>, Markdown
-block quotes and code, elements whose lang attribute is not English (e.g. lang="es-MX"), attribute values, URLs,
+block quotes and code, elements whose lang attribute is not English (e.g. lang="es-MX"), attribute values other than alt, title, aria-label,
+aria-description, placeholder and a meta description or social-card text (those are checked for spelling only, not
+counted as words), URLs,
 file names and identifiers (a word touching '/', '_', '@', '\\' or a '.ext'), and any phrase in the --allow file
 (one per line, '#' starts a comment, matched case-insensitively). In Markdown, text inside quotation marks
 ("..." or curly quotes) is an inline quote, like <q> in HTML.
@@ -116,7 +118,10 @@ def us_for(word):
 
 # ---------------------------------------------------------------- page model
 
-PROSE, QUOTE, FOREIGN, TABLE = "prose", "quote", "foreign", "table"
+PROSE, QUOTE, FOREIGN, TABLE, ATTR = "prose", "quote", "foreign", "table", "attr"
+# Attribute values a reader meets or hears (spelling only; never counted as words or sentences).
+ATTR_NAMES = ("alt", "title", "aria-label", "aria-description", "placeholder")
+META_KEYS = {"description", "og:title", "og:description", "og:image:alt", "twitter:title", "twitter:description", "twitter:image:alt"}
 URL_RX = re.compile(r"(?:https?://|www\.)\S+|\S+@\S+\.\w+")
 WORD_RX = re.compile(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*")
 
@@ -138,7 +143,7 @@ class Block:
         return " ".join(t for t, k, _ in self.runs if k == PROSE)
 
     def all_text(self):
-        return " ".join(t for t, _, _ in self.runs)
+        return " ".join(t for t, k, _ in self.runs if k != ATTR)
 
 
 def _lang_is_english(value):
@@ -173,6 +178,7 @@ class _Html(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        self._attrs(tag, a)
         if tag in BLOCK_TAGS:
             self._break()
             # only a block element's own attribute marks a repeat; an inline span inside a block does not
@@ -184,7 +190,25 @@ class _Html(HTMLParser):
             foreign = not _lang_is_english(a["lang"])
         self.stack.append((tag, drop or tag in DROP, quote or tag in QUOTE_TAGS, foreign))
 
+    def _attrs(self, tag, a):
+        """The text a reader gets from attributes (alt, title, aria-label, a meta description), checked for spelling only."""
+        drop, quote, foreign = self._state()
+        if "lang" in a:
+            foreign = not _lang_is_english(a["lang"])
+        if drop or quote or foreign or tag in DROP or tag in QUOTE_TAGS:
+            return
+        values = [a.get(n) for n in ATTR_NAMES]
+        if tag == "meta" and (a.get("name") or a.get("property") or "").strip().lower() in META_KEYS:
+            values.append(a.get("content"))
+        line = self.getpos()[0]
+        for v in values:
+            if v and v.strip():
+                b = Block(line)
+                b.add(v, ATTR, line)
+                self.blocks.append(b)
+
     def handle_startendtag(self, tag, attrs):
+        self._attrs(tag, dict(attrs))
         if tag in BLOCK_TAGS:
             self._break()
             self.next_repeat = False
@@ -397,7 +421,7 @@ def spelling_findings(blocks, allow):
     out = []
     for b in blocks:
         for text, kind, line in b.runs:
-            if kind not in (PROSE, TABLE):
+            if kind not in (PROSE, TABLE, ATTR):
                 continue
             # a table cell is checked too, except text inside quotation marks (titles, quotes)
             t = _mask(text, [URL_RX] + allow + ([QUOTED_RX] if kind == TABLE else []))

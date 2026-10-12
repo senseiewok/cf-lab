@@ -46,7 +46,7 @@ Build the round-1 packet and the round-2 packet the same way and send the diff b
 
 ### Visual changes
 
-When a change alters how a page looks, run a visual check and attach a few small screenshots. Follow `playwright-browser-testing`: its `references/visual-qa-sweep.md` for the frugal sweep and `scripts/pr-screenshots.py` to capture and attach the images. A text-only review does not clear a visual one.
+When a change alters how a page looks, run a visual check and attach a few small screenshots. Follow `playwright-browser-testing`: its `references/visual-qa-sweep.md` for the frugal sweep and `scripts/pr-screenshots.py` to capture and attach the images. Save the images in the dated folder it prints (`pr-screenshots.py where <topic>`: `<lab files>/scratch/screenshots/<YYYY-MM-DD>/<topic>/`), not in a throwaway folder. A text-only review does not clear a visual one.
 
 ## Pull request body template
 

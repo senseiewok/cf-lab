@@ -570,6 +570,54 @@ class Publish(Temp):
         self.assertNotIn("hijack", git(["for-each-ref"], bare))
 
 
+class DatedFolder(unittest.TestCase):
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp(prefix="shots test "))
+        self.lab = self.tmp / "cf-lab-files"
+        self.lab.mkdir()
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def where(self, *args, lab=None):
+        env = {**ENV, "LAB_FILES": str(lab if lab is not None else self.lab)}
+        p = subprocess.run([sys.executable, str(SCRIPT), "where", *args], capture_output=True, text=True, encoding="utf-8",
+                           errors="replace", timeout=60, stdin=subprocess.DEVNULL, env=env)
+        return p.returncode, p.stdout.strip(), p.stderr.strip()
+
+    def test_where_creates_the_dated_topic_folder(self):
+        code, out, err = self.where("site-pass", "--date", "2026-10-11")
+        self.assertEqual(code, 0, err)
+        want = self.lab / "scratch" / "screenshots" / "2026-10-11" / "site-pass"
+        self.assertEqual(Path(out), want)
+        self.assertTrue(want.is_dir())
+
+    def test_the_default_date_is_today(self):
+        import datetime
+        code, out, err = self.where("t")
+        self.assertEqual(code, 0, err)
+        self.assertEqual(Path(out).parent.name, datetime.date.today().isoformat())
+
+    def test_a_bad_topic_or_date_is_refused(self):
+        for args in (["../x"], ["a/b"], ["a b"], [""], ["t", "--date", "11-10-2026"], ["t", "--date", "2026-10-11/.."]):
+            code, out, err = self.where(*args)
+            self.assertEqual(code, 2, (args, out, err))
+        self.assertFalse((self.lab / "scratch").exists(), "nothing is created on a refusal")
+
+    def test_a_missing_lab_folder_is_refused(self):
+        code, out, err = self.where("t", lab=self.tmp / "nope")
+        self.assertEqual(code, 2, err)
+        self.assertIn("not a folder", err)
+
+    def test_capture_needs_out_or_topic_but_not_both(self):
+        spec = self.tmp / "spec.json"
+        spec.write_text(json.dumps({"shots": [shot()]}), encoding="utf-8")
+        for extra in ([], ["--out", str(self.tmp / "o"), "--topic", "t"]):
+            p = subprocess.run([sys.executable, str(SCRIPT), "capture", str(spec), *extra], capture_output=True, text=True,
+                               encoding="utf-8", errors="replace", timeout=60, stdin=subprocess.DEVNULL, env=ENV)
+            self.assertEqual(p.returncode, 2, p.stdout + p.stderr)
+
+
 if __name__ == "__main__":
     result = unittest.main(exit=False, verbosity=1).result
     ok = result.wasSuccessful()

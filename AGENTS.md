@@ -43,7 +43,7 @@ From an added sibling, Claude Code does not load its `AGENTS.md`, nor the deny a
 Check the layout with `python .claude/skills/workspace-siblings/scripts/check-workspace.py`. It prints PASS or FAIL lines and never reads `.env`. What loads where in Claude Code and Copilot, and the layout rules that follow: `docs/instruction-loading.md`.
 
 - One repo per commit, one pull request per repo. A change that spans repos is a pull request in each, linked in both bodies.
-- Agents work in new git worktrees, never in a person's main checkout.
+- Agents work in new git worktrees, never in a person's main checkout. Worktrees live in `../.worktrees/<repo>/<topic>`, beside the repositories (`workspace-siblings/scripts/worktrees.py new`); `worktrees.py clean` lists the finished ones and removes them only with `--yes`, when a person asks.
 
 | Change | Goes in |
 | --- | --- |
@@ -170,5 +170,5 @@ Never commit secrets. Hosting credentials belong in a local, git-ignored `.env` 
 - After diagnostic DOM/CSS injection or forced state changes, repeat the final ordinary user flow on a clean page with current served HTML/CSS. When source and browser disagree, confirm the server root, response content, and live asset versions before editing again. Leave a requested preview usable; stop only task-owned processes that are no longer needed.
 - Parse generated configuration and assert consumer-recognized keys. Preserve native exit codes and rerun the failing check after repair; never suppress errors and then infer success from an old output file.
 - Flag any change that introduces a new third-party dependency or external network call.
-- Before opening a pull request run the `pr-review-loop` skill; when a change alters how a page looks, attach a few small screenshots (`playwright-browser-testing`, `pr-screenshots.py`).
+- Before opening a pull request run the `pr-review-loop` skill; when a change alters how a page looks, attach a few small screenshots (`playwright-browser-testing`, `pr-screenshots.py`). Screenshots are saved for reuse in `../cf-lab-files/scratch/screenshots/<YYYY-MM-DD>/<topic>/` (`pr-screenshots.py where <topic>` prints and creates it); never a page that shows an email address or private data.
 - This project is open source and donated time — be conservative with anything that could be misused (destructive scripts, broad credential access, unrestricted agent tool permissions).

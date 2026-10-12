@@ -69,7 +69,7 @@ The spelling rules apply to the lab's own sentences only. Leave these exactly as
 | Direct quotes from a source, exactly as written | > "...the licence..." | HTML `<blockquote>` and `<q>`; Markdown `>` and Markdown text inside quotation marks (in HTML, quotation marks alone do not exempt text) |
 | Citations in Markdown tables | a Source cell with a quoted paper title | every cell is checked, except text inside quotation marks, URLs and allow-list phrases |
 | Non-English text (Spanish pages are es-MX) | `<p lang="es-MX">` | in HTML, any `lang` that is not English |
-| File names, identifiers, code, URLs | `licence.txt`, `organisation_id` | code, `<pre>`, URLs, attribute values, words joined by `/`, `_`, `.ext` |
+| File names, identifiers, code, URLs | `licence.txt`, `organisation_id` | code, `<pre>`, URLs, attribute values other than the ones below, words joined by `/`, `_`, `.ext` |
 
 In Markdown files the checker does not parse inline HTML: a `<blockquote>` or a `lang="es-MX"` written inside Markdown is not honored, and its text is checked as our prose. Use Markdown `>` for quotes, and keep Spanish text in its own es-MX page.
 
@@ -86,3 +86,5 @@ python .claude/skills/lab-voice/scripts/check-voice.py --allow voice-allow.txt p
 ```
 
 A British spelling in our prose is an ERROR (exit 1). Fix it, or, if it is a name or title, add it to the allow-list.
+
+**Text in tags is checked too.** A reader or a screen reader gets `alt`, `title`, `aria-label`, `aria-description` and `placeholder` text, a page's meta description, and its social-card title, description and image description. The checker reads those for spelling only (they do not count as words or sentences), and skips them inside code, quotes and other-language text. A British spelling in a meta description is as visible as one in the page: it shows in search results.

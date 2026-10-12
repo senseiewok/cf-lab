@@ -58,6 +58,7 @@ $Checks = @(
     @{ name = 'check-workspace-selftest'; exe = 'python';     args = @("$s/workspace-siblings/scripts/check-workspace.py", '--self-test');                 needs = @('python', 'git') }
     @{ name = 'check-merged-selftest';    exe = 'pwsh';       args = @("$s/workspace-siblings/scripts/check-merged.ps1", '-SelfTest');                     needs = @() }
     @{ name = 'test-check-workspace';     exe = 'python';     args = @("$s/workspace-siblings/scripts/test_check_workspace.py");                           needs = @('python', 'git') }
+    @{ name = 'test-worktrees';           exe = 'python';     args = @("$s/workspace-siblings/scripts/test_worktrees.py");                                 needs = @('python', 'git') }
     # ai-loop-council: routing, delegation and gate scripts (stub workers; no model)
     @{ name = 'select-work-route';        exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/select-work-route.ps1", '-SelfTest');                   needs = @() }
     @{ name = 'invoke-local-model';       exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/invoke-local-model.ps1", '-SelfTest');                  needs = @() }
