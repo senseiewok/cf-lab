@@ -4896,6 +4896,186 @@
       "completed_by": null,
       "complexity": "high",
       "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Overlaps T-0008, T-0009 and T-0011. Do not repeat a press number: use the label."
+    },
+    {
+      "id": "T-0135",
+      "title": "Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample",
+      "repo": "cf-research",
+      "area": "atlas",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-12T12:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-11 to 2026-10-12 session: four role-played reviews (a parent, a care-team member, a physician, an evidence expert; models, not people) and a three-model council on the atlas, the AI in care page and the home page"
+      },
+      "source_evidence": "2026-10-11 role-played evidence-expert review of the atlas pages (T0, model): the front page says classes fell below 'the lab's accuracy threshold' without a number; the class page shows 'Precision 1.00 ... 43 entries checked' without an interval; it is not said whether the 70 model-sorted entries sit inside the accuracy sample (a possible model-scored-against-model circularity); 'weighted estimate', 'few checked' and 'synthetic marker' are not explained.",
+      "effort_hours": {
+        "low": 6,
+        "high": 12
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: readers (a physician lens and an evidence lens) both read 1.00 from 43 entries as exact.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "From the run record and the gate code, not memory: the threshold (S1 to S4 values) is printed on the front page; each class page shows an interval for the precision and recall it prints (computed by a named method from the sample counts, verified by a test); a sentence says whether model-sorted entries are in the accuracy sample (and a check fails if the answer changes); 'weighted estimate', 'few checked' and 'synthetic marker' are each defined once in plain words; the prose ledger and banned-claims scan pass.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. No numbers from memory; the interval method must be named and tested."
+    },
+    {
+      "id": "T-0136",
+      "title": "Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition",
+      "repo": "cf-research",
+      "area": "atlas",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-12T12:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-11 to 2026-10-12 session: four role-played reviews (a parent, a care-team member, a physician, an evidence expert; models, not people) and a three-model council on the atlas, the AI in care page and the home page"
+      },
+      "source_evidence": "2026-10-11 role-played care-team and physician reviews (T0, models): the front page has tabs for trial designers, readers of results and people living with CF, but none for a care team; withheld classes (microbiology, healthcare use, survival and transplant, gastrointestinal and pancreatic) appear only in the 'Not shown' box, so a trialist may read them as rare; the FEV1 class has no definition and may mix efficacy use with FEV1 measured as a safety check after dosing.",
+      "effort_hours": {
+        "low": 8,
+        "high": 16
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: clearer for the people who would use the atlas most; needs a clinician's reading of the definitions (T-0011 gate).",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A 'care team' reader path that says what the atlas can and cannot answer; the withheld classes listed in the measures list marked 'counted, not shown (below the agreement bar)'; one sentence on whether the FEV1 class includes FEV1 used as a safety check, backed by the lexicon rules and a test; plain-language class notes stay unpublished until a clinician has read them (a person, not a model).",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. Clinician review of definitions is human-only; do not publish notes before it."
+    },
+    {
+      "id": "T-0137",
+      "title": "AI in care: read the four preprints and papers in full and re-rate the topics honestly",
+      "repo": "site",
+      "area": "ai-in-care",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-12T12:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-11 to 2026-10-12 session: four role-played reviews (a parent, a care-team member, a physician, an evidence expert; models, not people) and a three-model council on the atlas, the AI in care page and the home page"
+      },
+      "source_evidence": "2026-10-12 council decision: four topics were re-rated from Strong to Limited because each rests on an abstract-only or partly read source (Liu and others, Walters and Wilder, Bean and others, Sharma and others; the APA advisory read in part). Walters and Wilder has a PubMed Central id; the preprints are on arXiv.",
+      "effort_hours": {
+        "low": 6,
+        "high": 14
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: turns an honest 'Limited' into a measured rating, topic by topic.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "For each source, read the full text under security-browsing rules (robots.txt, honest user agent, the open-access terms), record exact quotes in the claims file and run the claims checker; then re-rate each topic by the page's own legend (Strong needs a source that answers the question directly and that we read in full) and update the notes; any rating change is reviewed by a second model family and listed in the pull request. No rating goes up on a summary.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. Reading papers is source work: keep the evidence ledger; do not copy text beyond short quotes."
+    },
+    {
+      "id": "T-0138",
+      "title": "Site: one date style for generated pages (10 October 2026 versus October 10, 2026)",
+      "repo": "site",
+      "area": "site",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-12T12:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-11 to 2026-10-12 session: four role-played reviews (a parent, a care-team member, a physician, an evidence expert; models, not people) and a three-model council on the atlas, the AI in care page and the home page"
+      },
+      "source_evidence": "2026-10-11 editorial pass: generated pages (Evidence, Resources, the atlas) print dates as '10 October 2026' (make_evidence.long_date, make_resources, make_trial_atlas) while hand-written pages and the American English reference use 'October 10, 2026'. The editor left Evidence alone rather than mix styles on one page.",
+      "effort_hours": {
+        "low": 2,
+        "high": 5
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: a small consistency win; test lines to change are listed in the editor's memo.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "One date style chosen by the maintainer; the generators and the tests that pin the old form change together; every page uses the same form; the voice checker and all site tests pass.",
+      "review_tier": "routine",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. A site-wide decision for the maintainer; the council did not take it."
+    },
+    {
+      "id": "T-0139",
+      "title": "Server steps only a person can do: X-Robots-Tag for the atlas and a 301 for /letter/",
+      "repo": "site",
+      "area": "deploy",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-12T12:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-11 to 2026-10-12 session: four role-played reviews (a parent, a care-team member, a physician, an evidence expert; models, not people) and a three-model council on the atlas, the AI in care page and the home page"
+      },
+      "source_evidence": "2026-10-11: the atlas pages are noindex by meta tag but the hand-placed deploy/htaccess.txt has not yet been given the X-Robots-Tag header; /letter/ is now a redirect page (meta refresh) and a server redirect is better: RewriteRule ^letter/?$ /#letter [R=301,NE,L]. The maintainer places that file by hand.",
+      "effort_hours": {
+        "low": 1,
+        "high": 2
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: search engines and old links behave correctly without relying on a page-level refresh.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A person edits deploy/htaccess.txt on the server (agents never do), then runs the site's live check (tools/check_live.py) and confirms the atlas responses carry X-Robots-Tag and /letter/ answers 301 to /#letter. Nothing here is automated.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. Human-only: the maintainer hand-places this file; an agent must not."
     }
   ]
 }
