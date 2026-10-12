@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-134 tasks, 133 created by a model, 1 with a measured outcome. Estimated effort 324.6 to 615.5 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+139 tasks, 138 created by a model, 1 with a measured outcome. Estimated effort 347.6 to 664.5 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (18)
 
@@ -35,7 +35,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 
-## proposed (104)
+## proposed (109)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -77,6 +77,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0094 | P2 | Decide, after the review memo, whether the AI-agent robots.txt rule from T-0067 ships, then merge it in both repos | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | full | medium |  | T-0067 |
 | T-0106 | P2 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low |  |  |
 | T-0116 | P2 | Pin the third-party skills by hash | cf-lab | 1-2 | 3 | 20 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |
+| T-0139 | P2 | Server steps only a person can do: X-Robots-Tag for the atlas and a 301 for /letter/ | site | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | low |  |  |
 | T-0046 | P2 | Sickle cell disease coverage: HBB variant checks, ASH guideline source terms, and an SCD worked example in SKILL.md | cf-skills | 2-3 | 4 | 16 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  | T-0043 |
 | T-0112 | P2 | A merge check: catch commits a squash merge dropped | cf-lab | 2-3 | 4 | 16 | no | model: claude-opus-5-5 | 2026-10-09 | routine | low |  |  |
 | T-0117 | P2 | Identity in public files: one role address, one way to sign | cf-lab | 1-3 | 3 | 15 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |
@@ -110,6 +111,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0060 | P2 | Refresh the private .ai website for the first release: new repo names, evidence loop, setup, claim fixes | .ai | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  | T-0041 |
 | T-0084 | P2 | Local worker playbook cards v0 and the bare-versus-card measurement | cf-lab | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |
 | T-0124 | P2 | A reusable intake tool so local agents can propose Resources rows from any permitted site | cf-research | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high |  |  |
+| T-0135 | P2 | Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample | cf-research | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium |  |  |
+| T-0137 | P2 | AI in care: read the four preprints and papers in full and re-rate the topics honestly | site | 6-14 | 4 | 4 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium |  |  |
 | T-0090 | P2 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium |  | T-0083 |
 | T-0097 | P2 | Re-run the local reviewer evaluation on a second, different script | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium |  |  |
 | T-0134 | P2 | Which 10 percent? A definitions ledger for modulator-eligibility denominators, after the April 2026 label change | cf-research | 8-16 | 4 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high |  |  |
@@ -138,11 +141,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0053 | P3 | Data Commons provider in cf-evidence-loop for population denominators (if the admission is accepted) | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | full |  |  | T-0048 |
 | T-0055 | P3 | EMA medicines provider: read the downloaded JSON report as evidence records (marketing authorisation date, status) | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  |  |
 | T-0132 | P3 | Make the 11 skipped cftr-model data tests run: commit the five hashed structure files | cf-research | 2-4 | 2 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | low |  | T-0131 |
+| T-0138 | P3 | Site: one date style for generated pages (10 October 2026 versus October 10, 2026) | site | 2-5 | 2 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-12 | routine | low |  |  |
 | T-0101 | P3 | A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK | cf-lab | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | medium |  |  |
 | T-0087 | P3 | Faster site and package test suites with the same assertions | cf-research | 3-6 | 2 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine | medium |  |  |
 | T-0036 | P3 | Admission run for the two installed local models (Gemma 4 31B, Laguna XS 2.1) as reviewers | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | full |  |  |  |
 | T-0126 | P3 | A small public benchmark of the lab's own checks (20 to 30 frozen tasks) | cf-research | 8-16 | 4 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | high |  |  |
 | T-0133 | P3 | Opt-in browser-test job for the lab's graphics and viewer tests | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | medium |  | T-0131 |
+| T-0136 | P3 | Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition | cf-research | 8-16 | 3 | 2.5 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium |  |  |
 
 ## done (9)
 
@@ -535,6 +540,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-09: four third-party skills are loaded by every session; one spawns nested agents; review was a grep, not a line-by-line read.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides whether skill-creator keeps its scripts.
 
+### T-0139 Server steps only a person can do: X-Robots-Tag for the atlas and a 301 for /letter/
+
+- **Why / ROI rationale:** Estimate: search engines and old links behave correctly without relying on a page-level refresh. *(confidence: medium)*
+- **Acceptance:** A person edits deploy/htaccess.txt on the server (agents never do), then runs the site's live check (tools/check_live.py) and confirms the atlas responses carry X-Robots-Tag and /letter/ answers 301 to /#letter. Nothing here is automated.
+- **Evidence:** 2026-10-11: the atlas pages are noindex by meta tag but the hand-placed deploy/htaccess.txt has not yet been given the X-Robots-Tag header; /letter/ is now a redirect page (meta refresh) and a server redirect is better: RewriteRule ^letter/?$ /#letter [R=301,NE,L]. The maintainer places that file by hand.
+- **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. Human-only: the maintainer hand-places this file; an agent must not.
+
 ### T-0046 Sickle cell disease coverage: HBB variant checks, ASH guideline source terms, and an SCD worked example in SKILL.md
 
 - **Why / ROI rationale:** The user states SCD matters to this community. The loop already runs for SCD; this makes it visible, adds the guideline source once terms are read, and keeps the CF-SCD funding comparison paper as a sourced example. *(confidence: medium)*
@@ -855,6 +867,20 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-10: the 25 rows for the UK, Canada, Australia and Ireland were drafted by hand-written scripts (robots.txt read, one page at a time with the project user agent, same-host only, screenshots, a local model's wording checked blind); the maintainer wants the list filled over time by local agents.
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Reuse the conduct code in cf-skills' evidence client and cf-research's fetch_sources.py; do not rewrite them. Spanish and other languages: summaries in the maintainer's chosen language rules only.
 
+### T-0135 Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample
+
+- **Why / ROI rationale:** Estimate: readers (a physician lens and an evidence lens) both read 1.00 from 43 entries as exact. *(confidence: medium)*
+- **Acceptance:** From the run record and the gate code, not memory: the threshold (S1 to S4 values) is printed on the front page; each class page shows an interval for the precision and recall it prints (computed by a named method from the sample counts, verified by a test); a sentence says whether model-sorted entries are in the accuracy sample (and a check fails if the answer changes); 'weighted estimate', 'few checked' and 'synthetic marker' are each defined once in plain words; the prose ledger and banned-claims scan pass.
+- **Evidence:** 2026-10-11 role-played evidence-expert review of the atlas pages (T0, model): the front page says classes fell below 'the lab's accuracy threshold' without a number; the class page shows 'Precision 1.00 ... 43 entries checked' without an interval; it is not said whether the 70 model-sorted entries sit inside the accuracy sample (a possible model-scored-against-model circularity); 'weighted estimate', 'few checked' and 'synthetic marker' are not explained.
+- **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. No numbers from memory; the interval method must be named and tested.
+
+### T-0137 AI in care: read the four preprints and papers in full and re-rate the topics honestly
+
+- **Why / ROI rationale:** Estimate: turns an honest 'Limited' into a measured rating, topic by topic. *(confidence: medium)*
+- **Acceptance:** For each source, read the full text under security-browsing rules (robots.txt, honest user agent, the open-access terms), record exact quotes in the claims file and run the claims checker; then re-rate each topic by the page's own legend (Strong needs a source that answers the question directly and that we read in full) and update the notes; any rating change is reviewed by a second model family and listed in the pull request. No rating goes up on a summary.
+- **Evidence:** 2026-10-12 council decision: four topics were re-rated from Strong to Limited because each rests on an abstract-only or partly read source (Liu and others, Walters and Wilder, Bean and others, Sharma and others; the APA advisory read in part). Walters and Wilder has a PubMed Central id; the preprints are on arXiv.
+- **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. Reading papers is source work: keep the evidence ledger; do not copy text beyond short quotes.
+
 ### T-0090 Re-measure the local reviewer with the thinking profile and more runs per arm
 
 - **Why / ROI rationale:** Estimate: n = 4 per arm cannot support a decision about the review card or the reviewer role; more runs and the thinking profile settle whether a card helps and whether thinking fits in the 16,384 output budget. *(confidence: medium)*
@@ -1074,6 +1100,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-10: test_data skips 11 tests because sources/downloads (git-ignored) is absent in CI. sources/manifest.json already records size and sha256 for all five files (about 1.3 MB). The catalog lists them access: fetch, redistribute: true. Opus recommended committing them under a tracked fixtures path; Sonnet preferred small fixtures plus a monthly real-file check (it had not checked sizes). Fetching on every run was rejected by both.
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Do not change the manifest's meaning: it records what was fetched and when. If a person prefers zero binary growth, fall back to Sonnet's option: small fixtures for the parsing logic and a manually run real-file check.
 
+### T-0138 Site: one date style for generated pages (10 October 2026 versus October 10, 2026)
+
+- **Why / ROI rationale:** Estimate: a small consistency win; test lines to change are listed in the editor's memo. *(confidence: medium)*
+- **Acceptance:** One date style chosen by the maintainer; the generators and the tests that pin the old form change together; every page uses the same form; the voice checker and all site tests pass.
+- **Evidence:** 2026-10-11 editorial pass: generated pages (Evidence, Resources, the atlas) print dates as '10 October 2026' (make_evidence.long_date, make_resources, make_trial_atlas) while hand-written pages and the American English reference use 'October 10, 2026'. The editor left Evidence alone rather than mix styles on one page.
+- **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. A site-wide decision for the maintainer; the council did not take it.
+
 ### T-0101 A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK
 
 - **Why / ROI rationale:** Estimate: a second frontier family for blind reviews and bounded plans when other limits are used up; the lab's rule of one reviewed packet per cloud call stays. *(confidence: low)*
@@ -1107,4 +1140,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A person approves the new third-party dependency first (the lab rule). Then: a workflow_dispatch plus weekly job on a pinned runner image, read-only token, no secrets, hashed requirements file, tests load only local pages; run once as non-blocking for about a week and record flakiness. Remove the row if ten scheduled runs are green and have never caught anything.
 - **Evidence:** 2026-10-10: six checks in check-all and several cf-research tests always skip because no browser runs in CI. Both reviewers advised an opt-in separate job (not on every pull request) that uses the Chrome or Edge already on the runner through Playwright's channel option, with Playwright and its dependencies pinned with hashes, and a flag that turns a missing browser into a failure so the job cannot pass while running nothing.
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Measured minutes and WebGL behaviour on a GPU-less runner are unknown: the reviewers estimated 3 to 6 minutes.
+
+### T-0136 Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition
+
+- **Why / ROI rationale:** Estimate: clearer for the people who would use the atlas most; needs a clinician's reading of the definitions (T-0011 gate). *(confidence: medium)*
+- **Acceptance:** A 'care team' reader path that says what the atlas can and cannot answer; the withheld classes listed in the measures list marked 'counted, not shown (below the agreement bar)'; one sentence on whether the FEV1 class includes FEV1 used as a safety check, backed by the lexicon rules and a test; plain-language class notes stay unpublished until a clinician has read them (a person, not a model).
+- **Evidence:** 2026-10-11 role-played care-team and physician reviews (T0, models): the front page has tabs for trial designers, readers of results and people living with CF, but none for a care team; withheld classes (microbiology, healthcare use, survival and transplant, gastrointestinal and pancreatic) appear only in the 'Not shown' box, so a trialist may read them as rare; the FEV1 class has no definition and may mix efficacy use with FEV1 measured as a safety check after dosing.
+- **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. Clinician review of definitions is human-only; do not publish notes before it.
 
