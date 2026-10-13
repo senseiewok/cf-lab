@@ -5,6 +5,9 @@
     },
     {
       "path": "../cf-skills/.claude/skills"
+    },
+    {
+      "path": "../cf-research/.claude/skills"
     }
   ]
 }
