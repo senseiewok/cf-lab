@@ -52,13 +52,14 @@ The rendered **ROI index** is `benefit x 10 / midpoint hours`. It ranks; it does
 | `complexity` | Optional: `low`, `medium` or `high`. How hard the work is, not how long it takes |
 | `recommended_route` | Optional: `local`, `cloud` or `frontier`. `local` is the configured Ollama worker (Qwen3.8 27B is the lab default, not a requirement) for bounded drafts and first-pass review with a deterministic verifier. `cloud` is the maintainer's discounted routing (including auto): advisory, not a known model capability. `frontier` is for planning, risky design and review of full-tier work. A task a local worker cannot run (it needs a human, a protected path, or semantic judgement the verifier cannot check) is written without a route or with its reason in `route_rationale` |
 | `route_rationale` | Required and non-empty when `recommended_route` is set: the evidence for the route (a measured delegation beats a guess). The renderer rejects other values and a missing rationale with exit 2 |
+| `branch` | Optional: the git branch name (e.g., `site/showcase-2026-10-12`) where active work is happening. Set when claiming a task (`status: in_progress`) so concurrent or scheduled agents can check `board.json` and `git worktree list` instead of colliding on the same task or repo. Never store internal session or conversation IDs in `board.json` |
 | `notes` | Optional. Use it to mark human-only steps |
 
 ## Lifecycle
 
 1. Anyone, model or human, appends a task with `status: proposed` and full provenance.
 2. A human moves it to `ready` after reading the rationale. A model never does this.
-3. Whoever takes it sets `in_progress`. Work follows the `review_tier`.
+3. Whoever takes it sets `in_progress` and records the active worktree's `branch` name (after checking `board.json` and `git worktree list` across the target repo to confirm no other branch/worktree is already working on it). Work follows the `review_tier`.
 4. `done` requires the acceptance check's output, `completed_by`, `completed_at`, and `roi.actual_hours`. Fill `measured_outcome` with what actually happened, including "no measurable effect".
 5. `dropped` keeps the task on the board with a reason in `notes`. Deleting tasks erases the record of what was considered.
 

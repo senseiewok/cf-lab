@@ -33,11 +33,12 @@ flowchart TD
    - Compares the current git commit tree hash of `tasks/board.json`, `../cf-research/proposals/`, and `../cf-research/landscape/` against the audit state recorded in `.loop-logs/last-cro-audit.json`.
    - **If no new tasks were proposed or modified, it terminates immediately in under 1 second without making any model calls.**
 
-2. **Grounding Audit of Proposed Tasks**:
-   - Scans all `status: proposed` and `ready` tasks in `tasks/board.json`:
+2. **Grounding & Coordination Audit of Board Tasks**:
+   - Scans all `status: proposed`, `ready`, and `in_progress` tasks in `tasks/board.json`:
      - Asserts that `source_evidence` cites primary peer-reviewed literature (DOI), clinical registries (NCT), Cryo-EM coordinates (PDB), or official regulatory documentation.
      - Rejects vague speculative claims ("explore AI", "improve tooling") that lack measurable `acceptance` criteria or direct tie to CFTR biology.
      - Flags "agent scope creep" or recursive meta-tooling tasks that do not advance patient-facing translation or biophysical science.
+     - Verifies that every `status: "in_progress"` task records its active git `"branch"` (cross-checked against `git worktree list` across `cf-lab`, `cf-research`, `cf-skills`, and `.ai`) so concurrent agents never collide, and flags tasks whose PRs have already merged or been superseded.
 
 3. **Curative Mission Alignment Evaluation**:
    - Cross-references ongoing and queued efforts against the lab's two foundational tracks:

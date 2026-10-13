@@ -9,8 +9,9 @@
   Run it after editing board.json. With -Check it exits 1 when BOARD.md is stale, so it
   can serve as a pre-commit or CI guard.
 
-  Optional per-task fields: complexity (low, medium, high), recommended_route (local, cloud, frontier) and route_rationale
-  (required, non-empty, when a route is set). Other values are rejected with exit 2. Case-sensitive.
+  Optional per-task fields: complexity (low, medium, high), recommended_route (local, cloud, frontier), route_rationale
+  (required, non-empty, when a route is set), and branch (git branch name for active worktree/branch coordination).
+  Other values are rejected with exit 2. Case-sensitive.
 
   ROI index = benefit * 10 / midpoint effort hours. It is a ranking aid computed from
   estimates, not a measurement. The `measured` flag on each task says whether anyone
@@ -46,10 +47,16 @@ foreach ($t in $board.tasks) {
     if ($t.status -notin 'proposed','ready','in_progress','blocked','done','dropped') { $errors += "$($t.id): bad status '$($t.status)'" }
     if ($t.priority -notmatch '^P[0-3]$') { $errors += "$($t.id): bad priority '$($t.priority)'" }
     if ($t.roi.benefit -lt 1 -or $t.roi.benefit -gt 5) { $errors += "$($t.id): roi.benefit must be 1-5" }
-    if ($t.PSObject.Properties.Name -contains 'complexity' -and $t.complexity -cnotin 'low', 'medium', 'high') { $errors += "$($t.id): complexity must be low, medium or high" }
-    if ($t.PSObject.Properties.Name -contains 'recommended_route') {
+    if ($t.PSObject.Properties.Name -contains 'complexity' -and $null -ne $t.complexity -and $t.complexity -cnotin 'low', 'medium', 'high') { $errors += "$($t.id): complexity must be low, medium or high" }
+    if ($t.PSObject.Properties.Name -contains 'recommended_route' -and $null -ne $t.recommended_route) {
         if ($t.recommended_route -cnotin 'local', 'cloud', 'frontier') { $errors += "$($t.id): recommended_route must be local, cloud or frontier" }
         elseif ([string]::IsNullOrWhiteSpace([string]$t.route_rationale)) { $errors += "$($t.id): route_rationale is required when recommended_route is set" }
+    }
+    if ($t.PSObject.Properties.Name -contains 'branch' -and $null -ne $t.branch -and [string]$t.branch -ne '') {
+        $b = [string]$t.branch
+        if ($b -notmatch '^[A-Za-z0-9][A-Za-z0-9._/-]*$' -or $b -match '\.\.|//|/$|\.lock$') {
+            $errors += "$($t.id): bad branch '$b'"
+        }
     }
 }
 foreach ($t in $board.tasks) { foreach ($d in $t.depends_on) { if (-not $ids.ContainsKey($d)) { $errors += "$($t.id): depends_on unknown $d" } } }
@@ -105,14 +112,15 @@ foreach ($s in $statuses) {
     if ($group.Count -eq 0) { continue }
     [void]$sb.AppendLine("## $($s.Replace('_',' ')) ($($group.Count))")
     [void]$sb.AppendLine()
-    [void]$sb.AppendLine('| ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |')
-    [void]$sb.AppendLine('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |')
+    [void]$sb.AppendLine('| ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |')
+    [void]$sb.AppendLine('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |')
     foreach ($t in $group) {
         $hours = "$($t.effort_hours.low)-$($t.effort_hours.high)"
         $deps = if ($t.depends_on) { ($t.depends_on -join ', ') } else { '' }
+        $branch = if ($t.PSObject.Properties.Name -contains 'branch' -and $null -ne $t.branch) { Esc $t.branch } else { '' }
         $meas = if ($t.roi.measured) { 'yes' } else { 'no' }
         $date = IsoDate $t.created_at
-        [void]$sb.AppendLine("| $($t.id) | $($t.priority) | $(Esc $t.title) | $($t.repo) | $hours | $($t.roi.benefit) | $(RoiIndex $t) | $meas | $(Who $t) | $date | $($t.review_tier) | $($t.complexity) | $($t.recommended_route) | $deps |")
+        [void]$sb.AppendLine("| $($t.id) | $($t.priority) | $(Esc $t.title) | $($t.repo) | $hours | $($t.roi.benefit) | $(RoiIndex $t) | $meas | $(Who $t) | $date | $($t.review_tier) | $($t.complexity) | $($t.recommended_route) | $deps | $branch |")
     }
     [void]$sb.AppendLine()
 }
@@ -124,6 +132,7 @@ foreach ($t in $sorted) {
     [void]$sb.AppendLine()
     [void]$sb.AppendLine("- **Why / ROI rationale:** $(Esc $t.roi.rationale) *(confidence: $($t.roi.confidence))*")
     if ($t.recommended_route) { [void]$sb.AppendLine("- **Route:** $($t.recommended_route) - $(Esc $t.route_rationale)") }
+    if ($t.PSObject.Properties.Name -contains 'branch' -and $t.branch) { [void]$sb.AppendLine("- **Branch:** $(Esc $t.branch)") }
     [void]$sb.AppendLine("- **Acceptance:** $(Esc $t.acceptance)")
     [void]$sb.AppendLine("- **Evidence:** $(Esc $t.source_evidence)")
     if ($t.notes) { [void]$sb.AppendLine("- **Notes:** $(Esc $t.notes)") }
