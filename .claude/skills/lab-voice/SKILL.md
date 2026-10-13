@@ -89,7 +89,7 @@ The checker is `scripts/check-voice.py`, with tests in `scripts/test-check-voice
 - **Language and linking**: Author Spanish pages in clear, neutral/Mexican Spanish (`<html lang="es">`) with reciprocal `hreflang` links (`rel="alternate" hreflang="es"` and `hreflang="en"`).
 - **Medical boundary disclaimer**: Include the verified Spanish boundary sentence on every `/es/` page: *"Investigación independiente, no asesoramiento médico. Sensei Ewok CF Lab no promete curas ni tratamientos clínicos."*
 - **Untranslated scientific identifiers**: Keep PDB IDs (`6MSM`, `5UAK`, `8EIQ`, `8EJ1`), UniProt accession (`P13569`), NCT trial IDs, gene and variant symbols (`CFTR`, `F508del`, `G551D`, `R117H`, `W1282X`, `E1371Q`), and instrument/endpoint abbreviations (`FEV1`, `ppFEV1`, `LCI`, `CFQ-R`) exact as written.
-- **No forbidden tokens across `src/`**: Site-wide checks scan every file under `src/` for forbidden words (`family`, `personal`, `battle`, `warrior`, `miracle`, `soon`, `guarantee`, `carer`, `draft, in review`); use respectful Spanish phrasing (*personas allegadas*, *cuidadores*, *estudio*) and never promise cures or timelines.
+- **No forbidden tokens across `src/`**: Site-wide checks scan every file under `src/` for forbidden English tokens (`family`, `personal`, `battle`, `warrior`, `miracle`, `soon`, `guarantee`, `carer`, `draft, in review`) and Spanish hype/promise tokens (`batalla`, `guerrero`, `milagro`, `garantía`, `cura garantizada`, `borrador, en revisión`); use respectful Spanish phrasing (*personas allegadas*, *seres queridos*, *equipos de cuidado*, *estudio*) and never promise cures or timelines.
 
 ## Review before publishing
 

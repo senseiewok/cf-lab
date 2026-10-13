@@ -153,6 +153,15 @@ class NewWorktree(Fixture):
         dest = self.root / ".worktrees" / "r1" / "showcase-2026-10-12"
         self.assertEqual(git("rev-parse", "--abbrev-ref", "@{u}", cwd=dest), "origin/site/showcase-2026-10-12")
 
+    def test_new_enforces_prefix_and_rolls_back_failed_push(self):
+        self.assertEqual(run("new", "r1", "no-prefix", "--push", "--root", self.root).returncode, 2)
+        self.assertEqual(run("new", "r1", "bad-prefix", "--branch", "custom/bad-prefix", "--root", self.root).returncode, 2)
+        git("remote", "set-url", "origin", str(self.tmp / "missing.git"), cwd=self.repo)
+        p = run("new", "r1", "push-fail", "--branch", "feat/push-fail", "--push", "--no-fetch", "--root", self.root)
+        self.assertEqual(p.returncode, 1, p.stdout + p.stderr)
+        self.assertFalse((self.root / ".worktrees" / "r1" / "push-fail").exists(), "rolled back worktree folder")
+        self.assertEqual(git("branch", "--list", "feat/push-fail", cwd=self.repo), "", "rolled back local branch")
+
     def test_new_refuses_bad_input(self):
         self.assertEqual(run("new", "nope", "t", "--root", self.root).returncode, 2)
         self.assertEqual(run("new", "r1", "../escape", "--root", self.root).returncode, 2)

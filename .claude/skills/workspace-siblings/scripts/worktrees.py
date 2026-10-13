@@ -251,6 +251,9 @@ def cmd_clean(root, args):
     return 1 if failed else 0
 
 
+BRANCH_STD_RX = re.compile(r"^(feat|fix|refactor|site|skills|research|atlas|cftr|sec|board|council|docs|ci|editorial|work)/[A-Za-z0-9][A-Za-z0-9._-]*$")
+
+
 def cmd_new(root, args):
     repos = {d.name: d for d in find_repos(root)}
     if args.repo not in repos:
@@ -260,6 +263,9 @@ def cmd_new(root, args):
     branch = args.branch or args.topic
     if not NAME_RX.fullmatch(args.topic) or not REF_RX.fullmatch(branch) or branch.endswith(("/", ".lock")) or ".." in branch:
         print("REFUSED the topic and branch must be letters, digits, dot, dash, underscore (a branch may also have a slash)", file=sys.stderr)
+        return 2
+    if (args.branch or args.push) and not BRANCH_STD_RX.fullmatch(branch):
+        print("REFUSED branch must follow <prefix>/<topic> (allowed prefixes: feat, fix, refactor, site, skills, research, atlas, cftr, sec, board, council, docs, ci, editorial, work)", file=sys.stderr)
         return 2
     base_dir = root / ".worktrees" / args.repo
     dest = base_dir / args.topic
@@ -284,7 +290,9 @@ def cmd_new(root, args):
     if args.push:
         p = Git("push", "-u", "origin", branch, cwd=dest)
         if not p.ok:
-            print(f"FAILED push to origin/{branch}: {p.err}", file=sys.stderr)
+            Git("worktree", "remove", "--force", str(dest), cwd=repo)
+            Git("branch", "-D", branch, cwd=repo)
+            print(f"FAILED push to origin/{branch} (rolled back worktree and local branch): {p.err}", file=sys.stderr)
             return 1
         print(f"CREATED {dest} on branch {branch} from {base} (pushed to origin/{branch})")
     else:
