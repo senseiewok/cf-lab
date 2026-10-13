@@ -28,7 +28,7 @@
 .EXAMPLE
   pwsh -NoProfile -File ./check-all.ps1
   pwsh -NoProfile -File ./check-all.ps1 -List
-  pwsh -NoProfile -File ./check-all.ps1 -Only render-board,render-board-ps51
+  pwsh -NoProfile -File ./check-all.ps1 -Only render-board,test-render-board
   pwsh -NoProfile -File ./check-all.ps1 -SelfTest
 #>
 [CmdletBinding()]

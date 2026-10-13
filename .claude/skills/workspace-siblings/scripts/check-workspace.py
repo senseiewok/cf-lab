@@ -28,8 +28,6 @@ from pathlib import Path
 
 SIBLINGS = {"cf-skills": "senseiewok/cf-skills", "cf-research": "senseiewok/cf-research"}
 FILES_DIR = "cf-lab-files"
-# Skills developed upstream in cf-lab and published downstream to cf-skills for community distribution:
-PUBLISHED_TO_COMMUNITY = {"cf-evidence-loop"}
 
 
 def _url_matches(url: str, expected: str) -> bool:
@@ -142,8 +140,6 @@ def _check_skills(root: Path, home: Path) -> list[tuple[bool, str]]:
     collisions = 0
     for name, where in sorted(owners.items()):
         if len(where) > 1:
-            if set(where) == {"cf-lab", "cf-skills"} and name in PUBLISHED_TO_COMMUNITY:
-                continue
             results.append((False, f"FAIL skill names: {name} is in more than one repo ({', '.join(where)})"))
             collisions += 1
     personal = home / ".claude" / "skills"

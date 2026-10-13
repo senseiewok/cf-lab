@@ -2,9 +2,7 @@
 # Read-only token, actions pinned by full commit SHA, no secrets, no caches, no artifacts.
 # Nothing from a pull request (title, branch name, body) is used in a run step.
 #
-# Runner: Windows, because the lab is Windows-first and two checks (render-board-ps51 and the
-# PowerShell 5.1 case inside test-render-board) need Windows PowerShell 5.1, which only a Windows
-# runner has; on Linux the first would be SKIPPED and the second would not exercise 5.1.
+# Runner: Windows, matching the primary development environment and running PowerShell 7 (pwsh).
 #
 # Skipped by check-all.ps1 itself, which prints each with its reason: the six checks that need a
 # browser (observe-page-selftest, test-check-webgl, test-check-animated-page, webgl-playwright,
@@ -32,9 +30,6 @@ defaults:
 env:
   PYTHONDONTWRITEBYTECODE: "1"
   PIP_DISABLE_PIP_VERSION_CHECK: "1"
-  # Process scope only: lets the Windows PowerShell 5.1 checks run the repository's own scripts,
-  # whatever the image's machine policy is. It changes no check and nothing outside this job.
-  PSExecutionPolicyPreference: Bypass
 
 jobs:
   check-all:

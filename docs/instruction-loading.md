@@ -24,7 +24,7 @@ Observed here (T1, 2026-10-10): a general-purpose subagent started from a sessio
 2. **Siblings need no `AGENTS.md` while sessions start in `cf-lab`.** An added directory's `AGENTS.md` never loads. The rule for the starting folder is in `AGENTS.md`: the shared deny and ask rules load only from the folder a session starts in, with no fallback to a parent; start sessions in `cf-lab`.
 3. **A sibling's skills load from its main checkout.** A person pulls the main checkout after a merge; agents never change a person's main checkout. A skill merged in a sibling is not visible to a session until then.
 4. **Put the rules a built-in Explore or Plan agent needs into its packet.** It does not receive `AGENTS.md`.
-5. **Keep skill names unique** across `cf-lab`, `cf-skills`, `cf-research` and `~/.claude/skills` (except curated skills developed in `cf-lab` and published downstream to `cf-skills` for community distribution, which `check-workspace.py` explicitly permits).
+5. **Keep skill names unique** across `cf-lab`, `cf-skills`, `cf-research` and `~/.claude/skills`. VS Code resolves duplicates across workspace roots by the primary root; Claude Code ranks personal over project. How a project skill ranks against one from an added directory with the same name is not verified.
 6. **Instruction sources are additive in Copilot.** Do not rely on order to settle a conflict between `AGENTS.md` and `.github/copilot-instructions.md`; keep the two consistent.
 
 ## Sources, read 2026-10-10

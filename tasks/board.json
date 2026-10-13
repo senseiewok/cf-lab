@@ -1,4 +1,4 @@
-{
+﻿{
   "schema_version": 1,
   "generated_note": "board.json is the source of truth; BOARD.md is rendered by render-board.ps1. Edit JSON, not the markdown.",
   "tasks": [
@@ -5076,6 +5076,44 @@
       "completed_by": null,
       "complexity": "low",
       "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. Human-only: the maintainer hand-places this file; an agent must not."
+    },
+    {
+      "id": "T-0140",
+      "title": "Design a pinned snapshot and sync verification mechanism for catalog.yaml in cf-lab",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-12T20:53:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Antigravity",
+        "model_id": "gemini-2.5-pro",
+        "session_ref": "PR 50 council review and self-contained lab discussion"
+      },
+      "source_evidence": "PR #50 council review caught that manually copying catalog.yaml into cf-lab resulted in 59 sources vs 67 in cf-research main (missing 8 recently added sources). A self-contained cf-lab clone needs a pinned snapshot script that generates/syncs the reference catalog with a pinned commit hash and a diff assertion check.",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: enables standalone cf-lab operation without drifting or unversioned manual copies.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A proposal document in cf-research/proposals/ outlines the pinned snapshot format, sync script, and CI verification check. No manual unversioned copying.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "recommended_route": "frontier",
+      "route_rationale": "Architectural design for cross-repo catalog snapshot and verification.",
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready."
     }
   ]
 }
