@@ -21,7 +21,7 @@ sftp-config.json
 # Local agent settings
 .claude/settings.local.json
 CLAUDE.local.md
-.agents/
+.agents/skills/
 
 # OS
 .DS_Store

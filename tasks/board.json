@@ -5110,7 +5110,7 @@
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires cross-disciplinary synthesis of aerosol biophysics, nanoparticle pharmacology, and CF airway immunology.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Verified grounded in primary literature (NCT05668741 BEACON-CF termination, SORT-LNP biophysics); high curative alignment with Track A delivery milestone. Tier elevated. Recommended ready when maintainer approves."
     },
     {
       "id": "T-0141",
@@ -5147,7 +5147,7 @@
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires culturally grounded, scientifically exact Spanish translation preserving medical boundaries and dignified lab-voice tone.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready."
     },
     {
       "id": "T-0142",
@@ -5182,7 +5182,7 @@
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires visual taste, accessibility evaluation across viewports, and multi-model council consensus.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready."
     },
     {
       "id": "T-0143",
@@ -5217,7 +5217,7 @@
       "complexity": "high",
       "recommended_route": "cloud",
       "route_rationale": "Requires deep structural bioinformatics and 3D coordinate geometry.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Rigorously grounded in Cryo-EM coordinates (PDB 5UAK, 6MSM, 7SV7, 8EIQ) and UniProt P13569; direct Track A biophysical theratyping milestone. Tier elevated. Recommended ready."
     },
     {
       "id": "T-0144",
@@ -5252,7 +5252,7 @@
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Molecular genetics, RNA biology, and translational pharmacology.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in RefSeq NM_000492.4, CFF Prime Medicine commitment, and Alltrna suppressor tRNAs; essential Track A milestone for non-modulator population (W1282X, G542X). Tier elevated. Recommended ready."
     },
     {
       "id": "T-0145",
@@ -5287,7 +5287,7 @@
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Epithelial physiology and mathematical ion transport modeling.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in epithelial electrophysiology (TMEM16A potentiators, ETD001 ENaC antagonism); universal Track A bypass conductance milestone. Tier routine. Recommended ready."
     },
     {
       "id": "T-0146",
@@ -5324,7 +5324,7 @@
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Clinical biostatistics, trial design methodology, and organoid assay interpretation.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in published rectal organoid FIS swelling assay correlations; links Track A theratyping to Track B Trial Endpoint Atlas. Tier full. Recommended ready."
     },
     {
       "id": "T-0147",
@@ -5359,7 +5359,7 @@
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Microbial genomics, phage biology, and evolutionary dynamics.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in microbial genomics of mucoid P. aeruginosa isolates and phage receptor trade-offs (LPS O-antigen, PilA); high-value Track A anti-infective milestone. Tier routine. Recommended ready."
     },
     {
       "id": "T-0148",
@@ -5394,7 +5394,7 @@
       "complexity": "medium",
       "recommended_route": "local",
       "route_rationale": "PowerShell 7 automation and Antigravity configuration.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Infrastructure task operationalizing Track A discovery engines via Antigravity sidecar cron schedules; bounded permissions required. Tier elevated. Recommended ready."
     },
     {
       "id": "T-0149",
@@ -5432,7 +5432,7 @@
       "complexity": "low",
       "recommended_route": "local",
       "route_rationale": "Automated deterministic API lookups and JSON diffing.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Defensive sentinel grounded in Crossref/Retraction Watch and openFDA APIs; protects lab from citation rot and label drift. Tier routine. Recommended ready."
     },
     {
       "id": "T-0150",
@@ -5469,7 +5469,7 @@
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Structured parsing of clinical trial protocol fields under security-browsing rules.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in ClinicalTrials.gov API v2; directly feeds Track B Trial Endpoint Atlas (T-0130). Tier elevated. Recommended ready."
     },
     {
       "id": "T-0151",
@@ -5504,7 +5504,7 @@
       "complexity": "low",
       "recommended_route": "local",
       "route_rationale": "Local deterministic PowerShell and Python scripts.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Operational sentinel verifying live HTTP headers, 65 roses count, and voice dignity; zero-network local checks. Tier routine. Recommended ready."
     },
     {
       "id": "T-0152",
@@ -5542,7 +5542,7 @@
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires security analysis, git worktree orchestration, and automated PR generation through the elevated/full gate.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Core security sentinel auditing logs for secrets, PHI, catalog compliance, and prompt injection with automated PR remediation. Tier full. Recommended ready."
     },
     {
       "id": "T-0153",
@@ -5583,7 +5583,7 @@
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires multi-repo cross-pollination between cf-research, cf-skills, and .ai with Playwright visual testing.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready."
     },
     {
       "id": "T-0154",
@@ -5621,7 +5621,7 @@
       "complexity": "low",
       "recommended_route": "cloud",
       "route_rationale": "Requires multi-repo board synthesis, mission alignment verification, and lazy execution gating.",
-      "notes": "2026-10-12: proposed by Gemini on maintainer instruction; only the maintainer can set it ready. Strict zero-token-burn rule enforced on unchanged state."
+      "notes": "2026-10-12: proposed by Gemini on maintainer instruction; only the maintainer can set it ready. Strict zero-token-burn rule enforced on unchanged state. | 2026-10-12 CRO Grounding Audit: CRO sentinel executed first audit; lazy delta verification confirmed 15 new discovery/sentinel tasks; emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-12.md. Tier elevated."
     }
   ]
 }

@@ -303,7 +303,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Local deterministic PowerShell and Python scripts.
 - **Acceptance:** Daily scheduled check runs tools/check_live.py, check-voice.py, and render-board.ps1 -Check; alerts the maintainer only when a regression is detected; zero unbudgeted network calls.
 - **Evidence:** 2026-10-12: Maintaining daily automated checks of live HTTP headers (HSTS, CSP, X-Robots-Tag per T-0139), 301 redirects, 65 roses count (T-0016), lab-voice tone, and board rendering ensures unbroken operational excellence. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Operational sentinel verifying live HTTP headers, 65 roses count, and voice dignity; zero-network local checks. Tier routine. Recommended ready.
 
 ### T-0105 A CF clinician or social worker reads the safe-use box wording and the open questions
 
@@ -318,7 +318,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Automated deterministic API lookups and JSON diffing.
 - **Acceptance:** Skill scheduled-evidence-integrity operationalized; automated bi-weekly execution queries Crossref/Retraction Watch and openFDA; flags unverified changes directly into the evidence ledger and tasks/board.json.
 - **Evidence:** 2026-10-12: Maintainer affirmed high utility of operational sentinel schedules alongside discovery engines; continuous automated lookup protects scientific credibility by flagging retracted DOIs and regulator indication changes. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Defensive sentinel grounded in Crossref/Retraction Watch and openFDA APIs; protects lab from citation rot and label drift. Tier routine. Recommended ready.
 
 ### T-0150 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
@@ -326,7 +326,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Structured parsing of clinical trial protocol fields under security-browsing rules.
 - **Acceptance:** Skill scheduled-trial-surveillance operationalized; weekly automated check scans ClinicalTrials.gov API v2; outputs structured delta snapshots for the atlas generator; passes check_claims.py.
 - **Evidence:** 2026-10-12: ClinicalTrials.gov regular polling feeds directly into the flagship Trial Endpoint Atlas (T-0130), capturing new trial starts, terminations (e.g. VX-522), and completion updates. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in ClinicalTrials.gov API v2; directly feeds Track B Trial Endpoint Atlas (T-0130). Tier elevated. Recommended ready.
 
 ### T-0114 Test CI for the three public repos
 
@@ -348,7 +348,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - PowerShell 7 automation and Antigravity configuration.
 - **Acceptance:** Skills created under .claude/skills/scheduled-*/ matching check-skill-frontmatter.py; .agents/skills/ symlinks established; sidecar.json configurations authored with bounded permissions.
 - **Evidence:** 2026-10-12: The maintainer authorized operationalizing the 6 generative discovery engines via Antigravity cron sidecars and scheduled-* skills. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Infrastructure task operationalizing Track A discovery engines via Antigravity sidecar cron schedules; bounded permissions required. Tier elevated. Recommended ready.
 
 ### T-0140 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 
@@ -356,7 +356,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Requires cross-disciplinary synthesis of aerosol biophysics, nanoparticle pharmacology, and CF airway immunology.
 - **Acceptance:** A structured delivery blueprint in cf-research/proposals/ comparing failing vs successful airway delivery platforms (SORT-LNPs vs standard ionizable LNPs); mucus-penetrating biophysical criteria defined (particle size 50-100 nm, neutral surface charge, mucus diffusion); draft for the public Overcoming Delivery brief passes check_claims.py and check_numbers.py.
 - **Evidence:** 2026-10-12: Vertex/Moderna discontinued Phase 1/2 development of inhaled mRNA VX-522 (BEACON-CF NCT05668741) in May 2026 due to LNP-induced localized airway inflammation; ReCode RCT-2100 (SORT-LNPs) advancing; pulmonary delivery tolerability is the primary gating bottleneck to a genetic cure. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Verified grounded in primary literature (NCT05668741 BEACON-CF termination, SORT-LNP biophysics); high curative alignment with Track A delivery milestone. Tier elevated. Recommended ready when maintainer approves.
 
 ### T-0142 Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit
 
@@ -364,7 +364,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Requires visual taste, accessibility evaluation across viewports, and multi-model council consensus.
 - **Acceptance:** Playwright visual audit screenshots captured under cf-lab-files/scratch/screenshots/; multi-perspective council review completed; streamlined desktop/mobile navigation implemented with clear paths for Atlas, 3D CFTR viewer, AI in care, and Spanish toggle; all site Playwright and CLS tests pass.
 - **Evidence:** 2026-10-12: Maintainer requested site navigation revamp evaluated with a multi-model council and Playwright visual screenshots; builds on T-0080 information architecture findings. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready.
 
 ### T-0152 Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs)
 
@@ -372,7 +372,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Requires security analysis, git worktree orchestration, and automated PR generation through the elevated/full gate.
 - **Acceptance:** Skill scheduled-security-sentinel created under .claude/skills/; audits logs for secrets, PHI, catalog violations, and stray files; automated remediation workflow creates worktrees, runs run-gate.ps1, runs pr-review-loop, and opens PRs via gh pr create; passes check-skill-frontmatter.py.
 - **Evidence:** 2026-10-12: Maintainer requested an autonomous schedule that monitors logs from all other schedules with a security lens (secrets, PHI, catalog violations, prompt injection) and automatically submits pull requests with verified fixes. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Core security sentinel auditing logs for secrets, PHI, catalog compliance, and prompt injection with automated PR remediation. Tier full. Recommended ready.
 
 ### T-0153 Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs)
 
@@ -380,7 +380,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Requires multi-repo cross-pollination between cf-research, cf-skills, and .ai with Playwright visual testing.
 - **Acceptance:** Skill scheduled-site-showcase created under .claude/skills/; multi-stage execution verifies skills, generates site pages (make_evidence, sync_cftr_model, /es/ copy), runs tests.test_site and Playwright visual audits, commits via run-gate.ps1, and prepares PRs via gh pr create with attached screenshots.
 - **Evidence:** 2026-10-12: Maintainer requested an autonomous schedule to maintain and build the website, conducting a round of research and improving relevant skills on every run, exposing recent lab breakthroughs (Trial Atlas, delivery biophysics, 3D CFTR), and preparing verified PRs for the site with Playwright screenshots. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready.
 
 ### T-0080 Website revamp and a better organization across the lab, with Fable's guidance
 
@@ -402,7 +402,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Epithelial physiology and mathematical ion transport modeling.
 - **Acceptance:** An alternative conductance pathway map in cf-research/landscape/ with net fluid flux equations; candidate drug repurposing evaluations (inhaled ENaC antagonists, TMEM16A potentiators); passes check_numbers.py.
 - **Evidence:** 2026-10-12: Bypassing CFTR by blocking ENaC hyperabsorption or activating Ca2+-activated chloride channels (TMEM16A) or SLC26A9 restores mucociliary clearance regardless of CFTR mutation. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in epithelial electrophysiology (TMEM16A potentiators, ETD001 ENaC antagonism); universal Track A bypass conductance milestone. Tier routine. Recommended ready.
 
 ### T-0147 Anti-resistance bacteriophage cocktail co-evolution dynamics against mucoid Pseudomonas aeruginosa
 
@@ -410,7 +410,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Microbial genomics, phage biology, and evolutionary dynamics.
 - **Acceptance:** A phage-host co-evolution report in cf-research/landscape/ mapping bacterial receptor mutations (LPS O-antigen, PilA) and demonstrating fitness trade-offs; pair recommendations for standard antibiotics.
 - **Evidence:** 2026-10-12: Refractory Pseudomonas pulmonary infections remain the primary driver of lung transplantation and mortality; emergency expanded-access phage programs demonstrate success but encounter resistance emergence. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in microbial genomics of mucoid P. aeruginosa isolates and phage receptor trade-offs (LPS O-antigen, PilA); high-value Track A anti-infective milestone. Tier routine. Recommended ready.
 
 ### T-0144 The Remaining 10% nonsense mutation engine: W1282X and G542X readthrough, NMD suppression synergy, and engineered suppressor tRNAs
 
@@ -418,7 +418,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Molecular genetics, RNA biology, and translational pharmacology.
 - **Acceptance:** A detailed mechanistic dossier in cf-research/proposals/ analyzing codon context, EJC distance, and NMD sensitivity for W1282X and G542X; model cocktail combinations with predicted Delta-Isc outcomes; passes check_claims.py.
 - **Evidence:** 2026-10-12: CFF committed $15M to Prime Medicine for G542X; Alltrna advancing suppressor tRNAs; nonsense mutations produce zero CFTR and lack approved therapies (Task T-0134). Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in RefSeq NM_000492.4, CFF Prime Medicine commitment, and Alltrna suppressor tRNAs; essential Track A milestone for non-modulator population (W1282X, G542X). Tier elevated. Recommended ready.
 
 ### T-0141 Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools)
 
@@ -426,7 +426,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Requires culturally grounded, scientifically exact Spanish translation preserving medical boundaries and dignified lab-voice tone.
 - **Acceptance:** Multilingual routing structure (e.g. /es/ or language toggle) with verified Spanish copy for core pages (home, CF story, trial atlas, resources, AI in care); scientific terms and drug names preserved accurately; hreflang tags added; passes HTML/CSP validation and site test suites.
 - **Evidence:** 2026-10-12: Maintainer requested full Spanish language localization for the public site, expanding reach to Spanish-speaking CF families, clinicians, and researchers across the Americas and Spain. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready.
 
 ### T-0143 In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery for rare and unclassified CFTR variants
 
@@ -434,7 +434,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Requires deep structural bioinformatics and 3D coordinate geometry.
 - **Acceptance:** A script mapping variant coordinates to Cryo-EM structures, computing inter-domain perturbation deltas; structured variant theratyping dossiers in cf-research/landscape/variants/; integration blocks generated for the site 3D viewer (/cf/cftr/).
 - **Evidence:** 2026-10-12: Over 2,000 CFTR variants identified; majority have no classified theratype. 3D Cryo-EM structures (5UAK, 6MSM, 7SV7, 8EIQ) and lab tools/cftr-model enable automated in silico perturbation modeling. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Rigorously grounded in Cryo-EM coordinates (PDB 5UAK, 6MSM, 7SV7, 8EIQ) and UniProt P13569; direct Track A biophysical theratyping milestone. Tier elevated. Recommended ready.
 
 ### T-0146 Adaptive trial frameworks and organoid (FIS) surrogate endpoints for ultra-rare CF genotypes
 
@@ -442,7 +442,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Clinical biostatistics, trial design methodology, and organoid assay interpretation.
 - **Acceptance:** An open-access adaptive N-of-1 trial protocol template in cf-research/proposals/; mathematical FIS-to-FEV1 correlation model; interactive surrogate calculator spec for the site trial atlas.
 - **Evidence:** 2026-10-12: Rare CF genotypes have cohorts too small for phase 3 FEV1 trials; European theratyping centers have validated rectal organoid swelling (FIS) as an accurate predictor of in vivo modulator response. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in published rectal organoid FIS swelling assay correlations; links Track A theratyping to Track B Trial Endpoint Atlas. Tier full. Recommended ready.
 
 ### T-0077 Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding
 
@@ -738,7 +738,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Requires multi-repo board synthesis, mission alignment verification, and lazy execution gating.
 - **Acceptance:** Skill scheduled-chief-researcher created under .claude/skills/; implements lazy delta check (exits 0 with zero LLM calls if tasks/board.json and cf-research/proposals/ are unchanged); runs deterministic checks (check_claims.py, check_numbers.py); emits 1-page Mission Grounding Brief in cf-research/landscape/; passes check-skill-frontmatter.py.
 - **Evidence:** 2026-10-12: Maintainer requested an autonomous Chief Researcher Officer schedule to keep the task board grounded, maintain curative mission focus, and prevent agent drift without burning tokens or creating overhead. Evaluated as high-ROI when bounded by lazy git-delta checks (0 tokens on idle) and bi-weekly cadence.
-- **Notes:** 2026-10-12: proposed by Gemini on maintainer instruction; only the maintainer can set it ready. Strict zero-token-burn rule enforced on unchanged state.
+- **Notes:** 2026-10-12: proposed by Gemini on maintainer instruction; only the maintainer can set it ready. Strict zero-token-burn rule enforced on unchanged state. \| 2026-10-12 CRO Grounding Audit: CRO sentinel executed first audit; lazy delta verification confirmed 15 new discovery/sentinel tasks; emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-12.md. Tier elevated.
 
 ### T-0007 Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md
 
