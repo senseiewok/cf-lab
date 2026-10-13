@@ -5076,6 +5076,42 @@
       "completed_by": null,
       "complexity": "low",
       "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. Human-only: the maintainer hand-places this file; an agent must not."
+    },
+    {
+      "id": "T-0140",
+      "title": "Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-13T04:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-13 session: review of a pull request written by another agent (Gemini in the Antigravity IDE), with a three-model council"
+      },
+      "source_evidence": "2026-10-13: Gemini (Antigravity) opened cf-lab pull request 50, which copied the whole cf-evidence-loop skill and sources/catalog.yaml into cf-lab to make a clone 'self-contained'. A three-model council (Opus, Sonnet, Fable) and deterministic checks rejected the copy: 44 of 46 copied files were byte-identical to cf-skills and cf-research main, but the catalog copy had 59 sources against 67 upstream (missing the 8 added on 2026-10-09 and 10) and the skill's own generated catalog had 53, because the local sibling checkouts were behind origin/main; AGENTS.md says the evidence tool is 'not copied here, one maintained source' and the catalog 'Edit it there, nowhere else'; the PR also exempted the skill from the duplicate-name guard (check-workspace.py) and reversed the ownership text. The underlying wish (a clone that works without sibling checkouts) is reasonable and was not tested against how setup.cmd and setup.sh already clone the siblings.",
+      "effort_hours": {
+        "low": 6,
+        "high": 14
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: a standalone clone helps a contributor who will not clone the siblings, but setup scripts already do; the risk of a wrong catalog is larger than the benefit unless it is generated and checked.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "First the maintainer decides, in this row's notes, whether a standalone cf-lab clone is wanted at all (setup.cmd and setup.sh already clone cf-skills and cf-research beside cf-lab). If yes, one of two designs, never a hand copy: (a) a generated snapshot: a script writes cf-lab/sources/catalog.snapshot.yaml from a pinned cf-research commit, with a header naming the source repository, commit SHA and date and the words 'generated, do not edit', and a check-all.ps1 row that fails when the snapshot differs from the pinned commit or is older than a limit the maintainer sets (skipped when no sibling is present); EVIDENCE_CATALOG keeps ../cf-research/sources/catalog.yaml as its default and the snapshot is only a documented fallback that fails closed with a 'refresh the catalog' message when stale; or (b) a true move of the canonical owner in one reviewed pull request per repo (delete upstream in the linked PR set, update every reference), which AGENTS.md's publication plan does not yet authorize. In either design the evidence skill is installed by a declared mechanism (a pinned vendoring script with the SHA, or a plugin), with a byte-equality check; the duplicate-name guard stays unconditional or passes a duplicate only when the two trees are byte-identical and a manifest names the source commit. A test fails on a one-byte change to a copied file. Reviewed at the Full tier with a blind challenger from a different model family, and quoted command output in the pull request.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. This is a decision first and work second: the rejected PR is cf-lab PR 50 (comment with the council's findings). Nothing here changes who owns cf-evidence-loop or the catalog until a human sets this row ready and decides. Supersedes nothing; related: the publication plan in AGENTS.md ('does not authorize a cross-repo move yet'), the workspace-siblings skill, and the single-catalog rule in security-browsing."
     }
   ]
 }

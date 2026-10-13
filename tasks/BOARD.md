@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-139 tasks, 138 created by a model, 1 with a measured outcome. Estimated effort 347.6 to 664.5 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+140 tasks, 139 created by a model, 1 with a measured outcome. Estimated effort 353.6 to 678.5 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (18)
 
@@ -35,7 +35,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 
-## proposed (109)
+## proposed (110)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -148,6 +148,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0126 | P3 | A small public benchmark of the lab's own checks (20 to 30 frozen tasks) | cf-research | 8-16 | 4 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | high |  |  |
 | T-0133 | P3 | Opt-in browser-test job for the lab's graphics and viewer tests | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | medium |  | T-0131 |
 | T-0136 | P3 | Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition | cf-research | 8-16 | 3 | 2.5 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium |  |  |
+| T-0140 | P3 | Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy | cf-lab | 6-14 | 2 | 2 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | medium |  |  |
 
 ## done (9)
 
@@ -1147,4 +1148,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A 'care team' reader path that says what the atlas can and cannot answer; the withheld classes listed in the measures list marked 'counted, not shown (below the agreement bar)'; one sentence on whether the FEV1 class includes FEV1 used as a safety check, backed by the lexicon rules and a test; plain-language class notes stay unpublished until a clinician has read them (a person, not a model).
 - **Evidence:** 2026-10-11 role-played care-team and physician reviews (T0, models): the front page has tabs for trial designers, readers of results and people living with CF, but none for a care team; withheld classes (microbiology, healthcare use, survival and transplant, gastrointestinal and pancreatic) appear only in the 'Not shown' box, so a trialist may read them as rare; the FEV1 class has no definition and may mix efficacy use with FEV1 measured as a safety check after dosing.
 - **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. Clinician review of definitions is human-only; do not publish notes before it.
+
+### T-0140 Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy
+
+- **Why / ROI rationale:** Estimate: a standalone clone helps a contributor who will not clone the siblings, but setup scripts already do; the risk of a wrong catalog is larger than the benefit unless it is generated and checked. *(confidence: medium)*
+- **Acceptance:** First the maintainer decides, in this row's notes, whether a standalone cf-lab clone is wanted at all (setup.cmd and setup.sh already clone cf-skills and cf-research beside cf-lab). If yes, one of two designs, never a hand copy: (a) a generated snapshot: a script writes cf-lab/sources/catalog.snapshot.yaml from a pinned cf-research commit, with a header naming the source repository, commit SHA and date and the words 'generated, do not edit', and a check-all.ps1 row that fails when the snapshot differs from the pinned commit or is older than a limit the maintainer sets (skipped when no sibling is present); EVIDENCE_CATALOG keeps ../cf-research/sources/catalog.yaml as its default and the snapshot is only a documented fallback that fails closed with a 'refresh the catalog' message when stale; or (b) a true move of the canonical owner in one reviewed pull request per repo (delete upstream in the linked PR set, update every reference), which AGENTS.md's publication plan does not yet authorize. In either design the evidence skill is installed by a declared mechanism (a pinned vendoring script with the SHA, or a plugin), with a byte-equality check; the duplicate-name guard stays unconditional or passes a duplicate only when the two trees are byte-identical and a manifest names the source commit. A test fails on a one-byte change to a copied file. Reviewed at the Full tier with a blind challenger from a different model family, and quoted command output in the pull request.
+- **Evidence:** 2026-10-13: Gemini (Antigravity) opened cf-lab pull request 50, which copied the whole cf-evidence-loop skill and sources/catalog.yaml into cf-lab to make a clone 'self-contained'. A three-model council (Opus, Sonnet, Fable) and deterministic checks rejected the copy: 44 of 46 copied files were byte-identical to cf-skills and cf-research main, but the catalog copy had 59 sources against 67 upstream (missing the 8 added on 2026-10-09 and 10) and the skill's own generated catalog had 53, because the local sibling checkouts were behind origin/main; AGENTS.md says the evidence tool is 'not copied here, one maintained source' and the catalog 'Edit it there, nowhere else'; the PR also exempted the skill from the duplicate-name guard (check-workspace.py) and reversed the ownership text. The underlying wish (a clone that works without sibling checkouts) is reasonable and was not tested against how setup.cmd and setup.sh already clone the siblings.
+- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. This is a decision first and work second: the rejected PR is cf-lab PR 50 (comment with the council's findings). Nothing here changes who owns cf-evidence-loop or the catalog until a human sets this row ready and decides. Supersedes nothing; related: the publication plan in AGENTS.md ('does not authorize a cross-repo move yet'), the workspace-siblings skill, and the single-catalog rule in security-browsing.
 
