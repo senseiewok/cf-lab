@@ -72,6 +72,7 @@ Current skills:
 - `security-git` — keeping secrets and private data out of git
 - `security-browsing` — rules for agents that search, fetch, browse or download (prompt injection, robots.txt, rate limits, official APIs, copyright)
 - `security-runtime` — safe settings for Claude Code, Copilot, MCP servers and local models on Ollama (approvals, sandboxes, model provenance, Ollama CVEs)
+- `scheduled-security-sentinel` — autonomous log sentinel and automated fix PR engine (secrets, PHI, prompt injection quarantine, catalog compliance, stray files)
 
 ### AI workflows and local models
 
@@ -88,10 +89,12 @@ Current skills:
 - `svg-animation` — SVG animation techniques (CSS, Web Animations API, GSAP)
 - `ascii-art` — README and terminal art: a craft process, a small canvas library for composing on a grid (models read ASCII better than they draw it), a rendering and accessibility checker, and the lab gallery
 - `playwright-browser-testing` — browser/UI testing with Playwright
+- `scheduled-site-showcase` — autonomous site builder, research round, skill evolution, Spanish copy, and PR preparation engine for `senseiewok.ai`
 
 ### Domain context
 
 - `cf-research-context` — grounding and safety rules for Cystic Fibrosis work: disease basics, CFTR modulators, endpoints, data sources, 65-rose convention, what the lab may and may not claim, and the guardrails against invented claims (answer tiers T0 to T3, scope records, the claim checkers)
+- `scheduled-chief-researcher` — frugal Chief Researcher Officer sentinel: audits task board grounding, maintains curative mission focus, and enforces zero token burn on idle state
 - `lab-voice` — warm, plain-language research writing with dignity, evidence, and clear boundaries, in American English, with a checker for spelling, repetition and long pages
 - `cf-evidence-loop` (in the `cf-skills` repo at `../cf-skills/.claude/skills/cf-evidence-loop`; not copied here, one maintained source) — the evidence-record tool agents use before citing a number, approval, trial or paper. It reads the single source catalog through `EVIDENCE_CATALOG`; its own `catalog.yaml` is generated
 - `trial-atlas-pipeline` and `source-grounding` (in the `cf-research` repo at `../cf-research/.claude/skills/`; load with `--add-dir ../cf-research`) — the trial endpoint atlas's order of work, approval gates, privacy and stop rules; and how a public sentence is grounded (computed, registry statement, open-access definition, lab position) with what each checker proves, plus packets for a local worker

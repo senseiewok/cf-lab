@@ -5076,6 +5076,552 @@
       "completed_by": null,
       "complexity": "low",
       "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. Human-only: the maintainer hand-places this file; an agent must not."
+    },
+    {
+      "id": "T-0140",
+      "title": "Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)",
+      "repo": "cf-research",
+      "area": "delivery",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:20:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: curative discovery engines and site revamp"
+      },
+      "source_evidence": "2026-10-12: Vertex/Moderna discontinued Phase 1/2 development of inhaled mRNA VX-522 (BEACON-CF NCT05668741) in May 2026 due to LNP-induced localized airway inflammation; ReCode RCT-2100 (SORT-LNPs) advancing; pulmonary delivery tolerability is the primary gating bottleneck to a genetic cure. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 4,
+        "high": 8
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Directly targets the primary failure mode in CF genetic therapy. Produces non-inflammatory LNP formulation specs and the Overcoming Delivery public brief.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A structured delivery blueprint in cf-research/proposals/ comparing failing vs successful airway delivery platforms (SORT-LNPs vs standard ionizable LNPs); mucus-penetrating biophysical criteria defined (particle size 50-100 nm, neutral surface charge, mucus diffusion); draft for the public Overcoming Delivery brief passes check_claims.py and check_numbers.py.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Requires cross-disciplinary synthesis of aerosol biophysics, nanoparticle pharmacology, and CF airway immunology.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0141",
+      "title": "Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools)",
+      "repo": "site",
+      "area": "site",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:20:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: curative discovery engines and site revamp"
+      },
+      "source_evidence": "2026-10-12: Maintainer requested full Spanish language localization for the public site, expanding reach to Spanish-speaking CF families, clinicians, and researchers across the Americas and Spain. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 6,
+        "high": 12
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Dramatically broadens access to the lab evidence-based CF education, trial atlas, and AI in care guidelines for Hispanic and Latin American CF populations.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Multilingual routing structure (e.g. /es/ or language toggle) with verified Spanish copy for core pages (home, CF story, trial atlas, resources, AI in care); scientific terms and drug names preserved accurately; hreflang tags added; passes HTML/CSP validation and site test suites.",
+      "review_tier": "full",
+      "depends_on": [
+        "T-0142"
+      ],
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Requires culturally grounded, scientifically exact Spanish translation preserving medical boundaries and dignified lab-voice tone.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0142",
+      "title": "Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit",
+      "repo": "site",
+      "area": "site",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:20:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: curative discovery engines and site revamp"
+      },
+      "source_evidence": "2026-10-12: Maintainer requested site navigation revamp evaluated with a multi-model council and Playwright visual screenshots; builds on T-0080 information architecture findings. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 4,
+        "high": 8
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Transforms discovery on the live site, streamlining paths for trial designers, patients/families, and researchers; resolves mobile viewport clutter.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Playwright visual audit screenshots captured under cf-lab-files/scratch/screenshots/; multi-perspective council review completed; streamlined desktop/mobile navigation implemented with clear paths for Atlas, 3D CFTR viewer, AI in care, and Spanish toggle; all site Playwright and CLS tests pass.",
+      "review_tier": "full",
+      "depends_on": [],
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Requires visual taste, accessibility evaluation across viewports, and multi-model council consensus.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0143",
+      "title": "In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery for rare and unclassified CFTR variants",
+      "repo": "cf-research",
+      "area": "cftr-model",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:20:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: curative discovery engines and site revamp"
+      },
+      "source_evidence": "2026-10-12: Over 2,000 CFTR variants identified; majority have no classified theratype. 3D Cryo-EM structures (5UAK, 6MSM, 7SV7, 8EIQ) and lab tools/cftr-model enable automated in silico perturbation modeling. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 6,
+        "high": 12
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Provides the first automated structural dossiers predicting modulator responsiveness and allosteric rescue pockets for neglected variants.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A script mapping variant coordinates to Cryo-EM structures, computing inter-domain perturbation deltas; structured variant theratyping dossiers in cf-research/landscape/variants/; integration blocks generated for the site 3D viewer (/cf/cftr/).",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "complexity": "high",
+      "recommended_route": "cloud",
+      "route_rationale": "Requires deep structural bioinformatics and 3D coordinate geometry.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0144",
+      "title": "The Remaining 10% nonsense mutation engine: W1282X and G542X readthrough, NMD suppression synergy, and engineered suppressor tRNAs",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:20:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: curative discovery engines and site revamp"
+      },
+      "source_evidence": "2026-10-12: CFF committed $15M to Prime Medicine for G542X; Alltrna advancing suppressor tRNAs; nonsense mutations produce zero CFTR and lack approved therapies (Task T-0134). Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 6,
+        "high": 10
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Lays out the mechanistic foundation for multi-modal curative cocktails (readthrough + NMD inhibition + potentiator) for the non-modulator population.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A detailed mechanistic dossier in cf-research/proposals/ analyzing codon context, EJC distance, and NMD sensitivity for W1282X and G542X; model cocktail combinations with predicted Delta-Isc outcomes; passes check_claims.py.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Molecular genetics, RNA biology, and translational pharmacology.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0145",
+      "title": "Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:20:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: curative discovery engines and site revamp"
+      },
+      "source_evidence": "2026-10-12: Bypassing CFTR by blocking ENaC hyperabsorption or activating Ca2+-activated chloride channels (TMEM16A) or SLC26A9 restores mucociliary clearance regardless of CFTR mutation. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 4,
+        "high": 8
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Universal curative potential: rehydrates mucus in any person with CF without needing gene correction.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "An alternative conductance pathway map in cf-research/landscape/ with net fluid flux equations; candidate drug repurposing evaluations (inhaled ENaC antagonists, TMEM16A potentiators); passes check_numbers.py.",
+      "review_tier": "routine",
+      "depends_on": [],
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Epithelial physiology and mathematical ion transport modeling.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0146",
+      "title": "Adaptive trial frameworks and organoid (FIS) surrogate endpoints for ultra-rare CF genotypes",
+      "repo": "cf-research",
+      "area": "atlas",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:20:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: curative discovery engines and site revamp"
+      },
+      "source_evidence": "2026-10-12: Rare CF genotypes have cohorts too small for phase 3 FEV1 trials; European theratyping centers have validated rectal organoid swelling (FIS) as an accurate predictor of in vivo modulator response. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 6,
+        "high": 12
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Directly empowers clinical trialists to evaluate novel therapies in ultra-rare mutations; extends the Trial Endpoint Atlas (T-0130).",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "An open-access adaptive N-of-1 trial protocol template in cf-research/proposals/; mathematical FIS-to-FEV1 correlation model; interactive surrogate calculator spec for the site trial atlas.",
+      "review_tier": "full",
+      "depends_on": [
+        "T-0130"
+      ],
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Clinical biostatistics, trial design methodology, and organoid assay interpretation.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0147",
+      "title": "Anti-resistance bacteriophage cocktail co-evolution dynamics against mucoid Pseudomonas aeruginosa",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:20:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: curative discovery engines and site revamp"
+      },
+      "source_evidence": "2026-10-12: Refractory Pseudomonas pulmonary infections remain the primary driver of lung transplantation and mortality; emergency expanded-access phage programs demonstrate success but encounter resistance emergence. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 4,
+        "high": 8
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Models evolutionary trade-offs where phage resistance resensitizes bacteria to frontline antibiotics.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A phage-host co-evolution report in cf-research/landscape/ mapping bacterial receptor mutations (LPS O-antigen, PilA) and demonstrating fitness trade-offs; pair recommendations for standard antibiotics.",
+      "review_tier": "routine",
+      "depends_on": [],
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Microbial genomics, phage biology, and evolutionary dynamics.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0148",
+      "title": "Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills)",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:20:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: curative discovery engines and site revamp"
+      },
+      "source_evidence": "2026-10-12: The maintainer authorized operationalizing the 6 generative discovery engines via Antigravity cron sidecars and scheduled-* skills. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 4,
+        "high": 6
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Activates autonomous recurring discovery research across the lab without requiring manual intervention.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Skills created under .claude/skills/scheduled-*/ matching check-skill-frontmatter.py; .agents/skills/ symlinks established; sidecar.json configurations authored with bounded permissions.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "complexity": "medium",
+      "recommended_route": "local",
+      "route_rationale": "PowerShell 7 automation and Antigravity configuration.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0149",
+      "title": "Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring)",
+      "repo": "cf-skills",
+      "area": "governance",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:25:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: dual-track discovery and sentinel schedule architecture"
+      },
+      "source_evidence": "2026-10-12: Maintainer affirmed high utility of operational sentinel schedules alongside discovery engines; continuous automated lookup protects scientific credibility by flagging retracted DOIs and regulator indication changes. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 3,
+        "high": 5
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Guarantees zero citation rot or reliance on retracted studies across the live site, research proposals, and evidence ledger.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Skill scheduled-evidence-integrity operationalized; automated bi-weekly execution queries Crossref/Retraction Watch and openFDA; flags unverified changes directly into the evidence ledger and tasks/board.json.",
+      "review_tier": "routine",
+      "depends_on": [
+        "T-0037",
+        "T-0038"
+      ],
+      "complexity": "low",
+      "recommended_route": "local",
+      "route_rationale": "Automated deterministic API lookups and JSON diffing.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0150",
+      "title": "Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas",
+      "repo": "cf-research",
+      "area": "atlas",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:25:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: dual-track discovery and sentinel schedule architecture"
+      },
+      "source_evidence": "2026-10-12: ClinicalTrials.gov regular polling feeds directly into the flagship Trial Endpoint Atlas (T-0130), capturing new trial starts, terminations (e.g. VX-522), and completion updates. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 3,
+        "high": 6
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Keeps the lab's flagship atlas perpetually synchronized with global CF clinical trial activity under catalog access rules.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Skill scheduled-trial-surveillance operationalized; weekly automated check scans ClinicalTrials.gov API v2; outputs structured delta snapshots for the atlas generator; passes check_claims.py.",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0130"
+      ],
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Structured parsing of clinical trial protocol fields under security-browsing rules.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0151",
+      "title": "Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance",
+      "repo": "cf-lab",
+      "area": "site",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:25:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: dual-track discovery and sentinel schedule architecture"
+      },
+      "source_evidence": "2026-10-12: Maintaining daily automated checks of live HTTP headers (HSTS, CSP, X-Robots-Tag per T-0139), 301 redirects, 65 roses count (T-0016), lab-voice tone, and board rendering ensures unbroken operational excellence. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Prevents live site regressions, broken headers, tone drift, or task board desynchronization without requiring manual human checks.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Daily scheduled check runs tools/check_live.py, check-voice.py, and render-board.ps1 -Check; alerts the maintainer only when a regression is detected; zero unbudgeted network calls.",
+      "review_tier": "routine",
+      "depends_on": [],
+      "complexity": "low",
+      "recommended_route": "local",
+      "route_rationale": "Local deterministic PowerShell and Python scripts.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0152",
+      "title": "Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:25:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: security log sentinel and automated PR pipeline"
+      },
+      "source_evidence": "2026-10-12: Maintainer requested an autonomous schedule that monitors logs from all other schedules with a security lens (secrets, PHI, catalog violations, prompt injection) and automatically submits pull requests with verified fixes. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 4,
+        "high": 8
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Closes the autonomous loop: continuously audits all background agent activities and autonomously repairs security, privacy, or policy regressions via clean PRs.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Skill scheduled-security-sentinel created under .claude/skills/; audits logs for secrets, PHI, catalog violations, and stray files; automated remediation workflow creates worktrees, runs run-gate.ps1, runs pr-review-loop, and opens PRs via gh pr create; passes check-skill-frontmatter.py.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Requires security analysis, git worktree orchestration, and automated PR generation through the elevated/full gate.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0153",
+      "title": "Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs)",
+      "repo": "site",
+      "area": "site",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-12T22:30:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: site builder and showcase schedule"
+      },
+      "source_evidence": "2026-10-12: Maintainer requested an autonomous schedule to maintain and build the website, conducting a round of research and improving relevant skills on every run, exposing recent lab breakthroughs (Trial Atlas, delivery biophysics, 3D CFTR), and preparing verified PRs for the site with Playwright screenshots. Detailed in gemini-cf-schedules-design.md.",
+      "effort_hours": {
+        "low": 4,
+        "high": 8
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Directly bridges lab research to the public site: continually evolves frontend and voice skills, exposes fresh CF research in English and Spanish, and preps fully verified PRs.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Skill scheduled-site-showcase created under .claude/skills/; multi-stage execution verifies skills, generates site pages (make_evidence, sync_cftr_model, /es/ copy), runs tests.test_site and Playwright visual audits, commits via run-gate.ps1, and prepares PRs via gh pr create with attached screenshots.",
+      "review_tier": "full",
+      "depends_on": [
+        "T-0141",
+        "T-0142"
+      ],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Requires multi-repo cross-pollination between cf-research, cf-skills, and .ai with Playwright visual testing.",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md."
+    },
+    {
+      "id": "T-0154",
+      "title": "Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn)",
+      "repo": "cf-lab",
+      "area": "governance",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-12T22:50:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-12 session: Chief Researcher Officer schedule and multi-family AI loop diversity"
+      },
+      "source_evidence": "2026-10-12: Maintainer requested an autonomous Chief Researcher Officer schedule to keep the task board grounded, maintain curative mission focus, and prevent agent drift without burning tokens or creating overhead. Evaluated as high-ROI when bounded by lazy git-delta checks (0 tokens on idle) and bi-weekly cadence.",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Prevents agent drift and hallucinations on the task board; enforces grounding against primary literature for all proposed tasks; burns zero tokens when the board is idle.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Skill scheduled-chief-researcher created under .claude/skills/; implements lazy delta check (exits 0 with zero LLM calls if tasks/board.json and cf-research/proposals/ are unchanged); runs deterministic checks (check_claims.py, check_numbers.py); emits 1-page Mission Grounding Brief in cf-research/landscape/; passes check-skill-frontmatter.py.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "recommended_route": "cloud",
+      "route_rationale": "Requires multi-repo board synthesis, mission alignment verification, and lazy execution gating.",
+      "notes": "2026-10-12: proposed by Gemini on maintainer instruction; only the maintainer can set it ready. Strict zero-token-burn rule enforced on unchanged state."
     }
   ]
 }
