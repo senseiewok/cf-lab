@@ -5433,7 +5433,7 @@
       "title": "Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools)",
       "repo": ".ai",
       "area": "site",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5460,21 +5460,24 @@
       "depends_on": [
         "T-0149"
       ],
-      "updated_at": "2026-10-13T07:30:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-13T09:10:00Z",
+      "completed_at": "2026-10-13T09:10:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (Maintainer, merged PR #56)"
+      },
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires culturally grounded, scientifically exact Spanish translation preserving medical boundaries and dignified lab-voice tone.",
-      "branch": "site/nacfc-and-es-mx-2026-10-13",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. | 2026-10-13: Full Spanish localization authored and verified in worktree nacfc-and-es-mx-2026-10-13 (/es/, /es/cf/, /es/cf/cftr/) with reciprocal hreflang tags and medical disclaimers; tests.test_site and check-voice.py PASS; PR prepared."
+      "branch": "site/es-mx-localization",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. | 2026-10-13: Full Spanish localization authored and verified with medical disclaimers; tests.test_site, test_resources_page, test_site_cls, and check-voice.py PASS; passed elevated gate and merged in PR #56 (https://github.com/senseiewok/.ai/pull/56)."
     },
     {
       "id": "T-0149",
       "title": "Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit",
       "repo": ".ai",
       "area": "site",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5499,14 +5502,17 @@
       "acceptance": "Playwright visual audit screenshots captured under cf-lab-files/scratch/screenshots/; multi-perspective council review completed; streamlined desktop/mobile navigation implemented with clear paths for Atlas, 3D CFTR viewer, AI in care, and Spanish toggle; all site Playwright and CLS tests pass.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-13T07:30:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-13T09:10:00Z",
+      "completed_at": "2026-10-13T09:10:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (Maintainer, merged PR #56)"
+      },
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires visual taste, accessibility evaluation across viewports, and multi-model council consensus.",
-      "branch": "site/nacfc-and-es-mx-2026-10-13",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. | 2026-10-13: Navigation revamp, container queries, mobile touch-sheet, and reciprocal language toggle authored and verified in worktree nacfc-and-es-mx-2026-10-13; screenshots captured under scratch/screenshots/2026-10-12/site-nav/; PR prepared."
+      "branch": "site/es-mx-localization",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. | 2026-10-13: Navigation revamp and language toggle verified in worktree nacfc-and-es-mx-2026-10-13; screenshots captured under scratch/screenshots/2026-10-12/site-nav/; passed elevated gate and merged in PR #56 (https://github.com/senseiewok/.ai/pull/56)."
     },
     {
       "id": "T-0150",
@@ -5902,7 +5908,7 @@
       "title": "Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs)",
       "repo": ".ai",
       "area": "site",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-12T22:30:00Z",
       "created_by": {
@@ -5930,14 +5936,17 @@
         "T-0148",
         "T-0149"
       ],
-      "updated_at": "2026-10-13T07:30:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-13T09:10:00Z",
+      "completed_at": "2026-10-13T09:10:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (Maintainer, merged PR #56)"
+      },
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires multi-repo cross-pollination between cf-research, cf-skills, and .ai with Playwright visual testing.",
-      "branch": "site/nacfc-and-es-mx-2026-10-13",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. | 2026-10-13: Full 4-stage workflow executed; biophysical dossiers scanned, skills evolved, site localized and visual audit passed; PR prepared in worktree nacfc-and-es-mx-2026-10-13."
+      "branch": "site/es-mx-localization",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. | 2026-10-13: Full 4-stage workflow executed; biophysical dossiers scanned, skills evolved, site localized and visual audit passed; passed elevated gate and merged in PR #56 (https://github.com/senseiewok/.ai/pull/56)."
     },
     {
       "id": "T-0161",

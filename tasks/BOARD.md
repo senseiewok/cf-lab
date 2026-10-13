@@ -4,15 +4,12 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 161 tasks, 160 created by a model, 1 with a measured outcome. Estimated effort 424.85 to 818.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
-## in progress (13)
+## in progress (10)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0155 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  | feat/antigravity-discovery-and-pr-rules |
-| T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | site/nacfc-and-es-mx-2026-10-13 |
 | T-0159 | P1 | Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs) | cf-lab | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | feat/antigravity-discovery-and-pr-rules |
-| T-0160 | P1 | Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs) | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0148, T-0149 | site/nacfc-and-es-mx-2026-10-13 |
-| T-0148 | P1 | Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools) | .ai | 6-12 | 5 | 5.6 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0149 | site/nacfc-and-es-mx-2026-10-13 |
 | T-0077 | P1 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  | T-0078 |  |
 | T-0067 | P2 | Decision: treat robots.txt groups that name AI agents as applying to our fetch sources | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  |  |  |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
@@ -141,7 +138,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0136 | P3 | Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition | cf-research | 8-16 | 3 | 2.5 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium |  |  |  |
 | T-0140 | P3 | Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy | cf-lab | 6-14 | 2 | 2 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | medium |  |  |  |
 
-## done (28)
+## done (31)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -149,7 +146,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0037 | P1 | Add Retraction Watch (via Crossref) retraction check to the catalog and to the claim-check harness design | cf-research | 1-2 | 5 | 33.3 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0003 | P1 | Apply the HQ skill-update proposal (security-browsing, cf-research-context, ai-loop-council, model-onboarding) | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0022 | P1 | Adopt the task board: every new task carries created_by, evidence, and an ROI estimate; render BOARD.md in CI or pre-commit | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
+| T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | site/es-mx-localization |
+| T-0160 | P1 | Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs) | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0148, T-0149 | site/es-mx-localization |
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
+| T-0148 | P1 | Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools) | .ai | 6-12 | 5 | 5.6 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0149 | site/es-mx-localization |
 | T-0018 | P2 | Add one explicit 'not affiliated with the Cystic Fibrosis Foundation' line near the site's donate link | .ai | 0.25-0.25 | 3 | 120 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0015 | P2 | Reconcile the website's 'M365 Copilot drives the lab's task scheduling' claim with reality | .ai | 0.25-1 | 3 | 48 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0013 | P2 | Read CFTR2 terms of use; set catalog access accordingly | cf-research | 0.5-0.5 | 2 | 40 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | cloud |  |  |
@@ -382,10 +382,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 - **Why / ROI rationale:** Transforms discovery on the live site, streamlining paths for trial designers, patients/families, and researchers; resolves mobile viewport clutter. *(confidence: high)*
 - **Route:** cloud - Requires visual taste, accessibility evaluation across viewports, and multi-model council consensus.
-- **Branch:** site/nacfc-and-es-mx-2026-10-13
+- **Branch:** site/es-mx-localization
 - **Acceptance:** Playwright visual audit screenshots captured under cf-lab-files/scratch/screenshots/; multi-perspective council review completed; streamlined desktop/mobile navigation implemented with clear paths for Atlas, 3D CFTR viewer, AI in care, and Spanish toggle; all site Playwright and CLS tests pass.
 - **Evidence:** 2026-10-12: Maintainer requested site navigation revamp evaluated with a multi-model council and Playwright visual screenshots; builds on T-0080 information architecture findings. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready. \| 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. \| 2026-10-13: Navigation revamp, container queries, mobile touch-sheet, and reciprocal language toggle authored and verified in worktree nacfc-and-es-mx-2026-10-13; screenshots captured under scratch/screenshots/2026-10-12/site-nav/; PR prepared.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready. \| 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. \| 2026-10-13: Navigation revamp and language toggle verified in worktree nacfc-and-es-mx-2026-10-13; screenshots captured under scratch/screenshots/2026-10-12/site-nav/; passed elevated gate and merged in PR #56 (https://github.com/senseiewok/.ai/pull/56).
 
 ### T-0159 Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs)
 
@@ -400,10 +400,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 - **Why / ROI rationale:** Directly bridges lab research to the public site: continually evolves frontend and voice skills, exposes fresh CF research in English and Spanish, and preps fully verified PRs. *(confidence: high)*
 - **Route:** cloud - Requires multi-repo cross-pollination between cf-research, cf-skills, and .ai with Playwright visual testing.
-- **Branch:** site/nacfc-and-es-mx-2026-10-13
+- **Branch:** site/es-mx-localization
 - **Acceptance:** Skill scheduled-site-showcase created under .claude/skills/; multi-stage execution verifies skills, generates site pages (make_evidence, sync_cftr_model, /es/ copy), runs tests.test_site and Playwright visual audits, commits via run-gate.ps1, and prepares PRs via gh pr create with attached screenshots.
 - **Evidence:** 2026-10-12: Maintainer requested an autonomous schedule to maintain and build the website, conducting a round of research and improving relevant skills on every run, exposing recent lab breakthroughs (Trial Atlas, delivery biophysics, 3D CFTR), and preparing verified PRs for the site with Playwright screenshots. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready. \| 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. \| 2026-10-13: Full 4-stage workflow executed; biophysical dossiers scanned, skills evolved, site localized and visual audit passed; PR prepared in worktree nacfc-and-es-mx-2026-10-13.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready. \| 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. \| 2026-10-13: Full 4-stage workflow executed; biophysical dossiers scanned, skills evolved, site localized and visual audit passed; passed elevated gate and merged in PR #56 (https://github.com/senseiewok/.ai/pull/56).
 
 ### T-0080 Website revamp and a better organization across the lab, with Fable's guidance
 
@@ -447,10 +447,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 - **Why / ROI rationale:** Dramatically broadens access to the lab evidence-based CF education, trial atlas, and AI in care guidelines for Hispanic and Latin American CF populations. *(confidence: high)*
 - **Route:** cloud - Requires culturally grounded, scientifically exact Spanish translation preserving medical boundaries and dignified lab-voice tone.
-- **Branch:** site/nacfc-and-es-mx-2026-10-13
+- **Branch:** site/es-mx-localization
 - **Acceptance:** Multilingual routing structure (e.g. /es/ or language toggle) with verified Spanish copy for core pages (home, CF story, trial atlas, resources, AI in care); scientific terms and drug names preserved accurately; hreflang tags added; passes HTML/CSP validation and site test suites.
 - **Evidence:** 2026-10-12: Maintainer requested full Spanish language localization for the public site, expanding reach to Spanish-speaking CF families, clinicians, and researchers across the Americas and Spain. Detailed in gemini-cf-schedules-design.md.
-- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready. \| 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. \| 2026-10-13: Full Spanish localization authored and verified in worktree nacfc-and-es-mx-2026-10-13 (/es/, /es/cf/, /es/cf/cftr/) with reciprocal hreflang tags and medical disclaimers; tests.test_site and check-voice.py PASS; PR prepared.
+- **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready. \| 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. \| 2026-10-13: Full Spanish localization authored and verified with medical disclaimers; tests.test_site, test_resources_page, test_site_cls, and check-voice.py PASS; passed elevated gate and merged in PR #56 (https://github.com/senseiewok/.ai/pull/56).
 
 ### T-0150 In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery for rare and unclassified CFTR variants
 
