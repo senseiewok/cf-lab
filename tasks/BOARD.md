@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-154 tasks, 153 created by a model, 1 with a measured outcome. Estimated effort 409.6 to 783.5 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+161 tasks, 160 created by a model, 1 with a measured outcome. Estimated effort 424.85 to 818.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (18)
 
@@ -35,7 +35,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 
-## proposed (124)
+## proposed (131)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -46,29 +46,30 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0072 | P1 | Decision: cloud-model use on reports with unread terms; permission requests to the CFF Registry and the CF Trust; the CC0 label on skills that carry quotations | cf-research | 1-2 | 4 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  |  |
 | T-0115 | P1 | Record the agent's permission mode and deny GitHub settings commands | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low |  |  |
 | T-0109 | P1 | A rule for questions about one real person: generalise before any search | cf-lab | 1-3 | 5 | 25 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |
+| T-0146 | P1 | CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has | site | 1-3 | 5 | 25 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | low |  | T-0005 |
 | T-0104 | P1 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low |  |  |
 | T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |
 | T-0008 | P1 | Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256) | cf-research | 2-3 | 4 | 16 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  | T-0005 |
 | T-0081 | P1 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  | T-0077 |
 | T-0061 | P1 | Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows) | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  | T-0057 |
 | T-0111 | P1 | Harden the commit gate: commit only on pass, fail on stray files, show open rows | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium |  |  |
-| T-0151 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | no | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |
+| T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | no | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low |  |  |
-| T-0149 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | no | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |
-| T-0150 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |
+| T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | no | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |
+| T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |
 | T-0114 | P1 | Test CI for the three public repos | cf-lab | 2-4 | 3 | 10 | no | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |
 | T-0121 | P1 | Stop the evidence tool's catalog copy needing a pull request after every catalog change | cf-skills | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium |  |  |
-| T-0148 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  |
-| T-0140 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  |
-| T-0142 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | site | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  |
-| T-0152 | P1 | Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs) | cf-lab | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  |
-| T-0153 | P1 | Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs) | site | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0141, T-0142 |
-| T-0145 | P1 | Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid | cf-research | 4-8 | 4 | 6.7 | no | model: gemini-3.8-flash | 2026-10-12 | routine | medium | cloud |  |
-| T-0147 | P1 | Anti-resistance bacteriophage cocktail co-evolution dynamics against mucoid Pseudomonas aeruginosa | cf-research | 4-8 | 4 | 6.7 | no | model: gemini-3.8-flash | 2026-10-12 | routine | medium | cloud |  |
-| T-0144 | P1 | The Remaining 10% nonsense mutation engine: W1282X and G542X readthrough, NMD suppression synergy, and engineered suppressor tRNAs | cf-research | 6-10 | 5 | 6.2 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  |
-| T-0141 | P1 | Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools) | site | 6-12 | 5 | 5.6 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0142 |
-| T-0143 | P1 | In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery for rare and unclassified CFTR variants | cf-research | 6-12 | 5 | 5.6 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | high | cloud |  |
-| T-0146 | P1 | Adaptive trial frameworks and organoid (FIS) surrogate endpoints for ultra-rare CF genotypes | cf-research | 6-12 | 5 | 5.6 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0130 |
+| T-0155 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  |
+| T-0147 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  |
+| T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | site | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  |
+| T-0159 | P1 | Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs) | cf-lab | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  |
+| T-0160 | P1 | Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs) | site | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0148, T-0149 |
+| T-0152 | P1 | Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid | cf-research | 4-8 | 4 | 6.7 | no | model: gemini-3.8-flash | 2026-10-12 | routine | medium | cloud |  |
+| T-0154 | P1 | Anti-resistance bacteriophage cocktail co-evolution dynamics against mucoid Pseudomonas aeruginosa | cf-research | 4-8 | 4 | 6.7 | no | model: gemini-3.8-flash | 2026-10-12 | routine | medium | cloud |  |
+| T-0151 | P1 | The Remaining 10% nonsense mutation engine: W1282X and G542X readthrough, NMD suppression synergy, and engineered suppressor tRNAs | cf-research | 6-10 | 5 | 6.2 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  |
+| T-0148 | P1 | Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools) | site | 6-12 | 5 | 5.6 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0149 |
+| T-0150 | P1 | In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery for rare and unclassified CFTR variants | cf-research | 6-12 | 5 | 5.6 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | high | cloud |  |
+| T-0153 | P1 | Adaptive trial frameworks and organoid (FIS) surrogate endpoints for ultra-rare CF genotypes | cf-research | 6-12 | 5 | 5.6 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0130 |
 | T-0130 | P1 | CF trial endpoint atlas from a dated ClinicalTrials.gov snapshot (flagship showcase) | cf-research | 12-24 | 5 | 2.8 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high |  |  |
 | T-0018 | P2 | Add one explicit 'not affiliated with the Cystic Fibrosis Foundation' line near the site's donate link | .ai | 0.25-0.25 | 3 | 120 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
@@ -96,7 +97,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0112 | P2 | A merge check: catch commits a squash merge dropped | cf-lab | 2-3 | 4 | 16 | no | model: claude-opus-5-5 | 2026-10-09 | routine | low |  |  |
 | T-0117 | P2 | Identity in public files: one role address, one way to sign | cf-lab | 1-3 | 3 | 15 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |
 | T-0120 | P2 | An intermittent WebKit failure in the site's policy test | .ai | 1-3 | 3 | 15 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | low |  |  |
-| T-0154 | P2 | Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn) | cf-lab | 2-4 | 4 | 13.3 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | low | cloud |  |
+| T-0144 | P2 | Observe what Antigravity loads from cf-lab, then state only that: a declared mirror under its documented paths, or no claim | cf-lab | 1-3 | 3 | 15 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | low |  |  |
+| T-0143 | P2 | A pull request template and a body check: every PR carries its review-loop record, a size line and a declaration of files copied from another repo | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | low |  |  |
+| T-0161 | P2 | Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn) | cf-lab | 2-4 | 4 | 13.3 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | low | cloud |  |
 | T-0007 | P2 | Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md | cf-research | 2-3 | 3 | 12 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
 | T-0030 | P2 | Docs tier 3: make AGENTS.md the only rule source; shrink copilot-instructions.md; fix the skill-authoring skill's internal contradictions | cf-lab | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  | T-0029 |
 | T-0076 | P2 | Make the skills repo installable as a Claude Code plugin marketplace | cf-skills | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  | T-0051 |
@@ -108,9 +111,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0070 | P2 | Read the terms and robots.txt of Ensembl REST, NCBI Variation Services, UniProt and ClinVar bulk files with the lab's reader; propose catalog entries | cf-research | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  |  |
 | T-0086 | P2 | Depth probe for the 64K local alias | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine |  | local |  |
 | T-0127 | P2 | A board consistency check in render-board | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium |  |  |
+| T-0141 | P2 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | site | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium |  |  |
 | T-0089 | P2 | Mechanical filter for local review findings: reproduce each failing input in a temp copy | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |
 | T-0113 | P2 | Eval tallies as data: commit verdict rows, recount the grid, state judge drift | cf-skills | 3-6 | 4 | 8.9 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium |  |  |
 | T-0131 | P2 | Skip guard: make skipped tests visible and budgeted in CI, and discover every test | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium |  |  |
+| T-0142 | P2 | Site: run the render tests where a failure is seen (CI sets SITE_SKIP_RENDER=1 and a failing hero test went unseen) | site | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | medium |  |  |
 | T-0051 | P2 | Decide and implement how the control repo consumes the evidence skill | cf-lab | 2-5 | 3 | 8.6 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  | T-0037 |
 | T-0043 | P2 | Variant layer: MyVariant.info and gnomAD providers (aggregate frequencies only) | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full |  |  | T-0042 |
@@ -136,6 +141,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0009 | P2 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 16-20 | 4 | 2.2 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  | T-0008 |
 | T-0057 | P3 | Human edits to the protected .github folder after the rename: CODEOWNERS, copilot-instructions names, CI workflows | cf-lab | 0.1-0.25 | 1 | 57.1 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine |  |  |  |
 | T-0023 | P3 | Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy | .ai | 0.5-0.5 | 2 | 40 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |
+| T-0145 | P3 | Decide the leftover git state from the 2026-10-11 to 13 session: one stale remote branch, two worktrees with unpushed commits, two worktrees that would not remove | cf-lab | 0.25-0.75 | 2 | 40 | no | model: claude-sonnet-5-5 | 2026-10-13 | routine | low |  |  |
 | T-0029 | P3 | Docs tier 2: hq housekeeping outside .claude (README tree, loop README status line, retire committed PR descriptions) | cf-lab | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine |  |  |  |
 | T-0032 | P3 | Docs tier 5: tidy per-user agent memory outside the repos | cf-lab | 0.25-0.5 | 1 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine |  |  |  |
 | T-0107 | P3 | Take the conference banner down after NACFC 2026 | site | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | routine | low |  |  |
@@ -163,6 +169,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0126 | P3 | A small public benchmark of the lab's own checks (20 to 30 frozen tasks) | cf-research | 8-16 | 4 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | high |  |  |
 | T-0133 | P3 | Opt-in browser-test job for the lab's graphics and viewer tests | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | medium |  | T-0131 |
 | T-0136 | P3 | Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition | cf-research | 8-16 | 3 | 2.5 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium |  |  |
+| T-0140 | P3 | Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy | cf-lab | 6-14 | 2 | 2 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | medium |  |  |
 
 ## done (9)
 
@@ -256,6 +263,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-07: after a question about one real person's care and coverage, web searches carried a combination of that person's attributes. Nothing reached a repo or a note (grep). security-browsing already says health data about individuals never goes into queries.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides the wording and whether such questions are in scope.
 
+### T-0146 CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has
+
+- **Why / ROI rationale:** Estimate: published numbers about people with CF, on a public page, with no primary-source record found; the lab's rule is that every number comes from a source line and unsupported claims are omitted from publication. A stranger could say the numbers are probably right; the lab's position is that probably right is not a tier. *(confidence: medium)*
+- **Acceptance:** Step 1, no download needed: each of the four figures is either removed from the page or shown as unverified, and a test fails when a sentence that names a registry and carries a number has no claim record. Step 2, after T-0005: each figure has a claim record with report year, page, table or figure name and the exact quoted value; the cffpr-report-reading cautions on population and definitions are recorded; check_claims.py and check_numbers.py pass; a figure the report does not state is removed, not rounded. A second model family reads the claim records blind; the maintainer reads the result before deploy.
+- **Evidence:** 2026-10-13: the CF-story page (src/cf/index.html on site origin/main, 'Who is still waiting', United States paragraph) shows 14.9 and 23.7 percent (of the group counted as not eligible by age or genotype) against 3.4 and 10.3 percent of the whole registry, sourced to the 2024 CFFPR Annual Data Report. A search of cf-research origin/main for those figures with the words Black, Hispanic, Alyftrek, percent and eligible found no claim record (scope: git grep on 2026-10-13, text files only). The Foundation's site answers 403 to scripts and the 2024 report is not on this machine. Site PR 52 reworded the sentence to attribute only what the lab's genetics-reading note supports; the percentages were not re-verified. The page says the reports were read on 2026-10-05; who extracted the figures and how: not stated.
+- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: downloading the 2024 report (T-0005). Step 1 can be done by an agent at the Full tier and is the safe state while the report is missing.
+
 ### T-0104 Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US
 
 - **Why / ROI rationale:** Estimate: the strict form is broken often by correct replies; deciding it once avoids shipping a rule the tests keep failing. *(confidence: low)*
@@ -297,7 +311,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-09 log review: -Expected was built from git diff --cached after git add -A, so the scope check always passed, and a filter hid the rows a model or a person must do. The privacy scan still ran on every staged file.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. An agent may build it; it changes an agent-control script, so the maintainer reads the diff.
 
-### T-0151 Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance
+### T-0158 Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance
 
 - **Why / ROI rationale:** Prevents live site regressions, broken headers, tone drift, or task board desynchronization without requiring manual human checks. *(confidence: high)*
 - **Route:** local - Local deterministic PowerShell and Python scripts.
@@ -312,7 +326,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-09: the wording was decided by a council of models plus one caregiver's request; no clinician has read it. cf-research proposals/2026-10-09-permission-and-review-letters.md has an invitation letter and reply form.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Related to T-0011 (a person with CF or a carer, and a registry scientist). Sending the invitation is the maintainer's step.
 
-### T-0149 Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring)
+### T-0156 Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring)
 
 - **Why / ROI rationale:** Guarantees zero citation rot or reliance on retracted studies across the live site, research proposals, and evidence ledger. *(confidence: high)*
 - **Route:** local - Automated deterministic API lookups and JSON diffing.
@@ -320,7 +334,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: Maintainer affirmed high utility of operational sentinel schedules alongside discovery engines; continuous automated lookup protects scientific credibility by flagging retracted DOIs and regulator indication changes. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Defensive sentinel grounded in Crossref/Retraction Watch and openFDA APIs; protects lab from citation rot and label drift. Tier routine. Recommended ready.
 
-### T-0150 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
+### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
 - **Why / ROI rationale:** Keeps the lab's flagship atlas perpetually synchronized with global CF clinical trial activity under catalog access rules. *(confidence: high)*
 - **Route:** cloud - Structured parsing of clinical trial protocol fields under security-browsing rules.
@@ -342,7 +356,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-10: every change to cf-research's sources/catalog.yaml needed a follow-up pull request in cf-skills to sync the evidence tool's generated copy (sync_skill_catalog.py --check reports DRIFT until it lands): four such pull requests in one day, with the site's counts needing the same until the evidence pin (.ai #38).
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Follows the pattern of .ai #38 (tools/pin_evidence.py) and the Resources pin. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: all three reviewers named it: every catalog change needed a sync pull request in cf-skills (four in one day).
 
-### T-0148 Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills)
+### T-0155 Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills)
 
 - **Why / ROI rationale:** Activates autonomous recurring discovery research across the lab without requiring manual intervention. *(confidence: high)*
 - **Route:** local - PowerShell 7 automation and Antigravity configuration.
@@ -350,7 +364,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: The maintainer authorized operationalizing the 6 generative discovery engines via Antigravity cron sidecars and scheduled-* skills. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Infrastructure task operationalizing Track A discovery engines via Antigravity sidecar cron schedules; bounded permissions required. Tier elevated. Recommended ready.
 
-### T-0140 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
+### T-0147 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 
 - **Why / ROI rationale:** Directly targets the primary failure mode in CF genetic therapy. Produces non-inflammatory LNP formulation specs and the Overcoming Delivery public brief. *(confidence: high)*
 - **Route:** cloud - Requires cross-disciplinary synthesis of aerosol biophysics, nanoparticle pharmacology, and CF airway immunology.
@@ -358,7 +372,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: Vertex/Moderna discontinued Phase 1/2 development of inhaled mRNA VX-522 (BEACON-CF NCT05668741) in May 2026 due to LNP-induced localized airway inflammation; ReCode RCT-2100 (SORT-LNPs) advancing; pulmonary delivery tolerability is the primary gating bottleneck to a genetic cure. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Verified grounded in primary literature (NCT05668741 BEACON-CF termination, SORT-LNP biophysics); high curative alignment with Track A delivery milestone. Tier elevated. Recommended ready when maintainer approves.
 
-### T-0142 Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit
+### T-0149 Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit
 
 - **Why / ROI rationale:** Transforms discovery on the live site, streamlining paths for trial designers, patients/families, and researchers; resolves mobile viewport clutter. *(confidence: high)*
 - **Route:** cloud - Requires visual taste, accessibility evaluation across viewports, and multi-model council consensus.
@@ -366,7 +380,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: Maintainer requested site navigation revamp evaluated with a multi-model council and Playwright visual screenshots; builds on T-0080 information architecture findings. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready.
 
-### T-0152 Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs)
+### T-0159 Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs)
 
 - **Why / ROI rationale:** Closes the autonomous loop: continuously audits all background agent activities and autonomously repairs security, privacy, or policy regressions via clean PRs. *(confidence: high)*
 - **Route:** cloud - Requires security analysis, git worktree orchestration, and automated PR generation through the elevated/full gate.
@@ -374,7 +388,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: Maintainer requested an autonomous schedule that monitors logs from all other schedules with a security lens (secrets, PHI, catalog violations, prompt injection) and automatically submits pull requests with verified fixes. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Core security sentinel auditing logs for secrets, PHI, catalog compliance, and prompt injection with automated PR remediation. Tier full. Recommended ready.
 
-### T-0153 Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs)
+### T-0160 Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs)
 
 - **Why / ROI rationale:** Directly bridges lab research to the public site: continually evolves frontend and voice skills, exposes fresh CF research in English and Spanish, and preps fully verified PRs. *(confidence: high)*
 - **Route:** cloud - Requires multi-repo cross-pollination between cf-research, cf-skills, and .ai with Playwright visual testing.
@@ -396,7 +410,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-05: the maintainer asked to improve the WebGL and SVG skills and to do research if needed. The public-skills survey found no Anthropic skill for three.js, WebGL or scientific figures; third-party three.js skills exist but were not read.
 - **Notes:** Requested by the maintainer in this session on 2026-10-05, so it is ready. 2026-10-05 progress: webgl-threejs-graphics/scripts/check-webgl.py (headless Chromium, software renderer, no network, probe element, console errors, non-blank screenshot) with 14 mutants caught. Measured: headless Chromium has no WebGL2 with --disable-gpu alone, needs --use-angle=swiftshader --enable-unsafe-swiftshader, and a fresh --user-data-dir hangs it. Playwright for Python 1.63.0 is installed in an isolated venv outside the repos and drives the Chromium already on disk. Sourced skill text is waiting on a research pass. \| 2026-10-07 progress: audited against the acceptance. Already met by earlier work: researched, dated sections with sources (accessibility, performance, no CDN and CSP, WebGL context loss), a runnable example per skill with a passing headless check, third-party skills read and attributed in THIRD_PARTY_SKILLS.md. Added now: webgl-threejs-graphics gains examples/lit-torus.html and svg-animation gains examples/draw-on.html (both tested by check-animated-page.py with 30 bad stubs); a drawElements-counts-indices section and a lit-mesh section in the WebGL skill (MDN re-read 2026-10-07; measured faults from 6 local-worker pages); a do-not-judge-free-running-animations-from-screenshots section in the SVG skill with the ?t= freeze hook (MDN animation-delay re-read 2026-10-07; the pause-plus-negative-delay behaviour is our measurement). check_source_overlap.py --quotes-only passes on both skills and the overlap check against the sentences read from the two new sources passes. Not re-runnable: the overlap check against the 2026-10-05 sources (their texts were not stored). The acceptance says a Playwright check; the examples are checked by headless Chromium helpers without Playwright, as the existing note records. \| 2026-10-07: the one acceptance clause met only in spirit, 'a Playwright check', now has real Playwright for Python checks for both skills with negative controls (cf-lab PR 19; they run with the optional browser-testing environment and print VERIFIED). The maintainer asked for that test when asked about the clause. Left ready for the maintainer to close once PR 19 is merged.
 
-### T-0145 Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid
+### T-0152 Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid
 
 - **Why / ROI rationale:** Universal curative potential: rehydrates mucus in any person with CF without needing gene correction. *(confidence: medium)*
 - **Route:** cloud - Epithelial physiology and mathematical ion transport modeling.
@@ -404,7 +418,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: Bypassing CFTR by blocking ENaC hyperabsorption or activating Ca2+-activated chloride channels (TMEM16A) or SLC26A9 restores mucociliary clearance regardless of CFTR mutation. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in epithelial electrophysiology (TMEM16A potentiators, ETD001 ENaC antagonism); universal Track A bypass conductance milestone. Tier routine. Recommended ready.
 
-### T-0147 Anti-resistance bacteriophage cocktail co-evolution dynamics against mucoid Pseudomonas aeruginosa
+### T-0154 Anti-resistance bacteriophage cocktail co-evolution dynamics against mucoid Pseudomonas aeruginosa
 
 - **Why / ROI rationale:** Models evolutionary trade-offs where phage resistance resensitizes bacteria to frontline antibiotics. *(confidence: medium)*
 - **Route:** cloud - Microbial genomics, phage biology, and evolutionary dynamics.
@@ -412,7 +426,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: Refractory Pseudomonas pulmonary infections remain the primary driver of lung transplantation and mortality; emergency expanded-access phage programs demonstrate success but encounter resistance emergence. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in microbial genomics of mucoid P. aeruginosa isolates and phage receptor trade-offs (LPS O-antigen, PilA); high-value Track A anti-infective milestone. Tier routine. Recommended ready.
 
-### T-0144 The Remaining 10% nonsense mutation engine: W1282X and G542X readthrough, NMD suppression synergy, and engineered suppressor tRNAs
+### T-0151 The Remaining 10% nonsense mutation engine: W1282X and G542X readthrough, NMD suppression synergy, and engineered suppressor tRNAs
 
 - **Why / ROI rationale:** Lays out the mechanistic foundation for multi-modal curative cocktails (readthrough + NMD inhibition + potentiator) for the non-modulator population. *(confidence: high)*
 - **Route:** cloud - Molecular genetics, RNA biology, and translational pharmacology.
@@ -420,7 +434,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: CFF committed $15M to Prime Medicine for G542X; Alltrna advancing suppressor tRNAs; nonsense mutations produce zero CFTR and lack approved therapies (Task T-0134). Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in RefSeq NM_000492.4, CFF Prime Medicine commitment, and Alltrna suppressor tRNAs; essential Track A milestone for non-modulator population (W1282X, G542X). Tier elevated. Recommended ready.
 
-### T-0141 Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools)
+### T-0148 Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools)
 
 - **Why / ROI rationale:** Dramatically broadens access to the lab evidence-based CF education, trial atlas, and AI in care guidelines for Hispanic and Latin American CF populations. *(confidence: high)*
 - **Route:** cloud - Requires culturally grounded, scientifically exact Spanish translation preserving medical boundaries and dignified lab-voice tone.
@@ -428,7 +442,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: Maintainer requested full Spanish language localization for the public site, expanding reach to Spanish-speaking CF families, clinicians, and researchers across the Americas and Spain. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready.
 
-### T-0143 In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery for rare and unclassified CFTR variants
+### T-0150 In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery for rare and unclassified CFTR variants
 
 - **Why / ROI rationale:** Provides the first automated structural dossiers predicting modulator responsiveness and allosteric rescue pockets for neglected variants. *(confidence: high)*
 - **Route:** cloud - Requires deep structural bioinformatics and 3D coordinate geometry.
@@ -436,7 +450,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: Over 2,000 CFTR variants identified; majority have no classified theratype. 3D Cryo-EM structures (5UAK, 6MSM, 7SV7, 8EIQ) and lab tools/cftr-model enable automated in silico perturbation modeling. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Rigorously grounded in Cryo-EM coordinates (PDB 5UAK, 6MSM, 7SV7, 8EIQ) and UniProt P13569; direct Track A biophysical theratyping milestone. Tier elevated. Recommended ready.
 
-### T-0146 Adaptive trial frameworks and organoid (FIS) surrogate endpoints for ultra-rare CF genotypes
+### T-0153 Adaptive trial frameworks and organoid (FIS) surrogate endpoints for ultra-rare CF genotypes
 
 - **Why / ROI rationale:** Directly empowers clinical trialists to evaluate novel therapies in ultra-rare mutations; extends the Trial Endpoint Atlas (T-0130). *(confidence: high)*
 - **Route:** cloud - Clinical biostatistics, trial design methodology, and organoid assay interpretation.
@@ -717,6 +731,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-10: tests.test_site_playwright PolicyViolationTests.test_the_browsers_refuse_html_strings_and_style_attributes_under_this_policy failed in WebKit in two full runs on the evidence-pin branch and in about 1 of 8 runs on unchanged main (the builder's count); it passed in every run by the controlling agent.
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Do not skip or widen the test to hide it; the test guards the Content-Security-Policy. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P3 to P2: a flaky browser test erodes trust in the gate (one reviewer; the controlling agent proposed the row).
 
+### T-0144 Observe what Antigravity loads from cf-lab, then state only that: a declared mirror under its documented paths, or no claim
+
+- **Why / ROI rationale:** Estimate: if Antigravity loads none of the lab's skills, every session there runs without security-browsing, security-git and the review loop, which fits how PR 50 looked; if it does load them, AGENTS.md can say so with a date. Either answer is worth an hour; an unobserved claim is worth less than nothing. *(confidence: medium)*
+- **Acceptance:** A person starts Antigravity in cf-lab and records (a listing or screenshot kept in cf-lab-files, no private paths in a repo) which skills and rule files it reports loading, with the Antigravity version and date. Then one of: (a) AGENTS.md and docs/instruction-loading.md state exactly what was observed and nothing more; or (b) a .agents/skills/ mirror is added as a declared mirror (junction, symlink, or a generated copy with a manifest naming the source commit), check-workspace.py's duplicate-name guard passes only when the trees are byte-identical, and a test fails on a one-byte difference. No skills.json claim remains unless the docs or the observation show it.
+- **Evidence:** 2026-10-12 (session record): Antigravity's official docs describe skills at <workspace-root>/.agents/skills/<folder>/ (also .agent/skills/), global folders under ~/.gemini/, and rules from AGENTS.md or GEMINI.md; they describe no skills.json. cf-lab keeps skills in .claude/skills/ only. Nobody has listed the skills an Antigravity session actually loads; the skills.json claim was removed from cf-lab PR 50 before it merged.
+- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: the Antigravity session itself. Related: T-0140 (the standalone-clone decision) and T-0143 (PR check).
+
 ### T-0048 Admission review of Google's Data Commons MCP server for population denominators (layer 5)
 
 - **Why / ROI rationale:** Prevalence and carrier-frequency sentences need a population base with provenance; Data Commons is Google-published, open, free, and MCP-native. Does not replace registry extraction. *(confidence: medium)*
@@ -732,7 +753,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-04: with only LOCAL_WORKER_MODEL set (no profiles) all three delegate attempts for a 130-line shell script stopped with 'Generated-token limit reached' at the hard-coded 8192 tokens, so the model had been thinking; with the fast profile (think false) the same task returned in 12 to 16 seconds. The thinking profile also hit the cap on the one task tried. MaxOutputTokens is fixed at 8192 inside delegate.ps1.
 - **Notes:** Proposed by a model; only a human moves it to ready. A human may prefer to require a profile instead; that is a design choice. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Done 2026-10-05, cf-lab 42681c2: model-only runs think off, explicit -MaxOutputTokens up to 16384, an actionable cap error; test-delegate and test-invoke-config extended. \| Verified done 2026-10-07 (first-hand, then by a read-only audit that planted mutants in a scratch copy), set done on the maintainer's instruction in session: test-delegate.ps1 93/93 and test-invoke-config.ps1 15/15 pass; they cover a model-only setup sending think off on the fast attempts and on for the last, -MaxOutputTokens reaching the worker, and the cap error naming the cap and how to raise it; each mutation (dropping think off, hard-coding the token budget to 8192, changing the cap message text) made a case fail. The note's commit hash is not in the rebuilt history; the code is on main. No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
 
-### T-0154 Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn)
+### T-0143 A pull request template and a body check: every PR carries its review-loop record, a size line and a declaration of files copied from another repo
+
+- **Why / ROI rationale:** Estimate: the lab now takes PRs from more than one agent tool, and the local commit gate (T-0111) is not on their path; a template plus a body check is the one control that meets every PR in the same place. A stranger may say a template is theater; it is, unless the check fails the PR, which is the acceptance. *(confidence: medium)*
+- **Acceptance:** .github/PULL_REQUEST_TEMPLATE.md in cf-lab asks for: the checks run with their output lines, the reviewer(s) and rounds (pr-review-loop), the diff size, 'files copied from another repo: none, or a list with the source commit', and 'agent instructions changed: yes/no'. A check (a check-all row, or a CI job with a read-only token) fails a PR whose body lacks the record headings, or whose diff exceeds a size the maintainer sets with no stated reason; a test proves it fails on a body without the record and passes with it. The same template is proposed to cf-research and cf-skills in their own PRs.
+- **Evidence:** 2026-10-13 (session record): cf-lab PR 50, opened by another agent (Gemini in the Antigravity IDE), had 58 files and +7,470 lines at its first head: copies of the evidence skill and a stale catalog (59 sources against 67 upstream, per T-0140), an allowlist that silenced the duplicate-skill guard, a reversed ownership sentence, an unverified .agents/skills.json claim, and a push rule changed from 'stop and ask' to 'submit'. Deterministic checks passed; a council and a byte comparison found the problems. AGENTS.md requires the pr-review-loop record in every PR body, but there is no PR template and nothing checks the body (as of origin/main 2026-10-13).
+- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: .github/ is a protected folder (T-0057), so the maintainer commits the template and sets the size cap. Pairs with T-0110 (rulesets make the review required); it does not replace reading the diff.
+
+### T-0161 Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn)
 
 - **Why / ROI rationale:** Prevents agent drift and hallucinations on the task board; enforces grounding against primary literature for all proposed tasks; burns zero tokens when the board is idle. *(confidence: high)*
 - **Route:** cloud - Requires multi-repo board synthesis, mission alignment verification, and lazy execution gating.
@@ -820,7 +848,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Estimate: keeps the board true without a person reading 126 rows. *(confidence: medium)*
 - **Acceptance:** tasks/render-board.ps1 -Check fails (or warns, where a rule needs a decision) when: an in_progress row needs a task that is not done; a row's notes say Done and it is not closed; a task has a higher priority than a task it depends on; the number of proposed P1 rows passes a cap the maintainer sets. Tests with fixtures; existing rows may need a one-time fix, listed in the pull request.
 - **Evidence:** 2026-10-10: two reviewers asked for it; the board has an in_progress row whose dependency is only 'ready' (T-0077 on T-0078), several rows whose notes say Done but are not closed, and 20 proposed P1 rows.
-- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Do not auto-fix; the check reports.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Do not auto-fix; the check reports. 2026-10-13: two more rules from cf-lab PR 50: -Check fails when board.json begins with a UTF-8 byte-order mark (bytes ef bb bf; an earlier head of that PR wrote one, and Python's json.loads rejects it) and when two rows share an id (that PR created a second T-0140). Both were caught by hand, not by the renderer. render-board.ps1 already rejects a duplicate id (line 43 on 2026-10-13), so check that the new rule covers a collision across two branches, which a per-file check cannot see.
+
+### T-0141 Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main
+
+- **Why / ROI rationale:** Estimate: removes a merge-order rule nobody can enforce by hand across two repos with squash merges, and the re-sync PR each time; the lock also records which research commit a public page was built from. A stranger may say the pin only moves the red check to 'behind'; the difference is that behind is a dated warning and differs-from-main is a skipped deploy. *(confidence: medium)*
+- **Acceptance:** A lock file records the cf-research commit SHA and a hash per copied file; CI compares the copies with the pinned commit and fails on a one-byte difference (tested with a perturbed fixture); a status command prints how far the pin is behind cf-research main; moving the pin is one PR in the site repo; merging a cf-research change alone no longer turns site main red. Reuse the shape of the existing pin tools; no second pin mechanism.
+- **Evidence:** 2026-10-12 to 13 (session record): the site's CI compares its byte-copied CFTR files with cf-research main; merging the site PR before the cf-research PR made site main CI fail ('src/cf/cftr/index.html differs from the data') and the deploy step was skipped until a re-sync PR (site PR 49) merged. Same class as T-0121 (a copy checked against a moving source). The existing pattern to reuse: tools/pin_evidence.py and tools/pin_resources.py in the site repo (listed 2026-10-13).
+- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. No human-only step beyond the merge. Private repo: keep deploy details out of public notes.
 
 ### T-0089 Mechanical filter for local review findings: reproduce each failing input in a temp copy
 
@@ -850,6 +885,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** Each repo's CI prints a skip summary (test id and reason) in the job summary and compares the set of skipped test ids with a committed expected-skip list, failing when it grows or when an entry no longer skips (so the list cannot go stale). The cf-research workflow discovers its cftr-model tests instead of naming modules. A test proves the guard fails on an added skip and on a removed one. By-design skips (symlink and platform) are listed with a reason. No new third-party dependency.
 - **Evidence:** 2026-10-10: the first CI runs showed OK with skips (cf-research 28, cf-lab 6 by design, cf-skills 3), and unittest and check-all treat a skip as success, so a test that starts skipping by accident looks green. cf-research's workflow lists four cftr-model modules by hand, which is how test_viewer and test_research were left out. Both reviewers (Opus, Sonnet) ranked this first.
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. One shared script or one per repo: decide once (the lab does not keep independently maintained copies). Run the checks in the repo whose workflow they guard.
+
+### T-0142 Site: run the render tests where a failure is seen (CI sets SITE_SKIP_RENDER=1 and a failing hero test went unseen)
+
+- **Why / ROI rationale:** Estimate: the render tests exist to catch layout regressions on public pages and today run only when a person remembers; one did regress on main. A stranger may say a browser in CI is slow and flaky (T-0120 records WebKit flakiness); that is why the job may be scheduled rather than per PR, but a skip must be visible either way. *(confidence: medium)*
+- **Acceptance:** The site's CI runs the render tests with a browser on pull requests or on main before the deploy step, with a flag that turns a missing browser into a failure (reuse T-0133's design: Playwright pinned with hashes, the runner's Chrome or Edge, local pages only, read-only token, no secrets). If the maintainer chooses a scheduled job instead, the deploy job prints skipped test ids against a committed expected-skip list (T-0131's pattern) and fails when the list grows. Proof: a PR that reintroduces the 809.5 px banner state goes red.
+- **Evidence:** 2026-10-12 (session record): tests/test_cftr_hero.py::test_the_protein_is_on_the_first_screen_of_a_desktop failed on clean site main (the two buttons ended at 809.5 px against an 800 px line, caused by the conference banner). .github/workflows/deploy.yml sets SITE_SKIP_RENDER: "1" (seen 2026-10-13), so nothing saw it; a local Playwright run found it and site PR 52 fixed it.
+- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: approve a browser download in CI (the lab's dependency rule). One design shared with T-0133 and T-0131, not three maintained copies.
 
 ### T-0051 Decide and implement how the control repo consumes the evidence skill
 
@@ -956,7 +998,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Estimate: keeps the page fast on a phone and the size guard honest as rows are added. *(confidence: medium)*
 - **Acceptance:** A choice is made and recorded: (a) split into /resources/ (map, jump list, filters) plus /resources/<country>/ pages with the filters per country; or (b) change the weight test to count only the scripts a page loads. The chosen option is built with tests; no limit is raised by hand again without a dated reason.
 - **Evidence:** 2026-10-10: the Resources page measured 239,778 bytes against its limit (raised from 224 KB to 236 KB for 36 rows; the page HTML alone is 76,912 bytes and grows about 2 KB per row); the proposal planned /resources/<code>/ pages when a page passes 80 percent of its cap.
-- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Option (a) keeps pages small for people on a phone; check how the CSS-only filter and the map would work across pages before choosing.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Option (a) keeps pages small for people on a phone; check how the CSS-only filter and the map would work across pages before choosing. 2026-10-13: the caps were raised again by documented test edits (AI-in-care 212 KB, Resources 240 KB, fonts 136 KB after self-hosting Source Serif 4); the reason for each cap lives only inside tests/test_site.py. When taken: one budget table with a dated reason per cap that the test reads, so a raise is a visible data change.
 
 ### T-0082 Try each agent's install path from the skills hub in a real client
 
@@ -1071,6 +1113,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** handoff site_text.txt (private session artifact, not in the repo) 'Modulators and drug development'
 - **Notes:**  2026-10-07: Audit: the approval years are stated and checked on the evidence page, but not linked individually to FDA or DailyMed records as the acceptance asks. Partly done.
 
+### T-0145 Decide the leftover git state from the 2026-10-11 to 13 session: one stale remote branch, two worktrees with unpushed commits, two worktrees that would not remove
+
+- **Why / ROI rationale:** Estimate: unpushed commits in a forgotten worktree are how a fix gets lost (T-0112's evidence); fifteen minutes of the maintainer's yes or no closes it. A stranger may say this is not board material; the board is the single list, and only a person may approve the deletes. *(confidence: medium)*
+- **Acceptance:** The maintainer answers delete or keep for each of the five items; before any removal the superseding work is confirmed on the target main (git log origin/main for the PR's last commit, or the T-0112 check); then worktrees.py clean --yes and git push --delete for the agreed items; the cause of 'permission denied' (a process holding the folder) is named; git worktree list and git branch -r show none of the agreed items.
+- **Evidence:** 2026-10-13 (session record, names not re-listed): remote branch site/letter-on-home is stale (a force-push was refused by the harness; the work went to site/letter-on-home-v2); local worktrees ai-wt-evpin and cr-wt-atlas-build hold commits on no remote and are probably superseded; two other worktrees failed to remove with 'permission denied'. Standing rule: ask before deleting old worktrees; worktrees.py clean --github is a dry run by default.
+- **Notes:** 2026-10-13: human decision: the deletes. An agent removes nothing without the yes. Item names are the session's labels and were not re-listed when this row was written; run worktrees.py list and clean --github (dry run) first.
+
 ### T-0026 Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals
 
 - **Why / ROI rationale:** A field reference that omits fields invites a wrong entry in the catalog that agents treat as a permission record. The privacy items are low risk (no host, credential or path) but leave the repo inconsistent with its own rule until a human decides whether the domain is public. *(confidence: medium)*
@@ -1098,7 +1147,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Estimate: the banner is dated and its copy would become wrong after the event. *(confidence: low)*
 - **Acceptance:** The marked block and its CSS are deleted, the generator and its checks pass, and no page names the conference (a test already forbids it on the AI-in-care page).
 - **Evidence:** 2026-10-09: the banner is a marked block in the site's chrome generator and a CSS block, labelled REMOVE AFTER THE CONFERENCE.
-- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it. 2026-10-13: the banner pushed the CFTR page's first-screen buttons to 809.5 px against the 800 px line (tests/test_cftr_hero.py), unseen because CI skips render tests (see T-0142); fixed in site PR 52. The take-down date is still the maintainer's. A blind Fable suggested P2 instead of P3 because the copy goes wrong in public the day after the conference; the priority is left for the maintainer.
 
 ### T-0068 review-diff.ps1: the gate's local-worker review row as one command
 
@@ -1282,4 +1331,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A 'care team' reader path that says what the atlas can and cannot answer; the withheld classes listed in the measures list marked 'counted, not shown (below the agreement bar)'; one sentence on whether the FEV1 class includes FEV1 used as a safety check, backed by the lexicon rules and a test; plain-language class notes stay unpublished until a clinician has read them (a person, not a model).
 - **Evidence:** 2026-10-11 role-played care-team and physician reviews (T0, models): the front page has tabs for trial designers, readers of results and people living with CF, but none for a care team; withheld classes (microbiology, healthcare use, survival and transplant, gastrointestinal and pancreatic) appear only in the 'Not shown' box, so a trialist may read them as rare; the FEV1 class has no definition and may mix efficacy use with FEV1 measured as a safety check after dosing.
 - **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. Clinician review of definitions is human-only; do not publish notes before it.
+
+### T-0140 Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy
+
+- **Why / ROI rationale:** Estimate: a standalone clone helps a contributor who will not clone the siblings, but setup scripts already do; the risk of a wrong catalog is larger than the benefit unless it is generated and checked. *(confidence: medium)*
+- **Acceptance:** First the maintainer decides, in this row's notes, whether a standalone cf-lab clone is wanted at all (setup.cmd and setup.sh already clone cf-skills and cf-research beside cf-lab). If yes, one of two designs, never a hand copy: (a) a generated snapshot: a script writes cf-lab/sources/catalog.snapshot.yaml from a pinned cf-research commit, with a header naming the source repository, commit SHA and date and the words 'generated, do not edit', and a check-all.ps1 row that fails when the snapshot differs from the pinned commit or is older than a limit the maintainer sets (skipped when no sibling is present); EVIDENCE_CATALOG keeps ../cf-research/sources/catalog.yaml as its default and the snapshot is only a documented fallback that fails closed with a 'refresh the catalog' message when stale; or (b) a true move of the canonical owner in one reviewed pull request per repo (delete upstream in the linked PR set, update every reference), which AGENTS.md's publication plan does not yet authorize. In either design the evidence skill is installed by a declared mechanism (a pinned vendoring script with the SHA, or a plugin), with a byte-equality check; the duplicate-name guard stays unconditional or passes a duplicate only when the two trees are byte-identical and a manifest names the source commit. A test fails on a one-byte change to a copied file. Reviewed at the Full tier with a blind challenger from a different model family, and quoted command output in the pull request.
+- **Evidence:** 2026-10-13: Gemini (Antigravity) opened cf-lab pull request 50, which copied the whole cf-evidence-loop skill and sources/catalog.yaml into cf-lab to make a clone 'self-contained'. A three-model council (Opus, Sonnet, Fable) and deterministic checks rejected the copy: 44 of 46 copied files were byte-identical to cf-skills and cf-research main, but the catalog copy had 59 sources against 67 upstream (missing the 8 added on 2026-10-09 and 10) and the skill's own generated catalog had 53, because the local sibling checkouts were behind origin/main; AGENTS.md says the evidence tool is 'not copied here, one maintained source' and the catalog 'Edit it there, nowhere else'; the PR also exempted the skill from the duplicate-name guard (check-workspace.py) and reversed the ownership text. The underlying wish (a clone that works without sibling checkouts) is reasonable and was not tested against how setup.cmd and setup.sh already clone the siblings.
+- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. This is a decision first and work second: the rejected PR is cf-lab PR 50 (comment with the council's findings). Nothing here changes who owns cf-evidence-loop or the catalog until a human sets this row ready and decides. Supersedes nothing; related: the publication plan in AGENTS.md ('does not authorize a cross-repo move yet'), the workspace-siblings skill, and the single-catalog rule in security-browsing.
 

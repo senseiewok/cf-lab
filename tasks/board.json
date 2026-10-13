@@ -3907,7 +3907,7 @@
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it. 2026-10-13: the banner pushed the CFTR page's first-screen buttons to 809.5 px against the 800 px line (tests/test_cftr_hero.py), unseen because CI skips render tests (see T-0142); fixed in site PR 52. The take-down date is still the maintainer's. A blind Fable suggested P2 instead of P3 because the copy goes wrong in public the day after the conference; the priority is left for the maintainer."
     },
     {
       "id": "T-0108",
@@ -4490,7 +4490,7 @@
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Option (a) keeps pages small for people on a phone; check how the CSS-only filter and the map would work across pages before choosing."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Option (a) keeps pages small for people on a phone; check how the CSS-only filter and the map would work across pages before choosing. 2026-10-13: the caps were raised again by documented test edits (AI-in-care 212 KB, Resources 240 KB, fonts 136 KB after self-hosting Source Serif 4); the reason for each cap lives only inside tests/test_site.py. When taken: one budget table with a dated reason per cap that the test reads, so a raise is a visible data change."
     },
     {
       "id": "T-0124",
@@ -4637,7 +4637,7 @@
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not auto-fix; the check reports."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not auto-fix; the check reports. 2026-10-13: two more rules from cf-lab PR 50: -Check fails when board.json begins with a UTF-8 byte-order mark (bytes ef bb bf; an earlier head of that PR wrote one, and Python's json.loads rejects it) and when two rows share an id (that PR created a second T-0140). Both were caught by hand, not by the renderer. render-board.ps1 already rejects a duplicate id (line 43 on 2026-10-13), so check that the new rule covers a collision across two branches, which a per-file check cannot see."
     },
     {
       "id": "T-0128",
@@ -5079,6 +5079,260 @@
     },
     {
       "id": "T-0140",
+      "title": "Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-13T04:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-13 session: review of a pull request written by another agent (Gemini in the Antigravity IDE), with a three-model council"
+      },
+      "source_evidence": "2026-10-13: Gemini (Antigravity) opened cf-lab pull request 50, which copied the whole cf-evidence-loop skill and sources/catalog.yaml into cf-lab to make a clone 'self-contained'. A three-model council (Opus, Sonnet, Fable) and deterministic checks rejected the copy: 44 of 46 copied files were byte-identical to cf-skills and cf-research main, but the catalog copy had 59 sources against 67 upstream (missing the 8 added on 2026-10-09 and 10) and the skill's own generated catalog had 53, because the local sibling checkouts were behind origin/main; AGENTS.md says the evidence tool is 'not copied here, one maintained source' and the catalog 'Edit it there, nowhere else'; the PR also exempted the skill from the duplicate-name guard (check-workspace.py) and reversed the ownership text. The underlying wish (a clone that works without sibling checkouts) is reasonable and was not tested against how setup.cmd and setup.sh already clone the siblings.",
+      "effort_hours": {
+        "low": 6,
+        "high": 14
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: a standalone clone helps a contributor who will not clone the siblings, but setup scripts already do; the risk of a wrong catalog is larger than the benefit unless it is generated and checked.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "First the maintainer decides, in this row's notes, whether a standalone cf-lab clone is wanted at all (setup.cmd and setup.sh already clone cf-skills and cf-research beside cf-lab). If yes, one of two designs, never a hand copy: (a) a generated snapshot: a script writes cf-lab/sources/catalog.snapshot.yaml from a pinned cf-research commit, with a header naming the source repository, commit SHA and date and the words 'generated, do not edit', and a check-all.ps1 row that fails when the snapshot differs from the pinned commit or is older than a limit the maintainer sets (skipped when no sibling is present); EVIDENCE_CATALOG keeps ../cf-research/sources/catalog.yaml as its default and the snapshot is only a documented fallback that fails closed with a 'refresh the catalog' message when stale; or (b) a true move of the canonical owner in one reviewed pull request per repo (delete upstream in the linked PR set, update every reference), which AGENTS.md's publication plan does not yet authorize. In either design the evidence skill is installed by a declared mechanism (a pinned vendoring script with the SHA, or a plugin), with a byte-equality check; the duplicate-name guard stays unconditional or passes a duplicate only when the two trees are byte-identical and a manifest names the source commit. A test fails on a one-byte change to a copied file. Reviewed at the Full tier with a blind challenger from a different model family, and quoted command output in the pull request.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. This is a decision first and work second: the rejected PR is cf-lab PR 50 (comment with the council's findings). Nothing here changes who owns cf-evidence-loop or the catalog until a human sets this row ready and decides. Supersedes nothing; related: the publication plan in AGENTS.md ('does not authorize a cross-repo move yet'), the workspace-siblings skill, and the single-catalog rule in security-browsing."
+    },
+    {
+      "id": "T-0141",
+      "title": "Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main",
+      "repo": "site",
+      "area": "reliability",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-13T05:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-11 to 2026-10-13 session: candidates mined from the whole conversation by the controlling agent; verdicts, drafts and ranking by a blind Fable (claude-fable-5-1) read of board.json and a session packet; the controlling agent re-checked the repo and board facts the rows rest on"
+      },
+      "source_evidence": "2026-10-12 to 13 (session record): the site's CI compares its byte-copied CFTR files with cf-research main; merging the site PR before the cf-research PR made site main CI fail ('src/cf/cftr/index.html differs from the data') and the deploy step was skipped until a re-sync PR (site PR 49) merged. Same class as T-0121 (a copy checked against a moving source). The existing pattern to reuse: tools/pin_evidence.py and tools/pin_resources.py in the site repo (listed 2026-10-13).",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: removes a merge-order rule nobody can enforce by hand across two repos with squash merges, and the re-sync PR each time; the lock also records which research commit a public page was built from. A stranger may say the pin only moves the red check to 'behind'; the difference is that behind is a dated warning and differs-from-main is a skipped deploy.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A lock file records the cf-research commit SHA and a hash per copied file; CI compares the copies with the pinned commit and fails on a one-byte difference (tested with a perturbed fixture); a status command prints how far the pin is behind cf-research main; moving the pin is one PR in the site repo; merging a cf-research change alone no longer turns site main red. Reuse the shape of the existing pin tools; no second pin mechanism.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. No human-only step beyond the merge. Private repo: keep deploy details out of public notes."
+    },
+    {
+      "id": "T-0142",
+      "title": "Site: run the render tests where a failure is seen (CI sets SITE_SKIP_RENDER=1 and a failing hero test went unseen)",
+      "repo": "site",
+      "area": "reliability",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-13T05:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-11 to 2026-10-13 session: candidates mined from the whole conversation by the controlling agent; verdicts, drafts and ranking by a blind Fable (claude-fable-5-1) read of board.json and a session packet; the controlling agent re-checked the repo and board facts the rows rest on"
+      },
+      "source_evidence": "2026-10-12 (session record): tests/test_cftr_hero.py::test_the_protein_is_on_the_first_screen_of_a_desktop failed on clean site main (the two buttons ended at 809.5 px against an 800 px line, caused by the conference banner). .github/workflows/deploy.yml sets SITE_SKIP_RENDER: \"1\" (seen 2026-10-13), so nothing saw it; a local Playwright run found it and site PR 52 fixed it.",
+      "effort_hours": {
+        "low": 3,
+        "high": 6
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: the render tests exist to catch layout regressions on public pages and today run only when a person remembers; one did regress on main. A stranger may say a browser in CI is slow and flaky (T-0120 records WebKit flakiness); that is why the job may be scheduled rather than per PR, but a skip must be visible either way.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "The site's CI runs the render tests with a browser on pull requests or on main before the deploy step, with a flag that turns a missing browser into a failure (reuse T-0133's design: Playwright pinned with hashes, the runner's Chrome or Edge, local pages only, read-only token, no secrets). If the maintainer chooses a scheduled job instead, the deploy job prints skipped test ids against a committed expected-skip list (T-0131's pattern) and fails when the list grows. Proof: a PR that reintroduces the 809.5 px banner state goes red.",
+      "review_tier": "full",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "medium",
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: approve a browser download in CI (the lab's dependency rule). One design shared with T-0133 and T-0131, not three maintained copies."
+    },
+    {
+      "id": "T-0143",
+      "title": "A pull request template and a body check: every PR carries its review-loop record, a size line and a declaration of files copied from another repo",
+      "repo": "cf-lab",
+      "area": "governance",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-13T05:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-11 to 2026-10-13 session: candidates mined from the whole conversation by the controlling agent; verdicts, drafts and ranking by a blind Fable (claude-fable-5-1) read of board.json and a session packet; the controlling agent re-checked the repo and board facts the rows rest on"
+      },
+      "source_evidence": "2026-10-13 (session record): cf-lab PR 50, opened by another agent (Gemini in the Antigravity IDE), had 58 files and +7,470 lines at its first head: copies of the evidence skill and a stale catalog (59 sources against 67 upstream, per T-0140), an allowlist that silenced the duplicate-skill guard, a reversed ownership sentence, an unverified .agents/skills.json claim, and a push rule changed from 'stop and ask' to 'submit'. Deterministic checks passed; a council and a byte comparison found the problems. AGENTS.md requires the pr-review-loop record in every PR body, but there is no PR template and nothing checks the body (as of origin/main 2026-10-13).",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Estimate: the lab now takes PRs from more than one agent tool, and the local commit gate (T-0111) is not on their path; a template plus a body check is the one control that meets every PR in the same place. A stranger may say a template is theater; it is, unless the check fails the PR, which is the acceptance.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": ".github/PULL_REQUEST_TEMPLATE.md in cf-lab asks for: the checks run with their output lines, the reviewer(s) and rounds (pr-review-loop), the diff size, 'files copied from another repo: none, or a list with the source commit', and 'agent instructions changed: yes/no'. A check (a check-all row, or a CI job with a read-only token) fails a PR whose body lacks the record headings, or whose diff exceeds a size the maintainer sets with no stated reason; a test proves it fails on a body without the record and passes with it. The same template is proposed to cf-research and cf-skills in their own PRs.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: .github/ is a protected folder (T-0057), so the maintainer commits the template and sets the size cap. Pairs with T-0110 (rulesets make the review required); it does not replace reading the diff."
+    },
+    {
+      "id": "T-0144",
+      "title": "Observe what Antigravity loads from cf-lab, then state only that: a declared mirror under its documented paths, or no claim",
+      "repo": "cf-lab",
+      "area": "governance",
+      "status": "proposed",
+      "priority": "P2",
+      "created_at": "2026-10-13T05:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-11 to 2026-10-13 session: candidates mined from the whole conversation by the controlling agent; verdicts, drafts and ranking by a blind Fable (claude-fable-5-1) read of board.json and a session packet; the controlling agent re-checked the repo and board facts the rows rest on"
+      },
+      "source_evidence": "2026-10-12 (session record): Antigravity's official docs describe skills at <workspace-root>/.agents/skills/<folder>/ (also .agent/skills/), global folders under ~/.gemini/, and rules from AGENTS.md or GEMINI.md; they describe no skills.json. cf-lab keeps skills in .claude/skills/ only. Nobody has listed the skills an Antigravity session actually loads; the skills.json claim was removed from cf-lab PR 50 before it merged.",
+      "effort_hours": {
+        "low": 1,
+        "high": 3
+      },
+      "roi": {
+        "benefit": 3,
+        "rationale": "Estimate: if Antigravity loads none of the lab's skills, every session there runs without security-browsing, security-git and the review loop, which fits how PR 50 looked; if it does load them, AGENTS.md can say so with a date. Either answer is worth an hour; an unobserved claim is worth less than nothing.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "A person starts Antigravity in cf-lab and records (a listing or screenshot kept in cf-lab-files, no private paths in a repo) which skills and rule files it reports loading, with the Antigravity version and date. Then one of: (a) AGENTS.md and docs/instruction-loading.md state exactly what was observed and nothing more; or (b) a .agents/skills/ mirror is added as a declared mirror (junction, symlink, or a generated copy with a manifest naming the source commit), check-workspace.py's duplicate-name guard passes only when the trees are byte-identical, and a test fails on a one-byte difference. No skills.json claim remains unless the docs or the observation show it.",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: the Antigravity session itself. Related: T-0140 (the standalone-clone decision) and T-0143 (PR check)."
+    },
+    {
+      "id": "T-0145",
+      "title": "Decide the leftover git state from the 2026-10-11 to 13 session: one stale remote branch, two worktrees with unpushed commits, two worktrees that would not remove",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "proposed",
+      "priority": "P3",
+      "created_at": "2026-10-13T05:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-11 to 2026-10-13 session: candidates mined from the whole conversation by the controlling agent; verdicts, drafts and ranking by a blind Fable (claude-fable-5-1) read of board.json and a session packet; the controlling agent re-checked the repo and board facts the rows rest on"
+      },
+      "source_evidence": "2026-10-13 (session record, names not re-listed): remote branch site/letter-on-home is stale (a force-push was refused by the harness; the work went to site/letter-on-home-v2); local worktrees ai-wt-evpin and cr-wt-atlas-build hold commits on no remote and are probably superseded; two other worktrees failed to remove with 'permission denied'. Standing rule: ask before deleting old worktrees; worktrees.py clean --github is a dry run by default.",
+      "effort_hours": {
+        "low": 0.25,
+        "high": 0.75
+      },
+      "roi": {
+        "benefit": 2,
+        "rationale": "Estimate: unpushed commits in a forgotten worktree are how a fix gets lost (T-0112's evidence); fifteen minutes of the maintainer's yes or no closes it. A stranger may say this is not board material; the board is the single list, and only a person may approve the deletes.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "The maintainer answers delete or keep for each of the five items; before any removal the superseding work is confirmed on the target main (git log origin/main for the PR's last commit, or the T-0112 check); then worktrees.py clean --yes and git push --delete for the agreed items; the cause of 'permission denied' (a process holding the folder) is named; git worktree list and git branch -r show none of the agreed items.",
+      "review_tier": "routine",
+      "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-13: human decision: the deletes. An agent removes nothing without the yes. Item names are the session's labels and were not re-listed when this row was written; run worktrees.py list and clean --github (dry run) first."
+    },
+    {
+      "id": "T-0146",
+      "title": "CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has",
+      "repo": "site",
+      "area": "content",
+      "status": "proposed",
+      "priority": "P1",
+      "created_at": "2026-10-13T05:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5",
+        "session_ref": "2026-10-11 to 2026-10-13 session: candidates mined from the whole conversation by the controlling agent; verdicts, drafts and ranking by a blind Fable (claude-fable-5-1) read of board.json and a session packet; the controlling agent re-checked the repo and board facts the rows rest on"
+      },
+      "source_evidence": "2026-10-13: the CF-story page (src/cf/index.html on site origin/main, 'Who is still waiting', United States paragraph) shows 14.9 and 23.7 percent (of the group counted as not eligible by age or genotype) against 3.4 and 10.3 percent of the whole registry, sourced to the 2024 CFFPR Annual Data Report. A search of cf-research origin/main for those figures with the words Black, Hispanic, Alyftrek, percent and eligible found no claim record (scope: git grep on 2026-10-13, text files only). The Foundation's site answers 403 to scripts and the 2024 report is not on this machine. Site PR 52 reworded the sentence to attribute only what the lab's genetics-reading note supports; the percentages were not re-verified. The page says the reports were read on 2026-10-05; who extracted the figures and how: not stated.",
+      "effort_hours": {
+        "low": 1,
+        "high": 3
+      },
+      "roi": {
+        "benefit": 5,
+        "rationale": "Estimate: published numbers about people with CF, on a public page, with no primary-source record found; the lab's rule is that every number comes from a source line and unsupported claims are omitted from publication. A stranger could say the numbers are probably right; the lab's position is that probably right is not a tier.",
+        "confidence": "medium",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null
+      },
+      "acceptance": "Step 1, no download needed: each of the four figures is either removed from the page or shown as unverified, and a test fails when a sentence that names a registry and carries a number has no claim record. Step 2, after T-0005: each figure has a claim record with report year, page, table or figure name and the exact quoted value; the cffpr-report-reading cautions on population and definitions are recorded; check_claims.py and check_numbers.py pass; a figure the report does not state is removed, not rounded. A second model family reads the claim records blind; the maintainer reads the result before deploy.",
+      "review_tier": "full",
+      "depends_on": [
+        "T-0005"
+      ],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
+      "complexity": "low",
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: downloading the 2024 report (T-0005). Step 1 can be done by an agent at the Full tier and is the safe state while the report is missing."
+    },
+    {
+      "id": "T-0147",
       "title": "Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)",
       "repo": "cf-research",
       "area": "delivery",
@@ -5113,7 +5367,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Verified grounded in primary literature (NCT05668741 BEACON-CF termination, SORT-LNP biophysics); high curative alignment with Track A delivery milestone. Tier elevated. Recommended ready when maintainer approves."
     },
     {
-      "id": "T-0141",
+      "id": "T-0148",
       "title": "Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools)",
       "repo": "site",
       "area": "site",
@@ -5142,7 +5396,7 @@
       "acceptance": "Multilingual routing structure (e.g. /es/ or language toggle) with verified Spanish copy for core pages (home, CF story, trial atlas, resources, AI in care); scientific terms and drug names preserved accurately; hreflang tags added; passes HTML/CSP validation and site test suites.",
       "review_tier": "full",
       "depends_on": [
-        "T-0142"
+        "T-0149"
       ],
       "complexity": "medium",
       "recommended_route": "cloud",
@@ -5150,7 +5404,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready."
     },
     {
-      "id": "T-0142",
+      "id": "T-0149",
       "title": "Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit",
       "repo": "site",
       "area": "site",
@@ -5185,7 +5439,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready."
     },
     {
-      "id": "T-0143",
+      "id": "T-0150",
       "title": "In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery for rare and unclassified CFTR variants",
       "repo": "cf-research",
       "area": "cftr-model",
@@ -5220,7 +5474,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Rigorously grounded in Cryo-EM coordinates (PDB 5UAK, 6MSM, 7SV7, 8EIQ) and UniProt P13569; direct Track A biophysical theratyping milestone. Tier elevated. Recommended ready."
     },
     {
-      "id": "T-0144",
+      "id": "T-0151",
       "title": "The Remaining 10% nonsense mutation engine: W1282X and G542X readthrough, NMD suppression synergy, and engineered suppressor tRNAs",
       "repo": "cf-research",
       "area": "research",
@@ -5255,7 +5509,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in RefSeq NM_000492.4, CFF Prime Medicine commitment, and Alltrna suppressor tRNAs; essential Track A milestone for non-modulator population (W1282X, G542X). Tier elevated. Recommended ready."
     },
     {
-      "id": "T-0145",
+      "id": "T-0152",
       "title": "Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid",
       "repo": "cf-research",
       "area": "research",
@@ -5290,7 +5544,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in epithelial electrophysiology (TMEM16A potentiators, ETD001 ENaC antagonism); universal Track A bypass conductance milestone. Tier routine. Recommended ready."
     },
     {
-      "id": "T-0146",
+      "id": "T-0153",
       "title": "Adaptive trial frameworks and organoid (FIS) surrogate endpoints for ultra-rare CF genotypes",
       "repo": "cf-research",
       "area": "atlas",
@@ -5327,7 +5581,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in published rectal organoid FIS swelling assay correlations; links Track A theratyping to Track B Trial Endpoint Atlas. Tier full. Recommended ready."
     },
     {
-      "id": "T-0147",
+      "id": "T-0154",
       "title": "Anti-resistance bacteriophage cocktail co-evolution dynamics against mucoid Pseudomonas aeruginosa",
       "repo": "cf-research",
       "area": "research",
@@ -5362,7 +5616,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in microbial genomics of mucoid P. aeruginosa isolates and phage receptor trade-offs (LPS O-antigen, PilA); high-value Track A anti-infective milestone. Tier routine. Recommended ready."
     },
     {
-      "id": "T-0148",
+      "id": "T-0155",
       "title": "Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills)",
       "repo": "cf-lab",
       "area": "tooling",
@@ -5397,7 +5651,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Infrastructure task operationalizing Track A discovery engines via Antigravity sidecar cron schedules; bounded permissions required. Tier elevated. Recommended ready."
     },
     {
-      "id": "T-0149",
+      "id": "T-0156",
       "title": "Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring)",
       "repo": "cf-skills",
       "area": "governance",
@@ -5435,7 +5689,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Defensive sentinel grounded in Crossref/Retraction Watch and openFDA APIs; protects lab from citation rot and label drift. Tier routine. Recommended ready."
     },
     {
-      "id": "T-0150",
+      "id": "T-0157",
       "title": "Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas",
       "repo": "cf-research",
       "area": "atlas",
@@ -5472,7 +5726,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in ClinicalTrials.gov API v2; directly feeds Track B Trial Endpoint Atlas (T-0130). Tier elevated. Recommended ready."
     },
     {
-      "id": "T-0151",
+      "id": "T-0158",
       "title": "Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance",
       "repo": "cf-lab",
       "area": "site",
@@ -5507,7 +5761,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Operational sentinel verifying live HTTP headers, 65 roses count, and voice dignity; zero-network local checks. Tier routine. Recommended ready."
     },
     {
-      "id": "T-0152",
+      "id": "T-0159",
       "title": "Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs)",
       "repo": "cf-lab",
       "area": "security",
@@ -5545,7 +5799,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Core security sentinel auditing logs for secrets, PHI, catalog compliance, and prompt injection with automated PR remediation. Tier full. Recommended ready."
     },
     {
-      "id": "T-0153",
+      "id": "T-0160",
       "title": "Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs)",
       "repo": "site",
       "area": "site",
@@ -5574,8 +5828,8 @@
       "acceptance": "Skill scheduled-site-showcase created under .claude/skills/; multi-stage execution verifies skills, generates site pages (make_evidence, sync_cftr_model, /es/ copy), runs tests.test_site and Playwright visual audits, commits via run-gate.ps1, and prepares PRs via gh pr create with attached screenshots.",
       "review_tier": "full",
       "depends_on": [
-        "T-0141",
-        "T-0142"
+        "T-0148",
+        "T-0149"
       ],
       "updated_at": null,
       "completed_at": null,
@@ -5586,7 +5840,7 @@
       "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready."
     },
     {
-      "id": "T-0154",
+      "id": "T-0161",
       "title": "Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn)",
       "repo": "cf-lab",
       "area": "governance",
