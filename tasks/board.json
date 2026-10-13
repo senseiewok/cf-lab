@@ -5737,7 +5737,7 @@
       "recommended_route": "local",
       "route_rationale": "PowerShell 7 automation and Antigravity configuration.",
       "branch": "feat/antigravity-discovery-and-pr-rules",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Infrastructure task operationalizing Track A discovery engines via Antigravity sidecar cron schedules; bounded permissions required. Tier elevated. Recommended ready. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Infrastructure task operationalizing Track A discovery engines via Antigravity sidecar cron schedules; bounded permissions required. Tier elevated. Recommended ready. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules. | 2026-10-13: Scheduled permissions configured in .claude/settings.json: deny direct pushes to main/master, allow deterministic checks, topic-branch push, and gh pr create on branch skills/schedule-permissions."
     },
     {
       "id": "T-0156",

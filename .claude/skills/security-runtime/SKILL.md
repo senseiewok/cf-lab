@@ -22,7 +22,7 @@ Model choice doesn't make an agent safe. Any model can be steered by text it rea
 
 ## 2. Claude Code
 
-- This repo ships `.claude/settings.json`. It blocks reading common secret files, turns off bypass mode, and asks before `git push`, hard resets, deletes, downloads, installs and edits to agent instructions. Keep it, and add your own rules in `.claude/settings.local.json` (git-ignored).
+- This repo ships `.claude/settings.json`. It blocks reading common secret files, turns off bypass mode, strictly denies force pushes and direct pushes to `main` or `master`, and asks before bare `git push`, hard resets, deletes, downloads, installs and edits to agent instructions. It explicitly allows safe topic-branch pushes (`git push -u origin *`), GitHub CLI PR creation (`gh pr create`), and deterministic test and audit runners (`check-all.ps1`, `render-board.ps1`, `run-gate.ps1`, `unittest`, `check-voice.py`, `check-workspace.py`) so scheduled sentinels can complete verification and open PRs unattended. Keep it, and add your own rules in `.claude/settings.local.json` (git-ignored).
 - Deny and ask rules always beat allow rules, but **command patterns are not a security boundary**. A `Bash(curl *)` rule doesn't catch `/usr/bin/curl` or `sh -c 'curl ...'`. Where a restriction must hold, turn on Claude Code's sandbox with a network allowlist that names only the domains you need; it covers child processes too. See the official permissions and sandboxing docs.
 - Auto mode replaces prompts with a classifier. It's a convenience, not a security boundary: keep the ask rules above, and don't use it in repos you don't trust.
 
