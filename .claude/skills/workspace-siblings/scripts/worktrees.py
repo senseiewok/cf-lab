@@ -3,7 +3,7 @@
 
     worktrees.py list  [--root DIR] [--github | --pr-state FILE]
     worktrees.py clean [--root DIR] [--github | --pr-state FILE] [--yes]
-    worktrees.py new REPO TOPIC [--branch NAME] [--base REF] [--no-fetch] [--root DIR]
+    worktrees.py new REPO TOPIC [--branch NAME] [--base REF] [--no-fetch] [--push] [--root DIR]
 
 DIR is the folder that holds the repositories (default: the parent of the main checkout this script belongs to). A
 repository is a folder directly under DIR that has a `.git` directory; a worktree has a `.git` file, so it is never
@@ -11,8 +11,8 @@ taken for one. New worktrees go in DIR/.worktrees/REPO/TOPIC so DIR shows only t
 
 list   one line per worktree: why it is kept, or that it can go.
 clean  removes the worktrees marked REMOVE. Without --yes it only prints what it would remove.
-new    fetches origin (unless --no-fetch), then adds a worktree on a new branch from the base (default: origin's
-       default branch).
+new    fetches origin (unless --no-fetch), adds a worktree on a new branch from the base (default: origin's
+       default branch), and with --push pushes the branch to origin (-u) immediately.
 
 A worktree is REMOVE only when ALL of these hold:
   - it is not locked, its HEAD is a branch, and git could inspect it (any error keeps it);
@@ -251,6 +251,9 @@ def cmd_clean(root, args):
     return 1 if failed else 0
 
 
+BRANCH_STD_RX = re.compile(r"^(feat|fix|refactor|site|skills|research|atlas|cftr|sec|board|council|docs|ci|editorial|work)/[A-Za-z0-9][A-Za-z0-9._-]*$")
+
+
 def cmd_new(root, args):
     repos = {d.name: d for d in find_repos(root)}
     if args.repo not in repos:
@@ -260,6 +263,9 @@ def cmd_new(root, args):
     branch = args.branch or args.topic
     if not NAME_RX.fullmatch(args.topic) or not REF_RX.fullmatch(branch) or branch.endswith(("/", ".lock")) or ".." in branch:
         print("REFUSED the topic and branch must be letters, digits, dot, dash, underscore (a branch may also have a slash)", file=sys.stderr)
+        return 2
+    if (args.branch or args.push) and not BRANCH_STD_RX.fullmatch(branch):
+        print("REFUSED branch must follow <prefix>/<topic> (allowed prefixes: feat, fix, refactor, site, skills, research, atlas, cftr, sec, board, council, docs, ci, editorial, work)", file=sys.stderr)
         return 2
     base_dir = root / ".worktrees" / args.repo
     dest = base_dir / args.topic
@@ -281,7 +287,16 @@ def cmd_new(root, args):
     if not g.ok:
         print(f"FAILED {g.err}", file=sys.stderr)
         return 1
-    print(f"CREATED {dest} on branch {branch} from {base}")
+    if args.push:
+        p = Git("push", "-u", "origin", branch, cwd=dest)
+        if not p.ok:
+            Git("worktree", "remove", "--force", str(dest), cwd=repo)
+            Git("branch", "-D", branch, cwd=repo)
+            print(f"FAILED push to origin/{branch} (rolled back worktree and local branch): {p.err}", file=sys.stderr)
+            return 1
+        print(f"CREATED {dest} on branch {branch} from {base} (pushed to origin/{branch})")
+    else:
+        print(f"CREATED {dest} on branch {branch} from {base}")
     return 0
 
 
@@ -302,6 +317,7 @@ def main(argv=None):
     sp.add_argument("--branch")
     sp.add_argument("--base")
     sp.add_argument("--no-fetch", action="store_true")
+    sp.add_argument("--push", action="store_true", help="push the new branch to origin (-u) immediately")
     sp.add_argument("--root")
     args = ap.parse_args(argv)
     if not args.cmd:

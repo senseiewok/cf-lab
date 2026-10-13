@@ -100,6 +100,15 @@ When we evaluate a CF research tool, or write about CF trials, these are the end
 
 For a lab tool (a journal parser, a variant lookup helper, an outcome dashboard), name which endpoint the tool is built to surface and which it is *not* meant to interpret.
 
+### Trial endpoint atlas and antibiotic stewardship grounding (`cf-research` dossiers)
+
+- **Trial endpoint atlas (`T-0130`, `proposals/2026-10-10-trial-endpoint-atlas.md`, `proposals/2026-10-11-withholding-design.md`)**:
+  - From ClinicalTrials.gov snapshot `d164700bb17d` (`dataTimestamp` 2026-10-09): `1,072` interventional CF studies (`797` CF-only, `275` listing CF among other conditions) and `2,052` primary-outcome entries (`1,839` sorted by rule in lexicon `0.3.2-draft`, `70` sorted by model under a two-family blind consensus rule against exact substring quotes, `32` naming no measure, `111` unsorted).
+  - **Withholding rule (`check_atlas.py --withhold-failing`)**: On the 938-row `census-v1` frozen set, any class failing precision (`< 0.85`) or recall (`< 0.80`) where estimable (`>= 10` positives) is withheld by name with no per-class count shown (`10` withheld classes; `188` of `1,072` studies and `388` of `2,052` entries — `18.9%` — fall only in withheld classes; `S2` other plus unclassified is `5.4%` against the `15%` cap). Never rank endpoint frequency as clinical merit.
+- **Antibiotic stewardship claim check (`landscape/antibiotic-stewardship-cf.md`, checked 2026-10-07)**:
+  - **STOP2 (`NCT02781610`, Goss et al. 2021, PMID `34469706`, `982` randomized)**: In `277` early responders, 10 days of IV antibiotics was not inferior to 14 days (mean `ppFEV1` change `12.8` vs `13.4`, difference `-0.65`, 95% CI `-3.3` to `2.0`); in `705` slower responders, 21 days was not superior to 14 days (`3.3` vs `3.4`, difference `-0.10`, 95% CI `-1.3` to `1.1`).
+  - **Infant gut microbiota cohort (Deschamp et al. 2023, PMID `37598041`)**: Australian infants (`98%` on routine amoxicillin-clavulanate prophylaxis) had lower stool alpha diversity than US infants (`0%` prophylaxis), but diversity was *not* linked to growth (`"Gut microbial diversity was not linked to growth"`), and prophylaxis cannot be separated from country in this observational cohort.
+
 ## Data and community sources
 
 The workspace's public materials should link to primary sources, not to our own summaries. **Before fetching anything, check `../cf-research/sources/catalog.yaml`**: it records, per source, whether automated retrieval is permitted (`fetch`/`api`), must be done by a human (`manual`), needs an application (`request`), or has been refused (`forbidden`). If a source is not in the catalog, add it with evidence before using it.
