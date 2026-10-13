@@ -33,6 +33,7 @@ The siblings must sit beside `cf-lab` under these exact names: `cf-skills`, `cf-
 | Layout | How | What loads from the siblings |
 | --- | --- | --- |
 | VS Code | Open `cf-lab.code-workspace` | All four folders in one window |
+| Antigravity (App / IDE) | Start in `cf-lab` (reads `.agents/skills.json`) | All `cf-lab` skills, plus declared sibling skills (`cf-evidence-loop`) |
 | Claude Code, one session | From `cf-lab`: `claude --add-dir ../cf-skills ../cf-research`, or `/add-dir <path>` during a session | Files, plus their `.claude/skills/` (reloaded live) |
 | Claude Code, every session | `permissions.additionalDirectories` in your own git-ignored `.claude/settings.local.json`, with absolute paths (copy `.claude/settings.local.json.example`) | Files only. Their skills still need `--add-dir` or `/add-dir` |
 
@@ -62,7 +63,7 @@ Details, checks per repo and the pull request steps: the `workspace-siblings` sk
 
 ## Skills
 
-Agent skills live in `.claude/skills/<skill-name>/SKILL.md`. This single location works for both Claude Code (which only reads `.claude/skills/`) and GitHub Copilot (which reads `.github/skills/`, `.claude/skills/`, or `.agents/skills/` — any one is enough), so there's no need to duplicate skill files across folders. If a future tool only reads a different path, mirror there rather than making `.claude/skills/` the copy.
+Agent skills live in `.claude/skills/<skill-name>/SKILL.md`. This single location works for both Claude Code (which only reads `.claude/skills/`) and GitHub Copilot (which reads `.github/skills/`, `.claude/skills/`, or `.agents/skills/` — any one is enough), so there's no need to duplicate skill files across folders. For Google Antigravity, `.agents/skills.json` configures skill discovery to point directly to `.claude/skills/` and declared sibling skills without duplicating files. If a future tool only reads a different path, mirror there rather than making `.claude/skills/` the copy.
 
 Current skills:
 
@@ -93,7 +94,7 @@ Current skills:
 
 - `cf-research-context` — grounding and safety rules for Cystic Fibrosis work: disease basics, CFTR modulators, endpoints, data sources, 65-rose convention, what the lab may and may not claim, and the guardrails against invented claims (answer tiers T0 to T3, scope records, the claim checkers)
 - `lab-voice` — warm, plain-language research writing with dignity, evidence, and clear boundaries, in American English, with a checker for spelling, repetition and long pages
-- `cf-evidence-loop` (in the `cf-skills` repo at `../cf-skills/.claude/skills/cf-evidence-loop`; not copied here, one maintained source) — the evidence-record tool agents use before citing a number, approval, trial or paper. It reads the single source catalog through `EVIDENCE_CATALOG`; its own `catalog.yaml` is generated
+- `cf-evidence-loop` (in the `cf-skills` repo at `../cf-skills/.claude/skills/cf-evidence-loop`; loaded for lab sessions via `.agents/skills.json` without duplicating files) — the evidence-record tool agents use before citing a number, approval, trial or paper. It reads the single source catalog through `EVIDENCE_CATALOG`; its own `catalog.yaml` is generated
 - `trial-atlas-pipeline` and `source-grounding` (in the `cf-research` repo at `../cf-research/.claude/skills/`; load with `--add-dir ../cf-research`) — the trial endpoint atlas's order of work, approval gates, privacy and stop rules; and how a public sentence is grounded (computed, registry statement, open-access definition, lab position) with what each checker proves, plus packets for a local worker
 
 ### Skill authoring and tooling
@@ -170,5 +171,5 @@ Never commit secrets. Hosting credentials belong in a local, git-ignored `.env` 
 - After diagnostic DOM/CSS injection or forced state changes, repeat the final ordinary user flow on a clean page with current served HTML/CSS. When source and browser disagree, confirm the server root, response content, and live asset versions before editing again. Leave a requested preview usable; stop only task-owned processes that are no longer needed.
 - Parse generated configuration and assert consumer-recognized keys. Preserve native exit codes and rerun the failing check after repair; never suppress errors and then infer success from an old output file.
 - Flag any change that introduces a new third-party dependency or external network call.
-- Before opening a pull request run the `pr-review-loop` skill; when a change alters how a page looks, attach a few small screenshots (`playwright-browser-testing`, `pr-screenshots.py`). Screenshots are saved for reuse in `../cf-lab-files/scratch/screenshots/<YYYY-MM-DD>/<topic>/` (`pr-screenshots.py where <topic>` prints and creates it); never a page that shows an email address or private data.
+- Always run the `pr-review-loop` skill before opening a pull request; record the review loop in the PR body. Once verification checks pass and the review loop concludes, always create and submit the pull request on a feature branch (using `gh pr create`), rather than leaving completed changes uncommitted or unsubmitted. When a change alters how a page looks, attach a few small screenshots (`playwright-browser-testing`, `pr-screenshots.py`). Screenshots are saved for reuse in `../cf-lab-files/scratch/screenshots/<YYYY-MM-DD>/<topic>/` (`pr-screenshots.py where <topic>` prints and creates it); never a page that shows an email address or private data.
 - This project is open source and donated time — be conservative with anything that could be misused (destructive scripts, broad credential access, unrestricted agent tool permissions).

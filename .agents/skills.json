@@ -1,0 +1,10 @@
+{
+  "entries": [
+    {
+      "path": ".claude/skills"
+    },
+    {
+      "path": "../cf-skills/.claude/skills"
+    }
+  ]
+}
