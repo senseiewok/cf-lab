@@ -91,7 +91,7 @@ function Invoke-Check([string] $Repo, [string[]] $Want, [string] $PatFile, [stri
             Write-Host "FORBIDDEN STAGED: $($s.Path) is an env file; it holds secrets and must not be committed"; $problems++
         }
     }
-    if ($PSBoundParameters.ContainsKey('Want') -or $null -ne $Want) {
+    if ($null -ne $Want) {
         $have = $staged.Path | Sort-Object
         $exp = $Want | ForEach-Object { $_ -replace '\\', '/' } | Sort-Object
         $extra = @($have | Where-Object { $_ -notin $exp })
@@ -175,6 +175,16 @@ if ($SelfTest) {
         # f) deletion is a staged change and must be listed
         & git -C $tmp rm -q base.txt
         Expect 'a staged deletion is part of the staged set' 1 (Run (Exp 'a.md')) 'UNEXPECTED STAGED: base.txt'
+        # f2) running without -Expected prints the list without enforcing exact staged set, while still enforcing security
+        & git -C $tmp checkout -q HEAD -- base.txt
+        Set-Content (Join-Path $tmp 'a.md') 'clean again' -Encoding utf8; & git -C $tmp add a.md
+        Expect 'no -Expected given prints notice and passes clean staged changes' 0 (Run @()) 'no -Expected given: the list above is printed, not checked'
+        Set-Content (Join-Path $tmp '.env') 'SOME_KEY=zz' -Encoding utf8; & git -C $tmp -c core.safecrlf=false add -f .env
+        Expect 'no -Expected given still refuses forbidden .env' 1 (Run @()) 'FORBIDDEN STAGED: .env'
+        & git -C $tmp reset -q .env
+        Set-Content (Join-Path $tmp 'a.md') 'contact someone@gmail.com' -Encoding utf8; & git -C $tmp add a.md
+        Expect 'no -Expected given still reports privacy violation' 1 (Run @()) '[identity-email]'
+        Set-Content (Join-Path $tmp 'a.md') 'clean again' -Encoding utf8; & git -C $tmp add a.md
         # g) the repo's real pattern file loads and every canary matches
         $own = @(Test-Patterns @(Read-Table $PatternFile))
         Write-Output (('PASS ', 'FAIL ')[$own.Count -gt 0] + "shipped patterns all match their canaries ($((Read-Table $PatternFile).Count) patterns)")
