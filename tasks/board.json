@@ -76,7 +76,7 @@
       "title": "Apply the HQ skill-update proposal (security-browsing, cf-research-context, ai-loop-council, model-onboarding)",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -101,10 +101,13 @@
       "acceptance": "All acceptance checks in research/proposals/2026-10-04-implementation-packet.md pass with command output.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-04T15:40:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Applied 2026-10-04 by claude-sonnet-5-5 (review tier elevated) from research/proposals/2026-10-04-hq-skill-updates.md. All 21 inserted proposal lines were checked verbatim by script; frontmatter validated with tasks/check-skill-frontmatter.py; an independent frontier-model review of the research side found no quotation false. A human sets done after seeing the acceptance output."
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "Applied 2026-10-04 by claude-sonnet-5-5 (review tier elevated) from research/proposals/2026-10-04-hq-skill-updates.md. All 21 inserted proposal lines were checked verbatim by script; frontmatter validated with tasks/check-skill-frontmatter.py; an independent frontier-model review of the research side found no quotation false. A human sets done after seeing the acceptance output. | 2026-10-12: Marked done in board cleanup."
     },
     {
       "id": "T-0004",
@@ -519,7 +522,7 @@
       "title": "Reconcile the website's 'M365 Copilot drives the lab's task scheduling' claim with reality",
       "repo": ".ai",
       "area": "content",
-      "status": "proposed",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -544,17 +547,20 @@
       "acceptance": "Sentence either removed or links to hq/tasks/BOARD.md with a true description of how tasks are scheduled.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-07: Audit: the site no longer makes the claim and a test forbids it; the acceptance allows 'removed'. A human sets done. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done (check): the 'M365 Copilot drives task scheduling' claim is no longer on any page; the remaining Copilot mentions are factual (GitHub Copilot as a tool)."
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "2026-10-07: Audit: the site no longer makes the claim and a test forbids it; the acceptance allows 'removed'. A human sets done. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done (check): the 'M365 Copilot drives task scheduling' claim is no longer on any page; the remaining Copilot mentions are factual (GitHub Copilot as a tool). | 2026-10-12: Marked done in board cleanup."
     },
     {
       "id": "T-0016",
       "title": "Verify exactly 65 rose motifs render, and that reduced-motion is honoured, with a Playwright count",
       "repo": ".ai",
       "area": "tooling",
-      "status": "proposed",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -579,17 +585,20 @@
       "acceptance": "Playwright test asserts document.querySelectorAll('#rose-field > *').length === 65 at two viewports and that animation is disabled under prefers-reduced-motion; test committed under .ai/tests/.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-07T19:52:58Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Checked 2026-10-04 on the repo source (not the deployed page) served from a loopback static server, with Playwright 1.63.0 and Chromium, at 390x844 and 1280x800, each with and without prefers-reduced-motion. Result in all four: 65 elements match '#rose-field .rose' (65 in the page in total), 65 visible, no console errors, no horizontal overflow. With reduced motion the computed animation is 'none'; without it, 'rose-drift 18s'. This counts the rendered SVG nodes only; it does not judge how they look. The live site is an older version with no rose field. A human sets done. 2026-10-07: Audit: Playwright tests count 65 roses on every page, test reduced motion, and carry a negative control. A human sets done."
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "Checked 2026-10-04 on the repo source (not the deployed page) served from a loopback static server, with Playwright 1.63.0 and Chromium, at 390x844 and 1280x800, each with and without prefers-reduced-motion. Result in all four: 65 elements match '#rose-field .rose' (65 in the page in total), 65 visible, no console errors, no horizontal overflow. With reduced motion the computed animation is 'none'; without it, 'rose-drift 18s'. This counts the rendered SVG nodes only; it does not judge how they look. The live site is an older version with no rose field. A human sets done. 2026-10-07: Audit: Playwright tests count 65 roses on every page, test reduced motion, and carry a negative control. A human sets done. | 2026-10-12: Marked done in board cleanup."
     },
     {
       "id": "T-0017",
       "title": "Self-host the two web fonts; remove the unused images.unsplash.com preconnect",
       "repo": ".ai",
       "area": "security",
-      "status": "proposed",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -614,17 +623,20 @@
       "acceptance": "No request to fonts.googleapis.com, fonts.gstatic.com, or images.unsplash.com in a Playwright network log; fonts load from /fonts/.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-07T19:52:58Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": " 2026-10-07: Audit: fonts load from the site and tests forbid third-party font hosts and the old preconnect. Not checked against a live network log. A human sets done."
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": " 2026-10-07: Audit: fonts load from the site and tests forbid third-party font hosts and the old preconnect. Not checked against a live network log. A human sets done. | 2026-10-12: Marked done in board cleanup."
     },
     {
       "id": "T-0018",
       "title": "Add one explicit 'not affiliated with the Cystic Fibrosis Foundation' line near the site's donate link",
       "repo": ".ai",
       "area": "content",
-      "status": "proposed",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -649,17 +661,20 @@
       "acceptance": "The phrase 'not affiliated' appears once on the page, adjacent to the donation call.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-07: Audit: the not-affiliated line sits next to the donate link and in the footers. It now appears several times, where the acceptance says once; the maintainer decides the wording. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done (check): 'Not affiliated with the Cystic Fibrosis Foundation' is in the footer of every page on 2026-10-10."
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "2026-10-07: Audit: the not-affiliated line sits next to the donate link and in the footers. It now appears several times, where the acceptance says once; the maintainer decides the wording. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done (check): 'Not affiliated with the Cystic Fibrosis Foundation' is in the footer of every page on 2026-10-10. | 2026-10-12: Marked done in board cleanup."
     },
     {
       "id": "T-0019",
       "title": "Add model profile skills for Gemma 4 31B and Laguna XS 2.1, or remove them from the site's field guide",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "dropped",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -684,9 +699,10 @@
       "acceptance": "Either .claude/skills/model-gemma-4-31b and model-laguna-xs-2-1 exist with onboarding results, or the field guide lists only models with profiles.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-12: Dropped in board cleanup per 2026-10-10 council review and 2026-10-12 CRO grounding audit (unprofiled model creep; revisit via model-onboarding only when a specific task requires it)."
     },
     {
       "id": "T-0020",
@@ -839,7 +855,7 @@
       "title": "Board enhancement: add complexity, recommended_route (local, cloud or frontier) and route_rationale to tasks",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T16:30:00Z",
       "created_by": {
@@ -864,10 +880,13 @@
       "acceptance": "board.json tasks may carry complexity (low, medium, high), recommended_route (local, cloud, frontier) and route_rationale (non-empty when a route is set); render-board.ps1 rejects other values with exit 2, shows complexity and route columns, and -Check exits 0 after rendering; tasks/README.md documents the three fields; existing task statuses are unchanged.",
       "review_tier": "elevated",
       "depends_on": [],
-      "notes": "Design points for the human. (1) local means the configured Ollama worker profile (Qwen3.8 27B is the lab default, not a requirement) for bounded drafts and first-pass review. (2) cloud means the human's discounted Copilot routing, including auto: advisory, not a known model capability. (3) frontier is for planning, risky design and review of full-tier work; planners are frontier by default. (4) cloud and frontier need the existing cloud and data-sharing approvals, and a route never authorizes sending secrets, PHI or private material; a route is advice, not automatic delegation. (5) Default order stays safety/blockers, then priority, then dependencies, then ROI index; route and complexity inform but do not reorder. (6) Do not equate an expensive route with a valuable task. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-lab bb10fdf: tasks/test-render-board.ps1 has 17 checks and a 9-mutant proof; 'render-board.ps1 -Check' is the acceptance command. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output.",
-      "updated_at": "2026-10-10T20:00:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "notes": "Design points for the human. (1) local means the configured Ollama worker profile (Qwen3.8 27B is the lab default, not a requirement) for bounded drafts and first-pass review. (2) cloud means the human's discounted Copilot routing, including auto: advisory, not a known model capability. (3) frontier is for planning, risky design and review of full-tier work; planners are frontier by default. (4) cloud and frontier need the existing cloud and data-sharing approvals, and a route never authorizes sending secrets, PHI or private material; a route is advice, not automatic delegation. (5) Default order stays safety/blockers, then priority, then dependencies, then ROI index; route and complexity inform but do not reorder. (6) Do not equate an expensive route with a valuable task. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-lab bb10fdf: tasks/test-render-board.ps1 has 17 checks and a 9-mutant proof; 'render-board.ps1 -Check' is the acceptance command. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output. | 2026-10-12: Marked done in board cleanup.",
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Controller-written validation in render-board.ps1 with a mutation proof."
@@ -919,7 +938,7 @@
       "title": "Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals",
       "repo": "cf-research",
       "area": "governance",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P3",
       "created_at": "2026-10-04T18:00:00Z",
       "created_by": {
@@ -944,10 +963,13 @@
       "acceptance": "Every key used in sources/catalog.yaml appears in the sources/README.md Fields table (a short script can diff them), and no key listed there is unused or it is marked optional; the two proposals are consistent about naming the public domain, and website-review.md carries no private-repo file names or deploy-mechanism detail beyond what a human keeps on purpose.",
       "review_tier": "routine",
       "depends_on": [],
-      "notes": "Human decided 2026-10-04: the website domain is public (an older version of the site is live and the YouTube channel links to it), so it may be named in public repos and the earlier redaction of it in website-review.md was precautionary. Remaining: whether to keep the generic description of the deploy mechanism and the names of two private-repo files in website-review.md. The private repo's source, deploy details and local paths stay out of public repos. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-research e5991ed: check_catalog_fields.py prints 'fields ok: 27 keys documented'; 13 test cases pass; two public notes lost deploy-mechanism detail. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output.",
-      "updated_at": "2026-10-10T20:00:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "notes": "Human decided 2026-10-04: the website domain is public (an older version of the site is live and the YouTube channel links to it), so it may be named in public repos and the earlier redaction of it in website-review.md was precautionary. Remaining: whether to keep the generic description of the deploy mechanism and the names of two private-repo files in website-review.md. The private repo's source, deploy details and local paths stay out of public repos. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-research e5991ed: check_catalog_fields.py prints 'fields ok: 27 keys documented'; 13 test cases pass; two public notes lost deploy-mechanism detail. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output. | 2026-10-12: Marked done in board cleanup.",
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
       "complexity": "low",
       "recommended_route": "local",
       "route_rationale": "Worker draft of the field checker passed its verifier; the controller tidied it and wrote the privacy tidy by hand."
@@ -991,7 +1013,7 @@
       "title": "Add a reviewed lesson to ai-loop-council: a verbatim-quote check does not verify inferences, and a truncated quote can produce a false 'differs' claim",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T19:30:00Z",
       "created_by": {
@@ -1016,10 +1038,13 @@
       "acceptance": "A short, reviewed addition to the ai-loop-council 'value extraction from a document' variant (or a sibling variant for drafting from verified quotes) stating: supply complete sentences, never truncated prefixes, for any comparison; claims of difference, absence or 'only' need the full sentence from each side checked by a human or a deterministic comparison; a passing quote check does not clear an inference. A frozen fixture reproduces the failure (truncated-quote packet) and a deterministic check or review step is shown to catch it. Untested elements are labelled as proposals.",
       "review_tier": "elevated",
       "depends_on": [],
-      "notes": "Agent-instruction change; a human approves every .claude/ diff. Do not generalise beyond what the one run showed. Update 2026-10-04: the lesson now has ledger rows E12, E13, E14, E21 and E22 (research/ledger/2026-10-04-first-session.md) and reproducing fixtures (the empty-fence and trailing-comma cases in the loop scripts' tests). Per the design's promotion rule it can land once a human sets it ready; claim-checker work is T-0034. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-lab 6dcbe32: check-quote-completeness.py with 14 synthetic cases, self-test and outside-in test pass; the skill lesson and an evidence paragraph are in ai-loop-council SKILL.md. The delegate.ps1 loop rewrite has 37 of 37 checks.",
-      "updated_at": "2026-10-05T04:30:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "notes": "Agent-instruction change; a human approves every .claude/ diff. Do not generalise beyond what the one run showed. Update 2026-10-04: the lesson now has ledger rows E12, E13, E14, E21 and E22 (research/ledger/2026-10-04-first-session.md) and reproducing fixtures (the empty-fence and trailing-comma cases in the loop scripts' tests). Per the design's promotion rule it can land once a human sets it ready; claim-checker work is T-0034. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-lab 6dcbe32: check-quote-completeness.py with 14 synthetic cases, self-test and outside-in test pass; the skill lesson and an evidence paragraph are in ai-loop-council SKILL.md. The delegate.ps1 loop rewrite has 37 of 37 checks. | 2026-10-12: Marked done in board cleanup.",
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
       "complexity": "medium",
       "recommended_route": "local",
       "route_rationale": "Passed only on a thinking attempt that finished under the raised 16,384-token cap, after two failed fast attempts; one sample, so not a ranking."
@@ -1029,7 +1054,7 @@
       "title": "Docs tier 2: hq housekeeping outside .claude (README tree, loop README status line, retire committed PR descriptions)",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "proposed",
+      "status": "dropped",
       "priority": "P3",
       "created_at": "2026-10-04T20:00:00Z",
       "created_by": {
@@ -1054,8 +1079,8 @@
       "acceptance": "grep -c 'tasks/' README.md is 1 or more; the first five lines of .github/loop-orchestrator/README.md contain 'not functional'; render-board.ps1 -Check exits 0; after merge no .github/PR-*.md is tracked and its provenance is in the notes of the tasks it completed.",
       "review_tier": "routine",
       "depends_on": [],
-      "notes": "Human gate: .github/ is CODEOWNERS-protected, so a human commits. Do not touch loop.py, settings or skills. Human decided 2026-10-04: stop committing PR descriptions; delete .github/PR-2026-10-04.md (and the research one) at merge after copying their provenance into the notes of T-0003, T-0004 and T-0022. README tree edit and loop README status note were prepared on branch chore/docs-org-tier2; the .github change is staged for a human to commit. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check).",
-      "updated_at": "2026-10-10T20:00:00Z",
+      "notes": "Human gate: .github/ is CODEOWNERS-protected, so a human commits. Do not touch loop.py, settings or skills. Human decided 2026-10-04: stop committing PR descriptions; delete .github/PR-2026-10-04.md (and the research one) at merge after copying their provenance into the notes of T-0003, T-0004 and T-0022. README tree edit and loop README status note were prepared on branch chore/docs-org-tier2; the .github change is staged for a human to commit. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check). | 2026-10-12: Dropped in board cleanup per 2026-10-10 council review (pre-rename hq 5-tier doc chain superseded by cf-lab docs; remaining scope consolidated under T-0030).",
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1088,11 +1113,9 @@
       },
       "acceptance": "copilot-instructions.md is at most 40 lines and holds no rule that is not also in AGENTS.md; the authoring skill has unique section numbers and no .skills/ tree; check-skill-frontmatter.py --against main passes; lab-versioning/scripts/test-setup.py passes; VERSION is bumped as a PATCH.",
       "review_tier": "elevated",
-      "depends_on": [
-        "T-0029"
-      ],
-      "notes": "Human gate: agent instructions and .claude/; a human approves the diff. Human decided 2026-10-04: yes, AGENTS.md becomes the only rule source. Wait until the current hq branch has merged so --against main is meaningful. Do not change what any rule means. Draft by a cloud or frontier model is reasonable; the meaning-preservation check is the human's. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check).",
-      "updated_at": "2026-10-10T20:00:00Z",
+      "depends_on": [],
+      "notes": "Human gate: agent instructions and .claude/; a human approves the diff. Human decided 2026-10-04: yes, AGENTS.md becomes the only rule source. Wait until the current hq branch has merged so --against main is meaningful. Do not change what any rule means. Draft by a cloud or frontier model is reasonable; the meaning-preservation check is the human's. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check). | 2026-10-12: Kept as the single consolidated row for the pre-rename docs chain (T-0029, T-0031, T-0032, T-0035 dropped).",
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1101,7 +1124,7 @@
       "title": "Docs tier 4: move the idea inventory to research, make the first commit in skills, decide the private-repo naming boundary",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "proposed",
+      "status": "dropped",
       "priority": "P3",
       "created_at": "2026-10-04T20:00:00Z",
       "created_by": {
@@ -1128,8 +1151,8 @@
       "depends_on": [
         "T-0020"
       ],
-      "notes": "Human only. Human decided 2026-10-04: move after the human review of the scope-triage table (T-0020), and keep the website repo's board key while writing the no-domain, no-paths, no-deploy-detail rule into tasks/README.md. One commit per repo. Publishing any skill package is not part of this task. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check).",
-      "updated_at": "2026-10-10T20:00:00Z",
+      "notes": "Human only. Human decided 2026-10-04: move after the human review of the scope-triage table (T-0020), and keep the website repo's board key while writing the no-domain, no-paths, no-deploy-detail rule into tasks/README.md. One commit per repo. Publishing any skill package is not part of this task. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check). | 2026-10-12: Dropped in board cleanup per 2026-10-10 council review (cf-skills already published and pre-rename hq doc chain superseded; remaining scope consolidated under T-0030).",
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1138,7 +1161,7 @@
       "title": "Docs tier 5: tidy per-user agent memory outside the repos",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "proposed",
+      "status": "dropped",
       "priority": "P3",
       "created_at": "2026-10-04T20:00:00Z",
       "created_by": {
@@ -1163,8 +1186,8 @@
       "acceptance": "A listing of the memory folder shows files only under the lab's own project folder, none holding lab rules, task state, model-identity claims or secrets.",
       "review_tier": "routine",
       "depends_on": [],
-      "notes": "Human only and private: nothing is committed. The author of the design did not read the contents, so this task starts with the human reading them. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check).",
-      "updated_at": "2026-10-10T20:00:00Z",
+      "notes": "Human only and private: nothing is committed. The author of the design did not read the contents, so this task starts with the human reading them. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check). | 2026-10-12: Dropped in board cleanup per 2026-10-10 council review (superseded by cf-lab-files memory structure).",
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1173,7 +1196,7 @@
       "title": "Send standard security response headers on the live website (HSTS, X-Content-Type-Options, Referrer-Policy, frame and content restrictions)",
       "repo": ".ai",
       "area": "security",
-      "status": "proposed",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T21:00:00Z",
       "created_by": {
@@ -1198,10 +1221,13 @@
       "acceptance": "A HEAD request to the live site shows Strict-Transport-Security, X-Content-Type-Options, Referrer-Policy and a frame restriction; if a Content-Security-Policy is added it is tested in a browser (Playwright check of the rendered page and console, no blocked resources the page needs); the page still renders; the change is dry-run or explained before any deploy, and no credential is read or printed.",
       "review_tier": "full",
       "depends_on": [],
-      "notes": "Deployment-adjacent, so full review tier: a human runs the deploy. Header rules live in the host configuration, which is private; do not copy host details or credentials into any public file. Self-hosting the fonts (T-0017) would let a strict policy drop the third-party font hosts. 2026-10-07: Audit: the live site sends the response headers this task names; the strict-transport-security lifetime is short (a stage-one value). A human sets done. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done: on 2026-10-10 the live site sent the stricter headers (a Content-Security-Policy with Trusted Types, nosniff, no-referrer, frame denial, permissions policy, HSTS at 300 seconds) and the deploy's live check passed. The maintainer can close it after reading the acceptance text; raising HSTS is a separate step.",
-      "updated_at": "2026-10-10T20:00:00Z",
-      "completed_at": null,
-      "completed_by": null
+      "notes": "Deployment-adjacent, so full review tier: a human runs the deploy. Header rules live in the host configuration, which is private; do not copy host details or credentials into any public file. Self-hosting the fonts (T-0017) would let a strict policy drop the third-party font hosts. 2026-10-07: Audit: the live site sends the response headers this task names; the strict-transport-security lifetime is short (a stage-one value). A human sets done. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done: on 2026-10-10 the live site sent the stricter headers (a Content-Security-Policy with Trusted Types, nosniff, no-referrer, frame denial, permissions policy, HSTS at 300 seconds) and the deploy's live check passed. The maintainer can close it after reading the acceptance text; raising HSTS is a separate step. | 2026-10-12: Marked done in board cleanup.",
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      }
     },
     {
       "id": "T-0034",
@@ -1243,7 +1269,7 @@
       "title": "Tier table and loop housekeeping: elevated challenger rule, slim ai-loop-council, retire the loop-orchestrator prototype",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "proposed",
+      "status": "dropped",
       "priority": "P2",
       "created_at": "2026-10-04T23:00:00Z",
       "created_by": {
@@ -1270,8 +1296,8 @@
       "depends_on": [
         "T-0030"
       ],
-      "notes": "Human gate: AGENTS.md, .claude/ and .github/ (CODEOWNERS-protected). Decisions 1 and 3 of the design note are the human's. Do not do this before they are answered. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check).",
-      "updated_at": "2026-10-10T20:00:00Z",
+      "notes": "Human gate: AGENTS.md, .claude/ and .github/ (CODEOWNERS-protected). Decisions 1 and 3 of the design note are the human's. Do not do this before they are answered. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check). | 2026-10-12: Dropped in board cleanup per 2026-10-10 council review (consolidated under T-0030).",
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1280,7 +1306,7 @@
       "title": "Admission run for the two installed local models (Gemma 4 31B, Laguna XS 2.1) as reviewers",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "dropped",
       "priority": "P3",
       "created_at": "2026-10-04T23:00:00Z",
       "created_by": {
@@ -1305,8 +1331,8 @@
       "acceptance": "Per model-onboarding: provenance and licence read from the model card, fit with a pinned context size, thinking and JSON behaviour, the injection probe, and review-diversity on a fresh held-out set against an equal-budget Qwen baseline with a pre-registered threshold. Results recorded with sample sizes. No default is changed.",
       "review_tier": "full",
       "depends_on": [],
-      "notes": "Local compute; no cloud, no downloads. Depends on a human choosing the held-out set. Shadow review of real work only after the injection probe passes, never counted as the challenger. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0019 (same two models) or drop both and remove the models from the site's field guide (check).",
-      "updated_at": "2026-10-10T20:00:00Z",
+      "notes": "Local compute; no cloud, no downloads. Depends on a human choosing the held-out set. Shadow review of real work only after the injection probe passes, never counted as the challenger. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0019 (same two models) or drop both and remove the models from the site's field guide (check). | 2026-10-12: Dropped in board cleanup per 2026-10-10 council review and 2026-10-12 CRO grounding audit (unprofiled model creep).",
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1315,7 +1341,7 @@
       "title": "Add Retraction Watch (via Crossref) retraction check to the catalog and to the claim-check harness design",
       "repo": "cf-research",
       "area": "research",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-04T21:10:00Z",
       "created_by": {
@@ -1340,17 +1366,20 @@
       "acceptance": "catalog.yaml has a retraction-watch entry with access: api; a script takes a DOI list and returns retraction/correction status for each; the 13 DOIs in the scoping memo are checked and the output committed.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-04T20:30:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Built 2026-10-04 in skills/cf-evidence-loop (moved from research/tools/evidence 2026-10-04 at the user's request for a portable skill) (providers crossref, openfda); live-checked and unit-tested. Awaiting human review of the acceptance output before done. 2026-10-04 later: network-conduct rules R1-R9 enforced in the client with 37 tests; catalogs now carry terms_url/max_rps for every API source."
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "Built 2026-10-04 in skills/cf-evidence-loop (moved from research/tools/evidence 2026-10-04 at the user's request for a portable skill) (providers crossref, openfda); live-checked and unit-tested. Awaiting human review of the acceptance output before done. 2026-10-04 later: network-conduct rules R1-R9 enforced in the client with 37 tests; catalogs now carry terms_url/max_rps for every API source. | 2026-10-12: Marked done in board cleanup."
     },
     {
       "id": "T-0038",
       "title": "Add openFDA drug label and Drugs@FDA approval endpoints to the catalog; resolve approval-year claims from them",
       "repo": "cf-research",
       "area": "research",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T21:10:00Z",
       "created_by": {
@@ -1375,10 +1404,13 @@
       "acceptance": "catalog.yaml has openfda entries with access: api; the three approval years on the website each resolve to a Drugs@FDA record with the lookup output committed.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-04T20:30:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Built 2026-10-04 in skills/cf-evidence-loop (moved from research/tools/evidence 2026-10-04 at the user's request for a portable skill) (providers crossref, openfda); live-checked and unit-tested. Awaiting human review of the acceptance output before done. 2026-10-04 later: network-conduct rules R1-R9 enforced in the client with 37 tests; catalogs now carry terms_url/max_rps for every API source."
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "Built 2026-10-04 in skills/cf-evidence-loop (moved from research/tools/evidence 2026-10-04 at the user's request for a portable skill) (providers crossref, openfda); live-checked and unit-tested. Awaiting human review of the acceptance output before done. 2026-10-04 later: network-conduct rules R1-R9 enforced in the client with 37 tests; catalogs now carry terms_url/max_rps for every API source. | 2026-10-12: Marked done in board cleanup."
     },
     {
       "id": "T-0039",
@@ -1606,7 +1638,7 @@
       "title": "Decide and document the install/link mechanism for using skills/cf-evidence-loop from hq without copying it",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "proposed",
+      "status": "dropped",
       "priority": "P2",
       "created_at": "2026-10-04T21:40:00Z",
       "created_by": {
@@ -1631,17 +1663,17 @@
       "acceptance": "AGENTS.md names the mechanism (submodule, symlink, path convention, or install script) and an agent in hq can run the skill's live retraction check following only AGENTS.md.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: overlaps T-0051 (how the control repo consumes the evidence skill): decide once, merge the rows (check)."
+      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: overlaps T-0051 (how the control repo consumes the evidence skill): decide once, merge the rows (check). | 2026-10-12: Dropped in board cleanup (consolidated into T-0051)."
     },
     {
       "id": "T-0046",
       "title": "Sickle cell disease coverage: HBB variant checks, ASH guideline source terms, and an SCD worked example in SKILL.md",
       "repo": "cf-skills",
       "area": "content",
-      "status": "proposed",
+      "status": "dropped",
       "priority": "P2",
       "created_at": "2026-10-04T21:40:00Z",
       "created_by": {
@@ -1668,9 +1700,10 @@
       "depends_on": [
         "T-0043"
       ],
-      "updated_at": "2026-10-04T21:40:00Z",
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-12: Dropped in board cleanup per 2026-10-10 council and 2026-10-12 CRO grounding audit (Sickle cell disease is outside the Cystic Fibrosis lab mission scope)."
     },
     {
       "id": "T-0047",
@@ -2011,7 +2044,7 @@
       "title": "check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not",
       "repo": "cf-lab",
       "area": "security",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T23:55:00Z",
       "created_by": {
@@ -2036,10 +2069,13 @@
       "acceptance": "pwsh -File .claude/skills/security-git/scripts/check-lab-files.ps1 -SelfTest exits 0, and the self-test proves (a) a seeded violation is caught for each rule and (b) a clean folder passes. Rules: no file named .env* or with a key/cert extension, no private-key header or token-shaped string or email address in memory/, no .git inside, at most 3 files directly in memory/, and any private terms taken from a LAB_PRIVATE_TERMS line in .env (never committed). Run once on the real folder and report the output.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Proposed by a model; only a human moves it to ready. Do not read .env; the check receives only the terms variable through run-with-env.ps1. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-lab c47ca94: check-lab-files.ps1 and its outside-in test pass; the real folder reports 'lab files clean: 45'. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output.",
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "Proposed by a model; only a human moves it to ready. Do not read .env; the check receives only the terms variable through run-with-env.ps1. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. | Done 2026-10-05, cf-lab c47ca94: check-lab-files.ps1 and its outside-in test pass; the real folder reports 'lab files clean: 45'. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output. | 2026-10-12: Marked done in board cleanup.",
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "The worker failed three attempts on PowerShell scoping and return values; the controller wrote it. Local is not yet reliable for PowerShell with a state-heavy spec."
@@ -2198,7 +2234,7 @@
       "title": "Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows)",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "dropped",
       "priority": "P1",
       "created_at": "2026-10-05T01:10:00Z",
       "created_by": {
@@ -2225,17 +2261,17 @@
       "depends_on": [
         "T-0057"
       ],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model; only a human moves it to ready. The workflow drafts, kept by the maintainer outside the repos, are UNTESTED: they have not run on GitHub. Adding a workflow adds a third-party service dependency (GitHub Actions and the actions/* actions), which AGENTS.md asks to flag. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: same gap as T-0114; one of the two should absorb the other (check). T-0057 (a 10-minute .github edit) blocks it."
+      "notes": "Proposed by a model; only a human moves it to ready. The workflow drafts, kept by the maintainer outside the repos, are UNTESTED: they have not run on GitHub. Adding a workflow adds a third-party service dependency (GitHub Actions and the actions/* actions), which AGENTS.md asks to flag. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: same gap as T-0114; one of the two should absorb the other (check). T-0057 (a 10-minute .github edit) blocks it. | 2026-10-12: Dropped in board cleanup per 2026-10-10 council review (CI workflows now tracked under T-0114)."
     },
     {
       "id": "T-0062",
       "title": "A generated manual-downloads page with links, file names and a prompt to run when the files are saved",
       "repo": "cf-research",
       "area": "tooling",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-05T03:58:00Z",
       "created_by": {
@@ -2260,10 +2296,13 @@
       "acceptance": "python tools/sources/test_make_manual_downloads.py prints VERIFIED; python tools/sources/make_manual_downloads.py --check exits 0; sources/manual-downloads.md lists every manual, request and forbidden entry of the catalog and no fetch or api entry.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-05T03:58:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-research f68f403 and regenerated with each catalog change (dd0d64e, 1b09df8). The local worker drafted the generator on its first fast attempt (15 s); reading found a dead helper; a 12-mutant proof of the test passes.",
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-research f68f403 and regenerated with each catalog change (dd0d64e, 1b09df8). The local worker drafted the generator on its first fast attempt (15 s); reading found a dead helper; a 12-mutant proof of the test passes. | 2026-10-12: Marked done in board cleanup.",
       "complexity": "low",
       "recommended_route": "local",
       "route_rationale": "A fixed format with a verifier of fixtures; accepted on attempt 1."
@@ -2273,7 +2312,7 @@
       "title": "ascii-art skill: a craft process, a canvas library, a rendering and accessibility checker, one new piece, and the research behind them",
       "repo": "cf-lab",
       "area": "skills",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-05T03:58:00Z",
       "created_by": {
@@ -2298,10 +2337,13 @@
       "acceptance": "python .claude/skills/ascii-art/scripts/test-asciicanvas.py and test-check-ascii.py print VERIFIED; check-ascii.py on GALLERY.md reports 0 errors; SKILL.md sections 6 to 10 name each source and how far it was read; a human reads gallery piece 7 before any CF-facing use.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-05T03:58:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-lab a602e23. The worker drafted the canvas (attempt 2) and the checker (thinking attempt); 20-mutant and 18-mutant proofs. Sources: two read as abstracts and quotes verified verbatim, two through a summarising tool and marked as such, search summaries marked unverified.",
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-lab a602e23. The worker drafted the canvas (attempt 2) and the checker (thinking attempt); 20-mutant and 18-mutant proofs. Sources: two read as abstracts and quotes verified verbatim, two through a summarising tool and marked as such, search summaries marked unverified. | 2026-10-12: Marked done in board cleanup.",
       "complexity": "medium",
       "recommended_route": "local",
       "route_rationale": "Both scripts have exact verifiers; the checker needed a thinking attempt after fast attempts failed on my spec errors."
@@ -2311,7 +2353,7 @@
       "title": "More sources: UKRI Gateway to Research, CORDIS, EU Clinical Trials Register, WHO ICTRP, PubPeer, ClinGen, and the CFF 2025 highlights link",
       "repo": "cf-research",
       "area": "sources",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-05T03:58:00Z",
       "created_by": {
@@ -2336,10 +2378,13 @@
       "acceptance": "fields ok: 27 keys documented; sync_skill_catalog --check in sync; each quoted sentence verbatim and complete (11 of 11 checked); fetch_sources.py --manual and sources/manual-downloads.md list the manual, request and forbidden ones.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-05T03:58:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-research dd0d64e and 1b09df8. ukri-gtr is an api source, tested live (724 records). pubpeer and clingen are forbidden (terms and robots refuse automated access); who-ictrp is request; cordis is manual with CC BY 4.0 reuse; eu-ctr is manual and unverified; cffpr-highlights-2025 is manual and unread because www.cff.org refuses automated clients. No provider uses ukri-gtr yet.",
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-research dd0d64e and 1b09df8. ukri-gtr is an api source, tested live (724 records). pubpeer and clingen are forbidden (terms and robots refuse automated access); who-ictrp is request; cordis is manual with CC BY 4.0 reuse; eu-ctr is manual and unverified; cffpr-highlights-2025 is manual and unread because www.cff.org refuses automated clients. No provider uses ukri-gtr yet. | 2026-10-12: Marked done in board cleanup.",
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Web reading with conduct and quote verification needs a networked controller."
@@ -2349,7 +2394,7 @@
       "title": "Delegation: a sequential batch runner and a verifier-suspect hint",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-05T03:58:00Z",
       "created_by": {
@@ -2374,10 +2419,13 @@
       "acceptance": "pwsh -File .claude/skills/ai-loop-council/scripts/test-delegate-batch.ps1 prints 19/19 passed; test-delegate.ps1 prints 42/42 passed; mutation proofs of 15 and 5 mutants are rejected.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-lab 4faf09e. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output.",
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "Taken 2026-10-05 on the maintainer's instruction (the evening requests: assess delegation, security and queueing, a manual-download page, more sources, better ASCII art). Work lands on the open PR branches, nothing pushed. A human sets done after seeing the acceptance output. Done in cf-lab 4faf09e. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): its own notes say Done with commit ids: the maintainer can close it after seeing the acceptance output. | 2026-10-12: Marked done in board cleanup.",
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "PowerShell driver changes; the worker has not been reliable on state-heavy PowerShell."
@@ -2704,7 +2752,7 @@
       "title": "Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks",
       "repo": "cf-research",
       "area": "skills",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-05T05:09:00Z",
       "created_by": {
@@ -2729,10 +2777,13 @@
       "acceptance": "A note records, for each of the two skills: what was run, the with-and-without outputs judged by named checks that run (accessibility, no new dependency, verified copy untouched; for skill-creator only gains an existing deterministic check confirms), every script read before it was run, the token cost of the descriptions per turn, and one reproducible check of whether Claude Code discovers skills in an added workspace folder; the maintainer decides adopt, adapt or drop for each.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-07T13:00:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. Nothing from the clone is copied into a public repo. 2026-10-05: the maintainer decided the lab's skills are layered on top of Anthropic's in the lab's own repos (nothing copied; base named, labelled third party, layer works alone): THIRD_PARTY_SKILLS.md lists the pairs and ai-provider-compatible-skills section 11 holds the rule. The trial still decides whether to adapt any idea. 2026-10-07 progress: the trial note and its tools are merged in cf-research (PR 5): proposals/2026-10-07-public-skills-trial.md, status proposed. It covers what was run, the with-and-without results from checks that run, the description and body token costs, the reproducible discovery check, and which scripts were read or run. Left for the maintainer: adopt, adapt or drop for each skill (suggested: adapt both, install neither). Not done: a blind different-family review of the note. The task stays ready until the maintainer decides. | 2026-10-07 later: both adapt steps are merged (svg-animation restraint section, cf-lab PR 17; three frontmatter rules in the skills repo's check, cf-skills PR 3). The maintainer asked for a blind review of the trial note first: Opus, Fable and the local Qwen read it against the saved results and found one disagreeing figure (the seconds column) and several statements resting on the author's own reading; corrections are in cf-research PR 6 (open). Left ready until that is merged and the maintainer decides to close."
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. Nothing from the clone is copied into a public repo. 2026-10-05: the maintainer decided the lab's skills are layered on top of Anthropic's in the lab's own repos (nothing copied; base named, labelled third party, layer works alone): THIRD_PARTY_SKILLS.md lists the pairs and ai-provider-compatible-skills section 11 holds the rule. The trial still decides whether to adapt any idea. 2026-10-07 progress: the trial note and its tools are merged in cf-research (PR 5): proposals/2026-10-07-public-skills-trial.md, status proposed. It covers what was run, the with-and-without results from checks that run, the description and body token costs, the reproducible discovery check, and which scripts were read or run. Left for the maintainer: adopt, adapt or drop for each skill (suggested: adapt both, install neither). Not done: a blind different-family review of the note. The task stays ready until the maintainer decides. | 2026-10-07 later: both adapt steps are merged (svg-animation restraint section, cf-lab PR 17; three frontmatter rules in the skills repo's check, cf-skills PR 3). The maintainer asked for a blind review of the trial note first: Opus, Fable and the local Qwen read it against the saved results and found one disagreeing figure (the seconds column) and several statements resting on the author's own reading; corrections are in cf-research PR 6 (open). Left ready until that is merged and the maintainer decides to close. | 2026-10-12: Marked done in board cleanup."
     },
     {
       "id": "T-0076",
@@ -2813,7 +2864,7 @@
       "title": "Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice",
       "repo": "cf-lab",
       "area": "skills",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-05T05:09:00Z",
       "created_by": {
@@ -2838,10 +2889,13 @@
       "acceptance": "Each skill gains researched sections with sources (accessibility: text alternative, keyboard, pause, reduced motion; performance; no CDN; context loss handling for WebGL), a runnable example that a Playwright check passes, and no copied third-party text (check_source_overlap.py --quotes-only passes); any third-party skill used is read line by line first and attributed.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-07T13:00:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. 2026-10-05 progress: webgl-threejs-graphics/scripts/check-webgl.py (headless Chromium, software renderer, no network, probe element, console errors, non-blank screenshot) with 14 mutants caught. Measured: headless Chromium has no WebGL2 with --disable-gpu alone, needs --use-angle=swiftshader --enable-unsafe-swiftshader, and a fresh --user-data-dir hangs it. Playwright for Python 1.63.0 is installed in an isolated venv outside the repos and drives the Chromium already on disk. Sourced skill text is waiting on a research pass. | 2026-10-07 progress: audited against the acceptance. Already met by earlier work: researched, dated sections with sources (accessibility, performance, no CDN and CSP, WebGL context loss), a runnable example per skill with a passing headless check, third-party skills read and attributed in THIRD_PARTY_SKILLS.md. Added now: webgl-threejs-graphics gains examples/lit-torus.html and svg-animation gains examples/draw-on.html (both tested by check-animated-page.py with 30 bad stubs); a drawElements-counts-indices section and a lit-mesh section in the WebGL skill (MDN re-read 2026-10-07; measured faults from 6 local-worker pages); a do-not-judge-free-running-animations-from-screenshots section in the SVG skill with the ?t= freeze hook (MDN animation-delay re-read 2026-10-07; the pause-plus-negative-delay behaviour is our measurement). check_source_overlap.py --quotes-only passes on both skills and the overlap check against the sentences read from the two new sources passes. Not re-runnable: the overlap check against the 2026-10-05 sources (their texts were not stored). The acceptance says a Playwright check; the examples are checked by headless Chromium helpers without Playwright, as the existing note records. | 2026-10-07: the one acceptance clause met only in spirit, 'a Playwright check', now has real Playwright for Python checks for both skills with negative controls (cf-lab PR 19; they run with the optional browser-testing environment and print VERIFIED). The maintainer asked for that test when asked about the clause. Left ready for the maintainer to close once PR 19 is merged."
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": "2026-10-12T23:45:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (board cleanup 2026-10-12)"
+      },
+      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. 2026-10-05 progress: webgl-threejs-graphics/scripts/check-webgl.py (headless Chromium, software renderer, no network, probe element, console errors, non-blank screenshot) with 14 mutants caught. Measured: headless Chromium has no WebGL2 with --disable-gpu alone, needs --use-angle=swiftshader --enable-unsafe-swiftshader, and a fresh --user-data-dir hangs it. Playwright for Python 1.63.0 is installed in an isolated venv outside the repos and drives the Chromium already on disk. Sourced skill text is waiting on a research pass. | 2026-10-07 progress: audited against the acceptance. Already met by earlier work: researched, dated sections with sources (accessibility, performance, no CDN and CSP, WebGL context loss), a runnable example per skill with a passing headless check, third-party skills read and attributed in THIRD_PARTY_SKILLS.md. Added now: webgl-threejs-graphics gains examples/lit-torus.html and svg-animation gains examples/draw-on.html (both tested by check-animated-page.py with 30 bad stubs); a drawElements-counts-indices section and a lit-mesh section in the WebGL skill (MDN re-read 2026-10-07; measured faults from 6 local-worker pages); a do-not-judge-free-running-animations-from-screenshots section in the SVG skill with the ?t= freeze hook (MDN animation-delay re-read 2026-10-07; the pause-plus-negative-delay behaviour is our measurement). check_source_overlap.py --quotes-only passes on both skills and the overlap check against the sentences read from the two new sources passes. Not re-runnable: the overlap check against the 2026-10-05 sources (their texts were not stored). The acceptance says a Playwright check; the examples are checked by headless Chromium helpers without Playwright, as the existing note records. | 2026-10-07: the one acceptance clause met only in spirit, 'a Playwright check', now has real Playwright for Python checks for both skills with negative controls (cf-lab PR 19; they run with the optional browser-testing environment and print VERIFIED). The maintainer asked for that test when asked about the clause. Left ready for the maintainer to close once PR 19 is merged. | 2026-10-12: Marked done in board cleanup (unblocks T-0077)."
     },
     {
       "id": "T-0079",
@@ -3291,7 +3345,7 @@
       "title": "Depth probe on realistic text with a second fact at a different depth",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "proposed",
+      "status": "dropped",
       "priority": "P3",
       "created_at": "2026-10-06T07:40:00Z",
       "created_by": {
@@ -3318,10 +3372,10 @@
       "depends_on": [
         "T-0086"
       ],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-12T23:55:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Choose public-domain prose or the lab's own text; no fetched or private text. Reproduce with the commands in the profile skill, with the new corpus option. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0086 into one depth probe (check).",
+      "notes": "Choose public-domain prose or the lab's own text; no fetched or private text. Reproduce with the commands in the profile skill, with the new corpus option. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0086 into one depth probe (check). | Dropped 2026-10-12: merged into T-0086 per 2026-10-10 council recommendation.",
       "recommended_route": "local",
       "complexity": "low",
       "route_rationale": "Extends a script the local worker already wrote and had accepted on the first attempt with 12 of 12 tests; exact-match scoring is the verifier."
@@ -3516,7 +3570,7 @@
       "title": "Re-run the local reviewer evaluation on a second, different script",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "proposed",
+      "status": "dropped",
       "priority": "P2",
       "created_at": "2026-10-06T21:40:00Z",
       "created_by": {
@@ -3541,10 +3595,10 @@
       "acceptance": "A second script of similar size, written by the local worker and accepted by its verifier, is chosen and named in the report. Its ground truth is a list of defects found by a stronger review reading the script against its spec, each defect confirmed by a failing test before any local run, with at least 8 defects. The same design as the first evaluation is run: bare and card arms, identical packet format, the same profile and temperature, runs alternated, each reply scored by a blind judge from a different model family than the worker. The report gives per-run counts, means, an exact permutation test, the false-positive claims by kind, and a section that says which findings of the first evaluation repeat and which do not; no change to the review card or to the reviewer role in the skills is made from one script.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-12T23:55:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human step: the maintainer picks the moment (it occupies the local worker for hours) and the second script. Related to T-0090 (same script, more runs and the thinking profile) and T-0089 (filter for false positives); neither covers a second script. Do not run while another Ollama experiment is using the worker. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0090 into one re-measurement plan (check).",
+      "notes": "Human step: the maintainer picks the moment (it occupies the local worker for hours) and the second script. Related to T-0090 (same script, more runs and the thinking profile) and T-0089 (filter for false positives); neither covers a second script. Do not run while another Ollama experiment is using the worker. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0090 into one re-measurement plan (check). | Dropped 2026-10-12: merged into T-0090 per 2026-10-10 council recommendation.",
       "complexity": "medium"
     },
     {
@@ -3626,7 +3680,7 @@
       "title": "Loop v2.1 V2-02: freeze the verifier with a manifest hash and a safe re-verify path",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-07T02:52:27Z",
       "created_by": {
@@ -3651,10 +3705,14 @@
       "acceptance": "delegate.ps1 copies the verifier's manifest (the verifier, its directory tree minus caches, and any -VerifierFiles; the layout is kept relative to their common ancestor), hashes the copy (raw bytes, plus a line-ending-normalised hash for comparing across checkouts) and compares it with the live files before every verifier run, after it, and immediately before writing accepted. The candidate is hashed per attempt and is not part of the frozen set, so a changing candidate never blocks. A change mid-run exits 3 with state blocked, no accepted row and the output file restored (tests: a fixture, a -VerifierFiles file, a new file, and a line-ending-only change). Before the first model call a pre-flight runs the verifier in the copy on an empty stub: exit 0 is refused (it cannot fail); a missing-file or import error is refused and names the path; any other failure passes (a test with a verifier that raises on an empty stub). A -ReverifyOf <run id> path re-proves the new verifier on the empty stub (must fail), the unchanged original (must pass; skipped and recorded if there is none) and the previously rejected candidate (must still fail; skipped and recorded if there is none), records the old and new hashes and a diff of path and hash lists (never contents), ends only in accepted-after-verifier-edit, and a person reads the diff. Refused at start: an output file inside the verifier tree, symlinks or junctions in it, and a manifest above the stated caps. Negative tests pin the limits: an absolute-path read, and a loop over a missing directory, are NOT refused. The only claim made anywhere is: it detects changes to the declared verifier files between the proof and acceptance, and refuses before the first call a verifier whose empty-stub run reaches a relative path outside its manifest; it is not a sandbox. lint-powershell.ps1 is clean on delegate.ps1 and every existing test passes.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-07T13:00:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Proposed by a model; only a human moves it to ready. Full tier: a blind different-family challenger on the hashing logic, then a person reads the diff. Open design decision for the maintainer: how a read outside the manifest is detected (run the verifier in a copy of its manifest, as verify-in-copy.py does, is the candidate). Controller-built, not delegated: it edits the harness. | Design reviewed by a blind council on 2026-10-07 (Opus, Fable, Qwen3.8 27B, Gemma 4 31B; the controller's own view was written first): all four said adopt with changes. Flags were confirmed by reproduction, including a vacuous-pass case the controller had missed: an incomplete manifest copy plus a verifier that loops over a missing directory is accepted although the full verifier would fail it, and the empty-stub pre-flight cannot see it. The acceptance above is the revised one. Still for the maintainer: approve moving to ready; the caps (proposal: 500 files, 20 MB); and that verifiers which reach into sibling folders must name them with -VerifierFiles. | 2026-10-07 later: the maintainer answered yes (\"Yeah, go for it\") to the question whether to set this ready with the council's caps (500 files, 20 MB), so it was built the same day in cf-lab on branch loop/v2-02-verifier-freeze; it stays in_progress until the pull request is merged and a person has read the diff (Full tier). Verifiers that reach sibling folders must name them with -VerifierFiles. Review: a blind challenger pass by two cloud models (Opus, Fable) and the local Qwen; each finding was reproduced or refuted before anything was changed, and the fixes have tests. For the maintainer to approve, three places where the build differs from the revised acceptance above: (1) the pre-flight does not refuse every missing-file, import or command error on the empty stub, because \"The term is not recognized\" and \"cannot import name\" are how ordinary verifiers fail on an empty file; it refuses exit 0, a path that exists beside the live verifier but is not in the copy, a Python module that cannot be imported, and an interpreter that cannot start. (2) A verifier that writes to or removes the candidate blocks the run (candidate-changed); a candidate that differs from one attempt to the next never blocks. (3) -ReverifyOf also needs the earlier run's manifest, the same verifier file and at least one earlier output to re-prove against; the output file from before the run must get the same verdict the old verifier gave it (recorded at the start of that run), not a pass; and an edit that loosens the verifier (accepts what it rejected) has no safe path by design. Mutation proof: 40 one-line mutants of the new code, each run against the new tests; 35 were caught. The five that survived: the two looks immediately before accepted and before accepted-after-verifier-edit (each repeats the look just before it, so removing it changes no result a test can see), a path on another drive counted as a hole, a path beside the candidate counted as a hole (the stub now sits in a folder of its own, which makes the check redundant), and hash sets that fold case on every platform (only visible on Linux, where the tests were not run). | 2026-10-07 later: merged as cf-lab PR 18 (squash). Follow-ups from the same work: delegate-batch improvements (dry run, resume, priority, dependencies; cf-lab PR 20) and a loop-report line for the two new states (in PR 18). The row stays in_progress for the maintainer to close; the three differences from the revised acceptance listed above stand until the maintainer approves them.",
+      "updated_at": "2026-10-12T23:55:00Z",
+      "completed_at": "2026-10-07T20:00:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Claude Code",
+        "model_id": "claude-sonnet-5-5"
+      },
+      "notes": "Proposed by a model; only a human moves it to ready. Full tier: a blind different-family challenger on the hashing logic, then a person reads the diff. Open design decision for the maintainer: how a read outside the manifest is detected (run the verifier in a copy of its manifest, as verify-in-copy.py does, is the candidate). Controller-built, not delegated: it edits the harness. | Design reviewed by a blind council on 2026-10-07 (Opus, Fable, Qwen3.8 27B, Gemma 4 31B; the controller's own view was written first): all four said adopt with changes. Flags were confirmed by reproduction, including a vacuous-pass case the controller had missed: an incomplete manifest copy plus a verifier that loops over a missing directory is accepted although the full verifier would fail it, and the empty-stub pre-flight cannot see it. The acceptance above is the revised one. Still for the maintainer: approve moving to ready; the caps (proposal: 500 files, 20 MB); and that verifiers which reach into sibling folders must name them with -VerifierFiles. | 2026-10-07 later: the maintainer answered yes (\"Yeah, go for it\") to the question whether to set this ready with the council's caps (500 files, 20 MB), so it was built the same day in cf-lab on branch loop/v2-02-verifier-freeze; it stays in_progress until the pull request is merged and a person has read the diff (Full tier). Verifiers that reach sibling folders must name them with -VerifierFiles. Review: a blind challenger pass by two cloud models (Opus, Fable) and the local Qwen; each finding was reproduced or refuted before anything was changed, and the fixes have tests. For the maintainer to approve, three places where the build differs from the revised acceptance above: (1) the pre-flight does not refuse every missing-file, import or command error on the empty stub, because \"The term is not recognized\" and \"cannot import name\" are how ordinary verifiers fail on an empty file; it refuses exit 0, a path that exists beside the live verifier but is not in the copy, a Python module that cannot be imported, and an interpreter that cannot start. (2) A verifier that writes to or removes the candidate blocks the run (candidate-changed); a candidate that differs from one attempt to the next never blocks. (3) -ReverifyOf also needs the earlier run's manifest, the same verifier file and at least one earlier output to re-prove against; the output file from before the run must get the same verdict the old verifier gave it (recorded at the start of that run), not a pass; and an edit that loosens the verifier (accepts what it rejected) has no safe path by design. Mutation proof: 40 one-line mutants of the new code, each run against the new tests; 35 were caught. The five that survived: the two looks immediately before accepted and before accepted-after-verifier-edit (each repeats the look just before it, so removing it changes no result a test can see), a path on another drive counted as a hole, a path beside the candidate counted as a hole (the stub now sits in a folder of its own, which makes the check redundant), and hash sets that fold case on every platform (only visible on Linux, where the tests were not run). | 2026-10-07 later: merged as cf-lab PR 18 (squash). Follow-ups from the same work: delegate-batch improvements (dry run, resume, priority, dependencies; cf-lab PR 20) and a loop-report line for the two new states (in PR 18). | Closed 2026-10-12 during board audit: merged in cf-lab PR #18 and active on main.",
       "complexity": "high"
     },
     {
@@ -3876,7 +3934,7 @@
     {
       "id": "T-0107",
       "title": "Take the conference banner down after NACFC 2026",
-      "repo": "site",
+      "repo": ".ai",
       "area": "distribution",
       "status": "proposed",
       "priority": "P3",
@@ -4972,7 +5030,7 @@
     {
       "id": "T-0137",
       "title": "AI in care: read the four preprints and papers in full and re-rate the topics honestly",
-      "repo": "site",
+      "repo": ".ai",
       "area": "ai-in-care",
       "status": "proposed",
       "priority": "P2",
@@ -5008,7 +5066,7 @@
     {
       "id": "T-0138",
       "title": "Site: one date style for generated pages (10 October 2026 versus October 10, 2026)",
-      "repo": "site",
+      "repo": ".ai",
       "area": "site",
       "status": "proposed",
       "priority": "P3",
@@ -5044,7 +5102,7 @@
     {
       "id": "T-0139",
       "title": "Server steps only a person can do: X-Robots-Tag for the atlas and a 301 for /letter/",
-      "repo": "site",
+      "repo": ".ai",
       "area": "deploy",
       "status": "proposed",
       "priority": "P2",
@@ -5116,7 +5174,7 @@
     {
       "id": "T-0141",
       "title": "Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main",
-      "repo": "site",
+      "repo": ".ai",
       "area": "reliability",
       "status": "proposed",
       "priority": "P2",
@@ -5152,7 +5210,7 @@
     {
       "id": "T-0142",
       "title": "Site: run the render tests where a failure is seen (CI sets SITE_SKIP_RENDER=1 and a failing hero test went unseen)",
-      "repo": "site",
+      "repo": ".ai",
       "area": "reliability",
       "status": "proposed",
       "priority": "P2",
@@ -5296,7 +5354,7 @@
     {
       "id": "T-0146",
       "title": "CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has",
-      "repo": "site",
+      "repo": ".ai",
       "area": "content",
       "status": "proposed",
       "priority": "P1",
@@ -5361,6 +5419,9 @@
       "acceptance": "A structured delivery blueprint in cf-research/proposals/ comparing failing vs successful airway delivery platforms (SORT-LNPs vs standard ionizable LNPs); mucus-penetrating biophysical criteria defined (particle size 50-100 nm, neutral surface charge, mucus diffusion); draft for the public Overcoming Delivery brief passes check_claims.py and check_numbers.py.",
       "review_tier": "elevated",
       "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires cross-disciplinary synthesis of aerosol biophysics, nanoparticle pharmacology, and CF airway immunology.",
@@ -5369,9 +5430,9 @@
     {
       "id": "T-0148",
       "title": "Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools)",
-      "repo": "site",
+      "repo": ".ai",
       "area": "site",
-      "status": "proposed",
+      "status": "in_progress",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5398,17 +5459,21 @@
       "depends_on": [
         "T-0149"
       ],
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires culturally grounded, scientifically exact Spanish translation preserving medical boundaries and dignified lab-voice tone.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready."
+      "branch": "site/showcase-2026-10-12",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12."
     },
     {
       "id": "T-0149",
       "title": "Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit",
-      "repo": "site",
+      "repo": ".ai",
       "area": "site",
-      "status": "proposed",
+      "status": "in_progress",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5433,10 +5498,14 @@
       "acceptance": "Playwright visual audit screenshots captured under cf-lab-files/scratch/screenshots/; multi-perspective council review completed; streamlined desktop/mobile navigation implemented with clear paths for Atlas, 3D CFTR viewer, AI in care, and Spanish toggle; all site Playwright and CLS tests pass.",
       "review_tier": "full",
       "depends_on": [],
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires visual taste, accessibility evaluation across viewports, and multi-model council consensus.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready."
+      "branch": "site/showcase-2026-10-12",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12."
     },
     {
       "id": "T-0150",
@@ -5468,6 +5537,9 @@
       "acceptance": "A script mapping variant coordinates to Cryo-EM structures, computing inter-domain perturbation deltas; structured variant theratyping dossiers in cf-research/landscape/variants/; integration blocks generated for the site 3D viewer (/cf/cftr/).",
       "review_tier": "elevated",
       "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "high",
       "recommended_route": "cloud",
       "route_rationale": "Requires deep structural bioinformatics and 3D coordinate geometry.",
@@ -5503,6 +5575,9 @@
       "acceptance": "A detailed mechanistic dossier in cf-research/proposals/ analyzing codon context, EJC distance, and NMD sensitivity for W1282X and G542X; model cocktail combinations with predicted Delta-Isc outcomes; passes check_claims.py.",
       "review_tier": "elevated",
       "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Molecular genetics, RNA biology, and translational pharmacology.",
@@ -5538,6 +5613,9 @@
       "acceptance": "An alternative conductance pathway map in cf-research/landscape/ with net fluid flux equations; candidate drug repurposing evaluations (inhaled ENaC antagonists, TMEM16A potentiators); passes check_numbers.py.",
       "review_tier": "routine",
       "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Epithelial physiology and mathematical ion transport modeling.",
@@ -5575,6 +5653,9 @@
       "depends_on": [
         "T-0130"
       ],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Clinical biostatistics, trial design methodology, and organoid assay interpretation.",
@@ -5610,6 +5691,9 @@
       "acceptance": "A phage-host co-evolution report in cf-research/landscape/ mapping bacterial receptor mutations (LPS O-antigen, PilA) and demonstrating fitness trade-offs; pair recommendations for standard antibiotics.",
       "review_tier": "routine",
       "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Microbial genomics, phage biology, and evolutionary dynamics.",
@@ -5620,7 +5704,7 @@
       "title": "Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills)",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "in_progress",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5645,10 +5729,14 @@
       "acceptance": "Skills created under .claude/skills/scheduled-*/ matching check-skill-frontmatter.py; .agents/skills/ symlinks established; sidecar.json configurations authored with bounded permissions.",
       "review_tier": "elevated",
       "depends_on": [],
+      "updated_at": "2026-10-12T23:45:00Z",
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "medium",
       "recommended_route": "local",
       "route_rationale": "PowerShell 7 automation and Antigravity configuration.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Infrastructure task operationalizing Track A discovery engines via Antigravity sidecar cron schedules; bounded permissions required. Tier elevated. Recommended ready."
+      "branch": "feat/antigravity-discovery-and-pr-rules",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Infrastructure task operationalizing Track A discovery engines via Antigravity sidecar cron schedules; bounded permissions required. Tier elevated. Recommended ready. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules."
     },
     {
       "id": "T-0156",
@@ -5683,6 +5771,9 @@
         "T-0037",
         "T-0038"
       ],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "low",
       "recommended_route": "local",
       "route_rationale": "Automated deterministic API lookups and JSON diffing.",
@@ -5720,6 +5811,9 @@
       "depends_on": [
         "T-0130"
       ],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Structured parsing of clinical trial protocol fields under security-browsing rules.",
@@ -5755,6 +5849,9 @@
       "acceptance": "Daily scheduled check runs tools/check_live.py, check-voice.py, and render-board.ps1 -Check; alerts the maintainer only when a regression is detected; zero unbudgeted network calls.",
       "review_tier": "routine",
       "depends_on": [],
+      "updated_at": null,
+      "completed_at": null,
+      "completed_by": null,
       "complexity": "low",
       "recommended_route": "local",
       "route_rationale": "Local deterministic PowerShell and Python scripts.",
@@ -5765,7 +5862,7 @@
       "title": "Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "proposed",
+      "status": "in_progress",
       "priority": "P1",
       "created_at": "2026-10-12T22:25:00Z",
       "created_by": {
@@ -5790,20 +5887,21 @@
       "acceptance": "Skill scheduled-security-sentinel created under .claude/skills/; audits logs for secrets, PHI, catalog violations, and stray files; automated remediation workflow creates worktrees, runs run-gate.ps1, runs pr-review-loop, and opens PRs via gh pr create; passes check-skill-frontmatter.py.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires security analysis, git worktree orchestration, and automated PR generation through the elevated/full gate.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Core security sentinel auditing logs for secrets, PHI, catalog compliance, and prompt injection with automated PR remediation. Tier full. Recommended ready."
+      "branch": "feat/antigravity-discovery-and-pr-rules",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Core security sentinel auditing logs for secrets, PHI, catalog compliance, and prompt injection with automated PR remediation. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules."
     },
     {
       "id": "T-0160",
       "title": "Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs)",
-      "repo": "site",
+      "repo": ".ai",
       "area": "site",
-      "status": "proposed",
+      "status": "in_progress",
       "priority": "P1",
       "created_at": "2026-10-12T22:30:00Z",
       "created_by": {
@@ -5831,20 +5929,21 @@
         "T-0148",
         "T-0149"
       ],
-      "updated_at": null,
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires multi-repo cross-pollination between cf-research, cf-skills, and .ai with Playwright visual testing.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready."
+      "branch": "site/showcase-2026-10-12",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12."
     },
     {
       "id": "T-0161",
       "title": "Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn)",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "proposed",
+      "status": "in_progress",
       "priority": "P2",
       "created_at": "2026-10-12T22:50:00Z",
       "created_by": {
@@ -5869,13 +5968,14 @@
       "acceptance": "Skill scheduled-chief-researcher created under .claude/skills/; implements lazy delta check (exits 0 with zero LLM calls if tasks/board.json and cf-research/proposals/ are unchanged); runs deterministic checks (check_claims.py, check_numbers.py); emits 1-page Mission Grounding Brief in cf-research/landscape/; passes check-skill-frontmatter.py.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-12T23:45:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
       "recommended_route": "cloud",
       "route_rationale": "Requires multi-repo board synthesis, mission alignment verification, and lazy execution gating.",
-      "notes": "2026-10-12: proposed by Gemini on maintainer instruction; only the maintainer can set it ready. Strict zero-token-burn rule enforced on unchanged state. | 2026-10-12 CRO Grounding Audit: CRO sentinel executed first audit; lazy delta verification confirmed 15 new discovery/sentinel tasks; emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-12.md. Tier elevated."
+      "branch": "feat/antigravity-discovery-and-pr-rules",
+      "notes": "2026-10-12: proposed by Gemini on maintainer instruction; only the maintainer can set it ready. Strict zero-token-burn rule enforced on unchanged state. | 2026-10-12 CRO Grounding Audit: CRO sentinel executed first audit; lazy delta verification confirmed 15 new discovery/sentinel tasks; emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-12.md. Tier elevated. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules."
     }
   ]
 }

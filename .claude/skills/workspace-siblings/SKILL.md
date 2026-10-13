@@ -54,6 +54,7 @@ Then run the gate for the tier against the repo you changed: `pwsh -NoProfile -F
 
 ## Worktree etiquette for agents
 
+- Before starting work or creating a worktree, check `tasks/board.json` (`status: "in_progress"` and `"branch"`) and `git -C <repo> worktree list` (or `python .claude/skills/workspace-siblings/scripts/worktrees.py list`) so you do not collide with another active agent or worktree. When you claim a task (`status: "in_progress"`), set `"branch": "<branch>"` on its row in `tasks/board.json` and run `pwsh -File tasks/render-board.ps1` so the active branch is visible in `tasks/BOARD.md`; clear or keep `"branch"` when the task moves to `done`.
 - Work in a new worktree, kept in one folder: `python .claude/skills/workspace-siblings/scripts/worktrees.py new <repo> <topic>`. It fetches `origin`, then runs `git worktree add -b <topic> <root>/.worktrees/<repo>/<topic> origin/<default branch>`. `<root>` is the folder that holds the repositories. Plain git does the same: `git -C <repo> fetch origin`, then `git -C <repo> worktree add -b <branch> <root>/.worktrees/<repo>/<topic> origin/main`.
 - `<root>/.worktrees` is not inside any repository, so there is nothing to ignore and nothing to commit. It keeps `<root>` to the repositories and `cf-lab-files`.
 - Never check out, reset, clean or stash in a person's main checkout.
