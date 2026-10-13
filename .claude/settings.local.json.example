@@ -4,6 +4,12 @@
       "<workspace>/cf-skills",
       "<workspace>/cf-research",
       "<workspace>/cf-lab-files"
+    ],
+    "allow": [
+      "Bash(python -m unittest *)",
+      "PowerShell(python -m unittest *)",
+      "Bash(pwsh -NoProfile -File ./check-all.ps1*)",
+      "PowerShell(pwsh -NoProfile -File ./check-all.ps1*)"
     ]
   }
 }
