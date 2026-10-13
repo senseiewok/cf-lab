@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-140 tasks, 139 created by a model, 1 with a measured outcome. Estimated effort 349.6 to 668.5 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+139 tasks, 138 created by a model, 1 with a measured outcome. Estimated effort 347.6 to 664.5 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (18)
 
@@ -35,7 +35,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 
-## proposed (110)
+## proposed (109)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -93,7 +93,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0070 | P2 | Read the terms and robots.txt of Ensembl REST, NCBI Variation Services, UniProt and ClinVar bulk files with the lab's reader; propose catalog entries | cf-research | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  |  |
 | T-0086 | P2 | Depth probe for the 64K local alias | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine |  | local |  |
 | T-0127 | P2 | A board consistency check in render-board | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium |  |  |
-| T-0140 | P2 | Design a pinned snapshot and sync verification mechanism for catalog.yaml in cf-lab | cf-lab | 2-4 | 3 | 10 | no | model: gemini-2.5-pro | 2026-10-12 | elevated | medium | frontier |  |
 | T-0089 | P2 | Mechanical filter for local review findings: reproduce each failing input in a temp copy | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |
 | T-0113 | P2 | Eval tallies as data: commit verdict rows, recount the grid, state judge drift | cf-skills | 3-6 | 4 | 8.9 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium |  |  |
 | T-0131 | P2 | Skip guard: make skipped tests visible and budgeted in CI, and discover every test | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium |  |  |
@@ -687,14 +686,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** tasks/render-board.ps1 -Check fails (or warns, where a rule needs a decision) when: an in_progress row needs a task that is not done; a row's notes say Done and it is not closed; a task has a higher priority than a task it depends on; the number of proposed P1 rows passes a cap the maintainer sets. Tests with fixtures; existing rows may need a one-time fix, listed in the pull request.
 - **Evidence:** 2026-10-10: two reviewers asked for it; the board has an in_progress row whose dependency is only 'ready' (T-0077 on T-0078), several rows whose notes say Done but are not closed, and 20 proposed P1 rows.
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Do not auto-fix; the check reports.
-
-### T-0140 Design a pinned snapshot and sync verification mechanism for catalog.yaml in cf-lab
-
-- **Why / ROI rationale:** Estimate: enables standalone cf-lab operation without drifting or unversioned manual copies. *(confidence: medium)*
-- **Route:** frontier - Architectural design for cross-repo catalog snapshot and verification.
-- **Acceptance:** A proposal document in cf-research/proposals/ outlines the pinned snapshot format, sync script, and CI verification check. No manual unversioned copying.
-- **Evidence:** PR #50 council review caught that manually copying catalog.yaml into cf-lab resulted in 59 sources vs 67 in cf-research main (missing 8 recently added sources). A self-contained cf-lab clone needs a pinned snapshot script that generates/syncs the reference catalog with a pinned commit hash and a diff assertion check.
-- **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready.
 
 ### T-0089 Mechanical filter for local review findings: reproduce each failing input in a temp copy
 

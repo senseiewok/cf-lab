@@ -33,7 +33,6 @@ The siblings must sit beside `cf-lab` under these exact names: `cf-skills`, `cf-
 | Layout | How | What loads from the siblings |
 | --- | --- | --- |
 | VS Code | Open `cf-lab.code-workspace` | All four folders in one window |
-| Antigravity (App / IDE) | Start in `cf-lab` (reads `.agents/skills.json`) | All `cf-lab` skills (including `cf-evidence-loop`), plus declared sibling skills |
 | Claude Code, one session | From `cf-lab`: `claude --add-dir ../cf-skills ../cf-research`, or `/add-dir <path>` during a session | Files, plus their `.claude/skills/` (reloaded live) |
 | Claude Code, every session | `permissions.additionalDirectories` in your own git-ignored `.claude/settings.local.json`, with absolute paths (copy `.claude/settings.local.json.example`) | Files only. Their skills still need `--add-dir` or `/add-dir` |
 
@@ -63,7 +62,7 @@ Details, checks per repo and the pull request steps: the `workspace-siblings` sk
 
 ## Skills
 
-Agent skills live in `.claude/skills/<skill-name>/SKILL.md`. This single location works for both Claude Code (which only reads `.claude/skills/`) and GitHub Copilot (which reads `.github/skills/`, `.claude/skills/`, or `.agents/skills/` — any one is enough), so there's no need to duplicate skill files across folders. For Google Antigravity, `.agents/skills.json` configures skill discovery to point directly to `.claude/skills/` and declared sibling skills without duplicating files. If a future tool only reads a different path, mirror there rather than making `.claude/skills/` the copy.
+Agent skills live in `.claude/skills/<skill-name>/SKILL.md`. This single location works for both Claude Code (which only reads `.claude/skills/`) and GitHub Copilot (which reads `.github/skills/`, `.claude/skills/`, or `.agents/skills/` — any one is enough), so there's no need to duplicate skill files across folders. If a future tool only reads a different path, mirror there rather than making `.claude/skills/` the copy.
 
 Current skills:
 
@@ -94,7 +93,7 @@ Current skills:
 
 - `cf-research-context` — grounding and safety rules for Cystic Fibrosis work: disease basics, CFTR modulators, endpoints, data sources, 65-rose convention, what the lab may and may not claim, and the guardrails against invented claims (answer tiers T0 to T3, scope records, the claim checkers)
 - `lab-voice` — warm, plain-language research writing with dignity, evidence, and clear boundaries, in American English, with a checker for spelling, repetition and long pages
-- `cf-evidence-loop` (in the `cf-skills` repo at `../cf-skills/.claude/skills/cf-evidence-loop`; loaded for lab sessions via `.agents/skills.json` without duplicating files) — the evidence-record tool agents use before citing a number, approval, trial or paper. It reads the single source catalog through `EVIDENCE_CATALOG`; its own `catalog.yaml` is generated
+- `cf-evidence-loop` (in the `cf-skills` repo at `../cf-skills/.claude/skills/cf-evidence-loop`; not copied here, one maintained source) — the evidence-record tool agents use before citing a number, approval, trial or paper. It reads the single source catalog through `EVIDENCE_CATALOG`; its own `catalog.yaml` is generated
 - `trial-atlas-pipeline` and `source-grounding` (in the `cf-research` repo at `../cf-research/.claude/skills/`; load with `--add-dir ../cf-research`) — the trial endpoint atlas's order of work, approval gates, privacy and stop rules; and how a public sentence is grounded (computed, registry statement, open-access definition, lab position) with what each checker proves, plus packets for a local worker
 
 ### Skill authoring and tooling
@@ -120,7 +119,7 @@ Reusable council/benchmark and model-onboarding packages are candidates for the 
 
 Follow the `ai-loop-council` skill. In short:
 
-- **Roles, not models.** The current controlling agent scopes the work and owns the final diff; hosting and model names do not prove ability. Architectural planning, system design, multi-step research synthesis, and high-order reasoning belong to the controlling orchestrator. Bounded mechanical drafts, verifier loops, and independent first-pass diff reviews belong to local workers configured via local profiles. An optional challenger from a different model family reviews risky work. Deterministic checks (tests, linters, parsers, Playwright) decide when something is done.
+- **Roles, not models.** The current controlling agent scopes the work and owns the final diff; hosting and model names do not prove ability. A local worker model on Ollama handles bounded drafts and first-pass reviews. An optional challenger from a different model family reviews risky work. Deterministic checks (tests, linters, parsers, Playwright) decide when something is done.
 - **Delegate** with `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`. Each call gets a fresh, self-contained task packet. For a bounded drafting task with a verifier you trust, use `.claude/skills/ai-loop-council/scripts/delegate.ps1` (two default attempts, then one thinking attempt, verifier decides); then read the result.
 - **Ground before delegating.** Start with relevant source, tests, schemas, and authorized local data; reproduce the behavior with the cheapest focused check. For UI questions, supply Playwright observations and screenshots with route, state, viewport, and source revision. Research primary sources only when a named gap remains. Separate observed facts, inferences, and unknowns, and send only evidence the worker can actually consume; see `ai-loop-council` for the packet contract.
 - **Refine inputs selectively.** For an ambiguous or multi-step task, use the optional input-preparation contract in `ai-loop-council`: retain the original request, clarify without adding facts or scope, and propose a short plan and named evidence gaps. Skip clear tasks; do not assume another reasoning pass improves accuracy or let it change permissions or acceptance criteria.
@@ -171,5 +170,5 @@ Never commit secrets. Hosting credentials belong in a local, git-ignored `.env` 
 - After diagnostic DOM/CSS injection or forced state changes, repeat the final ordinary user flow on a clean page with current served HTML/CSS. When source and browser disagree, confirm the server root, response content, and live asset versions before editing again. Leave a requested preview usable; stop only task-owned processes that are no longer needed.
 - Parse generated configuration and assert consumer-recognized keys. Preserve native exit codes and rerun the failing check after repair; never suppress errors and then infer success from an old output file.
 - Flag any change that introduces a new third-party dependency or external network call.
-- When completing a PR-scoped change, always run the `pr-review-loop` skill, verify findings against the code, and record the review loop in the pull request body. Commit changes on a feature branch in a worktree, and always stop to request human confirmation before running `git push` or `gh pr create`. When a change alters how a page looks, attach a few small screenshots (`playwright-browser-testing`, `pr-screenshots.py`). Screenshots are saved for reuse in `../cf-lab-files/scratch/screenshots/<YYYY-MM-DD>/<topic>/` (`pr-screenshots.py where <topic>` prints and creates it); never a page that shows an email address or private data.
+- Before opening a pull request run the `pr-review-loop` skill; when a change alters how a page looks, attach a few small screenshots (`playwright-browser-testing`, `pr-screenshots.py`). Screenshots are saved for reuse in `../cf-lab-files/scratch/screenshots/<YYYY-MM-DD>/<topic>/` (`pr-screenshots.py where <topic>` prints and creates it); never a page that shows an email address or private data.
 - This project is open source and donated time — be conservative with anything that could be misused (destructive scripts, broad credential access, unrestricted agent tool permissions).
