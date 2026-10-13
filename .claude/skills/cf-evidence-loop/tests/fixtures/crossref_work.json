@@ -1,0 +1,40 @@
+{
+ "status": "ok",
+ "message-type": "work",
+ "message-version": "1.0.0",
+ "message": {
+  "DOI": "10.1038/ng.2745",
+  "title": [
+   "Defining the disease liability of variants in the cystic fibrosis transmembrane conductance regulator gene"
+  ],
+  "container-title": [
+   "Nature Genetics"
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2013,
+     8,
+     25
+    ]
+   ]
+  },
+  "type": "journal-article",
+  "author": [
+   {
+    "family": "Sosnay"
+   },
+   {
+    "family": "Siklosi"
+   },
+   {
+    "family": "Van Goor"
+   },
+   {
+    "family": "Kaniecki"
+   }
+  ],
+  "publisher": "Springer Science and Business Media LLC",
+  "is-referenced-by-count": 567
+ }
+}

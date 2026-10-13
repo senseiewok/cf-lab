@@ -71,9 +71,10 @@ attempts.jsonl
 # The one tracked template for local keys (placeholder values only)
 !/.env.example
 
-# Python bytecode
+# Python bytecode and test cache
 __pycache__/
 *.pyc
+.pytest_cache/
 
 # Third-party skills installed locally for trial (see THIRD_PARTY_SKILLS.md); never committed to this public repo
 .claude/skills/frontend-design/

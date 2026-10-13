@@ -1,0 +1,26 @@
+{
+  "messages": [
+    {
+      "status": "ok",
+      "category": "all"
+    }
+  ],
+  "collection": [
+    {
+      "title": "CFTR Gene Variant Detection in Moroccan Individuals via Nanopore Long-Read Sequencing",
+      "authors": "Author A; Author B; Author C",
+      "author_corresponding": "Author A",
+      "author_corresponding_institution": "Example University",
+      "doi": "10.1101/2025.02.14.25322057",
+      "date": "2025-02-18",
+      "version": "1",
+      "type": "PUBLISHAHEADOFPRINT",
+      "license": "cc_by_nc",
+      "category": "genetic and genomic medicine",
+      "jatsxml": "https://www.medrxiv.org/content/early/2025/02/18/2025.02.14.25322057.source.xml",
+      "abstract": "Synthetic placeholder abstract for offline tests. The original text is licensed CC BY-NC and is not reproduced here. The parser reads only the first 400 characters of an abstract. Synthetic placeholder abstract for offline tests. The original text is licensed CC BY-NC and is not reproduced here. The parser reads only the first 400 characters of an abstract. Synthetic placeholder abstract for offline tests. The original text is licensed CC BY-NC and is not reproduced here. The parser reads only the first 400 characters of an abstract. Synthetic placeholder abstract for offline tests. The original text is licensed CC BY-NC and is not reproduced here. The parser reads only the first 400 characters of an abstract. Synthetic placeholder abstract for offline tests. The original text is licensed CC BY-NC and is not reproduced here. The parser reads only the first 400 characters of an abstract. Synthetic placeholder abstract for offline tests. The original text is licensed CC BY-NC and is not reproduced here. The parser reads only the first 400 characters of an abstract. ",
+      "published": "NA",
+      "server": "medRxiv"
+    }
+  ]
+}

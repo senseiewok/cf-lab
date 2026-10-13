@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "total": 402
+  },
+  "results": [
+    {
+      "project_num": "5R01DK044003-35",
+      "project_title": "Molecular Genetics of Cystic Fibrosis",
+      "organization": {
+        "org_name": "JOHNS HOPKINS UNIVERSITY",
+        "city": null,
+        "country": null,
+        "org_city": "BALTIMORE",
+        "org_country": "UNITED STATES",
+        "org_state": "MD",
+        "org_state_name": null,
+        "dept_type": "GENETICS",
+        "fips_country_code": null,
+        "org_duns": [],
+        "org_ueis": [],
+        "primary_duns": null,
+        "primary_uei": null,
+        "org_fips": "US",
+        "org_ipf_code": null,
+        "org_zipcode": null,
+        "external_org_id": null
+      },
+      "principal_investigators": [
+        {
+          "profile_id": null,
+          "first_name": null,
+          "middle_name": null,
+          "last_name": null,
+          "is_contact_pi": true,
+          "full_name": "Investigator A",
+          "title": "PROFESSOR"
+        }
+      ],
+      "award_amount": 409375,
+      "fiscal_year": 2025,
+      "project_start_date": "1991-05-01T00:00:00",
+      "project_end_date": "2027-04-30T00:00:00",
+      "agency_ic_admin": {
+        "code": "DK",
+        "abbreviation": "NIDDK",
+        "name": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "admin_org_id": "12500020",
+        "admin_funding_url": ""
+      }
+    },
+    {
+      "project_num": "5U24HL171672-02",
+      "project_title": "The Georgia Cystic Fibrosis Data Warehouse",
+      "organization": {
+        "org_name": "EMORY UNIVERSITY",
+        "city": null,
+        "country": null,
+        "org_city": "ATLANTA",
+        "org_country": "UNITED STATES",
+        "org_state": "GA",
+        "org_state_name": null,
+        "dept_type": "PEDIATRICS",
+        "fips_country_code": null,
+        "org_duns": [],
+        "org_ueis": [],
+        "primary_duns": null,
+        "primary_uei": null,
+        "org_fips": "US",
+        "org_ipf_code": null,
+        "org_zipcode": null,
+        "external_org_id": null
+      },
+      "principal_investigators": [
+        {
+          "profile_id": null,
+          "first_name": null,
+          "middle_name": null,
+          "last_name": null,
+          "is_contact_pi": false,
+          "full_name": "Investigator B",
+          "title": ""
+        },
+        {
+          "profile_id": null,
+          "first_name": null,
+          "middle_name": null,
+          "last_name": null,
+          "is_contact_pi": false,
+          "full_name": "Investigator C",
+          "title": "MARCUS PROFESSOR OF CYSTIC FIBROSIS"
+        },
+        {
+          "profile_id": null,
+          "first_name": null,
+          "middle_name": null,
+          "last_name": null,
+          "is_contact_pi": true,
+          "full_name": "Investigator D",
+          "title": "ASSOCIATE PROFESSOR"
+        }
+      ],
+      "award_amount": 777277,
+      "fiscal_year": 2025,
+      "project_start_date": "2024-03-01T00:00:00",
+      "project_end_date": "2029-02-28T00:00:00",
+      "agency_ic_admin": {
+        "code": "HL",
+        "abbreviation": "NHLBI",
+        "name": "National Heart Lung and Blood Institute",
+        "admin_org_id": "12500068",
+        "admin_funding_url": ""
+      }
+    }
+  ]
+}

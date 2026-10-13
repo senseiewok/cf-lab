@@ -1,0 +1,74 @@
+{
+ "studies": [
+  {
+   "protocolSection": {
+    "identificationModule": {
+     "nctId": "NCT05033080",
+     "briefTitle": "A Phase 3 Study of VX-121 Combination Therapy in Participants With Cystic Fibrosis (CF) Heterozygous for F508del and a Minimal Function Mutation (F/MF)"
+    },
+    "statusModule": {
+     "overallStatus": "COMPLETED",
+     "startDateStruct": {
+      "date": "2021-09-14"
+     },
+     "primaryCompletionDateStruct": {
+      "date": "2023-05-12"
+     },
+     "lastUpdatePostDateStruct": {
+      "date": "2024-10-03"
+     }
+    },
+    "sponsorCollaboratorsModule": {
+     "leadSponsor": {
+      "name": "Vertex Pharmaceuticals Incorporated"
+     }
+    },
+    "conditionsModule": {
+     "conditions": [
+      "Cystic Fibrosis"
+     ]
+    },
+    "designModule": {
+     "studyType": "INTERVENTIONAL",
+     "phases": [
+      "PHASE3"
+     ],
+     "enrollmentInfo": {
+      "count": 435
+     }
+    },
+    "armsInterventionsModule": {
+     "interventions": [
+      {
+       "name": "VX-121/TEZ/D-IVA"
+      },
+      {
+       "name": "ELX/TEZ/IVA"
+      },
+      {
+       "name": "IVA"
+      },
+      {
+       "name": "Placebo (matched to VX-121/TEZ/D-IVA)"
+      },
+      {
+       "name": "Placebo (matched to ELX/TEZ/IVA)"
+      },
+      {
+       "name": "Placebo (matched to IVA)"
+      }
+     ]
+    },
+    "outcomesModule": {
+     "primaryOutcomes": [
+      {
+       "measure": "Absolute Change in Percent Predicted Forced Expiratory Volume in 1 Second (ppFEV1)"
+      }
+     ]
+    }
+   },
+   "hasResults": true
+  }
+ ],
+ "totalCount": 1
+}

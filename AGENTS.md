@@ -33,7 +33,7 @@ The siblings must sit beside `cf-lab` under these exact names: `cf-skills`, `cf-
 | Layout | How | What loads from the siblings |
 | --- | --- | --- |
 | VS Code | Open `cf-lab.code-workspace` | All four folders in one window |
-| Antigravity (App / IDE) | Start in `cf-lab` (reads `.agents/skills.json`) | All `cf-lab` skills, plus declared sibling skills (`cf-evidence-loop`) |
+| Antigravity (App / IDE) | Start in `cf-lab` (reads `.agents/skills.json`) | All `cf-lab` skills (including `cf-evidence-loop`), plus declared sibling skills |
 | Claude Code, one session | From `cf-lab`: `claude --add-dir ../cf-skills ../cf-research`, or `/add-dir <path>` during a session | Files, plus their `.claude/skills/` (reloaded live) |
 | Claude Code, every session | `permissions.additionalDirectories` in your own git-ignored `.claude/settings.local.json`, with absolute paths (copy `.claude/settings.local.json.example`) | Files only. Their skills still need `--add-dir` or `/add-dir` |
 
@@ -94,7 +94,7 @@ Current skills:
 
 - `cf-research-context` — grounding and safety rules for Cystic Fibrosis work: disease basics, CFTR modulators, endpoints, data sources, 65-rose convention, what the lab may and may not claim, and the guardrails against invented claims (answer tiers T0 to T3, scope records, the claim checkers)
 - `lab-voice` — warm, plain-language research writing with dignity, evidence, and clear boundaries, in American English, with a checker for spelling, repetition and long pages
-- `cf-evidence-loop` (in the `cf-skills` repo at `../cf-skills/.claude/skills/cf-evidence-loop`; loaded for lab sessions via `.agents/skills.json` without duplicating files) — the evidence-record tool agents use before citing a number, approval, trial or paper. It reads the single source catalog through `EVIDENCE_CATALOG`; its own `catalog.yaml` is generated
+- `cf-evidence-loop` — the evidence-record tool agents use before citing a number, approval, trial or paper. Housed natively in `cf-lab/.claude/skills/cf-evidence-loop` (and published downstream to `cf-skills` for community distribution). It reads the source catalog through `EVIDENCE_CATALOG` (defaults to local `sources/catalog.yaml`)
 - `trial-atlas-pipeline` and `source-grounding` (in the `cf-research` repo at `../cf-research/.claude/skills/`; load with `--add-dir ../cf-research`) — the trial endpoint atlas's order of work, approval gates, privacy and stop rules; and how a public sentence is grounded (computed, registry statement, open-access definition, lab position) with what each checker proves, plus packets for a local worker
 
 ### Skill authoring and tooling
@@ -121,6 +121,7 @@ Reusable council/benchmark and model-onboarding packages are candidates for the 
 Follow the `ai-loop-council` skill. In short:
 
 - **Roles, not models.** The current controlling agent scopes the work and owns the final diff; hosting and model names do not prove ability. A local worker model on Ollama handles bounded drafts and first-pass reviews. An optional challenger from a different model family reviews risky work. Deterministic checks (tests, linters, parsers, Playwright) decide when something is done.
+- **Frontier models for high-level intelligence, local workers where they excel.** Architectural planning, system design, multi-step research synthesis, and high-order reasoning belong to frontier models (the orchestrator). Routine mechanical edits, bounded drafting with deterministic verifiers, local diff reviews, and independent review samples belong to local workers (`qwen3.8:27b` via Ollama). Never waste frontier tokens on mechanical boilerplate; never rely on small local models for ambiguous high-level orchestration or unsupervised architectural calls.
 - **Delegate** with `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`. Each call gets a fresh, self-contained task packet. For a bounded drafting task with a verifier you trust, use `.claude/skills/ai-loop-council/scripts/delegate.ps1` (two default attempts, then one thinking attempt, verifier decides); then read the result.
 - **Ground before delegating.** Start with relevant source, tests, schemas, and authorized local data; reproduce the behavior with the cheapest focused check. For UI questions, supply Playwright observations and screenshots with route, state, viewport, and source revision. Research primary sources only when a named gap remains. Separate observed facts, inferences, and unknowns, and send only evidence the worker can actually consume; see `ai-loop-council` for the packet contract.
 - **Refine inputs selectively.** For an ambiguous or multi-step task, use the optional input-preparation contract in `ai-loop-council`: retain the original request, clarify without adding facts or scope, and propose a short plan and named evidence gaps. Skip clear tasks; do not assume another reasoning pass improves accuracy or let it change permissions or acceptance criteria.

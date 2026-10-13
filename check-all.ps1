@@ -155,7 +155,8 @@ function Get-Exe([string] $exe) {
 }
 
 function Get-ArgList($c) {
-    if ($c.exe -in 'pwsh', 'powershell') { return @('-NoProfile', '-File') + @($c.args) }
+    if ($c.exe -eq 'powershell') { return @('-ExecutionPolicy', 'Bypass', '-NoProfile', '-File') + @($c.args) }
+    if ($c.exe -eq 'pwsh') { return @('-NoProfile', '-File') + @($c.args) }
     return @($c.args)
 }
 

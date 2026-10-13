@@ -352,6 +352,13 @@ class TestSkills(Base):
         self.assertEqual(code, 1, out)
         self.assertTrue(any("same" in l and "cf-lab" in l and "cf-research" in l for l in self.fails(out)), out)
 
+    def test_published_skill_between_lab_and_skills_accepted(self):
+        lab = make_tree(self.tmp)
+        add_skill(lab, "cf-evidence-loop")
+        add_skill(self.tmp / "cf-skills", "cf-evidence-loop")
+        code, out = self.run_main(lab)
+        self.assertEqual(code, 0, out)
+
     def test_personal_skill_collision_fails(self):
         lab = make_tree(self.tmp)
         add_skill(lab, "shadowed")

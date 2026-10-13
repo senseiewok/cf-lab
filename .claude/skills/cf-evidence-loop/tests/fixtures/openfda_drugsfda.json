@@ -1,0 +1,100 @@
+{
+ "results": [
+  {
+   "application_number": "NDA212273",
+   "sponsor_name": "VERTEX PHARMS INC",
+   "submissions": [
+    {
+     "submission_type": "SUPPL",
+     "submission_status": "AP",
+     "submission_status_date": "20241220"
+    },
+    {
+     "submission_type": "SUPPL",
+     "submission_status": "AP",
+     "submission_status_date": "20210608"
+    },
+    {
+     "submission_type": "SUPPL",
+     "submission_status": "AP",
+     "submission_status_date": "20230803"
+    },
+    {
+     "submission_type": "SUPPL",
+     "submission_status": "AP",
+     "submission_status_date": "20201221"
+    },
+    {
+     "submission_type": "SUPPL",
+     "submission_status": "AP",
+     "submission_status_date": "20230426"
+    },
+    {
+     "submission_type": "SUPPL",
+     "submission_status": "AP",
+     "submission_status_date": "20260327"
+    },
+    {
+     "submission_type": "SUPPL",
+     "submission_status": "AP",
+     "submission_status_date": "20241220"
+    },
+    {
+     "submission_type": "SUPPL",
+     "submission_status": "AP",
+     "submission_status_date": "20201118"
+    },
+    {
+     "submission_type": "SUPPL",
+     "submission_status": "AP",
+     "submission_status_date": "20260317"
+    },
+    {
+     "submission_type": "SUPPL",
+     "submission_status": "AP",
+     "submission_status_date": "20211004"
+    },
+    {
+     "submission_type": "ORIG",
+     "submission_status": "AP",
+     "submission_status_date": "20191021"
+    },
+    {
+     "submission_type": "SUPPL",
+     "submission_status": "AP",
+     "submission_status_date": "20250925"
+    }
+   ],
+   "products": [
+    {
+     "brand_name": "TRIKAFTA (COPACKAGED)",
+     "dosage_form": "TABLET",
+     "active_ingredients": [
+      {
+       "name": "ELEXACAFTOR, IVACAFTOR, TEZACAFTOR",
+       "strength": "100MG,75MG,50MG"
+      },
+      {
+       "name": "IVACAFTOR",
+       "strength": "150MG"
+      }
+     ]
+    },
+    {
+     "brand_name": "TRIKAFTA (COPACKAGED)",
+     "dosage_form": "TABLET",
+     "active_ingredients": [
+      {
+       "name": "ELEXACAFTOR, IVACAFTOR, TEZACAFTOR",
+       "strength": "50MG,37.5MG,25MG"
+      },
+      {
+       "name": "IVACAFTOR",
+       "strength": "75MG"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

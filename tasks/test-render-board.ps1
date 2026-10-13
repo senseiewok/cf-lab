@@ -74,7 +74,7 @@ try {
     $ps51 = Get-Command powershell.exe -ErrorAction SilentlyContinue
     if ($ps51) {
         $o51 = $r.OutPath -replace '\.md$', '-ps51.md'
-        $null = & $ps51.Source -NoProfile -File $Script -BoardPath $r.Board -OutPath $o51 2>&1
+        $null = & $ps51.Source -ExecutionPolicy Bypass -NoProfile -File $Script -BoardPath $r.Board -OutPath $o51 2>&1
         Check 'Windows PowerShell 5.1 renders byte-identical output' ((Test-Path $o51) -and (Get-FileHash $o51).Hash -eq (Get-FileHash $r.OutPath).Hash) "exit=$LASTEXITCODE"
     } else { Write-Output 'SKIP Windows PowerShell 5.1 comparison (powershell.exe not found)' }
 

@@ -1,0 +1,91 @@
+{
+ "header": {
+  "type": "esummary",
+  "version": "0.3"
+ },
+ "result": {
+  "uids": [
+   "23974870",
+   "42781846"
+  ],
+  "23974870": {
+   "title": "Defining the disease liability of variants in the cystic fibrosis transmembrane conductance regulator gene.",
+   "fulljournalname": "Nature genetics",
+   "source": "Nat Genet",
+   "pubdate": "2013 Oct",
+   "pubtype": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "articleids": [
+    {
+     "idtype": "pubmed",
+     "idtypen": 1,
+     "value": "23974870"
+    },
+    {
+     "idtype": "mid",
+     "idtypen": 8,
+     "value": "NIHMS512446"
+    },
+    {
+     "idtype": "pmc",
+     "idtypen": 8,
+     "value": "PMC3874936"
+    },
+    {
+     "idtype": "pmcid",
+     "idtypen": 5,
+     "value": "pmc-id: PMC3874936;manuscript-id: NIHMS512446;"
+    },
+    {
+     "idtype": "doi",
+     "idtypen": 3,
+     "value": "10.1038/ng.2745"
+    },
+    {
+     "idtype": "pii",
+     "idtypen": 4,
+     "value": "ng.2745"
+    }
+   ],
+   "sortfirstauthor": "Sosnay PR"
+  },
+  "42781846": {
+   "title": "Red blood cell transfusion to treat or prevent complications in sickle cell disease: an overview of Cochrane reviews.",
+   "fulljournalname": "The Cochrane database of systematic reviews",
+   "source": "Cochrane Database Syst Rev",
+   "pubdate": "2026 Sep 24",
+   "pubtype": [
+    "Journal Article",
+    "Systematic Review",
+    "Meta-Analysis",
+    "Review"
+   ],
+   "articleids": [
+    {
+     "idtype": "pubmed",
+     "idtypen": 1,
+     "value": "42781846"
+    },
+    {
+     "idtype": "pmc",
+     "idtypen": 8,
+     "value": "PMC13602365"
+    },
+    {
+     "idtype": "pmcid",
+     "idtypen": 5,
+     "value": "pmc-id: PMC13602365;embargo-date: 2027/09/24;"
+    },
+    {
+     "idtype": "doi",
+     "idtypen": 3,
+     "value": "10.1002/14651858.CD012082.pub3"
+    }
+   ],
+   "sortfirstauthor": "Katumba AM"
+  }
+ }
+}

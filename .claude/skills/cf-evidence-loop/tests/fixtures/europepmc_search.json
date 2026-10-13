@@ -1,0 +1,22 @@
+{
+ "hitCount": 1,
+ "resultList": {
+  "result": [
+   {
+    "id": "32219405",
+    "source": "MED",
+    "pmid": "32219405",
+    "pmcid": "PMC12549141",
+    "doi": "10.1001/jamanetworkopen.2020.1737",
+    "title": "Comparison of US Federal and Foundation Funding of Research for Sickle Cell Disease and Cystic Fibrosis and Factors Associated With Research Productivity.",
+    "journalTitle": "JAMA Netw Open",
+    "pubYear": "2020",
+    "citedByCount": 140,
+    "isOpenAccess": "Y",
+    "pubType": "comparative study; research support, u.s. gov't, p.h.s.; research-article; journal article",
+    "authorString": "Farooq F, Mogayzel PJ, Lanzkron S, Haywood C, Strouse JJ.",
+    "firstPublicationDate": "2020-03-02"
+   }
+  ]
+ }
+}
