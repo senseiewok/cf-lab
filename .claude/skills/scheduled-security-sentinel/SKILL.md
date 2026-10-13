@@ -71,11 +71,14 @@ Inspect:
 
 When a fixable hygiene or security defect is detected (e.g. missing `.gitignore` pattern, unescaped catalog URL, lint regression, or stale hash):
 
-1. **Spawn Isolated Git Worktree**:
+1. **Check Active Worktrees & Board Branches**:
+   - Inspect `tasks/board.json` (`status: "in_progress"` and `"branch"`) and `git -C <repo> worktree list` before touching any repository. If an active branch/worktree is already modifying the affected files, log the finding to `memory/handoff.md` rather than racing on the same target.
+2. **Spawn Isolated Git Worktree & Record Branch**:
    ```powershell
    python .claude/skills/workspace-siblings/scripts/worktrees.py new <repo> sec-fix-<topic>
    ```
-2. **Apply Minimal Deterministic Patch**:
+   - When claiming a board task for the fix, set `"status": "in_progress"` and `"branch": "sec-fix-<topic>"` in `tasks/board.json` and run `pwsh -NoProfile -File tasks/render-board.ps1`.
+3. **Apply Minimal Deterministic Patch**:
    - Apply only the focused remediation code.
 3. **Run Full Review Gate**:
    ```powershell

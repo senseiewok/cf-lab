@@ -21,12 +21,21 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Thursday 04:00 PT)"] --> Stage1["Stage 1: Research Round & Skill Evolution"]
+    Trigger["Scheduled Trigger (Thursday 04:00 PT)"] --> Preflight{"Pre-flight: Active site branch or in_progress task?"}
+    Preflight -->|Collision Detected| Abort["Exit 0 Cleanly\n(Avoid Concurrent Site Edits)"]
+    Preflight -->|Clear| Stage1["Stage 1: Research Round & Skill Evolution"]
     Stage1 --> Stage2["Stage 2: Public Translation & Site Showcase"]
     Stage2 --> Stage3["Stage 3: Grounded Review Loop & Build Verification"]
     Stage3 --> Stage4["Stage 4: Isolated Worktree & PR Preparation"]
     Stage4 --> Review["Maintainer Sovereignty: Awaiting Human Review"]
 ```
+
+### Pre-flight: Task Board & Worktree Coordination
+
+Before touching any `.ai` or skill files:
+1. Check `tasks/board.json` for any `.ai` task already marked `"status": "in_progress"` with a `"branch"` set, and check active git worktrees (`git -C ../.ai worktree list`).
+2. If another agent or worktree is already working on the target site task or branch (e.g. `site/showcase-*` under `../.worktrees/.ai/`), **stop immediately and exit cleanly** so two agents never race on `.ai/src/`.
+3. When claiming a `ready` site task, spawn the isolated worktree first, then set `"status": "in_progress"` and `"branch": "<branch-name>"` on the claimed task in `tasks/board.json` and run `pwsh -NoProfile -File tasks/render-board.ps1`.
 
 ### Stage 1: Research Round & Skill Evolution
 
@@ -88,11 +97,12 @@ Execute the mandatory 3-layer Grounded Review Loop:
 
 ### Stage 4: Worktree & PR Preparation Pipeline
 
-1. **Spawn Isolated Git Worktree**:
+1. **Spawn Isolated Git Worktree & Record Branch**:
    - Never commit directly to `main`:
      ```powershell
      python .claude/skills/workspace-siblings/scripts/worktrees.py new .ai site-showcase-<topic>
      ```
+   - Ensure the claimed task row in `tasks/board.json` records `"branch": "site-showcase-<topic>"` (or the exact git branch name) so concurrent agents see the active branch.
 2. **Elevated Gate Enforcement**:
    - Stage and verify through the repo gate:
      ```powershell

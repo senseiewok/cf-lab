@@ -63,6 +63,14 @@ try {
     $r = Run-Render @((New-Task @{ recommended_route = 'Local'; route_rationale = 'x' }))
     Check 'values are case-sensitive (Local is rejected)' ($r.Code -eq 2) $r.Out
 
+    # optional branch coordination field
+    $r = Run-Render @((New-Task @{ status = 'in_progress'; branch = 'site/showcase-2026-10-12' }))
+    Check 'branch renders in table and detail when set' ($r.Code -eq 0 -and $r.Md -match '\| Branch \|' -and $r.Md -match '\| site/showcase-2026-10-12 \|' -and $r.Md -match '\*\*Branch:\*\* site/showcase-2026-10-12') $r.Out
+    $r = Run-Render @((New-Task @{ branch = 'bad..branch' }))
+    Check 'invalid branch with .. is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'bad branch') $r.Out
+    $r = Run-Render @((New-Task @{ branch = 'has space' }))
+    Check 'invalid branch with spaces is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'bad branch') $r.Out
+
     # statuses are untouched by rendering, and the real board still renders as current
     $tasks = @((New-Task @{ status = 'in_progress' } 'T-0001'), (New-Task @{ status = 'proposed'; complexity = 'low' } 'T-0002'))
     $r = Run-Render $tasks
