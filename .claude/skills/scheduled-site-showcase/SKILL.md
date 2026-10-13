@@ -1,0 +1,116 @@
+---
+name: scheduled-site-showcase
+description: Autonomous site builder, research round, skill evolution, and PR engine. Runs a round of CF research, audits and evolves relevant skills, translates lab breakthroughs into public interactive features and Spanish pages on senseiewok.ai, runs Playwright visual audits, and prepares verified pull requests.
+license: CC0-1.0
+compatibility: Compatible with Claude Code, Antigravity, and Agent Skills spec tools. Requires git, python, and Playwright for visual verification.
+---
+
+# Autonomous site builder & research showcase sentinel (`scheduled-site-showcase`)
+
+Continuously builds and improves the public lab website ([senseiewok.ai](https://senseiewok.ai/)), conducting a fresh round of research and improving relevant skills on every run, exposing recent lab breakthroughs to the community in English and Spanish, and preparing verified pull requests with Playwright screenshots.
+
+## Cadence & Trigger
+
+- **Default Cadence**: Weekly on Thursdays at 04:00 AM PT (`CRON_TZ=America/Los_Angeles 0 4 * * 4`).
+- **Antigravity Sidecar ID**: `scheduled-site-showcase`
+- **Review Tier**: `elevated` / `full` (depending on public claims and security boundaries).
+
+---
+
+## 4-Stage Autonomous Workflow
+
+```mermaid
+flowchart TD
+    Trigger["Scheduled Trigger (Thursday 04:00 PT)"] --> Stage1["Stage 1: Research Round & Skill Evolution"]
+    Stage1 --> Stage2["Stage 2: Public Translation & Site Showcase"]
+    Stage2 --> Stage3["Stage 3: Grounded Review Loop & Build Verification"]
+    Stage3 --> Stage4["Stage 4: Isolated Worktree & PR Preparation"]
+    Stage4 --> Review["Maintainer Sovereignty: Awaiting Human Review"]
+```
+
+### Stage 1: Research Round & Skill Evolution
+
+1. **Scan Completed Lab Research**:
+   - Inspect `cf-research/landscape/` and `cf-research/proposals/` for recent T1/T2 dossiers (e.g. PTC readthrough, delivery biophysics, variant theratyping, alternative conductance).
+   - Identify newly validated primary evidence, Cryo-EM coordinate updates, or trial surveillance records.
+2. **Skill Audit & Improvement**:
+   - Audit relevant skills (`frontend-design`, `lab-voice`, `cf-research-context`, `webgl-threejs-graphics`).
+   - Integrate concrete, tested improvements (e.g., refined mobile viewport handling, new diagnostic checks, CSS container query patterns).
+   - Validate that updated skills strictly conform to frontmatter and character limits:
+     ```powershell
+     python tasks/check-skill-frontmatter.py
+     ```
+
+### Stage 2: Exposing the Lab's Work (Public Translation)
+
+1. **Evidence & Asset Generation**:
+   - Re-generate public evidence ledgers:
+     ```powershell
+     python tools/make_evidence.py
+     ```
+   - Synchronize 3D CFTR atomic coordinates and mutation hotspots:
+     ```powershell
+     python tools/sync_cftr_model.py
+     ```
+2. **Website Enhancements (`.ai/src/`)**:
+   - Update HTML, CSS, and interactive visualizers on target pages (`/cf/`, `/cf/cftr/`, `/tools/`, `/evidence/`).
+   - Maintain the two-tier header navigation and right-hand secondary sub-nav rail (`aside.subnav-rail`) on content pages.
+   - Preserve the 65-Roses visual motif counter and semantic structure.
+3. **Spanish Localization (`/es/...`)**:
+   - Author or update parallel Spanish pages under `.ai/src/es/` (e.g., `/es/cf/`, `/es/cf/cftr/`).
+   - Include verified Spanish medical boundary disclaimers:
+     > *"Investigación independiente, no asesoramiento médico. Sensei Ewok CF Lab no promete curas ni tratamientos clínicos."*
+
+### Stage 3: Deterministic Grounded Review Loop & Verification
+
+Execute the mandatory 3-layer Grounded Review Loop:
+
+1. **Deterministic Mechanical Verification**:
+   - Verify all factual claims against primary sources:
+     ```powershell
+     python ../cf-research/tools/claims/check_claims.py
+     python ../cf-research/tools/claims/check_numbers.py
+     ```
+   - Check voice, tone, and lack of hype across all HTML files:
+     ```powershell
+     python .claude/skills/lab-voice/scripts/check-voice.py
+     ```
+   - Run the site unit and CLS test suite:
+     ```powershell
+     python -m unittest tests.test_site tests.test_resources_page tests.test_cftr_hero tests.test_site_cls
+     ```
+2. **Playwright Visual Audit**:
+   - Launch local test server and capture desktop (`1280x800`) and mobile (`390x844`) screenshots:
+     ```powershell
+     python .claude/skills/playwright-browser-testing/scripts/pr-screenshots.py capture --url http://localhost:8000
+     ```
+   - Inspect screenshots in `../cf-lab-files/scratch/screenshots/` to verify zero visual overlap, no mobile overflow, and legible typography.
+
+### Stage 4: Worktree & PR Preparation Pipeline
+
+1. **Spawn Isolated Git Worktree**:
+   - Never commit directly to `main`:
+     ```powershell
+     python .claude/skills/workspace-siblings/scripts/worktrees.py new .ai site-showcase-<topic>
+     ```
+2. **Elevated Gate Enforcement**:
+   - Stage and verify through the repo gate:
+     ```powershell
+     pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier elevated -Expected "<changed-files>" -MessageFile <path-to-commit-msg>
+     ```
+3. **Execute `pr-review-loop`**:
+   - Run an independent diff review using a non-author reviewer model.
+   - Record the review loop table in the PR description.
+4. **Submit Pull Request**:
+   - Open PR via GitHub CLI:
+     ```powershell
+     gh pr create --repo senseiewok/senseiewok.ai --title "feat(site): <description>" --body-file pr-body.md
+     ```
+   - Attach Playwright screenshots and link back to the originating research dossier.
+
+---
+
+## Safety & Governance
+
+- **Zero Invention**: Every number, structure, and claim originates from primary peer-reviewed literature or official trial registries.
+- **Maintainer Sovereignty**: The agent prepares clean worktrees and opens PRs; only the human maintainer merges code or deploys to production.

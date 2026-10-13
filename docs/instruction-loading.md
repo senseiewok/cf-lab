@@ -14,8 +14,11 @@ Which file an agent reads depends on the tool and on where the session starts. T
 | Claude Code started inside a sibling (inferred, not a quoted row) | That sibling's own `AGENTS.md`, if it has one, not `cf-lab`'s | That sibling's skills only | That sibling's `.claude/settings.json`, with no fallback to a parent |
 | Local worker model (Ollama) | Loads nothing | Loads nothing | None: the task packet carries every rule and fact the worker needs |
 | Copilot in VS Code | Reads `AGENTS.md`, `.github/copilot-instructions.md` and `.github/instructions/**/*.instructions.md`, all additive | Reads `.github/skills/`, `.claude/skills/` and `.agents/skills/`, and the personal `~/.copilot/skills/`, `~/.claude/skills/`, `~/.agents/skills/` | Its own approval settings |
+| Antigravity (Google DeepMind) | Loads repository-root `AGENTS.md` (and hierarchical rules) as rules | Reads `.agents/skills/` directly, and scans paths declared in `.agents/skills.json` (such as `.claude/skills`) | Global permission grants and project settings (`projects/<id>.json`) |
 
 Observed here (T1, 2026-10-10): a general-purpose subagent started from a session in `cf-lab` listed 51 invocable skills, the 23 `cf-lab` skills among them and the sibling skills (for example `cf-evidence-loop`), and received `cf-lab/AGENTS.md` automatically. No `CLAUDE.md` existed in `cf-lab`, any parent folder or the user's `.claude` folder, and no managed-policy file existed. The three repos share no skill name and none collides with a personal skill.
+
+Observed here (2026-10-12): Antigravity automatically injected `cf-lab/AGENTS.md` as its `<user_rules>` in both root and subagent sessions. Declarative skill discovery is specified via `.agents/skills.json` (pointing to `.claude/skills`) per Antigravity's JSON customization guide; `.agents/skills/` is git-ignored and can be locally linked via `pwsh -File .claude/skills/workspace-siblings/scripts/link-agent-skills.ps1`.
 
 ## Layout rules that follow
 

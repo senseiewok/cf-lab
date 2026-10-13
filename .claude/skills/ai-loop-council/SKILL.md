@@ -284,6 +284,22 @@ Worker samples are cheap locally, so ask for 2 independent samples (`-Samples 2`
 - **A distilled model isn't a new family.** DeepSeek-R1-Distill-Qwen-32B is Qwen2.5 underneath. Diversity needs a different base lineage, and a test like this one to show it helps.
 - **Models can share a blind spot.** All three missed a wait loop with no timeout. Cover known blind spots with the orchestrator's own review, a deterministic check, or by naming them in the review prompt.
 
+### Multi-family council diversity (Gemini, Claude, GPT, and local models)
+
+A true multi-model council requires **genuine architectural and pre-training diversity**, not merely different parameter sizes or fine-tunes from the same lineage. For elevated and full tier reviews, the orchestrator and blind challenger must belong to orthogonal model families:
+
+| Role | Lineage | Typical Candidates | Strengths in the Loop |
+| :--- | :--- | :--- | :--- |
+| **Family A** | Google DeepMind | Gemini 3.8 Flash, Gemini 3.8 Pro | High-speed multi-modal reasoning, large context windows, rapid draft generation and visual audit integration. |
+| **Family B** | Anthropic | Claude Opus 5.5, Claude Sonnet 5.5 | Rigorous constitutional instruction following, conservative boundary checks, deep diff refactoring. |
+| **Family C** | OpenAI / Open Source | GPT-OSS 120B, ChatGPT | Distinct pre-training corpus, orthogonal algorithmic heuristics, strong edge-case challenger. |
+| **Family D** | Open-Weight Local | Qwen 3.8 27B via Ollama | Zero token cost, fully offline execution, deterministic batch drafting and local worker passes. |
+
+**The Cross-Family Challenger Rule**:
+1. **Never review with the same family**: If Gemini drafts a feature or proposal, the blind challenger review on the Full tier MUST be conducted by Claude or GPT. If Claude drafts, Gemini or GPT must review.
+2. **Deterministic checks run first**: Linters, unit tests, Playwright checks, `check_claims.py`, and `check_numbers.py` must pass *before* spending cross-family model tokens. Never spend Claude credits or Gemini quota on syntax errors or failing assertions.
+3. **Blind challenger protocol**: The challenger receives only the bounded task packet, the diff, and the primary evidence excerpt. It is never told what the drafting model thought or claimed.
+
 ### Using the local worker as a reviewer (measured 2026-10-06; one task, small n)
 
 One script (an 808-line standard-library checker the worker had written and that passed its 72 tests), one specification, and 17 defects a stronger model had found by reading it, each confirmed by a failing test. Qwen3.8 27B fast (`ollama-profile.64k.fast.json`) reviewed it four times with a bare packet (the spec plus the line-numbered script, about 16,300 prompt tokens: "list every defect with line, evidence and a failing input; say `not found` if none") and four times with the same packet plus a 16-item review card of generic places where such checkers fail (about 17,200 tokens). Each reply was scored blind by a separate Opus judge that ran every claimed failing input against the original script. Counts are runs, not a claim about the model.

@@ -366,6 +366,87 @@ It needs Python 3.10 or newer. It is never run by `setup.cmd` or `setup.sh`, whi
 
 On-demand agent guidance lives in `.claude/skills/`. Start with `lab-voice`, `cf-research-context`, `security-baseline`, and `ai-loop-council`. Art and tooling guidance include `ascii-art` (a craft process, a canvas library and a checker for text art), `playwright-browser-testing`, and `lab-versioning`. The catalog is in [AGENTS.md](AGENTS.md#skills); no large model or GPU is required for the offline policy tests.
 
+## Autonomous scheduled automations
+
+Sensei Ewok's CF Lab uses background autonomous schedules to sustain continuous progress toward CF curative breakthroughs and ensure rigorous repository hygiene. These schedules run on defined cron cadences, execute our mandatory 3-layer Grounded Review Loop (deterministic checks, adversarial challenger, evidence ledger), and prepare verified pull requests for human review.
+
+The complete architectural specifications, biophysical schemas (Cryo-EM 5UAK/6MSM coords, VX-522 failure analysis, PTC readthrough equations), and review loop contracts are detailed in the lab's schedule design documents:
+- **Gemini CF Schedules Architecture & Review Loop Design** (`gemini-cf-schedules-design.md`)
+- **Curative Discovery Roadmap & Dual-Track Development Schedule** (`cf-curative-development-schedule.md`)
+
+### Core autonomous engines
+
+| Engine | Cadence | Purpose | Primary Output |
+| :--- | :--- | :--- | :--- |
+| **`scheduled-site-showcase`** (Developer Schedule) | Every 4 hours (all day) | Continuous website improvement, fresh round of research, skill evolution, Spanish translations (`/es/`), and verified PRs with Playwright screenshots. | PRs to `senseiewok.ai` |
+| **`scheduled-security-sentinel`** (Monitor Schedule) | Every 3 hours (all day) | Continuous security and privacy audit of background logs, transcripts, and git status for secrets, PHI, SSRF, prompt injection, and permission drift. Prepares verified fix PRs. | PRs across repos / security alerts |
+| **`scheduled-chief-researcher`** (CRO Grounding Sentinel) | Every 6 hours (all day) | Audits task board grounding and curative mission focus; enforces lazy delta execution (zero tokens burned on idle state). | Grounding briefs & board audits |
+| **`scheduled-variant-theratyping`** | Monthly (1st at 03:00 PT) | Biophysical dossiers on rare CFTR mutations with atomic PDB coordinates. | `/cf/cftr/` 3D visualizers |
+| **`scheduled-delivery-biophysics`** | Monthly (5th at 03:00 PT) | Non-inflammatory LNP and aerosolized formulation models addressing mucus barrier penetration. | "Overcoming Delivery" briefs |
+| **`scheduled-ptc-readthrough`** | Monthly (15th at 03:00 PT) | Triple-combination readthrough + NMD suppression models for nonsense mutations (W1282X, G542X). | "The Path for the 10%" briefs |
+| **`scheduled-bypass-circuitry`** | Monthly (10th at 03:00 PT) | Alternative chloride secretion (TMEM16A) and ENaC inhibition transport models. | Epithelial ion flux simulators |
+| **`scheduled-adaptive-trials`** | Monthly (20th at 03:00 PT) | Open-access N-of-1 and organoid surrogate protocol templates for ultra-rare mutations. | Trial Endpoint Atlas updates |
+| **`scheduled-phage-dynamics`** | Monthly (25th at 03:00 PT) | Phage-antibiotic evolutionary trade-off matrices for *P. aeruginosa* biofilms. | Anti-infectives evidence ledger |
+
+---
+
+### How to add to Gemini Automations (Antigravity Sidecars)
+
+Antigravity executes background schedules through declarative sidecars (`"builtin": "schedule"`) located under `~/.gemini/config/sidecars/<sidecar-id>/sidecar.json`.
+
+1. **Sidecar configuration**:
+   Sidecar configuration files are stored in your user configuration directory:
+   - Developer Schedule: `~/.gemini/config/sidecars/scheduled-site-showcase/sidecar.json`
+   - Security Sentinel: `~/.gemini/config/sidecars/scheduled-security-sentinel/sidecar.json`
+   - Chief Researcher Officer: `~/.gemini/config/sidecars/scheduled-chief-researcher/sidecar.json`
+
+   Each file defines the cron schedule with explicit timezone (`CRON_TZ=America/Los_Angeles`), self-contained run instructions (`agentapi new-conversation -- <prompt>`), and strictly bounded `agent_permissions` (`workspace_uris` and `access_grants` for specific commands; never generic wildcards).
+
+2. **Enable via Automations Dashboard**:
+   In accordance with security rules, automations are never enabled silently. To activate an automation:
+   - Click to open the dashboard: [Open Automations Dashboard](sidecar://dashboard).
+   - Find the automation by its display name (e.g. **Autonomous Site Builder & Research Showcase** or **Autonomous Security Log Sentinel**).
+   - Toggle the switch to **Enabled**.
+
+3. **Verify permissions with a test run**:
+   Before leaving an automation unattended, run an initial test execution in chat or through the dashboard to verify that all workspace paths and commands execute smoothly without unexpected permission prompts.
+
+---
+
+### How to add to Claude Scheduled Tasks
+
+Claude Code supports scheduled autonomous runs through slash commands and local scheduler jobs targeting skills in `.claude/skills/`.
+
+1. **Using Claude Code interactive `/schedule`**:
+   In an active Claude Code session started in `cf-lab`, type:
+   ```text
+   /schedule "Every 4 hours America/Los_Angeles, execute the scheduled-site-showcase skill in .claude/skills/scheduled-site-showcase/SKILL.md to conduct a research round, update relevant skills, build site features on senseiewok.ai, run Playwright audits, and prepare a PR."
+   ```
+   For the security monitor:
+   ```text
+   /schedule "Every 3 hours America/Los_Angeles, execute the scheduled-security-sentinel skill in .claude/skills/scheduled-security-sentinel/SKILL.md to audit background logs, transcripts, and git status for secrets, PHI, and prompt injection, submitting fix PRs for any regressions."
+   ```
+
+2. **Using crontab / system scheduler**:
+   On macOS/Linux or WSL, add an entry to your crontab (`crontab -e`):
+   ```cron
+   # Developer Schedule: Every 4 hours (all day)
+   0 */4 * * * cd /path/to/cf-lab && claude -p "Read and execute .claude/skills/scheduled-site-showcase/SKILL.md"
+
+   # Security Sentinel: Every 3 hours (all day)
+   0 */3 * * * cd /path/to/cf-lab && claude -p "Read and execute .claude/skills/scheduled-security-sentinel/SKILL.md"
+
+   # CRO Grounding Sentinel: Every 6 hours (lazy delta check, 0 tokens on idle)
+   0 */6 * * * cd /path/to/cf-lab && claude -p "Read and execute .claude/skills/scheduled-chief-researcher/SKILL.md"
+   ```
+   On Windows with Task Scheduler or PowerShell ScheduledJob:
+   ```powershell
+   Register-ScheduledJob -Name "CF-Lab-Security-Sentinel" -Trigger (New-JobTrigger -Daily -At 12:00AM -RepetitionInterval (New-TimeSpan -Hours 3)) -ScriptBlock {
+       Set-Location "$HOME\cf-work\cf-lab"
+       claude -p "Read and execute .claude/skills/scheduled-security-sentinel/SKILL.md"
+   }
+   ```
+
 ## Security
 
 All agents working in this workspace must follow `.claude/skills/security-baseline/SKILL.md`. See [SECURITY.md](SECURITY.md) for the vulnerability disclosure policy.
