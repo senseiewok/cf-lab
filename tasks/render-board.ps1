@@ -1,6 +1,7 @@
+#Requires -Version 7
 <#
 .SYNOPSIS
-  Render tasks/board.json to tasks/BOARD.md. No dependencies beyond PowerShell 5.1+.
+  Render tasks/board.json to tasks/BOARD.md. Requires PowerShell 7+.
 
 .DESCRIPTION
   board.json is the source of truth. This script sorts tasks by priority, then ROI index, then id,

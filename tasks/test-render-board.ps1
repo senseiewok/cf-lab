@@ -1,3 +1,4 @@
+#Requires -Version 7
 # Test for render-board.ps1 (board T-0024: complexity, recommended_route, route_rationale). Throwaway boards only: it never touches
 # tasks/board.json or tasks/BOARD.md. No network, no model. Prints PASS/FAIL per check; exit 0 only when all pass.
 param([string] $Script = (Join-Path $PSScriptRoot 'render-board.ps1'))
@@ -66,17 +67,11 @@ try {
     $tasks = @((New-Task @{ status = 'in_progress' } 'T-0001'), (New-Task @{ status = 'proposed'; complexity = 'low' } 'T-0002'))
     $r = Run-Render $tasks
     Check 'task statuses are listed under their own headings' ($r.Md -match '## in progress \(1\)' -and $r.Md -match '## proposed \(1\)') $r.Md
-    # dates are culture-invariant ISO, and Windows PowerShell 5.1 renders the same bytes as PowerShell 7
+    # dates are culture-invariant ISO
     $tasks = @((New-Task @{ created_at = '2026-10-05T23:30:00Z' } 'T-0002'), (New-Task @{} 'T-0001'))
     $r = Run-Render $tasks
     Check 'created_at renders as an ISO date (yyyy-MM-dd), not a culture date' ($r.Md -match '\| 2026-10-05 \|' -and $r.Md -notmatch '\d\d/\d\d/\d{4}') $r.Md
     Check 'tied tasks are ordered by id' ($r.Md.IndexOf('| T-0001 |') -lt $r.Md.IndexOf('| T-0002 |')) $r.Md
-    $ps51 = Get-Command powershell.exe -ErrorAction SilentlyContinue
-    if ($ps51) {
-        $o51 = $r.OutPath -replace '\.md$', '-ps51.md'
-        $null = & $ps51.Source -ExecutionPolicy Bypass -NoProfile -File $Script -BoardPath $r.Board -OutPath $o51 2>&1
-        Check 'Windows PowerShell 5.1 renders byte-identical output' ((Test-Path $o51) -and (Get-FileHash $o51).Hash -eq (Get-FileHash $r.OutPath).Hash) "exit=$LASTEXITCODE"
-    } else { Write-Output 'SKIP Windows PowerShell 5.1 comparison (powershell.exe not found)' }
 
     $real = Join-Path $PSScriptRoot 'board.json'
     if (Test-Path $real) {

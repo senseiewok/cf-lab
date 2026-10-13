@@ -56,7 +56,6 @@ jobs:
       - name: tool versions
         run: |
           $PSVersionTable.PSVersion.ToString()
-          powershell.exe -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
           python --version
           git --version
       # test-delegate took 267 s on a passing run and timed out at the 300 s default on the next one (runner speed varies), so the
