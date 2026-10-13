@@ -6,6 +6,7 @@ Usage:
 
 Rules
   ERROR uk-spelling      a British spelling (or 'carer') in the lab's own prose. Exit 1.
+  ERROR es-mx-spelling   a Peninsular Spanish form ('ordenador', 'fichero', 'vosotros', 'zumo', 'gafas', 'teléfono móvil') in Spanish (lang='es*') prose. Exit 1.
   WARN  long-sentence    a sentence of 30 or more words.
   WARN  repetition       two sentences anywhere on the page, each 6+ words, that share 70% or more of their
                          content words (shared words / content words of the shorter sentence, at least 4 shared).
@@ -101,6 +102,14 @@ UK_PREFIX = [  # (regex on a lowercase word, from, to)
     (re.compile(r"^oedema"), "oedema", "edema"), (re.compile(r"^anaesthe"), "anaesthe", "anesthe"),
 ]
 TWO_WORD = [(re.compile(r"\bper cent\b", re.I), "percent")]
+ES_MX = {
+    "ordenador": "computadora", "ordenadores": "computadoras",
+    "fichero": "archivo", "ficheros": "archivos",
+    "vosotros": "ustedes", "vosotras": "ustedes",
+    "zumo": "jugo", "zumos": "jugos",
+    "gafas": "lentes",
+}
+ES_TWO_WORD = [(re.compile(r"\btel[eé]fonos?\s+m[oó]vil(?:es)?\b", re.I), "teléfono celular")]
 
 
 def us_for(word):
@@ -116,9 +125,18 @@ def us_for(word):
     return us[0].upper() + us[1:] if word[:1].isupper() else us
 
 
+def es_mx_for(word):
+    mx = ES_MX.get(word.lower())
+    if mx is None:
+        return None
+    return mx[0].upper() + mx[1:] if word[:1].isupper() else mx
+
+
 # ---------------------------------------------------------------- page model
 
-PROSE, QUOTE, FOREIGN, TABLE, ATTR = "prose", "quote", "foreign", "table", "attr"
+PROSE, QUOTE, FOREIGN, SPANISH, TABLE, ATTR, SPANISH_ATTR = (
+    "prose", "quote", "foreign", "spanish", "table", "attr", "spanish_attr"
+)
 # Attribute values a reader meets or hears (spelling only; never counted as words or sentences).
 ATTR_NAMES = ("alt", "title", "aria-label", "aria-description", "placeholder")
 META_KEYS = {"description", "og:title", "og:description", "og:image:alt", "twitter:title", "twitter:description", "twitter:image:alt"}
@@ -143,12 +161,17 @@ class Block:
         return " ".join(t for t, k, _ in self.runs if k == PROSE)
 
     def all_text(self):
-        return " ".join(t for t, k, _ in self.runs if k != ATTR)
+        return " ".join(t for t, k, _ in self.runs if k not in (ATTR, SPANISH_ATTR))
 
 
 def _lang_is_english(value):
     v = (value or "").strip().lower()
     return v == "" or v == "en" or v.startswith("en-")
+
+
+def _lang_is_spanish(value):
+    v = (value or "").strip().lower()
+    return v == "es" or v.startswith("es-")
 
 
 BLOCK_TAGS = {"p", "div", "li", "ul", "ol", "h1", "h2", "h3", "h4", "h5", "h6", "td", "th", "tr", "table", "section",
@@ -163,13 +186,13 @@ QUOTE_TAGS = {"blockquote", "q", "cite"}
 class _Html(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.stack = []  # (tag, drop, quote, foreign)
+        self.stack = []  # (tag, drop, quote, foreign, spanish)
         self.blocks = []
         self.cur = None
         self.next_repeat = False  # the open block element itself carries data-voice="repeat"
 
     def _state(self):
-        return self.stack[-1][1:] if self.stack else (False, False, False)
+        return self.stack[-1][1:] if self.stack else (False, False, False, False)
 
     def _break(self):
         if self.cur is not None and self.cur.runs:
@@ -185,17 +208,19 @@ class _Html(HTMLParser):
             self.next_repeat = tag not in VOID and (a.get("data-voice") or "").strip().lower() == "repeat"
         if tag in VOID:
             return
-        drop, quote, foreign = self._state()
+        drop, quote, foreign, spanish = self._state()
         if "lang" in a:
             foreign = not _lang_is_english(a["lang"])
-        self.stack.append((tag, drop or tag in DROP, quote or tag in QUOTE_TAGS, foreign))
+            spanish = _lang_is_spanish(a["lang"])
+        self.stack.append((tag, drop or tag in DROP, quote or tag in QUOTE_TAGS, foreign, spanish))
 
     def _attrs(self, tag, a):
         """The text a reader gets from attributes (alt, title, aria-label, a meta description), checked for spelling only."""
-        drop, quote, foreign = self._state()
+        drop, quote, foreign, spanish = self._state()
         if "lang" in a:
             foreign = not _lang_is_english(a["lang"])
-        if drop or quote or foreign or tag in DROP or tag in QUOTE_TAGS:
+            spanish = _lang_is_spanish(a["lang"])
+        if drop or quote or (foreign and not spanish) or tag in DROP or tag in QUOTE_TAGS:
             return
         values = [a.get(n) for n in ATTR_NAMES]
         if tag == "meta" and (a.get("name") or a.get("property") or "").strip().lower() in META_KEYS:
@@ -204,7 +229,7 @@ class _Html(HTMLParser):
         for v in values:
             if v and v.strip():
                 b = Block(line)
-                b.add(v, ATTR, line)
+                b.add(v, SPANISH_ATTR if spanish else ATTR, line)
                 self.blocks.append(b)
 
     def handle_startendtag(self, tag, attrs):
@@ -223,13 +248,13 @@ class _Html(HTMLParser):
                 break
 
     def handle_data(self, data):
-        drop, quote, foreign = self._state()
+        drop, quote, foreign, spanish = self._state()
         if drop or not data.strip():
             return
         line = self.getpos()[0]  # the run's first line; spelling adds the newlines before each match
         if self.cur is None:
             self.cur = Block(line + data[:len(data) - len(data.lstrip())].count("\n"), repeat=self.next_repeat)
-        kind = FOREIGN if foreign else QUOTE if quote else PROSE
+        kind = QUOTE if quote else SPANISH if spanish else FOREIGN if foreign else PROSE
         self.cur.add(data, kind, line)
 
     def close(self):
@@ -440,6 +465,28 @@ def spelling_findings(blocks, allow):
     return out
 
 
+def es_mx_findings(blocks, allow):
+    out = []
+    for b in blocks:
+        for text, kind, line in b.runs:
+            if kind not in (SPANISH, SPANISH_ATTR):
+                continue
+            t = _mask(text, [URL_RX] + allow)
+            for rx, mx in ES_TWO_WORD:
+                for m in rx.finditer(t):
+                    out.append({"line": line + t.count("\n", 0, m.start()), "word": m.group(0), "mx": mx})
+            for m in re.finditer(r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+", t):
+                mx = es_mx_for(m.group(0))
+                if not mx:
+                    continue
+                before = t[m.start() - 1] if m.start() else " "
+                after = t[m.end():m.end() + 2]
+                if before in "/_@\\." or (after[:1] and after[:1] in "/_@\\") or re.match(r"\.[A-Za-z0-9]", after):
+                    continue  # file name, path, identifier, address
+                out.append({"line": line + t.count("\n", 0, m.start()), "word": m.group(0), "mx": mx})
+    return out
+
+
 LABEL_RX = re.compile(r"^\s*([A-Z][A-Za-z'’ ]{1,40}?)\s*:")
 
 
@@ -448,6 +495,9 @@ def analyse(blocks, allow=(), budget=1800, long_words=30, rep_ratio=0.70, rep_mi
     for f in spelling_findings(blocks, list(allow)):
         res["errors"].append({"rule": "uk-spelling", "line": f["line"],
                               "message": f"'{f['word']}' -> '{f['us']}'", "word": f["word"], "suggest": f["us"]})
+    for f in es_mx_findings(blocks, list(allow)):
+        res["errors"].append({"rule": "es-mx-spelling", "line": f["line"],
+                              "message": f"'{f['word']}' -> '{f['mx']}'", "word": f["word"], "suggest": f["mx"]})
     sents = []  # (index, line, text)
     repeat_ok = set()  # sentence indexes inside a deliberate-repeat marker
     labels = {}
@@ -551,6 +601,9 @@ def self_test():
     ok("blockquote, q and cite are exempt", rules(r) == [], r)
     r = h("<p lang='es-MX'>colour</p><p>See <code>colour</code> and <a href='/centre/organisation.html'>this</a>.</p>")
     ok("other language, code and attributes are exempt", rules(r) == [], r)
+    r = h("<div lang='es-MX'><p>Abre el fichero en el ordenador.</p><blockquote><p>Usa el ordenador.</p></blockquote></div>")
+    ok("peninsular spanish in es-MX is an error, blockquote exempt",
+       rules(r) == ["es-mx-spelling", "es-mx-spelling"] and [e["suggest"] for e in r["errors"]] == ["archivo", "computadora"], r)
     r = h("<p>Open https://example.org/licence and organisation_id and notes/centre and colour.css today.</p>")
     ok("urls, identifiers, paths and file names are exempt", rules(r) == [], r)
     r = analyse(parse_html("<p>The World Health Organisation said so.</p>"),

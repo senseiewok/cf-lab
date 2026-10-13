@@ -4,7 +4,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 161 tasks, 160 created by a model, 1 with a measured outcome. Estimated effort 424.85 to 818.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
-## in progress (18)
+## in progress (19)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -26,6 +26,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0052 | P2 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |
 | T-0100 | P2 | Loop v2.1 V2-02: freeze the verifier with a manifest hash and a safe re-verify path | cf-lab | 6-10 | 4 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | high |  |  |
 | T-0026 | P3 | Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals | cf-research | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |
+| T-0107 | P3 | Take the conference banner down after NACFC 2026 | site | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | routine | low |  |  |
 
 ## ready (3)
 
@@ -35,7 +36,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 
-## proposed (131)
+## proposed (130)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -144,7 +145,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0145 | P3 | Decide the leftover git state from the 2026-10-11 to 13 session: one stale remote branch, two worktrees with unpushed commits, two worktrees that would not remove | cf-lab | 0.25-0.75 | 2 | 40 | no | model: claude-sonnet-5-5 | 2026-10-13 | routine | low |  |  |
 | T-0029 | P3 | Docs tier 2: hq housekeeping outside .claude (README tree, loop README status line, retire committed PR descriptions) | cf-lab | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine |  |  |  |
 | T-0032 | P3 | Docs tier 5: tidy per-user agent memory outside the repos | cf-lab | 0.25-0.5 | 1 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine |  |  |  |
-| T-0107 | P3 | Take the conference banner down after NACFC 2026 | site | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | routine | low |  |  |
 | T-0068 | P3 | review-diff.ps1: the gate's local-worker review row as one command | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |
 | T-0095 | P3 | Make the website's footer and credit wording agree with the README's 'Thanks to the tools' section | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low |  |  |
 | T-0096 | P3 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low |  | T-0058 |
@@ -1147,7 +1147,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Estimate: the banner is dated and its copy would become wrong after the event. *(confidence: low)*
 - **Acceptance:** The marked block and its CSS are deleted, the generator and its checks pass, and no page names the conference (a test already forbids it on the AI-in-care page).
 - **Evidence:** 2026-10-09: the banner is a marked block in the site's chrome generator and a CSS block, labelled REMOVE AFTER THE CONFERENCE.
-- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it. 2026-10-13: the banner pushed the CFTR page's first-screen buttons to 809.5 px against the 800 px line (tests/test_cftr_hero.py), unseen because CI skips render tests (see T-0142); fixed in site PR 52. The take-down date is still the maintainer's. A blind Fable suggested P2 instead of P3 because the copy goes wrong in public the day after the conference; the priority is left for the maintainer.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it. 2026-10-13: the banner pushed the CFTR page's first-screen buttons to 809.5 px against the 800 px line (tests/test_cftr_hero.py), unseen because CI skips render tests (see T-0142); fixed in site PR 52. The take-down date is still the maintainer's. A blind Fable suggested P2 instead of P3 because the copy goes wrong in public the day after the conference; the priority is left for the maintainer. \| 2026-10-13: maintainer instructed in session ('we are also not in nacfc aanymore, forgot to mention it'); taking down the conference banner and updating tests across .ai on branch site/nacfc-and-es-mx-2026-10-13, and standardizing Mexican Spanish (es-MX) across lab-voice and the site.
 
 ### T-0068 review-diff.ps1: the gate's local-worker review row as one command
 
