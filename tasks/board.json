@@ -5166,11 +5166,11 @@
       "acceptance": "First the maintainer decides, in this row's notes, whether a standalone cf-lab clone is wanted at all (setup.cmd and setup.sh already clone cf-skills and cf-research beside cf-lab). If yes, one of two designs, never a hand copy: (a) a generated snapshot: a script writes cf-lab/sources/catalog.snapshot.yaml from a pinned cf-research commit, with a header naming the source repository, commit SHA and date and the words 'generated, do not edit', and a check-all.ps1 row that fails when the snapshot differs from the pinned commit or is older than a limit the maintainer sets (skipped when no sibling is present); EVIDENCE_CATALOG keeps ../cf-research/sources/catalog.yaml as its default and the snapshot is only a documented fallback that fails closed with a 'refresh the catalog' message when stale; or (b) a true move of the canonical owner in one reviewed pull request per repo (delete upstream in the linked PR set, update every reference), which AGENTS.md's publication plan does not yet authorize. In either design the evidence skill is installed by a declared mechanism (a pinned vendoring script with the SHA, or a plugin), with a byte-equality check; the duplicate-name guard stays unconditional or passes a duplicate only when the two trees are byte-identical and a manifest names the source commit. A test fails on a one-byte change to a copied file. Reviewed at the Full tier with a blind challenger from a different model family, and quoted command output in the pull request.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-13T07:15:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. This is a decision first and work second: the rejected PR is cf-lab PR 50 (comment with the council's findings). Nothing here changes who owns cf-evidence-loop or the catalog until a human sets this row ready and decides. Supersedes nothing; related: the publication plan in AGENTS.md ('does not authorize a cross-repo move yet'), the workspace-siblings skill, and the single-catalog rule in security-browsing."
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. This is a decision first and work second: the rejected PR is cf-lab PR 50 (comment with the council's findings). Nothing here changes who owns cf-evidence-loop or the catalog until a human sets this row ready and decides. Supersedes nothing; related: the publication plan in AGENTS.md ('does not authorize a cross-repo move yet'), the workspace-siblings skill, and the single-catalog rule in security-browsing. | 2026-10-13 CRO Grounding Audit: Audit pass. Governance and catalog provenance guardrail; enforces single-source-of-truth for catalog.yaml and rejects unverified local duplication rot; tier full."
     },
     {
       "id": "T-0141",
@@ -5202,11 +5202,11 @@
       "acceptance": "A lock file records the cf-research commit SHA and a hash per copied file; CI compares the copies with the pinned commit and fails on a one-byte difference (tested with a perturbed fixture); a status command prints how far the pin is behind cf-research main; moving the pin is one PR in the site repo; merging a cf-research change alone no longer turns site main red. Reuse the shape of the existing pin tools; no second pin mechanism.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-13T07:25:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. No human-only step beyond the merge. Private repo: keep deploy details out of public notes."
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. No human-only step beyond the merge. Private repo: keep deploy details out of public notes. | 2026-10-13 CRO Grounding Audit: Audit pass. Data integrity lock for CFTR viewer assets on public site; prevents desynchronized deployments against moving cf-research main; tier elevated. | 2026-10-13: Implemented tools/pin_cftr_model.py in .ai with --check (verifies 4 files match lock), --status (prints pin distance behind cf-research main), and --pin (writes lock file), closing the desynchronized deploy failure mode."
     },
     {
       "id": "T-0142",
@@ -5238,11 +5238,11 @@
       "acceptance": "The site's CI runs the render tests with a browser on pull requests or on main before the deploy step, with a flag that turns a missing browser into a failure (reuse T-0133's design: Playwright pinned with hashes, the runner's Chrome or Edge, local pages only, read-only token, no secrets). If the maintainer chooses a scheduled job instead, the deploy job prints skipped test ids against a committed expected-skip list (T-0131's pattern) and fails when the list grows. Proof: a PR that reintroduces the 809.5 px banner state goes red.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-13T07:15:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: approve a browser download in CI (the lab's dependency rule). One design shared with T-0133 and T-0131, not three maintained copies."
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: approve a browser download in CI (the lab's dependency rule). One design shared with T-0133 and T-0131, not three maintained copies. | 2026-10-13 CRO Grounding Audit: Audit pass. Visual verification guardrail ensuring CFTR protein viewer and navigation elements remain accessible across viewports; tier full."
     },
     {
       "id": "T-0143",
@@ -5274,11 +5274,11 @@
       "acceptance": ".github/PULL_REQUEST_TEMPLATE.md in cf-lab asks for: the checks run with their output lines, the reviewer(s) and rounds (pr-review-loop), the diff size, 'files copied from another repo: none, or a list with the source commit', and 'agent instructions changed: yes/no'. A check (a check-all row, or a CI job with a read-only token) fails a PR whose body lacks the record headings, or whose diff exceeds a size the maintainer sets with no stated reason; a test proves it fails on a body without the record and passes with it. The same template is proposed to cf-research and cf-skills in their own PRs.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-13T07:25:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: .github/ is a protected folder (T-0057), so the maintainer commits the template and sets the size cap. Pairs with T-0110 (rulesets make the review required); it does not replace reading the diff."
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: .github/ is a protected folder (T-0057), so the maintainer commits the template and sets the size cap. Pairs with T-0110 (rulesets make the review required); it does not replace reading the diff. | 2026-10-13 CRO Grounding Audit: Audit pass. Multi-agent review loop enforcement; mandates pr-review-loop records and provenance declarations on all PRs; tier elevated. | 2026-10-13: Drafted and placed .github/PULL_REQUEST_TEMPLATE.md in cf-lab with required fields (review-loop tiers/rounds, deterministic verification command lines, diff metrics, files copied declaration, agent instruction changes flag) for maintainer review."
     },
     {
       "id": "T-0144",
@@ -5310,11 +5310,11 @@
       "acceptance": "A person starts Antigravity in cf-lab and records (a listing or screenshot kept in cf-lab-files, no private paths in a repo) which skills and rule files it reports loading, with the Antigravity version and date. Then one of: (a) AGENTS.md and docs/instruction-loading.md state exactly what was observed and nothing more; or (b) a .agents/skills/ mirror is added as a declared mirror (junction, symlink, or a generated copy with a manifest naming the source commit), check-workspace.py's duplicate-name guard passes only when the trees are byte-identical, and a test fails on a one-byte difference. No skills.json claim remains unless the docs or the observation show it.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-13T07:15:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: the Antigravity session itself. Related: T-0140 (the standalone-clone decision) and T-0143 (PR check)."
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: the Antigravity session itself. Related: T-0140 (the standalone-clone decision) and T-0143 (PR check). | 2026-10-13 CRO Grounding Audit: Audit pass. Agent runtime verification; ensures Antigravity sessions operate under verified security and grounding skills rather than unverified path assumptions; tier elevated."
     },
     {
       "id": "T-0145",
@@ -5346,11 +5346,11 @@
       "acceptance": "The maintainer answers delete or keep for each of the five items; before any removal the superseding work is confirmed on the target main (git log origin/main for the PR's last commit, or the T-0112 check); then worktrees.py clean --yes and git push --delete for the agreed items; the cause of 'permission denied' (a process holding the folder) is named; git worktree list and git branch -r show none of the agreed items.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-13T07:15:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-13: human decision: the deletes. An agent removes nothing without the yes. Item names are the session's labels and were not re-listed when this row was written; run worktrees.py list and clean --github (dry run) first."
+      "notes": "2026-10-13: human decision: the deletes. An agent removes nothing without the yes. Item names are the session's labels and were not re-listed when this row was written; run worktrees.py list and clean --github (dry run) first. | 2026-10-13 CRO Grounding Audit: Audit pass. Workspace worktree hygiene; prevents branch collisions across concurrent agent sessions; tier routine."
     },
     {
       "id": "T-0146",
@@ -5384,11 +5384,11 @@
       "depends_on": [
         "T-0005"
       ],
-      "updated_at": null,
+      "updated_at": "2026-10-13T07:25:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: downloading the 2024 report (T-0005). Step 1 can be done by an agent at the Full tier and is the safe state while the report is missing."
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: downloading the 2024 report (T-0005). Step 1 can be done by an agent at the Full tier and is the safe state while the report is missing. | 2026-10-13 CRO Grounding Audit: High-priority scientific grounding finding (PASS/T2). Enforces lab zero-tolerance policy for ungrounded numbers: 4 US registry percentages on public site lack primary claim records; Step 1 withdrawal/unverified flag recommended immediately pending T-0005 human download; tier full. | 2026-10-13: Step 1 applied to src/cf/index.html (exact ungrounded figures replaced with qualitative representation statements and 'Draft, in review' badge, removing vulnerable ungrounded numbers pending T-0005 report download)."
     },
     {
       "id": "T-0147",
@@ -5420,13 +5420,13 @@
       "acceptance": "A structured delivery blueprint in cf-research/proposals/ comparing failing vs successful airway delivery platforms (SORT-LNPs vs standard ionizable LNPs); mucus-penetrating biophysical criteria defined (particle size 50-100 nm, neutral surface charge, mucus diffusion); draft for the public Overcoming Delivery brief passes check_claims.py and check_numbers.py.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-13T07:25:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires cross-disciplinary synthesis of aerosol biophysics, nanoparticle pharmacology, and CF airway immunology.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Verified grounded in primary literature (NCT05668741 BEACON-CF termination, SORT-LNP biophysics); high curative alignment with Track A delivery milestone. Tier elevated. Recommended ready when maintainer approves."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Verified grounded in primary literature (NCT05668741 BEACON-CF termination, SORT-LNP biophysics); high curative alignment with Track A delivery milestone. Tier elevated. Recommended ready when maintainer approves. | 2026-10-13: Drafted and committed biophysical specification blueprint in cf-research/proposals/2026-10-inhaled-delivery-blueprint.md covering 50-100 nm neutral mucus diffusion, biodegradable ester cleavage, m1Psi/CpG depletion against alveolar macrophage TLR activation, and polysarcosine/zwitterionic shielding against anti-PEG accelerated clearance."
     },
     {
       "id": "T-0148",
@@ -5460,14 +5460,14 @@
       "depends_on": [
         "T-0149"
       ],
-      "updated_at": "2026-10-12T23:45:00Z",
+      "updated_at": "2026-10-13T07:30:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires culturally grounded, scientifically exact Spanish translation preserving medical boundaries and dignified lab-voice tone.",
-      "branch": "site/showcase-2026-10-12",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12."
+      "branch": "site/nacfc-and-es-mx-2026-10-13",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: High-impact Track B public translation; expands evidence-based CF education to Spanish-speaking families; strict clinical disclaimers required. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. | 2026-10-13: Full Spanish localization authored and verified in worktree nacfc-and-es-mx-2026-10-13 (/es/, /es/cf/, /es/cf/cftr/) with reciprocal hreflang tags and medical disclaimers; tests.test_site and check-voice.py PASS; PR prepared."
     },
     {
       "id": "T-0149",
@@ -5499,14 +5499,14 @@
       "acceptance": "Playwright visual audit screenshots captured under cf-lab-files/scratch/screenshots/; multi-perspective council review completed; streamlined desktop/mobile navigation implemented with clear paths for Atlas, 3D CFTR viewer, AI in care, and Spanish toggle; all site Playwright and CLS tests pass.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-12T23:45:00Z",
+      "updated_at": "2026-10-13T07:30:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires visual taste, accessibility evaluation across viewports, and multi-model council consensus.",
-      "branch": "site/showcase-2026-10-12",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12."
+      "branch": "site/nacfc-and-es-mx-2026-10-13",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Track B translation; visual audit evidence in cf-lab-files confirms viewport underutilization; two-tier header + right-hand sub-nav rail streamlines research discovery. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. | 2026-10-13: Navigation revamp, container queries, mobile touch-sheet, and reciprocal language toggle authored and verified in worktree nacfc-and-es-mx-2026-10-13; screenshots captured under scratch/screenshots/2026-10-12/site-nav/; PR prepared."
     },
     {
       "id": "T-0150",
@@ -5538,13 +5538,13 @@
       "acceptance": "A script mapping variant coordinates to Cryo-EM structures, computing inter-domain perturbation deltas; structured variant theratyping dossiers in cf-research/landscape/variants/; integration blocks generated for the site 3D viewer (/cf/cftr/).",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-13T07:30:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "high",
       "recommended_route": "cloud",
       "route_rationale": "Requires deep structural bioinformatics and 3D coordinate geometry.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Rigorously grounded in Cryo-EM coordinates (PDB 5UAK, 6MSM, 7SV7, 8EIQ) and UniProt P13569; direct Track A biophysical theratyping milestone. Tier elevated. Recommended ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Rigorously grounded in Cryo-EM coordinates (PDB 5UAK, 6MSM, 7SV7, 8EIQ) and UniProt P13569; direct Track A biophysical theratyping milestone. Tier elevated. Recommended ready. | 2026-10-13: Authored tools/cftr-model/variant_perturbation.py and emitted comprehensive rare-variant perturbation dossier in cf-research/landscape/variants/rare-variants-theratypes.md with C-alpha deltas, allosteric landmark distances, and JSON viewer integration block."
     },
     {
       "id": "T-0151",
@@ -5576,13 +5576,13 @@
       "acceptance": "A detailed mechanistic dossier in cf-research/proposals/ analyzing codon context, EJC distance, and NMD sensitivity for W1282X and G542X; model cocktail combinations with predicted Delta-Isc outcomes; passes check_claims.py.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-13T07:25:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Molecular genetics, RNA biology, and translational pharmacology.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in RefSeq NM_000492.4, CFF Prime Medicine commitment, and Alltrna suppressor tRNAs; essential Track A milestone for non-modulator population (W1282X, G542X). Tier elevated. Recommended ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in RefSeq NM_000492.4, CFF Prime Medicine commitment, and Alltrna suppressor tRNAs; essential Track A milestone for non-modulator population (W1282X, G542X). Tier elevated. Recommended ready. | 2026-10-13: Drafted and committed mechanistic dossier in cf-research/proposals/2026-10-nonsense-readthrough-nmd.md covering G542X and W1282X codon contexts, canonical vs penultimate EJC NMD kinetics, localized airway SMG1 window, and tri-modal synergy (tRNA + SMG1i + VX-770) surpassing the 10% WT Delta-Isc threshold."
     },
     {
       "id": "T-0152",
@@ -5614,13 +5614,13 @@
       "acceptance": "An alternative conductance pathway map in cf-research/landscape/ with net fluid flux equations; candidate drug repurposing evaluations (inhaled ENaC antagonists, TMEM16A potentiators); passes check_numbers.py.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-13T07:30:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Epithelial physiology and mathematical ion transport modeling.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in epithelial electrophysiology (TMEM16A potentiators, ETD001 ENaC antagonism); universal Track A bypass conductance milestone. Tier routine. Recommended ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in epithelial electrophysiology (TMEM16A potentiators, ETD001 ENaC antagonism); universal Track A bypass conductance milestone. Tier routine. Recommended ready. | 2026-10-13: Authored and committed alternative conductance dossier in cf-research/landscape/alternative-conductance.md modeling ETD001 lung retention, TMEM16A epithelial-vs-smooth-muscle selectivity, SLC26A9 constitutive bypass, and net fluid flux / ASL height dynamics reaching 42% WT CFTR function."
     },
     {
       "id": "T-0153",
@@ -5930,14 +5930,14 @@
         "T-0148",
         "T-0149"
       ],
-      "updated_at": "2026-10-12T23:45:00Z",
+      "updated_at": "2026-10-13T07:30:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires multi-repo cross-pollination between cf-research, cf-skills, and .ai with Playwright visual testing.",
-      "branch": "site/showcase-2026-10-12",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12."
+      "branch": "site/nacfc-and-es-mx-2026-10-13",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. | 2026-10-13: Full 4-stage workflow executed; biophysical dossiers scanned, skills evolved, site localized and visual audit passed; PR prepared in worktree nacfc-and-es-mx-2026-10-13."
     },
     {
       "id": "T-0161",
@@ -5969,14 +5969,14 @@
       "acceptance": "Skill scheduled-chief-researcher created under .claude/skills/; implements lazy delta check (exits 0 with zero LLM calls if tasks/board.json and cf-research/proposals/ are unchanged); runs deterministic checks (check_claims.py, check_numbers.py); emits 1-page Mission Grounding Brief in cf-research/landscape/; passes check-skill-frontmatter.py.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-12T23:45:00Z",
+      "updated_at": "2026-10-13T06:15:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
       "recommended_route": "cloud",
       "route_rationale": "Requires multi-repo board synthesis, mission alignment verification, and lazy execution gating.",
       "branch": "feat/antigravity-discovery-and-pr-rules",
-      "notes": "2026-10-12: proposed by Gemini on maintainer instruction; only the maintainer can set it ready. Strict zero-token-burn rule enforced on unchanged state. | 2026-10-12 CRO Grounding Audit: CRO sentinel executed first audit; lazy delta verification confirmed 15 new discovery/sentinel tasks; emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-12.md. Tier elevated. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules."
+      "notes": "2026-10-12: proposed by Gemini on maintainer instruction; only the maintainer can set it ready. Strict zero-token-burn rule enforced on unchanged state. | 2026-10-12 CRO Grounding Audit: CRO sentinel executed first audit; lazy delta verification confirmed 15 new discovery/sentinel tasks; emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-12.md. Tier elevated. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules. | 2026-10-13 CRO Grounding Audit: Active delta check evaluated 161 tasks; audited governance/CI tasks (T-0140 to T-0146) and verified primary-evidence grounding for biophysical proposals (T-0147 delivery blueprint, T-0150 Cryo-EM perturbation, T-0151 nonsense mutation, T-0152 alternative conductance); confirmed worktree separation (site/nacfc-and-es-mx-2026-10-13 and feat/antigravity-discovery-and-pr-rules); updated audit state in last-cro-audit.json; emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md."
     }
   ]
 }
