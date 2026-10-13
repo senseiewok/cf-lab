@@ -5544,13 +5544,13 @@
       "acceptance": "A script mapping variant coordinates to Cryo-EM structures, computing inter-domain perturbation deltas; structured variant theratyping dossiers in cf-research/landscape/variants/; integration blocks generated for the site 3D viewer (/cf/cftr/).",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-13T07:30:00Z",
+      "updated_at": "2026-10-13T12:20:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "high",
       "recommended_route": "cloud",
       "route_rationale": "Requires deep structural bioinformatics and 3D coordinate geometry.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Rigorously grounded in Cryo-EM coordinates (PDB 5UAK, 6MSM, 7SV7, 8EIQ) and UniProt P13569; direct Track A biophysical theratyping milestone. Tier elevated. Recommended ready. | 2026-10-13: Authored tools/cftr-model/variant_perturbation.py and emitted comprehensive rare-variant perturbation dossier in cf-research/landscape/variants/rare-variants-theratypes.md with C-alpha deltas, allosteric landmark distances, and JSON viewer integration block."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Rigorously grounded in Cryo-EM coordinates (PDB 5UAK, 6MSM, 7SV7, 8EIQ) and UniProt P13569; direct Track A biophysical theratyping milestone. Tier elevated. Recommended ready. | 2026-10-13: Authored tools/cftr-model/variant_perturbation.py and emitted comprehensive rare-variant perturbation dossier in cf-research/landscape/variants/rare-variants-theratypes.md with C-alpha deltas, allosteric landmark distances, and JSON viewer integration block. | 2026-10-13: Exposing presets in site 3D viewer (/cf/cftr/) implemented in senseiewok/.ai PR #57 via scheduled-site-showcase."
     },
     {
       "id": "T-0151",
@@ -5945,8 +5945,8 @@
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires multi-repo cross-pollination between cf-research, cf-skills, and .ai with Playwright visual testing.",
-      "branch": "site/es-mx-localization",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. | 2026-10-13: Full 4-stage workflow executed; biophysical dossiers scanned, skills evolved, site localized and visual audit passed; passed elevated gate and merged in PR #56 (https://github.com/senseiewok/.ai/pull/56)."
+      "branch": "site/showcase-curative-biophysics",
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. | 2026-10-13: Full 4-stage workflow executed; biophysical dossiers scanned, skills evolved, site localized and visual audit passed; passed elevated gate and merged in PR #56 (https://github.com/senseiewok/.ai/pull/56). | 2026-10-13: Second scheduled showcase cycle executed: scanned biophysical dossiers (T-0147, T-0150, T-0151, T-0152), updated cf-research-context and webgl-threejs-graphics skills; exposed Cryo-EM rare-variant theratyping presets on 3D viewer (src/cf/cftr/index.html) and refined Mexican Spanish (es-MX) localization; all tests and Playwright visual audits passed; passed elevated gate on worktree showcase-curative-biophysics and prepared PR #57 (https://github.com/senseiewok/.ai/pull/57) with evidence screenshots published to pr-evidence."
     },
     {
       "id": "T-0161",
