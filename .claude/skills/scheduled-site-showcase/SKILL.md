@@ -65,9 +65,9 @@ Before touching any `.ai` or skill files:
    - Update HTML, CSS, and interactive visualizers on target pages (`/cf/`, `/cf/cftr/`, `/tools/`, `/evidence/`).
    - Maintain the two-tier header navigation and right-hand secondary sub-nav rail (`aside.subnav-rail`) on content pages.
    - Preserve the 65-Roses visual motif counter and semantic structure.
-3. **Spanish Localization (`/es/...`)**:
-   - Author or update parallel Spanish pages under `.ai/src/es/` (e.g., `/es/cf/`, `/es/cf/cftr/`).
-   - Include verified Spanish medical boundary disclaimers:
+3. **Mexican Spanish Localization (`/es/...`, `es-MX`)**:
+   - Author or update parallel Mexican Spanish pages under `.ai/src/es/` (e.g., `/es/`, `/es/cf/`, `/es/cf/cftr/`) with `<html lang="es-MX">` and reciprocal `hreflang="es-MX"` / `hreflang="en"` links.
+   - Use natural Mexican Spanish vocabulary (`computadora`, `archivo`, `teléfono celular`, `ustedes`, `consultar con su equipo médico`) and include the verified Spanish medical boundary disclaimer:
      > *"Investigación independiente, no asesoramiento médico. Sensei Ewok CF Lab no promete curas ni tratamientos clínicos."*
 
 ### Stage 3: Deterministic Grounded Review Loop & Verification
@@ -98,11 +98,11 @@ Execute the mandatory 3-layer Grounded Review Loop:
 ### Stage 4: Worktree & PR Preparation Pipeline
 
 1. **Spawn Isolated Git Worktree & Record Branch**:
-   - Never commit directly to `main`:
+   - Never commit directly to `main`; use `<prefix>/<topic>` branch naming and push to `origin` immediately:
      ```powershell
-     python .claude/skills/workspace-siblings/scripts/worktrees.py new .ai site-showcase-<topic>
+     python .claude/skills/workspace-siblings/scripts/worktrees.py new .ai showcase-<topic> --prefix site --push
      ```
-   - Ensure the claimed task row in `tasks/board.json` records `"branch": "site-showcase-<topic>"` (or the exact git branch name) so concurrent agents see the active branch.
+   - Ensure the claimed task row in `tasks/board.json` records `"branch": "site/<topic>"` (or the exact git branch name) so concurrent agents see the active branch.
 2. **Elevated Gate Enforcement**:
    - Stage and verify through the repo gate:
      ```powershell
@@ -114,7 +114,7 @@ Execute the mandatory 3-layer Grounded Review Loop:
 4. **Submit Pull Request**:
    - Open PR via GitHub CLI:
      ```powershell
-     gh pr create --repo senseiewok/senseiewok.ai --title "feat(site): <description>" --body-file pr-body.md
+     gh pr create --repo senseiewok/.ai --title "feat(site): <description>" --body-file pr-body.md
      ```
    - Attach Playwright screenshots and link back to the originating research dossier.
 

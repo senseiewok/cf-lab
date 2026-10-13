@@ -90,6 +90,15 @@ check("code, pre and script pass", clean(run(f), "ERROR"))
 f = write(page('<p lang="es-MX">colour organisation</p>\n<div lang="es"><p>centre <span lang="en">grey</span></p></div>'))
 check("non-English lang passes, nested lang=en is checked again", failed_with(run(f), ["'grey' -> 'gray'"]))
 
+f = write(page('<p>Abre el archivo en la computadora.</p><blockquote><p>Usa el ordenador.</p></blockquote>', lang="es-MX"))
+check("Mexican Spanish (es-MX) prose and Spanish blockquote pass", clean(run(f), "ERROR"))
+
+f = write(page('<p>Abre el fichero en el ordenador para vosotros con teléfono móvil.</p>', lang="es-MX"))
+p_es = run(f)
+check("Peninsular Spanish in es-MX fails with es-mx-spelling",
+      failed_with(p_es, ["'fichero' -> 'archivo'", "'ordenador' -> 'computadora'", "'vosotros' -> 'ustedes'", "'teléfono móvil' -> 'teléfono celular'"])
+      and all(x[2] == "es-mx-spelling" for x in findings(p_es, "ERROR")), p_es.stdout)
+
 f = write(page('<p title="organisation"><a href="/centre/licence.html">Read</a> <img alt="colour"></p>'))
 check("title and alt are checked; an href is not", failed_with(run(f), ["'organisation' -> 'organization'", "'colour' -> 'color'"]) and not any("centre" in l or "licence" in l for l in run(f).stdout.splitlines()))
 

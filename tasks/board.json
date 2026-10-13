@@ -3936,7 +3936,7 @@
       "title": "Take the conference banner down after NACFC 2026",
       "repo": ".ai",
       "area": "distribution",
-      "status": "proposed",
+      "status": "in_progress",
       "priority": "P3",
       "created_at": "2026-10-09T12:00:00Z",
       "created_by": {
@@ -3965,7 +3965,8 @@
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it. 2026-10-13: the banner pushed the CFTR page's first-screen buttons to 809.5 px against the 800 px line (tests/test_cftr_hero.py), unseen because CI skips render tests (see T-0142); fixed in site PR 52. The take-down date is still the maintainer's. A blind Fable suggested P2 instead of P3 because the copy goes wrong in public the day after the conference; the priority is left for the maintainer."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it. 2026-10-13: the banner pushed the CFTR page's first-screen buttons to 809.5 px against the 800 px line (tests/test_cftr_hero.py), unseen because CI skips render tests (see T-0142); fixed in site PR 52. The take-down date is still the maintainer's. A blind Fable suggested P2 instead of P3 because the copy goes wrong in public the day after the conference; the priority is left for the maintainer. | 2026-10-13: maintainer instructed in session ('we are also not in nacfc aanymore, forgot to mention it'); taking down the conference banner and updating tests across .ai on branch site/nacfc-and-es-mx-2026-10-13, and standardizing Mexican Spanish (es-MX) across lab-voice and the site.",
+      "branch": "site/nacfc-and-es-mx-2026-10-13"
     },
     {
       "id": "T-0108",
