@@ -28,7 +28,7 @@
 .EXAMPLE
   pwsh -NoProfile -File ./check-all.ps1
   pwsh -NoProfile -File ./check-all.ps1 -List
-  pwsh -NoProfile -File ./check-all.ps1 -Only render-board,render-board-ps51
+  pwsh -NoProfile -File ./check-all.ps1 -Only render-board,test-render-board
   pwsh -NoProfile -File ./check-all.ps1 -SelfTest
 #>
 [CmdletBinding()]
@@ -44,13 +44,12 @@ param(
 $ErrorActionPreference = 'Stop'
 $Root = $PSScriptRoot
 
-# exe: pwsh (this PowerShell 7), python (3.10 or newer), or powershell (Windows PowerShell 5.1).
-# needs: pwsh, python, git, pyyaml, sh, windows, powershell51; browser and model are never met here.
+# exe: pwsh (PowerShell 7), python (3.10 or newer).
+# needs: pwsh, python, git, pyyaml, sh, windows; browser and model are never met here.
 $s = '.claude/skills'
 $Checks = @(
     # the task board
     @{ name = 'render-board';             exe = 'pwsh';       args = @('tasks/render-board.ps1', '-Check');                                                needs = @() }
-    @{ name = 'render-board-ps51';        exe = 'powershell'; args = @('tasks/render-board.ps1', '-Check');                                                needs = @('windows', 'powershell51') }
     @{ name = 'test-render-board';        exe = 'pwsh';       args = @('tasks/test-render-board.ps1');                                                     needs = @() }
     @{ name = 'skill-frontmatter';        exe = 'python';     args = @('tasks/check-skill-frontmatter.py');                                                needs = @('python', 'pyyaml') }
     # setup and the workspace
@@ -114,7 +113,7 @@ $Checks = @(
 $Reasons = [ordered]@{
     pwsh = 'needs PowerShell 7'; python = 'needs Python 3.10 or newer'; git = 'needs git'
     pyyaml = 'needs PyYAML (python -m pip install "PyYAML>=6.0")'; sh = 'needs a POSIX sh'
-    windows = 'needs Windows'; powershell51 = 'needs Windows PowerShell 5.1 (powershell.exe)'
+    windows = 'needs Windows'
     browser = 'needs a browser (not started by this runner)'; model = 'needs a model (not called by this runner)'
 }
 
@@ -138,7 +137,6 @@ function Test-Need([string] $need) {
         'pyyaml'       { $py = Get-Python; if ($py) { & $py -c 'import yaml' 2>$null; $LASTEXITCODE -eq 0 } else { $false } }
         'sh'           { [bool](Get-Command sh -CommandType Application -ErrorAction SilentlyContinue) }
         'windows'      { $IsWindows -eq $true }
-        'powershell51' { [bool](Get-Command powershell.exe -CommandType Application -ErrorAction SilentlyContinue) }
         default        { $false }   # browser, model: never met by this runner
     }
     $script:needCache[$need] = [bool]$ok
@@ -149,18 +147,17 @@ function Get-Exe([string] $exe) {
     switch ($exe) {
         'pwsh'       { return (Get-Process -Id $PID).Path }
         'python'     { return (Get-Python) }
-        'powershell' { return (Get-Command powershell.exe -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1).Source }
     }
     throw "unknown exe '$exe'"
 }
 
 function Get-ArgList($c) {
-    if ($c.exe -in 'pwsh', 'powershell') { return @('-NoProfile', '-File') + @($c.args) }
+    if ($c.exe -eq 'pwsh') { return @('-NoProfile', '-File') + @($c.args) }
     return @($c.args)
 }
 
 function Format-Command($c) {
-    $shown = switch ($c.exe) { 'pwsh' { 'pwsh' } 'powershell' { 'powershell.exe' } default { 'python' } }
+    $shown = switch ($c.exe) { 'pwsh' { 'pwsh' } default { 'python' } }
     $parts = @(Get-ArgList $c | ForEach-Object { if ($_ -match '\s') { '"' + $_ + '"' } else { $_ } })
     return ($shown + ' ' + ($parts -join ' ')).Trim()
 }
@@ -169,7 +166,7 @@ function Assert-Table($table) {
     $known = @($Reasons.Keys)
     $names = @{}
     foreach ($c in $table) {
-        if (-not $c.name -or $c.exe -notin 'pwsh', 'python', 'powershell') { throw "malformed check row: $($c | ConvertTo-Json -Compress)" }
+        if (-not $c.name -or $c.exe -notin 'pwsh', 'python') { throw "malformed check row: $($c | ConvertTo-Json -Compress)" }
         if ($names.ContainsKey($c.name)) { throw "duplicate check name '$($c.name)'" }
         $names[$c.name] = $true
         foreach ($n in @($c.needs)) { if ($n -notin $known) { throw "check '$($c.name)': unknown need '$n'" } }

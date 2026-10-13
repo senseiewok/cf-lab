@@ -14,7 +14,7 @@ pwsh -File tasks/render-board.ps1          # after editing board.json
 pwsh -File tasks/render-board.ps1 -Check   # pre-commit / CI guard
 ```
 
-Works in Windows PowerShell 5.1 and PowerShell 7. No modules.
+Requires PowerShell 7+ (`pwsh`). Cross-platform, no modules.
 
 ## Why provenance is a required field
 
