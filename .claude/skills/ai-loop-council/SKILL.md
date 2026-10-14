@@ -27,6 +27,7 @@ This skill describes **roles**, not models. The actual model in each role is cho
 6. **Blind first pass.** A challenger reviews the same task packet before it sees anyone else's findings.
 7. **Findings and fixes are separate claims.** A worker can spot a real bug and still propose a wrong fix. The orchestrator verifies each fix on its own.
 8. **"Checked and fine" is not coverage.** A worker listing something as fine proves nothing. Only a verifier or the orchestrator's own reading clears it.
+9. **Diversity Frontier Council (Opus + Gemini).** Do not enforce who orchestrates—any controlling agent can orchestrate. Before any pull request is opened or submitted across the workspace, openly request a blind review round from an orthogonal frontier model family — specifically Anthropic Claude Opus and Google Gemini (Family B + Family A). The challenger conducts an independent, blind first pass over the diff; the orchestrator adjudicates each finding against deterministic verification. Dual-family frontier review catches multi-repo invariant violations, tool synchronization gaps, subtle scientific coordinate shifts, and omissions that same-family agents systematically miss.
 
 ## The tier gate (proposed; scripts tested)
 
