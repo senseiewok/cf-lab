@@ -9,7 +9,7 @@ Fixes / Closes: T-XXXX
 ## Review Loop Record (`pr-review-loop`)
 
 - **Review Tier**: `routine` | `elevated` | `full`
-- **Frontier Diversity Council**: Claude Opus (Anthropic) + Gemini (Google)
+- **Frontier Diversity Council**: Claude Opus (Anthropic) + Gemini (Google) (openly requested)
 - **Reviewer(s)**: 
   - Round 1: [Blind Challenger: Claude Opus / Gemini] — [Pass / Findings]
   - Round 2 (if needed): [Challenger: Claude Opus / Gemini] — [Pass / Findings]

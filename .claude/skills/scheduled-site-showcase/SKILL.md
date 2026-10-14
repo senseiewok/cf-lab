@@ -109,7 +109,7 @@ Execute the mandatory 3-layer Grounded Review Loop:
      pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier elevated -Expected "<changed-files>" -MessageFile <path-to-commit-msg>
      ```
 3. **Execute `pr-review-loop` with Diversity Frontier Council (Opus + Gemini)**:
-   - Before opening or submitting any PR, conduct a dual-family frontier council review pairing Anthropic Claude Opus and Google Gemini (Family B + Family A).
+   - Before opening or submitting any PR, openly request a dual-family frontier council review pairing Anthropic Claude Opus and Google Gemini (Family B + Family A) without enforcing who orchestrates.
    - The blind challenger from the opposing family reviews the staged diff; the orchestrator adjudicates each finding against deterministic tests.
    - Record the full review loop table (rounds, findings, accepted, rejected) in the PR description.
 4. **Submit Pull Request**:
