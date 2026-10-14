@@ -96,6 +96,8 @@ Current skills:
 - `ascii-art` — README and terminal art: a craft process, a small canvas library for composing on a grid (models read ASCII better than they draw it), a rendering and accessibility checker, and the lab gallery
 - `playwright-browser-testing` — browser/UI testing with Playwright
 - `scheduled-site-showcase` — autonomous site builder, research round, skill evolution, Spanish copy, and PR preparation engine for `senseiewok.ai`
+- `modern-web-standards` — zero-build modern web standards: semantic HTML5, CSS Grid/Subgrid, Container Queries, native CSS Nesting, Web Components, and accessibility budgets
+- `native-esmodules-design-patterns` — modern ES6+ software design patterns for native browser ES modules without bundlers: Singleton stores, EventTarget Pub/Sub, MVP, Repository data sources, and CSP-safe modular architecture
 
 ### Domain context
 
