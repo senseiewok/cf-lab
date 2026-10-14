@@ -4,7 +4,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 161 tasks, 160 created by a model, 1 with a measured outcome. Estimated effort 424.85 to 818.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
-## in progress (10)
+## in progress (9)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -13,7 +13,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P1 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  | T-0078 |  |
 | T-0067 | P2 | Decision: treat robots.txt groups that name AI agents as applying to our fetch sources | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  |  |  |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
-| T-0048 | P2 | Admission review of Google's Data Commons MCP server for population denominators (layer 5) | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0161 | P2 | Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn) | cf-lab | 2-4 | 4 | 13.3 | no | model: gemini-3.8-flash | 2026-10-12 | elevated | low | cloud |  | feat/cro-grounding-audit |
 | T-0119 | P2 | A local AI review of a diff in the gate, so the lab does not depend on GitHub's quota-limited AI check | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium |  |  |  |
 | T-0052 | P2 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
@@ -138,7 +137,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0136 | P3 | Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition | cf-research | 8-16 | 3 | 2.5 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium |  |  |  |
 | T-0140 | P3 | Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy | cf-lab | 6-14 | 2 | 2 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | medium |  |  |  |
 
-## done (31)
+## done (32)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -163,6 +162,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0062 | P2 | A generated manual-downloads page with links, file names and a prompt to run when the files are saved | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0065 | P2 | Delegation: a sequential batch runner and a verifier-suspect hint | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | medium | cloud |  |  |
 | T-0012 | P2 | Unit tests for tools/sources/fetch_sources.py | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
+| T-0048 | P2 | Admission review of Google's Data Commons MCP server for population denominators (layer 5) | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0059 | P2 | delegate.ps1: let a model-only setup run fast, and make the token budget and thinking mode explicit | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | cloud |  |  |
 | T-0079 | P2 | Measure whether the local models can write WebGL and SVG: a verifier-first test | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0056 | P2 | check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-04 | full | medium | cloud |  |  |
@@ -754,7 +754,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Prevalence and carrier-frequency sentences need a population base with provenance; Data Commons is Google-published, open, free, and MCP-native. Does not replace registry extraction. *(confidence: medium)*
 - **Acceptance:** security-runtime MCP checklist done on a pinned release; one query returning US and one state population with source and date, recorded as an evidence record; written note on whether any CF or SCD indicator exists in the graph.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4c
-- **Notes:** User selected this on 2026-10-04 ('let's go for this one for now'); moved to ready on that instruction. Steps in research/proposals/2026-10-04-publish-packet.md section D. PyPI facts: datacommons-mcp 1.4.0, Apache-2.0, py>=3.11<3.14, DC_API_KEY required, stdio or HTTP. Steps 1 to 4 done 2026-10-04 and recorded in research/proposals/2026-10-04-datacommons-admission.md: the four queries ran over stdio from a scripted client, not an interactive agent client (deviation, disclosed). US and Washington population came back with a Census source and date 2025 (stored as verbatim response fields in the note, not yet as a formal evidence record: that needs the provider in T-0053). No CF or SCD indicator exists in the graph. Query (d) started 52 s after (c), not 60 (disclosed). No 429/403 or cooldown. The recommendation is the human's to accept: admit for general statistics only. A human sets done.
+- **Notes:** User selected this on 2026-10-04 ('let's go for this one for now'); moved to ready on that instruction. Steps in research/proposals/2026-10-04-publish-packet.md section D. PyPI facts: datacommons-mcp 1.4.0, Apache-2.0, py>=3.11<3.14, DC_API_KEY required, stdio or HTTP. Steps 1 to 4 done 2026-10-04 and recorded in research/proposals/2026-10-04-datacommons-admission.md: the four queries ran over stdio from a scripted client, not an interactive agent client (deviation, disclosed). US and Washington population came back with a Census source and date 2025 (stored as verbatim response fields in the note, not yet as a formal evidence record: that needs the provider in T-0053). No CF or SCD indicator exists in the graph. Query (d) started 52 s after (c), not 60 (disclosed). No 429/403 or cooldown. 2026-10-14: Maintainer explicitly authorized Step 5 admission ('letsa do 1 and 2'). Admitted for general statistics and population denominators only. base_url declared in sources/catalog.yaml, synced to cf-skills, and datacommons provider implemented in cf-evidence-loop with live population query returning US (341,784,857) and WA (8,001,020) 2025 Census PEP observations.
 
 ### T-0059 delegate.ps1: let a model-only setup run fast, and make the token budget and thinking mode explicit
 
