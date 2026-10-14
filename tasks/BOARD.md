@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-161 tasks, 160 created by a model, 1 with a measured outcome. Estimated effort 424.85 to 818.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+162 tasks, 161 created by a model, 1 with a measured outcome. Estimated effort 425.85 to 820.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (9)
 
@@ -24,7 +24,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  |  |  |
 
-## proposed (108)
+## proposed (109)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -62,6 +62,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0001 | P2 | Replace hq LICENSE.md with a named OSI license; add a LICENSE to research, .ai, skills | cf-lab | 0.5-1.5 | 5 | 50 | no | model: claude-fable-5-1 | 2026-10-04 | full |  |  |  |  |
 | T-0071 | P2 | Put the ClinGen and gnomAD catalog conflicts into the BioMCP admission test | cf-lab | 0.5-1 | 3 | 40 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  | T-0042 |  |
 | T-0099 | P2 | Add a reviewed lesson to ai-loop-council: appends to a log shared by parallel runs lose lines unless the file is opened exclusively | cf-lab | 0.5-1 | 3 | 40 | no | model: claude-sonnet-5-5 | 2026-10-07 | elevated | low |  |  |  |
+| T-0162 | P2 | Deterministic Playwright screen capture & review schedule with retention pruning: capture_site_review.py integrated into daily-site-security-sentinel | cf-lab | 1-2 | 4 | 26.7 | no | model: gemini-3.8-flash | 2026-10-14 | routine | low | local |  |  |
 | T-0073 | P2 | A tool-limited agent definition for read-only reviewers | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0092 | P2 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated |  |  | T-0083 |  |
@@ -580,6 +581,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** AGENTS.md names the mechanism (submodule, symlink, path convention, or install script) and an agent in hq can run the skill's live retraction check following only AGENTS.md.
 - **Evidence:** hq/AGENTS.md 'Organization and publication'; research/proposals/2026-10-04-publish-packet.md step C4
 - **Notes:** 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: overlaps T-0051 (how the control repo consumes the evidence skill): decide once, merge the rows (check). \| 2026-10-12: Dropped in board cleanup (consolidated into T-0051).
+
+### T-0162 Deterministic Playwright screen capture & review schedule with retention pruning: capture_site_review.py integrated into daily-site-security-sentinel
+
+- **Why / ROI rationale:** Provides continuous visual and layout health surveillance across core desktop and mobile routes with zero manual overhead, traps console/page errors, and automatically prunes stale screenshots to maintain bounded disk usage. *(confidence: high)*
+- **Route:** local - Local Playwright browser execution over 127.0.0.1 loopback with swiftshader GL fallback.
+- **Acceptance:** Deterministic capture tool .ai/tools/capture_site_review.py captures desktop (1280x800) and mobile (390x844 @ 2x) across key routes on 127.0.0.1; automated retention retains <=3 runs and purges captures older than 48h; integrated into scheduled-site-audit skill and daily-site-security-sentinel sidecar config.
+- **Evidence:** User requested deterministic Playwright screenshot review of the site with automated pruning of old captures. Implemented in .ai/tools/capture_site_review.py and integrated into scheduled-site-audit skill / daily-site-security-sentinel sidecar.
+- **Notes:** 2026-10-14: Proposed by Gemini on maintainer instruction. Captures 9 responsive screenshots across Home, CFTR 3D, Resources, Letter, and Mexican Spanish edition; retains <=3 runs, prunes >48h; integrated into daily-site-security-sentinel.
 
 ### T-0016 Verify exactly 65 rose motifs render, and that reduced-motion is honoured, with a Playwright count
 
