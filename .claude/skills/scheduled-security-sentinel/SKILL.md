@@ -140,3 +140,7 @@ If an active API key or private credential is ever detected in a log or commit:
 
 - **Fails Closed**: Any unparseable log or ambiguous permission state is flagged for human review.
 - **Maintainer Gate**: The sentinel opens pull requests and logs alerts; only the human maintainer merges code.
+- **Anti-Hallucination Guardrails**:
+  - **Grounded Defect Verification**: Every reported secret leak or PHI violation must be verified against exact file path, commit hash, and line number in the local repository. Differentiate real credentials from synthetic test fixtures and regex patterns before escalating.
+  - **Deterministic Proof Before Fix PR**: Remediations must be verified by `run-gate.ps1 -Tier full` and targeted test execution; never claim a leak is fixed without clean scanner output.
+
