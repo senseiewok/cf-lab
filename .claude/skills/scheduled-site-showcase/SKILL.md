@@ -36,6 +36,7 @@ Before touching any `.ai` or skill files:
 1. Check `tasks/board.json` for any `.ai` task already marked `"status": "in_progress"` with a `"branch"` set, and check active git worktrees (`git -C ../.ai worktree list`).
 2. If another agent or worktree is already working on the target site task or branch (e.g. `site/showcase-*` under `../.worktrees/.ai/`), **stop immediately and exit cleanly** so two agents never race on `.ai/src/`.
 3. When claiming a `ready` site task, spawn the isolated worktree first, then set `"status": "in_progress"` and `"branch": "<branch-name>"` on the claimed task in `tasks/board.json` and run `pwsh -NoProfile -File tasks/render-board.ps1`.
+4. **Never run or ruin tests at the beginning**: Do NOT run test suites (`tests.test_site`, `check-all.ps1`, `check-voice.py`, Playwright visual audits, or claims checkers) during Pre-flight or before changes are applied. Running tests at the beginning wastes tokens and execution time, risks leaving orphaned background server processes on test ports, and risks modifying or locking git index and worktree states. All deterministic testing belongs strictly in Stage 3 on the completed, staged changes in the dedicated worktree.
 
 ### Stage 1: Research Round & Skill Evolution
 
@@ -125,3 +126,4 @@ Execute the mandatory 3-layer Grounded Review Loop:
 
 - **Zero Invention**: Every number, structure, and claim originates from primary peer-reviewed literature or official trial registries.
 - **Maintainer Sovereignty**: The agent prepares clean worktrees and opens PRs; only the human maintainer merges code or deploys to production.
+- **Test Timing Discipline**: Never execute test suites at the beginning of a run. Verification checks run exclusively in Stage 3 against the concrete changes made in the isolated worktree.
