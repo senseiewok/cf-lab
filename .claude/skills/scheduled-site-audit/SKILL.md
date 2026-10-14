@@ -18,7 +18,7 @@ Maintains unbroken operational quality, security posture, and dignity for the pu
 
 ---
 
-## 4-Point Health & Dignity Audit Pipeline
+## 5-Point Health, Visual & Dignity Audit Pipeline
 
 ```mermaid
 flowchart TD
@@ -28,10 +28,11 @@ flowchart TD
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
     Sync --> H1["2. Live HTTP Security Headers Audit\n(HSTS, CSP, X-Robots-Tag)"]
     H1 --> H2["3. 65 Roses Motif & Link Audit"]
-    H2 --> H3["4. Task Board & Worktree Audit\n(render-board -Check, worktrees list)"]
-    H3 --> H4["5. Dignity & Voice Check"]
-    H4 --> Report["Log Health Status to .loop-logs/ & memory/handoff.md"]
-    Report --> Release["6. Release Lock via fast-sentinel-gate -Release"]
+    H2 --> H3["4. Playwright Screen Capture & Prune\n(capture_site_review.py)"]
+    H3 --> H4["5. Task Board & Worktree Audit\n(render-board -Check, worktrees list)"]
+    H4 --> H5["6. Dignity & Voice Check"]
+    H5 --> Report["Log Health Status to .loop-logs/ & memory/handoff.md"]
+    Report --> Release["7. Release Lock via fast-sentinel-gate -Release"]
 ```
 
 ### 0. Deterministic Fast Pre-Flight Gate & Sync with Main
@@ -59,7 +60,24 @@ Verify that production web responses from `senseiewok.ai` return mandatory secur
 - Verify that exactly 65 rose motifs render on target pages (`/cf/`, `/`, `/es/`) adhering to the 65-rose community convention (T-0016).
 - Verify zero broken internal links across the primary English and Mexican Spanish (`/es/`) discovery routes.
 
-### 3. Task Board & Worktree Coordination Audit
+### 3. Deterministic Playwright Screen Capture & Retention Pruning
+- Run local Playwright visual review across core routes:
+  ```powershell
+  python ../.ai/tools/capture_site_review.py --max-runs 3 --max-age-hours 48
+  ```
+- Evaluates responsive desktop (`1280x800`) and mobile (`390x844 @ 2x`) viewports across:
+  - Home hero (`/`)
+  - CFTR 3D Molecule & Theratype Viewer (`/cf/cftr/`)
+  - Curated Resources Catalog (`/resources/`)
+  - Community Letter (`/letter/`)
+  - Mexican Spanish Edition (`/?lang=es`)
+- **Automated Retention Cleanup**:
+  - Enforces strict disk bounding by retaining $\le 3$ recent runs and pruning runs older than 48 hours.
+  - Updates canonical `shots/current/` baseline and timestamped run manifests (`shots/runs/<timestamp>/review-manifest.json`).
+  - Purges orphaned `*.tmp` scratch files.
+- **Error Trapping**: Traps unhandled console errors and page runtime failures. Exits non-zero if page errors are trapped.
+
+### 4. Task Board & Worktree Coordination Audit
 - Run deterministic board validation:
   ```powershell
   pwsh -NoProfile -File tasks/render-board.ps1 -Check
@@ -71,15 +89,15 @@ Verify that production web responses from `senseiewok.ai` return mandatory secur
   > [!IMPORTANT]
   > **Maintainer Sovereignty Guardrail**: Worktrees are removed *only* with `--yes` when a person asks. Never execute `worktrees.py clean --yes` automatically inside a scheduled cron. If finished or dangling worktrees are detected, log them to `memory/handoff.md` for human review.
 
-### 4. Tone, Dignity & Spanish Disclaimer Verification (Local Delegation)
+### 5. Tone, Dignity & Spanish Disclaimer Verification (Local Delegation)
 - When orchestrating on Gemini Flash, **delegate the verification of Spanish disclaimer text and drafting of audit summaries to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`:
   - Confirm all public pages conform to `lab-voice` boundaries (warm, plain-language, assertive, zero hype).
   - Verify that every Spanish page under `.ai/src/es/` carries the exact medical boundary disclaimer:
     > *"Investigación independiente, no asesoramiento médico. Sensei Ewok CF Lab no promete curas ni tratamientos clínicos."*
 
-### 5. Logging & Top-Task Escalation (Argon)
+### 6. Logging & Top-Task Escalation (Argon)
 - Emits daily audit log to `.loop-logs/site-audit-YYYY-MM-DD.json`.
-- If critical regressions (e.g. broken CSP, missing disclaimer, or board render failure) are detected:
+- If critical regressions (e.g. broken CSP, missing disclaimer, Playwright page errors, or board render failure) are detected:
   - Escalate triage to **Argon** (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`).
   - Log an elevated alert in `memory/handoff.md`.
 
