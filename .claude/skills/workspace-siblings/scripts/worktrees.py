@@ -37,7 +37,7 @@ import sys
 from pathlib import Path
 
 DONE = {"MERGED", "CLOSED"}
-SAFE_IGNORED = re.compile(r"(^|/)(__pycache__|\.pytest_cache)(/|$)|\.pyc$")
+SAFE_IGNORED = re.compile(r"(^|/)(__pycache__|\.pytest_cache|\.loop-logs|\.agents|build|dist|\.cache|\.coverage)(/|$)|\.pyc$")
 NAME_RX = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*")
 REF_RX = re.compile(r"[A-Za-z0-9][A-Za-z0-9._/-]*")
 
