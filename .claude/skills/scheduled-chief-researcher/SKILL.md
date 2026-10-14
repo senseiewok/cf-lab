@@ -26,9 +26,10 @@ flowchart TD
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|Zero Deltas (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
-    Sync --> Audit["2. Audit Task Grounding & Curative Alignment"]
-    Audit --> Bridge["3. Emit Curative Brief with showcase_targets Manifest\nin cf-research/landscape/"]
-    Bridge --> Release["4. Release Lock via fast-sentinel-gate -Release"]
+    Sync --> Triage["2. Auto-Triage & Approve Board Tasks\n(tasks/triage_board.py)"]
+    Triage --> Audit["3. Audit Task Grounding & Curative Alignment"]
+    Audit --> Bridge["4. Emit Curative Brief with showcase_targets Manifest\nin cf-research/landscape/"]
+    Bridge --> Release["5. Release Lock via fast-sentinel-gate -Release"]
 ```
 
 ### 0. Deterministic Fast Pre-Flight Gate & Sync with Main
@@ -43,40 +44,49 @@ If the gate exits with code 10 (`LOCK_HELD`) or code 20 (`IDLE`), terminate imme
   python .claude/skills/workspace-siblings/scripts/sync-main.py
   ```
 
-2. **Grounding & Coordination Audit of Board Tasks (Local Worker Delegation)**:
-   - When orchestrating on Gemini Flash, **delegate the citation and scope extraction to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`:
-     - Scans all `status: proposed`, `ready`, and `in_progress` tasks in `tasks/board.json`:
-       - Asserts that `source_evidence` cites primary peer-reviewed literature (DOI), clinical registries (NCT), Cryo-EM coordinates (PDB), or official regulatory documentation.
-       - Rejects vague speculative claims ("explore AI", "improve tooling") that lack measurable `acceptance` criteria or direct tie to CFTR biology.
-       - Flags "agent scope creep" or recursive meta-tooling tasks that do not advance patient-facing translation or biophysical science.
-       - Verifies that every `status: "in_progress"` task records its active git `"branch"` (cross-checked against `git worktree list` across `cf-lab`, `cf-research`, `cf-skills`, and `.ai`) so concurrent agents never collide, and flags tasks whose PRs have already merged or been superseded.
+### 1. Deterministic Board Auto-Triage & Approval (`tasks/triage_board.py`)
+Per maintainer directive, the Chief Researcher Officer sentinel automatically triages and approves tasks on `tasks/board.json`:
+```powershell
+python tasks/triage_board.py
+```
+- **Auto-Approval (`proposed` -> `ready`)**: Tasks with primary source evidence (DOI, NCT, PDB, catalog), verifiable acceptance criteria, effort estimates, and valid ROI are automatically promoted to `ready`.
+- **Auto-Completion (`proposed` / `in_progress` -> `done`)**: Sentinel deliverables and merged features are marked `done` with measured outcomes and actual hours recorded.
+- **Human Gate Guardrail**: Tasks listed in `tasks/HUMAN-TASKS.md` or requiring human-only actions (signing legal letters, purchasing commercial subscriptions, in-person clinical review) are held in `proposed`.
 
-3. **Curative Mission Alignment Evaluation & Top-Task Escalation (Argon)**:
-   - For evaluating deep curative alignment and synthesizing the strategic Mission Grounding Brief (top task), **delegate to Argon (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`)**:
-     - Cross-references ongoing and queued efforts against the lab's two foundational tracks:
-       - **Track A (Biophysical Science & Cure Discovery)**:
-         - Overcoming the VX-522 delivery barrier (aerosolized & mucus-penetrating LNP formulation).
-         - PTC readthrough & NMD suppression (W1282X, G542X).
-         - Variant theratyping and Cryo-EM structural misfolding analysis.
-         - Alternative epithelial conductance (TMEM16A potentiators, ENaC inhibitors).
-         - Phage-antibiotic co-evolution for resistant *P. aeruginosa*.
-       - **Track B (Public Engagement & Care-Team Translation)**:
-         - The Trial Endpoint Atlas and surrogate biomarker calculators.
-         - Interactive 3D CFTR mutation viewer on `/cf/cftr/`.
-         - High-fidelity Spanish localization (`/es/`) with medical safety boundaries.
+### 2. Grounding & Coordination Audit of Board Tasks (Local Worker Delegation)
+- When orchestrating on Gemini Flash, **delegate citation and scope extraction to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`:
+  - Scans all `status: proposed`, `ready`, and `in_progress` tasks in `tasks/board.json`:
+    - Asserts that `source_evidence` cites primary peer-reviewed literature (DOI), clinical registries (NCT), Cryo-EM coordinates (PDB), or official regulatory documentation.
+    - Rejects vague speculative claims ("explore AI", "improve tooling") that lack measurable `acceptance` criteria or direct tie to CFTR biology.
+    - Flags "agent scope creep" or recursive meta-tooling tasks that do not advance patient-facing translation or biophysical science.
+    - Verifies that every `status: "in_progress"` task records its active git `"branch"` (cross-checked against `git worktree list` across `cf-lab`, `cf-research`, `cf-skills`, and `.ai`) so concurrent agents never collide, and flags tasks whose PRs have already merged or been superseded.
 
-4. **Deliverable**:
-   - Synthesizes a concise, single-page **Curative Grounding & Alignment Brief** saved to:
-     ```text
-     ../cf-research/landscape/mission-grounding-YYYY-MM-DD.md
-     ```
-   - Appends audit notes to evaluated tasks in `tasks/board.json` and renders via `tasks/render-board.ps1`.
+### 3. Curative Mission Alignment Evaluation & Top-Task Escalation (Argon)
+- For evaluating deep curative alignment and synthesizing the strategic Mission Grounding Brief (top task), **delegate to Argon (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`)**:
+  - Cross-references ongoing and queued efforts against the lab's two foundational tracks:
+    - **Track A (Biophysical Science & Cure Discovery)**:
+      - Overcoming the VX-522 delivery barrier (aerosolized & mucus-penetrating LNP formulation).
+      - PTC readthrough & NMD suppression (W1282X, G542X).
+      - Variant theratyping and Cryo-EM structural misfolding analysis.
+      - Alternative epithelial conductance (TMEM16A potentiators, ENaC inhibitors).
+      - Phage-antibiotic co-evolution for resistant *P. aeruginosa*.
+    - **Track B (Public Engagement & Care-Team Translation)**:
+      - The Trial Endpoint Atlas and surrogate biomarker calculators.
+      - Interactive 3D CFTR mutation viewer on `/cf/cftr/`.
+      - High-fidelity Spanish localization (`/es/`) with medical safety boundaries.
+
+### 4. Deliverable
+- Synthesizes a concise, single-page **Curative Grounding & Alignment Brief** saved to:
+  ```text
+  ../cf-research/landscape/mission-grounding-YYYY-MM-DD.md
+  ```
+- Renders board updates via `tasks/render-board.ps1`.
 
 ---
 
 ## Governance & Safety
 
-- **Maintainer Sovereignty**: The CRO sentinel audits and advises; only the human maintainer sets tasks to `ready` or authorizes work tree merges.
+- **Maintainer Sovereignty & Automated Triage**: The CRO sentinel is authorized by the maintainer to auto-triage and approve grounded tasks to `ready` via `tasks/triage_board.py`. Human maintainers retain sovereignty over final PR merges and human-gated legal/licensing decisions.
 - **Frugality First**: Never generate generic motivational statements or ungrounded research proposals. If the mission is on track and inputs are quiet, do not spend tokens.
 - **Anti-Hallucination & Primary Evidence Guardrails**:
   - **Primary Literature Anchoring**: Every proposed research direction, trial reference, and biophysical target must cite primary DOIs, NCT registry IDs, PDB Cryo-EM coordinates, or official regulatory documents. Speculative claims lacking primary literature backing are rejected immediately.

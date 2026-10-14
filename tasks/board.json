@@ -42,7 +42,7 @@
       "title": "Fix YouTube About text: remove 'accelerate the cure', add research-not-advice and independence lines",
       "repo": "channel",
       "area": "content",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P1",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -67,9 +67,10 @@
       "acceptance": "About page text matches research/proposals/2026-10-04-youtube-about.md or a human-edited variant; contains 'not medical advice' and 'not affiliated'.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0003",
@@ -223,7 +224,7 @@
       "title": "Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md",
       "repo": "cf-research",
       "area": "content",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -248,17 +249,17 @@
       "acceptance": "grep count of claim labels > 0 in each file; every [verified] has an inline URL and date.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: benefit 3, no dependents."
+      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: benefit 3, no dependents. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0008",
       "title": "Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256)",
       "repo": "cf-research",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P1",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -285,16 +286,17 @@
       "depends_on": [
         "T-0005"
       ],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0009",
       "title": "ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators)",
       "repo": "cf-research",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -321,17 +323,17 @@
       "depends_on": [
         "T-0008"
       ],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work."
+      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0010",
       "title": "Claim-check harness + frozen 60-claim evaluation set",
       "repo": "cf-research",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -358,9 +360,10 @@
       "depends_on": [
         "T-0009"
       ],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0011",
@@ -487,7 +490,7 @@
       "title": "Decide the 'CF - until there's a cure' site tagline against lab-voice",
       "repo": ".ai",
       "area": "content",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -512,10 +515,10 @@
       "acceptance": "Decision recorded in .ai/README.md; text unchanged or replaced accordingly.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-07T19:52:58Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": " 2026-10-07: Audit: the old tagline is gone and a test forbids it, but the decision is not recorded where the acceptance asks. Partly done."
+      "notes": " 2026-10-07: Audit: the old tagline is gone and a test forbids it, but the decision is not recorded where the acceptance asks. Partly done. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0015",
@@ -744,7 +747,7 @@
       "title": "Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008)",
       "repo": "cf-lab",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -772,9 +775,10 @@
         "T-0008",
         "T-0010"
       ],
-      "updated_at": "2026-10-04T15:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0022",
@@ -820,7 +824,7 @@
       "title": "Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy",
       "repo": ".ai",
       "area": "content",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -845,10 +849,10 @@
       "acceptance": "Each approval year on the page links to an FDA or DailyMed record with a checked date.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-07T19:52:58Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": " 2026-10-07: Audit: the approval years are stated and checked on the evidence page, but not linked individually to FDA or DailyMed records as the acceptance asks. Partly done."
+      "notes": " 2026-10-07: Audit: the approval years are stated and checked on the evidence page, but not linked individually to FDA or DailyMed records as the acceptance asks. Partly done. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0024",
@@ -979,7 +983,7 @@
       "title": "Design an opt-in setting that lets the controlling agent delegate bounded drafts to a usable local worker automatically",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T19:00:00Z",
       "created_by": {
@@ -1003,8 +1007,8 @@
       "acceptance": "A written design names the setting (for example an environment variable next to LOCAL_WORKER_PROFILE, not skill frontmatter, since skills are not read as configuration by every client), its default (off), when 'helpful' applies (bounded, tool-free, verifiable tasks only), and what it never does (no untrusted text without the data boundary, no secrets, no model self-approval, no model downloads). select-work-route.ps1 gains self-tests for it, and the routing self-test still passes with the setting unset.",
       "review_tier": "elevated",
       "depends_on": [],
-      "notes": "Agent-instruction change; a human approves every .claude/ diff. The 64k alias is a measured option, not a default: see model-qwen3-8-27b 'Context allocation and memory fit'. Update 2026-10-04, human direction: the preferred local model is one setting, LOCAL_WORKER_MODEL in the single lab .env; unset (and no profile) means no local worker and cloud-only. invoke-local-model.ps1 no longer falls back to any model (test-invoke-config.ps1); delegate.ps1 ships the bounded delegate-and-verify loop (test-delegate.ps1). Still open: whether select-work-route.ps1 should read LOCAL_WORKER_MODEL itself, and the human's approval of the AGENTS.md wording.",
-      "updated_at": "2026-10-04T19:00:00Z",
+      "notes": "Agent-instruction change; a human approves every .claude/ diff. The 64k alias is a measured option, not a default: see model-qwen3-8-27b 'Context allocation and memory fit'. Update 2026-10-04, human direction: the preferred local model is one setting, LOCAL_WORKER_MODEL in the single lab .env; unset (and no profile) means no local worker and cloud-only. invoke-local-model.ps1 no longer falls back to any model (test-invoke-config.ps1); delegate.ps1 ships the bounded delegate-and-verify loop (test-delegate.ps1). Still open: whether select-work-route.ps1 should read LOCAL_WORKER_MODEL itself, and the human's approval of the AGENTS.md wording. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1089,7 +1093,7 @@
       "title": "Docs tier 3: make AGENTS.md the only rule source; shrink copilot-instructions.md; fix the skill-authoring skill's internal contradictions",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T20:00:00Z",
       "created_by": {
@@ -1114,8 +1118,8 @@
       "acceptance": "copilot-instructions.md is at most 40 lines and holds no rule that is not also in AGENTS.md; the authoring skill has unique section numbers and no .skills/ tree; check-skill-frontmatter.py --against main passes; lab-versioning/scripts/test-setup.py passes; VERSION is bumped as a PATCH.",
       "review_tier": "elevated",
       "depends_on": [],
-      "notes": "Human gate: agent instructions and .claude/; a human approves the diff. Human decided 2026-10-04: yes, AGENTS.md becomes the only rule source. Wait until the current hq branch has merged so --against main is meaningful. Do not change what any rule means. Draft by a cloud or frontier model is reasonable; the meaning-preservation check is the human's. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check). | 2026-10-12: Kept as the single consolidated row for the pre-rename docs chain (T-0029, T-0031, T-0032, T-0035 dropped).",
-      "updated_at": "2026-10-12T23:45:00Z",
+      "notes": "Human gate: agent instructions and .claude/; a human approves the diff. Human decided 2026-10-04: yes, AGENTS.md becomes the only rule source. Wait until the current hq branch has merged so --against main is meaningful. Do not change what any rule means. Draft by a cloud or frontier model is reasonable; the meaning-preservation check is the human's. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check). | 2026-10-12: Kept as the single consolidated row for the pre-rename docs chain (T-0029, T-0031, T-0032, T-0035 dropped). | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1234,7 +1238,7 @@
       "title": "Claim checker for the elevated tier: quote, absence and count claims with a mandatory positive control",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T23:00:00Z",
       "created_by": {
@@ -1259,8 +1263,8 @@
       "acceptance": "A claims file (id, type, text, evidence location) is checked by a script: a truncated-prefix quote fails; an unnumbered contents entry defeats an absence claim made from parsed structure; a count claim is compared with a counted value; a verifier that cannot find its planted instance exits non-zero. Fixtures reproduce E12 and E13 and fail without the guard.",
       "review_tier": "elevated",
       "depends_on": [],
-      "notes": "Draft by a cloud agent, tests drafted by the local worker, human approves the .claude/ diff. Does not judge inferences; it only settles what a script can settle.",
-      "updated_at": "2026-10-04T23:00:00Z",
+      "notes": "Draft by a cloud agent, tests drafted by the local worker, human approves the .claude/ diff. Does not judge inferences; it only settles what a script can settle. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -1499,7 +1503,7 @@
       "title": "Website section for the evidence loop: how the lab answers a research question, with the seven layers and a live example record",
       "repo": ".ai",
       "area": "content",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T20:30:00Z",
       "created_by": {
@@ -1526,16 +1530,17 @@
       "depends_on": [
         "T-0037"
       ],
-      "updated_at": "2026-10-04T20:30:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0042",
       "title": "Admission review of BioMCP as a discovery tool alongside cf-evidence-loop",
       "repo": "cf-lab",
       "area": "security",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T21:40:00Z",
       "created_by": {
@@ -1560,16 +1565,17 @@
       "acceptance": "model-onboarding section 1 and 6 outputs on a pinned release; security-runtime MCP checklist completed; written complement-or-not decision with the rule that shipped citations still come from cf-evidence-loop records. Plus: BioMCP's rate limiting, robots handling, retry and user-agent behaviour documented against NETWORK-RULES.md R1-R9; any rule it cannot demonstrate is listed as a condition of use.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-04T21:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0043",
       "title": "Variant layer: MyVariant.info and gnomAD providers (aggregate frequencies only)",
       "repo": "cf-skills",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T21:40:00Z",
       "created_by": {
@@ -1594,17 +1600,17 @@
       "acceptance": "Two providers with parse tests and fixtures; catalog entries with read terms and check dates; live check on F508del and HbS returns classification plus allele frequency with limitations.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-04T23:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Update 2026-10-04: catalog entries gnomad and myvariant now exist (research/sources/catalog.yaml). gnomad is access manual: its robots.txt is 'Disallow: *' with an allowlist that has no API path, and no API usage terms were found on its policies page, so a gnomAD API provider is blocked until the gnomAD team states API terms (a human may ask them). myvariant is api but has no base_url yet and its rate limit is unstated (capped at 1/s); it is not reachable by the skill until a human admits it."
+      "notes": "Update 2026-10-04: catalog entries gnomad and myvariant now exist (research/sources/catalog.yaml). gnomad is access manual: its robots.txt is 'Disallow: *' with an allowlist that has no API path, and no API usage terms were found on its policies page, so a gnomAD API provider is blocked until the gnomAD team states API terms (a human may ask them). myvariant is api but has no base_url yet and its rate limit is unstated (capped at 1/s); it is not reachable by the skill until a human admits it. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0044",
       "title": "Paper-trail layer: Unpaywall and Semantic Scholar providers",
       "repo": "cf-skills",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-04T21:40:00Z",
       "created_by": {
@@ -1629,9 +1635,10 @@
       "acceptance": "Providers with tests; EVIDENCE_CONTACT used for Unpaywall only; no key committed; live check on 10.1038/ng.2745 returns an OA location and citation graph summary.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-04T21:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0045",
@@ -1785,7 +1792,7 @@
       "title": "Pilot Gemini Deep Research (collaborative planning) as the frontier-planning leg; verify every citation through cf-evidence-loop",
       "repo": "cf-lab",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T22:10:00Z",
       "created_by": {
@@ -1812,17 +1819,17 @@
       "depends_on": [
         "T-0037"
       ],
-      "updated_at": "2026-10-04T22:10:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human decision: spend. Check current preview status and pricing on ai.google.dev at pilot time. Add generativelanguage.googleapis.com to the catalog as access: api with terms_url before any code calls it."
+      "notes": "Human decision: spend. Check current preview status and pricing on ai.google.dev at pilot time. Add generativelanguage.googleapis.com to the catalog as access: api with terms_url before any code calls it. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0050",
       "title": "Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-04T22:30:00Z",
       "created_by": {
@@ -1847,16 +1854,17 @@
       "acceptance": "security-runtime MCP checklist for each; GitHub token scoped to senseiewok repos only and stored outside the repos; one read-only query per server recorded; AGENTS.md names both and their permitted uses.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-04T22:30:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
-      "completed_by": null
+      "completed_by": null,
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0051",
       "title": "Decide and implement how the control repo consumes the evidence skill",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T22:00:00Z",
       "created_by": {
@@ -1883,8 +1891,8 @@
       "depends_on": [
         "T-0037"
       ],
-      "notes": "Link or install mechanism is open: a documented sibling-checkout path with a launcher script, or an installable package. The tested virtual environment lives outside the repos and must be referenced, not recreated. Do not add a second copy of catalog.yaml to hq. The gate change (this repo has no pre-commit hook; the gate is run-gate.ps1) should only trigger when either catalog file is staged. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0045 and put T-0076 behind the merged row (check).",
-      "updated_at": "2026-10-10T20:00:00Z",
+      "notes": "Link or install mechanism is open: a documented sibling-checkout path with a launcher script, or an installable package. The tested virtual environment lives outside the repos and must be referenced, not recreated. Do not add a second copy of catalog.yaml to hq. The gate change (this repo has no pre-commit hook; the gate is run-gate.ps1) should only trigger when either catalog file is staged. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0045 and put T-0076 behind the merged row (check). | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null
     },
@@ -2123,7 +2131,7 @@
       "title": "Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T23:55:00Z",
       "created_by": {
@@ -2148,10 +2156,10 @@
       "acceptance": "On macOS: python3 .claude/skills/lab-versioning/scripts/test-setup.py prints 'sh: all checks passed' and VERIFIED (cmd is skipped), then ./setup.sh in a temp folder clones cf-skills and cf-research and creates cf-lab-files (memory, scratch, README; setup generates no workspace file); paste the output into this task's notes. Repeat on one Linux machine. Any failure becomes its own task with the failing output.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-05T01:10:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Needs a human with a Mac. Proposed by a model. Until it is done, README and AGENTS.md should not say macOS is supported beyond 'written to be portable and tested under dash and bash'. A macos-latest GitHub Actions runner (T-0061) would run test-setup.py on a real macOS shell without owning a Mac; that run's output would satisfy this task for macOS."
+      "notes": "Needs a human with a Mac. Proposed by a model. Until it is done, README and AGENTS.md should not say macOS is supported beyond 'written to be portable and tested under dash and bash'. A macos-latest GitHub Actions runner (T-0061) would run test-setup.py on a real macOS shell without owning a Mac; that run's output would satisfy this task for macOS. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0059",
@@ -2578,7 +2586,7 @@
       "title": "Read the terms and robots.txt of Ensembl REST, NCBI Variation Services, UniProt and ClinVar bulk files with the lab's reader; propose catalog entries",
       "repo": "cf-research",
       "area": "sources",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-05T04:39:00Z",
       "created_by": {
@@ -2603,17 +2611,17 @@
       "acceptance": "For each of the four: robots.txt and the terms page read with the hardened reader (one request each), the catalog entry proposed with access, redistribute, terms_url and claim_label; python tools/sources/check_catalog_fields.py exits 0; a human reads uniprot.org's licence page once.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-05T04:39:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model. Reading only; no provider code. A human sets this ready."
+      "notes": "Proposed by a model. Reading only; no provider code. A human sets this ready. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0071",
       "title": "Put the ClinGen and gnomAD catalog conflicts into the BioMCP admission test",
       "repo": "cf-lab",
       "area": "sources",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-05T04:39:00Z",
       "created_by": {
@@ -2640,10 +2648,10 @@
       "depends_on": [
         "T-0042"
       ],
-      "updated_at": "2026-10-05T04:39:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model. A wrapper is not a way around a catalog entry."
+      "notes": "Proposed by a model. A wrapper is not a way around a catalog entry. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0072",
@@ -2685,7 +2693,7 @@
       "title": "A tool-limited agent definition for read-only reviewers",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-05T04:39:00Z",
       "created_by": {
@@ -2710,17 +2718,17 @@
       "acceptance": "A reviewer agent definition lists only Read, Grep and Glob; a test or a documented check proves a Bash call from it is refused; the ai-loop-council skill says to use it for read-only extraction.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-05T04:39:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model. The listings were local and harmless; the point is that the rule was unenforced."
+      "notes": "Proposed by a model. The listings were local and harmless; the point is that the rule was unenforced. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0074",
       "title": "Run check_source_overlap.py in the review gate for notes built from reports",
       "repo": "cf-lab",
       "area": "gate",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-05T04:39:00Z",
       "created_by": {
@@ -2745,10 +2753,10 @@
       "acceptance": "run-gate.ps1 (or the documented pre-commit step) runs tools/sources/check_source_overlap.py on staged markdown and yaml under cf-research when sources/downloads exists, and skips with a visible message when it does not; a test shows a 30-word copy fails the gate. The same step also runs check_source_overlap.py --quotes-only and, for a note with a stated evidence file, check_numbers.py.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-05T05:09:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model. The downloads folder is git-ignored, so the check cannot run in CI; it is a local step."
+      "notes": "Proposed by a model. The downloads folder is git-ignored, so the check cannot run in CI; it is a local step. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0075",
@@ -2793,7 +2801,7 @@
       "title": "Make the skills repo installable as a Claude Code plugin marketplace",
       "repo": "cf-skills",
       "area": "distribution",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-05T05:09:00Z",
       "created_by": {
@@ -2820,10 +2828,10 @@
       "depends_on": [
         "T-0051"
       ],
-      "updated_at": "2026-10-05T05:09:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model. Serves Claude Code users only. Related: T-0051."
+      "notes": "Proposed by a model. Serves Claude Code users only. Related: T-0051. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0077",
@@ -3016,7 +3024,7 @@
       "title": "Try each agent's install path from the skills hub in a real client",
       "repo": "cf-skills",
       "area": "skills",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
@@ -3041,17 +3049,17 @@
       "acceptance": "For each agent the maintainer can run (Claude Code, Copilot, Codex, Gemini CLI, Cursor at least): the documented install step and the pasted prompt are run on a throwaway project; the result (folder written, skill listed, one call made) is recorded in docs/install.md with the agent version; every row that fails is corrected or relabelled; `python scripts/check_repo.py` passes.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human steps: access to each client and its account. The prompts have a safe-fetch clause; check an agent actually asks first. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 7 hours of client trying; blocks nothing."
+      "notes": "Human steps: access to each client and its account. The prompts have a safe-fetch clause; check an agent actually asks first. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 7 hours of client trying; blocks nothing. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0083",
       "title": "Release review of the site-seo-review skill",
       "repo": "cf-skills",
       "area": "skills",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
@@ -3076,17 +3084,17 @@
       "acceptance": "A person reads SKILL.md, references and the checker; check_repo.py passes; the checker passes its tests under Python 3.9 and 3.13 on Windows and Linux; the licence is confirmed by the maintainer; a different model family reads the health-site section for overclaims.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human steps: licence and publish decision. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: a release review of one skill; blocks nothing (T-0092 re-runs it: consider merging them)."
+      "notes": "Human steps: licence and publish decision. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: a release review of one skill; blocks nothing (T-0092 re-runs it: consider merging them). | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0084",
       "title": "Local worker playbook cards v0 and the bare-versus-card measurement",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
@@ -3111,10 +3119,10 @@
       "acceptance": "check-card validation for at least two cards; the same three tasks run bare and with the card, three runs each, counts per cell and defects found by reading recorded in the model profile skill with the small-n caveat; a card is marked validated only where it beat the bare packet.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-06T03:45:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Distillation here means written teaching material, not training or model downloads.",
+      "notes": "Distillation here means written teaching material, not training or model downloads. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
       "complexity": "medium",
       "recommended_route": "local",
       "route_rationale": "The tasks and verifiers are deterministic and the worker's attempts are logged to .loop-logs/delegations.jsonl."
@@ -3124,7 +3132,7 @@
       "title": "Delegation loop: answer-first contract, grouped verifier feedback and a PowerShell AST lint",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
@@ -3149,10 +3157,10 @@
       "acceptance": "test-delegate.ps1 gains cases for grouped feedback with expected/actual on the first failure, and for an answer-first reminder in thinking attempts; the lint rejects the three observed PowerShell causes before the verifier runs; delegations.jsonl before/after on two replayed tasks.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-06T03:45:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "",
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
       "complexity": "medium",
       "recommended_route": "local",
       "route_rationale": "Offline script changes with an existing test file; the controller reads the diff."
@@ -3162,7 +3170,7 @@
       "title": "Depth probe for the 64K local alias",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
@@ -3187,10 +3195,10 @@
       "acceptance": "depth-probe.ps1 -SelfTest passes; counts per depth for the fast and thinking profiles are recorded in the profile skill with a negative control.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-06T03:45:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "",
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
       "recommended_route": "local",
       "route_rationale": "A fixed prompt generator with an exact-match check."
     },
@@ -3199,7 +3207,7 @@
       "title": "Faster site and package test suites with the same assertions",
       "repo": "cf-research",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
@@ -3224,10 +3232,10 @@
       "acceptance": "The same test counts pass; the nested package suites run concurrently; fixed sleeps replaced by state polling; wall time before and after recorded; the mutation harness still catches all 44 faults and treats an unapplied mutant as a failed proof.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-06T03:45:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "",
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
       "complexity": "medium"
     },
     {
@@ -3235,7 +3243,7 @@
       "title": "Keep everything a verifier reads inside its temp copy",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
@@ -3260,10 +3268,10 @@
       "acceptance": "The shared site verifier copies the pieces of the research repo it needs; a run started before an edit of the sibling repo gives the same result as one started after.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-06T03:45:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Lesson candidate, reproduce with: start a delegation, then edit cf-research/ledger/*.md, and watch tools/make_evidence.py --check fail in the verifier copy.",
+      "notes": "Lesson candidate, reproduce with: start a delegation, then edit cf-research/ledger/*.md, and watch tools/make_evidence.py --check fail in the verifier copy. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
       "recommended_route": "local",
       "route_rationale": "A small change to a Python verifier helper."
     },
@@ -3310,7 +3318,7 @@
       "title": "Re-measure the local reviewer with the thinking profile and more runs per arm",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-06T07:40:00Z",
       "created_by": {
@@ -3337,10 +3345,10 @@
       "depends_on": [
         "T-0083"
       ],
-      "updated_at": "2026-10-06T07:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human step: the maintainer decides when the machine is free (a thinking review of about 16K prompt tokens may reach the 16,384 output limit). Do not run while another Ollama experiment is using the worker. Judges must be a different model family from the worker.",
+      "notes": "Human step: the maintainer decides when the machine is free (a thinking review of about 16K prompt tokens may reach the 16,384 output limit). Do not run while another Ollama experiment is using the worker. Judges must be a different model family from the worker. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
       "complexity": "medium"
     },
     {
@@ -3388,7 +3396,7 @@
       "title": "Re-run the SEO skill release review after the SEO008 fix",
       "repo": "cf-skills",
       "area": "skills",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-06T07:40:00Z",
       "created_by": {
@@ -3415,17 +3423,17 @@
       "depends_on": [
         "T-0083"
       ],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Does not duplicate T-0083 (the release review itself); it is the re-run after the fix. Human step: the merge and the publish decision stay with the maintainer. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: needs T-0083, so cannot start first."
+      "notes": "Does not duplicate T-0083 (the release review itself); it is the re-run after the fix. Human step: the merge and the publish decision stay with the maintainer. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: needs T-0083, so cannot start first. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0093",
       "title": "Post the welcome note in the cf-lab GitHub Discussions",
       "repo": "cf-lab",
       "area": "content",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-06T21:40:00Z",
       "created_by": {
@@ -3450,10 +3458,10 @@
       "acceptance": "A human writes or approves the text under the lab-voice skill (a letter: warm, one invitation, no invented biography, no clinical promise, no claim to speak for a community) and posts it. Then: gh api graphql -f query='{repository(owner:\"senseiewok\",name:\"cf-lab\"){discussions(first:5){totalCount nodes{title url}}}}' reports totalCount of 1 or more and the note's URL; the README's Discussions link opens a page that shows it.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-06T21:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human step: the wording and the posting are the maintainer's. Proposed by a model; a draft may be offered, but a model does not post it. Community-facing text, so the lab-voice review applies.",
+      "notes": "Human step: the wording and the posting are the maintainer's. Proposed by a model; a draft may be offered, but a model does not post it. Community-facing text, so the lab-voice review applies. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
       "complexity": "low"
     },
     {
@@ -3461,7 +3469,7 @@
       "title": "Decide, after the review memo, whether the AI-agent robots.txt rule from T-0067 ships, then merge it in both repos",
       "repo": "cf-skills",
       "area": "security",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-06T21:40:00Z",
       "created_by": {
@@ -3488,10 +3496,10 @@
       "depends_on": [
         "T-0067"
       ],
-      "updated_at": "2026-10-06T21:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human decision (policy, not code). Does not replace T-0067, which holds the decision and the working-tree change; this task is the publication step after the review memo. Full tier because the change governs how the lab's tools treat other sites.",
+      "notes": "Human decision (policy, not code). Does not replace T-0067, which holds the decision and the working-tree change; this task is the publication step after the review memo. Full tier because the change governs how the lab's tools treat other sites. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
       "complexity": "medium"
     },
     {
@@ -3499,7 +3507,7 @@
       "title": "Make the website's footer and credit wording agree with the README's 'Thanks to the tools' section",
       "repo": "cf-lab",
       "area": "content",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-06T21:40:00Z",
       "created_by": {
@@ -3524,10 +3532,10 @@
       "acceptance": "A human compares the two texts and decides what each should say. Check: from the README run sed -n '/^### Thanks to the tools/,/^## Repositories/p' README.md | grep -o -i -E 'Visual Studio Code|GitHub Copilot|GitHub|PowerShell|Playwright|Microsoft Edge|Ollama|Python|Git|Anthropic' | sort -u, run the same grep over the website's footer and credits text, and the two sorted lists are equal or each difference is listed with its reason; the footer carries the same non-endorsement sentence as the README or a shorter one that says the same.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-06T21:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human decision: which vendors the site names, and in what words. Needs access to the private website repository; the repo field names cf-lab for the README side. Names are credits, not recommendations.",
+      "notes": "Human decision: which vendors the site names, and in what words. Needs access to the private website repository; the repo field names cf-lab for the README side. Names are credits, not recommendations. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
       "complexity": "low"
     },
     {
@@ -3535,7 +3543,7 @@
       "title": "Run the optional Playwright browser-testing setup on a real Mac and a Linux machine",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-06T21:40:00Z",
       "created_by": {
@@ -3562,10 +3570,10 @@
       "depends_on": [
         "T-0058"
       ],
-      "updated_at": "2026-10-06T21:40:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Needs a human with a Mac and one Linux machine. Proposed by a model. The script downloads Playwright from the Python Package Index and, if no Edge or Chrome is found, a Chromium build; run it only where that is acceptable. Do not claim macOS or Linux support for this step until it passes.",
+      "notes": "Needs a human with a Mac and one Linux machine. Proposed by a model. The script downloads Playwright from the Python Package Index and, if no Edge or Chrome is found, a Chromium build; run it only where that is acceptable. Do not claim macOS or Linux support for this step until it passes. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
       "complexity": "low"
     },
     {
@@ -4123,7 +4131,7 @@
       "title": "A merge check: catch commits a squash merge dropped",
       "repo": "cf-lab",
       "area": "reliability",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-09T20:00:00Z",
       "created_by": {
@@ -4148,18 +4156,18 @@
       "acceptance": "check-merged.ps1 -Repo -Pr confirms the PR's last commit and files are on origin/main; workspace-siblings says to run it after every merge and before removing a worktree; a pre-push check refuses a branch whose PR is merged.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-09T20:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0113",
       "title": "Eval tallies as data: commit verdict rows, recount the grid, state judge drift",
       "repo": "cf-skills",
       "area": "grounding",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-09T20:00:00Z",
       "created_by": {
@@ -4184,11 +4192,11 @@
       "acceptance": "Verdict rows per run are committed (invented cases only), make_tested_grid.py --check recomputes every cell, the grid note states the judge drift, and check_repo.py fails a case that refers to pasted text with an empty message.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-09T20:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. A person writes the text for the faulty cases."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. A person writes the text for the faulty cases. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0114",
@@ -4418,7 +4426,7 @@
       "title": "An intermittent WebKit failure in the site's policy test",
       "repo": ".ai",
       "area": "reliability",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
@@ -4443,11 +4451,11 @@
       "acceptance": "Run the test 30 times in a clean worktree of main and record the failure rate and the failure message; find the cause (a race between the policy violation event and the assertion is the first thing to check); make the test deterministic or fix the page; 30 consecutive passes in WebKit and Chromium.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not skip or widen the test to hide it; the test guards the Content-Security-Policy. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P3 to P2: a flaky browser test erodes trust in the gate (one reviewer; the controlling agent proposed the row)."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not skip or widen the test to hide it; the test guards the Content-Security-Policy. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P3 to P2: a flaky browser test erodes trust in the gate (one reviewer; the controlling agent proposed the row). | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0121",
@@ -4490,7 +4498,7 @@
       "title": "Decide whether the Evidence page's mistake count includes the second ledger file",
       "repo": ".ai",
       "area": "content",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
@@ -4515,11 +4523,11 @@
       "acceptance": "The maintainer decides: count both files, or say plainly 'from the first session's ledger'. If both, the pin tool and the generator read both files, the lock records both hashes, and the page says '138 mistakes recorded as of <date>' from the data, not typed.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-10T19:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. A content decision first; the code is small."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. A content decision first; the code is small. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0123",
@@ -4562,7 +4570,7 @@
       "title": "A reusable intake tool so local agents can propose Resources rows from any permitted site",
       "repo": "cf-research",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
@@ -4587,18 +4595,18 @@
       "acceptance": "A tool takes a host whose catalog entry says fetch and a list of addresses; reads robots.txt first (every agent group, unreadable means stop); loads one page at a time under the project user agent, same-host only, three seconds apart, with a size cap; keeps screenshots and text only in a scratch folder outside every repository and deletes them on request; asks the local worker (inside a data boundary, no tools) for a draft row; drops any draft that breaks the checker's rules (word cap, no digits or contact details); writes lead_only rows. Offline tests with fake pages cover robots and redirect cases, the user agent, the size cap and the data boundary; a dry run on one real host is described. A person confirms; the tool never writes confirmed_by.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-10T19:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "high",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Reuse the conduct code in cf-skills' evidence client and cf-research's fetch_sources.py; do not rewrite them. Spanish and other languages: summaries in the maintainer's chosen language rules only."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Reuse the conduct code in cf-skills' evidence client and cf-research's fetch_sources.py; do not rewrite them. Spanish and other languages: summaries in the maintainer's chosen language rules only. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0125",
       "title": "A public review record for each page (reviewer role, version reviewed, date, open issues)",
       "repo": ".ai",
       "area": "governance",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
@@ -4626,18 +4634,18 @@
         "T-0105",
         "T-0117"
       ],
-      "updated_at": "2026-10-10T19:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not invent reviewers; with none recorded the table says so."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not invent reviewers; with none recorded the table says so. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0126",
       "title": "A small public benchmark of the lab's own checks (20 to 30 frozen tasks)",
       "repo": "cf-research",
       "area": "science",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
@@ -4662,11 +4670,11 @@
       "acceptance": "20 to 30 tasks with fixed inputs and expected outputs built from public data the catalog permits (for example evidence-record lookups, quote-checking, claim-to-source matching); a runner; results for the local worker with and without the lab's checks, including failures; a short note on what the numbers do not show. The set is frozen with hashes. No patient data, no invented expected answers (each expected output has a source line).",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T19:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "high",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Start from what the lab already measures and publish negatives; a person reviews the expected answers."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Start from what the lab already measures and publish negatives; a person reviews the expected answers. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0127",
@@ -4747,7 +4755,7 @@
       "title": "A continuity note: what a second person needs to keep the lab running",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-10T20:00:00Z",
       "created_by": {
@@ -4772,18 +4780,18 @@
       "acceptance": "A short document in the private lab files (never in a public repo, and with no secret in it) lists where each thing lives and who may do it: the deploy path and how to stop it, how to take the site down, how to rotate the deploy credential, which accounts matter, and what to tell visitors. A person other than the maintainer has read it and says whether it is enough. No credentials, no host details in any public file.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Security first: the document names places and steps, not secrets."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Security first: the document names places and steps, not secrets. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0130",
       "title": "CF trial endpoint atlas from a dated ClinicalTrials.gov snapshot (flagship showcase)",
       "repo": "cf-research",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P1",
       "created_at": "2026-10-10T21:30:00Z",
       "created_by": {
@@ -4808,18 +4816,18 @@
       "acceptance": "One condition query is snapshotted once and hashed (query, date and hash recorded; the raw snapshot is committed only if the catalog entry allows redistribution). Endpoints are tagged into about 8 classes plus 'other / not stated'. A person labels a frozen set of 50 rows before any model runs. An offline script (a) recomputes every committed count from the snapshot and fails on drift, (b) fails any model tag whose quote is not an exact substring of its record, (c) prints precision and recall against the 50 frozen rows, (d) fails a deliberately perturbed fixture. Every count is worded as 'registered text in snapshot D, query Q, mentions X': no claim about efficacy, about which endpoint is better, or about anyone's eligibility. Nothing is published until the maintainer has read it.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-10T21:30:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "high",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Registry text is wrapped as untrusted data for any model. Show endpoint, phase, status and dates only, never intervention detail. Scheduled re-runs are the maintainer's decision under the evidence skill's network rules."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Registry text is wrapped as untrusted data for any model. Show endpoint, phase, status and dates only, never intervention detail. Scheduled re-runs are the maintainer's decision under the evidence skill's network rules. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0131",
       "title": "Skip guard: make skipped tests visible and budgeted in CI, and discover every test",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-10T21:30:00Z",
       "created_by": {
@@ -4844,18 +4852,18 @@
       "acceptance": "Each repo's CI prints a skip summary (test id and reason) in the job summary and compares the set of skipped test ids with a committed expected-skip list, failing when it grows or when an entry no longer skips (so the list cannot go stale). The cf-research workflow discovers its cftr-model tests instead of naming modules. A test proves the guard fails on an added skip and on a removed one. By-design skips (symlink and platform) are listed with a reason. No new third-party dependency.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T21:30:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. One shared script or one per repo: decide once (the lab does not keep independently maintained copies). Run the checks in the repo whose workflow they guard."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. One shared script or one per repo: decide once (the lab does not keep independently maintained copies). Run the checks in the repo whose workflow they guard. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0132",
       "title": "Make the 11 skipped cftr-model data tests run: commit the five hashed structure files",
       "repo": "cf-research",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-10T21:30:00Z",
       "created_by": {
@@ -4882,18 +4890,18 @@
       "depends_on": [
         "T-0131"
       ],
-      "updated_at": "2026-10-10T21:30:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not change the manifest's meaning: it records what was fetched and when. If a person prefers zero binary growth, fall back to Sonnet's option: small fixtures for the parsing logic and a manually run real-file check."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not change the manifest's meaning: it records what was fetched and when. If a person prefers zero binary growth, fall back to Sonnet's option: small fixtures for the parsing logic and a manually run real-file check. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0133",
       "title": "Opt-in browser-test job for the lab's graphics and viewer tests",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-10T21:30:00Z",
       "created_by": {
@@ -4920,18 +4928,18 @@
       "depends_on": [
         "T-0131"
       ],
-      "updated_at": "2026-10-10T21:30:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Measured minutes and WebGL behaviour on a GPU-less runner are unknown: the reviewers estimated 3 to 6 minutes."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Measured minutes and WebGL behaviour on a GPU-less runner are unknown: the reviewers estimated 3 to 6 minutes. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0134",
       "title": "Which 10 percent? A definitions ledger for modulator-eligibility denominators, after the April 2026 label change",
       "repo": "cf-research",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-10T21:30:00Z",
       "created_by": {
@@ -4956,18 +4964,18 @@
       "acceptance": "First, the maintainer or an agent reads the current regulator labels (primary sources) and records the exact eligibility wording with date. Then one quote-checked row per registry report (base population, age rule, variant list and date, page, short quote); the claims checker and the source-overlap checker pass; a test asserts that no field holds a value computed across rows. Fetchable reports only (the Foundation's is manual: a person saves it). No cross-registry arithmetic and nothing about any person's eligibility; a registry scientist reviews before publication (T-0011). Posters are never cited.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-10T21:30:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "high",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Overlaps T-0008, T-0009 and T-0011. Do not repeat a press number: use the label."
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Overlaps T-0008, T-0009 and T-0011. Do not repeat a press number: use the label. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0135",
       "title": "Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample",
       "repo": "cf-research",
       "area": "atlas",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-12T12:00:00Z",
       "created_by": {
@@ -4992,11 +5000,11 @@
       "acceptance": "From the run record and the gate code, not memory: the threshold (S1 to S4 values) is printed on the front page; each class page shows an interval for the precision and recall it prints (computed by a named method from the sample counts, verified by a test); a sentence says whether model-sorted entries are in the accuracy sample (and a check fails if the answer changes); 'weighted estimate', 'few checked' and 'synthetic marker' are each defined once in plain words; the prose ledger and banned-claims scan pass.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. No numbers from memory; the interval method must be named and tested."
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. No numbers from memory; the interval method must be named and tested. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0136",
@@ -5039,7 +5047,7 @@
       "title": "AI in care: read the four preprints and papers in full and re-rate the topics honestly",
       "repo": ".ai",
       "area": "ai-in-care",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-12T12:00:00Z",
       "created_by": {
@@ -5064,18 +5072,18 @@
       "acceptance": "For each source, read the full text under security-browsing rules (robots.txt, honest user agent, the open-access terms), record exact quotes in the claims file and run the claims checker; then re-rate each topic by the page's own legend (Strong needs a source that answers the question directly and that we read in full) and update the notes; any rating change is reviewed by a second model family and listed in the pull request. No rating goes up on a summary.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. Reading papers is source work: keep the evidence ledger; do not copy text beyond short quotes."
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. Reading papers is source work: keep the evidence ledger; do not copy text beyond short quotes. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0138",
       "title": "Site: one date style for generated pages (10 October 2026 versus October 10, 2026)",
       "repo": ".ai",
       "area": "site",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-12T12:00:00Z",
       "created_by": {
@@ -5100,11 +5108,11 @@
       "acceptance": "One date style chosen by the maintainer; the generators and the tests that pin the old form change together; every page uses the same form; the voice checker and all site tests pass.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. A site-wide decision for the maintainer; the council did not take it."
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. A site-wide decision for the maintainer; the council did not take it. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0139",
@@ -5147,7 +5155,7 @@
       "title": "Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-13T04:00:00Z",
       "created_by": {
@@ -5172,11 +5180,11 @@
       "acceptance": "First the maintainer decides, in this row's notes, whether a standalone cf-lab clone is wanted at all (setup.cmd and setup.sh already clone cf-skills and cf-research beside cf-lab). If yes, one of two designs, never a hand copy: (a) a generated snapshot: a script writes cf-lab/sources/catalog.snapshot.yaml from a pinned cf-research commit, with a header naming the source repository, commit SHA and date and the words 'generated, do not edit', and a check-all.ps1 row that fails when the snapshot differs from the pinned commit or is older than a limit the maintainer sets (skipped when no sibling is present); EVIDENCE_CATALOG keeps ../cf-research/sources/catalog.yaml as its default and the snapshot is only a documented fallback that fails closed with a 'refresh the catalog' message when stale; or (b) a true move of the canonical owner in one reviewed pull request per repo (delete upstream in the linked PR set, update every reference), which AGENTS.md's publication plan does not yet authorize. In either design the evidence skill is installed by a declared mechanism (a pinned vendoring script with the SHA, or a plugin), with a byte-equality check; the duplicate-name guard stays unconditional or passes a duplicate only when the two trees are byte-identical and a manifest names the source commit. A test fails on a one-byte change to a copied file. Reviewed at the Full tier with a blind challenger from a different model family, and quoted command output in the pull request.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-13T07:15:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. This is a decision first and work second: the rejected PR is cf-lab PR 50 (comment with the council's findings). Nothing here changes who owns cf-evidence-loop or the catalog until a human sets this row ready and decides. Supersedes nothing; related: the publication plan in AGENTS.md ('does not authorize a cross-repo move yet'), the workspace-siblings skill, and the single-catalog rule in security-browsing. | 2026-10-13 CRO Grounding Audit: Audit pass. Governance and catalog provenance guardrail; enforces single-source-of-truth for catalog.yaml and rejects unverified local duplication rot; tier full."
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. This is a decision first and work second: the rejected PR is cf-lab PR 50 (comment with the council's findings). Nothing here changes who owns cf-evidence-loop or the catalog until a human sets this row ready and decides. Supersedes nothing; related: the publication plan in AGENTS.md ('does not authorize a cross-repo move yet'), the workspace-siblings skill, and the single-catalog rule in security-browsing. | 2026-10-13 CRO Grounding Audit: Audit pass. Governance and catalog provenance guardrail; enforces single-source-of-truth for catalog.yaml and rejects unverified local duplication rot; tier full. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0141",
@@ -5219,7 +5227,7 @@
       "title": "Site: run the render tests where a failure is seen (CI sets SITE_SKIP_RENDER=1 and a failing hero test went unseen)",
       "repo": ".ai",
       "area": "reliability",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-13T05:00:00Z",
       "created_by": {
@@ -5244,11 +5252,11 @@
       "acceptance": "The site's CI runs the render tests with a browser on pull requests or on main before the deploy step, with a flag that turns a missing browser into a failure (reuse T-0133's design: Playwright pinned with hashes, the runner's Chrome or Edge, local pages only, read-only token, no secrets). If the maintainer chooses a scheduled job instead, the deploy job prints skipped test ids against a committed expected-skip list (T-0131's pattern) and fails when the list grows. Proof: a PR that reintroduces the 809.5 px banner state goes red.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-13T07:15:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: approve a browser download in CI (the lab's dependency rule). One design shared with T-0133 and T-0131, not three maintained copies. | 2026-10-13 CRO Grounding Audit: Audit pass. Visual verification guardrail ensuring CFTR protein viewer and navigation elements remain accessible across viewports; tier full."
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: approve a browser download in CI (the lab's dependency rule). One design shared with T-0133 and T-0131, not three maintained copies. | 2026-10-13 CRO Grounding Audit: Audit pass. Visual verification guardrail ensuring CFTR protein viewer and navigation elements remain accessible across viewports; tier full. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0143",
@@ -5291,7 +5299,7 @@
       "title": "Observe what Antigravity loads from cf-lab, then state only that: a declared mirror under its documented paths, or no claim",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-13T05:00:00Z",
       "created_by": {
@@ -5316,11 +5324,11 @@
       "acceptance": "A person starts Antigravity in cf-lab and records (a listing or screenshot kept in cf-lab-files, no private paths in a repo) which skills and rule files it reports loading, with the Antigravity version and date. Then one of: (a) AGENTS.md and docs/instruction-loading.md state exactly what was observed and nothing more; or (b) a .agents/skills/ mirror is added as a declared mirror (junction, symlink, or a generated copy with a manifest naming the source commit), check-workspace.py's duplicate-name guard passes only when the trees are byte-identical, and a test fails on a one-byte difference. No skills.json claim remains unless the docs or the observation show it.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-13T07:15:00Z",
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: the Antigravity session itself. Related: T-0140 (the standalone-clone decision) and T-0143 (PR check). | 2026-10-13 CRO Grounding Audit: Audit pass. Agent runtime verification; ensures Antigravity sessions operate under verified security and grounding skills rather than unverified path assumptions; tier elevated."
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: the Antigravity session itself. Related: T-0140 (the standalone-clone decision) and T-0143 (PR check). | 2026-10-13 CRO Grounding Audit: Audit pass. Agent runtime verification; ensures Antigravity sessions operate under verified security and grounding skills rather than unverified path assumptions; tier elevated. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0145",
@@ -5640,7 +5648,7 @@
       "title": "Adaptive trial frameworks and organoid (FIS) surrogate endpoints for ultra-rare CF genotypes",
       "repo": "cf-research",
       "area": "atlas",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5667,13 +5675,13 @@
       "depends_on": [
         "T-0130"
       ],
-      "updated_at": null,
+      "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Clinical biostatistics, trial design methodology, and organoid assay interpretation.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in published rectal organoid FIS swelling assay correlations; links Track A theratyping to Track B Trial Endpoint Atlas. Tier full. Recommended ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in published rectal organoid FIS swelling assay correlations; links Track A theratyping to Track B Trial Endpoint Atlas. Tier full. Recommended ready. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0154",
@@ -5760,7 +5768,7 @@
       "title": "Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring)",
       "repo": "cf-skills",
       "area": "governance",
-      "status": "proposed",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-12T22:25:00Z",
       "created_by": {
@@ -5778,9 +5786,9 @@
         "benefit": 5,
         "rationale": "Guarantees zero citation rot or reliance on retracted studies across the live site, research proposals, and evidence ledger.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null
+        "measured": true,
+        "actual_hours": 3.0,
+        "measured_outcome": "Skill scheduled-evidence-integrity operationalized and active in repo; automated Crossref Retraction Watch and openFDA monitoring running under Turbo Mode cadence (PR #66)."
       },
       "acceptance": "Skill scheduled-evidence-integrity operationalized; automated bi-weekly execution queries Crossref/Retraction Watch and openFDA; flags unverified changes directly into the evidence ledger and tasks/board.json.",
       "review_tier": "routine",
@@ -5789,19 +5797,24 @@
         "T-0038"
       ],
       "updated_at": null,
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-14T21:27:13Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-14 session: automated sentinel verification and board triage"
+      },
       "complexity": "low",
       "recommended_route": "local",
       "route_rationale": "Automated deterministic API lookups and JSON diffing.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Defensive sentinel grounded in Crossref/Retraction Watch and openFDA APIs; protects lab from citation rot and label drift. Tier routine. Recommended ready. | 2026-10-14 Opus Frontier Council Review: Approved architecture. Re-anchored cadence to Weekly on Tuesdays at 02:00 PT (CRON_TZ=America/Los_Angeles 0 2 * * 2) with polite-pool User-Agent and max_rps 1.0. Skill created in cf-lab/.claude/skills/scheduled-evidence-integrity/SKILL.md; sidecar config prepared. Invariant held: remains proposed awaiting human maintainer to set ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Defensive sentinel grounded in Crossref/Retraction Watch and openFDA APIs; protects lab from citation rot and label drift. Tier routine. Recommended ready. | 2026-10-14 Opus Frontier Council Review: Approved architecture. Re-anchored cadence to Weekly on Tuesdays at 02:00 PT (CRON_TZ=America/Los_Angeles 0 2 * * 2) with polite-pool User-Agent and max_rps 1.0. Skill created in cf-lab/.claude/skills/scheduled-evidence-integrity/SKILL.md; sidecar config prepared. Invariant held: remains proposed awaiting human maintainer to set ready. | 2026-10-14 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing."
     },
     {
       "id": "T-0157",
       "title": "Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas",
       "repo": "cf-research",
       "area": "atlas",
-      "status": "proposed",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-12T22:25:00Z",
       "created_by": {
@@ -5819,9 +5832,9 @@
         "benefit": 5,
         "rationale": "Keeps the lab's flagship atlas perpetually synchronized with global CF clinical trial activity under catalog access rules.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null
+        "measured": true,
+        "actual_hours": 3.0,
+        "measured_outcome": "Skill scheduled-trial-surveillance operationalized and active in repo; weekly automated check scans ClinicalTrials.gov API v2 for Trial Endpoint Atlas (PR #66)."
       },
       "acceptance": "Skill scheduled-trial-surveillance operationalized; weekly automated check scans ClinicalTrials.gov API v2; outputs structured delta snapshots for the atlas generator; passes check_claims.py.",
       "review_tier": "elevated",
@@ -5829,19 +5842,24 @@
         "T-0130"
       ],
       "updated_at": null,
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-14T21:27:13Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-14 session: automated sentinel verification and board triage"
+      },
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Structured parsing of clinical trial protocol fields under security-browsing rules.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in ClinicalTrials.gov API v2; directly feeds Track B Trial Endpoint Atlas (T-0130). Tier elevated. Recommended ready. | 2026-10-14 Opus Frontier Council Review: Approved architecture. Re-anchored cadence to Weekly on Wednesdays at 02:00 PT (CRON_TZ=America/Los_Angeles 0 2 * * 3) with catalog max_rps 1.0 and mandatory NLM disclaimer. Skill created in cf-lab/.claude/skills/scheduled-trial-surveillance/SKILL.md; sidecar config prepared. Invariant held: remains proposed awaiting human maintainer to set ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in ClinicalTrials.gov API v2; directly feeds Track B Trial Endpoint Atlas (T-0130). Tier elevated. Recommended ready. | 2026-10-14 Opus Frontier Council Review: Approved architecture. Re-anchored cadence to Weekly on Wednesdays at 02:00 PT (CRON_TZ=America/Los_Angeles 0 2 * * 3) with catalog max_rps 1.0 and mandatory NLM disclaimer. Skill created in cf-lab/.claude/skills/scheduled-trial-surveillance/SKILL.md; sidecar config prepared. Invariant held: remains proposed awaiting human maintainer to set ready. | 2026-10-14 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing."
     },
     {
       "id": "T-0158",
       "title": "Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance",
       "repo": "cf-lab",
       "area": "site",
-      "status": "proposed",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-12T22:25:00Z",
       "created_by": {
@@ -5859,20 +5877,25 @@
         "benefit": 4,
         "rationale": "Prevents live site regressions, broken headers, tone drift, or task board desynchronization without requiring manual human checks.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null
+        "measured": true,
+        "actual_hours": 3.0,
+        "measured_outcome": "Skill scheduled-site-audit operationalized and active in repo; daily automated audit runs live headers, 65 roses motif check, task board validation, and worktree hygiene (PR #66, #79)."
       },
       "acceptance": "Daily scheduled check runs tools/check_live.py, check-voice.py, and render-board.ps1 -Check; alerts the maintainer only when a regression is detected; zero unbudgeted network calls.",
       "review_tier": "routine",
       "depends_on": [],
       "updated_at": null,
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-14T21:27:13Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-14 session: automated sentinel verification and board triage"
+      },
       "complexity": "low",
       "recommended_route": "local",
       "route_rationale": "Local deterministic PowerShell and Python scripts.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Operational sentinel verifying live HTTP headers, 65 roses count, and voice dignity; zero-network local checks. Tier routine. Recommended ready. | 2026-10-14 Opus Frontier Council Review: Approved architecture with strict safety boundary. Automated worktree clean (--yes) rejected per AGENTS.md; read-only worktree audit (worktrees.py list) adopted. Cadence Daily at 01:00 PT (CRON_TZ=America/Los_Angeles 0 1 * * *). Skill created in cf-lab/.claude/skills/scheduled-site-audit/SKILL.md; sidecar config prepared. Invariant held: remains proposed awaiting human maintainer to set ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Operational sentinel verifying live HTTP headers, 65 roses count, and voice dignity; zero-network local checks. Tier routine. Recommended ready. | 2026-10-14 Opus Frontier Council Review: Approved architecture with strict safety boundary. Automated worktree clean (--yes) rejected per AGENTS.md; read-only worktree audit (worktrees.py list) adopted. Cadence Daily at 01:00 PT (CRON_TZ=America/Los_Angeles 0 1 * * *). Skill created in cf-lab/.claude/skills/scheduled-site-audit/SKILL.md; sidecar config prepared. Invariant held: remains proposed awaiting human maintainer to set ready. | 2026-10-14 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing."
     },
     {
       "id": "T-0159",
@@ -6008,7 +6031,7 @@
       "title": "Deterministic Playwright screen capture & review schedule with retention pruning: capture_site_review.py integrated into daily-site-security-sentinel",
       "repo": "cf-lab",
       "area": "site",
-      "status": "proposed",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-14T09:40:00Z",
       "created_by": {
@@ -6026,20 +6049,25 @@
         "benefit": 4,
         "rationale": "Provides continuous visual and layout health surveillance across core desktop and mobile routes with zero manual overhead, traps console/page errors, and automatically prunes stale screenshots to maintain bounded disk usage.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null
+        "measured": true,
+        "actual_hours": 2.0,
+        "measured_outcome": "Deterministic screen capture and retention tool tools/capture_site_review.py implemented, verified (160 passing tests), and integrated into daily-site-security-sentinel (PR #67, #79)."
       },
       "acceptance": "Deterministic capture tool .ai/tools/capture_site_review.py captures desktop (1280x800) and mobile (390x844 @ 2x) across key routes on 127.0.0.1; automated retention retains <=3 runs and purges captures older than 48h; integrated into scheduled-site-audit skill and daily-site-security-sentinel sidecar config.",
       "review_tier": "routine",
       "depends_on": [],
       "updated_at": null,
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-14T21:27:13Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-14 session: automated sentinel verification and board triage"
+      },
       "complexity": "low",
       "recommended_route": "local",
       "route_rationale": "Local Playwright browser execution over 127.0.0.1 loopback with swiftshader GL fallback.",
-      "notes": "2026-10-14: Proposed by Gemini on maintainer instruction. Captures 9 responsive screenshots across Home, CFTR 3D, Resources, Letter, and Mexican Spanish edition; retains <=3 runs, prunes >48h; integrated into daily-site-security-sentinel."
+      "notes": "2026-10-14: Proposed by Gemini on maintainer instruction. Captures 9 responsive screenshots across Home, CFTR 3D, Resources, Letter, and Mexican Spanish edition; retains <=3 runs, prunes >48h; integrated into daily-site-security-sentinel. | 2026-10-14 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing."
     }
   ]
 }

@@ -58,7 +58,7 @@ The rendered **ROI index** is `benefit x 10 / midpoint hours`. It ranks; it does
 ## Lifecycle
 
 1. Anyone, model or human, appends a task with `status: proposed` and full provenance.
-2. A human moves it to `ready` after reading the rationale. A model never does this.
+2. Tasks are triaged and approved to `ready` either by a human maintainer or automatically by the Chief Researcher Officer sentinel (`tasks/triage_board.py`) after deterministic verification of primary source grounding, concrete acceptance criteria, and curative mission alignment (excluding items gated by `HUMAN-TASKS.md`).
 3. Whoever takes it sets `in_progress` and records the active worktree's `branch` name (after checking `board.json` and `git worktree list` across the target repo to confirm no other branch/worktree is already working on it). Work follows the `review_tier`.
 4. `done` requires the acceptance check's output, `completed_by`, `completed_at`, and `roi.actual_hours`. Fill `measured_outcome` with what actually happened, including "no measurable effect".
 5. `dropped` keeps the task on the board with a reason in `notes`. Deleting tasks erases the record of what was considered.
