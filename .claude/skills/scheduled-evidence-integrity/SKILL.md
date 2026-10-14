@@ -23,7 +23,8 @@ Continuously protects the lab's scientific credibility by monitoring primary lit
 flowchart TD
     Trigger["Weekly Trigger (Tuesday 02:00 PT)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
     Lock -->|Busy| Exit["Exit 0 Cleanly"]
-    Lock -->|Acquired| S1["1. Extract Catalog DOIs & Drug IDs"]
+    Lock -->|Acquired| Sync["0. Sync & Pull from main\n(sync-main.py)"]
+    Sync --> S1["1. Extract Catalog DOIs & Drug IDs"]
     S1 --> S2["2. Query Crossref Retraction Watch API\n(Polite Pool, 1.0 req/s)"]
     S2 --> S3["3. Query openFDA Drugs@FDA Endpoint\n(Paced 1.0 req/s)"]
     S3 --> Triage{"Retractions or Label Changes?"}
@@ -32,6 +33,14 @@ flowchart TD
     Alert --> Release["Release Lock"]
     Clean --> Release
 ```
+
+### 0. Advisory Mutex Lock & Sync with Main on Start
+- Acquire advisory lock `.loop-logs/sentinel.lock` (if held and under 30 minutes old, back off and exit 0 cleanly). Release upon audit conclusion.
+- **Sync with origin/main**: Always pull the latest `main` branch across workspace repositories before reading catalog or landscape files:
+  ```powershell
+  python .claude/skills/workspace-siblings/scripts/sync-main.py
+  ```
+  Or manually: `git -C c:/senseiewok/repos/cf-research pull --ff-only origin main && git -C c:/senseiewok/repos/cf-lab pull --ff-only origin main`.
 
 ### 1. Catalog DOI & Drug ID Extraction
 Extract checkable identifiers from:

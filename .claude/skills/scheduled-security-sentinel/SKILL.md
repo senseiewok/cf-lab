@@ -21,7 +21,10 @@ Continuously audits background tasks, conversation logs, and repositories across
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Daily 23:00 PT)"] --> Ingest["1. Multi-Repo Log & State Ingestion"]
+    Trigger["Scheduled Trigger (Daily 23:00 PT)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
+    Lock -->|Busy| Exit["Exit 0 Cleanly"]
+    Lock -->|Acquired| Sync["0. Sync & Pull from main\n(sync-main.py)"]
+    Sync --> Ingest["1. Multi-Repo Log & State Ingestion"]
     Ingest --> Audit["2. 5-Point Security & Privacy Audit"]
     Audit --> Triage{"Anomalies Found?"}
     Triage -->|No| Clean["Emit Clean Audit Record to .loop-logs/"]
@@ -34,7 +37,20 @@ flowchart TD
 ### 1. Multi-Repo Log & State Ingestion
 
 0. **Advisory Mutex Lock**: Acquire `.loop-logs/sentinel.lock` (if held and under 30 minutes old, back off and exit 0 cleanly). Release upon audit conclusion.
-Scan all background task artifacts and working directories across the four workspace roots:
+1. **Sync with origin/main on Start**:
+   Always pull the latest `main` branch across all workspace repositories before auditing:
+   ```powershell
+   python .claude/skills/workspace-siblings/scripts/sync-main.py
+   ```
+   Or manually:
+   ```powershell
+   git -C c:/senseiewok/repos/cf-lab pull --ff-only origin main
+   git -C c:/senseiewok/repos/cf-research pull --ff-only origin main
+   git -C c:/senseiewok/repos/cf-skills pull --ff-only origin main
+   git -C c:/senseiewok/repos/.ai pull --ff-only origin main
+   ```
+2. **Scan Workspace Roots**:
+   Scan all background task artifacts and working directories across the four workspace roots:
 - `cf-lab` (control repo)
 - `../cf-research` (research repo)
 - `../cf-skills` (skills repo)

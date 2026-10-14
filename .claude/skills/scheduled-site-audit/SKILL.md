@@ -23,13 +23,22 @@ Maintains unbroken operational quality, security posture, and dignity for the pu
 flowchart TD
     Trigger["Daily Trigger (01:00 PT)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
     Lock -->|Busy| Exit["Exit 0 Cleanly"]
-    Lock -->|Acquired| H1["1. Live HTTP Security Headers Audit\n(HSTS, CSP, X-Robots-Tag)"]
+    Lock -->|Acquired| Sync["0. Sync & Pull from main\n(sync-main.py)"]
+    Sync --> H1["1. Live HTTP Security Headers Audit\n(HSTS, CSP, X-Robots-Tag)"]
     H1 --> H2["2. 65 Roses Motif & Link Audit"]
     H2 --> H3["3. Task Board & Worktree Audit\n(render-board -Check, worktrees list)"]
     H3 --> H4["4. Dignity & Voice Check"]
     H4 --> Report["Log Health Status to .loop-logs/ & memory/handoff.md"]
     Report --> Release["Release Lock"]
 ```
+
+### 0. Advisory Mutex Lock & Sync with Main on Start
+- Acquire advisory lock `.loop-logs/sentinel.lock` (if held and under 30 minutes old, back off and exit 0 cleanly). Release upon audit conclusion.
+- **Sync with origin/main**: Always pull the latest `main` branch across workspace repositories before verifying task board, worktrees, or site assets:
+  ```powershell
+  python .claude/skills/workspace-siblings/scripts/sync-main.py
+  ```
+  Or manually: `git -C c:/senseiewok/repos/cf-lab pull --ff-only origin main && git -C c:/senseiewok/repos/.ai pull --ff-only origin main`.
 
 ### 1. Live HTTP Security Headers Audit
 Verify that production web responses from `senseiewok.ai` return mandatory security and crawler headers:
