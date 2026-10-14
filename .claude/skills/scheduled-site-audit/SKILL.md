@@ -82,9 +82,9 @@ Verify that production web responses from `senseiewok.ai` return mandatory secur
   ```powershell
   pwsh -NoProfile -File tasks/render-board.ps1 -Check
   ```
-- Run read-only worktree audit:
+- Run read-only worktree audit with GitHub pull request resolution (uses read-only `gh pr list`, zero mutations):
   ```powershell
-  python .claude/skills/workspace-siblings/scripts/worktrees.py list
+  python .claude/skills/workspace-siblings/scripts/worktrees.py list --github
   ```
   > [!IMPORTANT]
   > **Maintainer Sovereignty Guardrail**: Worktrees are removed *only* with `--yes` when a person asks. Never execute `worktrees.py clean --yes` automatically inside a scheduled cron. If finished or dangling worktrees are detected, log them to `memory/handoff.md` for human review.
@@ -92,7 +92,7 @@ Verify that production web responses from `senseiewok.ai` return mandatory secur
 ### 5. Tone, Dignity & Spanish Disclaimer Verification (Local Delegation)
 - When orchestrating on Gemini Flash, **delegate the verification of Spanish disclaimer text and drafting of audit summaries to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`:
   - Confirm all public pages conform to `lab-voice` boundaries (warm, plain-language, assertive, zero hype).
-  - Verify that every Spanish page under `.ai/src/es/` carries the exact medical boundary disclaimer:
+  - Verify that Mexican Spanish strings in `data/i18n/es-MX.json`, `src/scripts/i18n-resources.js`, and dynamic views carry the exact medical boundary disclaimer:
     > *"Investigación independiente, no asesoramiento médico. Sensei Ewok CF Lab no promete curas ni tratamientos clínicos."*
 
 ### 6. Logging & Top-Task Escalation (Argon)

@@ -154,6 +154,27 @@ if ($SelfTest) {
 }
 
 if (-not $Path) { $Path = $env:LAB_FILES }
+if ([string]::IsNullOrWhiteSpace($Path)) {
+    $loc = (Get-Location).Path
+    $candidates = @(
+        (Join-Path $loc "../cf-lab-files"),
+        (Join-Path $loc "../../cf-lab-files")
+    )
+    if ($loc -like "*\.worktrees*") {
+        $p = $loc
+        while ($p -and (Split-Path -Leaf $p) -ne ".worktrees") { $p = Split-Path -Parent $p }
+        if ($p) {
+            $reposRoot = Split-Path -Parent $p
+            $candidates += (Join-Path $reposRoot "cf-lab-files")
+        }
+    }
+    foreach ($c in $candidates) {
+        if (Test-Path -LiteralPath $c -PathType Container) {
+            $Path = [IO.Path]::GetFullPath($c)
+            break
+        }
+    }
+}
 if ([string]::IsNullOrWhiteSpace($Path)) { Write-Output 'error: no folder given. Pass -Path or set LAB_FILES (for example in the lab .env).'; exit 2 }
 if (-not (Test-Path -LiteralPath $Path -PathType Container)) { Write-Output "error: not a folder: $Path"; exit 2 }
 $root = (Resolve-Path -LiteralPath $Path).Path
