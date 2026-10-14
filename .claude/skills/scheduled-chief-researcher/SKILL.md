@@ -78,3 +78,10 @@ If the gate exits with code 10 (`LOCK_HELD`) or code 20 (`IDLE`), terminate imme
 
 - **Maintainer Sovereignty**: The CRO sentinel audits and advises; only the human maintainer sets tasks to `ready` or authorizes work tree merges.
 - **Frugality First**: Never generate generic motivational statements or ungrounded research proposals. If the mission is on track and inputs are quiet, do not spend tokens.
+- **Anti-Hallucination & Primary Evidence Guardrails**:
+  - **Primary Literature Anchoring**: Every proposed research direction, trial reference, and biophysical target must cite primary DOIs, NCT registry IDs, PDB Cryo-EM coordinates, or official regulatory documents. Speculative claims lacking primary literature backing are rejected immediately.
+  - **"Not Stated" Invariant**: If a study, registry entry, or primary paper does not report an endpoint, metric, or outcome, record "not stated"; never extrapolate or interpolate from memory.
+  - **Widening Words Scope Record**: Any claim using comparative or absolute terms ("only", "first", "novel", "all", "cures", "no longer") must supply a scope record detailing the exact search query, database, and timestamp.
+  - **Answer Tiers**: Every factual synthesis must declare its Answer Tier (T0 to T3, per `cf-research-context`). Public notes and site proposals require Tier T2 minimum (deterministic script check + independent model verification).
+  - **Dignity & Hope Invariant**: Never invent clinical hope, cure dates, or efficacy timelines. Adhere strictly to the "research, not medical advice" boundary.
+

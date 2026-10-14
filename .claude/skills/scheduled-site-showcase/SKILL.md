@@ -145,3 +145,8 @@ Execute the mandatory 3-layer Grounded Review Loop:
 - **Zero Invention**: Every number, structure, and claim originates from primary peer-reviewed literature or official trial registries.
 - **Maintainer Sovereignty**: The agent prepares clean worktrees and opens PRs; only the human maintainer merges code or deploys to production.
 - **Test Timing Discipline**: Never execute test suites at the beginning of a run. Verification checks run exclusively in Stage 3 against the concrete changes made in the isolated worktree.
+- **Anti-Hallucination Guardrails**:
+  - **Tier T2 Grounding Minimum**: Every scientific statement, mutation mechanism, or therapeutic target presented on `senseiewok.ai` must be backed by a verified primary literature citation and verified Answer Tier T2+.
+  - **Semantic Fidelity in Localization**: Spanish translations (`/es/`) must strictly preserve verified scientific terminology and the mandatory medical boundary disclaimer ("Investigación, no asesoramiento médico"). Never introduce optimistic framing or unverified claims during localization.
+  - **Deterministic Verification Before PR**: All unit tests (`tests.test_site`, `tests.test_resources_page`, `tests.test_cftr_hero`), `check-voice.py`, and Playwright captures must pass with exit 0 before a PR is opened.
+

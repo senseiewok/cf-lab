@@ -101,3 +101,15 @@ Verify that production web responses from `senseiewok.ai` return mandatory secur
   - Escalate triage to **Argon** (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`).
   - Log an elevated alert in `memory/handoff.md`.
 
+---
+
+## Governance, Safety & Anti-Hallucination Guardrails
+
+- **Read-Only Non-Destructive**: Probes live public production URLs with standard GET/HEAD requests.
+- **Zero Token Burn on Clean Pass**: If all checks pass, write JSON log to `.loop-logs/` and terminate.
+- **Dignity & Accessibility**: Asserts the 65 roses convention, WCAG 2.1 AA accessibility, and dignity of language.
+- **Anti-Hallucination Guardrails**:
+  - **Command Output Proof**: Security headers and 301 redirects must be asserted directly from curl / PowerShell response headers, never inferred.
+  - **Exact Motif Count**: The 65 rose motif count must be determined by exact DOM query count (`data-rose` / class count == 65) from script execution; never estimate, round, or accept approximate counts.
+
+

@@ -71,3 +71,16 @@ If the gate exits with code 10 (`LOCK_HELD`) or code 20 (`IDLE`), terminate imme
 - If critical trial terminations or safety halts (e.g., severe adverse event suspensions in aerosolized delivery or gene editing) occur:
   - **Escalate the therapeutic landscape assessment to Argon (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`)** to synthesize an evidence-grounded risk impact analysis.
 - When new trials are staged, changes are drafted in an isolated git worktree under `.worktrees/cf-research/` and submitted via `gh pr create` for maintainer review.
+
+---
+
+## Governance, Safety & Anti-Hallucination Guardrails
+
+- **NLM Terms & Disclaimer**: All ClinicalTrials.gov data ingested must include the NLM disclaimer ("Data provided by the U.S. National Library of Medicine...").
+- **Rate-Limiting**: Enforce <=1.0 requests/second.
+- **Anti-Churn Invariant**: If no trials updated or newly matched, log audit status to `.loop-logs/` only. Never open empty PRs.
+- **Anti-Hallucination Guardrails**:
+  - **Raw ProtocolSection Primacy**: Extract phase, recruitment status, enrollment count, and primary outcome measures directly from the raw ClinicalTrials.gov API v2 JSON (`protocolSection`).
+  - **"Not Stated" for Missing Data**: If an endpoint time frame, sponsor, or arm count is absent, record "not stated"; never extrapolate study design.
+  - **No Inferred Efficacy**: Trial status transitions (such as `COMPLETED` or `ACTIVE_NOT_RECRUITING`) do not indicate therapeutic efficacy or statistical significance. Never report a trial as "successful" without published peer-reviewed primary results.
+

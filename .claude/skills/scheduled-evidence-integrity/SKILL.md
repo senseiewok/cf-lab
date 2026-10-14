@@ -81,3 +81,15 @@ Extract checkable identifiers from:
   - Append an explicit audit note referencing the retraction notice.
   - **Escalate the clinical impact analysis to Argon (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`)** to synthesize an evidence-grounded risk assessment.
   - Propose a remedial task on `tasks/board.json` for human clinician/researcher review.
+
+---
+
+## Governance, Safety & Anti-Hallucination Guardrails
+
+- **Read-Only Surveillance**: Queries official open public endpoints (Crossref polite pool and openFDA API) within approved rate limits (<=1.0 req/s).
+- **Anti-Churn**: If all monitored identifiers remain clean and unretracted, emit status record to `.loop-logs/` only. Never open empty PRs.
+- **Maintainer Handoff**: If a cited paper is retracted, alert via `memory/handoff.md` and log downgrade recommendation for maintainer approval.
+- **Anti-Hallucination Guardrails**:
+  - **Exact Identifier Matching**: Retractions and expressions of concern are only asserted when the Crossref update-to payload explicitly matches the exact cataloged DOI. Never infer retraction from citation absence, network timeouts, or partial title matches.
+  - **Verbatim Label Ingestion**: Drug label revisions are verified directly against raw openFDA API JSON fields; do not paraphrase, interpolate, or infer clinical indications not stated by FDA.
+
