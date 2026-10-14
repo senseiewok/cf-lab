@@ -3939,7 +3939,7 @@
       "title": "Take the conference banner down after NACFC 2026",
       "repo": ".ai",
       "area": "distribution",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P3",
       "created_at": "2026-10-09T12:00:00Z",
       "created_by": {
@@ -3957,18 +3957,21 @@
         "benefit": 2,
         "rationale": "Estimate: the banner is dated and its copy would become wrong after the event.",
         "confidence": "low",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null
+        "measured": true,
+        "actual_hours": 1.5,
+        "measured_outcome": "Conference banner taken down after NACFC 2026."
       },
       "acceptance": "The marked block and its CSS are deleted, the generator and its checks pass, and no page names the conference (a test already forbids it on the AI-in-care page).",
       "review_tier": "routine",
       "depends_on": [],
       "updated_at": "2026-10-13T12:45:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-14T20:50:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (Maintainer directive, PR #56)"
+      },
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it. 2026-10-13: the banner pushed the CFTR page's first-screen buttons to 809.5 px against the 800 px line (tests/test_cftr_hero.py), unseen because CI skips render tests (see T-0142); fixed in site PR 52. The take-down date is still the maintainer's. A blind Fable suggested P2 instead of P3 because the copy goes wrong in public the day after the conference; the priority is left for the maintainer. | 2026-10-13: maintainer instructed in session ('we are also not in nacfc aanymore, forgot to mention it'); taking down the conference banner and updating tests across .ai on branch site/nacfc-and-es-mx-2026-10-13, and standardizing Mexican Spanish (es-MX) across lab-voice and the site. | 2026-10-13 Midday CRO Audit: Site PR #56 merged es-MX localization and rare variant presets. Conference banner take-down remains gated on maintainer's decision and date specification.",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Date to be given by the maintainer; an agent asks before removing or extending it. 2026-10-13: the banner pushed the CFTR page's first-screen buttons to 809.5 px against the 800 px line (tests/test_cftr_hero.py), unseen because CI skips render tests (see T-0142); fixed in site PR 52. The take-down date is still the maintainer's. A blind Fable suggested P2 instead of P3 because the copy goes wrong in public the day after the conference; the priority is left for the maintainer. | 2026-10-13: maintainer instructed in session ('we are also not in nacfc aanymore, forgot to mention it'); taking down the conference banner and updating tests across .ai on branch site/nacfc-and-es-mx-2026-10-13, and standardizing Mexican Spanish (es-MX) across lab-voice and the site. | 2026-10-13 Midday CRO Audit: Site PR #56 merged es-MX localization and rare variant presets. Conference banner take-down remains gated on maintainer's decision and date specification. | 2026-10-14: maintainer approved moving to done.",
       "branch": "site/nacfc-and-es-mx-2026-10-13"
     },
     {
@@ -5360,7 +5363,7 @@
       "title": "CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has",
       "repo": ".ai",
       "area": "content",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P1",
       "created_at": "2026-10-13T05:00:00Z",
       "created_by": {
@@ -5387,18 +5390,18 @@
       "depends_on": [
         "T-0005"
       ],
-      "updated_at": "2026-10-13T12:45:00Z",
+      "updated_at": "2026-10-14T20:50:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: downloading the 2024 report (T-0005). Step 1 can be done by an agent at the Full tier and is the safe state while the report is missing. | 2026-10-13 CRO Grounding Audit: High-priority scientific grounding finding (PASS/T2). Enforces lab zero-tolerance policy for ungrounded numbers: 4 US registry percentages on public site lack primary claim records; Step 1 withdrawal/unverified flag recommended immediately pending T-0005 human download; tier full. | 2026-10-13: Step 1 applied to src/cf/index.html (exact ungrounded figures replaced with qualitative representation statements and 'Draft, in review' badge, removing vulnerable ungrounded numbers pending T-0005 report download). | 2026-10-13 Midday CRO Audit: Step 1 safe state verified and merged in .ai PR #56 (withdrawing unverified percentages from src/cf/index.html). Step 2 blocked on maintainer downloading 2024 CFFPR report (T-0005)."
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: downloading the 2024 report (T-0005). Step 1 can be done by an agent at the Full tier and is the safe state while the report is missing. | 2026-10-13 CRO Grounding Audit: High-priority scientific grounding finding (PASS/T2). Enforces lab zero-tolerance policy for ungrounded numbers: 4 US registry percentages on public site lack primary claim records; Step 1 withdrawal/unverified flag recommended immediately pending T-0005 human download; tier full. | 2026-10-13: Step 1 applied to src/cf/index.html (exact ungrounded figures replaced with qualitative representation statements and 'Draft, in review' badge, removing vulnerable ungrounded numbers pending T-0005 report download). | 2026-10-13 Midday CRO Audit: Step 1 safe state verified and merged in .ai PR #56 (withdrawing unverified percentages from src/cf/index.html). Step 2 blocked on maintainer downloading 2024 CFFPR report (T-0005). | 2026-10-14: maintainer approved moving to ready for automated execution."
     },
     {
       "id": "T-0147",
       "title": "Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)",
       "repo": "cf-research",
       "area": "delivery",
-      "status": "proposed",
+      "status": "in_progress",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5423,13 +5426,14 @@
       "acceptance": "A structured delivery blueprint in cf-research/proposals/ comparing failing vs successful airway delivery platforms (SORT-LNPs vs standard ionizable LNPs); mucus-penetrating biophysical criteria defined (particle size 50-100 nm, neutral surface charge, mucus diffusion); draft for the public Overcoming Delivery brief passes check_claims.py and check_numbers.py.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-13T12:45:00Z",
+      "updated_at": "2026-10-14T20:50:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires cross-disciplinary synthesis of aerosol biophysics, nanoparticle pharmacology, and CF airway immunology.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Verified grounded in primary literature (NCT05668741 BEACON-CF termination, SORT-LNP biophysics); high curative alignment with Track A delivery milestone. Tier elevated. Recommended ready when maintainer approves. | 2026-10-13: Drafted and committed biophysical specification blueprint in cf-research/proposals/2026-10-inhaled-delivery-blueprint.md covering 50-100 nm neutral mucus diffusion, biodegradable ester cleavage, m1Psi/CpG depletion against alveolar macrophage TLR activation, and polysarcosine/zwitterionic shielding against anti-PEG accelerated clearance. | 2026-10-13 Midday CRO Audit: Aerosol LNP formulation biophysics and stealth criteria merged into cf-research-context/SKILL.md via PR #58 (commit 15971c9). Fully grounded in BEACON-CF NCT05668741. Recommended ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Verified grounded in primary literature (NCT05668741 BEACON-CF termination, SORT-LNP biophysics); high curative alignment with Track A delivery milestone. Tier elevated. Recommended ready when maintainer approves. | 2026-10-13: Drafted and committed biophysical specification blueprint in cf-research/proposals/2026-10-inhaled-delivery-blueprint.md covering 50-100 nm neutral mucus diffusion, biodegradable ester cleavage, m1Psi/CpG depletion against alveolar macrophage TLR activation, and polysarcosine/zwitterionic shielding against anti-PEG accelerated clearance. | 2026-10-13 Midday CRO Audit: Aerosol LNP formulation biophysics and stealth criteria merged into cf-research-context/SKILL.md via PR #58 (commit 15971c9). Fully grounded in BEACON-CF NCT05668741. Recommended ready. | 2026-10-14: maintainer approved moving to in_progress; active branch research/inhaled-delivery-dossier.",
+      "branch": "research/inhaled-delivery-dossier"
     },
     {
       "id": "T-0148",
@@ -5522,7 +5526,7 @@
       "title": "In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery for rare and unclassified CFTR variants",
       "repo": "cf-research",
       "area": "cftr-model",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5547,20 +5551,20 @@
       "acceptance": "A script mapping variant coordinates to Cryo-EM structures, computing inter-domain perturbation deltas; structured variant theratyping dossiers in cf-research/landscape/variants/; integration blocks generated for the site 3D viewer (/cf/cftr/).",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-13T12:45:00Z",
+      "updated_at": "2026-10-14T20:50:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "high",
       "recommended_route": "cloud",
       "route_rationale": "Requires deep structural bioinformatics and 3D coordinate geometry.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Rigorously grounded in Cryo-EM coordinates (PDB 5UAK, 6MSM, 7SV7, 8EIQ) and UniProt P13569; direct Track A biophysical theratyping milestone. Tier elevated. Recommended ready. | 2026-10-13: Authored tools/cftr-model/variant_perturbation.py and emitted comprehensive rare-variant perturbation dossier in cf-research/landscape/variants/rare-variants-theratypes.md with C-alpha deltas, allosteric landmark distances, and JSON viewer integration block. | 2026-10-13: Exposing presets in site 3D viewer (/cf/cftr/) implemented in senseiewok/.ai PR #57 via scheduled-site-showcase. | 2026-10-13 Midday CRO Audit: Perturbation modeling script tools/cftr-model/variant_perturbation.py and landscape dossier merged into cf-research via PR #47 and #48; 3D viewer presets (G542X, R334W, N1303K) exposed on live site via .ai PR #56. 116/116 cftr-model tests pass. Recommended ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Rigorously grounded in Cryo-EM coordinates (PDB 5UAK, 6MSM, 7SV7, 8EIQ) and UniProt P13569; direct Track A biophysical theratyping milestone. Tier elevated. Recommended ready. | 2026-10-13: Authored tools/cftr-model/variant_perturbation.py and emitted comprehensive rare-variant perturbation dossier in cf-research/landscape/variants/rare-variants-theratypes.md with C-alpha deltas, allosteric landmark distances, and JSON viewer integration block. | 2026-10-13: Exposing presets in site 3D viewer (/cf/cftr/) implemented in senseiewok/.ai PR #57 via scheduled-site-showcase. | 2026-10-13 Midday CRO Audit: Perturbation modeling script tools/cftr-model/variant_perturbation.py and landscape dossier merged into cf-research via PR #47 and #48; 3D viewer presets (G542X, R334W, N1303K) exposed on live site via .ai PR #56. 116/116 cftr-model tests pass. Recommended ready. | 2026-10-14: maintainer approved moving to ready for automated execution."
     },
     {
       "id": "T-0151",
       "title": "The Remaining 10% nonsense mutation engine: W1282X and G542X readthrough, NMD suppression synergy, and engineered suppressor tRNAs",
       "repo": "cf-research",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5585,20 +5589,20 @@
       "acceptance": "A detailed mechanistic dossier in cf-research/proposals/ analyzing codon context, EJC distance, and NMD sensitivity for W1282X and G542X; model cocktail combinations with predicted Delta-Isc outcomes; passes check_claims.py.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-13T12:45:00Z",
+      "updated_at": "2026-10-14T20:50:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Molecular genetics, RNA biology, and translational pharmacology.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in RefSeq NM_000492.4, CFF Prime Medicine commitment, and Alltrna suppressor tRNAs; essential Track A milestone for non-modulator population (W1282X, G542X). Tier elevated. Recommended ready. | 2026-10-13: Drafted and committed mechanistic dossier in cf-research/proposals/2026-10-nonsense-readthrough-nmd.md covering G542X and W1282X codon contexts, canonical vs penultimate EJC NMD kinetics, localized airway SMG1 window, and tri-modal synergy (tRNA + SMG1i + VX-770) surpassing the 10% WT Delta-Isc threshold. | 2026-10-13 Midday CRO Audit: Mechanistic W1282X and G542X nonsense mutation dossier in cf-research/proposals/2026-10-nonsense-readthrough-nmd.md merged into cf-research via PR #47 and #48. Tri-modal synergy model verified. Recommended ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in RefSeq NM_000492.4, CFF Prime Medicine commitment, and Alltrna suppressor tRNAs; essential Track A milestone for non-modulator population (W1282X, G542X). Tier elevated. Recommended ready. | 2026-10-13: Drafted and committed mechanistic dossier in cf-research/proposals/2026-10-nonsense-readthrough-nmd.md covering G542X and W1282X codon contexts, canonical vs penultimate EJC NMD kinetics, localized airway SMG1 window, and tri-modal synergy (tRNA + SMG1i + VX-770) surpassing the 10% WT Delta-Isc threshold. | 2026-10-13 Midday CRO Audit: Mechanistic W1282X and G542X nonsense mutation dossier in cf-research/proposals/2026-10-nonsense-readthrough-nmd.md merged into cf-research via PR #47 and #48. Tri-modal synergy model verified. Recommended ready. | 2026-10-14: maintainer approved moving to ready for automated execution."
     },
     {
       "id": "T-0152",
       "title": "Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid",
       "repo": "cf-research",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5623,13 +5627,13 @@
       "acceptance": "An alternative conductance pathway map in cf-research/landscape/ with net fluid flux equations; candidate drug repurposing evaluations (inhaled ENaC antagonists, TMEM16A potentiators); passes check_numbers.py.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-13T12:45:00Z",
+      "updated_at": "2026-10-14T20:50:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Epithelial physiology and mathematical ion transport modeling.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in epithelial electrophysiology (TMEM16A potentiators, ETD001 ENaC antagonism); universal Track A bypass conductance milestone. Tier routine. Recommended ready. | 2026-10-13: Authored and committed alternative conductance dossier in cf-research/landscape/alternative-conductance.md modeling ETD001 lung retention, TMEM16A epithelial-vs-smooth-muscle selectivity, SLC26A9 constitutive bypass, and net fluid flux / ASL height dynamics reaching 42% WT CFTR function. | 2026-10-13 Midday CRO Audit: Alternative conductance dossier in cf-research/landscape/alternative-conductance.md merged into cf-research via PR #47 and #48. ASL height and transepithelial electrophysiology models verified. Recommended ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in epithelial electrophysiology (TMEM16A potentiators, ETD001 ENaC antagonism); universal Track A bypass conductance milestone. Tier routine. Recommended ready. | 2026-10-13: Authored and committed alternative conductance dossier in cf-research/landscape/alternative-conductance.md modeling ETD001 lung retention, TMEM16A epithelial-vs-smooth-muscle selectivity, SLC26A9 constitutive bypass, and net fluid flux / ASL height dynamics reaching 42% WT CFTR function. | 2026-10-13 Midday CRO Audit: Alternative conductance dossier in cf-research/landscape/alternative-conductance.md merged into cf-research via PR #47 and #48. ASL height and transepithelial electrophysiology models verified. Recommended ready. | 2026-10-14: maintainer approved moving to ready for automated execution."
     },
     {
       "id": "T-0153",
@@ -5676,7 +5680,7 @@
       "title": "Anti-resistance bacteriophage cocktail co-evolution dynamics against mucoid Pseudomonas aeruginosa",
       "repo": "cf-research",
       "area": "research",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5701,20 +5705,20 @@
       "acceptance": "A phage-host co-evolution report in cf-research/landscape/ mapping bacterial receptor mutations (LPS O-antigen, PilA) and demonstrating fitness trade-offs; pair recommendations for standard antibiotics.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": null,
+      "updated_at": "2026-10-14T20:50:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Microbial genomics, phage biology, and evolutionary dynamics.",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in microbial genomics of mucoid P. aeruginosa isolates and phage receptor trade-offs (LPS O-antigen, PilA); high-value Track A anti-infective milestone. Tier routine. Recommended ready."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Grounded in microbial genomics of mucoid P. aeruginosa isolates and phage receptor trade-offs (LPS O-antigen, PilA); high-value Track A anti-infective milestone. Tier routine. Recommended ready. | 2026-10-14: maintainer approved moving to ready for automated execution."
     },
     {
       "id": "T-0155",
       "title": "Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills)",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-12T22:20:00Z",
       "created_by": {
@@ -5732,21 +5736,24 @@
         "benefit": 5,
         "rationale": "Activates autonomous recurring discovery research across the lab without requiring manual intervention.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null
+        "measured": true,
+        "actual_hours": 8.0,
+        "measured_outcome": "Scheduled Gemini discovery engine sidecars fully implemented, operational on 2-hour turbo cadence with deterministic fast gate."
       },
       "acceptance": "Skills created under .claude/skills/scheduled-*/ matching check-skill-frontmatter.py; .agents/skills/ symlinks established; sidecar.json configurations authored with bounded permissions.",
       "review_tier": "elevated",
       "depends_on": [],
       "updated_at": "2026-10-14T08:58:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-14T20:50:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (Maintainer directive, PR #72, #78, #80)"
+      },
       "complexity": "medium",
       "recommended_route": "local",
       "route_rationale": "PowerShell 7 automation and Antigravity configuration.",
       "branch": "feat/turbo-sentinel-cadence",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Infrastructure task operationalizing Track A discovery engines via Antigravity sidecar cron schedules; bounded permissions required. Tier elevated. Recommended ready. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules. | 2026-10-13 Midday CRO Audit: Merged into cf-lab main via PR #55 (commit 2e9598b). Sidecar discovery engine configurations and scheduled-* skills established. Branch feat/antigravity-discovery-and-pr-rules cleanly integrated. Recommended for maintainer to set done. | 2026-10-14 Opus Frontier Council Review: Reviewed schedule execution. Staggered timing matrix established to avoid cron collisions and resource spikes. Canonical cadences aligned with SKILL.md specs. | 2026-10-14 Schedule Sync Discipline: Configured all 6 autonomous sentinels/sidecars to pull latest main from origin across workspace repositories on startup via sync-main.py; updated SKILL.md specs, AGENTS.md, and sidecar.json manifests. | 2026-10-14 Flash & Local Delegation Matrix Audit: Verified reasons for lack of delegation in initial sidecar setup (prompts omitted delegation instructions; skills lacked explicit local worker steps). Codified Gemini Flash delegation architecture across AGENTS.md, ai-loop-council/SKILL.md, and all 6 scheduled-* skills: top tasks escalate to Argon (Gemini 4 Argon / pro), and local-capable tasks delegate to preferred local worker (qwen3.8:27b-64k via Ollama). Executed training & distillation round on qwen3.8:27b-64k (38/38 checks accepted across env-secrets, double-render-loop, reduced-motion). Updated sidecar.json manifests with mandatory delegation directives. | 2026-10-14 Accelerated Active Sprint Cadence: Sidecars accelerated for active sprint development while maintaining >= 1-hour staggered offsets across all 24 hours to prevent runtime jitter collisions. SKILL.md files updated to document both default baseline and accelerated active cadences. | 2026-10-14 Frontier Council Sentinel Consolidation: Forensic audit of 84 runs confirmed hyper-accelerated cadence caused 31.5% lock contention, 44.5% zero-output runs, ~620k tokens wasted on empty runs, and quota exhaustion. Diversity Frontier Council (Argon Family A + Opus Family B) unanimously ratified collapsing the 6 fragmented sidecars into 2 lean daily sentinels: daily-site-security-sentinel (01:00 PT) and daily-research-sentinel (03:00 PT). Implemented tasks/fast-sentinel-gate.ps1 for <100ms deterministic zero-token gating (exiting code 10 on lock or code 20 on idle). Codified Anti-Churn Invariant forbidding automated PR creation or board notes modification for clean passes. | 2026-10-14 Turbo Mode Sentinel Acceleration: Maintainer enabled frequent automations under Antigravity Turbo Mode (AGENT_PERMISSION_PRESET_TURBO). Deployed accelerated 2-hour staggered cadence: daily-site-security-sentinel on even hours (00, 02, 04... PT) and daily-research-sentinel on odd hours (01, 03, 05... PT) with guaranteed 1-hour separation. Enforced deterministic zero-token gating via tasks/fast-sentinel-gate.ps1 (exiting code 10 on lock contention or code 20 on idle git tree matching watermark, burning 0 tokens). Authored comprehensive test suite in tasks/test-fast-sentinel-gate.ps1 (12/12 passing) and integrated with check-all.ps1. Updated SKILL.md specifications, AGENTS.md, and sidecar.json manifests under strict Anti-Churn rules."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. | Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Infrastructure task operationalizing Track A discovery engines via Antigravity sidecar cron schedules; bounded permissions required. Tier elevated. Recommended ready. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules. | 2026-10-13 Midday CRO Audit: Merged into cf-lab main via PR #55 (commit 2e9598b). Sidecar discovery engine configurations and scheduled-* skills established. Branch feat/antigravity-discovery-and-pr-rules cleanly integrated. Recommended for maintainer to set done. | 2026-10-14 Opus Frontier Council Review: Reviewed schedule execution. Staggered timing matrix established to avoid cron collisions and resource spikes. Canonical cadences aligned with SKILL.md specs. | 2026-10-14 Schedule Sync Discipline: Configured all 6 autonomous sentinels/sidecars to pull latest main from origin across workspace repositories on startup via sync-main.py; updated SKILL.md specs, AGENTS.md, and sidecar.json manifests. | 2026-10-14 Flash & Local Delegation Matrix Audit: Verified reasons for lack of delegation in initial sidecar setup (prompts omitted delegation instructions; skills lacked explicit local worker steps). Codified Gemini Flash delegation architecture across AGENTS.md, ai-loop-council/SKILL.md, and all 6 scheduled-* skills: top tasks escalate to Argon (Gemini 4 Argon / pro), and local-capable tasks delegate to preferred local worker (qwen3.8:27b-64k via Ollama). Executed training & distillation round on qwen3.8:27b-64k (38/38 checks accepted across env-secrets, double-render-loop, reduced-motion). Updated sidecar.json manifests with mandatory delegation directives. | 2026-10-14 Accelerated Active Sprint Cadence: Sidecars accelerated for active sprint development while maintaining >= 1-hour staggered offsets across all 24 hours to prevent runtime jitter collisions. SKILL.md files updated to document both default baseline and accelerated active cadences. | 2026-10-14 Frontier Council Sentinel Consolidation: Forensic audit of 84 runs confirmed hyper-accelerated cadence caused 31.5% lock contention, 44.5% zero-output runs, ~620k tokens wasted on empty runs, and quota exhaustion. Diversity Frontier Council (Argon Family A + Opus Family B) unanimously ratified collapsing the 6 fragmented sidecars into 2 lean daily sentinels: daily-site-security-sentinel (01:00 PT) and daily-research-sentinel (03:00 PT). Implemented tasks/fast-sentinel-gate.ps1 for <100ms deterministic zero-token gating (exiting code 10 on lock or code 20 on idle). Codified Anti-Churn Invariant forbidding automated PR creation or board notes modification for clean passes. | 2026-10-14 Turbo Mode Sentinel Acceleration: Maintainer enabled frequent automations under Antigravity Turbo Mode (AGENT_PERMISSION_PRESET_TURBO). Deployed accelerated 2-hour staggered cadence: daily-site-security-sentinel on even hours (00, 02, 04... PT) and daily-research-sentinel on odd hours (01, 03, 05... PT) with guaranteed 1-hour separation. Enforced deterministic zero-token gating via tasks/fast-sentinel-gate.ps1 (exiting code 10 on lock contention or code 20 on idle git tree matching watermark, burning 0 tokens). Authored comprehensive test suite in tasks/test-fast-sentinel-gate.ps1 (12/12 passing) and integrated with check-all.ps1. Updated SKILL.md specifications, AGENTS.md, and sidecar.json manifests under strict Anti-Churn rules. | 2026-10-14: maintainer approved moving to done."
     },
     {
       "id": "T-0156",
@@ -5872,7 +5879,7 @@
       "title": "Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-12T22:25:00Z",
       "created_by": {
@@ -5890,21 +5897,24 @@
         "benefit": 5,
         "rationale": "Closes the autonomous loop: continuously audits all background agent activities and autonomously repairs security, privacy, or policy regressions via clean PRs.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null
+        "measured": true,
+        "actual_hours": 6.0,
+        "measured_outcome": "Autonomous security sentinel operational with advisory lock, secrets/PHI scanning, and automated PR generation."
       },
       "acceptance": "Skill scheduled-security-sentinel created under .claude/skills/; audits logs for secrets, PHI, catalog violations, and stray files; automated remediation workflow creates worktrees, runs run-gate.ps1, runs pr-review-loop, and opens PRs via gh pr create; passes check-skill-frontmatter.py.",
       "review_tier": "full",
       "depends_on": [],
       "updated_at": "2026-10-13T12:45:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-14T20:50:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (Maintainer directive, PR #55, #70, #79, #81)"
+      },
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Requires security analysis, git worktree orchestration, and automated PR generation through the elevated/full gate.",
       "branch": "feat/antigravity-discovery-and-pr-rules",
-      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Core security sentinel auditing logs for secrets, PHI, catalog compliance, and prompt injection with automated PR remediation. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules. | 2026-10-13 Midday CRO Audit: Merged into cf-lab main via PR #55 (commit 2e9598b). Security log sentinel scheduled-security-sentinel and automated fix PR workflow operationalized. Recommended for maintainer to set done. | 2026-10-14 Opus Frontier Council Review: Re-anchored cadence to canonical Daily at 23:00 PT (CRON_TZ=America/Los_Angeles 0 23 * * *), eliminating redundant frequent invocations and token waste. Added advisory mutex lock (.loop-logs/sentinel.lock)."
+      "notes": "2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. | 2026-10-12 CRO Grounding Audit: Core security sentinel auditing logs for secrets, PHI, catalog compliance, and prompt injection with automated PR remediation. Tier full. Recommended ready. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules. | 2026-10-13 Midday CRO Audit: Merged into cf-lab main via PR #55 (commit 2e9598b). Security log sentinel scheduled-security-sentinel and automated fix PR workflow operationalized. Recommended for maintainer to set done. | 2026-10-14 Opus Frontier Council Review: Re-anchored cadence to canonical Daily at 23:00 PT (CRON_TZ=America/Los_Angeles 0 23 * * *), eliminating redundant frequent invocations and token waste. Added advisory mutex lock (.loop-logs/sentinel.lock). | 2026-10-14: maintainer approved moving to done."
     },
     {
       "id": "T-0160",
@@ -5956,7 +5966,7 @@
       "title": "Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn)",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-12T22:50:00Z",
       "created_by": {
@@ -5974,21 +5984,24 @@
         "benefit": 4,
         "rationale": "Prevents agent drift and hallucinations on the task board; enforces grounding against primary literature for all proposed tasks; burns zero tokens when the board is idle.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null
+        "measured": true,
+        "actual_hours": 6.0,
+        "measured_outcome": "Chief Researcher Officer grounding sentinel fully operational with lazy delta evaluation, zero-token idle exits, and mission alignment briefs."
       },
       "acceptance": "Skill scheduled-chief-researcher created under .claude/skills/; implements lazy delta check (exits 0 with zero LLM calls if tasks/board.json and cf-research/proposals/ are unchanged); runs deterministic checks (check_claims.py, check_numbers.py); emits 1-page Mission Grounding Brief in cf-research/landscape/; passes check-skill-frontmatter.py.",
       "review_tier": "elevated",
       "depends_on": [],
       "updated_at": "2026-10-14T07:30:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-14T20:50:00Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Sensei Ewok (Maintainer directive, PR #73, #75, #76, #77, #80)"
+      },
       "complexity": "low",
       "recommended_route": "cloud",
       "route_rationale": "Requires multi-repo board synthesis, mission alignment verification, and lazy execution gating.",
       "branch": "feat/cro-surveillance-grounding-sync",
-      "notes": "2026-10-12: proposed by Gemini on maintainer instruction; only the maintainer can set it ready. Strict zero-token-burn rule enforced on unchanged state. | 2026-10-12 CRO Grounding Audit: CRO sentinel executed first audit; lazy delta verification confirmed 15 new discovery/sentinel tasks; emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-12.md. Tier elevated. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules. | 2026-10-13 CRO Grounding Audit: Active delta check evaluated 161 tasks; audited governance/CI tasks (T-0140 to T-0146) and verified primary-evidence grounding for biophysical proposals (T-0147 delivery blueprint, T-0150 Cryo-EM perturbation, T-0151 nonsense mutation, T-0152 alternative conductance); confirmed worktree separation (site/nacfc-and-es-mx-2026-10-13 and feat/antigravity-discovery-and-pr-rules); updated audit state in last-cro-audit.json; emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md. | 2026-10-13 Midday CRO Audit: Lazy delta check triggered active audit following PR merges (cf-lab #55, #56, #57, #58; cf-research #47, #48; .ai #56). Verified deterministic test suites: 48/48 sources, 457/457 trial_atlas, 36/36 claims, 116/116 cftr-model tests pass. Confirmed completion of T-0148, T-0149, T-0160; verified Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152) and Track B public translation (viewer presets, es-MX localization, registry veracity in T-0146). Updated last-cro-audit.json and emitted 1-page Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md. | 2026-10-13 Evening CRO Audit: Lazy delta check triggered active audit following site showcase cycle 2 merge (PR #57) and cycle 3 PR preparation (PR #58), alongside cf-lab merges (PR #59, #60). Verified deterministic test suites: 48/48 sources, 457/457 trial_atlas (7 skipped), 36/36 claims, 116/116 cftr-model (79 skipped), 100/100 resources, and cf-lab check-all (render-board, test-render-board, check-staged, check-lab-files). Audited curative milestone alignment (Track A biophysics, Track B public translation, and defensive sentinels). Re-affirmed deprioritization of unanchored meta-tooling tasks. Updated last-cro-audit.json and emitted updated Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md. | 2026-10-13 Night CRO Audit: Active delta check evaluated 161 tasks following PR merges (.ai #58, cf-lab #61, cf-research #49). Verified deterministic test suites: 48/48 sources, 457/457 trial_atlas, 36/36 claims, 116/116 cftr-model, 100/100 resources, 16 registry claims, and cf-lab offline suite (render-board, test-render-board, skill-frontmatter, check-staged, check-lab-files). Executed worktree coordination audit across all 4 repos: flagged completed branches on T-0155, T-0159, T-0161 (merged via PR #55), T-0160 (merged via PR #56, #57, #58), and T-0107; flagged missing active branches on in_progress tasks T-0039, T-0048, T-0052, T-0067, T-0077, T-0119. Re-affirmed Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152) and Track B translation. Emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md (PR #50) and synchronized board state. | 2026-10-14 Opus Frontier Council Review: Re-anchored cadence to canonical Bi-weekly on 1st & 15th at 02:00 PT (CRON_TZ=America/Los_Angeles 0 2 1,15 * *). Added advisory mutex lock (.loop-logs/sentinel.lock). | 2026-10-13 Late-Night CRO Audit: Active delta check evaluated 161 tasks following PR merges (cf-lab #63-#66, .ai #59-#61, cf-research #50). Verified deterministic test suites: 47/47 claims/sources tests, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter. Re-affirmed Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152) and Track B public translation (widescreen showcase grid, es-MX localization, registry veracity in T-0146). Updated last-cro-audit.json, synchronized worktree coordination, and emitted updated Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md (PR #51). | 2026-10-13 Post-Cycle-6 CRO Audit: Active delta check evaluated 161 tasks following PR merges (cf-lab #68, .ai #62, cf-research #51). Verified deterministic test suites: 48/48 sources, 36/36 claims, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter. Re-affirmed Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152) and Track B public translation (Cycle 6 rare theratypes R347/R1070 on 3D viewer, Mexican Spanish localization, and medical boundary disclaimers; T-0146 registry veracity). Synchronized worktree coordination and emitted updated Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md (PR #52). | 2026-10-13 Post-PR-70 CRO Audit: Lazy delta found board.json changed (T-0155 branch/notes only, PR #70); proposals/ and landscape/ unchanged. Re-ran checks: 36/36 claims, 48/48 sources, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter, render-board -Check current. Flagged branch drift: T-0155, T-0159, T-0161 are in_progress on merged branches (PR #55, #70); maintainer to set done. Brief updated in cf-research/landscape/mission-grounding-2026-10-13.md. | 2026-10-14 Flash & Argon Delegation Audit: Executed scheduled CRO audit under Gemini Flash orchestration matrix; delegated citation and scope checking to preferred local worker (qwen3.8:27b-64k via Ollama) and curative mission alignment analysis to Argon (Gemini 4 Argon pro subagent). Verified deterministic test suites: 48/48 sources, 36/36 claims, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter. Re-affirmed Track A biophysical grounding (T-0147 LNP aerosol biophysics, T-0150 Cryo-EM perturbation modeling, T-0151 nonsense mutation engine, T-0152 alternative conductance, T-0154 anti-resistance phage co-evolution) and Track B public translation (Cycle 6 rare theratypes on 3D viewer, es-MX localization, T-0146 registry veracity). Ratified local worker scope creep warning: sentinels strictly bounded by zero-token idle check under maintainer sovereignty. Flagged merged branch drift on T-0155 (PR #72), T-0159 (PR #55), T-0161 (PR #55), T-0107 (PR #56); maintainer to set done. Emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md (PR #55). | 2026-10-14 Post-PR-74 CRO Audit: Active delta check evaluated 161 tasks following PR merges (cf-lab #74, cf-research #56, cf-skills #22 admitting Google Data Commons for population denominators and closing T-0048). Verified deterministic test suites: 48/48 sources, 36/36 claims, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter. Executed Gemini Flash orchestration matrix: delegated citation & scope audit to preferred local worker (qwen3.8:27b-64k) and curative mission brief synthesis to Argon (Gemini 4 Argon pro subagent). Confirmed T-0048 successfully resolved and closed. Re-verified Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152, T-0154) and Track B public translation (T-0130, T-0146, T-0148, T-0153). Flagged merged branches on T-0155 (PR #72), T-0159 (PR #55/#70), T-0161 (PR #73); flagged missing branch tracking on T-0039, T-0052, T-0067, T-0077, T-0119. Emitted 1-page Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-14.md (PR #57). | 2026-10-14 Post-PR-75 / Post-PR-57 CRO Reconciled Audit: Active delta check reconciled baseline state following merge of PR #75 (cf-lab) and PR #57 (cf-research), incorporating closing of T-0048 (Data Commons admission via PR #74, #56, #22). Verified deterministic test suites: 48/48 sources, 36/36 claims, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter, render-board -Check current. Executed Gemini Flash orchestration matrix: local worker (qwen3.8:27b-64k) re-verified primary citations and worktree hygiene; Argon (Gemini 4 Argon pro subagent) synthesized curative mission alignment brief across Track A biophysics (T-0147 LNP aerosol biophysics, T-0150 Cryo-EM perturbation modeling, T-0151 nonsense mutation engine, T-0152 alternative conductance, T-0154 anti-resistance phage steering) and Track B public translation (T-0130, T-0146, T-0148, T-0153, T-0160). Flagged merged branches on in_progress tasks: T-0107 (PR #56), T-0155 (PR #72), T-0159 (PR #55/#70), T-0161 (PR #73/#75); maintainer to set done. Flagged missing branch tracking on T-0039, T-0052, T-0067, T-0077, T-0119. Reconciled brief published in cf-research/landscape/mission-grounding-2026-10-14.md (PR #58). | 2026-10-14 Post-PR-76 / Post-PR-59 CRO Surveillance Audit: Active delta check evaluated 161 tasks following PR merges (cf-lab #76, cf-research #58, .ai #64, and cf-research #59 ClinicalTrials.gov surveillance). Verified deterministic test suites: 48/48 sources, 36/36 claims, 10/10 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter, render-board -Check current. Executed Gemini Flash orchestration matrix: delegated citation and scope checking to preferred local worker (qwen3.8:27b-64k via invoke-local-model.ps1) and curative mission brief synthesis to Argon (Gemini 4 Argon pro subagent). Confirmed Trial Endpoint Atlas tracking 1,053 studies (+1 interventional trial NCT07809867 for ETI PK; NCT07709494 transitioned to ACTIVE_NOT_RECRUITING; 0 safety halts). Re-verified Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152, T-0154) and Track B public translation (T-0130, T-0146, T-0148, T-0153, T-0160). Flagged merged branches on in_progress tasks: T-0107 (PR #56), T-0155 (PR #72), T-0159 (PR #55/#70), T-0161 (PR #76); maintainer to set done. Flagged missing branch tracking on T-0039, T-0052, T-0067, T-0077, T-0119. Published updated Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-14.md."
+      "notes": "2026-10-12: proposed by Gemini on maintainer instruction; only the maintainer can set it ready. Strict zero-token-burn rule enforced on unchanged state. | 2026-10-12 CRO Grounding Audit: CRO sentinel executed first audit; lazy delta verification confirmed 15 new discovery/sentinel tasks; emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-12.md. Tier elevated. | 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules. | 2026-10-13 CRO Grounding Audit: Active delta check evaluated 161 tasks; audited governance/CI tasks (T-0140 to T-0146) and verified primary-evidence grounding for biophysical proposals (T-0147 delivery blueprint, T-0150 Cryo-EM perturbation, T-0151 nonsense mutation, T-0152 alternative conductance); confirmed worktree separation (site/nacfc-and-es-mx-2026-10-13 and feat/antigravity-discovery-and-pr-rules); updated audit state in last-cro-audit.json; emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md. | 2026-10-13 Midday CRO Audit: Lazy delta check triggered active audit following PR merges (cf-lab #55, #56, #57, #58; cf-research #47, #48; .ai #56). Verified deterministic test suites: 48/48 sources, 457/457 trial_atlas, 36/36 claims, 116/116 cftr-model tests pass. Confirmed completion of T-0148, T-0149, T-0160; verified Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152) and Track B public translation (viewer presets, es-MX localization, registry veracity in T-0146). Updated last-cro-audit.json and emitted 1-page Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md. | 2026-10-13 Evening CRO Audit: Lazy delta check triggered active audit following site showcase cycle 2 merge (PR #57) and cycle 3 PR preparation (PR #58), alongside cf-lab merges (PR #59, #60). Verified deterministic test suites: 48/48 sources, 457/457 trial_atlas (7 skipped), 36/36 claims, 116/116 cftr-model (79 skipped), 100/100 resources, and cf-lab check-all (render-board, test-render-board, check-staged, check-lab-files). Audited curative milestone alignment (Track A biophysics, Track B public translation, and defensive sentinels). Re-affirmed deprioritization of unanchored meta-tooling tasks. Updated last-cro-audit.json and emitted updated Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md. | 2026-10-13 Night CRO Audit: Active delta check evaluated 161 tasks following PR merges (.ai #58, cf-lab #61, cf-research #49). Verified deterministic test suites: 48/48 sources, 457/457 trial_atlas, 36/36 claims, 116/116 cftr-model, 100/100 resources, 16 registry claims, and cf-lab offline suite (render-board, test-render-board, skill-frontmatter, check-staged, check-lab-files). Executed worktree coordination audit across all 4 repos: flagged completed branches on T-0155, T-0159, T-0161 (merged via PR #55), T-0160 (merged via PR #56, #57, #58), and T-0107; flagged missing active branches on in_progress tasks T-0039, T-0048, T-0052, T-0067, T-0077, T-0119. Re-affirmed Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152) and Track B translation. Emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md (PR #50) and synchronized board state. | 2026-10-14 Opus Frontier Council Review: Re-anchored cadence to canonical Bi-weekly on 1st & 15th at 02:00 PT (CRON_TZ=America/Los_Angeles 0 2 1,15 * *). Added advisory mutex lock (.loop-logs/sentinel.lock). | 2026-10-13 Late-Night CRO Audit: Active delta check evaluated 161 tasks following PR merges (cf-lab #63-#66, .ai #59-#61, cf-research #50). Verified deterministic test suites: 47/47 claims/sources tests, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter. Re-affirmed Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152) and Track B public translation (widescreen showcase grid, es-MX localization, registry veracity in T-0146). Updated last-cro-audit.json, synchronized worktree coordination, and emitted updated Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md (PR #51). | 2026-10-13 Post-Cycle-6 CRO Audit: Active delta check evaluated 161 tasks following PR merges (cf-lab #68, .ai #62, cf-research #51). Verified deterministic test suites: 48/48 sources, 36/36 claims, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter. Re-affirmed Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152) and Track B public translation (Cycle 6 rare theratypes R347/R1070 on 3D viewer, Mexican Spanish localization, and medical boundary disclaimers; T-0146 registry veracity). Synchronized worktree coordination and emitted updated Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md (PR #52). | 2026-10-13 Post-PR-70 CRO Audit: Lazy delta found board.json changed (T-0155 branch/notes only, PR #70); proposals/ and landscape/ unchanged. Re-ran checks: 36/36 claims, 48/48 sources, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter, render-board -Check current. Flagged branch drift: T-0155, T-0159, T-0161 are in_progress on merged branches (PR #55, #70); maintainer to set done. Brief updated in cf-research/landscape/mission-grounding-2026-10-13.md. | 2026-10-14 Flash & Argon Delegation Audit: Executed scheduled CRO audit under Gemini Flash orchestration matrix; delegated citation and scope checking to preferred local worker (qwen3.8:27b-64k via Ollama) and curative mission alignment analysis to Argon (Gemini 4 Argon pro subagent). Verified deterministic test suites: 48/48 sources, 36/36 claims, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter. Re-affirmed Track A biophysical grounding (T-0147 LNP aerosol biophysics, T-0150 Cryo-EM perturbation modeling, T-0151 nonsense mutation engine, T-0152 alternative conductance, T-0154 anti-resistance phage co-evolution) and Track B public translation (Cycle 6 rare theratypes on 3D viewer, es-MX localization, T-0146 registry veracity). Ratified local worker scope creep warning: sentinels strictly bounded by zero-token idle check under maintainer sovereignty. Flagged merged branch drift on T-0155 (PR #72), T-0159 (PR #55), T-0161 (PR #55), T-0107 (PR #56); maintainer to set done. Emitted Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-13.md (PR #55). | 2026-10-14 Post-PR-74 CRO Audit: Active delta check evaluated 161 tasks following PR merges (cf-lab #74, cf-research #56, cf-skills #22 admitting Google Data Commons for population denominators and closing T-0048). Verified deterministic test suites: 48/48 sources, 36/36 claims, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter. Executed Gemini Flash orchestration matrix: delegated citation & scope audit to preferred local worker (qwen3.8:27b-64k) and curative mission brief synthesis to Argon (Gemini 4 Argon pro subagent). Confirmed T-0048 successfully resolved and closed. Re-verified Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152, T-0154) and Track B public translation (T-0130, T-0146, T-0148, T-0153). Flagged merged branches on T-0155 (PR #72), T-0159 (PR #55/#70), T-0161 (PR #73); flagged missing branch tracking on T-0039, T-0052, T-0067, T-0077, T-0119. Emitted 1-page Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-14.md (PR #57). | 2026-10-14 Post-PR-75 / Post-PR-57 CRO Reconciled Audit: Active delta check reconciled baseline state following merge of PR #75 (cf-lab) and PR #57 (cf-research), incorporating closing of T-0048 (Data Commons admission via PR #74, #56, #22). Verified deterministic test suites: 48/48 sources, 36/36 claims, 16 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter, render-board -Check current. Executed Gemini Flash orchestration matrix: local worker (qwen3.8:27b-64k) re-verified primary citations and worktree hygiene; Argon (Gemini 4 Argon pro subagent) synthesized curative mission alignment brief across Track A biophysics (T-0147 LNP aerosol biophysics, T-0150 Cryo-EM perturbation modeling, T-0151 nonsense mutation engine, T-0152 alternative conductance, T-0154 anti-resistance phage steering) and Track B public translation (T-0130, T-0146, T-0148, T-0153, T-0160). Flagged merged branches on in_progress tasks: T-0107 (PR #56), T-0155 (PR #72), T-0159 (PR #55/#70), T-0161 (PR #73/#75); maintainer to set done. Flagged missing branch tracking on T-0039, T-0052, T-0067, T-0077, T-0119. Reconciled brief published in cf-research/landscape/mission-grounding-2026-10-14.md (PR #58). | 2026-10-14 Post-PR-76 / Post-PR-59 CRO Surveillance Audit: Active delta check evaluated 161 tasks following PR merges (cf-lab #76, cf-research #58, .ai #64, and cf-research #59 ClinicalTrials.gov surveillance). Verified deterministic test suites: 48/48 sources, 36/36 claims, 10/10 registry claims, 22/22 test-render-board, 32/32 skill-frontmatter, render-board -Check current. Executed Gemini Flash orchestration matrix: delegated citation and scope checking to preferred local worker (qwen3.8:27b-64k via invoke-local-model.ps1) and curative mission brief synthesis to Argon (Gemini 4 Argon pro subagent). Confirmed Trial Endpoint Atlas tracking 1,053 studies (+1 interventional trial NCT07809867 for ETI PK; NCT07709494 transitioned to ACTIVE_NOT_RECRUITING; 0 safety halts). Re-verified Track A biophysical grounding (T-0147, T-0150, T-0151, T-0152, T-0154) and Track B public translation (T-0130, T-0146, T-0148, T-0153, T-0160). Flagged merged branches on in_progress tasks: T-0107 (PR #56), T-0155 (PR #72), T-0159 (PR #55/#70), T-0161 (PR #76); maintainer to set done. Flagged missing branch tracking on T-0039, T-0052, T-0067, T-0077, T-0119. Published updated Mission Grounding Brief in cf-research/landscape/mission-grounding-2026-10-14.md. | 2026-10-14: maintainer approved moving to done."
     },
     {
       "id": "T-0162",
