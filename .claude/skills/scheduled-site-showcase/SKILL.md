@@ -21,22 +21,28 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Thursday 04:00 PT)"] --> Preflight{"Pre-flight: Active site branch or in_progress task?"}
+    Trigger["Scheduled Trigger (Thursday 04:00 PT)"] --> Preflight{"Pre-flight: Active branch? Fetch origin & check board"}
     Preflight -->|Collision Detected| Abort["Exit 0 Cleanly\n(Avoid Concurrent Site Edits)"]
-    Preflight -->|Clear| Stage1["Stage 1: Research Round & Skill Evolution"]
-    Stage1 --> Stage2["Stage 2: Public Translation & Site Showcase"]
-    Stage2 --> Stage3["Stage 3: Grounded Review Loop & Build Verification"]
-    Stage3 --> Stage4["Stage 4: Isolated Worktree & PR Preparation"]
+    Preflight -->|Clear| Worktree["1. Spawn Dedicated Worktree & Branch\n(Never Edit main)"]
+    Worktree --> Stage1["2. Research Round & Skill Evolution"]
+    Stage1 --> Stage2["3. Public Translation & Site Showcase\n(In Worktree)"]
+    Stage2 --> Stage3["4. Grounded Review Loop & Build Verification\n(Unit Tests + Playwright Audits)"]
+    Stage3 --> Stage4["5. Elevated Gate & Dual-Family PR Submission"]
     Stage4 --> Review["Maintainer Sovereignty: Awaiting Human Review"]
 ```
 
-### Pre-flight: Task Board & Worktree Coordination
+### Pre-flight: Task Board, Origin Sync & Worktree Coordination
 
 Before touching any `.ai` or skill files:
-1. Check `tasks/board.json` for any `.ai` task already marked `"status": "in_progress"` with a `"branch"` set, and check active git worktrees (`git -C ../.ai worktree list`).
-2. If another agent or worktree is already working on the target site task or branch (e.g. `site/showcase-*` under `../.worktrees/.ai/`), **stop immediately and exit cleanly** so two agents never race on `.ai/src/`.
-3. When claiming a `ready` site task, spawn the isolated worktree first, then set `"status": "in_progress"` and `"branch": "<branch-name>"` on the claimed task in `tasks/board.json` and run `pwsh -NoProfile -File tasks/render-board.ps1`.
-4. **Never run check-all or tests at the beginning**: Strictly avoid running `check-all.ps1` or test suites (`tests.test_site`, `check-voice.py`, Playwright visual audits, or claims checkers) during Pre-flight or before changes are applied in the worktree. Running full `check-all.ps1` spends excessive execution time (several minutes across 30+ control-repo suites), risks spawning orphaned background server processes on test ports, and risks modifying or locking git index and worktree states. All deterministic testing belongs strictly in Stage 3 on the completed, staged changes in the dedicated worktree.
+1. **Sync with `origin/main`**: Always run `git -C ../.ai fetch origin` (and `git fetch origin` in `cf-lab`) so you inspect and branch from the latest merged code, not a stale local checkout.
+2. **Check for In-Flight Work**: Check `tasks/board.json` for any `.ai` task already marked `"status": "in_progress"` with a `"branch"` set, and check active git worktrees (`git -C ../.ai worktree list`).
+3. **Collision Detection**: If another agent or worktree is already working on the target site task or branch (e.g. `site/showcase-*` under `../.worktrees/.ai/`), **stop immediately and exit cleanly** so two agents never race on `.ai/src/`.
+4. **Spawn Isolated Worktree First**: Never edit `.ai` in the main checkout. Create the isolated worktree *first* before making any file changes:
+   ```powershell
+   python .claude/skills/workspace-siblings/scripts/worktrees.py new .ai showcase-<topic> --branch site/showcase-<topic> --push
+   ```
+   Set `"status": "in_progress"` and `"branch": "site/showcase-<topic>"` on the claimed task in `tasks/board.json` and run `pwsh -NoProfile -File tasks/render-board.ps1`.
+5. **Never run check-all or test suites at the beginning**: Strictly avoid running `check-all.ps1` or test suites (`tests.test_site`, `check-voice.py`, Playwright visual audits, or claims checkers) during Pre-flight or before changes are applied in the worktree. Running full `check-all.ps1` spends excessive execution time (several minutes across 30+ control-repo suites), risks spawning orphaned background server processes on test ports, and risks modifying or locking git index and worktree states. All deterministic testing belongs strictly in Stage 3 on the completed, staged changes inside the dedicated worktree.
 
 ### Stage 1: Research Round & Skill Evolution
 
@@ -96,24 +102,18 @@ Execute the mandatory 3-layer Grounded Review Loop:
      ```
    - Inspect screenshots in `../cf-lab-files/scratch/screenshots/` to verify zero visual overlap, no mobile overflow, and legible typography.
 
-### Stage 4: Worktree & PR Preparation Pipeline
+### Stage 4: Elevated Gate, Dual-Family Frontier Review & PR Submission
 
-1. **Spawn Isolated Git Worktree & Record Branch**:
-   - Never commit directly to `main`; use `<prefix>/<topic>` branch naming and push to `origin` immediately:
-     ```powershell
-     python .claude/skills/workspace-siblings/scripts/worktrees.py new .ai showcase-<topic> --prefix site --push
-     ```
-   - Ensure the claimed task row in `tasks/board.json` records `"branch": "site/<topic>"` (or the exact git branch name) so concurrent agents see the active branch.
-2. **Elevated Gate Enforcement**:
-   - Stage and verify through the repo gate:
+1. **Elevated Gate Enforcement**:
+   - Inside the dedicated worktree, stage changed files and verify through the repo gate:
      ```powershell
      pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier elevated -Expected "<changed-files>" -MessageFile <path-to-commit-msg>
      ```
-3. **Execute `pr-review-loop` with Diversity Frontier Council (Opus + Gemini)**:
+2. **Execute `pr-review-loop` with Diversity Frontier Council (Opus + Gemini)**:
    - Before opening or submitting any PR, openly request a dual-family frontier council review pairing Anthropic Claude Opus and Google Gemini (Family B + Family A) without enforcing who orchestrates.
    - The blind challenger from the opposing family reviews the staged diff; the orchestrator adjudicates each finding against deterministic tests.
    - Record the full review loop table (rounds, findings, accepted, rejected) in the PR description.
-4. **Submit Pull Request**:
+3. **Submit Pull Request**:
    - Open PR via GitHub CLI:
      ```powershell
      gh pr create --repo senseiewok/.ai --title "feat(site): <description>" --body-file pr-body.md

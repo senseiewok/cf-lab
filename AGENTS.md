@@ -44,6 +44,12 @@ Check the layout with `python .claude/skills/workspace-siblings/scripts/check-wo
 
 - One repo per commit, one pull request per repo. A change that spans repos is a pull request in each, linked in both bodies.
 - Agents work in new git worktrees, never in a person's main checkout. Worktrees live in `../.worktrees/<repo>/<topic>`, beside the repositories (`workspace-siblings/scripts/worktrees.py new`); `worktrees.py clean` lists the finished ones and removes them only with `--yes`, when a person asks.
+- **Sync with `origin/main` before inspecting or branching**: When starting a new task, always run `git fetch origin` (and fast-forward local `main` if on `main` via `git pull --ff-only`). Never assume a local checkout reflects newly merged PRs on GitHub.
+- **Targeted checks only**: Run only the checks relevant to the repository and files being modified. Never run the slow full `check-all.ps1` at the beginning of a session or for routine tasks across sibling repos.
+  - `.ai` website changes: `python -m unittest tests.test_site tests.test_resources_page tests.test_cftr_hero tests.test_site_cls`, `check-voice.py`, Playwright visual audits.
+  - `cf-lab` skill changes: `python tasks/check-skill-frontmatter.py` (~0.1s).
+  - `cf-lab` task board changes: `pwsh -File tasks/render-board.ps1 -Check` (~1s).
+  - `cf-research` changes: `pytest` on relevant tools (e.g. `tools/claims/test_check_claims.py`).
 
 | Change | Goes in |
 | --- | --- |
