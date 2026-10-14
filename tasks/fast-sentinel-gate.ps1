@@ -79,8 +79,9 @@ if (Test-Path $FullLockPath) {
     $IsStale = $false
     try {
         $LockContent = Get-Content $FullLockPath -Raw -ErrorAction SilentlyContinue | ConvertFrom-Json
-        $AcquiredTime = [datetime]::Parse($LockContent.acquired_at)
-        $AgeMinutes = ((Get-Date) - $AcquiredTime).TotalMinutes
+        $AcquiredTime = [datetime]::Parse($LockContent.acquired_at).ToUniversalTime()
+        $AgeMinutes = ((Get-Date).ToUniversalTime() - $AcquiredTime).TotalMinutes
+        if ($AgeMinutes -lt 0) { $AgeMinutes = 0 }
 
         if ($AgeMinutes -lt $LockTimeoutMinutes) {
             Write-Host "FAST-GATE: Lock actively held by '$($LockContent.held_by)' ($([math]::Round($AgeMinutes, 1)) min old < $LockTimeoutMinutes min). Backing off."
@@ -101,6 +102,8 @@ if (Test-Path $FullLockPath) {
 
 # 2. Fast Delta Check (F-01, F-02, F-03: Multi-candidate key lookup & worktree sibling path resolution)
 if ($WatermarkFile -and ($WatchPaths.Count -gt 0)) {
+    # Ensure remote changes are fetched so HEAD comparison does not miss remote PR merges
+    git -C $cfLab fetch origin --quiet 2>$null
     $FullWatermarkPath = if ([System.IO.Path]::IsPathRooted($WatermarkFile)) {
         $WatermarkFile
     } else {
