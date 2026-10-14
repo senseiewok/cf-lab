@@ -51,14 +51,17 @@ flowchart TD
   - Respect `catalog.yaml` bounds: maximum 1.0 request/second (`max_rps: 1.0`).
   - Retrieve machine-readable JSON; never crawl the web front-end.
 
-### 2. State Delta Evaluation & Atlas Update
+### 2. State Delta Evaluation & Atlas Update (Local Delegation)
 - Compare retrieved NCT IDs and status fields against `cf-research/tools/trial_atlas/`.
+- When orchestrating on Gemini Flash, **delegate the structured JSON extraction and Trial Endpoint Atlas formatting to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`.
 - Flag significant trial transitions:
   - Phase advances or completions.
   - Terminations or safety halts (e.g. VX-522 inhaled mRNA program).
   - New interventional modalities (mRNA, AAV, prime editing, ENaC inhibitors, TMEM16A potentiators, bacteriophage).
 
-### 3. Safety & Mandatory Registry Disclaimers
+### 3. Safety, Registry Disclaimers & Top-Task Escalation (Argon)
 - Every output or dataset updated by this sentinel must include the mandatory ClinicalTrials.gov disclaimer:
   > *"ClinicalTrials.gov does not evaluate safety or efficacy; listing on the registry does not denote government endorsement."*
+- If critical trial terminations or safety halts (e.g., severe adverse event suspensions in aerosolized delivery or gene editing) occur:
+  - **Escalate the therapeutic landscape assessment to Argon (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`)** to synthesize an evidence-grounded risk impact analysis.
 - When new trials are staged, changes are drafted in an isolated git worktree under `.worktrees/cf-research/` and submitted via `gh pr create` for maintainer review.

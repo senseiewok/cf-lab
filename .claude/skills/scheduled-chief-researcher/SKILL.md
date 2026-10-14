@@ -43,25 +43,27 @@ flowchart TD
    - **If no new tasks were proposed or modified, it terminates immediately in under 1 second without making any model calls.**
    - Releases `.loop-logs/sentinel.lock` upon completion or early exit.
 
-2. **Grounding & Coordination Audit of Board Tasks**:
-   - Scans all `status: proposed`, `ready`, and `in_progress` tasks in `tasks/board.json`:
-     - Asserts that `source_evidence` cites primary peer-reviewed literature (DOI), clinical registries (NCT), Cryo-EM coordinates (PDB), or official regulatory documentation.
-     - Rejects vague speculative claims ("explore AI", "improve tooling") that lack measurable `acceptance` criteria or direct tie to CFTR biology.
-     - Flags "agent scope creep" or recursive meta-tooling tasks that do not advance patient-facing translation or biophysical science.
-     - Verifies that every `status: "in_progress"` task records its active git `"branch"` (cross-checked against `git worktree list` across `cf-lab`, `cf-research`, `cf-skills`, and `.ai`) so concurrent agents never collide, and flags tasks whose PRs have already merged or been superseded.
+2. **Grounding & Coordination Audit of Board Tasks (Local Worker Delegation)**:
+   - When orchestrating on Gemini Flash, **delegate the citation and scope extraction to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`:
+     - Scans all `status: proposed`, `ready`, and `in_progress` tasks in `tasks/board.json`:
+       - Asserts that `source_evidence` cites primary peer-reviewed literature (DOI), clinical registries (NCT), Cryo-EM coordinates (PDB), or official regulatory documentation.
+       - Rejects vague speculative claims ("explore AI", "improve tooling") that lack measurable `acceptance` criteria or direct tie to CFTR biology.
+       - Flags "agent scope creep" or recursive meta-tooling tasks that do not advance patient-facing translation or biophysical science.
+       - Verifies that every `status: "in_progress"` task records its active git `"branch"` (cross-checked against `git worktree list` across `cf-lab`, `cf-research`, `cf-skills`, and `.ai`) so concurrent agents never collide, and flags tasks whose PRs have already merged or been superseded.
 
-3. **Curative Mission Alignment Evaluation**:
-   - Cross-references ongoing and queued efforts against the lab's two foundational tracks:
-     - **Track A (Biophysical Science & Cure Discovery)**:
-       - Overcoming the VX-522 delivery barrier (aerosolized & mucus-penetrating LNP formulation).
-       - PTC readthrough & NMD suppression (W1282X, G542X).
-       - Variant theratyping and Cryo-EM structural misfolding analysis.
-       - Alternative epithelial conductance (TMEM16A potentiators, ENaC inhibitors).
-       - Phage-antibiotic co-evolution for resistant *P. aeruginosa*.
-     - **Track B (Public Engagement & Care-Team Translation)**:
-       - The Trial Endpoint Atlas and surrogate biomarker calculators.
-       - Interactive 3D CFTR mutation viewer on `/cf/cftr/`.
-       - High-fidelity Spanish localization (`/es/`) with medical safety boundaries.
+3. **Curative Mission Alignment Evaluation & Top-Task Escalation (Argon)**:
+   - For evaluating deep curative alignment and synthesizing the strategic Mission Grounding Brief (top task), **delegate to Argon (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`)**:
+     - Cross-references ongoing and queued efforts against the lab's two foundational tracks:
+       - **Track A (Biophysical Science & Cure Discovery)**:
+         - Overcoming the VX-522 delivery barrier (aerosolized & mucus-penetrating LNP formulation).
+         - PTC readthrough & NMD suppression (W1282X, G542X).
+         - Variant theratyping and Cryo-EM structural misfolding analysis.
+         - Alternative epithelial conductance (TMEM16A potentiators, ENaC inhibitors).
+         - Phage-antibiotic co-evolution for resistant *P. aeruginosa*.
+       - **Track B (Public Engagement & Care-Team Translation)**:
+         - The Trial Endpoint Atlas and surrogate biomarker calculators.
+         - Interactive 3D CFTR mutation viewer on `/cf/cftr/`.
+         - High-fidelity Spanish localization (`/es/`) with medical safety boundaries.
 
 4. **Deliverable**:
    - Synthesizes a concise, single-page **Curative Grounding & Alignment Brief** saved to:

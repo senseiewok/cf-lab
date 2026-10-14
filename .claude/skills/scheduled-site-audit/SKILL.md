@@ -64,11 +64,15 @@ Verify that production web responses from `senseiewok.ai` return mandatory secur
   > [!IMPORTANT]
   > **Maintainer Sovereignty Guardrail**: Worktrees are removed *only* with `--yes` when a person asks. Never execute `worktrees.py clean --yes` automatically inside a scheduled cron. If finished or dangling worktrees are detected, log them to `memory/handoff.md` for human review.
 
-### 4. Tone, Dignity & Spanish Disclaimer Verification
-- Confirm all public pages conform to `lab-voice` boundaries (warm, plain-language, assertive, zero hype).
-- Verify that every Spanish page under `.ai/src/es/` carries the exact medical boundary disclaimer:
-  > *"Investigación independiente, no asesoramiento médico. Sensei Ewok CF Lab no promete curas ni tratamientos clínicos."*
+### 4. Tone, Dignity & Spanish Disclaimer Verification (Local Delegation)
+- When orchestrating on Gemini Flash, **delegate the verification of Spanish disclaimer text and drafting of audit summaries to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`:
+  - Confirm all public pages conform to `lab-voice` boundaries (warm, plain-language, assertive, zero hype).
+  - Verify that every Spanish page under `.ai/src/es/` carries the exact medical boundary disclaimer:
+    > *"Investigación independiente, no asesoramiento médico. Sensei Ewok CF Lab no promete curas ni tratamientos clínicos."*
 
-### 5. Logging & Escalation
+### 5. Logging & Top-Task Escalation (Argon)
 - Emits daily audit log to `.loop-logs/site-audit-YYYY-MM-DD.json`.
-- If critical regressions (e.g. broken CSP, missing disclaimer, or board render failure) are detected, log an elevated alert in `memory/handoff.md`.
+- If critical regressions (e.g. broken CSP, missing disclaimer, or board render failure) are detected:
+  - Escalate triage to **Argon** (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`).
+  - Log an elevated alert in `memory/handoff.md`.
+

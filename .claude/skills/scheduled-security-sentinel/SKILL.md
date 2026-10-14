@@ -63,7 +63,9 @@ Inspect:
 - Uncommitted git status (`git status --porcelain`).
 - Recent git reflogs across all sibling repositories.
 
-### 2. 5-Point Security & Privacy Audit Lens
+### 2. 5-Point Security & Privacy Audit Lens & Local Delegation
+
+When orchestrating on Gemini Flash, **delegate the first-pass mechanical triage of logs and transcripts to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1 -ProfileFile .claude/skills/model-qwen3-8-27b/ollama-profile.64k.fast.json`. Local worker calls execute strictly on loopback (`http://127.0.0.1:11434` with `-NoProxy`) with zero external network egress. Wrap untrusted log chunks inside `<untrusted_data>` boundaries with no tools.
 
 1. **Secret & Credential Leakage**:
    - Check for API keys, bearer tokens, OAuth secrets, private keys, or credentials copied from `.env`.
@@ -97,14 +99,19 @@ When a fixable hygiene or security defect is detected (e.g. missing `.gitignore`
    - When claiming a board task for the fix, set `"status": "in_progress"` and `"branch": "sec-fix-<topic>"` in `tasks/board.json` and run `pwsh -NoProfile -File tasks/render-board.ps1`.
 3. **Apply Minimal Deterministic Patch**:
    - Apply only the focused remediation code.
-3. **Run Full Review Gate**:
-   ```powershell
-   pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier full -Expected "<changed-files>" -MessageFile <path-to-commit-msg>
-   ```
-4. **Independent Diff Review (`pr-review-loop`)**:
-   - Execute an independent review pass of the diff using the mandatory Opus + Gemini frontier diversity council.
+4. **Run Local Diff Review & Full Review Gate**:
+   - Run first-pass diff review via local worker:
+     ```powershell
+     pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/review-diff.ps1 -RepoPath:. -Staged
+     ```
+   - Execute full review gate:
+     ```powershell
+     pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier full -Expected "<changed-files>" -MessageFile <path-to-commit-msg>
+     ```
+5. **Top-Task Escalation: Diversity Frontier Council (Argon + Opus)**:
+   - For Tier Full review and blind challenger passes, escalate top tasks to **Argon** (Gemini 4 Argon via `invoke_subagent` with `Model: 'pro'`) paired with Anthropic Claude Opus.
    - Record the review table in the PR body.
-5. **Submit Pull Request**:
+6. **Submit Pull Request**:
    ```powershell
    gh pr create --repo senseiewok/<repo> --title "fix(security): <description>" --body-file pr-body.md
    ```
@@ -115,7 +122,7 @@ When a fixable hygiene or security defect is detected (e.g. missing `.gitignore`
 If an active API key or private credential is ever detected in a log or commit:
 1. **Never attempt a silent patch**: Deleting a credential from Git history is insufficient; it must be revoked at the provider.
 2. Immediately log a high-priority alert in `memory/handoff.md`.
-3. Propose a P0 task in `tasks/board.json` detailing the leaked identifier name (never the secret value) and exact revocation steps for the human maintainer.
+3. Escalate immediate revocation assessment to **Argon** (`pro`) and propose a P0 task in `tasks/board.json` detailing the leaked identifier name (never the secret value) and exact revocation steps for the human maintainer.
 
 ---
 
