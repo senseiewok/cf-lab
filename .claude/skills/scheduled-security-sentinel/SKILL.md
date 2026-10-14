@@ -85,7 +85,7 @@ When a fixable hygiene or security defect is detected (e.g. missing `.gitignore`
    pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier full -Expected "<changed-files>" -MessageFile <path-to-commit-msg>
    ```
 4. **Independent Diff Review (`pr-review-loop`)**:
-   - Execute an independent review pass of the diff.
+   - Execute an independent review pass of the diff using the mandatory Opus + Gemini frontier diversity council.
    - Record the review table in the PR body.
 5. **Submit Pull Request**:
    ```powershell

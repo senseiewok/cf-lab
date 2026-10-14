@@ -17,16 +17,17 @@ The review tiers in `AGENTS.md` (Routine, Elevated, Full) decide **who** reviews
 | --- | --- | --- |
 | 1. Checks | Run the tests, linters and the repo's own gate (here: `pwsh -NoProfile -File ./check-all.ps1`, or `-Only` the rows you touched). Fix until they pass. | Spend a model on anything a script decides: syntax, formatting, counts, links, test results. |
 | 2. Size it | Docs or wording under about 20 changed lines, no code, and nothing that touches security, privacy, a licence, a source's terms or a public-facing claim: read the diff yourself once and write "self-reviewed, no model review" in the body. Skip to step 6. | Call a reviewer for a typo. Or skip one for a short change in those five areas: it still gets a reviewer. |
-| 3. Round 1 | One blind reviewer reads only the diff and the pull request's stated purpose. | Send whole files, the chat history or your own opinion of the change. |
+| 3. Round 1 | Diversity Frontier Council: a blind challenger from the opposing frontier family (Anthropic Claude Opus or Google Gemini) reads only the diff and the pull request's stated purpose. | Send whole files, the chat history or your own opinion of the change. |
 | 4. Verify | Check every finding against the code yourself. Reject false ones with the evidence; fix confirmed ones with a test that failed before the fix. | Act on a finding you have not reproduced, or decide by vote. |
 | 5. Round 2 | Only if round 1 confirmed a blocking, wrong-number or fail-open issue, or the fixes changed more than about 30 lines. The reviewer sees only the delta and the list of what was meant to change. | Run a third round. Anything left goes in the body. |
 | 6. Record | Put the loop table (below) in the body. | Claim "reviewed" for a scope nobody looked at. |
-| 7. Open | Open or push the pull request only now. | Push before the loop ends, unless the maintainer said to push while tests run. |
+| 7. Submit / Open | Open or push the pull request only now, after the Opus-Gemini frontier council review is completed and recorded in the body. | Push or submit before the loop ends, unless the maintainer said to push while tests run. |
 
 ### Who reviews
 
 - **The tier decides.** When a review tier in `AGENTS.md` applies, it sets the reviewers.
 - **A named default.** Where the maintainer has named a reviewer as the default authority, use that one. Never use the model that wrote the change.
+- **Mandatory PR Diversity Frontier Council (Opus + Gemini).** Before submitting, opening, or pushing any pull request across the workspace, the review loop must include an independent blind review from the orthogonal frontier family (Anthropic Claude Opus and Google Gemini). Single-model or same-family reviews share systemic blind spots (such as multi-repo shared package mirrors, subtle coordinate precision, or silent localization omissions); pairing Opus and Gemini ensures true architectural and biophysical cross-examination.
 - **Add at least one second-family reviewer** when the change touches security, privacy, a licence, a source's terms, a claim the public will read, deployment, credentials or patient data (the Full tier may require more). A model from the same family as the author shares its blind spots.
 - **Split the packet** when the change has a deploy or security surface: a code packet (behaviour, tests) and a security packet (secrets, permissions, network, what gets published), each to its own reviewer call.
 
@@ -57,11 +58,11 @@ One paragraph: the purpose, the evidence it rests on.
 ## Checks
 - `check-all.ps1`: N passed, 0 failed, M skipped (skipped: needs a browser)
 
-## Review loop
+## Review loop (Frontier Diversity Council: Anthropic Claude Opus & Google Gemini)
 | Round | Who | Findings | Accepted | Rejected |
 | --- | --- | --- | --- | --- |
-| 1 | the tier's reviewer, blind, diff only | 7 | 3 (fixed, each with a test) | 4 (evidence below) |
-| 2 | same reviewer, delta only | 2 | 1 | 1 |
+| 1 | Claude Opus / Gemini (Blind Challenger, diff only) | 4 | 3 (fixed, each with a test) | 1 (evidence below) |
+| 2 | Claude Opus / Gemini (Challenger, delta only) | 0 | 0 | 0 |
 
 Not reviewed: the generated catalog file; the visual change on tablet width; anything outside this repo.
 Left open: finding 2.4 (minor, tracked as a board task).
