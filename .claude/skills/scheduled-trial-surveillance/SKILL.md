@@ -11,7 +11,8 @@ Continuously tracks global interventional Cystic Fibrosis clinical trials, detec
 
 ## Cadence & Trigger
 
-- **Default Cadence**: Weekly on Wednesdays at 02:00 AM PT (`CRON_TZ=America/Los_Angeles 0 2 * * 3`).
+- **Default Baseline Cadence**: Weekly on Wednesdays at 02:00 AM PT (`CRON_TZ=America/Los_Angeles 0 2 * * 3`).
+- **Accelerated Active Cadence**: Daily at 07:00 AM PT (`CRON_TZ=America/Los_Angeles 0 7 * * *`) during active development sprints (isolated hour window avoiding chief-researcher overlap).
 - **Antigravity Sidecar ID**: `scheduled-trial-surveillance`
 - **Review Tier**: `elevated`
 
@@ -21,7 +22,7 @@ Continuously tracks global interventional Cystic Fibrosis clinical trials, detec
 
 ```mermaid
 flowchart TD
-    Trigger["Weekly Trigger (Wednesday 02:00 PT)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
+    Trigger["Scheduled Trigger (07:00 PT / Active Cadence)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
     Lock -->|Busy| Exit["Exit 0 Cleanly"]
     Lock -->|Acquired| Sync["0. Sync & Pull from main\n(sync-main.py)"]
     Sync --> Q["1. Query ClinicalTrials.gov API v2\n(Condition: Cystic Fibrosis)"]

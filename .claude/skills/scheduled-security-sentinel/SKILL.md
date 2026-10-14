@@ -11,7 +11,8 @@ Continuously audits background tasks, conversation logs, and repositories across
 
 ## Cadence & Trigger
 
-- **Default Cadence**: Daily at 11:00 PM PT (`CRON_TZ=America/Los_Angeles 0 23 * * *`).
+- **Default Baseline Cadence**: Daily at 11:00 PM PT (`CRON_TZ=America/Los_Angeles 0 23 * * *`).
+- **Accelerated Active Cadence**: Every 6 hours at 03:00, 09:00, 15:00, and 21:00 PT (`CRON_TZ=America/Los_Angeles 0 3,9,15,21 * * *`) during active development sprints.
 - **Antigravity Sidecar ID**: `scheduled-security-sentinel`
 - **Review Tier**: `full` (mandatory for security, credentials, privacy, and repository integrity).
 
@@ -21,7 +22,7 @@ Continuously audits background tasks, conversation logs, and repositories across
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Daily 23:00 PT)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
+    Trigger["Scheduled Trigger (23:00 PT / Active Cadence)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
     Lock -->|Busy| Exit["Exit 0 Cleanly"]
     Lock -->|Acquired| Sync["0. Sync & Pull from main\n(sync-main.py)"]
     Sync --> Ingest["1. Multi-Repo Log & State Ingestion"]
