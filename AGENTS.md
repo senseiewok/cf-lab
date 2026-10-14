@@ -96,6 +96,7 @@ Current skills:
 - `ascii-art` — README and terminal art: a craft process, a small canvas library for composing on a grid (models read ASCII better than they draw it), a rendering and accessibility checker, and the lab gallery
 - `playwright-browser-testing` — browser/UI testing with Playwright
 - `scheduled-site-showcase` — autonomous site builder, research round, skill evolution, Spanish copy, and PR preparation engine for `senseiewok.ai`
+- `scheduled-site-audit` — public site health and dignity sentinel: live HTTP security headers, 301 redirects, 65 roses motif count, link integrity, read-only worktree audit, and board check
 - `modern-web-standards` — zero-build modern web standards: semantic HTML5, CSS Grid/Subgrid, Container Queries, native CSS Nesting, Web Components, and accessibility budgets
 - `native-esmodules-design-patterns` — modern ES6+ software design patterns for native browser ES modules without bundlers: Singleton stores, EventTarget Pub/Sub, MVP, Repository data sources, and CSP-safe modular architecture
 
@@ -103,6 +104,8 @@ Current skills:
 
 - `cf-research-context` — grounding and safety rules for Cystic Fibrosis work: disease basics, CFTR modulators, endpoints, data sources, 65-rose convention, what the lab may and may not claim, and the guardrails against invented claims (answer tiers T0 to T3, scope records, the claim checkers)
 - `scheduled-chief-researcher` — frugal Chief Researcher Officer sentinel: audits task board grounding, maintains curative mission focus, and enforces zero token burn on idle state
+- `scheduled-evidence-integrity` — scientific integrity sentinel: Crossref Retraction Watch update-to relations and openFDA drug label monitoring against the source catalog
+- `scheduled-trial-surveillance` — clinical trial surveillance sentinel: ClinicalTrials.gov API monitoring for the Trial Endpoint Atlas
 - `lab-voice` — warm, plain-language research writing with dignity, evidence, and clear boundaries, in American English, with a checker for spelling, repetition and long pages
 - `cf-evidence-loop` (in the `cf-skills` repo at `../cf-skills/.claude/skills/cf-evidence-loop`; not copied here, one maintained source) — the evidence-record tool agents use before citing a number, approval, trial or paper. It reads the single source catalog through `EVIDENCE_CATALOG`; its own `catalog.yaml` is generated
 - `trial-atlas-pipeline` and `source-grounding` (in the `cf-research` repo at `../cf-research/.claude/skills/`; load with `--add-dir ../cf-research`) — the trial endpoint atlas's order of work, approval gates, privacy and stop rules; and how a public sentence is grounded (computed, registry statement, open-access definition, lab position) with what each checker proves, plus packets for a local worker

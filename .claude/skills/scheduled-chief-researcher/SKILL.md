@@ -29,9 +29,11 @@ flowchart TD
     Brief --> BoardUpdate["Update Task Notes / Flag Unanchored Drift"]
 ```
 
-1. **Lazy Delta Execution**:
+1. **Advisory Mutex Lock & Lazy Delta Execution**:
+   - Acquires advisory lock `.loop-logs/sentinel.lock` (if held and under 30 minutes old, backs off cleanly to prevent git index conflicts).
    - Compares the current git commit tree hash of `tasks/board.json`, `../cf-research/proposals/`, and `../cf-research/landscape/` against the audit state recorded in `.loop-logs/last-cro-audit.json`.
    - **If no new tasks were proposed or modified, it terminates immediately in under 1 second without making any model calls.**
+   - Releases `.loop-logs/sentinel.lock` upon completion or early exit.
 
 2. **Grounding & Coordination Audit of Board Tasks**:
    - Scans all `status: proposed`, `ready`, and `in_progress` tasks in `tasks/board.json`:
