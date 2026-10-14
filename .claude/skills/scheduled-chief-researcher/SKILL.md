@@ -11,38 +11,37 @@ Maintains strict scientific grounding and mission alignment across all autonomou
 
 ## Cadence & Trigger
 
-- **Default Baseline Cadence**: Bi-weekly on the 1st and 15th at 02:00 AM PT (`CRON_TZ=America/Los_Angeles 0 2 1,15 * *`) - scheduled 1 hour before deep discovery engines execute.
-- **Accelerated Active Cadence**: Every 8 hours at 02:00, 10:00, and 18:00 PT (`CRON_TZ=America/Los_Angeles 0 2,10,18 * * *`) during active development sprints.
-- **Antigravity Sidecar ID**: `scheduled-chief-researcher`
+- **Turbo Mode Cadence**: Every 2 hours on odd hours: 01:00, 03:00, 05:00, 07:00, 09:00, 11:00, 13:00, 15:00, 17:00, 19:00, 21:00, 23:00 PT (`CRON_TZ=America/Los_Angeles 0 1,3,5,7,9,11,13,15,17,19,21,23 * * *`) integrated within `daily-research-sentinel` (guaranteed 1-hour staggered separation from `daily-site-security-sentinel`).
+- **Antigravity Sidecar ID**: `daily-research-sentinel`
 - **Review Tier**: `elevated`
+- **Anti-Churn Invariant**: If no new tasks were proposed or modified, no status transitioned, and no retractions occurred, log audit status to `.loop-logs/` only. **It is strictly forbidden to open a pull request or edit `tasks/board.json` notes just to record that an audit occurred.** This breaks the circular self-triggering git loop.
 
 ---
 
-## Zero-Token-Burn Guardrail (Lazy Delta Execution)
+## Zero-Token-Burn Guardrail & Curative Showcase Bridge
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (02:00 PT / Active Cadence)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
-    Lock -->|Busy| Exit["Exit 0 Cleanly"]
-    Lock -->|Acquired| Sync["Sync & Pull from main\n(sync-main.py)"]
-    Sync --> Delta{"Has board.json or proposals/ changed since last audit?"}
-    Delta -->|No Changes (Idle)| Exit["Exit 0 Immediately\n(0 LLM Calls / 0 Tokens Burned)"]
-    Delta -->|Changes Detected| Layer1["Run Layer 1 Deterministic Checkers\n(check_claims.py, check_numbers.py)"]
-    Layer1 --> Audit["Audit Task Grounding & Curative Alignment"]
-    Audit --> Brief["Emit 1-Page Mission Grounding Brief\nin cf-research/landscape/"]
-    Brief --> BoardUpdate["Update Task Notes / Flag Unanchored Drift"]
+    Trigger["Scheduled Trigger (Every 2h on Odd Hours / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
+    FastGate -->|Zero Deltas (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
+    FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
+    Sync --> Audit["2. Audit Task Grounding & Curative Alignment"]
+    Audit --> Bridge["3. Emit Curative Brief with showcase_targets Manifest\nin cf-research/landscape/"]
+    Bridge --> Release["4. Release Lock via fast-sentinel-gate -Release"]
 ```
 
-1. **Advisory Mutex Lock & Sync with Main on Start**:
-   - Acquires advisory lock `.loop-logs/sentinel.lock` (if held and under 30 minutes old, backs off cleanly to prevent git index conflicts).
-   - **Sync with origin/main**: Always pull the latest `main` branch across workspace repositories before evaluating deltas:
-     ```powershell
-     python .claude/skills/workspace-siblings/scripts/sync-main.py
-     ```
-     Or manually: `git -C c:/senseiewok/repos/cf-lab pull --ff-only origin main && git -C c:/senseiewok/repos/cf-research pull --ff-only origin main`.
-   - Compares the current git commit tree hash of `tasks/board.json`, `../cf-research/proposals/`, and `../cf-research/landscape/` against the audit state recorded in `.loop-logs/last-cro-audit.json`.
-   - **If no new tasks were proposed or modified, it terminates immediately in under 1 second without making any model calls.**
-   - Releases `.loop-logs/sentinel.lock` upon completion or early exit.
+### 0. Deterministic Fast Pre-Flight Gate & Sync with Main
+Execute `tasks/fast-sentinel-gate.ps1` before any LLM reasoning or file reading begins:
+```powershell
+pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-research-sentinel" -WatermarkFile ".loop-logs/last-research-audit.json" -WatchPaths @("../cf-research/proposals", "../cf-research/landscape", "../cf-research/sources/catalog.yaml")
+```
+If the gate exits with code 10 (`LOCK_HELD`) or code 20 (`IDLE`), terminate immediately without calling further tools. Notice that `tasks/board.json` is excluded from watch paths to prevent circular self-invalidation.
+
+- **Sync with origin/main**: Always pull the latest `main` branch across workspace repositories before evaluating deltas:
+  ```powershell
+  python .claude/skills/workspace-siblings/scripts/sync-main.py
+  ```
 
 2. **Grounding & Coordination Audit of Board Tasks (Local Worker Delegation)**:
    - When orchestrating on Gemini Flash, **delegate the citation and scope extraction to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`:

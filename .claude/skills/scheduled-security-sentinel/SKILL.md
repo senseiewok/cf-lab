@@ -11,10 +11,10 @@ Continuously audits background tasks, conversation logs, and repositories across
 
 ## Cadence & Trigger
 
-- **Default Baseline Cadence**: Daily at 11:00 PM PT (`CRON_TZ=America/Los_Angeles 0 23 * * *`).
-- **Accelerated Active Cadence**: Every 6 hours at 03:00, 09:00, 15:00, and 21:00 PT (`CRON_TZ=America/Los_Angeles 0 3,9,15,21 * * *`) during active development sprints.
-- **Antigravity Sidecar ID**: `scheduled-security-sentinel`
+- **Turbo Mode Cadence**: Every 2 hours on even hours: 00:00, 02:00, 04:00, 06:00, 08:00, 10:00, 12:00, 14:00, 16:00, 18:00, 20:00, 22:00 PT (`CRON_TZ=America/Los_Angeles 0 0,2,4,6,8,10,12,14,16,18,20,22 * * *`) integrated within `daily-site-security-sentinel`.
+- **Antigravity Sidecar ID**: `daily-site-security-sentinel`
 - **Review Tier**: `full` (mandatory for security, credentials, privacy, and repository integrity).
+- **Anti-Churn Invariant**: If 0 defects or leaks are found, log to `.loop-logs/` only. It is strictly forbidden to open a PR or edit `tasks/board.json` notes just to record that a clean audit occurred.
 
 ---
 
@@ -22,22 +22,31 @@ Continuously audits background tasks, conversation logs, and repositories across
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (23:00 PT / Active Cadence)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
-    Lock -->|Busy| Exit["Exit 0 Cleanly"]
-    Lock -->|Acquired| Sync["0. Sync & Pull from main\n(sync-main.py)"]
-    Sync --> Ingest["1. Multi-Repo Log & State Ingestion"]
-    Ingest --> Audit["2. 5-Point Security & Privacy Audit"]
+    Trigger["Scheduled Trigger (Every 2h on Even Hours / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
+    FastGate -->|Clean Idle (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
+    FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
+    Sync --> Ingest["2. Multi-Repo Log & State Ingestion"]
+    Ingest --> Audit["3. 5-Point Security & Privacy Audit"]
     Audit --> Triage{"Anomalies Found?"}
     Triage -->|No| Clean["Emit Clean Audit Record to .loop-logs/"]
-    Triage -->|Fixable Defect| Fix["3. Automated Remediation Worktree Pipeline"]
-    Triage -->|Secret / Critical Leak| Alert["4. Emergency Handoff Alert & Revocation Notice"]
+    Triage -->|Fixable Defect| Fix["4. Automated Remediation Worktree Pipeline"]
+    Triage -->|Secret / Critical Leak| Alert["5. Emergency Handoff Alert & Revocation Notice"]
     Fix --> Gate["Full Gate: run-gate.ps1 -Tier full"]
     Gate --> PR["Open Pull Request via gh pr create"]
+    Clean --> Release["6. Release Lock via fast-sentinel-gate -Release"]
+    PR --> Release
 ```
+
+### 0. Deterministic Fast Pre-Flight Gate
+Execute `tasks/fast-sentinel-gate.ps1` before any LLM reasoning or file reading begins:
+```powershell
+pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-site-security-sentinel"
+```
+If the gate exits with code 10 (`LOCK_HELD`) or code 20 (`IDLE`), terminate immediately without calling further tools.
 
 ### 1. Multi-Repo Log & State Ingestion
 
-0. **Advisory Mutex Lock**: Acquire `.loop-logs/sentinel.lock` (if held and under 30 minutes old, back off and exit 0 cleanly). Release upon audit conclusion.
 1. **Sync with origin/main on Start**:
    Always pull the latest `main` branch across all workspace repositories before auditing:
    ```powershell

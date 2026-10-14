@@ -11,10 +11,10 @@ Continuously protects the lab's scientific credibility by monitoring primary lit
 
 ## Cadence & Trigger
 
-- **Default Baseline Cadence**: Weekly on Tuesdays at 02:00 AM PT (`CRON_TZ=America/Los_Angeles 0 2 * * 2`).
-- **Accelerated Active Cadence**: Daily at 05:00 AM PT (`CRON_TZ=America/Los_Angeles 0 5 * * *`) during active development sprints (isolated hour window avoiding chief-researcher overlap).
-- **Antigravity Sidecar ID**: `scheduled-evidence-integrity`
+- **Turbo Mode Cadence**: Every 2 hours on odd hours: 01:00, 03:00, 05:00, 07:00, 09:00, 11:00, 13:00, 15:00, 17:00, 19:00, 21:00, 23:00 PT (`CRON_TZ=America/Los_Angeles 0 1,3,5,7,9,11,13,15,17,19,21,23 * * *`) integrated within `daily-research-sentinel`.
+- **Antigravity Sidecar ID**: `daily-research-sentinel`
 - **Review Tier**: `routine`
+- **Anti-Churn Invariant**: When no retractions or indication revisions are detected, log clean audit results to `.loop-logs/` only. It is strictly forbidden to open pull requests or edit board notes for clean passes.
 
 ---
 
@@ -22,21 +22,27 @@ Continuously protects the lab's scientific credibility by monitoring primary lit
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (05:00 PT / Active Cadence)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
-    Lock -->|Busy| Exit["Exit 0 Cleanly"]
-    Lock -->|Acquired| Sync["0. Sync & Pull from main\n(sync-main.py)"]
-    Sync --> S1["1. Extract Catalog DOIs & Drug IDs"]
-    S1 --> S2["2. Query Crossref Retraction Watch API\n(Polite Pool, 1.0 req/s)"]
-    S2 --> S3["3. Query openFDA Drugs@FDA Endpoint\n(Paced 1.0 req/s)"]
+    Trigger["Scheduled Trigger (Every 2h on Odd Hours / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
+    FastGate -->|Zero Deltas (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
+    FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
+    Sync --> S1["2. Extract Catalog DOIs & Drug IDs"]
+    S1 --> S2["3. Query Crossref Retraction Watch API\n(Polite Pool, 1.0 req/s)"]
+    S2 --> S3["4. Query openFDA Drugs@FDA Endpoint\n(Paced 1.0 req/s)"]
     S3 --> Triage{"Retractions or Label Changes?"}
     Triage -->|No Changes| Clean["Emit Clean Record to .loop-logs/"]
     Triage -->|Anomalies Detected| Alert["Flag Affected Notes & Log Downgrade Alert"]
-    Alert --> Release["Release Lock"]
+    Alert --> Release["5. Release Lock via fast-sentinel-gate -Release"]
     Clean --> Release
 ```
 
-### 0. Advisory Mutex Lock & Sync with Main on Start
-- Acquire advisory lock `.loop-logs/sentinel.lock` (if held and under 30 minutes old, back off and exit 0 cleanly). Release upon audit conclusion.
+### 0. Deterministic Fast Pre-Flight Gate & Sync with Main
+Execute `tasks/fast-sentinel-gate.ps1` before any LLM reasoning or file reading begins:
+```powershell
+pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-research-sentinel" -WatermarkFile ".loop-logs/last-research-audit.json" -WatchPaths @("../cf-research/proposals", "../cf-research/landscape", "../cf-research/sources/catalog.yaml")
+```
+If the gate exits with code 10 (`LOCK_HELD`) or code 20 (`IDLE`), terminate immediately without calling further tools.
+
 - **Sync with origin/main**: Always pull the latest `main` branch across workspace repositories before reading catalog or landscape files:
   ```powershell
   python .claude/skills/workspace-siblings/scripts/sync-main.py

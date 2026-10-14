@@ -11,10 +11,10 @@ Maintains unbroken operational quality, security posture, and dignity for the pu
 
 ## Cadence & Trigger
 
-- **Default Baseline Cadence**: Daily at 01:00 AM PT (`CRON_TZ=America/Los_Angeles 0 1 * * *`).
-- **Accelerated Active Cadence**: Twice daily at 01:00 AM and 01:00 PM PT (`CRON_TZ=America/Los_Angeles 0 1,13 * * *`) during active development sprints.
-- **Antigravity Sidecar ID**: `scheduled-site-audit`
+- **Turbo Mode Cadence**: Every 2 hours on even hours: 00:00, 02:00, 04:00, 06:00, 08:00, 10:00, 12:00, 14:00, 16:00, 18:00, 20:00, 22:00 PT (`CRON_TZ=America/Los_Angeles 0 0,2,4,6,8,10,12,14,16,18,20,22 * * *`) integrated within `daily-site-security-sentinel`.
+- **Antigravity Sidecar ID**: `daily-site-security-sentinel`
 - **Review Tier**: `routine`
+- **Anti-Churn Invariant**: If zero defects or regressions are detected, log health status to `.loop-logs/` only. It is strictly forbidden to open a pull request or edit `tasks/board.json` notes just to record that a clean audit occurred.
 
 ---
 
@@ -22,19 +22,25 @@ Maintains unbroken operational quality, security posture, and dignity for the pu
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (01:00 PT / Active Cadence)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
-    Lock -->|Busy| Exit["Exit 0 Cleanly"]
-    Lock -->|Acquired| Sync["0. Sync & Pull from main\n(sync-main.py)"]
-    Sync --> H1["1. Live HTTP Security Headers Audit\n(HSTS, CSP, X-Robots-Tag)"]
-    H1 --> H2["2. 65 Roses Motif & Link Audit"]
-    H2 --> H3["3. Task Board & Worktree Audit\n(render-board -Check, worktrees list)"]
-    H3 --> H4["4. Dignity & Voice Check"]
+    Trigger["Scheduled Trigger (Every 2h on Even Hours / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
+    FastGate -->|Clean Idle (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
+    FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
+    Sync --> H1["2. Live HTTP Security Headers Audit\n(HSTS, CSP, X-Robots-Tag)"]
+    H1 --> H2["3. 65 Roses Motif & Link Audit"]
+    H2 --> H3["4. Task Board & Worktree Audit\n(render-board -Check, worktrees list)"]
+    H3 --> H4["5. Dignity & Voice Check"]
     H4 --> Report["Log Health Status to .loop-logs/ & memory/handoff.md"]
-    Report --> Release["Release Lock"]
+    Report --> Release["6. Release Lock via fast-sentinel-gate -Release"]
 ```
 
-### 0. Advisory Mutex Lock & Sync with Main on Start
-- Acquire advisory lock `.loop-logs/sentinel.lock` (if held and under 30 minutes old, back off and exit 0 cleanly). Release upon audit conclusion.
+### 0. Deterministic Fast Pre-Flight Gate & Sync with Main
+Execute `tasks/fast-sentinel-gate.ps1` before any LLM reasoning or file reading begins:
+```powershell
+pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-site-security-sentinel"
+```
+If the gate exits with code 10 (`LOCK_HELD`) or code 20 (`IDLE`), terminate immediately without calling further tools.
+
 - **Sync with origin/main**: Always pull the latest `main` branch across workspace repositories before verifying task board, worktrees, or site assets:
   ```powershell
   python .claude/skills/workspace-siblings/scripts/sync-main.py
