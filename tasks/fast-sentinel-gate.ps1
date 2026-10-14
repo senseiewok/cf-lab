@@ -11,7 +11,7 @@
 #>
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory = $true)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string]$SentinelName,
 
     [switch]$Release,
@@ -22,12 +22,16 @@ param(
 
     [string[]]$WatchPaths = @(),
 
-    [int]$LockTimeoutMinutes = 30
+    [int]$LockTimeoutMinutes = 30,
+
+    [Parameter(Position = 1, ValueFromRemainingArguments = $true)]
+    [string[]]$ExtraPaths = @()
 )
 
 $ErrorActionPreference = "Stop"
 
 # Normalize WatchPaths if passed as comma-separated or PowerShell array literal string
+$WatchPaths = @($WatchPaths) + @($ExtraPaths)
 if ($WatchPaths) {
     $WatchPaths = @($WatchPaths | ForEach-Object { $_ -split ',' } | ForEach-Object { $_.Trim().Trim('@(').Trim(')').Trim('"').Trim("'") } | Where-Object { $_ })
 }
