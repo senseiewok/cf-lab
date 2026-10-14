@@ -21,16 +21,24 @@ Maintains strict scientific grounding and mission alignment across all autonomou
 
 ```mermaid
 flowchart TD
-    Trigger["Bi-Weekly Trigger (02:00 PT)"] --> Delta{"Has board.json or proposals/ changed since last audit?"}
-    Delta -->|No Changes (Idle)| Exit["Exit 0 Immediately\n(0 LLM Calls / 0 Tokens Burned)"]
+    Trigger["Bi-Weekly Trigger (02:00 PT)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
+    Lock -->|Busy| Exit["Exit 0 Cleanly"]
+    Lock -->|Acquired| Sync["Sync & Pull from main\n(sync-main.py)"]
+    Sync --> Delta{"Has board.json or proposals/ changed since last audit?"}
+    Delta -->|No Changes (Idle)| Exit
     Delta -->|Changes Detected| Layer1["Run Layer 1 Deterministic Checkers\n(check_claims.py, check_numbers.py)"]
     Layer1 --> Audit["Audit Task Grounding & Curative Alignment"]
     Audit --> Brief["Emit 1-Page Mission Grounding Brief\nin cf-research/landscape/"]
     Brief --> BoardUpdate["Update Task Notes / Flag Unanchored Drift"]
 ```
 
-1. **Advisory Mutex Lock & Lazy Delta Execution**:
+1. **Advisory Mutex Lock & Sync with Main on Start**:
    - Acquires advisory lock `.loop-logs/sentinel.lock` (if held and under 30 minutes old, backs off cleanly to prevent git index conflicts).
+   - **Sync with origin/main**: Always pull the latest `main` branch across workspace repositories before evaluating deltas:
+     ```powershell
+     python .claude/skills/workspace-siblings/scripts/sync-main.py
+     ```
+     Or manually: `git -C c:/senseiewok/repos/cf-lab pull --ff-only origin main && git -C c:/senseiewok/repos/cf-research pull --ff-only origin main`.
    - Compares the current git commit tree hash of `tasks/board.json`, `../cf-research/proposals/`, and `../cf-research/landscape/` against the audit state recorded in `.loop-logs/last-cro-audit.json`.
    - **If no new tasks were proposed or modified, it terminates immediately in under 1 second without making any model calls.**
    - Releases `.loop-logs/sentinel.lock` upon completion or early exit.

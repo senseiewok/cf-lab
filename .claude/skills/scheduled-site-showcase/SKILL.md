@@ -21,7 +21,8 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Thursday 04:00 PT)"] --> Preflight{"Pre-flight: Active branch? Fetch origin & check board"}
+    Trigger["Scheduled Trigger (Thursday 04:00 PT)"] --> Preflight{"Pre-flight: Lock & Pull main (sync-main.py)"}
+    Preflight -->|No New Research (Watermark)| IdleExit["Exit 0 Cleanly\n(Zero Token Burn)"]
     Preflight -->|Collision Detected| Abort["Exit 0 Cleanly\n(Avoid Concurrent Site Edits)"]
     Preflight -->|Clear| Worktree["1. Spawn Dedicated Worktree & Branch\n(Never Edit main)"]
     Worktree --> Stage1["2. Research Round & Skill Evolution"]
@@ -31,12 +32,21 @@ flowchart TD
     Stage4 --> Review["Maintainer Sovereignty: Awaiting Human Review"]
 ```
 
-### Pre-flight: Advisory Lock, State Watermark & Worktree Coordination
+### Pre-flight: Advisory Lock, Main Sync, State Watermark & Worktree Coordination
 
 Before touching any `.ai` or skill files:
 1. **Advisory Mutex Lock**: Acquire `.loop-logs/sentinel.lock` (if held and under 30 minutes old, back off and exit 0 cleanly to avoid git lock collisions).
-2. **Persistent Research Watermark Check**: Inspect `.loop-logs/last-showcase-audit.json`. Compare the current git commit tree hash of `../cf-research/landscape/` and `../cf-research/proposals/` against `last_showcased_tree_hash`. If no new validated research dossiers or commits have been merged since the last showcase cycle, **exit 0 cleanly** without spawning worktrees or running visual audits.
-3. **Sync with `origin/main`**: Always run `git -C ../.ai fetch origin` (and `git fetch origin` in `cf-lab`) so you inspect and branch from the latest merged code, not a stale local checkout.
+2. **Sync with origin/main on Start**: Always sync with origin and pull the latest `main` branch across all workspace repositories before inspecting state watermarks, research dossiers, or tasks:
+   ```powershell
+   python .claude/skills/workspace-siblings/scripts/sync-main.py
+   ```
+   Or manually:
+   ```powershell
+   git -C c:/senseiewok/repos/cf-lab pull --ff-only origin main
+   git -C c:/senseiewok/repos/cf-research pull --ff-only origin main
+   git -C c:/senseiewok/repos/.ai pull --ff-only origin main
+   ```
+3. **Persistent Research Watermark Check**: Inspect `.loop-logs/last-showcase-audit.json`. Compare the current git commit tree hash of `../cf-research/landscape/` and `../cf-research/proposals/` against `last_showcased_tree_hash`. If no new validated research dossiers or commits have been merged since the last showcase cycle, **exit 0 cleanly** without spawning worktrees or running visual audits.
 4. **Check for In-Flight Work**: Check `tasks/board.json` for any `.ai` task already marked `"status": "in_progress"` with a `"branch"` set, and check active git worktrees (`git -C ../.ai worktree list`).
 5. **Collision Detection**: If another agent or worktree is already working on the target site task or branch (e.g. `site/showcase-*` under `../.worktrees/.ai/`), **stop immediately and exit cleanly** so two agents never race on `.ai/src/`.
 6. **Spawn Isolated Worktree First**: Never edit `.ai` in the main checkout. Create the isolated worktree *first* before making any file changes:

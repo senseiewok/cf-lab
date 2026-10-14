@@ -23,14 +23,24 @@ Continuously tracks global interventional Cystic Fibrosis clinical trials, detec
 flowchart TD
     Trigger["Weekly Trigger (Wednesday 02:00 PT)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
     Lock -->|Busy| Exit["Exit 0 Cleanly"]
-    Lock -->|Acquired| Q["1. Query ClinicalTrials.gov API v2\n(Condition: Cystic Fibrosis)"]
-    Q --> Delta{"2. Compute Delta against\ncf-research/tools/trial_atlas/snapshot.json"}
+    Lock -->|Acquired| Sync["0. Sync & Pull from main\n(sync-main.py)"]
+    Sync --> Q["1. Query ClinicalTrials.gov API v2\n(Condition: Cystic Fibrosis)"]
+    Delta{"2. Compute Delta against\ncf-research/tools/trial_atlas/snapshot.json"}
+    Q --> Delta
     Delta -->|No Changes| Clean["Emit Clean Record to .loop-logs/"]
     Delta -->|Updates Found| Parse["3. Extract Endpoints, Interventions & Status"]
     Parse --> Draft["4. Prepare Atlas Dataset PR in Worktree"]
     Draft --> Release["Release Lock"]
     Clean --> Release
 ```
+
+### 0. Advisory Mutex Lock & Sync with Main on Start
+- Acquire advisory lock `.loop-logs/sentinel.lock` (if held and under 30 minutes old, back off and exit 0 cleanly). Release upon audit conclusion.
+- **Sync with origin/main**: Always pull the latest `main` branch across workspace repositories before querying API or computing snapshot deltas:
+  ```powershell
+  python .claude/skills/workspace-siblings/scripts/sync-main.py
+  ```
+  Or manually: `git -C c:/senseiewok/repos/cf-research pull --ff-only origin main && git -C c:/senseiewok/repos/cf-lab pull --ff-only origin main`.
 
 ### 1. ClinicalTrials.gov API v2 Querying
 - Query the official API endpoint per `catalog.yaml` (`clinicaltrials-api`):
