@@ -11,7 +11,8 @@ Maintains strict scientific grounding and mission alignment across all autonomou
 
 ## Cadence & Trigger
 
-- **Default Cadence**: Bi-weekly on the 1st and 15th at 02:00 AM PT (`CRON_TZ=America/Los_Angeles 0 2 1,15 * *`) — scheduled 1 hour before the deep biophysical discovery engines execute.
+- **Default Baseline Cadence**: Bi-weekly on the 1st and 15th at 02:00 AM PT (`CRON_TZ=America/Los_Angeles 0 2 1,15 * *`) - scheduled 1 hour before deep discovery engines execute.
+- **Accelerated Active Cadence**: Every 8 hours at 02:00, 10:00, and 18:00 PT (`CRON_TZ=America/Los_Angeles 0 2,10,18 * * *`) during active development sprints.
 - **Antigravity Sidecar ID**: `scheduled-chief-researcher`
 - **Review Tier**: `elevated`
 
@@ -21,11 +22,11 @@ Maintains strict scientific grounding and mission alignment across all autonomou
 
 ```mermaid
 flowchart TD
-    Trigger["Bi-Weekly Trigger (02:00 PT)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
+    Trigger["Scheduled Trigger (02:00 PT / Active Cadence)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
     Lock -->|Busy| Exit["Exit 0 Cleanly"]
     Lock -->|Acquired| Sync["Sync & Pull from main\n(sync-main.py)"]
     Sync --> Delta{"Has board.json or proposals/ changed since last audit?"}
-    Delta -->|No Changes (Idle)| Exit
+    Delta -->|No Changes (Idle)| Exit["Exit 0 Immediately\n(0 LLM Calls / 0 Tokens Burned)"]
     Delta -->|Changes Detected| Layer1["Run Layer 1 Deterministic Checkers\n(check_claims.py, check_numbers.py)"]
     Layer1 --> Audit["Audit Task Grounding & Curative Alignment"]
     Audit --> Brief["Emit 1-Page Mission Grounding Brief\nin cf-research/landscape/"]

@@ -11,7 +11,8 @@ Continuously protects the lab's scientific credibility by monitoring primary lit
 
 ## Cadence & Trigger
 
-- **Default Cadence**: Weekly on Tuesdays at 02:00 AM PT (`CRON_TZ=America/Los_Angeles 0 2 * * 2`).
+- **Default Baseline Cadence**: Weekly on Tuesdays at 02:00 AM PT (`CRON_TZ=America/Los_Angeles 0 2 * * 2`).
+- **Accelerated Active Cadence**: Daily at 05:00 AM PT (`CRON_TZ=America/Los_Angeles 0 5 * * *`) during active development sprints (isolated hour window avoiding chief-researcher overlap).
 - **Antigravity Sidecar ID**: `scheduled-evidence-integrity`
 - **Review Tier**: `routine`
 
@@ -21,7 +22,7 @@ Continuously protects the lab's scientific credibility by monitoring primary lit
 
 ```mermaid
 flowchart TD
-    Trigger["Weekly Trigger (Tuesday 02:00 PT)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
+    Trigger["Scheduled Trigger (05:00 PT / Active Cadence)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
     Lock -->|Busy| Exit["Exit 0 Cleanly"]
     Lock -->|Acquired| Sync["0. Sync & Pull from main\n(sync-main.py)"]
     Sync --> S1["1. Extract Catalog DOIs & Drug IDs"]

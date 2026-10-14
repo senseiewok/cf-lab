@@ -11,7 +11,8 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ## Cadence & Trigger
 
-- **Default Cadence**: Weekly on Thursdays at 04:00 AM PT (`CRON_TZ=America/Los_Angeles 0 4 * * 4`).
+- **Default Baseline Cadence**: Weekly on Thursdays at 04:00 AM PT (`CRON_TZ=America/Los_Angeles 0 4 * * 4`).
+- **Accelerated Active Cadence**: Twice daily at 04:00 AM and 04:00 PM PT (`CRON_TZ=America/Los_Angeles 0 4,16 * * *`) during active development sprints.
 - **Antigravity Sidecar ID**: `scheduled-site-showcase`
 - **Review Tier**: `elevated` / `full` (depending on public claims and security boundaries).
 
@@ -21,7 +22,7 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Thursday 04:00 PT)"] --> Preflight{"Pre-flight: Lock & Pull main (sync-main.py)"}
+    Trigger["Scheduled Trigger (04:00 PT / Active Cadence)"] --> Preflight{"Pre-flight: Lock & Pull main (sync-main.py)"}
     Preflight -->|No New Research (Watermark)| IdleExit["Exit 0 Cleanly\n(Zero Token Burn)"]
     Preflight -->|Collision Detected| Abort["Exit 0 Cleanly\n(Avoid Concurrent Site Edits)"]
     Preflight -->|Clear| Worktree["1. Spawn Dedicated Worktree & Branch\n(Never Edit main)"]

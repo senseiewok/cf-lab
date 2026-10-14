@@ -11,7 +11,8 @@ Maintains unbroken operational quality, security posture, and dignity for the pu
 
 ## Cadence & Trigger
 
-- **Default Cadence**: Daily at 01:00 AM PT (`CRON_TZ=America/Los_Angeles 0 1 * * *`).
+- **Default Baseline Cadence**: Daily at 01:00 AM PT (`CRON_TZ=America/Los_Angeles 0 1 * * *`).
+- **Accelerated Active Cadence**: Twice daily at 01:00 AM and 01:00 PM PT (`CRON_TZ=America/Los_Angeles 0 1,13 * * *`) during active development sprints.
 - **Antigravity Sidecar ID**: `scheduled-site-audit`
 - **Review Tier**: `routine`
 
@@ -21,7 +22,7 @@ Maintains unbroken operational quality, security posture, and dignity for the pu
 
 ```mermaid
 flowchart TD
-    Trigger["Daily Trigger (01:00 PT)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
+    Trigger["Scheduled Trigger (01:00 PT / Active Cadence)"] --> Lock{"Acquire .loop-logs/sentinel.lock"}
     Lock -->|Busy| Exit["Exit 0 Cleanly"]
     Lock -->|Acquired| Sync["0. Sync & Pull from main\n(sync-main.py)"]
     Sync --> H1["1. Live HTTP Security Headers Audit\n(HSTS, CSP, X-Robots-Tag)"]
