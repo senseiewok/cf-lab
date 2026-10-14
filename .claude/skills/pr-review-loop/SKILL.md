@@ -15,7 +15,7 @@ The review tiers in `AGENTS.md` (Routine, Elevated, Full) decide **who** reviews
 
 | Step | Do | Do not |
 | --- | --- | --- |
-| 1. Checks | Run the tests, linters and the repo's own gate (here: `pwsh -NoProfile -File ./check-all.ps1`, or `-Only` the rows you touched). Fix until they pass. | Spend a model on anything a script decides: syntax, formatting, counts, links, test results. |
+| 1. Checks | Run the relevant tests, linters and the repo's own gate (use cheap focused checks: `pwsh -NoProfile -File ./check-all.ps1 -Only <name>` for the rows you touched, avoiding the slow multi-minute full suite). Fix until they pass. | Spend a model on anything a script decides: syntax, formatting, counts, links, test results, or run full check-all when only a narrow check is needed. |
 | 2. Size it | Docs or wording under about 20 changed lines, no code, and nothing that touches security, privacy, a licence, a source's terms or a public-facing claim: read the diff yourself once and write "self-reviewed, no model review" in the body. Skip to step 6. | Call a reviewer for a typo. Or skip one for a short change in those five areas: it still gets a reviewer. |
 | 3. Round 1 | Diversity Frontier Council: openly request a blind review from the opposing frontier family (Anthropic Claude Opus or Google Gemini) on the diff and the pull request's stated purpose. | Send whole files, the chat history or your own opinion of the change. |
 | 4. Verify | Check every finding against the code yourself. Reject false ones with the evidence; fix confirmed ones with a test that failed before the fix. | Act on a finding you have not reproduced, or decide by vote. |
