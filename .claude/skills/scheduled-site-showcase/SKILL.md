@@ -11,10 +11,10 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ## Cadence & Trigger
 
-- **Default Baseline Cadence**: Weekly on Thursdays at 04:00 AM PT (`CRON_TZ=America/Los_Angeles 0 4 * * 4`).
-- **Accelerated Active Cadence**: Twice daily at 04:00 AM and 04:00 PM PT (`CRON_TZ=America/Los_Angeles 0 4,16 * * *`) during active development sprints.
-- **Antigravity Sidecar ID**: `scheduled-site-showcase`
+- **Turbo Mode Cadence**: Every 2 hours on odd hours: 01:00, 03:00, 05:00, 07:00, 09:00, 11:00, 13:00, 15:00, 17:00, 19:00, 21:00, 23:00 PT (`CRON_TZ=America/Los_Angeles 0 1,3,5,7,9,11,13,15,17,19,21,23 * * *`) integrated within `daily-research-sentinel` (following research delta evaluations).
+- **Antigravity Sidecar ID**: `daily-research-sentinel`
 - **Review Tier**: `elevated` / `full` (depending on public claims and security boundaries).
+- **Anti-Churn Invariant**: If no new validated research dossiers or `showcase_targets` exist, terminate cleanly with 0 tokens burned. Never open a pull request without newly verified biophysical research deliverables or localized content.
 
 ---
 
@@ -22,21 +22,25 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (04:00 PT / Active Cadence)"] --> Preflight{"Pre-flight: Lock & Pull main (sync-main.py)"}
-    Preflight -->|No New Research (Watermark)| IdleExit["Exit 0 Cleanly\n(Zero Token Burn)"]
-    Preflight -->|Collision Detected| Abort["Exit 0 Cleanly\n(Avoid Concurrent Site Edits)"]
-    Preflight -->|Clear| Worktree["1. Spawn Dedicated Worktree & Branch\n(Never Edit main)"]
+    Trigger["Scheduled Trigger (Every 2h on Odd Hours / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
+    FastGate -->|No New Research (Code 20)| IdleExit["Exit 20 Cleanly (0 Tokens Burned)"]
+    FastGate -->|Deltas Detected (Code 0)| Worktree["1. Spawn Dedicated Worktree & Branch\n(Never Edit main)"]
     Worktree --> Stage1["2. Research Round & Skill Evolution"]
     Stage1 --> Stage2["3. Public Translation & Site Showcase\n(In Worktree)"]
     Stage2 --> Stage3["4. Grounded Review Loop & Build Verification\n(Unit Tests + Playwright Audits)"]
     Stage3 --> Stage4["5. Elevated Gate & Dual-Family PR Submission"]
-    Stage4 --> Review["Maintainer Sovereignty: Awaiting Human Review"]
+    Stage4 --> Release["6. Release Lock via fast-sentinel-gate -Release"]
 ```
 
-### Pre-flight: Advisory Lock, Main Sync, State Watermark & Worktree Coordination
+### Pre-flight: Deterministic Fast Gate, Main Sync & Worktree Coordination
 
 Before touching any `.ai` or skill files:
-1. **Advisory Mutex Lock**: Acquire `.loop-logs/sentinel.lock` (if held and under 30 minutes old, back off and exit 0 cleanly to avoid git lock collisions).
+1. **Deterministic Fast Pre-Flight Gate**:
+   ```powershell
+   pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-research-sentinel" -WatermarkFile ".loop-logs/last-research-audit.json" -WatchPaths @("../cf-research/proposals", "../cf-research/landscape", "../cf-research/sources/catalog.yaml")
+   ```
+   If exit code is 10 (`LOCK_HELD`) or 20 (`IDLE`), terminate immediately without calling further tools.
 2. **Sync with origin/main on Start**: Always sync with origin and pull the latest `main` branch across all workspace repositories before inspecting state watermarks, research dossiers, or tasks:
    ```powershell
    python .claude/skills/workspace-siblings/scripts/sync-main.py
