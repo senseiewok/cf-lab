@@ -31,18 +31,20 @@ flowchart TD
     Stage4 --> Review["Maintainer Sovereignty: Awaiting Human Review"]
 ```
 
-### Pre-flight: Task Board, Origin Sync & Worktree Coordination
+### Pre-flight: Advisory Lock, State Watermark & Worktree Coordination
 
 Before touching any `.ai` or skill files:
-1. **Sync with `origin/main`**: Always run `git -C ../.ai fetch origin` (and `git fetch origin` in `cf-lab`) so you inspect and branch from the latest merged code, not a stale local checkout.
-2. **Check for In-Flight Work**: Check `tasks/board.json` for any `.ai` task already marked `"status": "in_progress"` with a `"branch"` set, and check active git worktrees (`git -C ../.ai worktree list`).
-3. **Collision Detection**: If another agent or worktree is already working on the target site task or branch (e.g. `site/showcase-*` under `../.worktrees/.ai/`), **stop immediately and exit cleanly** so two agents never race on `.ai/src/`.
-4. **Spawn Isolated Worktree First**: Never edit `.ai` in the main checkout. Create the isolated worktree *first* before making any file changes:
+1. **Advisory Mutex Lock**: Acquire `.loop-logs/sentinel.lock` (if held and under 30 minutes old, back off and exit 0 cleanly to avoid git lock collisions).
+2. **Persistent Research Watermark Check**: Inspect `.loop-logs/last-showcase-audit.json`. Compare the current git commit tree hash of `../cf-research/landscape/` and `../cf-research/proposals/` against `last_showcased_tree_hash`. If no new validated research dossiers or commits have been merged since the last showcase cycle, **exit 0 cleanly** without spawning worktrees or running visual audits.
+3. **Sync with `origin/main`**: Always run `git -C ../.ai fetch origin` (and `git fetch origin` in `cf-lab`) so you inspect and branch from the latest merged code, not a stale local checkout.
+4. **Check for In-Flight Work**: Check `tasks/board.json` for any `.ai` task already marked `"status": "in_progress"` with a `"branch"` set, and check active git worktrees (`git -C ../.ai worktree list`).
+5. **Collision Detection**: If another agent or worktree is already working on the target site task or branch (e.g. `site/showcase-*` under `../.worktrees/.ai/`), **stop immediately and exit cleanly** so two agents never race on `.ai/src/`.
+6. **Spawn Isolated Worktree First**: Never edit `.ai` in the main checkout. Create the isolated worktree *first* before making any file changes:
    ```powershell
    python .claude/skills/workspace-siblings/scripts/worktrees.py new .ai showcase-<topic> --branch site/showcase-<topic> --push
    ```
    Set `"status": "in_progress"` and `"branch": "site/showcase-<topic>"` on the claimed task in `tasks/board.json` and run `pwsh -NoProfile -File tasks/render-board.ps1`.
-5. **Never run check-all or test suites at the beginning**: Strictly avoid running `check-all.ps1` or test suites (`tests.test_site`, `check-voice.py`, Playwright visual audits, or claims checkers) during Pre-flight or before changes are applied in the worktree. Running full `check-all.ps1` spends excessive execution time (several minutes across 30+ control-repo suites), risks spawning orphaned background server processes on test ports, and risks modifying or locking git index and worktree states. All deterministic testing belongs strictly in Stage 3 on the completed, staged changes inside the dedicated worktree.
+7. **Never run check-all or test suites at the beginning**: Strictly avoid running `check-all.ps1` or test suites (`tests.test_site`, `check-voice.py`, Playwright visual audits, or claims checkers) during Pre-flight or before changes are applied in the worktree. Running full `check-all.ps1` spends excessive execution time (several minutes across 30+ control-repo suites), risks spawning orphaned background server processes on test ports, and risks modifying or locking git index and worktree states. All deterministic testing belongs strictly in Stage 3 on the completed, staged changes inside the dedicated worktree.
 
 ### Stage 1: Research Round & Skill Evolution
 

@@ -33,6 +33,7 @@ flowchart TD
 
 ### 1. Multi-Repo Log & State Ingestion
 
+0. **Advisory Mutex Lock**: Acquire `.loop-logs/sentinel.lock` (if held and under 30 minutes old, back off and exit 0 cleanly). Release upon audit conclusion.
 Scan all background task artifacts and working directories across the four workspace roots:
 - `cf-lab` (control repo)
 - `../cf-research` (research repo)
