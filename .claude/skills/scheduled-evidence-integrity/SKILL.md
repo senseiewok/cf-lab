@@ -57,18 +57,20 @@ Extract checkable identifiers from:
   - Pass a polite `User-Agent` header containing contact information.
   - Inspect returned notice types: `retraction`, `correction`, `expression_of_concern`.
 
-### 3. openFDA Drug Label & Approval Tracking
+### 3. openFDA Drug Label & Approval Tracking (Local Delegation)
 - Query openFDA drug label and Drugs@FDA endpoints for approved CFTR modulators:
   - Elexacaftor/Tezacaftor/Ivacaftor (`TRIKAFTA` -> NDA212273)
   - Vanzacaftor/Tezacaftor/Deutivacaftor (`ALYFTREK`)
   - Ivacaftor (`KALYDECO` -> NDA203188)
   - Lumacaftor/Ivacaftor (`ORKAMBI` -> NDA206038)
   - Tezacaftor/Ivacaftor (`SYMDEKO` -> NDA210491)
+- When orchestrating on Gemini Flash, **delegate the structured comparison of FDA label revisions against `catalog.yaml` to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`.
 - Verify approval history, boxed warnings, and age/genotype indications.
 
-### 4. Non-Destructive Integrity Guardrails
-- If a cited DOI is flagged as retracted:
+### 4. Non-Destructive Integrity Guardrails & Top-Task Escalation (Argon)
+- If a cited DOI is flagged as retracted or an FDA boxed warning is modified:
   - **Never silently mutate or erase historical research files**.
   - Downgrade the dependent claim in `cf-research/landscape/` to `unverified`.
   - Append an explicit audit note referencing the retraction notice.
+  - **Escalate the clinical impact analysis to Argon (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`)** to synthesize an evidence-grounded risk assessment.
   - Propose a remedial task on `tasks/board.json` for human clinician/researcher review.

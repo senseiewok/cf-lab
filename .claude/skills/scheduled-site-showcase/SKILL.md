@@ -69,7 +69,7 @@ Before touching any `.ai` or skill files:
      python tasks/check-skill-frontmatter.py
      ```
 
-### Stage 2: Exposing the Lab's Work (Public Translation)
+### Stage 2: Exposing the Lab's Work (Public Translation & Local Delegation)
 
 1. **Evidence & Asset Generation**:
    - Re-generate public evidence ledgers:
@@ -84,10 +84,11 @@ Before touching any `.ai` or skill files:
    - Update HTML, CSS, and interactive visualizers on target pages (`/cf/`, `/cf/cftr/`, `/tools/`, `/evidence/`).
    - Maintain the two-tier header navigation and right-hand secondary sub-nav rail (`aside.subnav-rail`) on content pages.
    - Preserve the 65-Roses visual motif counter and semantic structure.
-3. **Mexican Spanish Localization (`/es/...`, `es-MX`)**:
-   - Author or update parallel Mexican Spanish pages under `.ai/src/es/` (e.g., `/es/`, `/es/cf/`, `/es/cf/cftr/`) with `<html lang="es-MX">` and reciprocal `hreflang="es-MX"` / `hreflang="en"` links.
-   - Use natural Mexican Spanish vocabulary (`computadora`, `archivo`, `teléfono celular`, `ustedes`, `consultar con su equipo médico`) and include the verified Spanish medical boundary disclaimer:
-     > *"Investigación independiente, no asesoramiento médico. Sensei Ewok CF Lab no promete curas ni tratamientos clínicos."*
+3. **Mexican Spanish Localization (`/es/...`, `es-MX`) (Local Worker Delegation)**:
+   - When orchestrating on Gemini Flash, **delegate the drafting of parallel Mexican Spanish translations and metadata to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/delegate.ps1`:
+     - Author or update parallel Mexican Spanish pages under `.ai/src/es/` (e.g., `/es/`, `/es/cf/`, `/es/cf/cftr/`) with `<html lang="es-MX">` and reciprocal `hreflang="es-MX"` / `hreflang="en"` links.
+     - Use natural Mexican Spanish vocabulary (`computadora`, `archivo`, `teléfono celular`, `ustedes`, `consultar con su equipo médico`) and include the verified Spanish medical boundary disclaimer:
+       > *"Investigación independiente, no asesoramiento médico. Sensei Ewok CF Lab no promete curas ni tratamientos clínicos."*
 
 ### Stage 3: Deterministic Grounded Review Loop & Verification
 
@@ -114,16 +115,16 @@ Execute the mandatory 3-layer Grounded Review Loop:
      ```
    - Inspect screenshots in `../cf-lab-files/scratch/screenshots/` to verify zero visual overlap, no mobile overflow, and legible typography.
 
-### Stage 4: Elevated Gate, Dual-Family Frontier Review & PR Submission
+### Stage 4: Elevated Gate, Dual-Family Frontier Review (Argon + Opus) & PR Submission
 
 1. **Elevated Gate Enforcement**:
-   - Inside the dedicated worktree, stage changed files and verify through the repo gate:
+   - Inside the dedicated worktree, stage changed files, run first-pass local diff review (`pwsh .claude/skills/ai-loop-council/scripts/review-diff.ps1 -Staged`), and verify through the repo gate:
      ```powershell
      pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier elevated -Expected "<changed-files>" -MessageFile <path-to-commit-msg>
      ```
-2. **Execute `pr-review-loop` with Diversity Frontier Council (Opus + Gemini)**:
-   - Before opening or submitting any PR, openly request a dual-family frontier council review pairing Anthropic Claude Opus and Google Gemini (Family B + Family A) without enforcing who orchestrates.
-   - The blind challenger from the opposing family reviews the staged diff; the orchestrator adjudicates each finding against deterministic tests.
+2. **Execute `pr-review-loop` with Diversity Frontier Council (Argon + Opus)**:
+   - For elevated review before PR submission, escalate top-task challenger reviews to **Argon** (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`) paired with Anthropic Claude Opus.
+   - The blind challenger reviews the staged diff; the orchestrator adjudicates each finding against deterministic tests.
    - Record the full review loop table (rounds, findings, accepted, rejected) in the PR description.
 3. **Submit Pull Request**:
    - Open PR via GitHub CLI:

@@ -148,6 +148,12 @@ Follow the `ai-loop-council` skill. In short:
 
 - **PR diversity frontier council (Opus + Gemini).** Rather than enforcing who orchestrates, openly request an orthogonal frontier review combining Anthropic Claude Opus and Google Gemini (Family B + Family A) before submitting or opening PRs. The current controlling agent remains the orchestrator; a challenger from the opposing frontier family conducts an independent blind review of the diff. Dual-family frontier review catches single-source-of-truth invariant violations, multi-repo package drift, coordinate precision shifts, and silent translation omissions before PR submission.
 
+- **Gemini Flash orchestration & delegation matrix.** When the orchestrator/controlling agent is running on Google Gemini Flash (e.g. within Antigravity or sidecar scheduled agents):
+  - **Top tasks (Elevated / Full tiers):** For complex architecture, deep curative biophysical research synthesis (Track A), high-stakes security/privacy review, and frontier council challenger reviews, delegate to **Argon** (Gemini 4 Argon, invoked as `Model: 'pro'` via `invoke_subagent`).
+  - **Local-capable tasks (Routine / Bounded tiers):** For tasks where local agents excel—including bounded drafting, mechanical edits, first-pass diff reviews (`review-diff.ps1`), log/transcript scanning for secrets/PHI triage, catalog citation extraction, and templated markdown/JSON ledger updates—delegate directly to the preferred local worker (**`qwen3.8:27b-64k`** via Ollama using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1` or `delegate.ps1`).
+  - **Deterministic verification:** Code, tests, linters, `tasks/render-board.ps1 -Check`, and `ai-loop-council/scripts/run-gate.ps1` decide completion, never model claims.
+  - **Automations & Sentinels:** All autonomous scheduled sidecars (`scheduled-*`) must actively employ this delegation pattern—offloading mechanical triage and first-pass drafting to the local worker before escalating top tasks to Argon.
+
 | Review tier | When | Who |
 | --- | --- | --- |
 | Routine | Docs, small low-risk edits | Worker × 2 samples + verifier |

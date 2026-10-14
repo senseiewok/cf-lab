@@ -28,6 +28,11 @@ This skill describes **roles**, not models. The actual model in each role is cho
 7. **Findings and fixes are separate claims.** A worker can spot a real bug and still propose a wrong fix. The orchestrator verifies each fix on its own.
 8. **"Checked and fine" is not coverage.** A worker listing something as fine proves nothing. Only a verifier or the orchestrator's own reading clears it.
 9. **Diversity Frontier Council (Opus + Gemini).** Do not enforce who orchestrates—any controlling agent can orchestrate. Before any pull request is opened or submitted across the workspace, openly request a blind review round from an orthogonal frontier model family — specifically Anthropic Claude Opus and Google Gemini (Family B + Family A). The challenger conducts an independent, blind first pass over the diff; the orchestrator adjudicates each finding against deterministic verification. Dual-family frontier review catches multi-repo invariant violations, tool synchronization gaps, subtle scientific coordinate shifts, and omissions that same-family agents systematically miss.
+10. **Gemini Flash Delegation Matrix (Top Tasks -> Argon; Bounded Tasks -> Local Worker).** When orchestrating from Google Gemini Flash (e.g., in Antigravity or sidecars):
+    - **Top tasks:** Delegate deep reasoning, complex biophysical curative research synthesis, high-risk security adjudication, and frontier challenger reviews to **Argon** (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`).
+    - **Tasks where local agents are good:** Delegate bounded drafting, mechanical edits, first-pass diff reviews with `review-diff.ps1`, log/transcript triage, claims & citations extraction from primary sources, and JSON/YAML ledger updates to our preferred local agent (**`qwen3.8:27b-64k`** via Ollama using `invoke-local-model.ps1` or `delegate.ps1`).
+    - **Automations & Sentinels:** All scheduled background sentinels must actively offload routine mechanical triage to the local worker before escalating top tasks to Argon.
+
 
 ## The tier gate (proposed; scripts tested)
 
