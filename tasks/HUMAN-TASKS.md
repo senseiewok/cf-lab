@@ -54,7 +54,7 @@ A pull request is a proposal until a person merges it. Agents never merge.
 
 Use a lab-owned address, never a personal one. Keys go only in the git-ignored `.env`; never paste one into a chat, a file in a repo or a pull request. The table that explains each step is in cf-research `proposals/2026-10-08-source-plan-and-signups.md` (PR #11).
 
-- [ ] OpenAlex API key (the catalog says a key is required). First, because it unlocks the most
+- [x] OpenAlex API key (the catalog says a key is required). Obtained by maintainer. Configured via OPENALEX_API_KEY in .env.
 - [ ] Optional NCBI and openFDA keys (they raise request limits; the new limits are unread)
 - [ ] Send the CFTR2 letter, the Child Opportunity Index letter and the review invitation (cf-research PR #19; fill the placeholders, confirm each addressee on its own site first)
 - [ ] Send the CF Foundation Patient Registry letter (cf-research PR #12), and record the reply in `landscape/registry-data-access.md`
