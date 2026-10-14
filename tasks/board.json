@@ -3896,11 +3896,11 @@
       "acceptance": "Step 1: a documented, tested run of one fixed CF question through the evidence loop returns records from at least four catalogued sources, each with its source id, URL, retrieval date and a 'not stated' where a source is silent; a test with a deliberately wrong record shows the cross-check flags it. Step 2: the variant layer (the variant_profile tool, MyVariant, and AlphaMissense only if the catalog entry is admitted) gives one profile for a fixed public variant with every number tied to a source field. Each new key gets a slot in .env.example (names only) and is read only through run-with-env.ps1; no agent reads .env. Every pull request names each new external network call and dependency. The maintainer does every sign-up, licence acceptance and permission request in the proposal's table; no source becomes reachable until the maintainer admits it in the catalog. A Full-tier review applies where a key or a licence is involved.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-08T14:40:09Z",
+      "updated_at": "2026-10-14T23:20:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "high",
-      "notes": "2026-10-08: proposed by a model; only the maintainer can set it ready. Not started. Sign-ups (maintainer only, with a lab-owned address and keys only in the git-ignored .env): OpenAlex key first, then optional NCBI and openFDA keys, the CFF and ECFSPR permission requests (T-0006), connector sign-ins, and the decisions on Semantic Scholar, Data Commons, Gemini and any paid item. Costs and the terms of the sources marked unread in the proposal have not been checked."
+      "notes": "2026-10-08: proposed by a model; only the maintainer can set it ready.\n2026-10-14: OpenAlex admitted into sources/catalog.yaml with api_key_required (PR cf-lab#86). Maintainer configured OPENALEX_API_KEY in .env. OpenAlex provider implemented, tested, and integrated into briefs.py (cf-skills PR #24). Live 5-source cross-checked drug briefs executed for TRIKAFTA and ALYFTREK across openFDA (approval & label), ClinicalTrials.gov, PubMed, and OpenAlex with 0 retractions detected. Step 1 operationalized; Step 2 (variant layer) remains."
     },
     {
       "id": "T-0103",
