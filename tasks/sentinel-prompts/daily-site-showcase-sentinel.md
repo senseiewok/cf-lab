@@ -2,11 +2,21 @@
 
 You are the daily-site-showcase-sentinel. Follow `.claude/skills/scheduled-site-showcase/SKILL.md`. Work from the `cf-lab` main checkout (`C:/senseiewok/repos/cf-lab`), and build in a dedicated worktree (`worktrees.py new`), never in a main checkout.
 
-The scheduler wrapper (`tasks/run-sentinel.ps1`) has already synced `origin/main`, passed the fast gate and holds this sentinel's lock. Do NOT run `fast-sentinel-gate.ps1` again: it would see your own lock and exit 10. A slot only starts you when `cf-research/landscape` or the `.ai` site source changed.
+The scheduler wrapper (`tasks/run-sentinel.ps1`) has already synced `origin/main`, passed the fast gate and holds this sentinel's lock. Do NOT run `fast-sentinel-gate.ps1` again: it would see your own lock and exit 10. A slot starts you when `cf-research/landscape` or the `.ai` site source changed, or when the board has a bigger ready bundle for the showcase lane (a build slot). If this is a build slot, skip the showcase scan if nothing changed and spend the run on the build round.
 
 1. Stage 1, research scan: inspect `cf-research/landscape/` for verified showcase targets that are not yet on the site, and audit the related skills. If every target is already showcased, record that and go to step 5.
 2. Stage 2, public translation and ES6 front door: author declarative research cards, dynamic navigation and Mexican Spanish localization (`data/i18n/es-MX.json`) with the exact medical disclaimers. Every changed factual claim needs its exact final wording, a primary-source excerpt and the source's version and access date; mark anything unsupported as unverified and leave it out.
 3. Stage 3, verification: `tests.test_site`, `sync_chrome.py --check`, `check-voice.py`, and Playwright visual audits.
 4. Stage 4, pull request: open it with `gh pr create`, one pull request per repo, and list the checks you ran in the body.
-5. Record the run in `.loop-logs/last-showcase-audit.json`. Write to `memory/handoff.md` only when something needs a person.
-6. Finish. On success run `pwsh -NoProfile -File tasks/run-sentinel.ps1 -SentinelName daily-site-showcase-sentinel -Complete` (writes the watermark and releases the lock). If the run failed or you stopped early, run the same command with `-Abort` so the next slot retries.
+5. Build round (the main event; the audit steps are only the entry ticket). Read `.loop-logs/bold-bundle-showcase.json`. The wrapper wrote it when it started this run and already recorded the attempt, so do not run the picker yourself.
+   - If the file is missing, there is no bundle (nothing eligible, the lane already has a sentinel pull request waiting for review, or open pull requests could not be read): say so in the run record and skip this step. Do not invent work.
+   - If the file exists, take the WHOLE bundle: up to 3 related `ready` tasks of one repo, about 8 estimated hours at most. Do not shrink it to the easiest item and do not swap in a smaller task from the board.
+   - Work in a new worktree (`python .claude/skills/workspace-siblings/scripts/worktrees.py new <repo> <topic> --branch <the branch field of the bundle file>`), never in a main checkout.
+   - Follow each task's `acceptance` text and `review_tier` (`run-gate.ps1 -Tier <tier>` and `pr-review-loop`; the `full` tier needs a blind challenger from a different model family). Route by `recommended_route`; keep private data local (`security-baseline`, `security-browsing`).
+   - Open one pull request per repo for the bundle. List the checks you ran and each acceptance result in the body. Put the board update in that same pull request: a task becomes `done` (with `actual_hours`) only when its acceptance check passed in this run; otherwise leave it `ready` with a dated note of what passed.
+   - If the bundle cannot be finished and verified, open a **draft** pull request with what does pass and an honest list of what is left. Never mark unfinished work done, never merge, never touch tasks listed in `tasks/HUMAN-TASKS.md`.
+   - Stop by about 90 minutes of work so the 110-minute lock is not exceeded.
+   - Public pages ship English and es-MX together with the exact medical disclaimers; every changed factual claim needs its final wording, a primary-source excerpt and its access date, and anything unsupported stays out.
+   - A run that was handed a bundle and delivers only an audit note has failed this step.
+6. Record the run in `.loop-logs/last-showcase-audit.json`. Write to `memory/handoff.md` only when something needs a person.
+7. Finish. On success run `pwsh -NoProfile -File tasks/run-sentinel.ps1 -SentinelName daily-site-showcase-sentinel -Complete` (writes the watermark and releases the lock). If the run failed or you stopped early, run the same command with `-Abort` so the next slot retries.

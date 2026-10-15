@@ -68,8 +68,11 @@ function Invoke-Wrapper([string[]]$More = @(), [string]$ManifestPath = $manifest
 }
 function Get-Decisions { if (Test-Path $runLog) { return ,@(Get-Content $runLog | ForEach-Object { ($_ | ConvertFrom-Json).decision }) } else { return ,@() } }
 function Get-StubCalls { if (Test-Path $stubOut) { @(Get-Content $stubOut).Count } else { 0 } }
+$markerPath = Join-Path $lockDir "sentinel-$sentinel.buildslot"
+$bundlePath = Join-Path $lockDir "bold-bundle-security.json"
+$claimLog = Join-Path $tmp "claims.txt"
 function Reset-State {
-    Remove-Item $lockPath, $wmPath, $runLog, $stubOut -Force -ErrorAction SilentlyContinue
+    Remove-Item $lockPath, $wmPath, $runLog, $stubOut, $markerPath, $bundlePath, $claimLog -Force -ErrorAction SilentlyContinue
     Remove-Item Env:STUB_EXIT -ErrorAction SilentlyContinue
 }
 
@@ -159,6 +162,87 @@ try {
     Assert-Test "A manifest alias resolves to the canonical sentinel (same lock, same log name)" ($c -eq 0 -and (Test-Path $lockPath) -and (Get-StubCalls) -eq 1 -and (Get-Content $runLog | Select-Object -Last 1 | ConvertFrom-Json).sentinel -eq $sentinel) "exit=$c"
     $c = Invoke-Wrapper @("-Complete") -ManifestPath $aliasManifest -Name "rs-alias-name"
     Assert-Test "-Complete through the alias releases the canonical lock" ($c -eq 0 -and -not (Test-Path $lockPath) -and (Test-Path $wmPath)) "exit=$c"
+
+    # ---- build slots: no watched change, but the board has bigger work -----------------------
+    function Set-IdleWatermark {
+        @{ timestamp = (Get-Date).ToUniversalTime().ToString("o"); tree_hashes = @{ tasks = $tasksTree } } | ConvertTo-Json | Set-Content $wmPath -Encoding utf8
+    }
+    $claimOk = "Add-Content '$claimLog' x; Write-Output BUNDLE-JSON"
+    $buildYes = Join-Path $tmp "build-yes.json"
+    New-Manifest $buildYes @{ build = @{ lane = "security"; probe = "exit 0"; claim = $claimOk } }
+    $buildNo = Join-Path $tmp "build-no.json"
+    New-Manifest $buildNo @{ build = @{ lane = "security"; probe = "exit 20"; claim = $claimOk } }
+    $buildNoBundle = Join-Path $tmp "build-nobundle.json"
+    New-Manifest $buildNoBundle @{ build = @{ lane = "security"; probe = "exit 0"; claim = "exit 20" } }
+    function Get-Claims { if (Test-Path $claimLog) { @(Get-Content $claimLog).Count } else { 0 } }
+
+    Reset-State
+    Set-IdleWatermark
+    $c = Invoke-Wrapper -ManifestPath $buildYes
+    $last = if (Test-Path $runLog) { Get-Content $runLog | Select-Object -Last 1 | ConvertFrom-Json } else { $null }
+    Assert-Test "Idle gate but the build probe finds work: the agent is launched as a build slot" ($c -eq 0 -and (Get-StubCalls) -eq 1 -and $last.decision -eq "launched" -and $last.detail -match "build slot") "calls=$(Get-StubCalls) last=$($last | ConvertTo-Json -Compress)"
+    Assert-Test "A build slot holds the lock like any other run" (Test-Path $lockPath)
+    Assert-Test "The wrapper claims the bundle once and hands the agent the bundle file" ((Get-Claims) -eq 1 -and (Test-Path $bundlePath) -and (Get-Content $bundlePath -Raw).Trim() -eq "BUNDLE-JSON") "claims=$(Get-Claims)"
+    Assert-Test "A build slot leaves a marker so -Complete will not advance the watermark" (Test-Path $markerPath)
+    $c = Invoke-Wrapper -ManifestPath $buildYes
+    Assert-Test "A second slot during a build run backs off (the lock is still respected)" ($c -eq 0 -and (Get-StubCalls) -eq 1 -and (Get-Decisions)[-1] -eq "locked") "decisions=$((Get-Decisions) -join ',')"
+    $stampBefore = (Get-Content $wmPath -Raw | ConvertFrom-Json).timestamp
+    Start-Sleep -Milliseconds 1200
+    $c = Invoke-Wrapper @("-Complete") -ManifestPath $buildYes
+    $stampAfter = (Get-Content $wmPath -Raw | ConvertFrom-Json).timestamp
+    Assert-Test "-Complete after a build slot releases the lock and keeps the watermark timestamp (heartbeat not reset)" ($c -eq 0 -and -not (Test-Path $lockPath) -and -not (Test-Path $markerPath) -and ("$stampAfter" -eq "$stampBefore")) "before=$stampBefore after=$stampAfter"
+    Assert-Test "Completing a build slot is logged as such" ((Get-Content $runLog | Select-Object -Last 1 | ConvertFrom-Json).detail -match "build slot: watermark kept")
+
+    Reset-State
+    Set-IdleWatermark
+    Invoke-Wrapper -ManifestPath $buildYes | Out-Null
+    Invoke-Wrapper @("-Abort") -ManifestPath $buildYes | Out-Null
+    Assert-Test "-Abort after a build slot clears the marker and the lock" (-not (Test-Path $markerPath) -and -not (Test-Path $lockPath))
+
+    Reset-State
+    Set-IdleWatermark
+    $c = Invoke-Wrapper -ManifestPath $buildNoBundle
+    Assert-Test "A failed claim leaves no bundle file (the agent skips the build round)" ($c -eq 0 -and (Get-StubCalls) -eq 1 -and -not (Test-Path $bundlePath)) "calls=$(Get-StubCalls)"
+    Invoke-Wrapper @("-Abort") -ManifestPath $buildNoBundle | Out-Null
+
+    Reset-State
+    Set-IdleWatermark
+    Set-Content $bundlePath "STALE" -Encoding utf8
+    Invoke-Wrapper -ManifestPath $buildNoBundle | Out-Null
+    Assert-Test "A stale bundle file from an earlier run is removed before the agent starts" (-not (Test-Path $bundlePath))
+    Invoke-Wrapper @("-Abort") -ManifestPath $buildNoBundle | Out-Null
+
+    Reset-State
+    Set-IdleWatermark
+    $c = Invoke-Wrapper -ManifestPath $buildNo
+    Assert-Test "Idle gate and a probe that finds no work: nothing is launched, nothing is claimed" ($c -eq 0 -and (Get-StubCalls) -eq 0 -and (Get-Claims) -eq 0 -and (Get-Decisions)[-1] -eq "idle" -and -not (Test-Path $lockPath)) "decisions=$((Get-Decisions) -join ',') claims=$(Get-Claims)"
+
+    Reset-State
+    Set-IdleWatermark
+    $c = Invoke-Wrapper @("-DryRun") -ManifestPath $buildYes
+    Assert-Test "-DryRun claims nothing and writes no bundle or marker" ($c -eq 0 -and (Get-Claims) -eq 0 -and -not (Test-Path $bundlePath) -and -not (Test-Path $markerPath))
+
+    Reset-State
+    Set-IdleWatermark
+    $c = Invoke-Wrapper
+    Assert-Test "A sentinel without a build block stays idle when nothing changed" ($c -eq 0 -and (Get-StubCalls) -eq 0 -and (Get-Decisions)[-1] -eq "idle")
+
+    Reset-State
+    @{ timestamp = (Get-Date).ToUniversalTime().ToString("o"); tree_hashes = @{ tasks = "0000000000000000000000000000000000000000" } } | ConvertTo-Json | Set-Content $wmPath -Encoding utf8
+    $c = Invoke-Wrapper -ManifestPath $buildNo
+    $last = Get-Content $runLog | Select-Object -Last 1 | ConvertFrom-Json
+    Assert-Test "A real change still launches normally (not labelled a build slot)" ($c -eq 0 -and (Get-StubCalls) -eq 1 -and $last.detail -notmatch "build slot") "detail=$($last.detail)"
+    Assert-Test "A normal slot also claims its lane's bundle (the build round is part of every run)" ((Get-Claims) -eq 1 -and (Test-Path $bundlePath) -and -not (Test-Path $markerPath)) "claims=$(Get-Claims)"
+    Invoke-Wrapper @("-Complete") -ManifestPath $buildNo | Out-Null
+    $wmNow = Get-Content $wmPath -Raw | ConvertFrom-Json
+    Assert-Test "-Complete after a normal slot still advances the watermark" ($wmNow.tree_hashes.tasks -eq $tasksTree)
+
+    Reset-State
+    Set-IdleWatermark
+    $env:STUB_EXIT = "1"
+    $c = Invoke-Wrapper -ManifestPath $buildYes
+    Assert-Test "A launch failure in a build slot clears the marker and frees the lock" ($c -eq 4 -and -not (Test-Path $markerPath) -and -not (Test-Path $lockPath)) "exit=$c"
+    Remove-Item Env:STUB_EXIT -ErrorAction SilentlyContinue
 
     # ---- failure paths ----------------------------------------------------------------------
     Reset-State
@@ -250,6 +334,11 @@ try {
         Assert-Test "$n prompt never asks for a per-round handoff append" ($text -notmatch "(?i)append (a )?(per-round )?summary to" -and $text -match "(?i)only when") $c.prompt_file
         $cadenceMin = if ($c.cron -split '\s+' | Select-Object -Skip 1 -First 1 | ForEach-Object { $_ -match '^\*/(\d+)$' }) { [int]$Matches[1] * 60 } else { 1440 }
         Assert-Test "$n lock timeout is below the cadence (a hung run is reclaimed by the next slot)" ([int]$c.lock_timeout_minutes -lt $cadenceMin -and [int]$c.lock_timeout_minutes -ge 30) "timeout=$($c.lock_timeout_minutes) cadence=$cadenceMin"
+        $lanes = @("security", "research", "showcase")
+        Assert-Test "$n has a build lane the picker knows" ($c.build -and $lanes -contains $c.build.lane) "build=$($c.build | ConvertTo-Json -Compress)"
+        Assert-Test "$n prompt has a build round that reads its own lane's bundle file (the wrapper claims it)" ($text -match "Build round" -and $text -match [regex]::Escape("bold-bundle-$($c.build.lane).json") -and $text -notmatch "pick_bold_task.py --lane \w+ --claim" -and $text -match "WHOLE bundle" -and $text -match "(?i)never merge") $c.prompt_file
+        Assert-Test "$n prompt uses a branch field the worktree helper accepts" ($text -match [regex]::Escape("--branch <the branch field of the bundle file>")) $c.prompt_file
+        Assert-Test "$n prompt never lets the build round touch human-only tasks" ($text -match "HUMAN-TASKS\.md") $c.prompt_file
         Assert-Test "$n has a watermark and at least one watch path" ($c.watermark -and @($c.watch_paths).Count -ge 1)
         Assert-Test "$n sidecar_dir is set" ([bool]$c.sidecar_dir)
     }
@@ -271,6 +360,7 @@ try {
             sidecar_dir = $c.sidecar_dir; display_name = $c.display_name; description = $c.description; cron = $c.cron
             prompt_file = $c.prompt_file; watermark = (Join-Path $tmp "lint-$n.json"); watch_paths = $c.watch_paths
             max_idle_hours = $c.max_idle_hours; lock_timeout_minutes = $c.lock_timeout_minutes
+            build = @{ lane = $c.build.lane; probe = "exit 20"; claim = "exit 20" }
         }
     }
     $lintManifest = Join-Path $tmp "lint-manifest.json"
@@ -292,7 +382,7 @@ try {
     }
 }
 finally {
-    Remove-Item $lockPath -Force -ErrorAction SilentlyContinue
+    Remove-Item $lockPath, $markerPath, $bundlePath -Force -ErrorAction SilentlyContinue
     foreach ($n in @("daily-security-sentinel", "daily-research-sentinel", "daily-site-showcase-sentinel")) {
         Remove-Item (Join-Path $lockDir "sentinel-lint-$n.lock") -Force -ErrorAction SilentlyContinue
     }
