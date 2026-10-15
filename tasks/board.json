@@ -8157,7 +8157,7 @@
       "title": "Author multi-registry modulator eligibility & ultra-rare variant landscape dossier from verified 2024 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-15T22:20:00Z",
       "created_by": {
@@ -8175,9 +8175,9 @@
         "benefit": 5,
         "rationale": "Unlocks the newly verified national registry downloads (T-0005) into a quote-verified, non-pooled multi-registry eligibility and variant denominator dossier with a showcase_targets entry for /cf/.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.5,
+        "measured_outcome": "Submitted PR #67 on senseiewok/cf-research. Authored landscape/multi-registry-eligibility-2026.md synthesizing 2024-2025 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports with non-pooling invariant, openFDA drug label surveillance, and showcase_targets manifest. Passed check_claims.py (12 passed), check_numbers.py, and check_source_overlap.py.",
         "categories": {
           "curative_biophysics": 7.5,
           "clinical_translation": 9.0,
@@ -8198,7 +8198,14 @@
       "human_required": false,
       "recommended_route": "frontier",
       "route_rationale": "High-stakes multi-registry scientific synthesis requiring strict non-pooling and exact quote verification.",
-      "notes": "2026-10-15: Created and approved during schedule and website publishing audit after verifying T-0005 downloads."
+      "notes": "2026-10-15: Created and approved during schedule and website publishing audit after verifying T-0005 downloads. | 2026-10-15: Completed and submitted via senseiewok/cf-research PR #67.",
+      "completed_at": "2026-10-15T23:08:28Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-15 session: multi-registry eligibility dossier authoring"
+      }
     }
   ]
 }

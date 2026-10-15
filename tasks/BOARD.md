@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 32 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 33 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (90)
+## ready (89)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -38,7 +38,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0096 | P1 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
-| T-0168 | P1 | Author multi-registry modulator eligibility & ultra-rare variant landscape dossier from verified 2024 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-3.8-flash | 2026-10-15 | full | high | frontier | T-0005 |  |
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
 | T-0066 | P1 | Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | local |  |  |
 | T-0146 | P2 | CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has | .ai | 1-3 | 5 | 25 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | low | cloud | T-0005 |  |
@@ -108,7 +107,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (63)
+## done (64)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -122,6 +121,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0167 | P1 | Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification | .ai | 2-4 | 5 | 16.7 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud |  |  |
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
+| T-0168 | P1 | Author multi-registry modulator eligibility & ultra-rare variant landscape dossier from verified 2024 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-15 | full | high | frontier | T-0005 |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
 | T-0155 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  | feat/turbo-sentinel-cadence |
@@ -463,7 +463,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** frontier - High-stakes multi-registry scientific synthesis requiring strict non-pooling and exact quote verification.
 - **Acceptance:** landscape/multi-registry-eligibility-2026.md committed in cf-research with exact page-cited denominator rules across CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR and openFDA label dates; zero cross-registry arithmetic; check_claims.py and check_numbers.py pass; showcase_targets metadata ready for daily-site-showcase-sentinel.
 - **Evidence:** cf-research/sources/downloads/ verified via fetch_sources.py --verify (29 match, 0 missing: CFFPR_Annual_Data_Report_2024.pdf, ECFSPR_Annual_Report_2024_v1.0.pdf, UKCFR_Annual_Data_Report_2024_v2.pdf, CCFR_Annual_Data_Report_2024.pdf, ACFDR_Annual_Report_2025.pdf) and openFDA SPL labels for TRIKAFTA and ALYFTREK.
-- **Notes:** 2026-10-15: Created and approved during schedule and website publishing audit after verifying T-0005 downloads.
+- **Notes:** 2026-10-15: Created and approved during schedule and website publishing audit after verifying T-0005 downloads. \| 2026-10-15: Completed and submitted via senseiewok/cf-research PR #67.
+- **Measured:** 3.5 h; Submitted PR #67 on senseiewok/cf-research. Authored landscape/multi-registry-eligibility-2026.md synthesizing 2024-2025 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports with non-pooling invariant, openFDA drug label surveillance, and showcase_targets manifest. Passed check_claims.py (12 passed), check_numbers.py, and check_source_overlap.py.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
