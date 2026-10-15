@@ -16,6 +16,8 @@ param(
 
     [switch]$Release,
 
+    [switch]$Force,
+
     [string]$LockFile = "",
 
     [string]$WatermarkFile = "",
@@ -90,8 +92,13 @@ if (Test-Path $FullLockPath) {
         if ($AgeMinutes -lt 0) { $AgeMinutes = 0 }
 
         if ($AgeMinutes -lt $LockTimeoutMinutes) {
-            Write-Host "FAST-GATE: Lock actively held by '$($LockContent.held_by)' ($([math]::Round($AgeMinutes, 1)) min old < $LockTimeoutMinutes min). Backing off."
-            exit 10
+            if ($Force) {
+                Write-Host "FAST-GATE: -Force specified. Overriding lock held by '$($LockContent.held_by)'."
+                $IsStale = $true
+            } else {
+                Write-Host "FAST-GATE: Lock actively held by '$($LockContent.held_by)' ($([math]::Round($AgeMinutes, 1)) min old < $LockTimeoutMinutes min). Backing off."
+                exit 10
+            }
         } else {
             Write-Host "FAST-GATE: Lock held by '$($LockContent.held_by)' is stale ($([math]::Round($AgeMinutes, 1)) min old >= $LockTimeoutMinutes min). Removing stale lock."
             $IsStale = $true
@@ -107,7 +114,7 @@ if (Test-Path $FullLockPath) {
 }
 
 # 2. Fast Delta Check (F-01, F-02, F-03: Multi-candidate key lookup & worktree sibling path resolution)
-if ($WatermarkFile -and ($WatchPaths.Count -gt 0)) {
+if (-not $Force -and $WatermarkFile -and ($WatchPaths.Count -gt 0)) {
     # Ensure remote changes are fetched so HEAD comparison does not miss remote PR merges
     git -C $cfLab fetch origin --quiet 2>$null
     $FullWatermarkPath = if ([System.IO.Path]::IsPathRooted($WatermarkFile)) {
@@ -128,22 +135,32 @@ if ($WatermarkFile -and ($WatchPaths.Count -gt 0)) {
                     [System.IO.Path]::GetFullPath((Join-Path $cfLab $wp))
                 }
 
-                # F-02: Worktree sibling repo resolution fallback (when $cfLab is in .worktrees/<repo>/<topic>)
+                # Sibling repo fallback (when $wp refers to a sibling repo such as .ai or cf-research)
                 if (-not (Test-Path $Target)) {
-                    if ($cfLab -like "*\.worktrees*") {
+                    $reposRoot = Split-Path -Parent $cfLab
+                    $strippedWp = $wp.TrimStart('.').TrimStart('/').TrimStart('\')
+                    $SiblingTarget = [System.IO.Path]::GetFullPath((Join-Path $reposRoot $strippedWp))
+                    if (Test-Path $SiblingTarget) {
+                        $Target = $SiblingTarget
+                    } elseif ($cfLab -like "*\.worktrees*") {
                         $parent = Split-Path -Parent $cfLab
                         while ($parent -and (Split-Path -Leaf $parent) -ne ".worktrees") {
                             $parent = Split-Path -Parent $parent
                         }
                         if ($parent) {
                             $reposRoot = Split-Path -Parent $parent
-                            $strippedWp = $wp.TrimStart('.').TrimStart('/').TrimStart('\')
                             $WorktreeTarget = [System.IO.Path]::GetFullPath((Join-Path $reposRoot $strippedWp))
                             if (Test-Path $WorktreeTarget) {
                                 $Target = $WorktreeTarget
                             }
                         }
                     }
+                }
+
+                if (-not (Test-Path $Target)) {
+                    Write-Warning "FAST-GATE: Watch path '$wp' resolved to '$Target' which does not exist. Treating as delta to avoid silent lockouts."
+                    $AllMatch = $false
+                    break
                 }
 
                 if (Test-Path $Target) {
@@ -230,6 +247,11 @@ try {
     Write-Host "FAST-GATE: Lock atomically acquired for '$SentinelName'. Proceeding with workflow."
     exit 0
 } catch [System.IO.IOException] {
+    if ($Force) {
+        Set-Content -Path $FullLockPath -Value $LockPayload -Encoding utf8
+        Write-Host "FAST-GATE: Lock forced for '$SentinelName' (-Force override). Proceeding with workflow."
+        exit 0
+    }
     # Another sentinel acquired the lock between check and create
     Write-Host "FAST-GATE: Lock acquisition collision (another process acquired simultaneously). Backing off."
     exit 10
