@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 32 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 33 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (90)
+## ready (89)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -38,7 +38,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0096 | P1 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
-| T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer | cf-research | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
 | T-0066 | P1 | Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | local |  |  |
 | T-0146 | P2 | CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has | .ai | 1-3 | 5 | 25 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | low | cloud | T-0005 |  |
@@ -108,7 +107,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (63)
+## done (64)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -124,6 +123,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
 | T-0168 | P1 | Author multi-registry modulator eligibility & ultra-rare variant landscape dossier from verified 2024 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-15 | full | high | frontier | T-0005 |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
+| T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
 | T-0155 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  | feat/turbo-sentinel-cadence |
 | T-0147 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  | research/inhaled-delivery-dossier |
 | T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | site/es-mx-localization |
@@ -481,7 +481,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** Step 1: a documented, tested run of one fixed CF question through the evidence loop returns records from at least four catalogued sources, each with its source id, URL, retrieval date and a 'not stated' where a source is silent; a test with a deliberately wrong record shows the cross-check flags it. Step 2: the variant layer (the variant_profile tool, MyVariant, and AlphaMissense only if the catalog entry is admitted) gives one profile for a fixed public variant with every number tied to a source field. Each new key gets a slot in .env.example (names only) and is read only through run-with-env.ps1; no agent reads .env. Every pull request names each new external network call and dependency. The maintainer does every sign-up, licence acceptance and permission request in the proposal's table; no source becomes reachable until the maintainer admits it in the catalog. A Full-tier review applies where a key or a licence is involved.
 - **Evidence:** 2026-10-08: the maintainer said the lab's strength is bringing sources together and asked for a list of APIs, MCP servers and data in order of impact. cf-research/sources/catalog.yaml already holds 14 sources with access: api and six more are drafted (two api, four manual) (cf-research proposals/2026-10-07-api-candidates.md, draft pull request). The ranked plan and the sign-up steps only the maintainer can do are in cf-research proposals/2026-10-08-source-plan-and-signups.md. The catalog marks OpenAlex and Data Commons as key-required and NCBI and openFDA as optional-key; of the keys, only DC_API_KEY has a slot in .env.example today.
-- **Notes:** 2026-10-08: proposed by a model; only the maintainer can set it ready. 2026-10-14: OpenAlex admitted into sources/catalog.yaml with api_key_required (PR cf-lab#86). Maintainer configured OPENALEX_API_KEY in .env. OpenAlex provider implemented, tested, and integrated into briefs.py for both drug briefs (PR cf-skills#24) and variant briefs (PR cf-skills#25). Live multi-source cross-checked briefs operationalized for drug regimens (TRIKAFTA, ALYFTREK) and variant loci (VCV004072070, CFTR[gene] AND F508del) across openFDA, ClinicalTrials.gov, PubMed, and OpenAlex with automated retraction surveillance. Step 1 and Step 2 operationalized. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution.
+- **Notes:** 2026-10-08: proposed by a model; only the maintainer can set it ready. 2026-10-14: OpenAlex admitted into sources/catalog.yaml with api_key_required (PR cf-lab#86). Maintainer configured OPENALEX_API_KEY in .env. OpenAlex provider implemented, tested, and integrated into briefs.py for both drug briefs (PR cf-skills#24) and variant briefs (PR cf-skills#25). Live multi-source cross-checked briefs operationalized for drug regimens (TRIKAFTA, ALYFTREK) and variant loci (VCV004072070, CFTR[gene] AND F508del) across openFDA, ClinicalTrials.gov, PubMed, and OpenAlex with automated retraction surveillance. Step 1 and Step 2 operationalized. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. 2026-10-15: Completed by daily-research-sentinel. Implemented tools/variant_profile/myvariant.py, tools/variant_profile/variant_layer.py, tools/test_evidence_loop_cross_check.py (56 tests passing), documented deliverable evidence/2026-10-15-t0102-evidence-loop-run.md, decomposed T-0130 into 4 sub-tasks (proposals/2026-10-15-t0130-trial-atlas-decomposition.md), verified with Full-tier orthogonal frontier review by Argon (PASS), and merged in cf-research PR #65.
+- **Measured:** 3.5 h; Delivered Step 1 multi-source CF evidence cross-check run (evidence/2026-10-15-t0102-evidence-loop-run.md) and Step 2 unified variant layer combining ClinVar and MyVariant for CFTR R31L with tied source tags and negative controls, verified by full-tier frontier review (PASS) and merged via senseiewok/cf-research PR #65.
 
 ### T-0141 Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main
 
