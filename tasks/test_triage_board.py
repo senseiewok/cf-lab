@@ -214,6 +214,33 @@ class TestTriageBoard(unittest.TestCase):
         self.assertGreater(roi_meta["composite_score"], 0)
         self.assertGreater(roi_meta["roi_ratio"], 0)
 
+    def test_council_approved_and_boilerplate_not_human_gated(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            hp = Path(d) / "HUMAN-TASKS.md"
+            hp.write_text(
+                "# Human tasks\n"
+                "- [x] **OpenAlex API key**: done (T-0090)\n"
+                "- [ ] **Clinician review (T-0105)**\n\n"
+                "## 6. Council-Approved Tasks (Automated & Moved to Ready / Done)\n"
+                "| **T-0102** | Variant layer | `ready` | Approved |\n",
+                encoding="utf-8",
+            )
+            ids = tb.load_human_gated_ids(hp)
+            self.assertEqual(ids, {"T-0105"})
+            approved = tb.load_council_approved_agent_ids(hp)
+            self.assertEqual(approved, {"T-0102"})
+
+        boilerplate_task = {
+            "id": "T-0060",
+            "title": "Refresh website",
+            "acceptance": "All tests pass",
+            "notes": "Proposed by a model; only a human moves it to ready.",
+            "roi": {"rationale": "High value"},
+        }
+        is_hg, _ = tb.is_human_gated(boilerplate_task, {"T-0105"})
+        self.assertFalse(is_hg)
+
 
 if __name__ == "__main__":
     unittest.main()
