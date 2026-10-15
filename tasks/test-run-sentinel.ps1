@@ -35,7 +35,7 @@ $stubOut = Join-Path $tmp "stub-out.txt"
 $stub = Join-Path $tmp "stub-agent.ps1"
 Set-Content -Path $stub -Encoding utf8 -Value @'
 param([Parameter(ValueFromRemainingArguments = $true)]$a)
-Add-Content -Path $env:STUB_OUT -Value ($a -join ' ') -Encoding utf8
+Add-Content -Path $env:STUB_OUT -Value ("PWD=" + $PWD.Path + " " + ($a -join ' ')) -Encoding utf8
 if ($env:STUB_EXIT) { exit ([int]$env:STUB_EXIT) }
 exit 0
 '@
@@ -143,6 +143,23 @@ try {
     $wm = Get-Content $wmPath -Raw | ConvertFrom-Json
     Assert-Test "-Complete keeps unrelated watermark fields and other tree keys" ($wm.pr_number -eq 78 -and $wm.status -eq "SHOWCASE_PR_PREPARED" -and $wm.tree_hashes.other -eq "abc123" -and $wm.tree_hashes.tasks -eq $tasksTree) ($wm | ConvertTo-Json -Compress)
 
+    # ---- agent launch directory (agentapi uses the caller's working directory) ---------------
+    Reset-State
+    Push-Location $tmp
+    try { $c = Invoke-Wrapper } finally { Pop-Location }
+    $call = if (Test-Path $stubOut) { Get-Content $stubOut -Raw } else { "" }
+    Assert-Test "Agent is started from the repo root, not the caller's directory" ($c -eq 0 -and $call -match [regex]::Escape("PWD=" + $repoRoot)) $call
+    Invoke-Wrapper @("-Abort") | Out-Null
+
+    # ---- manifest aliases ------------------------------------------------------------------
+    Reset-State
+    $aliasManifest = Join-Path $tmp "alias.json"
+    New-Manifest $aliasManifest @{ aliases = @("rs-alias-name") }
+    $c = Invoke-Wrapper -ManifestPath $aliasManifest -Name "rs-alias-name"
+    Assert-Test "A manifest alias resolves to the canonical sentinel (same lock, same log name)" ($c -eq 0 -and (Test-Path $lockPath) -and (Get-StubCalls) -eq 1 -and (Get-Content $runLog | Select-Object -Last 1 | ConvertFrom-Json).sentinel -eq $sentinel) "exit=$c"
+    $c = Invoke-Wrapper @("-Complete") -ManifestPath $aliasManifest -Name "rs-alias-name"
+    Assert-Test "-Complete through the alias releases the canonical lock" ($c -eq 0 -and -not (Test-Path $lockPath) -and (Test-Path $wmPath)) "exit=$c"
+
     # ---- failure paths ----------------------------------------------------------------------
     Reset-State
     $env:STUB_EXIT = "1"
@@ -231,9 +248,12 @@ try {
         Assert-Test "$n prompt file exists and ends through run-sentinel -Complete / -Abort" ($text -match "run-sentinel\.ps1 -SentinelName $n -Complete" -and $text -match "-Abort") $c.prompt_file
         Assert-Test "$n prompt tells the agent not to rerun the gate (own lock would block it)" ($text -match 'Do NOT run `fast-sentinel-gate\.ps1`') $c.prompt_file
         Assert-Test "$n prompt never asks for a per-round handoff append" ($text -notmatch "(?i)append (a )?(per-round )?summary to" -and $text -match "(?i)only when") $c.prompt_file
+        $cadenceMin = if ($c.cron -split '\s+' | Select-Object -Skip 1 -First 1 | ForEach-Object { $_ -match '^\*/(\d+)$' }) { [int]$Matches[1] * 60 } else { 1440 }
+        Assert-Test "$n lock timeout is below the cadence (a hung run is reclaimed by the next slot)" ([int]$c.lock_timeout_minutes -lt $cadenceMin -and [int]$c.lock_timeout_minutes -ge 30) "timeout=$($c.lock_timeout_minutes) cadence=$cadenceMin"
         Assert-Test "$n has a watermark and at least one watch path" ($c.watermark -and @($c.watch_paths).Count -ge 1)
         Assert-Test "$n sidecar_dir is set" ([bool]$c.sidecar_dir)
     }
+    Assert-Test "The documented security alias daily-site-security-sentinel is in the manifest" (@($real.sentinels."daily-security-sentinel".aliases) -contains "daily-site-security-sentinel")
     Assert-Test "Real sentinels run at different minute offsets" (@($minutes | Select-Object -Unique).Count -eq $minutes.Count) ($minutes -join ",")
 
     # No scheduled-* skill may still describe the retired 10-minute turbo cadence or a gate the agent runs itself.

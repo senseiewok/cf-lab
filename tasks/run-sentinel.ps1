@@ -69,16 +69,27 @@ if (-not (Test-Path $ManifestFile)) {
 $manifest = Get-Content $ManifestFile -Raw | ConvertFrom-Json
 $cfg = $manifest.sentinels.$SentinelName
 if (-not $cfg) {
+    # The skills document compatibility aliases (for example daily-site-security-sentinel). Resolve them
+    # to the canonical name first so the lock, watermark and run log all use one name.
+    foreach ($n in $manifest.sentinels.PSObject.Properties.Name) {
+        if (@($manifest.sentinels.$n.aliases) -contains $SentinelName) {
+            $SentinelName = $n
+            $cfg = $manifest.sentinels.$n
+            break
+        }
+    }
+}
+if (-not $cfg) {
     Write-Host "RUN-SENTINEL: '$SentinelName' is not in $ManifestFile"
     exit 2
 }
 
 function Get-GateArgs {
     $a = @("-NoProfile", "-File", $gate, "-SentinelName", $SentinelName)
-    if ($cfg.lock_timeout_minutes) { $a += @("-LockTimeoutMinutes", [string]$cfg.lock_timeout_minutes) }
+    if ($null -ne $cfg.lock_timeout_minutes) { $a += @("-LockTimeoutMinutes", [string]$cfg.lock_timeout_minutes) }
     if ($cfg.watermark) { $a += @("-WatermarkFile", [string]$cfg.watermark) }
     if ($cfg.watch_paths) { $a += @("-WatchPaths", (@($cfg.watch_paths) -join ",")) }
-    if ($cfg.max_idle_hours) { $a += @("-MaxIdleHours", [string]$cfg.max_idle_hours) }
+    if ($null -ne $cfg.max_idle_hours) { $a += @("-MaxIdleHours", [string]$cfg.max_idle_hours) }
     return $a
 }
 
@@ -135,8 +146,16 @@ if ($DryRun) {
 }
 
 try {
-    & $AgentCommand new-conversation "--title=$title" $prompt
-    if ($LASTEXITCODE -ne 0) { throw "agent command exited $LASTEXITCODE" }
+    # agentapi has no directory flag and starts the conversation in the caller's working directory;
+    # the prompt files use repo-relative paths, so anchor the launch to this repo.
+    Push-Location $repoRoot
+    try {
+        & $AgentCommand new-conversation "--title=$title" $prompt
+        $agentExit = $LASTEXITCODE
+    } finally {
+        Pop-Location
+    }
+    if ($agentExit -ne 0) { throw "agent command exited $agentExit" }
     Write-RunLog -Decision "launched" -Detail $title
     exit 0
 } catch {
