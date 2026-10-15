@@ -81,6 +81,18 @@ Say which tier an answer, note or page rests on. The tiers, and the eight princi
 
 A patient-related question needs T1 before it is answered; until then, say plainly that what you have is T0.
 
+### Questions about one real person: generalise before any search
+
+Before any search or cloud call concerning one real person or patient:
+- **Rewrite the question in general terms, say so, and keep nothing about the person.**
+- Small rare disease cohorts risk re-identification from composite queries. Web-tool inputs and external search queries must never combine a health term (condition, mutation, therapy, clinical endpoint) with personal attributes:
+  - **age** (e.g. "14-year-old", "age 3", "infant")
+  - **origin** (ethnicity, nationality, ancestry)
+  - **status** (e.g. "pregnant", "transplant recipient", "inpatient", "post-op")
+  - **place** (city, state, hospital, clinic)
+  - **date** (birthdate, admission date, event date)
+- Strip all identifying details and query only the underlying biological, therapeutic, or pharmacological question. State clearly to the user: "Generalising question to general scientific terms to protect individual privacy before searching."
+
 ### Tools that check claims
 
 Paths are in the research repo (`../cf-research/`) unless named otherwise; each tool's README or `--help` is the authority.

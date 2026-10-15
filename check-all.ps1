@@ -93,6 +93,8 @@ $Checks = @(
     # security-browsing & catalog host boundaries
     @{ name = 'check-restricted-hosts';   exe = 'python';     args = @('tasks/check_restricted_hosts.py');                                                 needs = @('python', 'pyyaml') }
     @{ name = 'test-check-restricted-hosts'; exe = 'python';  args = @('tasks/test_check_restricted_hosts.py');                                            needs = @('python') }
+    @{ name = 'scan-person-generalization'; exe = 'python';   args = @('tasks/scan_person_generalization.py', '--self-test');                               needs = @('python') }
+    @{ name = 'test-scan-person-generalization'; exe = 'python'; args = @('tasks/test_scan_person_generalization.py');                                    needs = @('python') }
     # models (the guard only; nothing here talks to Ollama)
     @{ name = 'test-restart-ollama';      exe = 'pwsh';       args = @("$s/model-qwen3-8-27b/test-restart-ollama.ps1");                                    needs = @() }
     # ascii-art

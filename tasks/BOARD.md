@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-164 tasks, 163 created by a model, 23 with a measured outcome. Estimated effort 431.85 to 832.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+164 tasks, 163 created by a model, 24 with a measured outcome. Estimated effort 431.85 to 832.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,12 +13,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0052 | P2 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 | T-0077 | P3 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 
-## ready (73)
+## ready (72)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0115 | P1 | Record the agent's permission mode and deny GitHub settings commands | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low |  |  |  |
-| T-0109 | P1 | A rule for questions about one real person: generalise before any search | cf-lab | 1-3 | 5 | 25 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |  |
 | T-0146 | P1 | CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has | .ai | 1-3 | 5 | 25 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | low | cloud | T-0005 |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0104 | P1 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low |  |  |  |
@@ -118,7 +117,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0101 | P3 | A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK | cf-lab | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | medium |  |  |  |
 | T-0136 | P3 | Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition | cf-research | 8-16 | 3 | 2.5 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium |  |  |  |
 
-## done (54)
+## done (55)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -126,6 +125,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0037 | P1 | Add Retraction Watch (via Crossref) retraction check to the catalog and to the claim-check harness design | cf-research | 1-2 | 5 | 33.3 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0003 | P1 | Apply the HQ skill-update proposal (security-browsing, cf-research-context, ai-loop-council, model-onboarding) | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0022 | P1 | Adopt the task board: every new task carries created_by, evidence, and an ROI estimate; render BOARD.md in CI or pre-commit | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
+| T-0109 | P1 | A rule for questions about one real person: generalise before any search | cf-lab | 1-3 | 5 | 25 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |  |
 | T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | yes | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |  |
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
@@ -263,7 +263,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Estimate: small CF cohorts re-identify; one combined query can identify a person. *(confidence: medium)*
 - **Acceptance:** security-browsing and cf-research-context say: before any search or cloud call, rewrite the question in general terms, say so, and keep nothing about the person; a session-close scan lists web-tool inputs that combine a health term with age, origin, status, place or a date.
 - **Evidence:** 2026-10-07: after a question about one real person's care and coverage, web searches carried a combination of that person's attributes. Nothing reached a repo or a note (grep). security-browsing already says health data about individuals never goes into queries.
-- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides the wording and whether such questions are in scope. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides the wording and whether such questions are in scope. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. \| 2026-10-15: Completed T-0109. Added rule across security-browsing and cf-research-context requiring generalization to broad scientific terms before any search/cloud call; built deterministic scanner tasks/scan_person_generalization.py and test_scan_person_generalization.py with full positive/negative controls; registered in check-all.ps1.
+- **Measured:** 1.5 h; Added person generalization privacy rule to security-browsing and cf-research-context; implemented deterministic session-close scanner tasks/scan_person_generalization.py with self-test and unit test suite tasks/test_scan_person_generalization.py (4/4 passed); registered rows in check-all.ps1.
 
 ### T-0146 CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has
 
