@@ -1930,7 +1930,7 @@
       "title": "Website section for the evidence loop: how the lab answers a research question, with the seven layers and a live example record",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T20:30:00Z",
       "created_by": {
@@ -1948,9 +1948,9 @@
         "benefit": 4,
         "rationale": "The site explains the AI loop but not the research loop it serves. A section showing question -> source -> record -> limitation, with one real retraction-check record, is the clearest public statement of what 'claim verification' means here and sets the standard every video and note is held to.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.5,
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -1967,9 +1967,14 @@
         "T-0037"
       ],
       "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "completed_at": "2026-10-15T22:49:30Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-15 session: sentinel schedule & website publishing audit"
+      },
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15: Completed and submitted via senseiewok/.ai PR #81.",
       "recommended_route": "local",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.",
       "complexity": "medium"
@@ -8001,7 +8006,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8049,7 +8054,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8095,7 +8100,7 @@
       "title": "Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-15T22:20:00Z",
       "created_by": {
@@ -8113,9 +8118,9 @@
         "benefit": 5,
         "rationale": "Keeps the public /evidence/ page and homepage synchronized with cf-research main and showcases cross-checked multi-source drug/variant briefs (openFDA, ClinicalTrials.gov, PubMed, OpenAlex, Crossref Retraction Watch) in English and Mexican Spanish.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 2.5,
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Pinned evidence snapshot to cf-research commit 601da99 (67 sources, 98 ledger rows), regenerated counts and ledger blocks, and updated es-MX localization.",
         "categories": {
           "curative_biophysics": 7.5,
           "clinical_translation": 9.0,
@@ -8134,7 +8139,14 @@
       "human_required": false,
       "recommended_route": "cloud",
       "route_rationale": "Public translation and zero-build web verification across cf-research and .ai.",
-      "notes": "2026-10-15: Created and approved during schedule and website publishing audit."
+      "notes": "2026-10-15: Created and approved during schedule and website publishing audit. | 2026-10-15: Completed and submitted via senseiewok/.ai PR #81.",
+      "completed_at": "2026-10-15T22:49:30Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-15 session: sentinel schedule & website publishing audit"
+      }
     },
     {
       "id": "T-0168",
