@@ -90,6 +90,9 @@ $Checks = @(
     @{ name = 'check-staged';             exe = 'pwsh';       args = @("$s/security-git/scripts/check-staged.ps1", '-SelfTest');                           needs = @('git') }
     @{ name = 'check-lab-files';          exe = 'pwsh';       args = @("$s/security-git/scripts/check-lab-files.ps1", '-SelfTest');                        needs = @() }
     @{ name = 'test-check-lab-files';     exe = 'pwsh';       args = @("$s/security-git/scripts/test-check-lab-files.ps1");                                needs = @() }
+    # security-browsing & catalog host boundaries
+    @{ name = 'check-restricted-hosts';   exe = 'python';     args = @('tasks/check_restricted_hosts.py');                                                 needs = @('python', 'pyyaml') }
+    @{ name = 'test-check-restricted-hosts'; exe = 'python';  args = @('tasks/test_check_restricted_hosts.py');                                            needs = @('python') }
     # models (the guard only; nothing here talks to Ollama)
     @{ name = 'test-restart-ollama';      exe = 'pwsh';       args = @("$s/model-qwen3-8-27b/test-restart-ollama.ps1");                                    needs = @() }
     # ascii-art
