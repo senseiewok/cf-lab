@@ -259,11 +259,114 @@ def classify_curative_mission(task: dict) -> dict:
         }
 
 
+def compute_multi_category_roi(task: dict) -> dict:
+    """Calculate multi-dimensional ROI across curative, translation, integrity, velocity, and security."""
+    text = " ".join([
+        task.get("title") or "",
+        task.get("acceptance") or "",
+        task.get("source_evidence") or "",
+        task.get("area") or "",
+        task.get("roi", {}).get("rationale") or "",
+        task.get("notes") or "",
+    ]).lower()
+
+    # 1. Curative Biophysics (Track A)
+    curative = 2.0
+    if TRACK_A_KEYWORDS.search(text):
+        curative = 9.5
+    elif any(k in text for k in ["cftr", "f508del", "variant", "mutation", "conductance", "phage", "delivery", "cryo-em", "readthrough"]):
+        curative = 7.5
+
+    # 2. Clinical & Public Translation (Track B)
+    translation = 2.0
+    if TRACK_B_KEYWORDS.search(text):
+        translation = 9.0
+    elif any(k in text for k in ["site", "website", "spanish", "atlas", "patient", "clinical", "endpoint", "viewer"]):
+        translation = 7.0
+
+    # 3. Scientific Integrity & Anti-Hallucination
+    integrity = 3.0
+    if INTEGRITY_KEYWORDS.search(text):
+        integrity = 9.0
+    elif any(k in text for k in ["catalog", "evidence", "doi", "nct", "retraction", "fda", "openalex", "registry"]):
+        integrity = 7.0
+
+    # 4. Operational & Agent Velocity
+    velocity = 3.0
+    if any(k in text for k in ["pipeline", "automation", "test", "speed", "ci", "worker", "delegate", "faster", "benchmark"]):
+        velocity = 8.5
+    elif any(k in text for k in ["tool", "script", "skill", "setup", "check"]):
+        velocity = 6.0
+
+    # 5. Security, Privacy & Safety
+    security = 2.0
+    if any(k in text for k in ["security", "secret", "phi", "leak", "gate", "permission", "license", "cve"]):
+        security = 9.0
+    elif any(k in text for k in ["safety", "disclaimer", "privacy"]):
+        security = 6.5
+
+    weights = {
+        "curative_biophysics": 0.30,
+        "clinical_translation": 0.25,
+        "scientific_integrity": 0.15,
+        "operational_velocity": 0.15,
+        "security_compliance": 0.15,
+    }
+
+    composite_score = round(
+        curative * weights["curative_biophysics"] +
+        translation * weights["clinical_translation"] +
+        integrity * weights["scientific_integrity"] +
+        velocity * weights["operational_velocity"] +
+        security * weights["security_compliance"],
+        2
+    )
+
+    eff = task.get("effort_hours") or {}
+    low = eff.get("low", 1.0)
+    high = eff.get("high", 2.0)
+    mean_effort = (low + high) / 2.0 if eff else 1.5
+    roi_ratio = round(composite_score / max(mean_effort, 0.5), 2)
+    benefit = min(5, max(1, int(round(composite_score / 2.0))))
+
+    return {
+        "categories": {
+            "curative_biophysics": curative,
+            "clinical_translation": translation,
+            "scientific_integrity": integrity,
+            "operational_velocity": velocity,
+            "security_compliance": security,
+        },
+        "composite_score": composite_score,
+        "mean_effort_hours": mean_effort,
+        "roi_ratio": roi_ratio,
+        "benefit": benefit,
+    }
+
+
+def determine_roi_priority(task: dict, roi_meta: dict) -> str:
+    """Map composite ROI ratio and mission impact to priority level."""
+    title_lower = task.get("title", "").lower()
+    if task.get("priority") == "P0" or (roi_meta["categories"]["security_compliance"] >= 9.0 and "p0" in title_lower):
+        return "P0"
+
+    # High ROI ratio (>= 3.5) OR High Curative/Translation (>= 7.0) with low/medium effort (<= 4h)
+    if roi_meta["roi_ratio"] >= 3.5 or (roi_meta["composite_score"] >= 7.0 and roi_meta["mean_effort_hours"] <= 4.0):
+        return "P1"
+    # Substantial ROI (>= 1.5) or strong composite score (>= 5.0)
+    elif roi_meta["roi_ratio"] >= 1.5 or roi_meta["composite_score"] >= 5.0:
+        return "P2"
+    else:
+        return "P3"
+
+
 def triage_board(
     board_data: dict,
     human_ids: set[str],
     auto_approve: bool = True,
     prioritize: bool = False,
+    all_approved: bool = False,
+    roi_model: bool = False,
 ) -> tuple[dict, dict]:
     """Triage all tasks in board_data and return updated data and stats."""
     stats = {
@@ -312,25 +415,43 @@ def triage_board(
             stats["completed_to_done"].append(tid)
             continue
 
-        # 2. Check proposed tasks for auto-approval
+        # 2. Check proposed tasks for approval
         if status == "proposed":
             is_hg, hg_reason = is_human_gated(task, human_ids)
-            if is_hg:
-                stats["retained_proposed_human"].append((tid, hg_reason))
-                continue
 
-            is_valid, reason = is_grounded_executable(task)
-            if not is_valid:
-                stats["retained_proposed_ungrounded"].append((tid, reason))
-                continue
-
-            if auto_approve:
+            if all_approved:
+                # In all_approved mode, every task is considered approved and ready
                 task["status"] = "ready"
                 task["updated_at"] = now_iso
+                if is_hg:
+                    task["executor"] = "human"
+                    task["human_required"] = True
+                    approval_note = f"{today_str} ROI Triage: Approved to ready (human executor: {hg_reason}). Prioritized by multi-category ROI."
+                else:
+                    task["executor"] = "agent"
+                    task["human_required"] = False
+                    approval_note = f"{today_str} ROI Triage: Approved to ready (autonomous agent executor). Prioritized by multi-category ROI."
+
                 existing_notes = task.get("notes") or ""
-                approval_note = f"{today_str} CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
                 task["notes"] = f"{existing_notes} | {approval_note}" if existing_notes else approval_note
                 stats["approved_to_ready"].append(tid)
+            else:
+                if is_hg:
+                    stats["retained_proposed_human"].append((tid, hg_reason))
+                    continue
+
+                is_valid, reason = is_grounded_executable(task)
+                if not is_valid:
+                    stats["retained_proposed_ungrounded"].append((tid, reason))
+                    continue
+
+                if auto_approve:
+                    task["status"] = "ready"
+                    task["updated_at"] = now_iso
+                    existing_notes = task.get("notes") or ""
+                    approval_note = f"{today_str} CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
+                    task["notes"] = f"{existing_notes} | {approval_note}" if existing_notes else approval_note
+                    stats["approved_to_ready"].append(tid)
 
         # 3. Curative mission track scoring and prioritization
         classification = classify_curative_mission(task)
@@ -350,9 +471,18 @@ def triage_board(
         for w in warn_list:
             stats["warnings"].append(f"{tid}: {w}")
 
+        # Multi-category ROI computation
+        if roi_model or prioritize:
+            roi_meta = compute_multi_category_roi(task)
+            if not isinstance(task.get("roi"), dict):
+                task["roi"] = {}
+            task["roi"]["categories"] = roi_meta["categories"]
+            task["roi"]["composite_score"] = roi_meta["composite_score"]
+            task["roi"]["roi_ratio"] = roi_meta["roi_ratio"]
+
         if prioritize and task["status"] in ("ready", "in_progress", "proposed"):
             old_priority = task.get("priority")
-            new_priority = classification["priority"]
+            new_priority = determine_roi_priority(task, roi_meta) if roi_model else classification["priority"]
             if old_priority != new_priority:
                 task["priority"] = new_priority
                 stats["prioritized_tasks"].append((tid, old_priority, new_priority, classification["track"]))
@@ -421,6 +551,8 @@ def main(argv=None) -> int:
     parser.add_argument("--human-tasks", default=str(HUMAN_TASKS_PATH), help="Path to tasks/HUMAN-TASKS.md")
     parser.add_argument("--dry-run", action="store_true", help="Evaluate without writing changes to disk")
     parser.add_argument("--prioritize", action="store_true", help="Re-prioritize tasks based on curative mission alignment")
+    parser.add_argument("--all-approved", action="store_true", help="Consider all tasks approved and ready; prioritize by multi-category ROI")
+    parser.add_argument("--roi-model", action="store_true", help="Compute multi-category ROI breakdown and score for all tasks")
     parser.add_argument("--council", action="store_true", help="Execute full AI Loop Council triage and emit audit report")
     parser.add_argument("--check", action="store_true", help="Check that board is triaged without modifying")
     parser.add_argument("--no-render", action="store_true", help="Skip invoking render-board.ps1")
@@ -452,7 +584,16 @@ def main(argv=None) -> int:
         print(f"P1 Ready Tasks Queue: {report['p1_curative_ready_queue']}")
         print(f"Audit ledger written to .loop-logs/council-triage-audit-{report['date']}.json")
 
-    updated_board, stats = triage_board(board_data, human_ids, auto_approve=True, prioritize=args.prioritize or args.council)
+    do_prioritize = args.prioritize or args.council or args.roi_model or args.all_approved
+    do_roi = args.roi_model or args.all_approved
+    updated_board, stats = triage_board(
+        board_data,
+        human_ids,
+        auto_approve=True,
+        prioritize=do_prioritize,
+        all_approved=args.all_approved,
+        roi_model=do_roi,
+    )
 
     print("==================================================")
     print("Sensei Ewok CF Lab - Council Triage & Approval Engine")

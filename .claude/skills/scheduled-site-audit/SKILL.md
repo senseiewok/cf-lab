@@ -11,7 +11,7 @@ Maintains unbroken operational quality, security posture, and dignity for the pu
 
 ## Cadence & Trigger
 
-- **Turbo Mode Cadence**: Every 2 hours on even hours: 00:00, 02:00, 04:00, 06:00, 08:00, 10:00, 12:00, 14:00, 16:00, 18:00, 20:00, 22:00 PT (`CRON_TZ=America/Los_Angeles 0 0,2,4,6,8,10,12,14,16,18,20,22 * * *`) integrated within `daily-site-security-sentinel`.
+- **Turbo Mode Cadence**: Every 10 minutes at :00, :10, :20, :30, :40, :50 PT (`CRON_TZ=America/Los_Angeles */10 * * * *`) integrated within `daily-site-security-sentinel`.
 - **Antigravity Sidecar ID**: `daily-site-security-sentinel`
 - **Review Tier**: `routine`
 - **Anti-Churn Invariant**: If zero defects or regressions are detected, log health status to `.loop-logs/` only. It is strictly forbidden to open a pull request or edit `tasks/board.json` notes just to record that a clean audit occurred.
@@ -22,7 +22,7 @@ Maintains unbroken operational quality, security posture, and dignity for the pu
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 2h on Even Hours / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    Trigger["Scheduled Trigger (Every 10 Minutes / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|Clean Idle (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]

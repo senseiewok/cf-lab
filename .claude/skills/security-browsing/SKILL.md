@@ -24,7 +24,7 @@ Any page, PDF, README, issue comment, search snippet or third-party skill can co
 Search queries, URLs and form fields are sent to and logged by third parties. Don't put any of these in a query, URL, online tool or API call:
 
 - secrets, tokens, `.env` contents, or hosting details
-- patient or health data, even "anonymised" (CF cohorts are small enough to re-identify)
+- patient or health data, even "anonymised" (CF cohorts are small enough to re-identify); for questions about one real person, rewrite the question in general terms, say so, and keep nothing about the person
 - private repo code, unpublished research, local paths, usernames, or machine details
 
 Don't paste workspace files into online formatters, validators, pastebins or "AI checkers". Use a local tool instead.
@@ -83,6 +83,18 @@ Don't paste workspace files into online formatters, validators, pastebins or "AI
 ## 6. People's data
 
 Patient stories, forum posts and social media are personal health information, even when public. Don't collect names, photos, locations or identifiable details about individuals. Summarise themes, not people. This follows the PHI rules in `security-baseline` section 6, and privacy laws such as GDPR and CCPA apply to scraped personal data too.
+
+### Questions about one real person: generalise before any search
+
+Before any search or cloud call concerning one real person or patient:
+- **Rewrite the question in general terms, say so, and keep nothing about the person.**
+- Small rare disease cohorts risk re-identification from composite queries. Web-tool inputs and external search queries must never combine a health term (condition, mutation, therapy, clinical endpoint) with personal attributes:
+  - **age** (e.g. "14-year-old", "age 3", "infant")
+  - **origin** (ethnicity, nationality, ancestry)
+  - **status** (e.g. "pregnant", "transplant recipient", "inpatient", "post-op")
+  - **place** (city, state, hospital, clinic)
+  - **date** (birthdate, admission date, event date)
+- Strip all identifying details and query only the underlying biological, therapeutic, or pharmacological question (e.g. search "W1282X nonsense mutation readthrough clinical evidence", never "12-year-old in Seattle with W1282X"). Say to the user: "Generalising question to general scientific terms to protect individual privacy before searching."
 
 ## 7. Medical information quality
 

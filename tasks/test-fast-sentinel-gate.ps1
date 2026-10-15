@@ -164,6 +164,59 @@ try {
         Remove-Item $leafWatermarkPath -Force -ErrorAction SilentlyContinue
     }
 
+    # Test 11: -Force Bypasses Matching Watermark & Acquires Lock (Exit code 0)
+    $tasksTree = (git -C $repoRoot rev-parse "HEAD:tasks")
+    $forceWatermarkPath = Join-Path $repoRoot ".loop-logs/test-force-watermark.json"
+    $forcePayload = @{
+        sentinel_id = "sentinel-force-test"
+        timestamp   = (Get-Date).ToString("o")
+        tree_hashes = @{
+            "tasks" = $tasksTree
+        }
+    } | ConvertTo-Json
+    Set-Content -Path $forceWatermarkPath -Value $forcePayload -Encoding utf8
+
+    & pwsh -NoProfile -File $gateScript -SentinelName "sentinel-theta" -LockFile $testLockFile -WatermarkFile ".loop-logs/test-force-watermark.json" -WatchPaths @("tasks") -Force | Out-Null
+    $code11 = $LASTEXITCODE
+    Assert-Test -Name "-Force bypasses matching watermark and exits 0" -Condition ($code11 -eq 0) -Details "ExitCode=$code11"
+
+    # Test 12: -Force Overrides Active Lock Held by Another Sentinel (Exit code 0)
+    & pwsh -NoProfile -File $gateScript -SentinelName "sentinel-iota" -LockFile $testLockFile -Force | Out-Null
+    $code12 = $LASTEXITCODE
+    $iotaLockData = Get-Content $fullTestLockPath -Raw | ConvertFrom-Json
+    Assert-Test -Name "-Force overrides active lock and transfers ownership" -Condition ($code12 -eq 0 -and $iotaLockData.held_by -eq "sentinel-iota") -Details "ExitCode=$code12, held_by=$($iotaLockData.held_by)"
+
+    # Cleanup force watermark
+    if (Test-Path $forceWatermarkPath) {
+        Remove-Item $forceWatermarkPath -Force -ErrorAction SilentlyContinue
+    }
+
+    # Release iota lock
+    & pwsh -NoProfile -File $gateScript -SentinelName "sentinel-iota" -LockFile $testLockFile -Release | Out-Null
+
+    # Test 13: A watch path in a dot-named sibling repo ('.ai/src') resolves instead of being treated as a
+    # permanent delta (TrimStart('.') used to turn it into 'ai/src', so the showcase gate never idled).
+    $commonGit = (git -C $repoRoot rev-parse --path-format=absolute --git-common-dir 2>$null)
+    $labMain = if ($commonGit) { Split-Path -Parent $commonGit } else { $repoRoot }
+    $siblingAi = Join-Path (Split-Path -Parent $labMain) ".ai"
+    $aiSrcTree = if (Test-Path (Join-Path $siblingAi "src")) { (git -C $siblingAi rev-parse "HEAD:src" 2>$null) } else { $null }
+    if ($aiSrcTree) {
+        $dotWatermarkPath = Join-Path $repoRoot ".loop-logs/test-dot-watermark.json"
+        $dotPayload = @{
+            sentinel_id = "sentinel-dot-test"
+            timestamp   = (Get-Date).ToString("o")
+            tree_hashes = @{ "src" = $aiSrcTree }
+        } | ConvertTo-Json
+        Set-Content -Path $dotWatermarkPath -Value $dotPayload -Encoding utf8
+
+        & pwsh -NoProfile -File $gateScript -SentinelName "sentinel-dot" -LockFile $testLockFile -WatermarkFile ".loop-logs/test-dot-watermark.json" -WatchPaths @(".ai/src") 2>$null | Out-Null
+        $code13 = $LASTEXITCODE
+        Assert-Test -Name "Dot-named sibling watch path '.ai/src' resolves and matches watermark (exit 20)" -Condition ($code13 -eq 20) -Details "ExitCode=$code13"
+        Remove-Item $dotWatermarkPath -Force -ErrorAction SilentlyContinue
+    } else {
+        Write-Host "SKIP: Test 13 needs the sibling .ai repo with a src folder next to cf-lab." -ForegroundColor Yellow
+    }
+
 } finally {
     Cleanup-TestLock
 }
