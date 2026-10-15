@@ -16,7 +16,7 @@ param(
 
     [switch]$Release,
 
-    [string]$LockFile = ".loop-logs/sentinel.lock",
+    [string]$LockFile = "",
 
     [string]$WatermarkFile = "",
 
@@ -45,6 +45,12 @@ if (-not (Test-Path (Join-Path $cfLab "tasks/board.json"))) {
     } elseif (Test-Path "../tasks/board.json") {
         $cfLab = (Get-Item "..").FullName
     }
+}
+
+# Council Amendment: Scope lock file per sentinel name to prevent starvation (sanitized against path traversal)
+if (-not $LockFile) {
+    $SafeSentinelName = ($SentinelName -replace '[^a-zA-Z0-9_\-]', '_')
+    $LockFile = ".loop-logs/sentinel-$SafeSentinelName.lock"
 }
 
 if ([System.IO.Path]::IsPathRooted($LockFile)) {

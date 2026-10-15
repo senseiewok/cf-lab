@@ -11,8 +11,8 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ## Cadence & Trigger
 
-- **Turbo Mode Cadence**: Every 2 hours on odd hours: 01:00, 03:00, 05:00, 07:00, 09:00, 11:00, 13:00, 15:00, 17:00, 19:00, 21:00, 23:00 PT (`CRON_TZ=America/Los_Angeles 0 1,3,5,7,9,11,13,15,17,19,21,23 * * *`) integrated within `daily-research-sentinel` (following research delta evaluations).
-- **Antigravity Sidecar ID**: `daily-research-sentinel`
+- **Dedicated Front-Door Cadence**: Every 2 hours at :30 on odd hours: 01:30, 03:30, 05:30, 07:30, 09:30, 11:30, 13:30, 15:30, 17:30, 19:30, 21:30, 23:30 PT (`CRON_TZ=America/Los_Angeles 30 1,3,5,7,9,11,13,15,17,19,21,23 * * *`), decoupled from `daily-research-sentinel` and `daily-security-sentinel` (alias: `daily-site-security-sentinel`) with 30-minute staggered isolation.
+- **Antigravity Sidecar ID**: `daily-site-showcase-sentinel`
 - **Review Tier**: `elevated` / `full` (depending on public claims and security boundaries).
 - **Anti-Churn Invariant**: If no new validated research dossiers or `showcase_targets` exist, terminate cleanly with 0 tokens burned. Never open a pull request without newly verified biophysical research deliverables or localized content.
 
@@ -22,7 +22,7 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 2h on Odd Hours / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    Trigger["Scheduled Trigger (Every 2h on Odd Hours at :30 / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|No New Research (Code 20)| IdleExit["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Deltas Detected (Code 0)| Worktree["1. Spawn Dedicated Worktree & Branch\n(Never Edit main)"]
@@ -38,7 +38,7 @@ flowchart TD
 Before touching any `.ai` or skill files:
 1. **Deterministic Fast Pre-Flight Gate**:
    ```powershell
-   pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-research-sentinel" -WatermarkFile ".loop-logs/last-research-audit.json" -WatchPaths @("../cf-research/proposals", "../cf-research/landscape", "../cf-research/sources/catalog.yaml")
+   pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-site-showcase-sentinel" -WatermarkFile ".loop-logs/last-showcase-audit.json" -WatchPaths @("../cf-research/landscape", ".ai/src")
    ```
    If exit code is 10 (`LOCK_HELD`) or 20 (`IDLE`), terminate immediately without calling further tools.
 2. **Sync with origin/main on Start**: Always sync with origin and pull the latest `main` branch across all workspace repositories before inspecting state watermarks, research dossiers, or tasks:
@@ -137,6 +137,12 @@ Execute the mandatory 3-layer Grounded Review Loop:
      gh pr create --repo senseiewok/.ai --title "feat(site): <description>" --body-file pr-body.md
      ```
    - Attach Playwright screenshots and link back to the originating research dossier.
+4. **Update Watermark & Release Lock**:
+   - Update `.loop-logs/last-showcase-audit.json` with fresh tree hashes.
+   - Release lock:
+     ```powershell
+     pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-site-showcase-sentinel" -Release
+     ```
 
 ---
 

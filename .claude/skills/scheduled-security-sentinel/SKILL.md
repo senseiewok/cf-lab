@@ -1,18 +1,18 @@
 ---
 name: scheduled-security-sentinel
-description: Autonomous log sentinel and automated fix PR engine. Continuously audits logs, transcripts, and git status across all workspace repos for secret leakage, PHI violations, SSRF, prompt injection escapes, and permission drift. Prepares verified fix PRs through the full gate.
+description: Autonomous overall security, session error mining, and automated fix PR engine. Continuously audits logs, agent session transcripts, and git status across all workspace repos for secret leakage, PHI violations, runtime errors, and permission drift. Prepares verified fix PRs through the full gate.
 license: CC0-1.0
 compatibility: Compatible with Claude Code, Antigravity, and Agent Skills spec tools. Requires git, powershell, python, and gh CLI.
 ---
 
-# Autonomous security log sentinel & automated fix PR engine (`scheduled-security-sentinel`)
+# Overall Lab Security, Session Forensic Error Mining & Continuous Improvement Sentinel (`scheduled-security-sentinel`)
 
-Continuously audits background tasks, conversation logs, and repositories across Sensei Ewok's CF Lab with a strict security and privacy lens. Automatically detects secret exposures, Protected Health Information (PHI), network violations, and policy drift, and prepares verified fix pull requests through the Full review gate.
+Continuously audits background tasks, agent conversation transcripts, session error logs, and repositories across Sensei Ewok's CF Lab with a comprehensive security, quality, and reliability lens. Automatically detects secret exposures, Protected Health Information (PHI), network violations, command syntax errors, broken tool calls, and policy drift, and prepares verified fix pull requests through the Full review gate.
 
 ## Cadence & Trigger
 
-- **Turbo Mode Cadence**: Every 2 hours on even hours: 00:00, 02:00, 04:00, 06:00, 08:00, 10:00, 12:00, 14:00, 16:00, 18:00, 20:00, 22:00 PT (`CRON_TZ=America/Los_Angeles 0 0,2,4,6,8,10,12,14,16,18,20,22 * * *`) integrated within `daily-site-security-sentinel`.
-- **Antigravity Sidecar ID**: `daily-site-security-sentinel`
+- **Turbo Mode Cadence**: Every 2 hours on even hours: 00:00, 02:00, 04:00, 06:00, 08:00, 10:00, 12:00, 14:00, 16:00, 18:00, 20:00, 22:00 PT (`CRON_TZ=America/Los_Angeles 0 0,2,4,6,8,10,12,14,16,18,20,22 * * *`) integrated within `daily-security-sentinel` (with compatibility alias `daily-site-security-sentinel`).
+- **Antigravity Sidecar ID**: `daily-security-sentinel` (alias: `daily-site-security-sentinel`)
 - **Review Tier**: `full` (mandatory for security, credentials, privacy, and repository integrity).
 - **Anti-Churn Invariant**: If 0 defects or leaks are found, log to `.loop-logs/` only. It is strictly forbidden to open a PR or edit `tasks/board.json` notes just to record that a clean audit occurred.
 
@@ -27,10 +27,10 @@ flowchart TD
     FastGate -->|Clean Idle (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
     Sync --> Ingest["2. Multi-Repo Log & State Ingestion"]
-    Ingest --> Audit["3. 5-Point Security & Privacy Audit"]
-    Audit --> Triage{"Anomalies Found?"}
+    Ingest --> Audit["3. 6-Point Security, Session Error & Privacy Audit"]
+    Audit --> Triage{"Anomalies or Errors Found?"}
     Triage -->|No| Clean["Emit Clean Audit Record to .loop-logs/"]
-    Triage -->|Fixable Defect| Fix["4. Automated Remediation Worktree Pipeline"]
+    Triage -->|Fixable Defect or Error| Fix["4. Automated Remediation Worktree Pipeline"]
     Triage -->|Secret / Critical Leak| Alert["5. Emergency Handoff Alert & Revocation Notice"]
     Fix --> Gate["Full Gate: run-gate.ps1 -Tier full"]
     Gate --> PR["Open Pull Request via gh pr create"]
@@ -41,7 +41,7 @@ flowchart TD
 ### 0. Deterministic Fast Pre-Flight Gate
 Execute `tasks/fast-sentinel-gate.ps1` before any LLM reasoning or file reading begins:
 ```powershell
-pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-site-security-sentinel"
+pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-security-sentinel"
 ```
 If the gate exits with code 10 (`LOCK_HELD`) or code 20 (`IDLE`), terminate immediately without calling further tools.
 
@@ -95,6 +95,14 @@ When orchestrating on Gemini Flash, **delegate the first-pass mechanical triage 
      pwsh -NoProfile -File .claude/skills/security-git/scripts/check-staged.ps1
      pwsh -NoProfile -File .claude/skills/security-git/scripts/check-lab-files.ps1
      ```
+6. **Session Forensic Error Mining & Continuous Improvement**:
+   - Execute deterministic session error scanning across recent agent transcripts and task logs:
+     ```powershell
+     python tasks/audit_session_errors.py --hours 24
+     ```
+   - Mines all session transcripts under `<appDataDir>/brain/` and task logs for Non-Zero Exit Codes, PowerShell Syntax/ScriptBlock errors, Python Tracebacks, path resolution failures, and lock contention.
+   - Saves structured audit ledger to `.loop-logs/session-error-digest.json`.
+   - Converts recurring failure patterns into concrete script hardening, skill guideline updates, and auto-fix pull requests.
 
 ### 3. Automated Remediation & PR Pipeline
 
