@@ -186,6 +186,34 @@ class TestTriageBoard(unittest.TestCase):
         self.assertEqual(len(stats_2["approved_to_ready"]), 0)
         self.assertEqual(len(stats_2["completed_to_done"]), 0)
 
+    def test_all_approved_mode(self):
+        board_copy = copy.deepcopy(self.mock_board)
+        updated, stats = tb.triage_board(board_copy, self.mock_human_ids, all_approved=True, roi_model=True)
+        # All non-done tasks should now be ready
+        ready_tasks = [t for t in updated["tasks"] if t["status"] == "ready"]
+        self.assertEqual(len(ready_tasks), 5)  # T-0001, T-0002, T-0005, T-0150, T-0999 (T-0158 is done)
+
+        # Human-gated tasks should carry executor: human
+        task_1 = next(t for t in updated["tasks"] if t["id"] == "T-0001")
+        self.assertEqual(task_1["status"], "ready")
+        self.assertEqual(task_1["executor"], "human")
+        self.assertTrue(task_1["human_required"])
+
+        # Agent-capable tasks carry executor: agent
+        task_2 = next(t for t in updated["tasks"] if t["id"] == "T-0002")
+        self.assertEqual(task_2["status"], "ready")
+        self.assertEqual(task_2["executor"], "agent")
+        self.assertFalse(task_2["human_required"])
+
+    def test_multi_category_roi(self):
+        task_150 = self.mock_board["tasks"][3]
+        roi_meta = tb.compute_multi_category_roi(task_150)
+        self.assertIn("curative_biophysics", roi_meta["categories"])
+        self.assertIn("clinical_translation", roi_meta["categories"])
+        self.assertGreaterEqual(roi_meta["categories"]["curative_biophysics"], 9.0)
+        self.assertGreater(roi_meta["composite_score"], 0)
+        self.assertGreater(roi_meta["roi_ratio"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

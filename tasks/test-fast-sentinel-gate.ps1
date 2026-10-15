@@ -164,6 +164,36 @@ try {
         Remove-Item $leafWatermarkPath -Force -ErrorAction SilentlyContinue
     }
 
+    # Test 11: -Force Bypasses Matching Watermark & Acquires Lock (Exit code 0)
+    $tasksTree = (git -C $repoRoot rev-parse "HEAD:tasks")
+    $forceWatermarkPath = Join-Path $repoRoot ".loop-logs/test-force-watermark.json"
+    $forcePayload = @{
+        sentinel_id = "sentinel-force-test"
+        timestamp   = (Get-Date).ToString("o")
+        tree_hashes = @{
+            "tasks" = $tasksTree
+        }
+    } | ConvertTo-Json
+    Set-Content -Path $forceWatermarkPath -Value $forcePayload -Encoding utf8
+
+    & pwsh -NoProfile -File $gateScript -SentinelName "sentinel-theta" -LockFile $testLockFile -WatermarkFile ".loop-logs/test-force-watermark.json" -WatchPaths @("tasks") -Force | Out-Null
+    $code11 = $LASTEXITCODE
+    Assert-Test -Name "-Force bypasses matching watermark and exits 0" -Condition ($code11 -eq 0) -Details "ExitCode=$code11"
+
+    # Test 12: -Force Overrides Active Lock Held by Another Sentinel (Exit code 0)
+    & pwsh -NoProfile -File $gateScript -SentinelName "sentinel-iota" -LockFile $testLockFile -Force | Out-Null
+    $code12 = $LASTEXITCODE
+    $iotaLockData = Get-Content $fullTestLockPath -Raw | ConvertFrom-Json
+    Assert-Test -Name "-Force overrides active lock and transfers ownership" -Condition ($code12 -eq 0 -and $iotaLockData.held_by -eq "sentinel-iota") -Details "ExitCode=$code12, held_by=$($iotaLockData.held_by)"
+
+    # Cleanup force watermark
+    if (Test-Path $forceWatermarkPath) {
+        Remove-Item $forceWatermarkPath -Force -ErrorAction SilentlyContinue
+    }
+
+    # Release iota lock
+    & pwsh -NoProfile -File $gateScript -SentinelName "sentinel-iota" -LockFile $testLockFile -Release | Out-Null
+
 } finally {
     Cleanup-TestLock
 }
