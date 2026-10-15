@@ -7006,7 +7006,7 @@
       "title": "CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-13T05:00:00Z",
       "created_by": {
@@ -7024,9 +7024,9 @@
         "benefit": 5,
         "rationale": "Estimate: published numbers about people with CF, on a public page, with no primary-source record found; the lab's rule is that every number comes from a source line and unsupported claims are omitted from publication. A stranger could say the numbers are probably right; the lab's position is that probably right is not a tier.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 1.5,
+        "measured_outcome": "All four US CFFPR registry percentages (14.9%, 23.7%, 3.4%, 10.3%) verified against primary source lines in CFFPR 2024 ADR (pages 8, 63) in docs/cffpr-waiting-claims.json; audited by check_claims.py (4 passed, 0 failures), tested in test_site.py, and showcased with multi-registry dossier on .ai PR #82.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -7043,10 +7043,15 @@
         "T-0005"
       ],
       "updated_at": "2026-10-14T20:50:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-15T23:36:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity) + Argon",
+        "model_id": "gemini-3.8-flash + gemini-4-argon",
+        "session_ref": "2026-10-15 session: showcase multi-registry eligibility and verify US registry claims"
+      },
       "complexity": "low",
-      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: downloading the 2024 report (T-0005). Step 1 can be done by an agent at the Full tier and is the safe state while the report is missing. | 2026-10-13 CRO Grounding Audit: High-priority scientific grounding finding (PASS/T2). Enforces lab zero-tolerance policy for ungrounded numbers: 4 US registry percentages on public site lack primary claim records; Step 1 withdrawal/unverified flag recommended immediately pending T-0005 human download; tier full. | 2026-10-13: Step 1 applied to src/cf/index.html (exact ungrounded figures replaced with qualitative representation statements and 'Draft, in review' badge, removing vulnerable ungrounded numbers pending T-0005 report download). | 2026-10-13 Midday CRO Audit: Step 1 safe state verified and merged in .ai PR #56 (withdrawing unverified percentages from src/cf/index.html). Step 2 blocked on maintainer downloading 2024 CFFPR report (T-0005). | 2026-10-14: maintainer approved moving to ready for automated execution.",
+      "notes": "2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: downloading the 2024 report (T-0005). Step 1 can be done by an agent at the Full tier and is the safe state while the report is missing. | 2026-10-13 CRO Grounding Audit: High-priority scientific grounding finding (PASS/T2). Enforces lab zero-tolerance policy for ungrounded numbers: 4 US registry percentages on public site lack primary claim records; Step 1 withdrawal/unverified flag recommended immediately pending T-0005 human download; tier full. | 2026-10-13: Step 1 applied to src/cf/index.html (exact ungrounded figures replaced with qualitative representation statements and 'Draft, in review' badge, removing vulnerable ungrounded numbers pending T-0005 report download). | 2026-10-13 Midday CRO Audit: Step 1 safe state verified and merged in .ai PR #56 (withdrawing unverified percentages from src/cf/index.html). Step 2 blocked on maintainer downloading 2024 CFFPR report (T-0005). | 2026-10-14: maintainer approved moving to ready for automated execution. | 2026-10-15: Step 2 completed. All 4 figures verified with exact citations in docs/cffpr-waiting-claims.json, passed check_claims.py, tested in test_site.py, dual-family frontier council cleared, and opened in .ai PR #82.",
       "recommended_route": "cloud",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.",
       "executor": "agent",

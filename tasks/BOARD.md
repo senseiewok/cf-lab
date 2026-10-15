@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 34 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 36 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (88)
+## ready (86)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -39,7 +39,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
-| T-0146 | P2 | CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has | .ai | 1-3 | 5 | 25 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | low | cloud | T-0005 |  |
 | T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0092 | P2 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0083 |  |
 | T-0104 | P2 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | local |  |  |
@@ -105,7 +104,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (65)
+## done (67)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -142,6 +141,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0033 | P2 | Send standard security response headers on the live website (HSTS, X-Content-Type-Options, Referrer-Policy, frame and content restrictions) | .ai | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | full |  |  |  |  |
 | T-0038 | P2 | Add openFDA drug label and Drugs@FDA approval endpoints to the catalog; resolve approval-year claims from them | cf-research | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0162 | P2 | Deterministic Playwright screen capture & review schedule with retention pruning: capture_site_review.py integrated into daily-site-security-sentinel | cf-lab | 1-2 | 4 | 26.7 | yes | model: gemini-3.8-flash | 2026-10-14 | routine | low | local |  |  |
+| T-0146 | P2 | CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has | .ai | 1-3 | 5 | 25 | yes | model: claude-sonnet-5-5 | 2026-10-13 | full | low | cloud | T-0005 |  |
 | T-0016 | P2 | Verify exactly 65 rose motifs render, and that reduced-motion is honoured, with a Playwright count | .ai | 1-1.5 | 3 | 24 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0017 | P2 | Self-host the two web fonts; remove the unused images.unsplash.com preconnect | .ai | 1-1.5 | 3 | 24 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0024 | P2 | Board enhancement: add complexity, recommended_route (local, cloud or frontier) and route_rationale to tasks | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | cloud |  |  |
@@ -676,7 +676,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** Step 1, no download needed: each of the four figures is either removed from the page or shown as unverified, and a test fails when a sentence that names a registry and carries a number has no claim record. Step 2, after T-0005: each figure has a claim record with report year, page, table or figure name and the exact quoted value; the cffpr-report-reading cautions on population and definitions are recorded; check_claims.py and check_numbers.py pass; a figure the report does not state is removed, not rounded. A second model family reads the claim records blind; the maintainer reads the result before deploy.
 - **Evidence:** 2026-10-13: the CF-story page (src/cf/index.html on site origin/main, 'Who is still waiting', United States paragraph) shows 14.9 and 23.7 percent (of the group counted as not eligible by age or genotype) against 3.4 and 10.3 percent of the whole registry, sourced to the 2024 CFFPR Annual Data Report. A search of cf-research origin/main for those figures with the words Black, Hispanic, Alyftrek, percent and eligible found no claim record (scope: git grep on 2026-10-13, text files only). The Foundation's site answers 403 to scripts and the 2024 report is not on this machine. Site PR 52 reworded the sentence to attribute only what the lab's genetics-reading note supports; the percentages were not re-verified. The page says the reports were read on 2026-10-05; who extracted the figures and how: not stated.
-- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: downloading the 2024 report (T-0005). Step 1 can be done by an agent at the Full tier and is the safe state while the report is missing. \| 2026-10-13 CRO Grounding Audit: High-priority scientific grounding finding (PASS/T2). Enforces lab zero-tolerance policy for ungrounded numbers: 4 US registry percentages on public site lack primary claim records; Step 1 withdrawal/unverified flag recommended immediately pending T-0005 human download; tier full. \| 2026-10-13: Step 1 applied to src/cf/index.html (exact ungrounded figures replaced with qualitative representation statements and 'Draft, in review' badge, removing vulnerable ungrounded numbers pending T-0005 report download). \| 2026-10-13 Midday CRO Audit: Step 1 safe state verified and merged in .ai PR #56 (withdrawing unverified percentages from src/cf/index.html). Step 2 blocked on maintainer downloading 2024 CFFPR report (T-0005). \| 2026-10-14: maintainer approved moving to ready for automated execution.
+- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. Human-only: downloading the 2024 report (T-0005). Step 1 can be done by an agent at the Full tier and is the safe state while the report is missing. \| 2026-10-13 CRO Grounding Audit: High-priority scientific grounding finding (PASS/T2). Enforces lab zero-tolerance policy for ungrounded numbers: 4 US registry percentages on public site lack primary claim records; Step 1 withdrawal/unverified flag recommended immediately pending T-0005 human download; tier full. \| 2026-10-13: Step 1 applied to src/cf/index.html (exact ungrounded figures replaced with qualitative representation statements and 'Draft, in review' badge, removing vulnerable ungrounded numbers pending T-0005 report download). \| 2026-10-13 Midday CRO Audit: Step 1 safe state verified and merged in .ai PR #56 (withdrawing unverified percentages from src/cf/index.html). Step 2 blocked on maintainer downloading 2024 CFFPR report (T-0005). \| 2026-10-14: maintainer approved moving to ready for automated execution. \| 2026-10-15: Step 2 completed. All 4 figures verified with exact citations in docs/cffpr-waiting-claims.json, passed check_claims.py, tested in test_site.py, dual-family frontier council cleared, and opened in .ai PR #82.
+- **Measured:** 1.5 h; All four US CFFPR registry percentages (14.9%, 23.7%, 3.4%, 10.3%) verified against primary source lines in CFFPR 2024 ADR (pages 8, 63) in docs/cffpr-waiting-claims.json; audited by check_claims.py (4 passed, 0 failures), tested in test_site.py, and showcased with multi-registry dossier on .ai PR #82.
 
 ### T-0016 Verify exactly 65 rose motifs render, and that reduced-motion is honoured, with a Playwright count
 
