@@ -7977,6 +7977,102 @@
       "route_rationale": "Local transcript parsing and log auditing with full review gate.",
       "branch": null,
       "notes": "2026-10-14: Proposed and approved to ready per maintainer directive. Broadens security sentinel to overall multi-repo security, agent transcript error mining, and self-healing system improvements. | 2026-10-15 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing."
+    },
+    {
+      "id": "T-0165",
+      "title": "Public exposure & localization of Rare Variant Cryo-EM Theratyping Atlas & Universal Curative Mission Charter",
+      "repo": ".ai",
+      "area": "content",
+      "status": "done",
+      "priority": "P2",
+      "created_at": "2026-10-15T07:45:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
+      },
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Exposes computational geometry theratyping metrics for rare and unclassified CFTR mutations to patients and researchers on /cf/ with declarative research cards, dynamic nav, and Mexican Spanish localization.",
+        "confidence": "high",
+        "measured": true,
+        "actual_hours": 3.5,
+        "measured_outcome": "PR #79 merged into main (c3ed568). Exposed Rare Variant Cryo-EM Theratyping Atlas (2,000+ variants, 4 Cryo-EM models, and atomistic perturbation metrics) to /cf/ with declarative research cards, dynamic nav, and Mexican Spanish localization.",
+        "categories": {
+          "curative_biophysics": 8.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 2.63
+      },
+      "acceptance": "Declarative research card #rare-variants with ARIA landmarks and data-i18n attributes on /cf/; anchor jump link #rare-variants added to nav-rail.js and subnavMap; complete Mexican Spanish translation in data/i18n/es-MX.json and src/scripts/i18n-resources.js with mandatory clinical boundary disclaimer; all site tests pass.",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0150",
+        "T-0163"
+      ],
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Cross-repo synthesis connecting Cryo-EM biophysics in cf-research, frontend ES modules in .ai, and Mexican Spanish localization.",
+      "branch": "site/showcase-rare-variants",
+      "notes": "2026-10-15: Claimed by daily-site-showcase-sentinel in isolated worktree site/showcase-rare-variants. Completed in PR #79."
+    },
+    {
+      "id": "T-0166",
+      "title": "Public exposure & localization of Adaptive N-of-1 Organoid Theratyping Protocol & Multi-Registry DILI Surveillance",
+      "repo": ".ai",
+      "area": "content",
+      "status": "in_progress",
+      "priority": "P2",
+      "created_at": "2026-10-15T08:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
+      },
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "effort_hours": {
+        "low": 2,
+        "high": 4
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Exposes adaptive N-of-1 organoid surrogate trial frameworks for 1,000+ ultra-rare CFTR variants and openFDA DILI boxed warning monitoring on /cf/ with declarative research cards, dynamic nav, and Mexican Spanish localization.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null,
+        "categories": {
+          "curative_biophysics": 8.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 2.63
+      },
+      "acceptance": "Declarative research card #adaptive-organoids with ARIA landmarks and data-i18n attributes on /cf/; anchor jump link #adaptive-organoids added to nav-rail.js and subnavMap; complete Mexican Spanish translation in data/i18n/es-MX.json and src/scripts/i18n-resources.js with mandatory clinical boundary disclaimer; all site tests pass.",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0153",
+        "T-0165"
+      ],
+      "complexity": "medium",
+      "recommended_route": "cloud",
+      "route_rationale": "Cross-repo synthesis connecting organoid surrogate biostatistics in cf-research, frontend ES modules in .ai, and Mexican Spanish localization.",
+      "branch": "site/showcase-adaptive-trials",
+      "notes": "2026-10-15: Claimed by daily-site-showcase-sentinel in isolated worktree site/showcase-adaptive-trials."
     }
   ]
 }
