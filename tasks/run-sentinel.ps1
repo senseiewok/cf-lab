@@ -84,12 +84,15 @@ if (-not $cfg) {
     exit 2
 }
 
-function Get-GateArgs {
+function Get-GateArgs([switch]$NoDelta) {
     $a = @("-NoProfile", "-File", $gate, "-SentinelName", $SentinelName)
     if ($null -ne $cfg.lock_timeout_minutes) { $a += @("-LockTimeoutMinutes", [string]$cfg.lock_timeout_minutes) }
-    if ($cfg.watermark) { $a += @("-WatermarkFile", [string]$cfg.watermark) }
-    if ($cfg.watch_paths) { $a += @("-WatchPaths", (@($cfg.watch_paths) -join ",")) }
-    if ($null -ne $cfg.max_idle_hours) { $a += @("-MaxIdleHours", [string]$cfg.max_idle_hours) }
+    # -NoDelta takes the lock without comparing watermarks (used when the board has work to build).
+    if (-not $NoDelta) {
+        if ($cfg.watermark) { $a += @("-WatermarkFile", [string]$cfg.watermark) }
+        if ($cfg.watch_paths) { $a += @("-WatchPaths", (@($cfg.watch_paths) -join ",")) }
+        if ($null -ne $cfg.max_idle_hours) { $a += @("-MaxIdleHours", [string]$cfg.max_idle_hours) }
+    }
     return $a
 }
 
@@ -122,6 +125,23 @@ if (-not $NoSync) {
 $gateOut = & pwsh @(Get-GateArgs) 2>&1
 $gateCode = $LASTEXITCODE
 $gateOut | ForEach-Object { Write-Host $_ }
+
+# Idle means no watched tree changed. A sentinel with a build lane may still have bigger work to do
+# from the board's ready tasks (tasks/pick_bold_task.py), so ask before giving the slot up.
+$buildRun = $false
+if ($gateCode -eq 20 -and $cfg.build) {
+    if ($cfg.build.probe) {
+        & pwsh -NoProfile -Command ([string]$cfg.build.probe) *> $null
+    } else {
+        & python (Join-Path $PSScriptRoot "pick_bold_task.py") --lane ([string]$cfg.build.lane) --check *> $null
+    }
+    if ($LASTEXITCODE -eq 0) {
+        $gateOut = & pwsh @(Get-GateArgs -NoDelta) 2>&1
+        $gateCode = $LASTEXITCODE
+        $gateOut | ForEach-Object { Write-Host $_ }
+        $buildRun = $true
+    }
+}
 
 if ($gateCode -eq 10) { Write-RunLog -Decision "locked"; exit 0 }
 if ($gateCode -eq 20) { Write-RunLog -Decision "idle"; exit 0 }
@@ -156,7 +176,7 @@ try {
         Pop-Location
     }
     if ($agentExit -ne 0) { throw "agent command exited $agentExit" }
-    Write-RunLog -Decision "launched" -Detail $title
+    Write-RunLog -Decision "launched" -Detail $(if ($buildRun) { "$title (build slot, no watched change)" } else { $title })
     exit 0
 } catch {
     Write-RunLog -Decision "launch_failed" -Detail $_.Exception.Message

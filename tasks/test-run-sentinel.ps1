@@ -160,6 +160,43 @@ try {
     $c = Invoke-Wrapper @("-Complete") -ManifestPath $aliasManifest -Name "rs-alias-name"
     Assert-Test "-Complete through the alias releases the canonical lock" ($c -eq 0 -and -not (Test-Path $lockPath) -and (Test-Path $wmPath)) "exit=$c"
 
+    # ---- build slots: no watched change, but the board has bigger work -----------------------
+    function Set-IdleWatermark {
+        @{ timestamp = (Get-Date).ToUniversalTime().ToString("o"); tree_hashes = @{ tasks = $tasksTree } } | ConvertTo-Json | Set-Content $wmPath -Encoding utf8
+    }
+    $buildYes = Join-Path $tmp "build-yes.json"
+    New-Manifest $buildYes @{ build = @{ lane = "security"; probe = "exit 0" } }
+    $buildNo = Join-Path $tmp "build-no.json"
+    New-Manifest $buildNo @{ build = @{ lane = "security"; probe = "exit 20" } }
+
+    Reset-State
+    Set-IdleWatermark
+    $c = Invoke-Wrapper -ManifestPath $buildYes
+    $last = if (Test-Path $runLog) { Get-Content $runLog | Select-Object -Last 1 | ConvertFrom-Json } else { $null }
+    Assert-Test "Idle gate but the build probe finds work: the agent is launched as a build slot" ($c -eq 0 -and (Get-StubCalls) -eq 1 -and $last.decision -eq "launched" -and $last.detail -match "build slot") "calls=$(Get-StubCalls) last=$($last | ConvertTo-Json -Compress)"
+    Assert-Test "A build slot holds the lock like any other run" (Test-Path $lockPath)
+    $c = Invoke-Wrapper -ManifestPath $buildYes
+    Assert-Test "A second slot during a build run backs off (the lock is still respected)" ($c -eq 0 -and (Get-StubCalls) -eq 1 -and (Get-Decisions)[-1] -eq "locked") "decisions=$((Get-Decisions) -join ',')"
+    Invoke-Wrapper @("-Complete") -ManifestPath $buildYes | Out-Null
+    Assert-Test "-Complete after a build slot releases the lock and keeps the watermark" (-not (Test-Path $lockPath) -and (Test-Path $wmPath))
+
+    Reset-State
+    Set-IdleWatermark
+    $c = Invoke-Wrapper -ManifestPath $buildNo
+    Assert-Test "Idle gate and a probe that finds no work: nothing is launched" ($c -eq 0 -and (Get-StubCalls) -eq 0 -and (Get-Decisions)[-1] -eq "idle" -and -not (Test-Path $lockPath)) "decisions=$((Get-Decisions) -join ',')"
+
+    Reset-State
+    Set-IdleWatermark
+    $c = Invoke-Wrapper
+    Assert-Test "A sentinel without a build block stays idle when nothing changed" ($c -eq 0 -and (Get-StubCalls) -eq 0 -and (Get-Decisions)[-1] -eq "idle")
+
+    Reset-State
+    @{ timestamp = (Get-Date).ToUniversalTime().ToString("o"); tree_hashes = @{ tasks = "0000000000000000000000000000000000000000" } } | ConvertTo-Json | Set-Content $wmPath -Encoding utf8
+    $c = Invoke-Wrapper -ManifestPath $buildNo
+    $last = Get-Content $runLog | Select-Object -Last 1 | ConvertFrom-Json
+    Assert-Test "A real change still launches normally (not labelled a build slot)" ($c -eq 0 -and (Get-StubCalls) -eq 1 -and $last.detail -notmatch "build slot") "detail=$($last.detail)"
+    Invoke-Wrapper @("-Abort") -ManifestPath $buildNo | Out-Null
+
     # ---- failure paths ----------------------------------------------------------------------
     Reset-State
     $env:STUB_EXIT = "1"
@@ -250,6 +287,10 @@ try {
         Assert-Test "$n prompt never asks for a per-round handoff append" ($text -notmatch "(?i)append (a )?(per-round )?summary to" -and $text -match "(?i)only when") $c.prompt_file
         $cadenceMin = if ($c.cron -split '\s+' | Select-Object -Skip 1 -First 1 | ForEach-Object { $_ -match '^\*/(\d+)$' }) { [int]$Matches[1] * 60 } else { 1440 }
         Assert-Test "$n lock timeout is below the cadence (a hung run is reclaimed by the next slot)" ([int]$c.lock_timeout_minutes -lt $cadenceMin -and [int]$c.lock_timeout_minutes -ge 30) "timeout=$($c.lock_timeout_minutes) cadence=$cadenceMin"
+        $lanes = @("security", "research", "showcase")
+        Assert-Test "$n has a build lane the picker knows" ($c.build -and $lanes -contains $c.build.lane) "build=$($c.build | ConvertTo-Json -Compress)"
+        Assert-Test "$n prompt has a build round that claims its own lane's bundle" ($text -match "Build round" -and $text -match [regex]::Escape("pick_bold_task.py --lane $($c.build.lane) --claim") -and $text -match "WHOLE bundle" -and $text -match "(?i)never merge") $c.prompt_file
+        Assert-Test "$n prompt never lets the build round touch human-only tasks" ($text -match "HUMAN-TASKS\.md") $c.prompt_file
         Assert-Test "$n has a watermark and at least one watch path" ($c.watermark -and @($c.watch_paths).Count -ge 1)
         Assert-Test "$n sidecar_dir is set" ([bool]$c.sidecar_dir)
     }
