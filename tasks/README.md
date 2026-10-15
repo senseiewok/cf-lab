@@ -53,7 +53,29 @@ The rendered **ROI index** is `benefit x 10 / midpoint hours`. It ranks; it does
 | `recommended_route` | Optional: `local`, `cloud` or `frontier`. `local` is the configured Ollama worker (Qwen3.8 27B is the lab default, not a requirement) for bounded drafts and first-pass review with a deterministic verifier. `cloud` is the maintainer's discounted routing (including auto): advisory, not a known model capability. `frontier` is for planning, risky design and review of full-tier work. A task a local worker cannot run (it needs a human, a protected path, or semantic judgement the verifier cannot check) is written without a route or with its reason in `route_rationale` |
 | `route_rationale` | Required and non-empty when `recommended_route` is set: the evidence for the route (a measured delegation beats a guess). The renderer rejects other values and a missing rationale with exit 2 |
 | `branch` | Optional: the git branch name (e.g., `site/showcase-2026-10-12`) where active work is happening. Set when claiming a task (`status: in_progress`) so concurrent or scheduled agents can check `board.json` and `git worktree list` instead of colliding on the same task or repo. Never store internal session or conversation IDs in `board.json` |
+| `evidence_package` | Optional object linking durable primary evidence artifacts. Preserves high-value citations, verbatim quotes, denominators ($N$), and guardrails so implementation agents execute deterministically. Routine tasks omit this field. See [Evidence packages](#evidence-packages) |
 | `notes` | Optional. Use it to mark human-only steps |
+
+## Evidence packages
+
+For research-heavy, biophysical, or patient-facing tasks, summarizing evidence in a one-line `source_evidence` string risks losing table numbers, verbatim quotes, cohort filters, and boundary conditions when an implementation agent picks up the task. The optional `evidence_package` object bridges durable research directly into task execution.
+
+```json
+"evidence_package": {
+  "packet_path": "cf-research/evidence/2026-10-15-t0146-cffpr-percentages.md",
+  "claims_file": "docs/cffpr-waiting-claims.json",
+  "catalog_sources": ["cffpr-adr-2024"],
+  "answer_tier": "T2",
+  "verified_at": "2026-10-15"
+}
+```
+
+- **`packet_path`**: Path to the primary markdown packet (typically under `cf-research/evidence/` or `cf-research/landscape/`).
+- **`claims_file`**: Optional companion atomic claims JSON verified by `check_claims.py`.
+- **`catalog_sources`**: Source IDs registered in `cf-research/sources/catalog.yaml`.
+- **`answer_tier`**: Epistemic tier (`T0` summary, `T1` single primary source, `T2` script-checked + dual-model, `T3` triple-checked with human verification).
+- **`verified_at`**: Date of verification in `YYYY-MM-DD` format.
+
 
 ## Lifecycle
 

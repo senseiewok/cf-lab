@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -242,5 +243,104 @@ class TestTriageBoard(unittest.TestCase):
         self.assertFalse(is_hg)
 
 
+class TestEvidencePackageAndUpdater(unittest.TestCase):
+    def test_verify_evidence_package_optional(self):
+        task_no_ep = {"id": "T-9999", "title": "Routine task"}
+        valid, msg = tb.verify_evidence_package(task_no_ep)
+        self.assertTrue(valid)
+        self.assertIn("optional", msg.lower())
+
+    def test_verify_evidence_package_validation(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            packet = root / "evidence" / "test-packet.md"
+            packet.parent.mkdir(parents=True, exist_ok=True)
+            claims = root / "claims.json"
+
+            # 1. Missing packet
+            task_missing = {"id": "T-9998", "evidence_package": {"packet_path": "evidence/test-packet.md"}}
+            valid, _ = tb.verify_evidence_package(task_missing, repo_root=root)
+            self.assertFalse(valid)
+
+            # 2. Incomplete sections
+            packet.write_text("# Incomplete\n## Some section\n", encoding="utf-8")
+            valid, reason = tb.verify_evidence_package(task_missing, repo_root=root)
+            self.assertFalse(valid)
+            self.assertIn("missing", reason.lower())
+
+            # 3. Complete sections
+            packet.write_text(
+                "# Title\n"
+                "## 1. Primary Sources\n- source\n"
+                "## 2. Verbatim Excerpts & Quantitative Metrics\n- Denominators: N=100\n"
+                "## 3. Invariants & Guardrails\n- Do not pool\n",
+                encoding="utf-8",
+            )
+            valid, _ = tb.verify_evidence_package(task_missing, repo_root=root)
+            self.assertTrue(valid)
+
+            # 4. Invalid claims JSON
+            claims.write_text("{bad-json}", encoding="utf-8")
+            task_bad_claims = {
+                "id": "T-9997",
+                "evidence_package": {
+                    "packet_path": "evidence/test-packet.md",
+                    "claims_file": "claims.json",
+                },
+            }
+            valid, reason = tb.verify_evidence_package(task_bad_claims, repo_root=root)
+            self.assertFalse(valid)
+            self.assertIn("failed parsing", reason.lower())
+
+            # 5. Valid claims JSON
+            claims.write_text('[{"id": "c1", "claim": "Valid claim"}]', encoding="utf-8")
+            valid, _ = tb.verify_evidence_package(task_bad_claims, repo_root=root)
+            self.assertTrue(valid)
+
+    def test_update_task_helper(self):
+        import tempfile
+        import update_task as ut
+        with tempfile.TemporaryDirectory() as d:
+            board_file = Path(d) / "board.json"
+            board_file.write_text(
+                json.dumps({
+                    "schema_version": 1,
+                    "tasks": [{
+                        "id": "T-9999",
+                        "title": "Test task",
+                        "repo": "cf-lab",
+                        "status": "ready",
+                        "priority": "P2",
+                        "roi": {"benefit": 3, "rationale": "Test"},
+                        "effort_hours": {"low": 1.0, "high": 2.0},
+                    }]
+                }),
+                encoding="utf-8",
+            )
+
+            # Update status and evidence package
+            success = ut.update_task(
+                board_path=board_file,
+                task_id="T-9999",
+                status="done",
+                actual_hours=1.5,
+                measured_outcome="Test completed",
+                evidence_packet="evidence/test.md",
+                answer_tier="T2",
+                catalog_sources=["source-1"],
+            )
+            self.assertTrue(success)
+
+            updated = json.loads(board_file.read_text(encoding="utf-8"))
+            t = updated["tasks"][0]
+            self.assertEqual(t["status"], "done")
+            self.assertEqual(t["roi"]["actual_hours"], 1.5)
+            self.assertEqual(t["evidence_package"]["packet_path"], "evidence/test.md")
+            self.assertEqual(t["evidence_package"]["answer_tier"], "T2")
+            self.assertEqual(t["evidence_package"]["catalog_sources"], ["source-1"])
+
+
 if __name__ == "__main__":
     unittest.main()
+

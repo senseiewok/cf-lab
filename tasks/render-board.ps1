@@ -10,7 +10,8 @@
   can serve as a pre-commit or CI guard.
 
   Optional per-task fields: complexity (low, medium, high), recommended_route (local, cloud, frontier), route_rationale
-  (required, non-empty, when a route is set), and branch (git branch name for active worktree/branch coordination).
+  (required, non-empty, when a route is set), branch (git branch name for active worktree/branch coordination), and
+  evidence_package (structured object linking durable primary evidence packet, claims JSON, catalog sources, and answer tier).
   Other values are rejected with exit 2. Case-sensitive.
 
   ROI index = benefit * 10 / midpoint effort hours. It is a ranking aid computed from
@@ -56,6 +57,15 @@ foreach ($t in $board.tasks) {
         $b = [string]$t.branch
         if ($b -notmatch '^[A-Za-z0-9][A-Za-z0-9._/-]*$' -or $b -match '\.\.|//|/$|\.lock$') {
             $errors += "$($t.id): bad branch '$b'"
+        }
+    }
+    if ($t.PSObject.Properties.Name -contains 'evidence_package' -and $null -ne $t.evidence_package) {
+        $ep = $t.evidence_package
+        if (-not ($ep.PSObject.Properties.Name -contains 'packet_path') -or [string]::IsNullOrWhiteSpace($ep.packet_path)) {
+            $errors += "$($t.id): evidence_package requires non-empty 'packet_path'"
+        }
+        if ($ep.PSObject.Properties.Name -contains 'answer_tier' -and $null -ne $ep.answer_tier -and $ep.answer_tier -cnotin 'T0','T1','T2','T3') {
+            $errors += "$($t.id): evidence_package.answer_tier must be T0, T1, T2, or T3"
         }
     }
 }
@@ -120,7 +130,12 @@ foreach ($s in $statuses) {
         $branch = if ($t.PSObject.Properties.Name -contains 'branch' -and $null -ne $t.branch) { Esc $t.branch } else { '' }
         $meas = if ($t.roi.measured) { 'yes' } else { 'no' }
         $date = IsoDate $t.created_at
-        [void]$sb.AppendLine("| $($t.id) | $($t.priority) | $(Esc $t.title) | $($t.repo) | $hours | $($t.roi.benefit) | $(RoiIndex $t) | $meas | $(Who $t) | $date | $($t.review_tier) | $($t.complexity) | $($t.recommended_route) | $deps | $branch |")
+        $evBadge = ''
+        if ($t.PSObject.Properties.Name -contains 'evidence_package' -and $null -ne $t.evidence_package) {
+            $tier = if ($t.evidence_package.PSObject.Properties.Name -contains 'answer_tier' -and $t.evidence_package.answer_tier) { $t.evidence_package.answer_tier } else { 'ev' }
+            $evBadge = " `[$tier`]"
+        }
+        [void]$sb.AppendLine("| $($t.id) | $($t.priority) | $(Esc $t.title)$evBadge | $($t.repo) | $hours | $($t.roi.benefit) | $(RoiIndex $t) | $meas | $(Who $t) | $date | $($t.review_tier) | $($t.complexity) | $($t.recommended_route) | $deps | $branch |")
     }
     [void]$sb.AppendLine()
 }
@@ -135,6 +150,13 @@ foreach ($t in $sorted) {
     if ($t.PSObject.Properties.Name -contains 'branch' -and $t.branch) { [void]$sb.AppendLine("- **Branch:** $(Esc $t.branch)") }
     [void]$sb.AppendLine("- **Acceptance:** $(Esc $t.acceptance)")
     [void]$sb.AppendLine("- **Evidence:** $(Esc $t.source_evidence)")
+    if ($t.PSObject.Properties.Name -contains 'evidence_package' -and $null -ne $t.evidence_package) {
+        $ep = $t.evidence_package
+        $claimsNote = if ($ep.PSObject.Properties.Name -contains 'claims_file' -and $null -ne $ep.claims_file -and [string]$ep.claims_file) { " | Claims: ``$($ep.claims_file)``" } else { "" }
+        $sourcesNote = if ($ep.PSObject.Properties.Name -contains 'catalog_sources' -and $null -ne $ep.catalog_sources -and $ep.catalog_sources.Count -gt 0) { " | Sources: $($ep.catalog_sources -join ', ')" } else { "" }
+        $tierNote = if ($ep.PSObject.Properties.Name -contains 'answer_tier' -and $ep.answer_tier) { "Tier: $($ep.answer_tier)" } else { "Tier: unranked" }
+        [void]$sb.AppendLine("- **Evidence Package:** ``$($ep.packet_path)`` *($tierNote$claimsNote$sourcesNote)*")
+    }
     if ($t.notes) { [void]$sb.AppendLine("- **Notes:** $(Esc $t.notes)") }
     if ($t.roi.measured) { [void]$sb.AppendLine("- **Measured:** $($t.roi.actual_hours) h; $(Esc $t.roi.measured_outcome)") }
     [void]$sb.AppendLine()

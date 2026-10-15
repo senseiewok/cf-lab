@@ -71,6 +71,14 @@ try {
     $r = Run-Render @((New-Task @{ branch = 'has space' }))
     Check 'invalid branch with spaces is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'bad branch') $r.Out
 
+    # optional evidence_package field
+    $r = Run-Render @((New-Task @{ evidence_package = @{ packet_path = 'cf-research/evidence/test.md'; answer_tier = 'T2'; claims_file = 'claims.json'; catalog_sources = @('src1') } }))
+    Check 'evidence_package renders compact badge in table and detail note' ($r.Code -eq 0 -and $r.Md -match '\[T2\]' -and $r.Md -match '\*\*Evidence Package:\*\* `cf-research/evidence/test.md`' -and $r.Md -match 'Tier: T2' -and $r.Md -match 'Claims: `claims.json`') $r.Out
+    $r = Run-Render @((New-Task @{ evidence_package = @{ packet_path = ''; answer_tier = 'T2' } }))
+    Check 'evidence_package with empty packet_path is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'evidence_package requires non-empty') $r.Out
+    $r = Run-Render @((New-Task @{ evidence_package = @{ packet_path = 'valid.md'; answer_tier = 'T9' } }))
+    Check 'evidence_package with invalid answer_tier is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'answer_tier must be') $r.Out
+
     # statuses are untouched by rendering, and the real board still renders as current
     $tasks = @((New-Task @{ status = 'in_progress' } 'T-0001'), (New-Task @{ status = 'proposed'; complexity = 'low' } 'T-0002'))
     $r = Run-Render $tasks

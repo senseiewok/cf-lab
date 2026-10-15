@@ -217,11 +217,81 @@ def verify_anti_hallucination_guardrails(task: dict) -> tuple[bool, str, list[st
     return True, "Passed anti-hallucination verification", warnings
 
 
-def is_grounded_executable(task: dict) -> tuple[bool, str]:
-    """Check if task has solid evidence, verifiable acceptance, and valid ROI."""
+def resolve_repo_file(repo_root: Path, rel_path: str) -> Path | None:
+    """Resolve a relative path against repo_root, workspace root, or sibling repos (handling git worktrees)."""
+    p = (repo_root / rel_path).resolve()
+    if p.is_file():
+        return p
+
+    parts = repo_root.resolve().parts
+    if ".worktrees" in parts:
+        wt_idx = parts.index(".worktrees")
+        workspace_root = Path(*parts[:wt_idx])
+    else:
+        workspace_root = repo_root.resolve().parent
+
+    candidate = (workspace_root / rel_path).resolve()
+    if candidate.is_file():
+        return candidate
+
+    for sibling in ("cf-lab", "cf-research", "cf-skills", ".ai"):
+        if rel_path.startswith(sibling + "/"):
+            sub_rel = rel_path[len(sibling) + 1:]
+            candidate = (workspace_root / sibling / sub_rel).resolve()
+            if candidate.is_file():
+                return candidate
+        else:
+            candidate = (workspace_root / sibling / rel_path).resolve()
+            if candidate.is_file():
+                return candidate
+
+    return None
+
+
+def verify_evidence_package(task: dict, repo_root: Path = REPO_ROOT) -> tuple[bool, str]:
+    """Deterministically verify an attached evidence package."""
+    ep = task.get("evidence_package")
+    if not ep:
+        return True, "No evidence package attached (optional)"
+
+    packet_rel = ep.get("packet_path")
+    if not packet_rel:
+        return False, "evidence_package missing packet_path"
+
+    packet_path = resolve_repo_file(repo_root, packet_rel)
+    if not packet_path or not packet_path.is_file():
+        return False, f"evidence_package packet_path not found: {packet_rel}"
+
+    content = packet_path.read_text(encoding="utf-8")
+    if not re.search(r"(primary source|source|evidence record)", content, re.I):
+        return False, f"Evidence packet '{packet_rel}' missing primary source section"
+    if not re.search(r"(verbatim|excerpt|quote|denominator|quantitative|extraction|profile)", content, re.I):
+        return False, f"Evidence packet '{packet_rel}' missing quantitative or verbatim excerpt section"
+    if not re.search(r"(invariant|guardrail|boundary|non-pooling|limitation|not stated|scope)", content, re.I):
+        return False, f"Evidence packet '{packet_rel}' missing boundary, invariant, or guardrail section"
+
+    claims_rel = ep.get("claims_file")
+    if claims_rel:
+        claims_path = resolve_repo_file(repo_root, claims_rel)
+        if not claims_path or not claims_path.is_file():
+            return False, f"evidence_package claims_file not found: {claims_rel}"
+        try:
+            json.loads(claims_path.read_text(encoding="utf-8"))
+        except Exception as e:
+            return False, f"Claims JSON '{claims_rel}' failed parsing: {e}"
+
+    return True, "Evidence package structurally verified"
+
+
+def is_grounded_executable(task: dict, repo_root: Path = REPO_ROOT) -> tuple[bool, str]:
+    """Check if task has solid evidence, verifiable acceptance, valid ROI, and verified evidence package."""
     is_anchored, reason, _ = verify_anti_hallucination_guardrails(task)
     if not is_anchored:
         return False, reason
+
+    is_ep_valid, ep_reason = verify_evidence_package(task, repo_root)
+    if not is_ep_valid:
+        return False, ep_reason
 
     acc = task.get("acceptance", "").strip()
     roi = task.get("roi", {})

@@ -4927,7 +4927,20 @@
       "recommended_route": "local",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "evidence_package": {
+        "packet_path": "cf-research/evidence/2026-10-15-t0102-evidence-loop-run.md",
+        "claims_file": null,
+        "catalog_sources": [
+          "openfda-drugsfda",
+          "openfda-label",
+          "clinicaltrials-gov",
+          "ncbi-eutils",
+          "openalex"
+        ],
+        "answer_tier": "T2",
+        "verified_at": "2026-10-15"
+      }
     },
     {
       "id": "T-0103",
@@ -7055,7 +7068,16 @@
       "recommended_route": "cloud",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "evidence_package": {
+        "packet_path": "cf-research/evidence/2026-10-15-t0146-cffpr-percentages.md",
+        "claims_file": "docs/cffpr-waiting-claims.json",
+        "catalog_sources": [
+          "cffpr-adr-2024"
+        ],
+        "answer_tier": "T2",
+        "verified_at": "2026-10-15"
+      }
     },
     {
       "id": "T-0147",
@@ -8218,6 +8240,19 @@
         "name": "Gemini (Antigravity)",
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: multi-registry eligibility dossier authoring"
+      },
+      "evidence_package": {
+        "packet_path": "cf-research/landscape/multi-registry-eligibility-2026.md",
+        "claims_file": "cf-research/landscape/multi-registry-eligibility-claims.json",
+        "catalog_sources": [
+          "cffpr-adr-2024",
+          "ecfspr-adr-2024",
+          "ukcfr-adr-2024",
+          "ccfr-adr-2024",
+          "acfdr-adr-2025"
+        ],
+        "answer_tier": "T2",
+        "verified_at": "2026-10-15"
       }
     }
   ]
