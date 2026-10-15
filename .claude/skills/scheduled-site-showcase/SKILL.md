@@ -11,7 +11,7 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ## Cadence & Trigger
 
-- **Dedicated Front-Door Cadence**: Every 2 hours at :30 on odd hours: 01:30, 03:30, 05:30, 07:30, 09:30, 11:30, 13:30, 15:30, 17:30, 19:30, 21:30, 23:30 PT (`CRON_TZ=America/Los_Angeles 30 1,3,5,7,9,11,13,15,17,19,21,23 * * *`), decoupled from `daily-research-sentinel` and `daily-security-sentinel` (alias: `daily-site-security-sentinel`) with 30-minute staggered isolation.
+- **Dedicated Front-Door Cadence**: Every 10 minutes at :06, :16, :26, :36, :46, :56 PT (`CRON_TZ=America/Los_Angeles 6-59/10 * * * *`), decoupled from `daily-research-sentinel` and `daily-security-sentinel` (alias: `daily-site-security-sentinel`) with 3-minute staggered offsets from the other sentinels.
 - **Antigravity Sidecar ID**: `daily-site-showcase-sentinel`
 - **Review Tier**: `elevated` / `full` (depending on public claims and security boundaries).
 - **Anti-Churn Invariant**: If no new validated research dossiers or `showcase_targets` exist, terminate cleanly with 0 tokens burned. Never open a pull request without newly verified biophysical research deliverables or localized content.
@@ -22,7 +22,7 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 2h on Odd Hours at :30 / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    Trigger["Scheduled Trigger (Every 10 Minutes / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|No New Research (Code 20)| IdleExit["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Deltas Detected (Code 0)| Worktree["1. Spawn Dedicated Worktree & Branch\n(Never Edit main)"]

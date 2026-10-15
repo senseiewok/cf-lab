@@ -11,7 +11,7 @@ Continuously audits background tasks, agent conversation transcripts, session er
 
 ## Cadence & Trigger
 
-- **Turbo Mode Cadence**: Every 2 hours on even hours: 00:00, 02:00, 04:00, 06:00, 08:00, 10:00, 12:00, 14:00, 16:00, 18:00, 20:00, 22:00 PT (`CRON_TZ=America/Los_Angeles 0 0,2,4,6,8,10,12,14,16,18,20,22 * * *`) integrated within `daily-security-sentinel` (with compatibility alias `daily-site-security-sentinel`).
+- **Turbo Mode Cadence**: Every 10 minutes at :00, :10, :20, :30, :40, :50 PT (`CRON_TZ=America/Los_Angeles */10 * * * *`) integrated within `daily-security-sentinel` (with compatibility alias `daily-site-security-sentinel`).
 - **Antigravity Sidecar ID**: `daily-security-sentinel` (alias: `daily-site-security-sentinel`)
 - **Review Tier**: `full` (mandatory for security, credentials, privacy, and repository integrity).
 - **Anti-Churn Invariant**: If 0 defects or leaks are found, log to `.loop-logs/` only. It is strictly forbidden to open a PR or edit `tasks/board.json` notes just to record that a clean audit occurred.
@@ -22,7 +22,7 @@ Continuously audits background tasks, agent conversation transcripts, session er
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 2h on Even Hours / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    Trigger["Scheduled Trigger (Every 10 Minutes / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|Clean Idle (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
@@ -134,6 +134,33 @@ When a fixable hygiene or security defect is detected (e.g. missing `.gitignore`
    gh pr create --repo senseiewok/<repo> --title "fix(security): <description>" --body-file pr-body.md
    ```
    - PR is assigned to the maintainer.
+
+### 3b. Agent Improvement Round (Bold, Grounded Progress on the Site)
+
+The security sentinel also owns a bounded improvement round for the three scheduled agents: `daily-research-sentinel`, `daily-site-security-sentinel` (itself) and `daily-site-showcase-sentinel`. The goal is for the public site to show the lab's real progress boldly and quickly, while every visible claim stays grounded.
+
+**Cooldown (zero tokens when nothing changed).** Hash the evidence inputs below and compare with `.loop-logs/last-agent-improvement.json`. If the hash is unchanged, skip the whole round. Never run it more than once per hour, even if the hash changed. Evidence inputs:
+- `.loop-logs/session-error-digest.json` entries naming one of the three sentinels.
+- `.loop-logs/last-research-audit.json`, `.loop-logs/last-showcase-audit.json` and the latest `site-audit-*` and `site-security-sentinel-*` records.
+- Gate outcomes per sentinel (exit 0, 10, 20) from the sidecar logs under `<appDataDir>/sidecar_data/<sentinel>/logs/`.
+- Progress that has not reached the site: verified `showcase_targets` and merged `../cf-research/landscape/` dossiers with no matching public page or Mexican Spanish page in `../.ai/src/`.
+
+**What a good improvement looks like (be bold):**
+1. Every verified dossier, trial update or tool the lab delivers becomes a dated, visible progress entry on senseiewok.ai, in English and es-MX, within one showcase cycle. Prefer shipping a visible page or card over adding more process text.
+2. Remove what slows visible progress: a gate that never idles, a lock that outlives its run, a prompt step that repeats work, a stale cadence in a SKILL.md or sidecar prompt.
+3. Make each agent say what it shipped: the audit JSON of each sentinel names the page or PR it produced, or says "nothing new" with the hash it compared.
+
+**Grounding limits (non-negotiable):**
+- Each public progress entry needs exact final wording, a primary source or registry record, its access date, its limitations, and Tier T2 or higher. Anything less is marked unverified and left off the site.
+- Take every number from a source line or a command's output. Never round, estimate or inflate a count of tasks, papers, trials or roses (the 65 roses count is read from the DOM).
+- Keep the medical boundary disclaimer in English and Spanish. No cure, treatment or efficacy claims, and no optimistic framing added in translation.
+- A proposed change to an agent must cite the reproduced failure or measured gap it fixes. A model's opinion is not evidence.
+
+**How to apply it:**
+- Open one `proposed` task in `tasks/board.json` per round with the evidence and a runnable acceptance check, then make one narrow edit to the owning `SKILL.md` or script in a worktree (`worktrees.py new cf-lab agent-improve-<topic>`). Run `python tasks/check-skill-frontmatter.py`, the focused test for any script you touched, and the Full gate with the Argon plus Opus review.
+- The live sidecar configs in `C:\Users\<user>\.gemini\config\sidecars\` sit outside git. Do not edit them. Write the proposed change into `memory/handoff.md` for the maintainer.
+- Anti-churn still applies: with no evidence-backed gap, write `.loop-logs/last-agent-improvement.json` and stop. No PR, no board edit.
+
 
 ### 4. Emergency Escalation (Critical Leaks)
 

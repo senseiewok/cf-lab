@@ -11,7 +11,7 @@ Continuously protects the lab's scientific credibility by monitoring primary lit
 
 ## Cadence & Trigger
 
-- **Turbo Mode Cadence**: Every 2 hours on odd hours: 01:00, 03:00, 05:00, 07:00, 09:00, 11:00, 13:00, 15:00, 17:00, 19:00, 21:00, 23:00 PT (`CRON_TZ=America/Los_Angeles 0 1,3,5,7,9,11,13,15,17,19,21,23 * * *`) integrated within `daily-research-sentinel`.
+- **Turbo Mode Cadence**: Every 10 minutes at :03, :13, :23, :33, :43, :53 PT (`CRON_TZ=America/Los_Angeles 3-59/10 * * * *`) integrated within `daily-research-sentinel`.
 - **Antigravity Sidecar ID**: `daily-research-sentinel`
 - **Review Tier**: `routine`
 - **Anti-Churn Invariant**: When no retractions or indication revisions are detected, log clean audit results to `.loop-logs/` only. It is strictly forbidden to open pull requests or edit board notes for clean passes.
@@ -22,7 +22,7 @@ Continuously protects the lab's scientific credibility by monitoring primary lit
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 2h on Odd Hours / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    Trigger["Scheduled Trigger (Every 10 Minutes / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|Zero Deltas (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
