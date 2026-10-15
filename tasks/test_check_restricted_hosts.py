@@ -2,9 +2,16 @@
 """Unit tests for tasks/check_restricted_hosts.py."""
 from __future__ import annotations
 
+import contextlib
+import io
+import os
+import shutil
+import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT / "tasks") not in sys.path:
@@ -81,6 +88,31 @@ class TestCheckRestrictedHosts(unittest.TestCase):
     def test_self_test_runs_cleanly(self):
         ret = crh.run_self_test()
         self.assertEqual(ret, 0)
+
+    def test_skips_when_catalog_absent(self):
+        """A standalone cf-lab clone (GitHub Actions) has no ../cf-research: skip, exit 0."""
+        out = io.StringIO()
+        with mock.patch.object(crh, "find_catalog", return_value=None), \
+                contextlib.redirect_stdout(out):
+            ret = crh.main([])
+        self.assertEqual(ret, 0)
+        self.assertIn("SKIP: catalog.yaml not found", out.getvalue())
+
+    def test_standalone_copy_exits_zero(self):
+        """Run the script from a copy with no sibling repositories, as CI sees it."""
+        env = {k: v for k, v in os.environ.items() if k != "EVIDENCE_CATALOG"}
+        with tempfile.TemporaryDirectory() as tmp:
+            clone = Path(tmp) / "cf-lab"
+            (clone / "tasks").mkdir(parents=True)
+            (clone / ".claude").mkdir()
+            shutil.copy2(ROOT / "tasks" / "check_restricted_hosts.py", clone / "tasks")
+            shutil.copy2(ROOT / ".claude" / "settings.json", clone / ".claude")
+            proc = subprocess.run(
+                [sys.executable, str(clone / "tasks" / "check_restricted_hosts.py")],
+                capture_output=True, text=True, env=env, timeout=60,
+            )
+        self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
+        self.assertIn("SKIP", proc.stdout)
 
 
 if __name__ == "__main__":
