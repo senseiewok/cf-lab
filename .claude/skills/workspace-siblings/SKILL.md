@@ -35,6 +35,8 @@ Scripts and docs rely on these relative paths from `cf-lab`. Do not rename the f
 
 A missing sibling: run `setup.cmd` (Windows) or `./setup.sh` from `cf-lab`. It clones what is missing and never overwrites a folder that is there.
 
+**CI checks out one repo, not the layout.** GitHub Actions clones `cf-lab` alone, so `../cf-research`, `../cf-skills` and `../cf-lab-files` do not exist there. A check in `check-all.ps1` that reads a sibling must print `SKIP: <what is missing>` and exit 0 when the sibling is absent, and must still fail when the sibling is present and the content is wrong. Reproduced 2026-10-15: `check-restricted-hosts` exited 1 on PR #91 and #92 with `catalog.yaml not found`, passing locally. Test the skip by running the check from a copy with no siblings; `tasks/test_check_restricted_hosts.py` (`test_standalone_copy_exits_zero`) is the pattern.
+
 ## Run each repo's checks from cf-lab
 
 | Repo | Commands |
