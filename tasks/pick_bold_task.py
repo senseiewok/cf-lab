@@ -13,15 +13,18 @@ sentinel pull request waiting for review.
   --json    print the bundle as JSON (same selection, no state change)
   --claim   like --json, and record an attempt so a task that keeps failing is not retried forever
 
-Lanes: security (cf-lab, cf-skills and everything not claimed below), research (cf-research, science,
-sources, evidence), showcase (.ai, site and content work).
-Branch convention for the pull request: sentinel/<lane>/<first-task-id>.
+Lanes: security (cf-lab, cf-skills, .ai reliability work and everything not claimed below), research
+(cf-research, science, sources, evidence), showcase (site and content work, which is what the showcase
+sentinel's own rules allow it to open pull requests for).
+Branch convention for the pull request: work/sentinel-<lane>-<first-task-id> (`work/` is one of the prefixes
+worktrees.py accepts; the lane prefix is what the capacity check looks for).
 """
 from __future__ import annotations
 
 import argparse
 import json
 import math
+import re
 import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
@@ -41,6 +44,10 @@ LANES = ("security", "research", "showcase")
 SHOWCASE_AREAS = {"content", "web", "website", "site"}
 RESEARCH_AREAS = {"research", "science", "sources", "evidence", "grounding", "atlas"}
 
+# Wording that means a person must read or decide something, which triage_board's approval patterns miss.
+PERSON_REVIEW_RX = re.compile(
+    r"\b(registry scientist|scientist review|human review|human reviewer|person review|clinician review)\b", re.I)
+
 COMPLEXITY_WEIGHT = {"low": 1.0, "medium": 1.5, "high": 2.0}
 PRIORITY_WEIGHT = {"P0": 2.0, "P1": 1.5, "P2": 1.0, "P3": 0.7}
 
@@ -48,15 +55,27 @@ PRIORITY_WEIGHT = {"P0": 2.0, "P1": 1.5, "P2": 1.0, "P3": 0.7}
 def lane_of(task: dict) -> str:
     repo = task.get("repo")
     area = task.get("area")
-    if repo == ".ai":
+    if area in SHOWCASE_AREAS:
         return "showcase"
     if repo == "cf-research":
         return "research"
-    if area in SHOWCASE_AREAS:
-        return "showcase"
     if area in RESEARCH_AREAS:
         return "research"
     return "security"
+
+
+def needs_a_person(task: dict, human_ids: set[str]) -> bool:
+    """True when the task, or a task its text points at, is human-only work or needs a person's review."""
+    if task.get("executor") == "human" or task.get("human_required") is True:
+        return True
+    if triage_board.is_human_gated(task, human_ids)[0]:
+        return True
+    if re.match(r"\s*decide\b", task.get("title") or "", re.I):
+        return True  # "Decide ..." tasks are the maintainer's call
+    text = " ".join([task.get("title") or "", task.get("acceptance") or "", task.get("notes") or ""])
+    if PERSON_REVIEW_RX.search(text):
+        return True
+    return any(hid in text for hid in human_ids if hid != task["id"])
 
 
 def mean_effort(task: dict) -> float:
@@ -97,19 +116,23 @@ def recent_attempts(attempts: dict, task_id: str, now: datetime, window_hours: f
 
 
 def eligible(tasks: list[dict], lane: str, human_ids: set[str], attempts: dict, now: datetime,
-             attempt_limit: int, window_hours: float) -> list[dict]:
+             attempt_limit: int, window_hours: float, max_task_hours: float,
+             oversize: list[str] | None = None) -> list[dict]:
     done = {t["id"] for t in tasks if t.get("status") == "done"}
     out = []
     for t in tasks:
         if t.get("status") != "ready" or lane_of(t) != lane:
             continue
-        if t.get("executor") == "human" or t.get("human_required") is True:
-            continue
-        if triage_board.is_human_gated(t, human_ids)[0]:
+        if needs_a_person(t, human_ids):
             continue
         if any(dep not in done for dep in (t.get("depends_on") or [])):
             continue
         if recent_attempts(attempts, t["id"], now, window_hours) >= attempt_limit:
+            continue
+        if mean_effort(t) > max_task_hours:
+            # too big for one run: report it so the board can split it, never hand it to an agent whole
+            if oversize is not None:
+                oversize.append(t["id"])
             continue
         out.append(t)
     return out
@@ -123,6 +146,7 @@ def build_bundle(candidates: list[dict], max_tasks: int, max_hours: float) -> li
     top = ranked[0]
     bundle = [top]
     total = mean_effort(top)
+    max_hours = max(max_hours, total)
     for t in ranked[1:]:
         if len(bundle) >= max_tasks:
             break
@@ -184,6 +208,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--now", default=None, help="test hook: ISO time")
     ap.add_argument("--max-bundle-tasks", type=int, default=3)
     ap.add_argument("--max-bundle-hours", type=float, default=8.0)
+    ap.add_argument("--max-task-hours", type=float, default=12.0,
+                    help="a single task estimated above this many mean hours is never handed out (split it on the board)")
     ap.add_argument("--attempt-limit", type=int, default=2)
     ap.add_argument("--attempt-window-hours", type=float, default=48.0)
     args = ap.parse_args(argv)
@@ -206,16 +232,19 @@ def main(argv: list[str] | None = None) -> int:
     if prs is None:
         print("capacity unknown: open pull requests could not be read, building nothing")
         return 22
-    prefix = f"sentinel/{args.lane}/"
+    prefix = f"work/sentinel-{args.lane}-"
     waiting = [p for p in prs if str(p.get("headRefName", "")).startswith(prefix)]
     if waiting:
         print(f"lane {args.lane} already has an open sentinel pull request ({waiting[0]['repo']}: {waiting[0]['headRefName']})")
         return 21
 
-    candidates = eligible(tasks, args.lane, human_ids, attempts, now, args.attempt_limit, args.attempt_window_hours)
+    oversize: list[str] = []
+    candidates = eligible(tasks, args.lane, human_ids, attempts, now, args.attempt_limit,
+                          args.attempt_window_hours, args.max_task_hours, oversize)
     bundle = build_bundle(candidates, args.max_bundle_tasks, args.max_bundle_hours)
     if not bundle:
-        print(f"no eligible ready task in lane {args.lane}")
+        extra = f" ({len(oversize)} too big for one run, split on the board: {', '.join(oversize)})" if oversize else ""
+        print(f"no eligible ready task in lane {args.lane}{extra}")
         return 20
 
     result = {
@@ -225,6 +254,7 @@ def main(argv: list[str] | None = None) -> int:
         "total_mean_effort_hours": round(sum(mean_effort(t) for t in bundle), 2),
         "bundle": [summarize(t) for t in bundle],
         "why": "ranked by impact x priority x scope (complexity, effort), not by impact per hour",
+        "too_big_to_hand_out": oversize,
     }
     if args.check:
         print(f"work available: {', '.join(t['id'] for t in bundle)} (~{result['total_mean_effort_hours']} h, repo {result['repo']})")

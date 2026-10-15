@@ -96,13 +96,22 @@ function Get-GateArgs([switch]$NoDelta) {
     return $a
 }
 
+# A build slot (started with no watched change) skipped the audit work, so finishing it must not advance
+# the watermark: that would reset the heartbeat and starve the live-state checks. The marker file says so.
+$safeName = $SentinelName -replace '[^a-zA-Z0-9_\-]', '_'
+$markerPath = Join-Path $repoRoot ".loop-logs/sentinel-$safeName.buildslot"
+
 if ($Complete -or $Abort) {
+    $buildSlot = Test-Path $markerPath
     $a = Get-GateArgs
     $a += "-Release"
-    if ($Complete) { $a += "-WriteWatermark" }
+    if ($Complete -and -not $buildSlot) { $a += "-WriteWatermark" }
     & pwsh @a
     $code = $LASTEXITCODE
-    Write-RunLog -Decision $(if ($Complete) { "completed" } else { "aborted" }) -Detail "gate release exit $code"
+    Remove-Item $markerPath -Force -ErrorAction SilentlyContinue
+    $detail = "gate release exit $code"
+    if ($Complete -and $buildSlot) { $detail += " (build slot: watermark kept)" }
+    Write-RunLog -Decision $(if ($Complete) { "completed" } else { "aborted" }) -Detail $detail
     exit $code
 }
 
@@ -165,6 +174,28 @@ if ($DryRun) {
     exit 0
 }
 
+# Build lane: the wrapper, not the agent, claims the bundle. The attempt is therefore counted even when the
+# agent dies before doing anything (no retry storm), and the agent reads the exact bundle from a file.
+Remove-Item $markerPath -Force -ErrorAction SilentlyContinue
+if ($cfg.build -and $cfg.build.lane) {
+    $bundleFile = Join-Path $repoRoot ".loop-logs/bold-bundle-$($cfg.build.lane).json"
+    Remove-Item $bundleFile -Force -ErrorAction SilentlyContinue
+    try {
+        if ($cfg.build.claim) {
+            $claimOut = & pwsh -NoProfile -Command ([string]$cfg.build.claim) 2>$null
+        } else {
+            $claimOut = & python (Join-Path $PSScriptRoot "pick_bold_task.py") --lane ([string]$cfg.build.lane) --claim 2>$null
+        }
+        if ($LASTEXITCODE -eq 0 -and $claimOut) {
+            New-Item -ItemType Directory -Path (Split-Path -Parent $bundleFile) -Force | Out-Null
+            ($claimOut -join "`n") | Set-Content -Path $bundleFile -Encoding utf8
+        }
+    } catch {
+        Write-Host "RUN-SENTINEL: build claim failed ($($_.Exception.Message)); the agent gets no bundle."
+    }
+}
+if ($buildRun) { Set-Content -Path $markerPath -Value (Get-Date).ToUniversalTime().ToString("o") -Encoding utf8 }
+
 try {
     # agentapi has no directory flag and starts the conversation in the caller's working directory;
     # the prompt files use repo-relative paths, so anchor the launch to this repo.
@@ -179,6 +210,7 @@ try {
     Write-RunLog -Decision "launched" -Detail $(if ($buildRun) { "$title (build slot, no watched change)" } else { $title })
     exit 0
 } catch {
+    Remove-Item $markerPath -Force -ErrorAction SilentlyContinue
     Write-RunLog -Decision "launch_failed" -Detail $_.Exception.Message
     & pwsh @((Get-GateArgs) + "-Release") | Out-Null
     exit 4
