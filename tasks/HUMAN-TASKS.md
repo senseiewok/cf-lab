@@ -1,80 +1,86 @@
 # Human tasks
 
-What only a person can do, kept as one checklist so nothing waits unseen. `board.json` stays the lab's single task list; this file is a hand-kept view of the rows and pull requests that need a human. **When this file and the board disagree, the board wins.** Tick a box when it is done and add the date.
+What only a person can do, kept as one checklist so nothing waits unseen. `board.json` stays the lab's single task list; this file is a hand-kept view of what strictly requires a human maintainer. **When this file and the board disagree, the board wins.** Tick a box when it is done and add the date.
 
-Last reviewed: 2026-10-10 (a second blind council reprioritised the board; section 0 is its order). Items about the private site repository are kept out of this public file; they live in that repository's own notes.
+Last reviewed: 2026-10-14 (Council triage and maintainer directive: engineering, testing, and tool governance approved for agent automation; this checklist retains only true human actions).
 
-## 0. Order for the next two weeks (a blind council of three models, 2026-10-10, checked against the repos by the controlling agent)
+---
 
-**Only you can do these, in this order**
-1. **T-0110**: turn on a ruleset for `main` in cf-lab, cf-research and cf-skills (all three have none today).
-2. **T-0128**: make GitHub's settings match "the repos do not take outside contributions" (Discussions off, issues and pull requests limited), and switch off GitHub's AI findings workflow (the T-0119 close-out; GitHub refuses to disable it through the API).
-3. **Close what is finished**: T-0024, T-0026, T-0056 and T-0065 (their own notes say Done), and decide **T-0001**: the three public repos already carry named licences; only the private website repo has none.
-4. **T-0072, then T-0106** (T-0006 folds in): decide, then send the permission letters; replies take weeks and gate the registry chain.
-5. **T-0105**: find the clinician or social worker reader; then **T-0117** (one role address and one way to sign).
+## 1. Sign-ups, Licences and API Keys (Nothing is done until you do it)
 
-**Agents can do next, with review**: T-0108 (block the web tool for manual hosts), T-0115, T-0109, T-0121 (stop the cf-skills catalog-sync pull requests), T-0114 with T-0061 (no public repo has CI today; T-0057 first), T-0116.
+Use a lab-owned address, never a personal one. Keys go only in the git-ignored `.env`; never paste one into a chat, a file in a repo or a pull request. Template: `cf-lab/.env.example`. Details: `cf-research/proposals/2026-10-08-source-plan-and-signups.md`.
 
-## 1. Pull requests waiting for a person to merge
+- [x] **OpenAlex API key** (2026-10-14): Obtained by maintainer. Configured via `OPENALEX_API_KEY` in `.env` (PR cf-lab#86, cf-skills#24).
+- [ ] **NCBI API key**: Optional (raises request rate limits from 3 to 10 rps).
+- [ ] **openFDA key**: Optional (raises request rate limits from 40 to 240 req/min).
+- [ ] **Data Commons API key**: Free per Google catalog entry; completes T-0048 integration.
+- [ ] **Semantic Scholar API key**: Decide on Ai2 licence terms (indemnity, Washington State law); request key through their form.
+- [ ] **Gemini API key (T-0101)**: Decide whether Pro IDE licence covers API use or if separate Google AI Studio API key is preferred.
+- [ ] **Paid items (T-0047)**: Decide on any paid research subscriptions (e.g. Scite Pro).
 
-A pull request is a proposal until a person merges it. Agents never merge.
+---
 
-| Repo | PR | What | What it needs |
-| --- | --- | --- | --- |
-| cf-research | #10 (draft) | Six API candidates in the source catalog, all held at `manual` | A council reviewed it on 2026-10-09 and its fixes are in; a person reads the diff (Full tier: licensing) and answers its four decisions |
-| cf-research | #23 | Read and discard: grounding on sources we may cite but not copy (a proposal, nothing built) | Read it and answer its six decisions (T-0118) |
-| cf-research | #19 | Three letters to send (CFTR2 permission, Child Opportunity Index use, a review invitation): drafts only, nothing sent | Read, merge, then send them yourself from the lab address (section 3) |
+## 2. External Permission Letters & Outbound Communications
 
-## 2. Board decisions only a person can make
+Letters must be reviewed, filled, and sent by the human maintainer from the lab's official email address. Replies take weeks and gate registry citation data. Drafts live in `cf-research` (PR #12, PR #19).
 
-| Row | Decision |
-| --- | --- |
-| T-0100 | Approve the three differences from the revised acceptance |
-| T-0075, T-0078 | Close them (work is merged) |
-| T-0098, T-0099 | Set `ready` so they can be built |
-| T-0101 | Say whether the Pro licence covers API use (an API key is separate from an IDE licence) |
-| T-0102 | Set `ready` (bring the lab's sources together). It was asked for in chat on 2026-10-08, but only the board status makes it official |
-| T-0103 | Try the five paste-ready boxes on Gemini, ChatGPT and Copilot (needs a person with access to each) |
-| T-0104 | Decide the form of the one allowed emergency number: exact `(911 in the US)`, or 911 whenever it sits next to US |
-| T-0105 | A clinician or social worker reads the safe-use box wording; also whether 988 belongs in it and whether emergency services come before the CF team's line |
-| T-0106 | Send the permission letters and record every reply in the catalog |
-| T-0107 | Take the conference banner down after NACFC 2026 (say the date) |
-| T-0108 | Add deny rules so the agent web tool cannot reach catalog hosts marked manual, request or forbidden (a settings edit only you make; an agent can draft the host list) |
-| T-0109 | Word the rule for questions about one real person: generalise before any search, keep nothing about the person |
-| T-0110 | Turn on a ruleset for `main` in each public repo (pull request required, no force push, code-owner review) |
-| T-0111 | Read the diff when the commit-gate hardening arrives (it changes an agent-control script) |
-| T-0114 | Decide whether the public repos get test CI |
-| T-0115 | Decide the permission mode agents run in while you are away; add deny rules for GitHub settings commands |
-| T-0116 | Decide whether the third-party skill-creator keeps its scripts |
-| T-0117 | Choose one role address for public files, how letters are signed, and whether the READMEs credit an AI vendor |
-| T-0118 | Answer the six decisions in cf-research #23 |
-| T-0011 | Arrange the review by a person with CF or a carer, and a registry scientist. No page may claim community review until it happens |
+- [ ] **Send CFTR2 permission letter**: Request quotation / citation terms for variant allele counts.
+- [ ] **Send Child Opportunity Index (COI) letter**: Request usage confirmation for pediatric social determinants.
+- [ ] **Send CF Foundation Patient Registry letter**: Request data citation terms and record reply in `landscape/registry-data-access.md`.
+- [ ] **Send ECFSPR letter**: European Cystic Fibrosis Society Patient Registry.
+- [ ] **Send UK Cystic Fibrosis Trust Registry letter**.
+- [ ] **Send Australian Cystic Fibrosis Data Registry (ACFDR) letter**.
 
-## 3. Sign-ups, licences and requests (nothing is done until you do it)
+---
 
-Use a lab-owned address, never a personal one. Keys go only in the git-ignored `.env`; never paste one into a chat, a file in a repo or a pull request. The table that explains each step is in cf-research `proposals/2026-10-08-source-plan-and-signups.md` (PR #11).
+## 3. Clinical & Community External Reviews
 
-- [x] OpenAlex API key (the catalog says a key is required). Obtained by maintainer. Configured via OPENALEX_API_KEY in .env.
-- [ ] Optional NCBI and openFDA keys (they raise request limits; the new limits are unread)
-- [ ] Send the CFTR2 letter, the Child Opportunity Index letter and the review invitation (cf-research PR #19; fill the placeholders, confirm each addressee on its own site first)
-- [ ] Send the CF Foundation Patient Registry letter (cf-research PR #12), and record the reply in `landscape/registry-data-access.md`
-- [ ] Send the ECFSPR letter
-- [ ] Send the UK registry (Cystic Fibrosis Trust) letter
-- [ ] Send the Australian registry letter
-- [ ] Sign in to the Claude connectors you want (ChEMBL, ClinicalTrials.gov, PubMed, bioRxiv)
-- [ ] Decide on Semantic Scholar: using it binds the lab to Ai2's licence (indemnity, Washington State law); then request a key through its form
-- [ ] Optional: a Data Commons key (free per the catalog) to finish T-0048
-- [ ] Decide whether a Gemini key is worth it (T-0101)
-- [ ] Decide on any paid item (Scite Pro, T-0047). No price has been read
+Medical boundary and community safety require external human expertise; AI cannot replace licensed clinicians or lived experience.
 
-## 4. Decisions that are not code
+- [ ] **Clinician / Social Worker Safe-Use Review (T-0105)**: Have a CF clinician or social worker review safe-use box wording, crisis language, 988 inclusion, and priority ordering (emergency services vs. CF care team urgent line).
+- [ ] **Community & Registry Review (T-0011)**: Arrange an external review round by a person with CF or family caregiver (on plain-language dignity) and a registry biostatistician (on data comparability). No public page may claim community endorsement until completed.
 
-- [ ] Confirm the answer tiers T0 to T3 and the scope-record rule for widening words as lab rules (written into `cf-research-context` and `AGENTS.md` by this PR from cf-research's strategy proposal)
-- [ ] Registry reuse and cloud use (T-0072): whether sources with unread terms go only to local models, whether to ask the Foundation and the Trust for permission to quote, and the licence wording for skills that carry quotations
-- [ ] Try the CFTR model page on a real phone (touch, the bottom sheet, double-tap): it was tested only in headless Chromium
-- [ ] Whether to open Discussions on cf-lab with the welcome post (a draft exists)
-- [ ] After each merge: remove the agent's worktree (an agent does it when asked)
+---
 
-## Not human tasks
+## 4. Physical Device & Hardware Usability Testing
 
-Anything an agent can check without a person is not listed here: tests, the gate, the board render, catalog field checks. A model's report that a task is done is not a person's approval.
+- [ ] **CFTR 3D Molecule Viewer on Physical Phone**: Test 3D touch interaction, trackball rotation, bottom-sheet sheet drag, and gesture responsiveness on a physical iOS / Android device (cannot be fully validated via headless Playwright emulation).
+
+---
+
+## 5. GitHub Administrative Settings (Web UI Only)
+
+Administrative controls that cannot or should not be automated via agent API tokens:
+
+- [ ] **Turn on GitHub Rulesets on `main` (T-0110)**: In repository settings for `cf-lab`, `cf-research`, and `cf-skills`, enable branch rulesets: require pull requests, block force pushes, and require maintainer review.
+- [ ] **Repository Contribution Settings (T-0128)**: Ensure GitHub repository settings reflect "no outside contributions": turn Discussions off and restrict public pull requests / issues.
+
+---
+
+## 6. Council-Approved Tasks (Automated & Moved to Ready / Done)
+
+Per maintainer instruction and Council deliberation on 2026-10-14, all engineering, testing, CI, and tooling tasks previously listed here have been approved and moved out of this human checklist into `tasks/board.json`:
+
+| ID | Title | Status | Council Action / Outcome |
+| :--- | :--- | :--- | :--- |
+| **T-0098** | `cf-research`: make script-style tests collectable by unittest | `done` | Verified: 48 tests discoverable and passing via `unittest`. |
+| **T-0118** | Decide read and discard (`cf-research` #23) | `done` | Verified: PR #23 merged in commit `11ecf17`. |
+| **T-0119** | Local AI review of diff in gate | `done` | Verified: PR #36 merged in commit `0c0fabd`. |
+| **T-0068** | `review-diff.ps1` as single gate command | `done` | Verified: Operational in `ai-loop-council`. |
+| **T-0089** | Mechanical filter for local review findings | `done` | Verified: Merged in commit `20492a2` (PR #4). |
+| **T-0139** | Server production headers and 301 redirects | `done` | Verified: Active on production `senseiewok.ai`. |
+| **T-0102** | Bring lab sources together: variant layer (Step 2) | `ready` | Approved: Step 1 (OpenAlex) merged; Step 2 ready for agent execution. |
+| **T-0104** | Standardize emergency number format | `ready` | Approved: Standardized on exact bracket `(911 in the US)`. |
+| **T-0099** | Reviewed lesson on exclusive log locking | `ready` | Approved: Documentation update to `ai-loop-council`. |
+| **T-0108** | Block agent web tool for manual/forbidden hosts | `ready` | Approved: Agent web tool allow/deny filtering. |
+| **T-0109** | Privacy rule: generalize before searching real persons | `ready` | Approved: Security/privacy prompt guardrail. |
+| **T-0111** | Harden commit gate on pass and stray files | `ready` | Approved: Gate hardening in `run-gate.ps1`. |
+| **T-0114** | Standard-library test CI for public repos | `ready` | Approved: GitHub Actions CI workflow definitions. |
+| **T-0115** | Record agent permission mode & block GH settings | `ready` | Approved: Security runtime hardening. |
+| **T-0116** | Pin third-party skills by hash | `ready` | Approved: Supply-chain manifest hash pinning. |
+| **T-0121** | Decouple evidence tool catalog copy from PR churn | `ready` | Approved: Direct reading / pinned catalog cache. |
+| **T-0053** | Data Commons provider in `cf-evidence-loop` | `ready` | Approved: Google Data Commons population denominators. |
+| **T-0066** | Promote ad-hoc page reader to tested tool | `ready` | Approved: Bounded tooling refactor. |
+| **T-0127** | Board consistency check in `render-board` | `ready` | Approved: Validation script enhancement. |
+| **T-0141** | Pin byte copies of CFTR files to recorded commit | `ready` | Approved: Site CI synchronization. |
+| **T-0143** | PR template and review-loop body check | `ready` | Approved: Quality gate tooling. |
