@@ -173,8 +173,8 @@ def main(argv=None) -> int:
     settings_path = args.settings or (repo_root / ".claude" / "settings.json")
 
     if not catalog_path or not catalog_path.is_file():
-        print(f"error: catalog.yaml not found (looked around {repo_root})", file=sys.stderr)
-        return 1
+        print(f"SKIP: catalog.yaml not found (looked around {repo_root}); skipping cross-repo check in standalone clone")
+        return 0
 
     if not settings_path.is_file():
         print(f"error: settings file not found: {settings_path}", file=sys.stderr)
