@@ -11,7 +11,8 @@ Continuously audits background tasks, agent conversation transcripts, session er
 
 ## Cadence & Trigger
 
-- **Turbo Mode Cadence**: Every 10 minutes at :00, :10, :20, :30, :40, :50 PT (`CRON_TZ=America/Los_Angeles */10 * * * *`) integrated within `daily-security-sentinel` (with compatibility alias `daily-site-security-sentinel`).
+- **Cadence**: Every 2 hours at :00 PT (`CRON_TZ=America/Los_Angeles 0 */2 * * *`), set in `tasks/sentinels.json` and rendered into the sidecar by `tasks/render-sentinel-sidecars.ps1`. The agent starts only when a watched tree changed or the 8-hour heartbeat is due (live headers and session errors are not git state). Integrated within `daily-security-sentinel` (with compatibility alias `daily-site-security-sentinel`).
+- **Build slot (bigger, bolder work)**: besides audits, this sentinel builds. When no watched tree changed but `python tasks/pick_bold_task.py --lane security --check` finds a bundle, the wrapper still starts a run. The picker ranks `ready` board tasks by impact x priority x scope (not impact per hour, which favors the smallest task), bundles up to 3 related tasks of one repo (about 8 estimated hours), skips anything a person must do (human-gated, referencing a human task, needing a person's review, or a "Decide ..." task), anything with an unfinished dependency and any task that failed twice in 48 hours, never hands out a single task estimated above 12 hours (it lists those so the board can split them), and builds nothing while a `work/sentinel-security-*` pull request is still waiting for review (a draft counts). The wrapper claims the bundle, records the attempt and writes `.loop-logs/bold-bundle-security.json`; the run's prompt (`tasks/sentinel-prompts`) carries the build round: worktree, review gate, one pull request per repo, a draft when unfinished, never a merge. A build slot does not advance the watermark, so the heartbeat audits still happen. These build-round pull requests are separate from the Anti-Churn rule above, which governs audit and translation pull requests.
 - **Antigravity Sidecar ID**: `daily-security-sentinel` (alias: `daily-site-security-sentinel`)
 - **Review Tier**: `full` (mandatory for security, credentials, privacy, and repository integrity).
 - **Anti-Churn Invariant**: If 0 defects or leaks are found, log to `.loop-logs/` only. It is strictly forbidden to open a PR or edit `tasks/board.json` notes just to record that a clean audit occurred.
@@ -22,7 +23,7 @@ Continuously audits background tasks, agent conversation transcripts, session er
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 10 Minutes / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    Trigger["Scheduled Trigger (Every 2 Hours)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|Clean Idle (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
@@ -34,16 +35,12 @@ flowchart TD
     Triage -->|Secret / Critical Leak| Alert["5. Emergency Handoff Alert & Revocation Notice"]
     Fix --> Gate["Full Gate: run-gate.ps1 -Tier full"]
     Gate --> PR["Open Pull Request via gh pr create"]
-    Clean --> Release["6. Release Lock via fast-sentinel-gate -Release"]
+    Clean --> Release["6. Release Lock via run-sentinel -Complete"]
     PR --> Release
 ```
 
-### 0. Deterministic Fast Pre-Flight Gate
-Execute `tasks/fast-sentinel-gate.ps1` before any LLM reasoning or file reading begins:
-```powershell
-pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-security-sentinel"
-```
-If the gate exits with code 10 (`LOCK_HELD`) or code 20 (`IDLE`), terminate immediately without calling further tools.
+### 0. Deterministic Fast Pre-Flight Gate (run by the scheduler wrapper, not by the agent)
+The cron job runs `tasks/run-sentinel.ps1 -SentinelName daily-security-sentinel`. That wrapper syncs `origin/main`, runs `tasks/fast-sentinel-gate.ps1` with the watch paths and heartbeat from `tasks/sentinels.json`, and starts an agent conversation only on exit 0. Exit 10 (`LOCK_HELD`) or 20 (`IDLE`) starts nothing, so an idle slot burns zero tokens. The agent must not run the gate again: it would see its own lock and exit 10. When the run ends, `pwsh -NoProfile -File tasks/run-sentinel.ps1 -SentinelName daily-security-sentinel -Complete` writes the watermark and releases the lock; `-Abort` releases it without a watermark so the next slot retries. Every decision is logged to `.loop-logs/sentinel-runs.jsonl`. The agent's steps live in `tasks/sentinel-prompts/daily-security-sentinel.md`.
 
 ### 1. Multi-Repo Log & State Ingestion
 
@@ -139,7 +136,7 @@ When a fixable hygiene or security defect is detected (e.g. missing `.gitignore`
 
 The security sentinel also owns a bounded improvement round for the three scheduled agents: `daily-research-sentinel`, `daily-site-security-sentinel` (itself) and `daily-site-showcase-sentinel`. The goal is for the public site to show the lab's real progress boldly and quickly, while every visible claim stays grounded.
 
-**Cooldown (zero tokens when nothing changed).** Hash the evidence inputs below and compare with `.loop-logs/last-agent-improvement.json`. If the hash is unchanged, skip the whole round. Never run it more than once per hour, even if the hash changed. Evidence inputs:
+**Cooldown (zero tokens when nothing changed).** Hash the evidence inputs below and compare with `.loop-logs/last-agent-improvement.json`. If the hash is unchanged, skip the whole round. Never run it more than once per 24 hours, even if the hash changed. Evidence inputs:
 - `.loop-logs/session-error-digest.json` entries naming one of the three sentinels.
 - `.loop-logs/last-research-audit.json`, `.loop-logs/last-showcase-audit.json` and the latest `site-audit-*` and `site-security-sentinel-*` records.
 - Gate outcomes per sentinel (exit 0, 10, 20) from the sidecar logs under `<appDataDir>/sidecar_data/<sentinel>/logs/`.
