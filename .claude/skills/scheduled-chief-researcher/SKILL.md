@@ -11,7 +11,7 @@ Maintains strict scientific grounding and mission alignment across all autonomou
 
 ## Cadence & Trigger
 
-- **Turbo Mode Cadence**: Every 10 minutes at :03, :13, :23, :33, :43, :53 PT (`CRON_TZ=America/Los_Angeles 3-59/10 * * * *`) integrated within `daily-research-sentinel` (staggered 3 minutes after `daily-site-security-sentinel`).
+- **Cadence**: Every 2 hours at :20 PT (`CRON_TZ=America/Los_Angeles 20 */2 * * *`), set in `tasks/sentinels.json` and rendered into the sidecar by `tasks/render-sentinel-sidecars.ps1`, staggered 20 minutes after `daily-site-security-sentinel`. The agent starts only when proposals, landscape or the source catalog changed, or the 24-hour heartbeat is due (registry polls are not git state). Integrated within `daily-research-sentinel`.
 - **Antigravity Sidecar ID**: `daily-research-sentinel`
 - **Review Tier**: `elevated`
 - **Anti-Churn Invariant**: If no new tasks were proposed or modified, no status transitioned, and no retractions occurred, log audit status to `.loop-logs/` only. **It is strictly forbidden to open a pull request or edit `tasks/board.json` notes just to record that an audit occurred.** This breaks the circular self-triggering git loop.
@@ -22,22 +22,18 @@ Maintains strict scientific grounding and mission alignment across all autonomou
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 10 Minutes / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    Trigger["Scheduled Trigger (Every 2 Hours)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|Zero Deltas (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
     Sync --> Triage["2. Auto-Triage & Approve Board Tasks\n(tasks/triage_board.py)"]
     Triage --> Audit["3. Audit Task Grounding & Curative Alignment"]
     Audit --> Bridge["4. Emit Curative Brief with showcase_targets Manifest\nin cf-research/landscape/"]
-    Bridge --> Release["5. Release Lock via fast-sentinel-gate -Release"]
+    Bridge --> Release["5. Release Lock via run-sentinel -Complete"]
 ```
 
-### 0. Deterministic Fast Pre-Flight Gate & Sync with Main
-Execute `tasks/fast-sentinel-gate.ps1` before any LLM reasoning or file reading begins:
-```powershell
-pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-research-sentinel" -WatermarkFile ".loop-logs/last-research-audit.json" -WatchPaths @("../cf-research/proposals", "../cf-research/landscape", "../cf-research/sources/catalog.yaml")
-```
-If the gate exits with code 10 (`LOCK_HELD`) or code 20 (`IDLE`), terminate immediately without calling further tools. Notice that `tasks/board.json` is excluded from watch paths to prevent circular self-invalidation.
+### 0. Deterministic Fast Pre-Flight Gate & Sync with Main (run by the scheduler wrapper, not by the agent)
+The cron job runs `tasks/run-sentinel.ps1 -SentinelName daily-research-sentinel`. That wrapper syncs `origin/main`, runs `tasks/fast-sentinel-gate.ps1` with the watch paths and heartbeat from `tasks/sentinels.json`, and starts an agent conversation only on exit 0. Exit 10 (`LOCK_HELD`) or 20 (`IDLE`) starts nothing, so an idle slot burns zero tokens. The agent must not run the gate again: it would see its own lock and exit 10. When the run ends, `pwsh -NoProfile -File tasks/run-sentinel.ps1 -SentinelName daily-research-sentinel -Complete` writes the watermark and releases the lock; `-Abort` releases it without a watermark so the next slot retries. Every decision is logged to `.loop-logs/sentinel-runs.jsonl`. The agent's steps live in `tasks/sentinel-prompts/daily-research-sentinel.md`. Notice that `tasks/board.json` is excluded from the watch paths to prevent circular self-invalidation.
 
 - **Sync with origin/main**: Always pull the latest `main` branch across workspace repositories before evaluating deltas:
   ```powershell

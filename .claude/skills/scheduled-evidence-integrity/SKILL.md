@@ -11,7 +11,7 @@ Continuously protects the lab's scientific credibility by monitoring primary lit
 
 ## Cadence & Trigger
 
-- **Turbo Mode Cadence**: Every 10 minutes at :03, :13, :23, :33, :43, :53 PT (`CRON_TZ=America/Los_Angeles 3-59/10 * * * *`) integrated within `daily-research-sentinel`.
+- **Cadence**: Every 2 hours at :20 PT (`CRON_TZ=America/Los_Angeles 20 */2 * * *`), set in `tasks/sentinels.json`; the agent starts only when proposals, landscape or the catalog changed, or the 24-hour heartbeat is due. Run by the wrapper `tasks/run-sentinel.ps1` as part of `daily-research-sentinel`.
 - **Antigravity Sidecar ID**: `daily-research-sentinel`
 - **Review Tier**: `routine`
 - **Anti-Churn Invariant**: When no retractions or indication revisions are detected, log clean audit results to `.loop-logs/` only. It is strictly forbidden to open pull requests or edit board notes for clean passes.
@@ -22,7 +22,7 @@ Continuously protects the lab's scientific credibility by monitoring primary lit
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 10 Minutes / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    Trigger["Scheduled Trigger (Every 2 Hours)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|Zero Deltas (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
@@ -32,16 +32,12 @@ flowchart TD
     S3 --> Triage{"Retractions or Label Changes?"}
     Triage -->|No Changes| Clean["Emit Clean Record to .loop-logs/"]
     Triage -->|Anomalies Detected| Alert["Flag Affected Notes & Log Downgrade Alert"]
-    Alert --> Release["5. Release Lock via fast-sentinel-gate -Release"]
+    Alert --> Release["5. Release Lock via run-sentinel -Complete"]
     Clean --> Release
 ```
 
 ### 0. Deterministic Fast Pre-Flight Gate & Sync with Main
-Execute `tasks/fast-sentinel-gate.ps1` before any LLM reasoning or file reading begins:
-```powershell
-pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-research-sentinel" -WatermarkFile ".loop-logs/last-research-audit.json" -WatchPaths @("../cf-research/proposals", "../cf-research/landscape", "../cf-research/sources/catalog.yaml")
-```
-If the gate exits with code 10 (`LOCK_HELD`) or code 20 (`IDLE`), terminate immediately without calling further tools.
+The scheduler wrapper `tasks/run-sentinel.ps1 -SentinelName daily-research-sentinel` syncs `origin/main` and runs `tasks/fast-sentinel-gate.ps1` before any agent starts (watch paths and heartbeat live in `tasks/sentinels.json`). Exit 10 (lock held) or 20 (idle) starts nothing, so an idle slot burns zero tokens. The agent must not rerun the gate (its own lock would block it) and ends with `pwsh -NoProfile -File tasks/run-sentinel.ps1 -SentinelName daily-research-sentinel -Complete` (or `-Abort` on failure).
 
 - **Sync with origin/main**: Always pull the latest `main` branch across workspace repositories before reading catalog or landscape files:
   ```powershell

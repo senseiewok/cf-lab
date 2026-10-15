@@ -11,7 +11,7 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ## Cadence & Trigger
 
-- **Dedicated Front-Door Cadence**: Every 10 minutes at :06, :16, :26, :36, :46, :56 PT (`CRON_TZ=America/Los_Angeles 6-59/10 * * * *`), decoupled from `daily-research-sentinel` and `daily-security-sentinel` (alias: `daily-site-security-sentinel`) with 3-minute staggered offsets from the other sentinels.
+- **Dedicated Front-Door Cadence**: Every 2 hours at :40 PT (`CRON_TZ=America/Los_Angeles 40 */2 * * *`), set in `tasks/sentinels.json` and rendered into the sidecar by `tasks/render-sentinel-sidecars.ps1`, staggered 20 minutes after `daily-research-sentinel` and 40 minutes after `daily-security-sentinel` (alias: `daily-site-security-sentinel`). No heartbeat: nothing new to showcase means no run.
 - **Antigravity Sidecar ID**: `daily-site-showcase-sentinel`
 - **Review Tier**: `elevated` / `full` (depending on public claims and security boundaries).
 - **Anti-Churn Invariant**: If no new validated research dossiers or `showcase_targets` exist, terminate cleanly with 0 tokens burned. Never open a pull request without newly verified biophysical research deliverables or localized content.
@@ -22,7 +22,7 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 10 Minutes / Turbo)"] --> FastGate["0. Fast Pre-Flight Gate\n(tasks/fast-sentinel-gate.ps1)"]
+    Trigger["Scheduled Trigger (Every 2 Hours)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|No New Research (Code 20)| IdleExit["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Deltas Detected (Code 0)| Worktree["1. Spawn Dedicated Worktree & Branch\n(Never Edit main)"]
@@ -30,17 +30,13 @@ flowchart TD
     Stage1 --> Stage2["3. Public Translation & Site Showcase\n(In Worktree)"]
     Stage2 --> Stage3["4. Grounded Review Loop & Build Verification\n(Unit Tests + Playwright Audits)"]
     Stage3 --> Stage4["5. Elevated Gate & Dual-Family PR Submission"]
-    Stage4 --> Release["6. Release Lock via fast-sentinel-gate -Release"]
+    Stage4 --> Release["6. Release Lock via run-sentinel -Complete"]
 ```
 
 ### Pre-flight: Deterministic Fast Gate, Main Sync & Worktree Coordination
 
 Before touching any `.ai` or skill files:
-1. **Deterministic Fast Pre-Flight Gate**:
-   ```powershell
-   pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-site-showcase-sentinel" -WatermarkFile ".loop-logs/last-showcase-audit.json" -WatchPaths @("../cf-research/landscape", ".ai/src")
-   ```
-   If exit code is 10 (`LOCK_HELD`) or 20 (`IDLE`), terminate immediately without calling further tools.
+1. **Deterministic Fast Pre-Flight Gate (run by the scheduler wrapper, not by the agent)**: The cron job runs `tasks/run-sentinel.ps1 -SentinelName daily-site-showcase-sentinel`. That wrapper syncs `origin/main`, runs `tasks/fast-sentinel-gate.ps1` with the watch paths and heartbeat from `tasks/sentinels.json`, and starts an agent conversation only on exit 0. Exit 10 (`LOCK_HELD`) or 20 (`IDLE`) starts nothing, so an idle slot burns zero tokens. The agent must not run the gate again: it would see its own lock and exit 10. When the run ends, `pwsh -NoProfile -File tasks/run-sentinel.ps1 -SentinelName daily-site-showcase-sentinel -Complete` writes the watermark and releases the lock; `-Abort` releases it without a watermark so the next slot retries. Every decision is logged to `.loop-logs/sentinel-runs.jsonl`. The agent's steps live in `tasks/sentinel-prompts/daily-site-showcase-sentinel.md`.
 2. **Sync with origin/main on Start**: Always sync with origin and pull the latest `main` branch across all workspace repositories before inspecting state watermarks, research dossiers, or tasks:
    ```powershell
    python .claude/skills/workspace-siblings/scripts/sync-main.py
@@ -138,10 +134,10 @@ Execute the mandatory 3-layer Grounded Review Loop:
      ```
    - Attach Playwright screenshots and link back to the originating research dossier.
 4. **Update Watermark & Release Lock**:
-   - Update `.loop-logs/last-showcase-audit.json` with fresh tree hashes.
-   - Release lock:
+   - Record the run in `.loop-logs/last-showcase-audit.json`; the fresh tree hashes are written for you by `-Complete`.
+   - Release lock and write the watermark:
      ```powershell
-     pwsh -NoProfile -File tasks/fast-sentinel-gate.ps1 -SentinelName "daily-site-showcase-sentinel" -Release
+     pwsh -NoProfile -File tasks/run-sentinel.ps1 -SentinelName "daily-site-showcase-sentinel" -Complete
      ```
 
 ---
