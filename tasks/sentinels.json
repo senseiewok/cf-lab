@@ -29,7 +29,7 @@
     "daily-research-sentinel": {
       "sidecar_dir": "daily-research-sentinel",
       "display_name": "Daily Curative Research Sentinel",
-      "description": "Every 2 hours at :20 (America/Los_Angeles). A wrapper syncs origin/main and runs the zero-token gate first; the agent starts only when research proposals, landscape or the source catalog changed, or the 24-hour heartbeat is due (registry polls). It also takes a build slot when the board has a bigger ready bundle in the research lane and that lane has no sentinel pull request waiting.",
+      "description": "Every 2 hours at :20 (America/Los_Angeles). A wrapper syncs origin/main and runs the zero-token gate first; the agent starts only when research proposals, landscape or the source catalog changed, or the 8-hour heartbeat is due (registry polls and proactive discovery). It also takes a build slot when the board has a bigger ready bundle in the research lane and that lane has no sentinel pull request waiting.",
       "cron": "20 */2 * * *",
       "prompt_file": "tasks/sentinel-prompts/daily-research-sentinel.md",
       "watermark": ".loop-logs/last-research-audit.json",
@@ -38,7 +38,7 @@
         "../cf-research/landscape",
         "../cf-research/sources/catalog.yaml"
       ],
-      "max_idle_hours": 24,
+      "max_idle_hours": 8,
       "lock_timeout_minutes": 110,
       "build": {
         "lane": "research"
@@ -47,15 +47,17 @@
     "daily-site-showcase-sentinel": {
       "sidecar_dir": "daily-site-showcase-sentinel",
       "display_name": "Daily Front-Door & Site Showcase Sentinel",
-      "description": "Every 2 hours at :40 (America/Los_Angeles). A wrapper syncs origin/main and runs the zero-token gate first; the agent starts only when cf-research landscape or the .ai site source changed. No heartbeat: nothing to showcase means nothing to run. It also takes a build slot when the board has a bigger ready bundle in the showcase lane and that lane has no sentinel pull request waiting.",
+      "description": "Every 2 hours at :40 (America/Los_Angeles). A wrapper syncs origin/main and runs the zero-token gate first; the agent starts only when cf-research landscape, proposals, catalog or the .ai site source changed, or the 12-hour freshness heartbeat is due. It also takes a build slot when the board has a bigger ready bundle in the showcase lane and that lane has no sentinel pull request waiting.",
       "cron": "40 */2 * * *",
       "prompt_file": "tasks/sentinel-prompts/daily-site-showcase-sentinel.md",
       "watermark": ".loop-logs/last-showcase-audit.json",
       "watch_paths": [
         "../cf-research/landscape",
-        ".ai/src"
+        "../cf-research/proposals",
+        "../cf-research/sources/catalog.yaml",
+        "../.ai/src"
       ],
-      "max_idle_hours": 0,
+      "max_idle_hours": 12,
       "lock_timeout_minutes": 110,
       "build": {
         "lane": "showcase"

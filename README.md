@@ -374,42 +374,42 @@ The complete architectural specifications, biophysical schemas (Cryo-EM 5UAK/6MS
 - **Gemini CF Schedules Architecture & Review Loop Design** (`gemini-cf-schedules-design.md`)
 - **Curative Discovery Roadmap & Dual-Track Development Schedule** (`cf-curative-development-schedule.md`)
 
-### Core autonomous engines
+### Core autonomous sentinels (`tasks/sentinels.json`)
 
-| Engine | Cadence | Purpose | Primary Output |
+The single source of truth for scheduled sentinels is `tasks/sentinels.json`, executed via `tasks/run-sentinel.ps1` and rendered into Antigravity sidecar configs by `tasks/render-sentinel-sidecars.ps1`:
+
+| Sentinel | Cadence (PT) | Heartbeat & Watch Paths | Build Lane & Primary Output |
 | :--- | :--- | :--- | :--- |
-| **`scheduled-site-showcase`** (Developer Schedule) | Every 4 hours (all day) | Continuous website improvement, fresh round of research, skill evolution, Spanish translations (`/es/`), and verified PRs with Playwright screenshots. | PRs to `senseiewok.ai` |
-| **`scheduled-security-sentinel`** (Monitor Schedule) | Every 3 hours (all day) | Continuous security and privacy audit of background logs, transcripts, and git status for secrets, PHI, SSRF, prompt injection, and permission drift. Prepares verified fix PRs. | PRs across repos / security alerts |
-| **`scheduled-chief-researcher`** (CRO Grounding Sentinel) | Every 6 hours (all day) | Audits task board grounding and curative mission focus; enforces lazy delta execution (zero tokens burned on idle state). | Grounding briefs & board audits |
-| **`scheduled-variant-theratyping`** | Monthly (1st at 03:00 PT) | Biophysical dossiers on rare CFTR mutations with atomic PDB coordinates. | `/cf/cftr/` 3D visualizers |
-| **`scheduled-delivery-biophysics`** | Monthly (5th at 03:00 PT) | Non-inflammatory LNP and aerosolized formulation models addressing mucus barrier penetration. | "Overcoming Delivery" briefs |
-| **`scheduled-ptc-readthrough`** | Monthly (15th at 03:00 PT) | Triple-combination readthrough + NMD suppression models for nonsense mutations (W1282X, G542X). | "The Path for the 10%" briefs |
-| **`scheduled-bypass-circuitry`** | Monthly (10th at 03:00 PT) | Alternative chloride secretion (TMEM16A) and ENaC inhibition transport models. | Epithelial ion flux simulators |
-| **`scheduled-adaptive-trials`** | Monthly (20th at 03:00 PT) | Open-access N-of-1 and organoid surrogate protocol templates for ultra-rare mutations. | Trial Endpoint Atlas updates |
-| **`scheduled-phage-dynamics`** | Monthly (25th at 03:00 PT) | Phage-antibiotic evolutionary trade-off matrices for *P. aeruginosa* biofilms. | Anti-infectives evidence ledger |
+| **`daily-security-sentinel`** (`daily-site-security-sentinel`) | Every 2 hours at `:00` (`0 */2 * * *`) | 8h heartbeat; watches `tasks`, `.claude`, `../cf-research/sources`, `../cf-skills/.claude`, `../.ai/src` | **`security` lane**: Multi-repo secret/PHI log audit, session error mining, live headers, 65 roses, Playwright review, and bold `security` bundle PRs |
+| **`daily-research-sentinel`** | Every 2 hours at `:20` (`20 */2 * * *`) | 8h heartbeat; watches `../cf-research/proposals`, `../cf-research/landscape`, `../cf-research/sources/catalog.yaml` | **`research` lane**: ClinicalTrials.gov, Crossref Retraction Watch & openFDA polling, board triage (`triage_board.py`), proactive curative dossiers, and bold `research` bundle PRs |
+| **`daily-site-showcase-sentinel`** | Every 2 hours at `:40` (`40 */2 * * *`) | 12h heartbeat; watches `../cf-research/landscape`, `../cf-research/proposals`, `../cf-research/sources/catalog.yaml`, `../.ai/src` | **`showcase` lane**: Public interactive features on `senseiewok.ai`, `/evidence/` & `/cf/cftr/` sync, Mexican Spanish (`es-MX`) localization, and bold `showcase` bundle PRs |
 
 ---
 
-### How to add to Gemini Automations (Antigravity Sidecars)
+### How to install and manage Gemini Automations (Antigravity Sidecars)
 
-Antigravity executes background schedules through declarative sidecars (`"builtin": "schedule"`) located under `~/.gemini/config/sidecars/<sidecar-id>/sidecar.json`.
+Antigravity executes background schedules through declarative sidecars (`"builtin": "schedule"`) located under `~/.gemini/config/sidecars/<sidecar-dir>/sidecar.json`.
 
-1. **Sidecar configuration**:
-   Sidecar configuration files are stored in your user configuration directory:
-   - Developer Schedule: `~/.gemini/config/sidecars/scheduled-site-showcase/sidecar.json`
-   - Security Sentinel: `~/.gemini/config/sidecars/scheduled-security-sentinel/sidecar.json`
-   - Chief Researcher Officer: `~/.gemini/config/sidecars/scheduled-chief-researcher/sidecar.json`
+1. **Render and install sidecar configurations from `tasks/sentinels.json`**:
+   Sidecar configuration files live in `~/.gemini/config/sidecars/`:
+   - Security & Site Audit Sentinel: `~/.gemini/config/sidecars/daily-site-security-sentinel/sidecar.json`
+   - Curative Research Sentinel: `~/.gemini/config/sidecars/daily-research-sentinel/sidecar.json`
+   - Front-Door & Site Showcase Sentinel: `~/.gemini/config/sidecars/daily-site-showcase-sentinel/sidecar.json`
 
-   Each file defines the cron schedule with explicit timezone (`CRON_TZ=America/Los_Angeles`), self-contained run instructions (`agentapi new-conversation -- <prompt>`), and strictly bounded `agent_permissions` (`workspace_uris` and `access_grants` for specific commands; never generic wildcards).
+   Check for drift or install updated sidecars from `tasks/sentinels.json`:
+   ```powershell
+   pwsh -NoProfile -File tasks/render-sentinel-sidecars.ps1 -Check
+   pwsh -NoProfile -File tasks/render-sentinel-sidecars.ps1 -Install
+   ```
+   Each sidecar invokes `pwsh -NoProfile -File C:/senseiewok/repos/cf-lab/tasks/run-sentinel.ps1 -SentinelName <name>`, which syncs `origin/main`, runs the zero-token preflight gate (`tasks/fast-sentinel-gate.ps1`) and bundle picker (`tasks/pick_bold_task.py`), and starts `agentapi new-conversation` only when a watched path changed, a heartbeat is due, or a ready task bundle is available.
 
 2. **Enable via Automations Dashboard**:
    In accordance with security rules, automations are never enabled silently. To activate an automation:
    - Click to open the dashboard: [Open Automations Dashboard](sidecar://dashboard).
-   - Find the automation by its display name (e.g. **Autonomous Site Builder & Research Showcase** or **Autonomous Security Log Sentinel**).
-   - Toggle the switch to **Enabled**.
+   - Find the automation by its display name and toggle the switch to **Enabled**.
 
-3. **Verify permissions with a test run**:
-   Before leaving an automation unattended, run an initial test execution in chat or through the dashboard to verify that all workspace paths and commands execute smoothly without unexpected permission prompts.
+3. **Inspect run decisions**:
+   Every preflight and launch decision is logged to `.loop-logs/sentinel-runs.jsonl`. Test a sentinel preflight without launching an agent via `pwsh -NoProfile -File tasks/run-sentinel.ps1 -SentinelName daily-research-sentinel -DryRun`.
 
 ---
 

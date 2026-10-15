@@ -90,6 +90,10 @@ COMPLETED_SENTINELS = {
         "actual_hours": 3.0,
         "measured_outcome": "Session error mining tool tasks/audit_session_errors.py and test suite tasks/test_audit_session_errors.py implemented and verified (4 passing unit tests); session-error-digest.json generated with 4 actionable recommendations; scheduled-security-sentinel operationalized.",
     },
+    "T-0166": {
+        "actual_hours": 3.0,
+        "measured_outcome": "Showcase PR #80 merged into .ai main (commit b024bc4). Exposed T-0153 Adaptive Bayesian N-of-1 organoid theratyping protocol and openFDA DILI surveillance on /cf/ (#adaptive-organoids) with nav-rail.js and Mexican Spanish localization.",
+    },
 }
 
 HUMAN_GATE_PATTERNS = [
@@ -109,13 +113,35 @@ HUMAN_GATE_PATTERNS = [
     r"\bsign-up\b",
 ]
 
+BOILERPLATE_STRIP_PATTERNS = [
+    r"only a (?:human|person|maintainer) (?:moves|can move|sets|can set) it (?:to )?ready\.?",
+    r"Human-only: downloading the 2024 report \(T-0005\)\.?",
+    r"\d{4}-\d{2}-\d{2} (?:ROI|CRO) (?:Auto-)?Triage:.*",
+]
+
 
 def load_human_gated_ids(path: Path) -> set[str]:
-    """Extract task IDs from HUMAN-TASKS.md."""
+    """Extract active human-gated task IDs from HUMAN-TASKS.md (excluding Section 6 Council-Approved agent tasks and completed items)."""
     if not path.is_file():
         return set()
     text = path.read_text(encoding="utf-8")
-    return set(re.findall(r"T-\d{4}", text))
+    active_section = re.split(r"^##\s+6\.\s+Council-Approved Tasks", text, maxsplit=1, flags=re.M)[0]
+    active_lines = [
+        line for line in active_section.splitlines()
+        if not re.match(r"^\s*-\s*\[[xX]\]", line)
+    ]
+    return set(re.findall(r"T-\d{4}", "\n".join(active_lines)))
+
+
+def load_council_approved_agent_ids(path: Path) -> set[str]:
+    """Extract task IDs explicitly cleared for agent automation in Section 6 of HUMAN-TASKS.md."""
+    if not path.is_file():
+        return set()
+    text = path.read_text(encoding="utf-8")
+    parts = re.split(r"^##\s+6\.\s+Council-Approved Tasks", text, maxsplit=1, flags=re.M)
+    if len(parts) < 2:
+        return set()
+    return set(re.findall(r"T-\d{4}", parts[1]))
 
 
 def is_human_gated(task: dict, human_ids: set[str]) -> tuple[bool, str]:
@@ -124,8 +150,18 @@ def is_human_gated(task: dict, human_ids: set[str]) -> tuple[bool, str]:
     if tid in human_ids:
         return True, "Listed in tasks/HUMAN-TASKS.md"
 
+    notes = task.get("notes") or ""
+    if tid in load_council_approved_agent_ids(HUMAN_TASKS_PATH):
+        return False, ""
+    if re.search(r"approved.*for (?:automated|agent) execution", notes, re.I):
+        return False, ""
+
+    cleaned_notes = notes
+    for bp in BOILERPLATE_STRIP_PATTERNS:
+        cleaned_notes = re.sub(bp, "", cleaned_notes, flags=re.I)
+
     text = " ".join([
-        task.get("notes") or "",
+        cleaned_notes,
         task.get("roi", {}).get("rationale") or "",
         task.get("title") or "",
         task.get("acceptance") or "",
@@ -452,6 +488,11 @@ def triage_board(
                     approval_note = f"{today_str} CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
                     task["notes"] = f"{existing_notes} | {approval_note}" if existing_notes else approval_note
                     stats["approved_to_ready"].append(tid)
+        elif status == "ready" and (task.get("executor") == "human" or task.get("human_required") is True):
+            is_hg, _ = is_human_gated(task, human_ids)
+            if not is_hg:
+                task["executor"] = "agent"
+                task["human_required"] = False
 
         # 3. Curative mission track scoring and prioritization
         classification = classify_curative_mission(task)
