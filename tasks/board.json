@@ -7870,7 +7870,7 @@
       "title": "Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n",
       "repo": ".ai",
       "area": "architecture",
-      "status": "ready",
+      "status": "in_progress",
       "priority": "P3",
       "created_at": "2026-10-14T23:59:00Z",
       "created_by": {
@@ -7909,14 +7909,14 @@
         "T-0152",
         "T-0160"
       ],
-      "updated_at": "2026-10-14T23:59:00Z",
+      "updated_at": "2026-10-15T04:25:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Cross-repo architecture connecting cf-lab scheduled skills, .ai frontend ES modules, and Mexican Spanish localization.",
-      "branch": null,
-      "notes": "2026-10-14: Proposed and approved to ready per maintainer prioritization directive. Establishes dedicated front-door schedule and zero-build ES module component decoupling to prevent agent contention."
+      "branch": "site/showcase-mission-surveillance",
+      "notes": "2026-10-14: Proposed and approved to ready per maintainer prioritization directive. Establishes dedicated front-door schedule and zero-build ES module component decoupling to prevent agent contention. | 2026-10-15: Claimed by daily-site-showcase-sentinel on branch site/showcase-mission-surveillance. Prepared and submitted PR #76 exposing multi-registry surveillance (T-0156/T-0157) with declarative research card structure, dynamic nav rail anchors, exact es-MX localization, and 195/195 passing tests."
     },
     {
       "id": "T-0164",

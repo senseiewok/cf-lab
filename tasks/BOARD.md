@@ -4,16 +4,17 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 164 tasks, 163 created by a model, 24 with a measured outcome. Estimated effort 431.85 to 832.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
-## in progress (4)
+## in progress (5)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0067 | P1 | Decision: treat robots.txt groups that name AI agents as applying to our fetch sources | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
+| T-0163 | P3 | Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n | .ai | 3-6 | 5 | 11.1 | no | model: gemini-3.8-flash | 2026-10-14 | elevated | medium | cloud | T-0147, T-0150, T-0152, T-0160 | site/showcase-mission-surveillance |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (94)
+## ready (93)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -101,7 +102,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0102 | P2 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer | cf-research | 10-24 | 4 | 2.4 | no | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
 | T-0140 | P2 | Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy | cf-lab | 6-14 | 2 | 2 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | medium | local |  |  |
 | T-0111 | P3 | Harden the commit gate: commit only on pass, fail on stray files, show open rows | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium | local |  |  |
-| T-0163 | P3 | Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n | .ai | 3-6 | 5 | 11.1 | no | model: gemini-3.8-flash | 2026-10-14 | elevated | medium | cloud | T-0147, T-0150, T-0152, T-0160 |  |
 | T-0086 | P3 | Depth probe for the 64K local alias | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine | low | local |  |  |
 | T-0114 | P3 | Test CI for the three public repos | cf-lab | 2-4 | 3 | 10 | no | model: claude-opus-5-5 | 2026-10-09 | full | medium | local |  |  |
 | T-0127 | P3 | A board consistency check in render-board | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
@@ -1395,9 +1395,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 - **Why / ROI rationale:** Directly eliminates multi-agent git collisions and anchor drift across monolithic HTML files; unifies the public front door into a high-value, accessible, localized patient/researcher experience. *(confidence: high)*
 - **Route:** cloud - Cross-repo architecture connecting cf-lab scheduled skills, .ai frontend ES modules, and Mexican Spanish localization.
+- **Branch:** site/showcase-mission-surveillance
 - **Acceptance:** scheduled-site-showcase decoupled into dedicated sidecar daily-site-showcase-sentinel running at :30 on odd hours; nav-rail.js provides dynamic IntersectionObserver-driven subnav navigation; research cards render declaratively with automated es-MX localization and ARIA landmarks; all site unit tests (195/195) and sync_chrome.py --check pass.
 - **Evidence:** 2026-10-14: Maintainer directive to eliminate contention between website features, ES6 modules, navigation, localization, and research showcases by establishing dedicated schedule and prioritizing front-door value.
-- **Notes:** 2026-10-14: Proposed and approved to ready per maintainer prioritization directive. Establishes dedicated front-door schedule and zero-build ES module component decoupling to prevent agent contention.
+- **Notes:** 2026-10-14: Proposed and approved to ready per maintainer prioritization directive. Establishes dedicated front-door schedule and zero-build ES module component decoupling to prevent agent contention. \| 2026-10-15: Claimed by daily-site-showcase-sentinel on branch site/showcase-mission-surveillance. Prepared and submitted PR #76 exposing multi-registry surveillance (T-0156/T-0157) with declarative research card structure, dynamic nav rail anchors, exact es-MX localization, and 195/195 passing tests.
 
 ### T-0086 Depth probe for the 64K local alias
 
