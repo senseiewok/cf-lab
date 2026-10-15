@@ -3148,7 +3148,7 @@
       "title": "Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules",
       "repo": "cf-skills",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-05T03:58:00Z",
       "created_by": {
@@ -3166,9 +3166,9 @@
         "benefit": 3,
         "rationale": "Estimate: a small gain in reliability or reach for the cost.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.5,
+        "measured_outcome": "PageReader and read-page CLI implemented under 10 network conduct rules; 25 unit tests and 9 active mutant proof tests passing (218 total suite tests passing); blind challenger review conducted by Argon with all findings resolved; PR #28 opened on senseiewok/cf-skills.",
         "categories": {
           "curative_biophysics": 7.5,
           "clinical_translation": 9.0,
@@ -3182,10 +3182,14 @@
       "acceptance": "A command in cf-evidence-loop (or tools/sources) reads one HTTPS page or PDF: robots.txt first with robots_allows, Crawl-delay honoured, a refused or unreadable robots.txt means no fetch, redirects followed only within the same site and re-checked, certificate checks on, a 5 MB cap, one request. Tests with a fake session fail before and pass after for each rule; a mutation proof rejects each broken rule.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-14T23:57:55Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Proposed by a model; only a human moves it to ready. It needs no catalog entry (it exists to read terms before an entry exists), so say clearly in its README that it is for a human-started reading of terms pages, not for data. New network-facing code in a public skill: flag for review.\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution.",
+      "updated_at": "2026-10-15T23:29:00Z",
+      "completed_at": "2026-10-15T23:29:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Antigravity (Gemini 2.5 Flash controlling agent + Argon challenger)",
+        "model_id": "gemini-2.5-flash"
+      },
+      "notes": "Proposed by a model; only a human moves it to ready. It needs no catalog entry (it exists to read terms before an entry exists), so say clearly in its README that it is for a human-started reading of terms pages, not for data. New network-facing code in a public skill: flag for review.\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution.\n2026-10-15 Daily Security Sentinel: Implemented PageReader in cf-evidence-loop with all 8 conduct rules plus SSRF and ANSI output sanitization. Completed full tier verification with 34 tests (including 9 mutation proof mutant classes) and blind challenger review by Argon. Created PR #28 on senseiewok/cf-skills.",
       "recommended_route": "local",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.",
       "complexity": "medium"

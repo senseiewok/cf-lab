@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 33 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 34 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (89)
+## ready (88)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -39,7 +39,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
-| T-0066 | P1 | Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | local |  |  |
 | T-0146 | P2 | CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has | .ai | 1-3 | 5 | 25 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | low | cloud | T-0005 |  |
 | T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0092 | P2 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0083 |  |
@@ -107,7 +106,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (64)
+## done (65)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -129,6 +128,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | site/es-mx-localization |
 | T-0159 | P1 | Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs) | cf-lab | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | feat/antigravity-discovery-and-pr-rules |
 | T-0160 | P1 | Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs) | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0148, T-0149 | site/showcase-curative-theratypes |
+| T-0066 | P1 | Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules | cf-skills | 3-5 | 3 | 7.5 | yes | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | local |  |  |
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0152 | P1 | Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid | cf-research | 4-8 | 4 | 6.7 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | medium | cloud |  |  |
 | T-0154 | P1 | Anti-resistance bacteriophage cocktail co-evolution dynamics against mucoid Pseudomonas aeruginosa | cf-research | 4-8 | 4 | 6.7 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | medium | cloud |  |  |
@@ -546,7 +546,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A command in cf-evidence-loop (or tools/sources) reads one HTTPS page or PDF: robots.txt first with robots_allows, Crawl-delay honoured, a refused or unreadable robots.txt means no fetch, redirects followed only within the same site and re-checked, certificate checks on, a 5 MB cap, one request. Tests with a fake session fail before and pass after for each rule; a mutation proof rejects each broken rule.
 - **Evidence:** 2026-10-05: reading terms pages used an untracked script that followed redirects to other hosts without re-checking robots, used the system trust store (a self-signed certificate in the chain on api.reporter.nih.gov while certifi worked) and matched robots groups with the standard library, which the evidence package avoids. Fixed in the scratch copy only.
-- **Notes:** Proposed by a model; only a human moves it to ready. It needs no catalog entry (it exists to read terms before an entry exists), so say clearly in its README that it is for a human-started reading of terms pages, not for data. New network-facing code in a public skill: flag for review. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution.
+- **Notes:** Proposed by a model; only a human moves it to ready. It needs no catalog entry (it exists to read terms before an entry exists), so say clearly in its README that it is for a human-started reading of terms pages, not for data. New network-facing code in a public skill: flag for review. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. 2026-10-15 Daily Security Sentinel: Implemented PageReader in cf-evidence-loop with all 8 conduct rules plus SSRF and ANSI output sanitization. Completed full tier verification with 34 tests (including 9 mutation proof mutant classes) and blind challenger review by Argon. Created PR #28 on senseiewok/cf-skills.
+- **Measured:** 3.5 h; PageReader and read-page CLI implemented under 10 network conduct rules; 25 unit tests and 9 active mutant proof tests passing (218 total suite tests passing); blind challenger review conducted by Argon with all findings resolved; PR #28 opened on senseiewok/cf-skills.
 
 ### T-0078 Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice
 
