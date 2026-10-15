@@ -122,37 +122,47 @@ if ($Stage -in @('All', 'Backlog')) {
 if ($Stage -in @('All', 'Showcase')) {
     Write-Step "5. Site Showcase & Front-Door Verification"
     $gateScript = Join-Path $cfLab "tasks/fast-sentinel-gate.ps1"
-    
-    # Run fast-sentinel-gate with -Force when requested to guarantee non-blocking execution
-    $gateArgs = @("-SentinelName", "daily-site-showcase-sentinel", "-WatermarkFile", ".loop-logs/last-showcase-audit.json", "-WatchPaths", "@('../cf-research/landscape', '../.ai/src')")
-    if ($Force) { $gateArgs += "-Force" }
-    
-    & pwsh -NoProfile -File $gateScript @gateArgs
-    $gateCode = $LASTEXITCODE
-    
-    if ($gateCode -eq 0) {
-        Write-Success "Gate passed (Code 0). Running showcase verification suites..."
-        $aiRepo = Join-Path $reposRoot ".ai"
-        if (Test-Path $aiRepo) {
-            # Execute targeted site tests in .ai root
-            Push-Location $aiRepo
-            try {
-                python -m unittest tests.test_site -k sixty_five
-                Write-Success "65-roses motif verified."
-            } finally {
-                Pop-Location
-            }
-        }
-        
-        # Release lock
-        & pwsh -NoProfile -File $gateScript -SentinelName "daily-site-showcase-sentinel" -Release
-        Write-Success "Showcase lock released."
-    } elseif ($gateCode -eq 20) {
-        Write-Info "Showcase gate reported zero deltas since last cycle (Code 20). No PR required."
+
+    if ($DryRun) {
+        # The gate takes the same lock the scheduled daily-site-showcase-sentinel uses. A dry run must
+        # never hold it, or the scheduled run backs off with exit 10.
+        Write-Info "DryRun: skipping showcase gate and lock (the scheduled sentinel's lock is never touched)."
     } else {
-        Write-Info "Showcase gate exited with code $gateCode."
+        # Run fast-sentinel-gate with -Force when requested to guarantee non-blocking execution
+        $gateArgs = @("-SentinelName", "daily-site-showcase-sentinel", "-WatermarkFile", ".loop-logs/last-showcase-audit.json", "-WatchPaths", "@('../cf-research/landscape', '.ai/src')")
+        if ($Force) { $gateArgs += "-Force" }
+
+        & pwsh -NoProfile -File $gateScript @gateArgs
+        $gateCode = $LASTEXITCODE
+
+        if ($gateCode -eq 0) {
+            # The gate now holds the lock: release it in finally so an error cannot leave the
+            # scheduled sentinel locked out for the stale-lock timeout.
+            try {
+                Write-Success "Gate passed (Code 0). Running showcase verification suites..."
+                $aiRepo = Join-Path $reposRoot ".ai"
+                if (Test-Path $aiRepo) {
+                    # Execute targeted site tests in .ai root
+                    Push-Location $aiRepo
+                    try {
+                        python -m unittest tests.test_site -k sixty_five
+                        Write-Success "65-roses motif verified."
+                    } finally {
+                        Pop-Location
+                    }
+                }
+            } finally {
+                & pwsh -NoProfile -File $gateScript -SentinelName "daily-site-showcase-sentinel" -Release
+                Write-Success "Showcase lock released."
+            }
+        } elseif ($gateCode -eq 20) {
+            Write-Info "Showcase gate reported zero deltas since last cycle (Code 20). No PR required."
+        } else {
+            Write-Info "Showcase gate exited with code $gateCode."
+        }
     }
 }
+
 
 # -------------------------------------------------------------
 # STAGE 6: SITE HEALTH & SECURITY SENTINEL AUDIT

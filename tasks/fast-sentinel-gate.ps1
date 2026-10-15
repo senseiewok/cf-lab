@@ -138,7 +138,9 @@ if (-not $Force -and $WatermarkFile -and ($WatchPaths.Count -gt 0)) {
                 # Sibling repo fallback (when $wp refers to a sibling repo such as .ai or cf-research)
                 if (-not (Test-Path $Target)) {
                     $reposRoot = Split-Path -Parent $cfLab
-                    $strippedWp = $wp.TrimStart('.').TrimStart('/').TrimStart('\')
+                    # Strip only leading './' and '../' segments. TrimStart('.') would also eat the dot of a
+                    # dot-named sibling repo such as '.ai' and resolve '.ai/src' to a nonexistent 'ai/src'.
+                    $strippedWp = $wp -replace '^(\.{1,2}[\\/])+', ''
                     $SiblingTarget = [System.IO.Path]::GetFullPath((Join-Path $reposRoot $strippedWp))
                     if (Test-Path $SiblingTarget) {
                         $Target = $SiblingTarget
