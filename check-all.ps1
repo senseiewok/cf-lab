@@ -51,6 +51,8 @@ $Checks = @(
     # the task board
     @{ name = 'render-board';             exe = 'pwsh';       args = @('tasks/render-board.ps1', '-Check');                                                needs = @() }
     @{ name = 'test-render-board';        exe = 'pwsh';       args = @('tasks/test-render-board.ps1');                                                     needs = @() }
+    @{ name = 'test-triage-board';        exe = 'python';     args = @('tasks/test_triage_board.py');                                                      needs = @('python') }
+    @{ name = 'test-audit-session-errors'; exe = 'python';    args = @('tasks/test_audit_session_errors.py');                                               needs = @('python') }
     @{ name = 'test-fast-sentinel-gate';  exe = 'pwsh';       args = @('tasks/test-fast-sentinel-gate.ps1');                                              needs = @('git') }
     @{ name = 'skill-frontmatter';        exe = 'python';     args = @('tasks/check-skill-frontmatter.py');                                                needs = @('python', 'pyyaml') }
     # setup and the workspace

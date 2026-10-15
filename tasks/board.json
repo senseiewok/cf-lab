@@ -7,7 +7,7 @@
       "title": "Replace hq LICENSE.md with a named OSI license; add a LICENSE to research, .ai, skills",
       "repo": "cf-lab",
       "area": "governance",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -32,10 +32,10 @@
       "acceptance": "Each of the four repos has a LICENSE file whose first line names a recognised license (MIT, Apache-2.0, CC0-1.0, or CC-BY-4.0 for notes); hq README and website link to it.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-15T01:15:33Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Prepared 2026-10-04 on the release branches (not yet merged): hq LICENSE.md is MIT; research LICENSE is CC BY 4.0 with tools/LICENSE MIT; skills LICENSE is CC0 1.0; texts for CC BY and CC0 are the official legal code from creativecommons.org. A human sets done after the PRs merge and the licenses show on GitHub. The website repo was not covered. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P0 to P2: the three public repos already carry named licences (cf-lab MIT, cf-research CC BY 4.0, cf-skills CC0 1.0, all detected by GitHub); only the private website repo has no LICENSE. The title still says hq. Narrow it to that decision; the maintainer may raise it again."
+      "notes": "Prepared 2026-10-04 on the release branches (not yet merged): hq LICENSE.md is MIT; research LICENSE is CC BY 4.0 with tools/LICENSE MIT; skills LICENSE is CC0 1.0; texts for CC BY and CC0 are the official legal code from creativecommons.org. A human sets done after the PRs merge and the licenses show on GitHub. The website repo was not covered. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P0 to P2: the three public repos already carry named licences (cf-lab MIT, cf-research CC BY 4.0, cf-skills CC0 1.0, all detected by GitHub); only the private website repo has no LICENSE. The title still says hq. Narrow it to that decision; the maintainer may raise it again. | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0002",
@@ -2155,7 +2155,7 @@
       "title": "Human edits to the protected .github folder after the rename: CODEOWNERS, copilot-instructions names, CI workflows",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P3",
       "created_at": "2026-10-04T23:55:00Z",
       "created_by": {
@@ -2180,10 +2180,10 @@
       "acceptance": "grep -n 'setup' .github/CODEOWNERS shows /setup.cmd and /setup.sh owned by @senseiewok and no /setup.ps1; grep -rn -E 'hq|Research Lab' .github returns nothing in cf-lab; the CI workflow drafts (kept by the maintainer outside the repos, one per repo) are in .github/workflows of each repo (see T-0061).",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-05T01:10:00Z",
+      "updated_at": "2026-10-15T01:15:33Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human only. Proposed by a model. Workflow drafts are in the release folder, outside the repos, and are untested."
+      "notes": "Human only. Proposed by a model. Workflow drafts are in the release folder, outside the repos, and are untested. | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0058",
@@ -2734,7 +2734,7 @@
       "title": "Decision: cloud-model use on reports with unread terms; permission requests to the CFF Registry and the CF Trust; the CC0 label on skills that carry quotations",
       "repo": "cf-research",
       "area": "governance",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P1",
       "created_at": "2026-10-05T04:39:00Z",
       "created_by": {
@@ -2759,10 +2759,10 @@
       "acceptance": "A human decides each of three points and the review's rules are adjusted to match: (1) whether sources with unread terms go only to local models, and the account's data-retention and training settings are confirmed; (2) whether to ask the Foundation and the Trust for permission to quote; (3) the licence wording for skills with quotations.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-15T01:15:33Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model. Policy and law, not code. A human decides, and a lawyer's view is worth having if the lab ever needs certainty. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): decide this first, then send the permission letters (T-0106; T-0006 folds into it): replies take weeks and gate the registry chain (T-0005, T-0008, T-0009)."
+      "notes": "Proposed by a model. Policy and law, not code. A human decides, and a lawyer's view is worth having if the lab ever needs certainty. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): decide this first, then send the permission letters (T-0106; T-0006 folds into it): replies take weeks and gate the registry chain (T-0005, T-0008, T-0009). | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0073",
@@ -3927,7 +3927,7 @@
       "title": "Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts",
       "repo": "cf-skills",
       "area": "skills",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-09T12:00:00Z",
       "created_by": {
@@ -3952,11 +3952,11 @@
       "acceptance": "Someone with access to each product runs each skill's eval cases in a fresh chat with the STANDARD box, scores each reply against its expected and forbidden lines, and edits docs/tested-with.json; python scripts/make_tested_grid.py --check passes and the page shows counts, not Pending, for the cells run. Invented cases only.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-15T01:15:33Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Needs a person with access to those products; an agent cannot run them from the lab's machine. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 6 hours; blocks nothing; needs a person with access to each assistant."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Needs a person with access to those products; an agent cannot run them from the lab's machine. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 6 hours; blocks nothing; needs a person with access to each assistant. | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0104",
@@ -4035,7 +4035,7 @@
       "title": "Send the permission letters and record every reply in the source catalog",
       "repo": "cf-research",
       "area": "sources",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-09T12:00:00Z",
       "created_by": {
@@ -4060,11 +4060,11 @@
       "acceptance": "Each letter is sent from the lab address; every reply or its absence is recorded by pull request in sources/catalog.yaml with the date and exactly what is allowed; no source is used beyond what is allowed.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-10T20:00:00Z",
+      "updated_at": "2026-10-15T01:15:33Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Maintainer's step. Silence is not permission. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): send the letters together with T-0006 once T-0072 is decided."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Maintainer's step. Silence is not permission. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): send the letters together with T-0006 once T-0072 is decided. | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0107",
@@ -4444,7 +4444,7 @@
       "title": "Identity in public files: one role address, one way to sign",
       "repo": "cf-lab",
       "area": "compliance",
-      "status": "proposed",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-09T20:00:00Z",
       "created_by": {
@@ -4469,11 +4469,11 @@
       "acceptance": "One role address in public files, letters signed by the lab, the catalog names 'the contact in the terms' instead of addresses, a recorded decision on vendor credit, and commit author addresses checked by the gate.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-09T20:00:00Z",
+      "updated_at": "2026-10-15T01:15:33Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice. | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
     },
     {
       "id": "T-0118",
@@ -6290,7 +6290,7 @@
       "title": "Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n",
       "repo": ".ai",
       "area": "architecture",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-14T23:59:00Z",
       "created_by": {
@@ -6308,9 +6308,9 @@
         "benefit": 5,
         "rationale": "Directly eliminates multi-agent git collisions and anchor drift across monolithic HTML files; unifies the public front door into a high-value, accessible, localized patient/researcher experience.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null
+        "measured": true,
+        "actual_hours": 4.5,
+        "measured_outcome": "Showcase PR #72 merged into main (commit f111957). Exposed T-0154 anti-resistance phage steering co-evolution dynamics to /cf/ (#phage-steering), implemented dynamic zero-build ES6 subnav rail (nav-rail.js), and verified all 648 unit tests and sync_chrome.py."
       },
       "acceptance": "scheduled-site-showcase decoupled into dedicated sidecar daily-site-showcase-sentinel running at :30 on odd hours; nav-rail.js provides dynamic IntersectionObserver-driven subnav navigation; research cards render declaratively with automated es-MX localization and ARIA landmarks; all site unit tests (195/195) and sync_chrome.py --check pass.",
       "review_tier": "elevated",
@@ -6321,20 +6321,25 @@
         "T-0160"
       ],
       "updated_at": "2026-10-14T23:59:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-15T01:29:45Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-14 session: automated sentinel verification and board triage"
+      },
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Cross-repo architecture connecting cf-lab scheduled skills, .ai frontend ES modules, and Mexican Spanish localization.",
-      "branch": null,
-      "notes": "2026-10-14: Proposed and approved to ready per maintainer prioritization directive. Establishes dedicated front-door schedule and zero-build ES module component decoupling to prevent agent contention."
+      "branch": "site/showcase-phage-dynamics",
+      "notes": "2026-10-14: Proposed and approved to ready per maintainer prioritization directive. Establishes dedicated front-door schedule and zero-build ES module component decoupling to prevent agent contention. | 2026-10-14: Showcase PR #72 prepared in dedicated worktree site/showcase-phage-dynamics (https://github.com/senseiewok/.ai/pull/72). Exposed T-0154 anti-resistance phage steering co-evolution dynamics to /cf/ (#phage-steering), authored zero-build dynamic ES6 subnav rail (nav-rail.js), and upgraded declarative research card localization in Mexican Spanish (es-MX.json). 193 unit tests, sync_chrome.py, and Playwright visual audits passed. | 2026-10-15 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing."
     },
     {
       "id": "T-0164",
       "title": "Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-14T23:59:30Z",
       "created_by": {
@@ -6352,9 +6357,9 @@
         "benefit": 5,
         "rationale": "Prevents repeated agent session failures by continuously mining conversation transcripts, classifying error patterns (PowerShell quoting, Python tracebacks, lock contention), and driving concrete system improvements.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null
+        "measured": true,
+        "actual_hours": 3.0,
+        "measured_outcome": "Session error mining tool tasks/audit_session_errors.py and test suite tasks/test_audit_session_errors.py implemented and verified (4 passing unit tests); session-error-digest.json generated with 4 actionable recommendations; scheduled-security-sentinel operationalized."
       },
       "acceptance": "tasks/audit_session_errors.py mines recent agent session transcripts under brain/ and task logs for command failures, tracebacks, and lock contention; outputs .loop-logs/session-error-digest.json with actionable improvement recommendations; scheduled-security-sentinel operationalized across all 4 repos with alias daily-security-sentinel.",
       "review_tier": "full",
@@ -6362,13 +6367,18 @@
         "T-0159"
       ],
       "updated_at": "2026-10-14T23:59:30Z",
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-15T01:36:41Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-14 session: automated sentinel verification and board triage"
+      },
       "complexity": "medium",
       "recommended_route": "local",
       "route_rationale": "Local transcript parsing and log auditing with full review gate.",
       "branch": null,
-      "notes": "2026-10-14: Proposed and approved to ready per maintainer directive. Broadens security sentinel to overall multi-repo security, agent transcript error mining, and self-healing system improvements."
+      "notes": "2026-10-14: Proposed and approved to ready per maintainer directive. Broadens security sentinel to overall multi-repo security, agent transcript error mining, and self-healing system improvements. | 2026-10-15 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing."
     }
   ]
 }

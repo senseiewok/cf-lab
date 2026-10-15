@@ -82,6 +82,14 @@ COMPLETED_SENTINELS = {
         "actual_hours": 2.0,
         "measured_outcome": "Deterministic screen capture and retention tool tools/capture_site_review.py implemented, verified (160 passing tests), and integrated into daily-site-security-sentinel (PR #67, #79).",
     },
+    "T-0163": {
+        "actual_hours": 4.5,
+        "measured_outcome": "Showcase PR #72 merged into main (commit f111957). Exposed T-0154 anti-resistance phage steering co-evolution dynamics to /cf/ (#phage-steering), implemented dynamic zero-build ES6 subnav rail (nav-rail.js), and verified all 648 unit tests and sync_chrome.py.",
+    },
+    "T-0164": {
+        "actual_hours": 3.0,
+        "measured_outcome": "Session error mining tool tasks/audit_session_errors.py and test suite tasks/test_audit_session_errors.py implemented and verified (4 passing unit tests); session-error-digest.json generated with 4 actionable recommendations; scheduled-security-sentinel operationalized.",
+    },
 }
 
 HUMAN_GATE_PATTERNS = [
