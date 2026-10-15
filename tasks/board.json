@@ -4152,7 +4152,7 @@
       "title": "A rule for questions about one real person: generalise before any search",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-09T20:00:00Z",
       "created_by": {
@@ -4170,18 +4170,23 @@
         "benefit": 5,
         "rationale": "Estimate: small CF cohorts re-identify; one combined query can identify a person.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null
+        "measured": true,
+        "actual_hours": 1.5,
+        "measured_outcome": "Added person generalization privacy rule to security-browsing and cf-research-context; implemented deterministic session-close scanner tasks/scan_person_generalization.py with self-test and unit test suite tasks/test_scan_person_generalization.py (4/4 passed); registered rows in check-all.ps1."
       },
       "acceptance": "security-browsing and cf-research-context say: before any search or cloud call, rewrite the question in general terms, say so, and keep nothing about the person; a session-close scan lists web-tool inputs that combine a health term with age, origin, status, place or a date.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-14T23:57:55Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-15T02:30:00Z",
+      "completed_at": "2026-10-15T02:30:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-14 session: implement person generalization privacy rule and session-close scanner (T-0109)"
+      },
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides the wording and whether such questions are in scope.\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution."
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides the wording and whether such questions are in scope.\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution. | 2026-10-15: Completed T-0109. Added rule across security-browsing and cf-research-context requiring generalization to broad scientific terms before any search/cloud call; built deterministic scanner tasks/scan_person_generalization.py and test_scan_person_generalization.py with full positive/negative controls; registered in check-all.ps1."
     },
     {
       "id": "T-0110",
