@@ -7870,7 +7870,7 @@
       "title": "Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n",
       "repo": ".ai",
       "area": "architecture",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P3",
       "created_at": "2026-10-14T23:59:00Z",
       "created_by": {
@@ -7888,9 +7888,9 @@
         "benefit": 5,
         "rationale": "Directly eliminates multi-agent git collisions and anchor drift across monolithic HTML files; unifies the public front door into a high-value, accessible, localized patient/researcher experience.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 4.5,
+        "measured_outcome": "Showcase PR #72 merged into main (commit f111957). Exposed T-0154 anti-resistance phage steering co-evolution dynamics to /cf/ (#phage-steering), implemented dynamic zero-build ES6 subnav rail (nav-rail.js), and verified all 648 unit tests and sync_chrome.py.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -7909,21 +7909,26 @@
         "T-0152",
         "T-0160"
       ],
-      "updated_at": "2026-10-15T04:25:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-14T23:59:00Z",
+      "completed_at": "2026-10-15T01:29:45Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-14 session: automated sentinel verification and board triage"
+      },
       "complexity": "medium",
       "recommended_route": "cloud",
       "route_rationale": "Cross-repo architecture connecting cf-lab scheduled skills, .ai frontend ES modules, and Mexican Spanish localization.",
-      "branch": "site/showcase-mission-surveillance",
-      "notes": "2026-10-14: Proposed and approved to ready per maintainer prioritization directive. Establishes dedicated front-door schedule and zero-build ES module component decoupling to prevent agent contention. | 2026-10-15: Claimed by daily-site-showcase-sentinel on branch site/showcase-mission-surveillance. Prepared and submitted PR #76 exposing multi-registry surveillance (T-0156/T-0157) with declarative research card structure, dynamic nav rail anchors, exact es-MX localization, and 195/195 passing tests."
+      "branch": "site/showcase-phage-dynamics",
+      "notes": "2026-10-14: Proposed and approved to ready per maintainer prioritization directive. Establishes dedicated front-door schedule and zero-build ES module component decoupling to prevent agent contention. | 2026-10-14: Showcase PR #72 prepared in dedicated worktree site/showcase-phage-dynamics (https://github.com/senseiewok/.ai/pull/72). Exposed T-0154 anti-resistance phage steering co-evolution dynamics to /cf/ (#phage-steering), authored zero-build dynamic ES6 subnav rail (nav-rail.js), and upgraded declarative research card localization in Mexican Spanish (es-MX.json). 193 unit tests, sync_chrome.py, and Playwright visual audits passed. | 2026-10-15 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing. | 2026-10-15: Follow-up showcase PR senseiewok/.ai#76 (T-0156/T-0157 multi-registry surveillance card, branch site/showcase-mission-surveillance) is open and not yet merged."
     },
     {
       "id": "T-0164",
       "title": "Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-14T23:59:30Z",
       "created_by": {
@@ -7941,9 +7946,9 @@
         "benefit": 5,
         "rationale": "Prevents repeated agent session failures by continuously mining conversation transcripts, classifying error patterns (PowerShell quoting, Python tracebacks, lock contention), and driving concrete system improvements.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.0,
+        "measured_outcome": "Session error mining tool tasks/audit_session_errors.py and test suite tasks/test_audit_session_errors.py implemented and verified (4 passing unit tests); session-error-digest.json generated with 4 actionable recommendations; scheduled-security-sentinel operationalized.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 7.0,
@@ -7960,13 +7965,18 @@
         "T-0159"
       ],
       "updated_at": "2026-10-14T23:59:30Z",
-      "completed_at": null,
-      "completed_by": null,
+      "completed_at": "2026-10-15T01:36:41Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-14 session: automated sentinel verification and board triage"
+      },
       "complexity": "medium",
       "recommended_route": "local",
       "route_rationale": "Local transcript parsing and log auditing with full review gate.",
       "branch": null,
-      "notes": "2026-10-14: Proposed and approved to ready per maintainer directive. Broadens security sentinel to overall multi-repo security, agent transcript error mining, and self-healing system improvements."
+      "notes": "2026-10-14: Proposed and approved to ready per maintainer directive. Broadens security sentinel to overall multi-repo security, agent transcript error mining, and self-healing system improvements. | 2026-10-15 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing."
     }
   ]
 }

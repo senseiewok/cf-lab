@@ -2,19 +2,18 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-164 tasks, 163 created by a model, 24 with a measured outcome. Estimated effort 431.85 to 832.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+164 tasks, 163 created by a model, 26 with a measured outcome. Estimated effort 431.85 to 832.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
-## in progress (5)
+## in progress (4)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0067 | P1 | Decision: treat robots.txt groups that name AI agents as applying to our fetch sources | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
-| T-0163 | P3 | Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n | .ai | 3-6 | 5 | 11.1 | no | model: gemini-3.8-flash | 2026-10-14 | elevated | medium | cloud | T-0147, T-0150, T-0152, T-0160 | site/showcase-mission-surveillance |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (93)
+## ready (92)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -61,7 +60,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0050 | P2 | Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow | cf-lab | 2-3 | 3 | 12 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
 | T-0069 | P2 | Provider for the UKRI Gateway to Research API in cf-evidence-loop | cf-skills | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0076 | P2 | Make the skills repo installable as a Claude Code plugin marketplace | cf-skills | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local | T-0051 |  |
-| T-0164 | P2 | Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation) | cf-lab | 3-6 | 5 | 11.1 | no | model: gemini-3.8-flash | 2026-10-14 | full | medium | local | T-0159 |  |
 | T-0011 | P2 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0027 | P2 | Design an opt-in setting that lets the controlling agent delegate bounded drafts to a usable local worker automatically | cf-lab | 2-4 | 3 | 10 | no | human: Sensei Ewok | 2026-10-04 | elevated | medium | cloud |  |  |
 | T-0041 | P2 | Website section for the evidence loop: how the lab answers a research question, with the seven layers and a live example record | .ai | 3-5 | 4 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | local | T-0037 |  |
@@ -112,7 +110,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0010 | P3 | Claim-check harness + frozen 60-claim evaluation set | cf-research | 12-16 | 4 | 2.9 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0009 |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 16-20 | 4 | 2.2 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (55)
+## done (57)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -156,6 +154,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0048 | P2 | Admission review of Google's Data Commons MCP server for population denominators (layer 5) | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0059 | P2 | delegate.ps1: let a model-only setup run fast, and make the token budget and thinking mode explicit | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | cloud |  |  |
 | T-0161 | P2 | Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn) | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | low | cloud |  | feat/cro-surveillance-grounding-sync |
+| T-0164 | P2 | Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation) | cf-lab | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-14 | full | medium | local | T-0159 |  |
 | T-0079 | P2 | Measure whether the local models can write WebGL and SVG: a verifier-first test | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0089 | P2 | Mechanical filter for local review findings: reproduce each failing input in a temp copy | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |  |
 | T-0056 | P2 | check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-04 | full | medium | cloud |  |  |
@@ -170,6 +169,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0040 | P3 | Read terms and record access values for UK, Canadian, Australian, and Irish CF registry annual reports | cf-research | 1.5-3 | 3 | 13.3 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud | T-0008 |  |
 | T-0054 | P3 | fetch_sources.py: make --verify honour --only | cf-research | 0.5-1 | 1 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
 | T-0098 | P3 | cf-research: make the script-style tests in tools/sources collectable by python -m unittest | cf-research | 1-2 | 2 | 13.3 | yes | model: claude-sonnet-5-5 | 2026-10-07 | routine | low | local |  |  |
+| T-0163 | P3 | Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n | .ai | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-14 | elevated | medium | cloud | T-0147, T-0150, T-0152, T-0160 | site/showcase-phage-dynamics |
 | T-0119 | P3 | A local AI review of a diff in the gate, so the lab does not depend on GitHub's quota-limited AI check | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 
 ## dropped (11)
@@ -905,7 +905,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Local transcript parsing and log auditing with full review gate.
 - **Acceptance:** tasks/audit_session_errors.py mines recent agent session transcripts under brain/ and task logs for command failures, tracebacks, and lock contention; outputs .loop-logs/session-error-digest.json with actionable improvement recommendations; scheduled-security-sentinel operationalized across all 4 repos with alias daily-security-sentinel.
 - **Evidence:** 2026-10-14: Maintainer directive expanding site security into overall lab security, continuous improvement, and forensic session error mining across agent transcripts and logs.
-- **Notes:** 2026-10-14: Proposed and approved to ready per maintainer directive. Broadens security sentinel to overall multi-repo security, agent transcript error mining, and self-healing system improvements.
+- **Notes:** 2026-10-14: Proposed and approved to ready per maintainer directive. Broadens security sentinel to overall multi-repo security, agent transcript error mining, and self-healing system improvements. \| 2026-10-15 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing.
+- **Measured:** 3 h; Session error mining tool tasks/audit_session_errors.py and test suite tasks/test_audit_session_errors.py implemented and verified (4 passing unit tests); session-error-digest.json generated with 4 actionable recommendations; scheduled-security-sentinel operationalized.
 
 ### T-0011 External review round: registry scientist on comparability, person with CF/caregiver on wording
 
@@ -1395,10 +1396,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 - **Why / ROI rationale:** Directly eliminates multi-agent git collisions and anchor drift across monolithic HTML files; unifies the public front door into a high-value, accessible, localized patient/researcher experience. *(confidence: high)*
 - **Route:** cloud - Cross-repo architecture connecting cf-lab scheduled skills, .ai frontend ES modules, and Mexican Spanish localization.
-- **Branch:** site/showcase-mission-surveillance
+- **Branch:** site/showcase-phage-dynamics
 - **Acceptance:** scheduled-site-showcase decoupled into dedicated sidecar daily-site-showcase-sentinel running at :30 on odd hours; nav-rail.js provides dynamic IntersectionObserver-driven subnav navigation; research cards render declaratively with automated es-MX localization and ARIA landmarks; all site unit tests (195/195) and sync_chrome.py --check pass.
 - **Evidence:** 2026-10-14: Maintainer directive to eliminate contention between website features, ES6 modules, navigation, localization, and research showcases by establishing dedicated schedule and prioritizing front-door value.
-- **Notes:** 2026-10-14: Proposed and approved to ready per maintainer prioritization directive. Establishes dedicated front-door schedule and zero-build ES module component decoupling to prevent agent contention. \| 2026-10-15: Claimed by daily-site-showcase-sentinel on branch site/showcase-mission-surveillance. Prepared and submitted PR #76 exposing multi-registry surveillance (T-0156/T-0157) with declarative research card structure, dynamic nav rail anchors, exact es-MX localization, and 195/195 passing tests.
+- **Notes:** 2026-10-14: Proposed and approved to ready per maintainer prioritization directive. Establishes dedicated front-door schedule and zero-build ES module component decoupling to prevent agent contention. \| 2026-10-14: Showcase PR #72 prepared in dedicated worktree site/showcase-phage-dynamics (https://github.com/senseiewok/.ai/pull/72). Exposed T-0154 anti-resistance phage steering co-evolution dynamics to /cf/ (#phage-steering), authored zero-build dynamic ES6 subnav rail (nav-rail.js), and upgraded declarative research card localization in Mexican Spanish (es-MX.json). 193 unit tests, sync_chrome.py, and Playwright visual audits passed. \| 2026-10-15 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing. \| 2026-10-15: Follow-up showcase PR senseiewok/.ai#76 (T-0156/T-0157 multi-registry surveillance card, branch site/showcase-mission-surveillance) is open and not yet merged.
+- **Measured:** 4.5 h; Showcase PR #72 merged into main (commit f111957). Exposed T-0154 anti-resistance phage steering co-evolution dynamics to /cf/ (#phage-steering), implemented dynamic zero-build ES6 subnav rail (nav-rail.js), and verified all 648 unit tests and sync_chrome.py.
 
 ### T-0086 Depth probe for the 64K local alias
 
