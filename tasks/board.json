@@ -355,7 +355,7 @@
       "title": "Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256)",
       "repo": "cf-research",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -373,9 +373,9 @@
         "benefit": 4,
         "rationale": "Everything downstream (extraction, harness, fixture) encodes the schema; changing it later multiplies cost.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 2.5,
+        "measured_outcome": "Authored tools/registry-extract/SCHEMA.md, row_schema.json, and validated 27-row hand-extracted gold sample from ECFSPR 2022 p.8 with cryptographic source integrity (SHA-256 22868219bcaeb5e4b2090643b0d5b1e8be91fddb1cf37ba74bf1bfaeec11506e). Delivered in senseiewok/cf-research PR #81.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -391,10 +391,15 @@
       "depends_on": [
         "T-0005"
       ],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-16T16:18:00Z",
+      "completed_at": "2026-10-16T16:18:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-research-sentinel build slot round (cf-research PR #81)"
+      },
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-16 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #81 (tools/registry-extract/SCHEMA.md exists; row_schema.json validates 27-row ECFSPR 2022 p.8 gold sample; 9 unit tests passed).",
       "recommended_route": "cloud",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.",
       "complexity": "medium"
@@ -8346,7 +8351,7 @@
       "title": "Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification",
       "repo": "cf-research",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-16T06:49:18Z",
       "created_by": {
@@ -8364,9 +8369,9 @@
         "benefit": 5,
         "rationale": "Establishes cryptographic snapshot manifest, query parameters, and PRISMA audit counts for the 1,478 ClinicalTrials.gov CF studies.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 4.0,
+        "measured_outcome": "Delivered ClinicalTrials.gov API v2 ingestion, polite pacing, SHA-256 partition manifest validation, and NLM disclaimer invariants. Verified via 458 passing tests across tools/trial_atlas in senseiewok/cf-research PR #81.",
         "categories": {
           "curative_biophysics": 3.0,
           "clinical_translation": 9.0,
@@ -8380,10 +8385,15 @@
       "acceptance": "python -m unittest discover -s tools/trial_atlas -p 'test_*.py'",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-16T06:49:18Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Decomposed from T-0130 (Sub-Task 1). Ingestion and manifest verification with SHA-256 integrity.",
+      "updated_at": "2026-10-16T16:18:00Z",
+      "completed_at": "2026-10-16T16:18:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-research-sentinel build slot round (cf-research PR #81)"
+      },
+      "notes": "Decomposed from T-0130 (Sub-Task 1). Ingestion and manifest verification with SHA-256 integrity. | 2026-10-16 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #81 (python -m unittest discover -s tools/trial_atlas -p 'test_*.py': 458 passed in 11.2s).",
       "recommended_route": "local",
       "route_rationale": "Deterministic test suite and offline JSON schema validation.",
       "complexity": "low"
