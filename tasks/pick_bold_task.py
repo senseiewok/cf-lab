@@ -123,6 +123,8 @@ def eligible(tasks: list[dict], lane: str, human_ids: set[str], attempts: dict, 
     for t in tasks:
         if t.get("status") != "ready" or lane_of(t) != lane:
             continue
+        if t.get("repo") not in GITHUB_REPOS:
+            continue
         if needs_a_person(t, human_ids):
             continue
         if any(dep not in done for dep in (t.get("depends_on") or [])):

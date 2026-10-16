@@ -48,12 +48,13 @@ Medical boundary and community safety require external human expertise; AI canno
 
 ---
 
-## 5. GitHub Administrative Settings (Web UI Only)
+## 5. Administrative & External Platform Settings (Web UI Only)
 
-Administrative controls that cannot or should not be automated via agent API tokens:
+Administrative controls and external platform settings that cannot or should not be automated via agent API tokens:
 
 - [ ] **Turn on GitHub Rulesets on `main` (T-0110)**: In repository settings for `cf-lab`, `cf-research`, and `cf-skills`, enable branch rulesets: require pull requests, block force pushes, and require maintainer review.
 - [ ] **Repository Contribution Settings (T-0128)**: Ensure GitHub repository settings reflect "no outside contributions": turn Discussions off and restrict public pull requests / issues.
+- [x] **Update YouTube Channel About Text (T-0002)** (2026-10-15): In YouTube Studio, channel description updated to approved boundary text (contains 'not medical advice' and 'not affiliated', removes 'accelerate the cure'). Verified live on @SenseiEwok via `python tasks/test_youtube_about.py --live`.
 
 ---
 
