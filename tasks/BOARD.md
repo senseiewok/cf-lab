@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 36 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 38 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (86)
+## ready (84)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -22,7 +22,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0110 | P1 | Rulesets on main for the public repos | cf-lab | 0.5-1 | 5 | 66.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low | local |  |  |
 | T-0020 | P1 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0057 | P1 | Human edits to the protected .github folder after the rename: CODEOWNERS, copilot-instructions names, CI workflows | cf-lab | 0.1-0.25 | 1 | 57.1 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
-| T-0014 | P1 | Decide the 'CF - until there's a cure' site tagline against lab-voice | .ai | 0.25-0.5 | 2 | 53.3 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0128 | P1 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0001 | P1 | Replace hq LICENSE.md with a named OSI license; add a LICENSE to research, .ai, skills | cf-lab | 0.5-1.5 | 5 | 50 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
@@ -81,7 +80,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0132 | P2 | Make the 11 skipped cftr-model data tests run: commit the five hashed structure files | cf-research | 2-4 | 2 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | low | local | T-0131 |  |
 | T-0138 | P2 | Site: one date style for generated pages (10 October 2026 versus October 10, 2026) | .ai | 2-5 | 2 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-12 | routine | low | cloud |  |  |
 | T-0101 | P2 | A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK | cf-lab | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | medium | local |  |  |
-| T-0060 | P2 | Refresh the private .ai website for the first release: new repo names, evidence loop, setup, claim fixes | .ai | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | medium | local | T-0041 |  |
 | T-0084 | P2 | Local worker playbook cards v0 and the bare-versus-card measurement | cf-lab | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |  |
 | T-0087 | P2 | Faster site and package test suites with the same assertions | cf-research | 3-6 | 2 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine | medium | local |  |  |
 | T-0135 | P2 | Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample | cf-research | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | cloud |  |  |
@@ -104,12 +102,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (67)
+## done (69)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0004 | P1 | Gate .github/loop-orchestrator/loop.py with a hard failure | cf-lab | 0.25-0.25 | 3 | 120 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0005 | P1 | Download CFF Patient Registry PDFs by hand into research/sources/downloads | cf-research | 0.5-0.75 | 4 | 64 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
+| T-0014 | P1 | Decide the 'CF - until there's a cure' site tagline against lab-voice | .ai | 0.25-0.5 | 2 | 53.3 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0037 | P1 | Add Retraction Watch (via Crossref) retraction check to the catalog and to the claim-check harness design | cf-research | 1-2 | 5 | 33.3 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0003 | P1 | Apply the HQ skill-update proposal (security-browsing, cf-research-context, ai-loop-council, model-onboarding) | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0022 | P1 | Adopt the task board: every new task carries created_by, evidence, and an ROI estimate; render BOARD.md in CI or pre-commit | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
@@ -165,6 +164,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0063 | P2 | ascii-art skill: a craft process, a canvas library, a rendering and accessibility checker, one new piece, and the research behind them | cf-lab | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | medium | local |  |  |
 | T-0100 | P2 | Loop v2.1 V2-02: freeze the verifier with a manifest hash and a safe re-verify path | cf-lab | 6-10 | 4 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | high |  |  |  |
+| T-0060 | P2 | Refresh the private .ai website for the first release: new repo names, evidence loop, setup, claim fixes | .ai | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated | medium | local | T-0041 |  |
 | T-0124 | P2 | A reusable intake tool so local agents can propose Resources rows from any permitted site | cf-research | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-10 | full | high | local |  |  |
 | T-0023 | P3 | Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy | .ai | 0.5-0.5 | 2 | 40 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0026 | P3 | Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals | cf-research | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
@@ -256,7 +256,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** Decision recorded in .ai/README.md; text unchanged or replaced accordingly.
 - **Evidence:** handoff site_text.txt (private session artifact, not in the repo) line 'CF - until there's a cure'; hq/.claude/skills/lab-voice/SKILL.md
-- **Notes:**  2026-10-07: Audit: the old tagline is gone and a test forbids it, but the decision is not recorded where the acceptance asks. Partly done. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:**  2026-10-07: Audit: the old tagline is gone and a test forbids it, but the decision is not recorded where the acceptance asks. Partly done. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Completed. Editorial decision documented in .ai/README.md under 'Editorial & claims decisions', tested in tests/test_site.py, and submitted via .ai PR #83.
+- **Measured:** 0.25 h; Decision recorded in .ai/README.md (tagline retired in favor of grounded non-forecast research descriptions); negative regex in test_site.py forbids the phrase; verified and tested in .ai PR #83.
 
 ### T-0058 Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result
 
@@ -1238,7 +1239,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** In the site's built output a grep finds links to github.com/senseiewok/cf-lab, cf-research and cf-skills and none to the old names (senseiewok/lab, /research, /skills); the evidence-loop section from T-0041 renders; the tagline, the Copilot scheduling claim and the not-affiliated-with-CFF line (T-0014, T-0015, T-0018) are each resolved or recorded as declined; a Playwright run (read-only, with route, viewport and source revision recorded) confirms the page renders and the 65 rose motifs still count 65 (T-0016). Paste the command output into the task notes.
 - **Evidence:** The maintainer said on 2026-10-04 that the website is outdated; the GitHub organisation page shows the private .ai repo last updated two days before the three public repos were renamed. Open website tasks already exist (T-0002, T-0014 to T-0018, T-0033, T-0041) and cf-research/proposals has 2026-10-04-website-review.md and 2026-10-04-evidence-loop-site-section.md. The site was not opened for this task (it is private and was not requested).
-- **Notes:** Proposed by a model; only a human moves it to ready. The .ai repo is private: a human opens it, or says explicitly that an agent may. Do not copy site source or deploy details into any public repo or note. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 9 hours and needs T-0041, itself P2. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\bonly a human\b'). Prioritized by multi-category ROI.
+- **Notes:** Proposed by a model; only a human moves it to ready. The .ai repo is private: a human opens it, or says explicitly that an agent may. Do not copy site source or deploy details into any public repo or note. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 9 hours and needs T-0041, itself P2. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\bonly a human\b'). Prioritized by multi-category ROI. \| 2026-10-15: Completed via .ai PR #83. All acceptance criteria verified: grep confirmed links to cf-lab, cf-research, cf-skills and 0 old names; #evidence-loop section rendered on /ai-loop/; T-0014, T-0015, T-0018 decisions documented in README.md; Playwright audit confirmed 65 roses on all routes and viewports (Source rev: 8c92700e, desktop 1280x800 and mobile 390x844: 65/65 roses). Dual-family frontier council approved.
+- **Measured:** 1.5 h; Submitted PR #83 on senseiewok/.ai. Refreshed README.md with sibling repository links (cf-lab, cf-research, cf-skills); documented editorial decisions for T-0014, T-0015, and T-0018; added test_repo_rename_and_first_release_refresh_t0060; confirmed 65 roses across desktop and mobile with Playwright.
 
 ### T-0084 Local worker playbook cards v0 and the bare-versus-card measurement
 
