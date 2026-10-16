@@ -18,7 +18,7 @@ The scheduler wrapper (`tasks/run-sentinel.ps1`) has already synced `origin/main
    - Follow each task's `acceptance` text and `review_tier` (`run-gate.ps1 -Tier <tier>` and `pr-review-loop`; the `full` tier needs a blind challenger from a different model family). Route by `recommended_route`; keep private data local (`security-baseline`, `security-browsing`).
    - Open one pull request per repo for the bundle. List the checks you ran and each acceptance result in the body. Put the board update in that same pull request: a task becomes `done` (with `actual_hours`) only when its acceptance check passed in this run; otherwise leave it `ready` with a dated note of what passed.
    - If the bundle cannot be finished and verified, open a **draft** pull request with what does pass and an honest list of what is left. Never mark unfinished work done, never merge, never touch tasks listed in `tasks/HUMAN-TASKS.md`.
-   - Stop by about 90 minutes of work so the 110-minute lock is not exceeded.
+   - Stop by about 20 minutes of work so the 25-minute lock is not exceeded.
    - Security-lane work that touches credentials, privacy or repository integrity uses the `full` review tier whatever the task says.
    - A run that was handed a bundle and delivers only an audit note has failed this step.
 9. Record the run in `.loop-logs/site-security-sentinel-<date>.json`. Write to `memory/handoff.md` only when a finding or a change needs a person. Do not append a per-round summary there.

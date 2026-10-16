@@ -74,6 +74,7 @@ After installing, open a new terminal so the updated `PATH` is picked up.
 - Parse edited scripts with `[System.Management.Automation.Language.Parser]::ParseFile` before execution. After `& pwsh -File ...` or a native tool, inspect `$LASTEXITCODE` immediately; a later successful command does not clear the earlier failure.
 - Do not hide `2>&1` in `Out-Null` during validation. On failure, inspect diagnostics before reading an output file; that file may be left over from the previous run.
 - `Start-Process` takes executable arguments via `-ArgumentList`; `-NoProfile` belongs to `pwsh`, not to `Start-Process`. Track the process returned by `-PassThru` and stop only a server this task started, not any process that happens to use the port.
+- Avoiding inline quoting collisions in agent tool calls: nested quotes (e.g. `pwsh -Command "python -c '...'"` or `foreach ($x in $list)`) often trigger `ParserError` or `SyntaxError`. In agent sessions, prefer writing complex commands to a `.py` or `.ps1` file and executing with `python script.py` or `pwsh -File script.ps1`. If inline execution is required, wrap the entire `-Command` block in single quotes (`pwsh -NoProfile -Command '...'`) so PowerShell evaluates loop variables at runtime rather than during shell interpolation.
 
 ## Paths
 
