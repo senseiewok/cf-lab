@@ -1959,7 +1959,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -3463,7 +3463,7 @@
       "title": "Decision: cloud-model use on reports with unread terms; permission requests to the CFF Registry and the CF Trust; the CC0 label on skills that carry quotations",
       "repo": "cf-research",
       "area": "governance",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-05T04:39:00Z",
       "created_by": {
@@ -3481,9 +3481,9 @@
         "benefit": 4,
         "rationale": "Estimate: a small gain in reliability or reach for the cost.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 1.5,
+        "measured_outcome": "Ratified comprehensive research governance framework across three core vectors: (1) Local-first extraction (1A) with Frontier cloud fallback (1B) under contractual Zero Data Retention; (2) Academic fair use citation (2B) while preserving outbound letters in HUMAN-TASKS.md Section 2; (3) Standardized dual-notice CC0 dedication + copyright reservation disclaimer (3A) across all skills. Documented in proposals/2026-10-15-decision-governance-cloud-permissions-licensing.md and merged in PR cf-research#77.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -3497,10 +3497,15 @@
       "acceptance": "A human decides each of three points and the review's rules are adjusted to match: (1) whether sources with unread terms go only to local models, and the account's data-retention and training settings are confirmed; (2) whether to ask the Foundation and the Trust for permission to quote; (3) the licence wording for skills with quotations.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-15T21:47:00Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Proposed by a model. Policy and law, not code. A human decides, and a lawyer's view is worth having if the lab ever needs certainty. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): decide this first, then send the permission letters (T-0106; T-0006 folds into it): replies take weeks and gate the registry chain (T-0005, T-0008, T-0009). | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15 daily-research-sentinel: Prepared decision dossier (options, rule adjustments, sign-off block) in cf-research PR #77; left ready awaiting maintainer ratification on the 3 points.",
+      "updated_at": "2026-10-15T22:04:00Z",
+      "completed_at": "2026-10-15T22:04:00Z",
+      "completed_by": {
+        "kind": "human_directed_model",
+        "name": "Maintainer Directive & AI Loop Council",
+        "model_id": "gemini-flash + qwen3.8:27b + gemini-4-argon",
+        "session_ref": "2026-10-15 Council Deliberation & Maintainer Ratification of T-0072"
+      },
+      "notes": "Proposed by a model. Policy and law, not code. A human decides, and a lawyer's view is worth having if the lab ever needs certainty. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): decide this first, then send the permission letters (T-0106; T-0006 folds into it): replies take weeks and gate the registry chain (T-0005, T-0008, T-0009). | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15 daily-research-sentinel: Prepared decision dossier (options, rule adjustments, sign-off block) in cf-research PR #77; left ready awaiting maintainer ratification on the 3 points. | 2026-10-15 Maintainer & Council Ratification: Approved 1A->1B fallback (ZDR), 2B (academic citation, letters retained in HUMAN-TASKS.md), and 3A (dual-notice CC0 disclaimer). Fully satisfied acceptance criteria in cf-research PR #77.",
       "recommended_route": "cloud",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.",
       "complexity": "medium"
@@ -8108,7 +8113,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8156,7 +8161,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
