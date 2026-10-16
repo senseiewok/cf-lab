@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 39 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 41 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (83)
+## ready (81)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -37,7 +37,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0096 | P1 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
-| T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
 | T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0092 | P2 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0083 |  |
 | T-0104 | P2 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | local |  |  |
@@ -63,7 +62,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0121 | P2 | Stop the evidence tool's catalog copy needing a pull request after every catalog change | cf-skills | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0131 | P2 | Skip guard: make skipped tests visible and budgeted in CI, and discover every test | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
-| T-0142 | P2 | Site: run the render tests where a failure is seen (CI sets SITE_SKIP_RENDER=1 and a failing hero test went unseen) | .ai | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | medium | local |  |  |
 | T-0051 | P2 | Decide and implement how the control repo consumes the evidence skill | cf-lab | 2-5 | 3 | 8.6 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local | T-0037 |  |
 | T-0043 | P2 | Variant layer: MyVariant.info and gnomAD providers (aggregate frequencies only) | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
@@ -101,7 +99,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (70)
+## done (72)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -119,6 +117,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0168 | P1 | Author multi-registry modulator eligibility & ultra-rare variant landscape dossier from verified 2024 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports [T2] | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-15 | full | high | frontier | T-0005 |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer [T2] | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
+| T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
 | T-0155 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  | feat/turbo-sentinel-cadence |
 | T-0147 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  | research/inhaled-delivery-dossier |
 | T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | site/es-mx-localization |
@@ -158,6 +157,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0041 | P2 | Website section for the evidence loop: how the lab answers a research question, with the seven layers and a live example record | .ai | 3-5 | 4 | 10 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 | T-0079 | P2 | Measure whether the local models can write WebGL and SVG: a verifier-first test | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0089 | P2 | Mechanical filter for local review findings: reproduce each failing input in a temp copy | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |  |
+| T-0142 | P2 | Site: run the render tests where a failure is seen (CI sets SITE_SKIP_RENDER=1 and a failing hero test went unseen) | .ai | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-13 | full | medium | local |  |  |
 | T-0056 | P2 | check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-04 | full | medium | cloud |  |  |
 | T-0064 | P2 | More sources: UKRI Gateway to Research, CORDIS, EU Clinical Trials Register, WHO ICTRP, PubPeer, ClinGen, and the CFF 2025 highlights link | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | cloud |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
@@ -493,7 +493,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A lock file records the cf-research commit SHA and a hash per copied file; CI compares the copies with the pinned commit and fails on a one-byte difference (tested with a perturbed fixture); a status command prints how far the pin is behind cf-research main; moving the pin is one PR in the site repo; merging a cf-research change alone no longer turns site main red. Reuse the shape of the existing pin tools; no second pin mechanism.
 - **Evidence:** 2026-10-12 to 13 (session record): the site's CI compares its byte-copied CFTR files with cf-research main; merging the site PR before the cf-research PR made site main CI fail ('src/cf/cftr/index.html differs from the data') and the deploy step was skipped until a re-sync PR (site PR 49) merged. Same class as T-0121 (a copy checked against a moving source). The existing pattern to reuse: tools/pin_evidence.py and tools/pin_resources.py in the site repo (listed 2026-10-13).
-- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. No human-only step beyond the merge. Private repo: keep deploy details out of public notes. \| 2026-10-13 CRO Grounding Audit: Audit pass. Data integrity lock for CFTR viewer assets on public site; prevents desynchronized deployments against moving cf-research main; tier elevated. \| 2026-10-13: Implemented tools/pin_cftr_model.py in .ai with --check (verifies 4 files match lock), --status (prints pin distance behind cf-research main), and --pin (writes lock file), closing the desynchronized deploy failure mode. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution.
+- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. No human-only step beyond the merge. Private repo: keep deploy details out of public notes. \| 2026-10-13 CRO Grounding Audit: Audit pass. Data integrity lock for CFTR viewer assets on public site; prevents desynchronized deployments against moving cf-research main; tier elevated. \| 2026-10-13: Implemented tools/pin_cftr_model.py in .ai with --check (verifies 4 files match lock), --status (prints pin distance behind cf-research main), and --pin (writes lock file), closing the desynchronized deploy failure mode. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. \| 2026-10-15: Marked done. Pinned 11 CFTR model package files in data/cftr.lock.json to cf-research commit 7490af5, implemented tools/pin_cftr_model.py with --check, --status, and --ref, and updated tools/sync_cftr_model.py. Verified by 7 tests in tests/test_cftr_pin.py including 1-byte perturbation failure proof and blind challenger review by Argon (PASS) (PR .ai#86).
+- **Measured:** 3 h; Pinned 11 CFTR model package files in data/cftr.lock.json to cf-research commit 7490af5; implemented tools/pin_cftr_model.py and decoupled site CI from external research main drift (PR .ai#86).
 
 ### T-0155 Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills)
 
@@ -1061,7 +1062,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** The site's CI runs the render tests with a browser on pull requests or on main before the deploy step, with a flag that turns a missing browser into a failure (reuse T-0133's design: Playwright pinned with hashes, the runner's Chrome or Edge, local pages only, read-only token, no secrets). If the maintainer chooses a scheduled job instead, the deploy job prints skipped test ids against a committed expected-skip list (T-0131's pattern) and fails when the list grows. Proof: a PR that reintroduces the 809.5 px banner state goes red.
 - **Evidence:** 2026-10-12 (session record): tests/test_cftr_hero.py::test_the_protein_is_on_the_first_screen_of_a_desktop failed on clean site main (the two buttons ended at 809.5 px against an 800 px line, caused by the conference banner). .github/workflows/deploy.yml sets SITE_SKIP_RENDER: "1" (seen 2026-10-13), so nothing saw it; a local Playwright run found it and site PR 52 fixed it.
-- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: approve a browser download in CI (the lab's dependency rule). One design shared with T-0133 and T-0131, not three maintained copies. \| 2026-10-13 CRO Grounding Audit: Audit pass. Visual verification guardrail ensuring CFTR protein viewer and navigation elements remain accessible across viewports; tier full. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: approve a browser download in CI (the lab's dependency rule). One design shared with T-0133 and T-0131, not three maintained copies. \| 2026-10-13 CRO Grounding Audit: Audit pass. Visual verification guardrail ensuring CFTR protein viewer and navigation elements remain accessible across viewports; tier full. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Marked done. Added browser render testing with runner Google Chrome and Playwright in .github/workflows/deploy.yml; added SITE_REQUIRE_BROWSER=1 failure flag to tests/test_site.py and tests/test_cftr_hero.py; added test_reintroduced_809_5_px_banner_state_goes_red proving 809.5px banner fold overflow goes red; implemented CI skip guard in tools/check_skipped_tests.py and data/expected-skips.json. Verified by 41 browser tests, 4 skip guard tests, and blind challenger review by Argon (PASS) (PR .ai#86).
+- **Measured:** 4.5 h; Enforced CI browser render testing in .github/workflows/deploy.yml with runner Chrome, Playwright, SITE_REQUIRE_BROWSER=1, skip guard tools/check_skipped_tests.py, and proved fold overflow detection via test_reintroduced_809_5_px_banner_state_goes_red (PR .ai#86).
 
 ### T-0051 Decide and implement how the control repo consumes the evidence skill
 
