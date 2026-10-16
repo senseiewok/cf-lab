@@ -1,9 +1,9 @@
-# Copilot Instructions — Sensei Ewok Research Lab (hq)
+# Copilot Instructions — Sensei Ewok's CF Lab
 
-`hq` is the control repo for a multi-root workspace (see `workspace.code-workspace`). Sibling folders:
+`cf-lab` is the control repo for a multi-root workspace (see `cf-lab.code-workspace`). Sibling folders:
 
-- `../skills` — `senseiewok/skills` (public GitHub Skills repo)
-- `../research` — `senseiewok/research` (CF research notes, the source catalog, and small tools)
+- `../cf-skills` — `senseiewok/cf-skills` (public GitHub Skills repo)
+- `../cf-research` — `senseiewok/cf-research` (CF research notes, the source catalog, and small tools)
 
 This repo hosts cross-cutting agent configuration: instructions, skills, and the security baseline that apply to every sibling repo.
 

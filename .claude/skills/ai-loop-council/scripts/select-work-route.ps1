@@ -20,6 +20,7 @@ param(
     [ValidateRange(0,1)] [int] $CloudCallBudget = 1,
     [ValidateSet('NotRun','Passed','Failed')] [string] $Validation = 'NotRun',
     [switch] $RequiredReviewComplete,
+    [switch] $AutoDelegateLocal,
     [switch] $ContainmentUnresolved,
     [switch] $SelfTest
 )
@@ -33,6 +34,16 @@ function Get-CrossProviderSetting([bool] $Explicit, [bool] $Value, [string] $Env
         'true' { return $true }
         'false' { return $false }
         default { throw 'COUNCIL_CROSS_PROVIDER_DELEGATION must be true or false' }
+    }
+}
+
+function Get-AutoDelegateSetting([bool] $Explicit, [bool] $Value, [string] $EnvironmentValue) {
+    if ($Explicit) { return $Value }
+    if ([string]::IsNullOrWhiteSpace($EnvironmentValue)) { return $false }
+    switch ($EnvironmentValue.Trim().ToLowerInvariant()) {
+        'true' { return $true }
+        'false' { return $false }
+        default { throw 'COUNCIL_AUTO_DELEGATE_LOCAL must be true or false' }
     }
 }
 
@@ -86,6 +97,7 @@ function Select-WorkRoute([hashtable] $State) {
         reason = $reason
         runtime = $knownRuntime
         cross_provider_delegation = [bool]$State.CrossProviderDelegation
+        auto_delegate_local = [bool]$State.AutoDelegateLocal
         local_calls_remaining = $localRemaining
         cloud_calls_remaining = $cloudRemaining
         status = 'decision only; no model calls, provider detection, or permission changes'
@@ -95,7 +107,7 @@ function Select-WorkRoute([hashtable] $State) {
 if ($SelfTest) {
     $defaults = @{
         Runtime='Unknown';RuntimeEvidence='Unknown';TaskKind='Routine';Difficult=$false
-        CrossProviderDelegation=$true
+        CrossProviderDelegation=$true;AutoDelegateLocal=$false
         NeedsIndependentReview=$false;LocalAvailable=$true;LocalThinkingAvailable=$true
         CloudAvailable=$true;CloudApproved=$false;CloudData='Unreviewed'
         FastFailures=0;ThinkingFailures=0;ThinkingCallsUsed=0;LocalCallsUsed=0;CloudCallsUsed=0
@@ -173,7 +185,22 @@ if ($SelfTest) {
         if ($rejected -ne [bool]$test.reject -or (-not $rejected -and $result -ne $test.expected)) { throw "Setting failed: $($test.name)" }
         "PASS: $($test.name)"
     }
-    "All $($tests.Count + $settingsTests.Count) routing/setting tests passed; no models, GPU, Ollama, credentials or network required"
+    $autoDelegateTests = @(
+        @{name='auto delegate setting defaults off';explicit=$false;value=$false;environment='';expected=$false},
+        @{name='auto delegate environment enables delegation';explicit=$false;value=$false;environment='true';expected=$true},
+        @{name='auto delegate environment disables delegation';explicit=$false;value=$true;environment='false';expected=$false},
+        @{name='auto delegate explicit enable overrides environment';explicit=$true;value=$true;environment='false';expected=$true},
+        @{name='auto delegate explicit disable overrides environment';explicit=$true;value=$false;environment='true';expected=$false},
+        @{name='auto delegate invalid environment rejected';explicit=$false;value=$false;environment='yes';reject=$true},
+        @{name='auto delegate explicit override ignores invalid environment';explicit=$true;value=$false;environment='invalid';expected=$false}
+    )
+    foreach ($test in $autoDelegateTests) {
+        $rejected=$false; $result=$null
+        try { $result=Get-AutoDelegateSetting $test.explicit $test.value $test.environment } catch { $rejected=$true }
+        if ($rejected -ne [bool]$test.reject -or (-not $rejected -and $result -ne $test.expected)) { throw "Setting failed: $($test.name)" }
+        "PASS: $($test.name)"
+    }
+    "All $($tests.Count + $settingsTests.Count + $autoDelegateTests.Count) routing/setting tests passed; no models, GPU, Ollama, credentials or network required"
     exit 0
 }
 
@@ -182,4 +209,5 @@ foreach ($key in 'Runtime','RuntimeEvidence','TaskKind','Difficult','NeedsIndepe
     $state[$key] = Get-Variable -Name $key -ValueOnly
 }
 $state.CrossProviderDelegation = Get-CrossProviderSetting ($PSBoundParameters.ContainsKey('CrossProviderDelegation')) ([bool]$CrossProviderDelegation) $env:COUNCIL_CROSS_PROVIDER_DELEGATION
+$state.AutoDelegateLocal = Get-AutoDelegateSetting ($PSBoundParameters.ContainsKey('AutoDelegateLocal')) ([bool]$AutoDelegateLocal) $env:COUNCIL_AUTO_DELEGATE_LOCAL
 Select-WorkRoute $state | ConvertTo-Json

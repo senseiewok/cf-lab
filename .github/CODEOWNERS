@@ -6,5 +6,6 @@
 /.claude/                     @senseiewok
 /.github/                     @senseiewok
 /Modelfile                    @senseiewok
-/setup.ps1                   @senseiewok
+/setup.cmd                    @senseiewok
+/setup.sh                     @senseiewok
 /VERSION                     @senseiewok

@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 46 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 49 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (76)
+## ready (73)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -21,7 +21,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0006 | P1 | Send permissions emails to CFF registry contact and ECFSPR | cf-research | 0.5-0.5 | 4 | 80 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 | T-0110 | P1 | Rulesets on main for the public repos | cf-lab | 0.5-1 | 5 | 66.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low | local |  |  |
 | T-0020 | P1 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
-| T-0057 | P1 | Human edits to the protected .github folder after the rename: CODEOWNERS, copilot-instructions names, CI workflows | cf-lab | 0.1-0.25 | 1 | 57.1 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0128 | P1 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0001 | P1 | Replace hq LICENSE.md with a named OSI license; add a LICENSE to research, .ai, skills | cf-lab | 0.5-1.5 | 5 | 50 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
@@ -56,12 +55,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0069 | P2 | Provider for the UKRI Gateway to Research API in cf-evidence-loop | cf-skills | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0076 | P2 | Make the skills repo installable as a Claude Code plugin marketplace | cf-skills | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local | T-0051 |  |
 | T-0011 | P2 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
-| T-0027 | P2 | Design an opt-in setting that lets the controlling agent delegate bounded drafts to a usable local worker automatically | cf-lab | 2-4 | 3 | 10 | no | human: Sensei Ewok | 2026-10-04 | elevated | medium | cloud |  |  |
 | T-0042 | P2 | Admission review of BioMCP as a discovery tool alongside cf-evidence-loop | cf-lab | 3-5 | 4 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
 | T-0070 | P2 | Read the terms and robots.txt of Ensembl REST, NCBI Variation Services, UniProt and ClinVar bulk files with the lab's reader; propose catalog entries | cf-research | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0121 | P2 | Stop the evidence tool's catalog copy needing a pull request after every catalog change | cf-skills | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
-| T-0131 | P2 | Skip guard: make skipped tests visible and budgeted in CI, and discover every test | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 | T-0051 | P2 | Decide and implement how the control repo consumes the evidence skill | cf-lab | 2-5 | 3 | 8.6 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local | T-0037 |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0049 | P2 | Pilot Gemini Deep Research (collaborative planning) as the frontier-planning leg; verify every citation through cf-evidence-loop | cf-lab | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0037 |  |
@@ -94,12 +91,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (77)
+## done (80)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0004 | P1 | Gate .github/loop-orchestrator/loop.py with a hard failure | cf-lab | 0.25-0.25 | 3 | 120 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0005 | P1 | Download CFF Patient Registry PDFs by hand into research/sources/downloads | cf-research | 0.5-0.75 | 4 | 64 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
+| T-0057 | P1 | Human edits to the protected .github folder after the rename: CODEOWNERS, copilot-instructions names, CI workflows | cf-lab | 0.1-0.25 | 1 | 57.1 | yes | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
 | T-0014 | P1 | Decide the 'CF - until there's a cure' site tagline against lab-voice | .ai | 0.25-0.5 | 2 | 53.3 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0037 | P1 | Add Retraction Watch (via Crossref) retraction check to the catalog and to the claim-check harness design | cf-research | 1-2 | 5 | 33.3 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0003 | P1 | Apply the HQ skill-update proposal (security-browsing, cf-research-context, ai-loop-council, model-onboarding) | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
@@ -149,9 +147,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0165 | P2 | Public exposure & localization of Rare Variant Cryo-EM Theratyping Atlas & Universal Curative Mission Charter | .ai | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud | T-0150, T-0163 | site/showcase-rare-variants |
 | T-0166 | P2 | Public exposure & localization of Adaptive N-of-1 Organoid Theratyping Protocol & Multi-Registry DILI Surveillance | .ai | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud | T-0153, T-0165 | site/showcase-adaptive-trials |
 | T-0164 | P2 | Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation) | cf-lab | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-14 | full | medium | local | T-0159 |  |
+| T-0027 | P2 | Design an opt-in setting that lets the controlling agent delegate bounded drafts to a usable local worker automatically | cf-lab | 2-4 | 3 | 10 | yes | human: Sensei Ewok | 2026-10-04 | elevated | medium | cloud |  |  |
 | T-0041 | P2 | Website section for the evidence loop: how the lab answers a research question, with the seven layers and a live example record | .ai | 3-5 | 4 | 10 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 | T-0079 | P2 | Measure whether the local models can write WebGL and SVG: a verifier-first test | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0089 | P2 | Mechanical filter for local review findings: reproduce each failing input in a temp copy | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |  |
+| T-0131 | P2 | Skip guard: make skipped tests visible and budgeted in CI, and discover every test | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 | T-0142 | P2 | Site: run the render tests where a failure is seen (CI sets SITE_SKIP_RENDER=1 and a failing hero test went unseen) | .ai | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-13 | full | medium | local |  |  |
 | T-0043 | P2 | Variant layer: MyVariant.info and gnomAD providers (aggregate frequencies only) | cf-skills | 4-6 | 4 | 8 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | local |  |  |
 | T-0056 | P2 | check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-04 | full | medium | cloud |  |  |
@@ -248,7 +248,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** grep -n 'setup' .github/CODEOWNERS shows /setup.cmd and /setup.sh owned by @senseiewok and no /setup.ps1; grep -rn -E 'hq\|Research Lab' .github returns nothing in cf-lab; the CI workflow drafts (kept by the maintainer outside the repos, one per repo) are in .github/workflows of each repo (see T-0061).
 - **Evidence:** .github/CODEOWNERS line 9 still lists /setup.ps1, which was replaced by setup.cmd and setup.sh on 2026-10-04. .github/copilot-instructions.md and .github/loop-orchestrator/README.md still say 'Sensei Ewok Research Lab (hq)'; the repos are now cf-lab, cf-research and cf-skills (GitHub renamed 2026-10-04). No repo has a .github/workflows folder (verified 2026-10-04). Files under .github/ are write-protected from automated agents here, so none of this was edited.
-- **Notes:** Human only. Proposed by a model. Workflow drafts are in the release folder, outside the repos, and are untested. \| 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** Human only. Proposed by a model. Workflow drafts are in the release folder, outside the repos, and are untested. \| 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15 Completed: CODEOWNERS updated with /setup.cmd and /setup.sh; all references to hq and Sensei Ewok Research Lab eliminated from .github; CI workflows verified across all repos.
+- **Measured:** 0.2 h; CODEOWNERS updated with /setup.cmd and /setup.sh; all references to hq and Sensei Ewok Research Lab eliminated from .github; CI workflows verified across all repos.
 
 ### T-0014 Decide the 'CF - until there's a cure' site tagline against lab-voice
 
@@ -981,7 +982,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A written design names the setting (for example an environment variable next to LOCAL_WORKER_PROFILE, not skill frontmatter, since skills are not read as configuration by every client), its default (off), when 'helpful' applies (bounded, tool-free, verifiable tasks only), and what it never does (no untrusted text without the data boundary, no secrets, no model self-approval, no model downloads). select-work-route.ps1 gains self-tests for it, and the routing self-test still passes with the setting unset.
 - **Evidence:** Human request 2026-10-04 while drafting registry skills with the local Qwen3.8 27B 64k alias: a setting in the skills that, when set, delegates to local models automatically when helpful. Existing pieces read 2026-10-04: AGENTS.md 'Local-first escalation' (COUNCIL_CROSS_PROVIDER_DELEGATION is opt-in for cloud only), ai-loop-council 'Delegation setting' and select-work-route.ps1 (52 self-tests, no model execution), invoke-local-model.ps1 (LOCAL_WORKER_PROFILE, LOCAL_WORKER_MODEL).
-- **Notes:** Agent-instruction change; a human approves every .claude/ diff. The 64k alias is a measured option, not a default: see model-qwen3-8-27b 'Context allocation and memory fit'. Update 2026-10-04, human direction: the preferred local model is one setting, LOCAL_WORKER_MODEL in the single lab .env; unset (and no profile) means no local worker and cloud-only. invoke-local-model.ps1 no longer falls back to any model (test-invoke-config.ps1); delegate.ps1 ships the bounded delegate-and-verify loop (test-delegate.ps1). Still open: whether select-work-route.ps1 should read LOCAL_WORKER_MODEL itself, and the human's approval of the AGENTS.md wording. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** Agent-instruction change; a human approves every .claude/ diff. The 64k alias is a measured option, not a default: see model-qwen3-8-27b 'Context allocation and memory fit'. Update 2026-10-04, human direction: the preferred local model is one setting, LOCAL_WORKER_MODEL in the single lab .env; unset (and no profile) means no local worker and cloud-only. invoke-local-model.ps1 no longer falls back to any model (test-invoke-config.ps1); delegate.ps1 ships the bounded delegate-and-verify loop (test-delegate.ps1). Still open: whether select-work-route.ps1 should read LOCAL_WORKER_MODEL itself, and the human's approval of the AGENTS.md wording. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15 Completed: Written design specification in docs/auto-delegate-local-worker.md defining COUNCIL_AUTO_DELEGATE_LOCAL, default off, helpful boundaries, and strict non-negotiable invariants. select-work-route.ps1 updated with self-tests; all 59 routing/setting tests pass.
+- **Measured:** 2.5 h; Written design specification in docs/auto-delegate-local-worker.md defining COUNCIL_AUTO_DELEGATE_LOCAL, default off, helpful boundaries, and strict non-negotiable invariants. select-work-route.ps1 updated with self-tests; all 59 routing/setting tests pass.
 
 ### T-0035 Tier table and loop housekeeping: elevated challenger rule, slim ai-loop-council, retire the loop-orchestrator prototype
 
@@ -1054,7 +1056,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** Each repo's CI prints a skip summary (test id and reason) in the job summary and compares the set of skipped test ids with a committed expected-skip list, failing when it grows or when an entry no longer skips (so the list cannot go stale). The cf-research workflow discovers its cftr-model tests instead of naming modules. A test proves the guard fails on an added skip and on a removed one. By-design skips (symlink and platform) are listed with a reason. No new third-party dependency.
 - **Evidence:** 2026-10-10: the first CI runs showed OK with skips (cf-research 28, cf-lab 6 by design, cf-skills 3), and unittest and check-all treat a skip as success, so a test that starts skipping by accident looks green. cf-research's workflow lists four cftr-model modules by hand, which is how test_viewer and test_research were left out. Both reviewers (Opus, Sonnet) ranked this first.
-- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. One shared script or one per repo: decide once (the lab does not keep independently maintained copies). Run the checks in the repo whose workflow they guard. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. One shared script or one per repo: decide once (the lab does not keep independently maintained copies). Run the checks in the repo whose workflow they guard. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15 Completed: Skip guard implemented in check-all.ps1 with committed tasks/expected-skips.json baseline; full self-tests pass proving failures on added or removed skips; job summary Markdown table emitted; cf-research cftr-model tests now discovered dynamically.
+- **Measured:** 3.5 h; Skip guard implemented in check-all.ps1 with committed tasks/expected-skips.json baseline; full self-tests pass proving failures on added or removed skips; job summary Markdown table emitted; cf-research cftr-model tests now discovered dynamically.
 
 ### T-0142 Site: run the render tests where a failure is seen (CI sets SITE_SKIP_RENDER=1 and a failing hero test went unseen)
 
