@@ -1,0 +1,56 @@
+# Opt-in browser-test job for the lab's graphics and viewer tests (T-0133).
+# Runs on workflow_dispatch and weekly schedule.
+# Pinned runner image, read-only token, no secrets, hashed requirements file, tests load only local pages.
+# Non-blocking (continue-on-error: true) for flakiness evaluation.
+name: browser-tests
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Weekly run every Sunday at 04:00 UTC
+    - cron: '0 4 * * 0'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: browser-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: pwsh
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+jobs:
+  browser-tests:
+    name: browser-tests (opt-in graphics & viewer checks)
+    runs-on: windows-2025
+    timeout-minutes: 20
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+
+      - name: install hashed dependencies
+        run: python -m pip install --require-hashes -r tasks/browser-requirements.txt
+
+      - name: install Playwright Chromium
+        run: python -m playwright install chromium
+
+      - name: tool versions
+        run: |
+          $PSVersionTable.PSVersion.ToString()
+          python --version
+          python -m playwright --version
+
+      - name: run browser tests (local pages only)
+        run: pwsh -NoProfile -File tasks/run-browser-tests.ps1 -RequireBrowser -TimeoutSec 300
