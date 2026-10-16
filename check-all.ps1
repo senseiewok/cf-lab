@@ -40,7 +40,9 @@ param(
     # For -SelfTest only: a JSON file with a stub table in place of $Checks.
     [string] $TableFile,
     [switch] $Parallel,
-    [ValidateRange(1, 32)] [int] $ThrottleLimit = 4
+    [ValidateRange(1, 32)] [int] $ThrottleLimit = 4,
+    [switch] $CheckSkips,
+    [string] $ExpectedSkipsFile
 )
 
 $ErrorActionPreference = 'Stop'
@@ -205,8 +207,9 @@ function Invoke-One([string] $exePath, [string[]] $argList, [int] $timeout) {
     return @{ Code = $(if ($timedOut) { -1 } else { $p.ExitCode }); Out = $text; TimedOut = $timedOut }
 }
 
-function Invoke-Checks($table, [int] $timeout, [switch] $parallel, [int] $throttle = 4) {
+function Invoke-Checks($table, [int] $timeout, [switch] $parallel, [int] $throttle = 4, [switch] $checkSkips, [string] $expectedSkipsFile) {
     $counts = [ordered]@{ PASS = 0; FAIL = 0; SKIPPED = 0 }
+    $skippedItems = @()
     $width = ($table | ForEach-Object { $_.name.Length } | Measure-Object -Maximum).Maximum
     $started = Get-Date
 
@@ -285,6 +288,7 @@ function Invoke-Checks($table, [int] $timeout, [switch] $parallel, [int] $thrott
         foreach ($r in $results) {
             if ($r.Skipped) {
                 $counts.SKIPPED++
+                $skippedItems += [pscustomobject]@{ Name = $r.Name; Reason = $r.SkipReason }
                 Write-Output ("SKIPPED {0}  {1}  ({2})" -f $r.Name.PadRight($width), $r.Cmd, $r.SkipReason)
             } else {
                 $note = if ($r.TimedOut) { "timed out after $timeout s" } elseif (-not $r.Ok) { "exit $($r.Code)" } else { "$($r.Secs) s" }
@@ -303,7 +307,9 @@ function Invoke-Checks($table, [int] $timeout, [switch] $parallel, [int] $thrott
             $missing = @(@($c.needs) | Where-Object { -not (Test-Need $_) })
             if ($missing) {
                 $counts.SKIPPED++
-                Write-Output ("SKIPPED {0}  {1}  ({2})" -f $c.name.PadRight($width), $cmd, (($missing | ForEach-Object { $Reasons[$_] }) -join '; '))
+                $reasonText = (($missing | ForEach-Object { $Reasons[$_] }) -join '; ')
+                $skippedItems += [pscustomobject]@{ Name = $c.name; Reason = $reasonText }
+                Write-Output ("SKIPPED {0}  {1}  ({2})" -f $c.name.PadRight($width), $cmd, $reasonText)
                 continue
             }
             $t0 = Get-Date
@@ -321,6 +327,62 @@ function Invoke-Checks($table, [int] $timeout, [switch] $parallel, [int] $thrott
     }
     $total = [math]::Round(((Get-Date) - $started).TotalSeconds)
     Write-Output ("{0} passed, {1} failed, {2} skipped ({3} checks, {4} s)" -f $counts.PASS, $counts.FAIL, $counts.SKIPPED, $table.Count, $total)
+
+    if ($checkSkips -or $expectedSkipsFile) {
+        $expectedPath = if ($expectedSkipsFile) { $expectedSkipsFile } else { Join-Path $script:Root 'tasks/expected-skips.json' }
+        $mdLines = @(
+            '### Test Skip Summary',
+            '',
+            "**Total Skipped Checks:** $($skippedItems.Count)",
+            '',
+            '| Check Name | Reason |',
+            '| :--- | :--- |'
+        )
+        if ($skippedItems.Count -eq 0) {
+            $mdLines += '| *(none)* | All checks ran without skipping |'
+        } else {
+            foreach ($s in ($skippedItems | Sort-Object { $_.Name })) {
+                $escaped = if ($s.Reason) { $s.Reason.Replace('|', '\|') } else { '' }
+                $mdLines += "| ``$($s.Name)`` | $escaped |"
+            }
+        }
+        $mdLines += ''
+        $summaryText = $mdLines -join "`n"
+        Write-Output ''
+        Write-Output $summaryText
+
+        if ($env:GITHUB_STEP_SUMMARY) {
+            try {
+                [IO.File]::AppendAllText($env:GITHUB_STEP_SUMMARY, "`n" + $summaryText + "`n", [System.Text.Encoding]::UTF8)
+            } catch { }
+        }
+
+        if (Test-Path -LiteralPath $expectedPath) {
+            $expectedData = Get-Content -Raw -LiteralPath $expectedPath | ConvertFrom-Json
+            $expectedNames = @($expectedData.expected_skips | ForEach-Object { $_.name })
+            $actualNames = @($skippedItems | ForEach-Object { $_.Name })
+
+            $unexpected = @($actualNames | Where-Object { $_ -notin $expectedNames })
+            $stale = @($expectedNames | Where-Object { $_ -notin $actualNames })
+
+            if ($unexpected.Count -gt 0) {
+                $counts.FAIL++
+                Write-Output "::error::Skipped checks list grew! Unexpected skipped check(s): $($unexpected -join ', ')"
+                Write-Output ("FAIL   skip-guard (unexpected skips: {0})" -f ($unexpected -join ', '))
+            }
+            if ($stale.Count -gt 0) {
+                $counts.FAIL++
+                Write-Output "::error::Expected-skips list is stale! Check(s) no longer skip: $($stale -join ', ')"
+                Write-Output ("FAIL   skip-guard (stale expected skips: {0})" -f ($stale -join ', '))
+            }
+            if ($unexpected.Count -eq 0 -and $stale.Count -eq 0) {
+                Write-Output ("PASS   skip-guard ({0} skipped checks match committed baseline)" -f $actualNames.Count)
+            }
+        } else {
+            $counts.FAIL++
+            Write-Output "FAIL   skip-guard (expected skips file not found: $expectedPath)"
+        }
+    }
     $script:Counts = $counts
 }
 
@@ -376,6 +438,53 @@ if ($SelfTest) {
         $r = Run @('-TimeoutSec', '3')
         $took = ((Get-Date) - $t0).TotalSeconds
         Check 'a check that runs past -TimeoutSec fails as timed out, and the run ends' ($r.Code -eq 1 -and $r.Out -match 'timed out after 3 s' -and $took -lt 45) "exit=$($r.Code) took=$took $($r.Out)"
+
+        # Skip guard self-tests (T-0131)
+        $stub | ConvertTo-Json -Depth 5 | Set-Content $tableFile -Encoding utf8
+        $expectedSkipsJson = Join-Path $tmp 'expected-skips-test.json'
+        @{
+            schema_version = 1
+            expected_skips = @(
+                @{ name = 'stub-skip'; reason = 'needs a browser' }
+            )
+        } | ConvertTo-Json -Depth 5 | Set-Content $expectedSkipsJson -Encoding utf8
+
+        # 1. Matching skips pass
+        $r = Run @('-Only', 'stub-pass,stub-skip', '-CheckSkips', '-ExpectedSkipsFile', $expectedSkipsJson)
+        Check 'skip guard passes when actual skips match expected' ($r.Code -eq 0 -and $r.Out -match 'PASS\s+skip-guard \(1 skipped checks match committed baseline\)') $r.Out
+
+        # 2. Added skip fails guard (unexpected skip)
+        $expectedEmptyJson = Join-Path $tmp 'expected-skips-empty.json'
+        @{
+            schema_version = 1
+            expected_skips = @()
+        } | ConvertTo-Json -Depth 5 | Set-Content $expectedEmptyJson -Encoding utf8
+        $r = Run @('-Only', 'stub-pass,stub-skip', '-CheckSkips', '-ExpectedSkipsFile', $expectedEmptyJson)
+        Check 'skip guard fails when an unexpected skip is added' ($r.Code -eq 1 -and $r.Out -match 'unexpected skips: stub-skip') $r.Out
+
+        # 3. Removed skip fails guard (stale entry)
+        $expectedStaleJson = Join-Path $tmp 'expected-skips-stale.json'
+        @{
+            schema_version = 1
+            expected_skips = @(
+                @{ name = 'stub-skip'; reason = 'needs a browser' },
+                @{ name = 'stub-stale-skip'; reason = 'needs a browser' }
+            )
+        } | ConvertTo-Json -Depth 5 | Set-Content $expectedStaleJson -Encoding utf8
+        $r = Run @('-Only', 'stub-pass,stub-skip', '-CheckSkips', '-ExpectedSkipsFile', $expectedStaleJson)
+        Check 'skip guard fails when an expected skip is removed (stale entry)' ($r.Code -eq 1 -and $r.Out -match 'stale expected skips: stub-stale-skip') $r.Out
+
+        # 4. GITHUB_STEP_SUMMARY gets the markdown table
+        $stepSummaryFile = Join-Path $tmp 'step-summary.md'
+        $oldStepSummary = $env:GITHUB_STEP_SUMMARY
+        try {
+            $env:GITHUB_STEP_SUMMARY = $stepSummaryFile
+            $r = Run @('-Only', 'stub-pass,stub-skip', '-CheckSkips', '-ExpectedSkipsFile', $expectedSkipsJson)
+            $summaryContent = if (Test-Path $stepSummaryFile) { Get-Content -Raw $stepSummaryFile } else { '' }
+            Check 'skip guard writes markdown summary to GITHUB_STEP_SUMMARY' ($summaryContent -match '### Test Skip Summary' -and $summaryContent -match 'stub-skip') $summaryContent
+        } finally {
+            $env:GITHUB_STEP_SUMMARY = $oldStepSummary
+        }
     } finally { Remove-Item -Recurse -Force -LiteralPath $tmp -ErrorAction SilentlyContinue }
     Write-Output "$($n - $fail.Count)/$n passed"
     exit ([int]($fail.Count -gt 0))
@@ -407,5 +516,5 @@ if ($List) {
     exit 0
 }
 
-Invoke-Checks $table $TimeoutSec -parallel:$Parallel -throttle $ThrottleLimit
+Invoke-Checks $table $TimeoutSec -parallel:$Parallel -throttle $ThrottleLimit -checkSkips:$CheckSkips -expectedSkipsFile:$ExpectedSkipsFile
 exit ([int]($script:Counts.FAIL -gt 0))

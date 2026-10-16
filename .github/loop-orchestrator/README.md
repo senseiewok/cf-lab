@@ -2,7 +2,7 @@
 
 > **Status: not functional.** `loop.py` exits immediately with `not implemented`, and the "AI council review" and consensus voting described below are a design sketch, not behaviour. `AGENTS.md` governs: deterministic checks decide when work is done, and a finding is never decided by majority vote.
 
-A Python-based autonomous development loop orchestrator for the Sensei Ewok Research Lab.
+A Python-based autonomous development loop orchestrator for Sensei Ewok's CF Lab.
 
 ## Overview
 

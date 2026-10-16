@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "description": "Committed expected-skip list for cf-lab CI (T-0131). Fails if skipped checks grow or an entry no longer skips.",
+  "expected_skips": [
+    {
+      "name": "observe-page-selftest",
+      "reason": "needs a browser (not started by this runner)"
+    },
+    {
+      "name": "pr-screenshots-selftest",
+      "reason": "needs a browser (not started by this runner)"
+    },
+    {
+      "name": "svg-examples",
+      "reason": "needs a browser (not started by this runner)"
+    },
+    {
+      "name": "svg-playwright",
+      "reason": "needs a browser (not started by this runner)"
+    },
+    {
+      "name": "test-check-animated-page",
+      "reason": "needs a browser (not started by this runner)"
+    },
+    {
+      "name": "test-check-webgl",
+      "reason": "needs a browser (not started by this runner)"
+    },
+    {
+      "name": "webgl-playwright",
+      "reason": "needs a browser (not started by this runner)"
+    }
+  ]
+}
