@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 51 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 52 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,11 +13,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (71)
+## ready (70)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| T-0002 | P1 | Fix YouTube About text: remove 'accelerate the cure', add research-not-advice and independence lines | channel | 0.25-0.5 | 4 | 106.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
 | T-0006 | P1 | Send permissions emails to CFF registry contact and ECFSPR | cf-research | 0.5-0.5 | 4 | 80 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 | T-0110 | P1 | Rulesets on main for the public repos | cf-lab | 0.5-1 | 5 | 66.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low | local |  |  |
 | T-0020 | P1 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
@@ -89,11 +88,12 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (82)
+## done (83)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0004 | P1 | Gate .github/loop-orchestrator/loop.py with a hard failure | cf-lab | 0.25-0.25 | 3 | 120 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
+| T-0002 | P1 | Fix YouTube About text: remove 'accelerate the cure', add research-not-advice and independence lines | channel | 0.25-0.5 | 4 | 106.7 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
 | T-0005 | P1 | Download CFF Patient Registry PDFs by hand into research/sources/downloads | cf-research | 0.5-0.75 | 4 | 64 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 | T-0057 | P1 | Human edits to the protected .github folder after the rename: CODEOWNERS, copilot-instructions names, CI workflows | cf-lab | 0.1-0.25 | 1 | 57.1 | yes | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
 | T-0014 | P1 | Decide the 'CF - until there's a cure' site tagline against lab-voice | .ai | 0.25-0.5 | 2 | 53.3 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
@@ -207,7 +207,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** About page text matches research/proposals/2026-10-04-youtube-about.md or a human-edited variant; contains 'not medical advice' and 'not affiliated'.
 - **Evidence:** research/proposals/2026-10-04-youtube-about.md
-- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. 2026-10-15 Showcase Sentinel: Live YouTube About page inspected; still contains legacy text ('accelerate the cure') and lacks required disclaimers. Authored docs/youtube-about-update.md with exact text, wrote unit test tasks/test_youtube_about.py, escalated to tasks/HUMAN-TASKS.md for YouTube Studio paste, and hardened pick_bold_task.py. Remains ready pending maintainer publish in YouTube Studio.
+- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. 2026-10-15 Showcase Sentinel: Prepared docs/youtube-about-update.md, tasks/test_youtube_about.py, and HUMAN-TASKS entry. Maintainer updated YouTube Studio. Live channel verified with test_youtube_about.py --live (exit 0). Task completed.
+- **Measured:** 0.35 h; Live YouTube channel description verified: removes accelerate the cure, adds research, not medical advice and not affiliated boundary lines.
 
 ### T-0006 Send permissions emails to CFF registry contact and ECFSPR
 

@@ -54,7 +54,7 @@ Administrative controls and external platform settings that cannot or should not
 
 - [ ] **Turn on GitHub Rulesets on `main` (T-0110)**: In repository settings for `cf-lab`, `cf-research`, and `cf-skills`, enable branch rulesets: require pull requests, block force pushes, and require maintainer review.
 - [ ] **Repository Contribution Settings (T-0128)**: Ensure GitHub repository settings reflect "no outside contributions": turn Discussions off and restrict public pull requests / issues.
-- [ ] **Update YouTube Channel About Text (T-0002)**: In YouTube Studio (Web UI), replace the `@SenseiEwok` channel description with the approved text from `docs/youtube-about-update.md` (removes 'accelerate the cure', adds 'not medical advice' and 'not affiliated' boundary lines). Verify with `python tasks/test_youtube_about.py --live`.
+- [x] **Update YouTube Channel About Text (T-0002)** (2026-10-15): In YouTube Studio, channel description updated to approved boundary text (contains 'not medical advice' and 'not affiliated', removes 'accelerate the cure'). Verified live on @SenseiEwok via `python tasks/test_youtube_about.py --live`.
 
 ---
 
