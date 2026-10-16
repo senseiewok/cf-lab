@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-175 tasks, 174 created by a model, 56 with a measured outcome. Estimated effort 440.85 to 849.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+175 tasks, 174 created by a model, 58 with a measured outcome. Estimated effort 440.85 to 849.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (72)
+## ready (70)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -34,13 +34,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0096 | P1 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
-| T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | no | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0170 | P1 | Trial Endpoint Atlas: 8-class primary outcome lexicon & verbatim span extraction | cf-research | 4-6 | 5 | 10 | no | model: gemini-4-argon | 2026-10-16 | elevated | medium | local | T-0169 |  |
 | T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0092 | P2 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0083 |  |
 | T-0104 | P2 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | local |  |  |
 | T-0116 | P2 | Pin the third-party skills by hash | cf-lab | 1-2 | 3 | 20 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low | local |  |  |
-| T-0008 | P2 | Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256) | cf-research | 2-3 | 4 | 16 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | cloud | T-0005 |  |
 | T-0112 | P2 | A merge check: catch commits a squash merge dropped | cf-lab | 2-3 | 4 | 16 | no | model: claude-opus-5-5 | 2026-10-09 | routine | low | local |  |  |
 | T-0088 | P2 | Keep everything a verifier reads inside its temp copy | cf-lab | 1-3 | 3 | 15 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine | low | local |  |  |
 | T-0117 | P2 | Identity in public files: one role address, one way to sign | cf-lab | 1-3 | 3 | 15 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
@@ -90,7 +88,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (87)
+## done (89)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -110,6 +108,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
 | T-0168 | P1 | Author multi-registry modulator eligibility & ultra-rare variant landscape dossier from verified 2024 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports [T2] | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-15 | full | high | frontier | T-0005 |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
+| T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer [T2] | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
 | T-0155 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  | feat/turbo-sentinel-cadence |
@@ -141,6 +140,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0062 | P2 | A generated manual-downloads page with links, file names and a prompt to run when the files are saved | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0065 | P2 | Delegation: a sequential batch runner and a verifier-suspect hint | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | medium | cloud |  |  |
 | T-0139 | P2 | Server steps only a person can do: X-Robots-Tag for the atlas and a 301 for /letter/ | .ai | 1-2 | 3 | 20 | yes | model: claude-sonnet-5-5 | 2026-10-12 | full | low |  |  |  |
+| T-0008 | P2 | Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256) | cf-research | 2-3 | 4 | 16 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | cloud | T-0005 |  |
 | T-0012 | P2 | Unit tests for tools/sources/fetch_sources.py | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0048 | P2 | Admission review of Google's Data Commons MCP server for population denominators (layer 5) | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0059 | P2 | delegate.ps1: let a model-only setup run fast, and make the token budget and thinking mode explicit | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | cloud |  |  |
@@ -493,7 +493,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic test suite and offline JSON schema validation.
 - **Acceptance:** python -m unittest discover -s tools/trial_atlas -p 'test_*.py'
 - **Evidence:** ClinicalTrials.gov API v2 query term 'cystic fibrosis'; PRISMA 2020 screening protocol
-- **Notes:** Decomposed from T-0130 (Sub-Task 1). Ingestion and manifest verification with SHA-256 integrity.
+- **Notes:** Decomposed from T-0130 (Sub-Task 1). Ingestion and manifest verification with SHA-256 integrity. \| 2026-10-16 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #81 (python -m unittest discover -s tools/trial_atlas -p 'test_*.py': 458 passed in 11.2s).
+- **Measured:** 4 h; Delivered ClinicalTrials.gov API v2 ingestion, polite pacing, SHA-256 partition manifest validation, and NLM disclaimer invariants. Verified via 458 passing tests across tools/trial_atlas in senseiewok/cf-research PR #81.
 
 ### T-0102 Bring the lab's sources together: one question, one cross-checked record, then the variant layer
 
@@ -810,7 +811,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** tools/registry-extract/SCHEMA.md exists; a JSON Schema validates a 20-row hand-extracted gold sample from ECFSPR 2022 p.8.
 - **Evidence:** cf-first-project-scoping-memo.md (private session document, not in the repo) section 4 and section 8
-- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-16 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #81 (tools/registry-extract/SCHEMA.md exists; row_schema.json validates 27-row ECFSPR 2022 p.8 gold sample; 9 unit tests passed).
+- **Measured:** 2.5 h; Authored tools/registry-extract/SCHEMA.md, row_schema.json, and validated 27-row hand-extracted gold sample from ECFSPR 2022 p.8 with cryptographic source integrity (SHA-256 22868219bcaeb5e4b2090643b0d5b1e8be91fddb1cf37ba74bf1bfaeec11506e). Delivered in senseiewok/cf-research PR #81.
 
 ### T-0046 Sickle cell disease coverage: HBB variant checks, ASH guideline source terms, and an SCD worked example in SKILL.md
 
