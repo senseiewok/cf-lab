@@ -2814,10 +2814,10 @@
       "acceptance": "On macOS: python3 .claude/skills/lab-versioning/scripts/test-setup.py prints 'sh: all checks passed' and VERIFIED (cmd is skipped), then ./setup.sh in a temp folder clones cf-skills and cf-research and creates cf-lab-files (memory, scratch, README; setup generates no workspace file); paste the output into this task's notes. Repeat on one Linux machine. Any failure becomes its own task with the failing output.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
+      "updated_at": "2026-10-15T22:18:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Needs a human with a Mac. Proposed by a model. Until it is done, README and AGENTS.md should not say macOS is supported beyond 'written to be portable and tested under dash and bash'. A macos-latest GitHub Actions runner (T-0061) would run test-setup.py on a real macOS shell without owning a Mac; that run's output would satisfy this task for macOS. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "Needs a human with a Mac. Proposed by a model. Until it is done, README and AGENTS.md should not say macOS is supported beyond 'written to be portable and tested under dash and bash'. A macos-latest GitHub Actions runner (T-0061) would run test-setup.py on a real macOS shell without owning a Mac; that run's output would satisfy this task for macOS. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15: Verified test-setup.py --target sh prints 'repo files: all checks passed', 'sh: all checks passed', and 'VERIFIED'. Physical execution on a real Mac/Linux machine or macos-latest runner (T-0061) required by maintainer to complete physical platform acceptance.",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance.",
       "complexity": "low"
@@ -6492,13 +6492,14 @@
       "depends_on": [
         "T-0131"
       ],
-      "updated_at": "2026-10-14T21:27:13Z",
+      "updated_at": "2026-10-15T22:18:00Z",
       "completed_at": null,
       "completed_by": null,
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Measured minutes and WebGL behaviour on a GPU-less runner are unknown: the reviewers estimated 3 to 6 minutes. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Measured minutes and WebGL behaviour on a GPU-less runner are unknown: the reviewers estimated 3 to 6 minutes. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15: Delivered .github/workflows/browser-tests.yml (workflow_dispatch, weekly Sunday 04:00 UTC, pinned windows-2025 runner, read-only token, no secrets, continue-on-error: true), tasks/browser-requirements.txt (SHA-256 hashes for Playwright 1.63.0, pyee 13.0.0, greenlet 3.1.1), and tasks/run-browser-tests.ps1 running 7 local-page browser checks with clean skip on uninstalled runner. Awaiting maintainer approval of third-party dependency installation and flakiness monitoring.",
       "recommended_route": "local",
-      "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene."
+      "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.",
+      "branch": "work/sentinel-security-t-0133"
     },
     {
       "id": "T-0134",
