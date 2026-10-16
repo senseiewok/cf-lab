@@ -6074,7 +6074,7 @@
       "title": "A small public benchmark of the lab's own checks (20 to 30 frozen tasks)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
@@ -6092,9 +6092,9 @@
         "benefit": 4,
         "rationale": "Estimate: replaces demonstrations with measured results, including negative ones, on lawful public data.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 5.0,
+        "measured_outcome": "Implemented 25 frozen tasks across 5 categories in tools/checks_benchmark with SHA-256 manifest verification, automated runner comparing with/without lab checks (100% flaw detection), empirical local worker results, and epistemic limitation note via senseiewok/cf-research PR #71.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 7.0,
@@ -6108,13 +6108,21 @@
       "acceptance": "20 to 30 tasks with fixed inputs and expected outputs built from public data the catalog permits (for example evidence-record lookups, quote-checking, claim-to-source matching); a runner; results for the local worker with and without the lab's checks, including failures; a short note on what the numbers do not show. The set is frozen with hashes. No patient data, no invented expected answers (each expected output has a source line).",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-16T00:29:09Z",
+      "completed_at": "2026-10-16T00:29:09Z",
+      "completed_by": {
+        "kind": "human",
+        "name": "Maintainer"
+      },
       "complexity": "high",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Start from what the lab already measures and publish negatives; a person reviews the expected answers. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Start from what the lab already measures and publish negatives; a person reviews the expected answers. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15: Completed and verified by daily-research-sentinel via senseiewok/cf-research PR #71. All 25 frozen tasks pass acceptance checks, 40 pytest tests pass, manifest verified.",
       "recommended_route": "local",
-      "route_rationale": "Deterministic claims and source verification loop using local checkers."
+      "route_rationale": "Deterministic claims and source verification loop using local checkers.",
+      "evidence_package": {
+        "packet_path": "tools/checks_benchmark/README.md",
+        "answer_tier": "T2",
+        "verified_at": "2026-10-16"
+      }
     },
     {
       "id": "T-0127",
