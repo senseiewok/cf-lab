@@ -38,7 +38,9 @@ param(
     [ValidateRange(1, 86400)] [int] $TimeoutSec = 300,
     [switch] $SelfTest,
     # For -SelfTest only: a JSON file with a stub table in place of $Checks.
-    [string] $TableFile
+    [string] $TableFile,
+    [switch] $Parallel,
+    [ValidateRange(1, 32)] [int] $ThrottleLimit = 4
 )
 
 $ErrorActionPreference = 'Stop'
@@ -203,28 +205,118 @@ function Invoke-One([string] $exePath, [string[]] $argList, [int] $timeout) {
     return @{ Code = $(if ($timedOut) { -1 } else { $p.ExitCode }); Out = $text; TimedOut = $timedOut }
 }
 
-function Invoke-Checks($table, [int] $timeout) {
+function Invoke-Checks($table, [int] $timeout, [switch] $parallel, [int] $throttle = 4) {
     $counts = [ordered]@{ PASS = 0; FAIL = 0; SKIPPED = 0 }
     $width = ($table | ForEach-Object { $_.name.Length } | Measure-Object -Maximum).Maximum
     $started = Get-Date
-    foreach ($c in $table) {
-        $cmd = Format-Command $c
-        $missing = @(@($c.needs) | Where-Object { -not (Test-Need $_) })
-        if ($missing) {
-            $counts.SKIPPED++
-            Write-Output ("SKIPPED {0}  {1}  ({2})" -f $c.name.PadRight($width), $cmd, (($missing | ForEach-Object { $Reasons[$_] }) -join '; '))
-            continue
+
+    if ($parallel) {
+        $prep = @($table | ForEach-Object {
+            $c = $_
+            $missing = @(@($c.needs) | Where-Object { -not (Test-Need $_) })
+            [pscustomobject]@{
+                Name    = $c.name
+                ExePath = if ($missing.Count -eq 0) { Get-Exe $c.exe } else { '' }
+                ArgList = if ($missing.Count -eq 0) { Get-ArgList $c } else { @() }
+                Cmd     = Format-Command $c
+                Missing = $missing
+            }
+        })
+
+        $root = $script:Root
+        $reasons = $script:Reasons
+        $results = $prep | ForEach-Object -Parallel {
+            $item = $_
+            $root = $using:root
+            $timeout = $using:timeout
+            $reasons = $using:reasons
+
+            if ($item.Missing.Count -gt 0) {
+                $reasonText = ($item.Missing | ForEach-Object { $reasons[$_] }) -join '; '
+                return [pscustomobject]@{
+                    Name       = $item.Name
+                    Cmd        = $item.Cmd
+                    Skipped    = $true
+                    SkipReason = $reasonText
+                    Ok         = $false
+                    TimedOut   = $false
+                    Code       = 0
+                    Secs       = 0
+                    Tail       = @()
+                }
+            }
+
+            $psi = [System.Diagnostics.ProcessStartInfo]::new($item.ExePath)
+            foreach ($a in $item.ArgList) { $psi.ArgumentList.Add($a) }
+            $psi.WorkingDirectory = $root
+            $psi.UseShellExecute = $false
+            $psi.RedirectStandardOutput = $true; $psi.RedirectStandardError = $true; $psi.RedirectStandardInput = $true
+            $psi.StandardOutputEncoding = [System.Text.UTF8Encoding]::new($false); $psi.StandardErrorEncoding = [System.Text.UTF8Encoding]::new($false)
+            $psi.Environment['PYTHONIOENCODING'] = 'utf-8'
+
+            $t0 = [System.DateTime]::Now
+            $p = [System.Diagnostics.Process]::Start($psi)
+            $p.StandardInput.Close()
+            $outAsync = $p.StandardOutput.ReadToEndAsync(); $errAsync = $p.StandardError.ReadToEndAsync()
+            $timedOut = -not $p.WaitForExit($timeout * 1000)
+            if ($timedOut) { try { $p.Kill($true) } catch { }; $null = $p.WaitForExit(10000) } else { $p.WaitForExit() }
+            $text = ''
+            try { $text = $outAsync.GetAwaiter().GetResult() + $errAsync.GetAwaiter().GetResult() } catch { }
+            $secs = [System.Math]::Round(([System.DateTime]::Now - $t0).TotalSeconds, 1)
+            $ok = (-not $timedOut) -and ($p.ExitCode -eq 0)
+
+            $tail = if (-not $ok) {
+                @(($text -split "`r?`n") | Where-Object { $_.Trim() } | Select-Object -Last 15)
+            } else { @() }
+
+            return [pscustomobject]@{
+                Name       = $item.Name
+                Cmd        = $item.Cmd
+                Skipped    = $false
+                SkipReason = ''
+                Ok         = $ok
+                TimedOut   = $timedOut
+                Code       = $p.ExitCode
+                Secs       = $secs
+                Tail       = $tail
+            }
+        } -ThrottleLimit $throttle
+
+        foreach ($r in $results) {
+            if ($r.Skipped) {
+                $counts.SKIPPED++
+                Write-Output ("SKIPPED {0}  {1}  ({2})" -f $r.Name.PadRight($width), $r.Cmd, $r.SkipReason)
+            } else {
+                $note = if ($r.TimedOut) { "timed out after $timeout s" } elseif (-not $r.Ok) { "exit $($r.Code)" } else { "$($r.Secs) s" }
+                Write-Output ("{0} {1}  {2}  ({3})" -f $(if ($r.Ok) { 'PASS   ' } else { 'FAIL   ' }), $r.Name.PadRight($width), $r.Cmd, $note)
+                if ($r.Ok) {
+                    $counts.PASS++
+                } else {
+                    $counts.FAIL++
+                    foreach ($l in $r.Tail) { Write-Output "          | $l" }
+                }
+            }
         }
-        $t0 = Get-Date
-        $r = Invoke-One (Get-Exe $c.exe) (Get-ArgList $c) $timeout
-        $secs = [math]::Round(((Get-Date) - $t0).TotalSeconds, 1)
-        $ok = (-not $r.TimedOut) -and $r.Code -eq 0
-        $note = if ($r.TimedOut) { "timed out after $timeout s" } elseif (-not $ok) { "exit $($r.Code)" } else { "$secs s" }
-        Write-Output ("{0} {1}  {2}  ({3})" -f $(if ($ok) { 'PASS   ' } else { 'FAIL   ' }), $c.name.PadRight($width), $cmd, $note)
-        if ($ok) { $counts.PASS++ } else {
-            $counts.FAIL++
-            $tail = @(($r.Out -split "`r?`n") | Where-Object { $_.Trim() } | Select-Object -Last 15)
-            foreach ($l in $tail) { Write-Output "          | $l" }
+    } else {
+        foreach ($c in $table) {
+            $cmd = Format-Command $c
+            $missing = @(@($c.needs) | Where-Object { -not (Test-Need $_) })
+            if ($missing) {
+                $counts.SKIPPED++
+                Write-Output ("SKIPPED {0}  {1}  ({2})" -f $c.name.PadRight($width), $cmd, (($missing | ForEach-Object { $Reasons[$_] }) -join '; '))
+                continue
+            }
+            $t0 = Get-Date
+            $r = Invoke-One (Get-Exe $c.exe) (Get-ArgList $c) $timeout
+            $secs = [math]::Round(((Get-Date) - $t0).TotalSeconds, 1)
+            $ok = (-not $r.TimedOut) -and $r.Code -eq 0
+            $note = if ($r.TimedOut) { "timed out after $timeout s" } elseif (-not $ok) { "exit $($r.Code)" } else { "$secs s" }
+            Write-Output ("{0} {1}  {2}  ({3})" -f $(if ($ok) { 'PASS   ' } else { 'FAIL   ' }), $c.name.PadRight($width), $cmd, $note)
+            if ($ok) { $counts.PASS++ } else {
+                $counts.FAIL++
+                $tail = @(($r.Out -split "`r?`n") | Where-Object { $_.Trim() } | Select-Object -Last 15)
+                foreach ($l in $tail) { Write-Output "          | $l" }
+            }
         }
     }
     $total = [math]::Round(((Get-Date) - $started).TotalSeconds)
@@ -274,7 +366,10 @@ if ($SelfTest) {
 
         Remove-Item $marker -ErrorAction SilentlyContinue
         $r = Run @('-List')
-        Check '-List prints the table and runs nothing' ($r.Code -eq 0 -and $r.Out -match 'stub-pass' -and $r.Out -match 'stub-fail' -and -not (Test-Path $marker)) "exit=$($r.Code) $($r.Out)"
+        $stub | ConvertTo-Json -Depth 5 | Set-Content $tableFile -Encoding utf8
+        Remove-Item $marker -ErrorAction SilentlyContinue
+        $r = Run @('-Parallel')
+        Check '-Parallel runs and produces identical PASS/FAIL/SKIPPED results' ($r.Code -eq 1 -and $r.Out -match '(?m)^1 passed, 1 failed, 1 skipped \(3 checks' -and $r.Out -match '(?m)^PASS\s+stub-pass' -and $r.Out -match '(?m)^FAIL\s+stub-fail') "exit=$($r.Code) $($r.Out)"
 
         @(@{ name = 'stub-slow'; exe = 'pwsh'; args = @((Join-Path $tmp 'slow.ps1')); needs = @() }) | ConvertTo-Json -Depth 5 -AsArray | Set-Content $tableFile -Encoding utf8
         $t0 = Get-Date
@@ -312,5 +407,5 @@ if ($List) {
     exit 0
 }
 
-Invoke-Checks $table $TimeoutSec
+Invoke-Checks $table $TimeoutSec -parallel:$Parallel -throttle $ThrottleLimit
 exit ([int]($script:Counts.FAIL -gt 0))
