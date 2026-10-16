@@ -88,10 +88,10 @@
       "acceptance": "About page text matches research/proposals/2026-10-04-youtube-about.md or a human-edited variant; contains 'not medical advice' and 'not affiliated'.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
+      "updated_at": "2026-10-15T23:10:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. 2026-10-15 Showcase Sentinel: Live YouTube About page inspected; still contains legacy text ('accelerate the cure') and lacks required disclaimers. Authored docs/youtube-about-update.md with exact text, wrote unit test tasks/test_youtube_about.py, escalated to tasks/HUMAN-TASKS.md for YouTube Studio paste, and hardened pick_bold_task.py. Remains ready pending maintainer publish in YouTube Studio.",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance.",
       "complexity": "low"

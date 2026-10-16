@@ -207,7 +207,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** About page text matches research/proposals/2026-10-04-youtube-about.md or a human-edited variant; contains 'not medical advice' and 'not affiliated'.
 - **Evidence:** research/proposals/2026-10-04-youtube-about.md
-- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. 2026-10-15 Showcase Sentinel: Live YouTube About page inspected; still contains legacy text ('accelerate the cure') and lacks required disclaimers. Authored docs/youtube-about-update.md with exact text, wrote unit test tasks/test_youtube_about.py, escalated to tasks/HUMAN-TASKS.md for YouTube Studio paste, and hardened pick_bold_task.py. Remains ready pending maintainer publish in YouTube Studio.
 
 ### T-0006 Send permissions emails to CFF registry contact and ECFSPR
 

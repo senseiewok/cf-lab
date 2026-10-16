@@ -115,6 +115,12 @@ class PickerTests(unittest.TestCase):
         self.assertEqual(self.bundle_ids(tasks, "research"), ["T-0002"])
         self.assertEqual(self.bundle_ids(tasks, "showcase"), ["T-0003"])
 
+    def test_non_git_repo_is_not_eligible(self):
+        # external platforms without a git repo (e.g. channel) must not be handed to git worktrees
+        external = task("T-0002", repo="channel", area="content")
+        valid = task("T-0003", repo=".ai", area="content")
+        self.assertEqual(self.bundle_ids([external, valid], "showcase"), ["T-0003"])
+
     # ---- capacity ------------------------------------------------------------------------------
     def test_open_sentinel_pr_blocks_only_its_lane(self):
         self.prs.write_text(json.dumps([{"repo": "cf-lab", "headRefName": "work/sentinel-security-t-0009"},
