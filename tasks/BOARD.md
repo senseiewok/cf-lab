@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 50 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 51 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (72)
+## ready (71)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -48,7 +48,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0143 | P2 | A pull request template and a body check: every PR carries its review-loop record, a size line and a declaration of files copied from another repo | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | low | local |  |  |
 | T-0105 | P2 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0007 | P2 | Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md | cf-research | 2-3 | 3 | 12 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0030 | P2 | Docs tier 3: make AGENTS.md the only rule source; shrink copilot-instructions.md; fix the skill-authoring skill's internal contradictions | cf-lab | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0050 | P2 | Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow | cf-lab | 2-3 | 3 | 12 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
 | T-0069 | P2 | Provider for the UKRI Gateway to Research API in cf-evidence-loop | cf-skills | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
@@ -90,7 +89,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (81)
+## done (82)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -146,6 +145,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0161 | P2 | Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn) | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | low | cloud |  | feat/cro-surveillance-grounding-sync |
 | T-0165 | P2 | Public exposure & localization of Rare Variant Cryo-EM Theratyping Atlas & Universal Curative Mission Charter | .ai | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud | T-0150, T-0163 | site/showcase-rare-variants |
 | T-0166 | P2 | Public exposure & localization of Adaptive N-of-1 Organoid Theratyping Protocol & Multi-Registry DILI Surveillance | .ai | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud | T-0153, T-0165 | site/showcase-adaptive-trials |
+| T-0007 | P2 | Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md | cf-research | 2-3 | 3 | 12 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0164 | P2 | Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation) | cf-lab | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-14 | full | medium | local | T-0159 |  |
 | T-0027 | P2 | Design an opt-in setting that lets the controlling agent delegate bounded drafts to a usable local worker automatically | cf-lab | 2-4 | 3 | 10 | yes | human: Sensei Ewok | 2026-10-04 | elevated | medium | cloud |  |  |
 | T-0041 | P2 | Website section for the evidence loop: how the lab answers a research question, with the seven layers and a live example record | .ai | 3-5 | 4 | 10 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | local | T-0037 |  |
@@ -926,7 +926,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** grep count of claim labels > 0 in each file; every [verified] has an inline URL and date.
 - **Evidence:** grep of research/*.md on 2026-10-04: labels={verified:0, unverified:0} in the three files
-- **Notes:** 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: benefit 3, no dependents. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: benefit 3, no dependents. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15 daily-site-showcase-sentinel: Completed and verified acceptance criteria in cf-research PR #79 (grep claim labels > 0, every verified claim has inline URL and date).
+- **Measured:** 1.5 h; Standardized claim labels across cystic-fibrosis.md (27 labels), cff-goals.md (16 labels), and landscape/cf-repositories.md (17 labels) with [verified], [unverified], and [hypothesis] markers. Every [verified] claim carries an inline URL and access date (2026-10-03). Delivered in cf-research PR #79.
 
 ### T-0030 Docs tier 3: make AGENTS.md the only rule source; shrink copilot-instructions.md; fix the skill-authoring skill's internal contradictions
 
