@@ -3489,10 +3489,10 @@
       "acceptance": "A human decides each of three points and the review's rules are adjusted to match: (1) whether sources with unread terms go only to local models, and the account's data-retention and training settings are confirmed; (2) whether to ask the Foundation and the Trust for permission to quote; (3) the licence wording for skills with quotations.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-15T03:07:51Z",
+      "updated_at": "2026-10-15T21:47:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model. Policy and law, not code. A human decides, and a lawyer's view is worth having if the lab ever needs certainty. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): decide this first, then send the permission letters (T-0106; T-0006 folds into it): replies take weeks and gate the registry chain (T-0005, T-0008, T-0009). | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "Proposed by a model. Policy and law, not code. A human decides, and a lawyer's view is worth having if the lab ever needs certainty. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): decide this first, then send the permission letters (T-0106; T-0006 folds into it): replies take weeks and gate the registry chain (T-0005, T-0008, T-0009). | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15 daily-research-sentinel: Prepared decision dossier (options, rule adjustments, sign-off block) in cf-research PR #77; left ready awaiting maintainer ratification on the 3 points.",
       "recommended_route": "cloud",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.",
       "complexity": "medium"
