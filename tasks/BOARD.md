@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 42 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 43 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (80)
+## ready (79)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -63,7 +63,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0131 | P2 | Skip guard: make skipped tests visible and budgeted in CI, and discover every test | cf-lab | 3-6 | 4 | 8.9 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 | T-0051 | P2 | Decide and implement how the control repo consumes the evidence skill | cf-lab | 2-5 | 3 | 8.6 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local | T-0037 |  |
-| T-0043 | P2 | Variant layer: MyVariant.info and gnomAD providers (aggregate frequencies only) | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0049 | P2 | Pilot Gemini Deep Research (collaborative planning) as the frontier-planning leg; verify every citation through cf-evidence-loop | cf-lab | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0037 |  |
 | T-0021 | P2 | Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008) | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local | T-0008, T-0010 |  |
@@ -98,7 +97,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (73)
+## done (74)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -157,6 +156,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0079 | P2 | Measure whether the local models can write WebGL and SVG: a verifier-first test | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0089 | P2 | Mechanical filter for local review findings: reproduce each failing input in a temp copy | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |  |
 | T-0142 | P2 | Site: run the render tests where a failure is seen (CI sets SITE_SKIP_RENDER=1 and a failing hero test went unseen) | .ai | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-13 | full | medium | local |  |  |
+| T-0043 | P2 | Variant layer: MyVariant.info and gnomAD providers (aggregate frequencies only) | cf-skills | 4-6 | 4 | 8 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | local |  |  |
 | T-0056 | P2 | check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-04 | full | medium | cloud |  |  |
 | T-0064 | P2 | More sources: UKRI Gateway to Research, CORDIS, EU Clinical Trials Register, WHO ICTRP, PubPeer, ClinGen, and the CFF 2025 highlights link | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | cloud |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
@@ -1079,7 +1079,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** Two providers with parse tests and fixtures; catalog entries with read terms and check dates; live check on F508del and HbS returns classification plus allele frequency with limitations.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 3
-- **Notes:** Update 2026-10-04: catalog entries gnomad and myvariant now exist (research/sources/catalog.yaml). gnomad is access manual: its robots.txt is 'Disallow: *' with an allowlist that has no API path, and no API usage terms were found on its policies page, so a gnomAD API provider is blocked until the gnomAD team states API terms (a human may ask them). myvariant is api but has no base_url yet and its rate limit is unstated (capped at 1/s); it is not reachable by the skill until a human admits it. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** Update 2026-10-04: catalog entries gnomad and myvariant now exist (research/sources/catalog.yaml). gnomad is access manual: its robots.txt is 'Disallow: *' with an allowlist that has no API path, and no API usage terms were found on its policies page, so a gnomAD API provider is blocked until the gnomAD team states API terms (a human may ask them). myvariant is api but has no base_url yet and its rate limit is unstated (capped at 1/s); it is not reachable by the skill until a human admits it. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15 Sentinel Research Build: Marked done. Deliverables verified with 220 passing tests in cf-skills PR #29; live F508del and HbS classification and gnomAD allele frequencies verified.
+- **Measured:** 4 h; gnomAD provider (gnomad.py) implemented with fail-closed catalog gate; MyVariant.info provider extended with ClinVar clinical significance and gnomAD aggregate allele frequency extraction; 220 unit tests and live F508del/HbS checks verified (PR #29).
 
 ### T-0047 Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules
 
