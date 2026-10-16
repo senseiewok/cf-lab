@@ -323,17 +323,17 @@ try {
     foreach ($n in $names) {
         $c = $real.sentinels.$n
         $parts = @($c.cron -split '\s+')
-        $minuteOk = $parts.Count -eq 5 -and $parts[0] -match '^\d+$'
-        $hourStep = if ($parts[1] -match '^\*/(\d+)$') { [int]$Matches[1] } elseif ($parts[1] -match '^\d+$') { 24 } else { 0 }
-        Assert-Test "$n cron has 5 fields, a single minute offset and runs at most every 2 hours" ($minuteOk -and $hourStep -ge 2) "cron=$($c.cron)"
-        $minutes += $parts[0]
+        $minuteOk = $parts.Count -eq 5 -and ($parts[0] -match '^(\d+)(,\d+)*$')
+        $cadenceMin = if ($parts[0] -match '^(\d+),(\d+)') { [int]$Matches[2] - [int]$Matches[1] } elseif ($parts[1] -match '^\*/(\d+)$') { [int]$Matches[1] * 60 } else { 1440 }
+        Assert-Test "$n cron has 5 fields, valid minute offsets and runs every 30 minutes" ($minuteOk -and $cadenceMin -eq 30) "cron=$($c.cron) cadence=$cadenceMin"
+        $cMin = @($parts[0] -split ',')
+        $minutes += $cMin
         $p = Join-Path $repoRoot $c.prompt_file
         $text = if (Test-Path $p) { Get-Content $p -Raw } else { "" }
         Assert-Test "$n prompt file exists and ends through run-sentinel -Complete / -Abort" ($text -match "run-sentinel\.ps1 -SentinelName $n -Complete" -and $text -match "-Abort") $c.prompt_file
         Assert-Test "$n prompt tells the agent not to rerun the gate (own lock would block it)" ($text -match 'Do NOT run `fast-sentinel-gate\.ps1`') $c.prompt_file
         Assert-Test "$n prompt never asks for a per-round handoff append" ($text -notmatch "(?i)append (a )?(per-round )?summary to" -and $text -match "(?i)only when") $c.prompt_file
-        $cadenceMin = if ($c.cron -split '\s+' | Select-Object -Skip 1 -First 1 | ForEach-Object { $_ -match '^\*/(\d+)$' }) { [int]$Matches[1] * 60 } else { 1440 }
-        Assert-Test "$n lock timeout is below the cadence (a hung run is reclaimed by the next slot)" ([int]$c.lock_timeout_minutes -lt $cadenceMin -and [int]$c.lock_timeout_minutes -ge 30) "timeout=$($c.lock_timeout_minutes) cadence=$cadenceMin"
+        Assert-Test "$n lock timeout is below the cadence (a hung run is reclaimed by the next slot)" ([int]$c.lock_timeout_minutes -lt $cadenceMin -and [int]$c.lock_timeout_minutes -ge 15) "timeout=$($c.lock_timeout_minutes) cadence=$cadenceMin"
         $lanes = @("security", "research", "showcase")
         Assert-Test "$n has a build lane the picker knows" ($c.build -and $lanes -contains $c.build.lane) "build=$($c.build | ConvertTo-Json -Compress)"
         Assert-Test "$n prompt has a build round that reads its own lane's bundle file (the wrapper claims it)" ($text -match "Build round" -and $text -match [regex]::Escape("bold-bundle-$($c.build.lane).json") -and $text -notmatch "pick_bold_task.py --lane \w+ --claim" -and $text -match "WHOLE bundle" -and $text -match "(?i)never merge") $c.prompt_file

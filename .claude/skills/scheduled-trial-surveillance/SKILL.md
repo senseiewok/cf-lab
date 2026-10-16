@@ -11,7 +11,7 @@ Continuously tracks global interventional Cystic Fibrosis clinical trials, detec
 
 ## Cadence & Trigger
 
-- **Cadence**: Every 2 hours at :20 PT (`CRON_TZ=America/Los_Angeles 20 */2 * * *`), set in `tasks/sentinels.json`; the agent starts only when proposals, landscape or the catalog changed, or the 24-hour heartbeat is due. Run by the wrapper `tasks/run-sentinel.ps1` as part of `daily-research-sentinel`.
+- **Cadence**: Every 30 minutes at :10 and :40 PT (`CRON_TZ=America/Los_Angeles 10,40 * * * *`), set in `tasks/sentinels.json`; the agent starts only when proposals, landscape or the catalog changed, or the 24-hour heartbeat is due. Run by the wrapper `tasks/run-sentinel.ps1` as part of `daily-research-sentinel`.
 - **Antigravity Sidecar ID**: `daily-research-sentinel`
 - **Review Tier**: `elevated`
 - **Anti-Churn Invariant**: When no status transitions, completions, or new trials are detected, log clean status to `.loop-logs/` only. Never open a pull request without newly detected trial deltas or endpoint records.
@@ -22,7 +22,7 @@ Continuously tracks global interventional Cystic Fibrosis clinical trials, detec
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 2 Hours)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
+    Trigger["Scheduled Trigger (Every 30 Minutes)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|Zero Deltas (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]

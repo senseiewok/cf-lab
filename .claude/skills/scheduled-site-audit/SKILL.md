@@ -11,7 +11,7 @@ Maintains unbroken operational quality, security posture, and dignity for the pu
 
 ## Cadence & Trigger
 
-- **Cadence**: Every 2 hours at :00 PT (`CRON_TZ=America/Los_Angeles 0 */2 * * *`), set in `tasks/sentinels.json`; the agent starts only when a watched tree changed or the 8-hour heartbeat is due. Run by the wrapper `tasks/run-sentinel.ps1` as part of `daily-security-sentinel`.
+- **Cadence**: Every 30 minutes at :00 and :30 PT (`CRON_TZ=America/Los_Angeles 0,30 * * * *`), set in `tasks/sentinels.json`; the agent starts only when a watched tree changed or the 8-hour heartbeat is due. Run by the wrapper `tasks/run-sentinel.ps1` as part of `daily-security-sentinel`.
 - **Antigravity Sidecar ID**: `daily-site-security-sentinel`
 - **Review Tier**: `routine`
 - **Anti-Churn Invariant**: If zero defects or regressions are detected, log health status to `.loop-logs/` only. It is strictly forbidden to open a pull request or edit `tasks/board.json` notes just to record that a clean audit occurred.
@@ -22,7 +22,7 @@ Maintains unbroken operational quality, security posture, and dignity for the pu
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 2 Hours)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
+    Trigger["Scheduled Trigger (Every 30 Minutes)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|Clean Idle (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
