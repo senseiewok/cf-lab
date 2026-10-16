@@ -121,7 +121,9 @@ param(
     [ValidateRange(1, 100000)] [int] $MaxManifestFiles = 500,
     [ValidateRange(1, 1073741824)] [long] $MaxManifestBytes = 20971520,
     # The id of an earlier run (its `run` row in the outcome log) whose verifier was edited on purpose: re-prove the edited verifier, with no model call. See .NOTES.
-    [string] $ReverifyOf
+    [string] $ReverifyOf,
+    # A playbook card file whose packet skeleton and worked example are prepended to the task. Must resolve inside skills folder.
+    [string] $CardFile
 )
 $ErrorActionPreference = 'Stop'
 $default = [bool]($PSBoundParameters.ContainsKey('InvokeScript'))
@@ -131,6 +133,14 @@ if (-not $default -and -not $Model -and -not $FastProfile) {
 }
 $freezeScript = Join-Path $PSScriptRoot 'verifier-freeze.ps1'
 foreach ($f in $TaskFile, $Verify, $InvokeScript, $freezeScript) { if (-not (Test-Path -LiteralPath $f -PathType Leaf)) { Write-Host "error: missing file $f"; exit 2 } }
+if ($CardFile) {
+    if (-not (Test-Path -LiteralPath $CardFile -PathType Leaf)) { Write-Host "error: missing card file $CardFile"; exit 2 }
+    $cardFull = [IO.Path]::GetFullPath($CardFile)
+    if ($cardFull -notmatch '[\\/](skills|\.claude[\\/]skills|\.github[\\/]skills|cf-skills)[\\/]') {
+        Write-Host "error: card file must resolve inside skills folder: $CardFile"
+        exit 2
+    }
+}
 . $freezeScript
 $outFull = [IO.Path]::GetFullPath($OutFile)
 if ($outFull -match '[\\/]\.git[\\/]') { Write-Host 'error: refusing to write inside .git'; exit 2 }
@@ -146,6 +156,7 @@ $runId = [guid]::NewGuid().ToString('N').Substring(0, 12)
 $anyAnswered = $false   # did any model call come back (a token cap counts: the model answered)? Decides failed against budget exhausted.
 $vHash = $null; $vNorm = $null; $vCount = $null   # the frozen verifier manifest (V2-02): raw hash, line-ending-normalised hash, file count. Set before the first call.
 $candRaw = $null        # the raw hash of the candidate file as Test-Candidate wrote it; it must be the same when the verifier has run and again before accepted.
+$cardName = $null       # the playbook card name if -CardFile was given
 
 function Get-Sha256Hex([string] $Text) { return ([BitConverter]::ToString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($Text))) -replace '-', '').ToLowerInvariant() }
 # A label is a fixed code, plus (for WRONG, SUSPECT, PARSE, LINT) the first 8 hex digits of the SHA-256 of the first failing line. Never the line itself.
@@ -178,6 +189,7 @@ function Write-Outcome([string] $Outcome, [int] $Attempts, [string] $State, [has
         $row = [ordered]@{ kind = 'run'; run = $runId; ts = (Get-Date).ToUniversalTime().ToString('o'); tag = $(if ($Tag) { $Tag } else { $null }); task = (Split-Path -Leaf $TaskFile); outcome = $Outcome; state = $State; attempts = $Attempts
             max_attempts = $MaxAttempts; seconds = [int]$runWatch.Elapsed.TotalSeconds; output_tokens = $tokens; work_dir = $WorkDir
             verifier_sha256 = $vHash; verifier_norm_sha256 = $vNorm; verifier_files = $vCount }
+        if ($cardName) { $row['card'] = $cardName }
         foreach ($k in $Extra.Keys) { $row[$k] = $Extra[$k] }
         Add-OutcomeLine ($row | ConvertTo-Json -Compress)
     } catch { }
@@ -484,6 +496,20 @@ if ($ReverifyOf) {
 }
 
 $task = Get-Content -Raw -LiteralPath $TaskFile
+if ($CardFile) {
+    $cardRaw = Get-Content -Raw -LiteralPath $CardFile -Encoding utf8
+    $cardName = [IO.Path]::GetFileNameWithoutExtension($CardFile)
+    $cardPrefix = ""
+    if ($cardRaw -match '(?ms)^##\s+Packet skeleton\s*\r?\n(.*?)(?=\r?\n##\s+|\Z)') {
+        $cardPrefix += "--- Card Guidance: Packet Skeleton ---`n" + $matches[1].Trim() + "`n`n"
+    }
+    if ($cardRaw -match '(?ms)^##\s+Worked example\s*\r?\n(.*?)(?=\r?\n##\s+|\Z)') {
+        $cardPrefix += "--- Card Guidance: Worked Example ---`n" + $matches[1].Trim() + "`n`n"
+    }
+    if ($cardPrefix) {
+        $task = $cardPrefix + $task
+    }
+}
 # A thinking attempt can spend its whole budget before it writes the answer (seen at the 8192 default): unless -MaxOutputTokens was given, it gets the maximum.
 $thinkBudget = if ($PSBoundParameters.ContainsKey('MaxOutputTokens')) { $MaxOutputTokens } else { 16384 }
 $feedback = ''   # for an attempt that produced no candidate to verify

@@ -254,6 +254,8 @@ foreach ($e in $selected) {
         if ($ThinkingProfile) { $args2 += '-ThinkingProfile', $ThinkingProfile }
         if ($InvokeScript) { $args2 += '-InvokeScript', $InvokeScript }
         if ($it.PSObject.Properties['verifier_files']) { $vf = @(@($it.verifier_files) | Where-Object { $_ } | ForEach-Object { Resolve-Item ([string]$_) }); if ($vf.Count) { $args2 += '-VerifierFiles'; $args2 += ($vf -join ',') } }
+        if ($it.PSObject.Properties['card'] -and $it.card) { $args2 += '-CardFile', (Resolve-Item ([string]$it.card)) }
+        elseif ($it.PSObject.Properties['card_file'] -and $it.card_file) { $args2 += '-CardFile', (Resolve-Item ([string]$it.card_file)) }
         $sw = [Diagnostics.Stopwatch]::StartNew()
         $text = (& pwsh @args2 2>&1 | Out-String)
         $row.seconds = [int]$sw.Elapsed.TotalSeconds

@@ -485,6 +485,59 @@ Write-Output 'FAIL expected CANARYQ7ZX9-from-the-verifier, got something else'; 
     $pl = @(Get-Content (Join-Path $par2 'outcomes.jsonl'))
     $pbad = @($pl | Where-Object { try { $null = $_ | ConvertFrom-Json; $false } catch { $true } })
     Check "$parN parallel runs share one outcome log: $($parN * 2) whole lines ($parN attempt rows and $parN run rows)" ($pl.Count -eq $parN * 2 -and $pbad.Count -eq 0 -and @($pl | ForEach-Object { ($_ | ConvertFrom-Json).kind } | Where-Object { $_ -eq 'run' }).Count -eq $parN) "lines=$($pl.Count) bad=$($pbad.Count)"
+
+    # 30. -CardFile prepends skeleton and worked example, logs card name, and guards outside paths
+    $testSkillDir = Join-Path $base 'skills/test-skill'
+    New-Item -ItemType Directory -Force $testSkillDir | Out-Null
+    $cardPath = Join-Path $testSkillDir 'test-card.md'
+    $cardLines = @(
+        '---',
+        'card: test-card',
+        'class: check',
+        'when: when test',
+        'not_when: not test',
+        'verifier: scripts/v.py',
+        'profiles: fast,fast,medium',
+        'max_output: 8192',
+        'budget_calls: 5',
+        'status: draft',
+        '---',
+        '## Packet skeleton',
+        'SKELETON_GUIDANCE_SAMPLE',
+        '',
+        '## Worked example',
+        'WORKED_EXAMPLE_SAMPLE',
+        '',
+        '## Decomposition',
+        'Steps.',
+        '',
+        '## Verifier contract',
+        'Contract.',
+        '',
+        '## Known failure modes',
+        'Modes.',
+        '',
+        '## Do-not examples',
+        'Do not.',
+        '',
+        '## Escalation',
+        'Escalate.'
+    )
+    Set-Content -LiteralPath $cardPath -Value ($cardLines -join [Environment]::NewLine) -Encoding utf8
+
+    $c = NewCase @("$fence`nGOOD`n$fence")
+    $r = Delegate $c @('-CardFile', $cardPath)
+    $prompt1 = Get-Content -Raw (Join-Path $c 'seen-prompt-1.md')
+    $run = Get-RunRow $c
+    Check '-CardFile prepends skeleton and worked example to the task prompt' ($prompt1 -match 'SKELETON_GUIDANCE_SAMPLE' -and $prompt1 -match 'WORKED_EXAMPLE_SAMPLE' -and $prompt1 -match 'write a thing') $prompt1
+    Check '-CardFile records the card name in the outcome run row' ($run.card -eq 'test-card') ($run | ConvertTo-Json -Compress)
+
+    # Rejection of card outside skills folder
+    $outsideCard = Join-Path $base 'outside-card.md'
+    Set-Content -LiteralPath $outsideCard -Value ($cardLines -join [Environment]::NewLine) -Encoding utf8
+    $cBad = NewCase @("$fence`nGOOD`n$fence")
+    $rBad = Delegate $cBad @('-CardFile', $outsideCard)
+    Check '-CardFile outside skills folder is refused with exit 2' ($rBad.Code -eq 2 -and $rBad.Out -match 'card file must resolve inside skills folder') $rBad.Out
 } finally { Remove-Item -Recurse -Force $base -ErrorAction SilentlyContinue; Remove-Item Env:STUB_DIR -ErrorAction SilentlyContinue }
 Write-Output "$($n - $fail.Count)/$n passed"
 exit ([int]($fail.Count -gt 0))

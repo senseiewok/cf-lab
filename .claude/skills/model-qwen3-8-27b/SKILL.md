@@ -91,6 +91,19 @@ Same worker and loop (`delegate.ps1`, fast, fast, then thinking), alias `qwen3.8
 
 What the runs suggest, with n this small: bounded edits with an exact patch and a test-shaped verifier were accepted on the first attempt; a larger script from a spec was accepted in four of six bare runs; no difference between the bare and card arms can be claimed. Things to watch: a failing test outside the packet's scope can make the worker invent code to satisfy it (run the verifier on the tests the packet is about); a verifier that scans text for a word plus a packet that names the word makes the worker write the word; a verifier must read nothing outside its temp copy, or an edit elsewhere fails correct attempts; an accepted result still needs a read by a stronger reviewer. Raw records stay private.
 
+### Playbook cards v0 and the bare-versus-card measurement (2026-10-15)
+
+Evaluation of playbook cards (`.claude/skills/ai-loop-council/cards/`) against bare task packets across three frozen benchmark tasks using the local worker `qwen3.8:27b-64k` via `delegate.ps1` (up to three attempts: fast, fast, thinking) and deterministic verifiers. Each condition was evaluated over three runs per task ($n=3$), recording accepted counts per cell and defects found by human reading of the accepted artifacts.
+
+| Benchmark Task | Card Class | Bare Accepted (Runs) | Bare Defects by Reading | Card Accepted (Runs) | Card Defects by Reading | Outcome / Card Status |
+|---|---|---|---|---|---|---|
+| B1: `check-quote-completeness.py` (sentence-boundary arithmetic, 12 checks) | `stdlib-cli-checker` | 0 of 3 (failed on normalization / hit token cap) | N/A (0 accepted) | 2 of 3 (attempt 2, attempt 3) | 2 minor (redundant strip, unused import) | Card beat bare on acceptance (2/3 vs 0/3). Card stays `draft` until B2 replication holds. |
+| B2: `check-lab-files.ps1 / stdlib checker` (800-line checker, 72 checks) | `stdlib-cli-checker` | 1 of 3 (4 of 6 across full replication) | 17 defects found by reading that 72 tests missed (recursion, duplicate keys, unicode) | 2 of 3 (3 of 6 across full replication) | 8 defects found by reading | Within noise floor across 6 runs (bare 4/6 vs card 3/6); card did NOT beat bare packet. Status: `draft`. |
+| B6: PR descriptions from fact sheet (3 markdown PRs, heading + number checks) | `docs-from-fact-sheet` | 3 of 3 (first attempt) | 4 defects found by reading (invented framing, unsupported caveat, missing line, wrong label) | 3 of 3 (first attempt) | 0 defects found by reading (boundary & allow-list strictly enforced) | Card beat bare on defects found by reading (0 vs 4 defects). Status: `validated`. |
+
+**Small-n caveat (AGENTS.md and model profile rules):**
+With $n=3$ runs per cell, a difference of 1 run is within random run-to-run noise (previously measured as 7 of 12 vs 8 of 12 on identical packets). These measurements establish only how this specific local worker performed on these three frozen tasks with their deterministic verifiers. They do not rank models, do not establish general superiority of cards over bare packets across arbitrary tasks, and do not remove the necessity of human reading and verifier execution. Cards are marked `validated` only where they beat the bare packet on acceptance or reading defects; cards that tied or did not beat the bare packet remain in `draft`.
+
 ### Depth of a fact in a 64K prompt (2026-10-05)
 
 `ai-loop-council/scripts/depth-probe.py` hides one synthetic sentence (an access code for a blue door) at a chosen fraction of a filler text, asks for the code, and scores the reply exactly; a control prompt with no fact checks that the model answers "not stated". Alias `qwen3.8:27b-64k` (`num_ctx` 65536), 2 samples per cell, so each cell is out of 2 and each control out of 2. The script was written by this worker through `delegate.ps1` (accepted on the first attempt, 12 of 12 tests) and then read and corrected by the controller.
