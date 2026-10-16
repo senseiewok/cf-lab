@@ -41,7 +41,7 @@ GITHUB_OWNER = "senseiewok"
 GITHUB_REPOS = ["cf-lab", "cf-research", "cf-skills", ".ai"]
 
 LANES = ("security", "research", "showcase")
-SHOWCASE_AREAS = {"content", "web", "website", "site", "ai-in-care"}
+SHOWCASE_AREAS = {"content", "web", "website", "site", "ai-in-care", "ui", "viewer", "frontend"}
 RESEARCH_AREAS = {"research", "science", "sources", "evidence", "grounding", "atlas"}
 
 # Wording that means a person must read or decide something, which triage_board's approval patterns miss.

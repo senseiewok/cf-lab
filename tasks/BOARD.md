@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 52 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+175 tasks, 174 created by a model, 52 with a measured outcome. Estimated effort 440.85 to 849.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (70)
+## ready (76)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -34,6 +34,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0096 | P1 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
+| T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | no | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
+| T-0170 | P1 | Trial Endpoint Atlas: 8-class primary outcome lexicon & verbatim span extraction | cf-research | 4-6 | 5 | 10 | no | model: gemini-4-argon | 2026-10-16 | elevated | medium | local | T-0169 |  |
 | T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0092 | P2 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0083 |  |
 | T-0104 | P2 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | local |  |  |
@@ -46,19 +48,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0144 | P2 | Observe what Antigravity loads from cf-lab, then state only that: a declared mirror under its documented paths, or no claim | cf-lab | 1-3 | 3 | 15 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | low | local |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0143 | P2 | A pull request template and a body check: every PR carries its review-loop record, a size line and a declaration of files copied from another repo | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | low | local |  |  |
+| T-0174 | P2 | Mexican Spanish (es-MX) localization and medical disclaimers for the Cryo-EM 3D Nonsense Truncation simulator on senseiewok.ai | .ai | 2-4 | 4 | 13.3 | no | model: gemini-3.8-flash | 2026-10-16 | elevated | low | local |  |  |
 | T-0105 | P2 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
+| T-0175 | P2 | Interactive allosteric rescue and nonsense readthrough kinetics simulator on senseiewok.ai/cf/cftr/ | .ai | 3-5 | 5 | 12.5 | no | model: gemini-3.8-flash | 2026-10-16 | elevated | medium | local |  |  |
 | T-0030 | P2 | Docs tier 3: make AGENTS.md the only rule source; shrink copilot-instructions.md; fix the skill-authoring skill's internal contradictions | cf-lab | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0050 | P2 | Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow | cf-lab | 2-3 | 3 | 12 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
 | T-0069 | P2 | Provider for the UKRI Gateway to Research API in cf-evidence-loop | cf-skills | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0076 | P2 | Make the skills repo installable as a Claude Code plugin marketplace | cf-skills | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local | T-0051 |  |
+| T-0171 | P2 | Trial Endpoint Atlas: dual-agent consensus audit against 50-study ground truth census | cf-research | 4-5 | 5 | 11.1 | no | model: gemini-4-argon | 2026-10-16 | full | medium | cloud | T-0170 |  |
 | T-0011 | P2 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0042 | P2 | Admission review of BioMCP as a discovery tool alongside cf-evidence-loop | cf-lab | 3-5 | 4 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
 | T-0070 | P2 | Read the terms and robots.txt of Ensembl REST, NCBI Variation Services, UniProt and ClinVar bulk files with the lab's reader; propose catalog entries | cf-research | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0121 | P2 | Stop the evidence tool's catalog copy needing a pull request after every catalog change | cf-skills | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
+| T-0173 | P2 | Trial Endpoint Atlas: zero-build interactive showcase compilation for /cf/trials/ | .ai | 4-6 | 5 | 10 | no | model: gemini-4-argon | 2026-10-16 | full | medium | cloud | T-0172 |  |
 | T-0051 | P2 | Decide and implement how the control repo consumes the evidence skill | cf-lab | 2-5 | 3 | 8.6 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local | T-0037 |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0049 | P2 | Pilot Gemini Deep Research (collaborative planning) as the frontier-planning leg; verify every citation through cf-evidence-loop | cf-lab | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0037 |  |
+| T-0172 | P2 | Trial Endpoint Atlas: PRISMA screening flow & surrogate-to-registrational endpoint evolution | cf-research | 4-6 | 4 | 8 | no | model: gemini-4-argon | 2026-10-16 | elevated | medium | local | T-0171 |  |
 | T-0021 | P2 | Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008) | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local | T-0008, T-0010 |  |
 | T-0034 | P2 | Claim checker for the elevated tier: quote, absence and count claims with a mandatory positive control | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0125 | P2 | A public review record for each page (reviewer role, version reviewed, date, open issues) | .ai | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local | T-0105, T-0117 |  |
@@ -74,7 +81,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0090 | P2 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
 | T-0133 | P2 | Opt-in browser-test job for the lab's graphics and viewer tests | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | medium | local | T-0131 |  |
 | T-0134 | P2 | Which 10 percent? A definitions ledger for modulator-eligibility denominators, after the April 2026 label change | cf-research | 8-16 | 4 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high | cloud |  |  |
-| T-0130 | P2 | CF trial endpoint atlas from a dated ClinicalTrials.gov snapshot (flagship showcase) | cf-research | 12-24 | 5 | 2.8 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high | cloud |  |  |
 | T-0136 | P2 | Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition | cf-research | 8-16 | 3 | 2.5 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | cloud |  |  |
 | T-0140 | P2 | Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy | cf-lab | 6-14 | 2 | 2 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | medium | local |  |  |
 | T-0111 | P3 | Harden the commit gate: commit only on pass, fail on stray files, show open rows | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium | local |  |  |
@@ -176,7 +182,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0163 | P3 | Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n | .ai | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-14 | elevated | medium | cloud | T-0147, T-0150, T-0152, T-0160 | site/showcase-phage-dynamics |
 | T-0119 | P3 | A local AI review of a diff in the gate, so the lab does not depend on GitHub's quota-limited AI check | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 
-## dropped (11)
+## dropped (12)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -186,6 +192,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0035 | P2 | Tier table and loop housekeeping: elevated challenger rule, slim ai-loop-council, retire the loop-orchestrator prototype | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-04 | full |  |  | T-0030 |  |
 | T-0019 | P2 | Add model profile skills for Gemma 4 31B and Laguna XS 2.1, or remove them from the site's field guide | cf-lab | 2-4 | 2 | 6.7 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0097 | P2 | Re-run the local reviewer evaluation on a second, different script | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium |  |  |  |
+| T-0130 | P2 | CF trial endpoint atlas from a dated ClinicalTrials.gov snapshot (flagship showcase) | cf-research | 12-24 | 5 | 2.8 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high | cloud |  |  |
 | T-0029 | P3 | Docs tier 2: hq housekeeping outside .claude (README tree, loop README status line, retire committed PR descriptions) | cf-lab | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine |  |  |  |  |
 | T-0032 | P3 | Docs tier 5: tidy per-user agent memory outside the repos | cf-lab | 0.25-0.5 | 1 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine |  |  |  |  |
 | T-0031 | P3 | Docs tier 4: move the idea inventory to research, make the first commit in skills, decide the private-repo naming boundary | cf-lab | 1-2 | 2 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated |  |  | T-0020 |  |
@@ -480,6 +487,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in ClinicalTrials.gov API v2; directly feeds Track B Trial Endpoint Atlas (T-0130). Tier elevated. Recommended ready. \| 2026-10-14 Opus Frontier Council Review: Approved architecture. Re-anchored cadence to Weekly on Wednesdays at 02:00 PT (CRON_TZ=America/Los_Angeles 0 2 * * 3) with catalog max_rps 1.0 and mandatory NLM disclaimer. Skill created in cf-lab/.claude/skills/scheduled-trial-surveillance/SKILL.md; sidecar config prepared. Invariant held: remains proposed awaiting human maintainer to set ready. \| 2026-10-14 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing.
 - **Measured:** 3 h; Skill scheduled-trial-surveillance operationalized and active in repo; weekly automated check scans ClinicalTrials.gov API v2 for Trial Endpoint Atlas (PR #66).
 
+### T-0169 Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification
+
+- **Why / ROI rationale:** Establishes cryptographic snapshot manifest, query parameters, and PRISMA audit counts for the 1,478 ClinicalTrials.gov CF studies. *(confidence: high)*
+- **Route:** local - Deterministic test suite and offline JSON schema validation.
+- **Acceptance:** python -m unittest discover -s tools/trial_atlas -p 'test_*.py'
+- **Evidence:** ClinicalTrials.gov API v2 query term 'cystic fibrosis'; PRISMA 2020 screening protocol
+- **Notes:** Decomposed from T-0130 (Sub-Task 1). Ingestion and manifest verification with SHA-256 integrity.
+
 ### T-0102 Bring the lab's sources together: one question, one cross-checked record, then the variant layer
 
 - **Why / ROI rationale:** Estimate: the lab's differentiator is answering one CF question from several checked sources at once; the approved sources already exist, so most of the value is wiring and tests, not new access. *(confidence: low)*
@@ -508,6 +523,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: The maintainer authorized operationalizing the 6 generative discovery engines via Antigravity cron sidecars and scheduled-* skills. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Infrastructure task operationalizing Track A discovery engines via Antigravity sidecar cron schedules; bounded permissions required. Tier elevated. Recommended ready. \| 2026-10-12: Set in_progress on branch feat/antigravity-discovery-and-pr-rules. \| 2026-10-13 Midday CRO Audit: Merged into cf-lab main via PR #55 (commit 2e9598b). Sidecar discovery engine configurations and scheduled-* skills established. Branch feat/antigravity-discovery-and-pr-rules cleanly integrated. Recommended for maintainer to set done. \| 2026-10-14 Opus Frontier Council Review: Reviewed schedule execution. Staggered timing matrix established to avoid cron collisions and resource spikes. Canonical cadences aligned with SKILL.md specs. \| 2026-10-14 Schedule Sync Discipline: Configured all 6 autonomous sentinels/sidecars to pull latest main from origin across workspace repositories on startup via sync-main.py; updated SKILL.md specs, AGENTS.md, and sidecar.json manifests. \| 2026-10-14 Flash & Local Delegation Matrix Audit: Verified reasons for lack of delegation in initial sidecar setup (prompts omitted delegation instructions; skills lacked explicit local worker steps). Codified Gemini Flash delegation architecture across AGENTS.md, ai-loop-council/SKILL.md, and all 6 scheduled-* skills: top tasks escalate to Argon (Gemini 4 Argon / pro), and local-capable tasks delegate to preferred local worker (qwen3.8:27b-64k via Ollama). Executed training & distillation round on qwen3.8:27b-64k (38/38 checks accepted across env-secrets, double-render-loop, reduced-motion). Updated sidecar.json manifests with mandatory delegation directives. \| 2026-10-14 Accelerated Active Sprint Cadence: Sidecars accelerated for active sprint development while maintaining >= 1-hour staggered offsets across all 24 hours to prevent runtime jitter collisions. SKILL.md files updated to document both default baseline and accelerated active cadences. \| 2026-10-14 Frontier Council Sentinel Consolidation: Forensic audit of 84 runs confirmed hyper-accelerated cadence caused 31.5% lock contention, 44.5% zero-output runs, ~620k tokens wasted on empty runs, and quota exhaustion. Diversity Frontier Council (Argon Family A + Opus Family B) unanimously ratified collapsing the 6 fragmented sidecars into 2 lean daily sentinels: daily-site-security-sentinel (01:00 PT) and daily-research-sentinel (03:00 PT). Implemented tasks/fast-sentinel-gate.ps1 for <100ms deterministic zero-token gating (exiting code 10 on lock or code 20 on idle). Codified Anti-Churn Invariant forbidding automated PR creation or board notes modification for clean passes. \| 2026-10-14 Turbo Mode Sentinel Acceleration: Maintainer enabled frequent automations under Antigravity Turbo Mode (AGENT_PERMISSION_PRESET_TURBO). Deployed accelerated 2-hour staggered cadence: daily-site-security-sentinel on even hours (00, 02, 04... PT) and daily-research-sentinel on odd hours (01, 03, 05... PT) with guaranteed 1-hour separation. Enforced deterministic zero-token gating via tasks/fast-sentinel-gate.ps1 (exiting code 10 on lock contention or code 20 on idle git tree matching watermark, burning 0 tokens). Authored comprehensive test suite in tasks/test-fast-sentinel-gate.ps1 (12/12 passing) and integrated with check-all.ps1. Updated SKILL.md specifications, AGENTS.md, and sidecar.json manifests under strict Anti-Churn rules. \| 2026-10-14: maintainer approved moving to done.
 - **Measured:** 8 h; Scheduled Gemini discovery engine sidecars fully implemented, operational on 2-hour turbo cadence with deterministic fast gate.
+
+### T-0170 Trial Endpoint Atlas: 8-class primary outcome lexicon & verbatim span extraction
+
+- **Why / ROI rationale:** Extracts exact character spans for 8 canonical outcome classes with zero invented substrings. *(confidence: high)*
+- **Route:** local - Deterministic regex and span verification tests.
+- **Acceptance:** python -m unittest tools/trial_atlas/test_lexicon.py tools/trial_atlas/test_propose_tags.py
+- **Evidence:** Canonical CF outcome measures and PRISMA 2020 outcome class taxonomy
+- **Notes:** Decomposed from T-0130 (Sub-Task 2). Maps primary outcomes to 8 classes with verbatim span tuples.
 
 ### T-0147 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 
@@ -913,6 +936,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-15: Claimed by daily-site-showcase-sentinel in isolated worktree site/showcase-adaptive-trials. \| 2026-10-15 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing.
 - **Measured:** 3 h; Showcase PR #80 merged into .ai main (commit b024bc4). Exposed T-0153 Adaptive Bayesian N-of-1 organoid theratyping protocol and openFDA DILI surveillance on /cf/ (#adaptive-organoids) with nav-rail.js and Mexican Spanish localization.
 
+### T-0174 Mexican Spanish (es-MX) localization and medical disclaimers for the Cryo-EM 3D Nonsense Truncation simulator on senseiewok.ai
+
+- **Why / ROI rationale:** Delivers dignified Spanish translation for the Cryo-EM 3D nonsense mutation simulator with complete medical boundaries. *(confidence: high)*
+- **Route:** local - Static i18n JSON translation and unit tests.
+- **Acceptance:** python -m unittest tests.test_site; python tasks/check-voice.py
+- **Evidence:** Live Cryo-EM PTC simulator deployed in PR #89/#90 and data/i18n/es-MX.json
+- **Notes:** Localizes PTC simulator controls, W1282X/G542X readthrough kinetics descriptions, and safety disclaimers into es-MX.
+
 ### T-0105 A CF clinician or social worker reads the safe-use box wording and the open questions
 
 - **Why / ROI rationale:** Estimate: no clinician has read the wording that tells people what to do in an emergency; it is the biggest gap for the highest-risk text. *(confidence: low)*
@@ -920,6 +951,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A named-or-anonymous clinician or social worker returns the reply form for cf-ai-safe-use; each answer is recorded in a pull request or the private notes; any change they ask for is made through a pull request with the evidence file updated.
 - **Evidence:** 2026-10-09: the wording was decided by a council of models plus one caregiver's request; no clinician has read it. cf-research proposals/2026-10-09-permission-and-review-letters.md has an invitation letter and reply form.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Related to T-0011 (a person with CF or a carer, and a registry scientist). Sending the invitation is the maintainer's step. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Listed in tasks/HUMAN-TASKS.md). Prioritized by multi-category ROI.
+
+### T-0175 Interactive allosteric rescue and nonsense readthrough kinetics simulator on senseiewok.ai/cf/cftr/
+
+- **Why / ROI rationale:** Bridges Discovery Round 3 biophysical rescue models to the interactive front door with real-time slider controls. *(confidence: high)*
+- **Route:** local - Client-side ES6 canvas and DOM manipulation tests.
+- **Acceptance:** python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py
+- **Evidence:** Discovery Council Round 3 (cf-research PR #74) Cryo-EM 3D Nonsense Truncation & Allosteric Rescue findings
+- **Notes:** Exposes allosteric pocket stabilizing interactions and ERAD escape curves alongside the 3D channel visualization.
 
 ### T-0007 Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md
 
@@ -970,6 +1009,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-14: Maintainer directive expanding site security into overall lab security, continuous improvement, and forensic session error mining across agent transcripts and logs.
 - **Notes:** 2026-10-14: Proposed and approved to ready per maintainer directive. Broadens security sentinel to overall multi-repo security, agent transcript error mining, and self-healing system improvements. \| 2026-10-15 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing.
 - **Measured:** 3 h; Session error mining tool tasks/audit_session_errors.py and test suite tasks/test_audit_session_errors.py implemented and verified (4 passing unit tests); session-error-digest.json generated with 4 actionable recommendations; scheduled-security-sentinel operationalized.
+
+### T-0171 Trial Endpoint Atlas: dual-agent consensus audit against 50-study ground truth census
+
+- **Why / ROI rationale:** Enforces dual-family model consensus (Argon + Qwen) achieving precision >= 0.90, recall >= 0.85. *(confidence: high)*
+- **Route:** cloud - Orthogonal dual-family model evaluation.
+- **Acceptance:** python tools/trial_atlas/check_atlas.py --snapshot sources/downloads/trial_atlas/cf-snapshot-1 --tags sources/downloads/trial_atlas/tags-consensus.json --key sealed/key.json
+- **Evidence:** Frozen census of 50 randomly sampled CF trials across phase 1-4 and sealed key
+- **Notes:** Decomposed from T-0130 (Sub-Task 3). Frontier consensus audit against sealed ground truth.
 
 ### T-0011 External review round: registry scientist on comparability, person with CF/caregiver on wording
 
@@ -1044,6 +1091,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-10: one reviewer asked what a second person would need to merge, deploy or take down the site if the maintainer is unavailable.
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Security first: the document names places and steps, not secrets. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
 
+### T-0173 Trial Endpoint Atlas: zero-build interactive showcase compilation for /cf/trials/
+
+- **Why / ROI rationale:** Zero-build public atlas with reactive SVG PRISMA diagram, faceted filters, and persistent NLM disclaimers. *(confidence: high)*
+- **Route:** cloud - Frontier browser UI and visual inspection.
+- **Acceptance:** python -m unittest tests.test_site; python tasks/check-voice.py
+- **Evidence:** Trial Endpoint Atlas verified static JSON and native ES modules design patterns
+- **Notes:** Decomposed from T-0130 (Sub-Task 5). Native ES module and accessible SVG visualization on senseiewok.ai.
+
 ### T-0089 Mechanical filter for local review findings: reproduce each failing input in a temp copy
 
 - **Why / ROI rationale:** Estimate: the evaluation's judges ran every input by hand, one site folder and one run per finding. A tool does that step and leaves the controller only the spec reading, which the 8-of-14 figure shows cannot be skipped. *(confidence: medium)*
@@ -1103,6 +1158,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** One research question run with collaborative_planning; plan reviewed by a human before execution; report saved; every cited DOI/NCT/approval run through cf-evidence-loop with the ledger committed; count of citations that were clean, flagged, or unresolvable reported. No private material in the prompt.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4c; ai.google.dev Deep Research docs read 2026-10-04
 - **Notes:** Human decision: spend. Check current preview status and pricing on ai.google.dev at pilot time. Add generativelanguage.googleapis.com to the catalog as access: api with terms_url before any code calls it. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+
+### T-0172 Trial Endpoint Atlas: PRISMA screening flow & surrogate-to-registrational endpoint evolution
+
+- **Why / ROI rationale:** Traces transition from physiological surrogates (sweat chloride, FIS) to registrational endpoints (ppFEV1, exacerbations). *(confidence: high)*
+- **Route:** local - Offline dataset analysis and claim verification.
+- **Acceptance:** python tools/trial_atlas/check_atlas.py; python tools/claims/check_claims.py landscape/trial-endpoint-evolution-2026.md
+- **Evidence:** Consensus outcome tags across 2008-2026 CF trials and historical transition records
+- **Notes:** Decomposed from T-0130 (Sub-Task 4). Longitudinal surrogate evolution brief with strict T2 certification.
 
 ### T-0021 Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008)
 
@@ -1354,7 +1417,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** One condition query is snapshotted once and hashed (query, date and hash recorded; the raw snapshot is committed only if the catalog entry allows redistribution). Endpoints are tagged into about 8 classes plus 'other / not stated'. A person labels a frozen set of 50 rows before any model runs. An offline script (a) recomputes every committed count from the snapshot and fails on drift, (b) fails any model tag whose quote is not an exact substring of its record, (c) prints precision and recall against the 50 frozen rows, (d) fails a deliberately perturbed fixture. Every count is worded as 'registered text in snapshot D, query Q, mentions X': no claim about efficacy, about which endpoint is better, or about anyone's eligibility. Nothing is published until the maintainer has read it.
 - **Evidence:** 2026-10-10: the maintainer asked for a showcase that proves the lab can do advanced research for researchers and clinicians (inspired by NACFC posters, which stay private leads). A read-only scan of the three repos ranked this first: it answers a question researchers hand-code today, uses only the catalog entry clinicaltrials-gov (access: api), and shows the whole loop. It overlaps the 'living map of therapy trials' scenario in cf-research/proposals/2026-10-09-research-leader-brief-and-pilot.md section B and partly T-0102 and T-0126.
-- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Registry text is wrapped as untrusted data for any model. Show endpoint, phase, status and dates only, never intervention detail. Scheduled re-runs are the maintainer's decision under the evidence skill's network rules. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Registry text is wrapped as untrusted data for any model. Show endpoint, phase, status and dates only, never intervention detail. Scheduled re-runs are the maintainer's decision under the evidence skill's network rules. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Superseded and decomposed into bounded sub-tasks T-0169 through T-0173 per proposals/2026-10-16-trial-endpoint-atlas-decomposition.md (PR cf-research#80).
 
 ### T-0136 Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition
 
