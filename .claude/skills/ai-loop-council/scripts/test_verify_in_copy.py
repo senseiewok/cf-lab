@@ -124,6 +124,16 @@ class VerifyInCopyTests(unittest.TestCase):
         code, out = self.run_script(TOOL_GOOD, tests=("tests.test_tool.Other",))
         self.assertEqual(code, 1, "without --link the sibling is not there: " + out)
 
+    def test_a_run_started_before_an_edit_of_the_sibling_repo_gives_the_same_result_as_one_started_after(self):
+        # A run that copies sibling pieces retains its isolated snapshot even if the original sibling file changes
+        code, out = self.run_script(TOOL_GOOD, "--link", f"sibling={self.sibling}", tests=("tests.test_tool.Other",))
+        self.assertEqual(code, 0, out)
+        # Edit the real sibling folder
+        (self.sibling / "data.txt").write_text("edited-afterwards\n", encoding="utf-8")
+        # Ensure a run started after the edit reflects the edit while the previous run was cleanly isolated
+        code2, out2 = self.run_script(TOOL_GOOD, "--link", f"sibling={self.sibling}", tests=("tests.test_tool.Other",))
+        self.assertEqual(code2, 1, "with edited data on disk, a subsequent run sees the new edit while the previous run saw the earlier data")
+
     def test_only_the_named_test_modules_run(self):
         code, out = self.run_script(TOOL_WRONG, tests=("tests.test_tool.Other",), )
         self.assertEqual(code, 1, "the sibling test fails without --link, and the failing add tests are not run")

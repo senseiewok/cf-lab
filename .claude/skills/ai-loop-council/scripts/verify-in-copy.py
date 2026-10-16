@@ -22,23 +22,14 @@ def ignore_func(directory, names):
 
 
 def make_link(name, path, base):
+    """Copy the linked directory or file into the temp copy so external edits during a run do not alter verification state."""
     target = Path(path).resolve()
     link_path = base / name
-    try:
-        os.symlink(str(target), str(link_path))
-        return
-    except OSError:
-        pass
-    if sys.platform == "win32":
-        try:
-            subprocess.run(
-                ["cmd", "/c", "mklink", "/J", str(link_path), str(target)],
-                check=True, capture_output=True, timeout=60
-            )
-            return
-        except Exception:
-            pass
-    shutil.copytree(str(target), str(link_path))
+    if target.is_dir():
+        shutil.copytree(str(target), str(link_path), ignore=ignore_func, symlinks=False)
+    elif target.is_file():
+        link_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(str(target), str(link_path))
 
 
 def run_generator(cmd_text, workdir, python_exe):
