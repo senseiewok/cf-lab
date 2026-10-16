@@ -8580,7 +8580,7 @@
       "title": "Mexican Spanish (es-MX) localization and medical disclaimers for the Cryo-EM 3D Nonsense Truncation simulator on senseiewok.ai",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-16T06:49:18Z",
       "created_by": {
@@ -8598,9 +8598,9 @@
         "benefit": 4,
         "rationale": "Delivers dignified Spanish translation for the Cryo-EM 3D nonsense mutation simulator with complete medical boundaries.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 2.0,
+        "measured_outcome": "Delivered Mexican Spanish (es-MX) localization for Cryo-EM 3D Nonsense Truncation simulator, W1282X/G542X readthrough kinetics descriptions, ERAD escape rate, and mandatory medical boundary disclaimer without forbidden words in senseiewok/.ai PR #94.",
         "categories": {
           "curative_biophysics": 4.0,
           "clinical_translation": 9.0,
@@ -8614,10 +8614,15 @@
       "acceptance": "python -m unittest tests.test_site; python tasks/check-voice.py",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-16T06:49:18Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Localizes PTC simulator controls, W1282X/G542X readthrough kinetics descriptions, and safety disclaimers into es-MX.",
+      "updated_at": "2026-10-16T07:15:00Z",
+      "completed_at": "2026-10-16T07:15:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-flash",
+        "session_ref": "daily-site-showcase-sentinel build slot round for T-0174 and T-0175"
+      },
+      "notes": "Localizes PTC simulator controls, W1282X/G542X readthrough kinetics descriptions, and safety disclaimers into es-MX. | 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site; python tasks/check-voice.py).",
       "recommended_route": "local",
       "route_rationale": "Static i18n JSON translation and unit tests.",
       "complexity": "low"
@@ -8627,7 +8632,7 @@
       "title": "Interactive allosteric rescue and nonsense readthrough kinetics simulator on senseiewok.ai/cf/cftr/",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-16T06:49:18Z",
       "created_by": {
@@ -8645,9 +8650,9 @@
         "benefit": 5,
         "rationale": "Bridges Discovery Round 3 biophysical rescue models to the interactive front door with real-time slider controls.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.5,
+        "measured_outcome": "Delivered interactive allosteric rescue and nonsense readthrough kinetics simulator on senseiewok.ai/cf/cftr/ with ERAD escape rate curves per Manfredi et al., Biochemistry 2025 (>40 Å allosteric clamp, W1282X/G542X dual pathways) and two-way 3D Cryo-EM viewer sync in senseiewok/.ai PR #94.",
         "categories": {
           "curative_biophysics": 8.5,
           "clinical_translation": 8.0,
@@ -8661,10 +8666,15 @@
       "acceptance": "python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-16T06:49:18Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Exposes allosteric pocket stabilizing interactions and ERAD escape curves alongside the 3D channel visualization.",
+      "updated_at": "2026-10-16T07:15:00Z",
+      "completed_at": "2026-10-16T07:15:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-flash",
+        "session_ref": "daily-site-showcase-sentinel build slot round for T-0174 and T-0175"
+      },
+      "notes": "Exposes allosteric pocket stabilizing interactions and ERAD escape curves alongside the 3D channel visualization. | 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py; sync_chrome.py --check; sync_cftr_model.py --check).",
       "recommended_route": "local",
       "route_rationale": "Client-side ES6 canvas and DOM manipulation tests.",
       "complexity": "medium"
