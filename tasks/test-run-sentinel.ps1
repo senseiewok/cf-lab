@@ -353,32 +353,41 @@ try {
     Assert-Test "No scheduled-* skill still documents the 10-minute turbo cadence" ($stale.Count -eq 0) ($stale -join ", ")
     # Every real watch path must resolve to a real tree hash (otherwise the gate never idles). Uses a
     # copy of the manifest with 'lint-' names and temp watermarks so no live lock or watermark is touched.
-    $lint = [ordered]@{ version = 1; timezone = $real.timezone; sentinels = [ordered]@{} }
-    foreach ($n in $names) {
-        $c = $real.sentinels.$n
-        $lint.sentinels["lint-$n"] = [ordered]@{
-            sidecar_dir = $c.sidecar_dir; display_name = $c.display_name; description = $c.description; cron = $c.cron
-            prompt_file = $c.prompt_file; watermark = (Join-Path $tmp "lint-$n.json"); watch_paths = $c.watch_paths
-            max_idle_hours = $c.max_idle_hours; lock_timeout_minutes = $c.lock_timeout_minutes
-            build = @{ lane = $c.build.lane; probe = "exit 20"; claim = "exit 20" }
+    # In standalone CI without sibling repos checked out, skip this section gracefully.
+    $commonGit = (git -C $repoRoot rev-parse --path-format=absolute --git-common-dir 2>$null)
+    $labMain = if ($commonGit) { Split-Path -Parent $commonGit } else { $repoRoot }
+    $siblingsRoot = Split-Path -Parent $labMain
+    $hasSiblings = (Test-Path (Join-Path $siblingsRoot "cf-research")) -and (Test-Path (Join-Path $siblingsRoot "cf-skills")) -and (Test-Path (Join-Path $siblingsRoot ".ai"))
+    if (-not $hasSiblings) {
+        Write-Host "SKIP: Real watch path resolution test needs the sibling repos (cf-research, cf-skills, .ai) next to cf-lab." -ForegroundColor Yellow
+    } else {
+        $lint = [ordered]@{ version = 1; timezone = $real.timezone; sentinels = [ordered]@{} }
+        foreach ($n in $names) {
+            $c = $real.sentinels.$n
+            $lint.sentinels["lint-$n"] = [ordered]@{
+                sidecar_dir = $c.sidecar_dir; display_name = $c.display_name; description = $c.description; cron = $c.cron
+                prompt_file = $c.prompt_file; watermark = (Join-Path $tmp "lint-$n.json"); watch_paths = $c.watch_paths
+                max_idle_hours = $c.max_idle_hours; lock_timeout_minutes = $c.lock_timeout_minutes
+                build = @{ lane = $c.build.lane; probe = "exit 20"; claim = "exit 20" }
+            }
         }
-    }
-    $lintManifest = Join-Path $tmp "lint-manifest.json"
-    $lint | ConvertTo-Json -Depth 10 | Set-Content $lintManifest -Encoding utf8
-    foreach ($n in $names) {
-        $ln = "lint-$n"
-        $lintLock = Join-Path $lockDir "sentinel-$ln.lock"
-        Remove-Item $lintLock -Force -ErrorAction SilentlyContinue
-        $c1 = Invoke-Wrapper -ManifestPath $lintManifest -Name $ln
-        $c2 = Invoke-Wrapper @("-Complete") -ManifestPath $lintManifest -Name $ln
-        $w = $null
-        $wf = Join-Path $tmp "lint-$n.json"
-        if (Test-Path $wf) { $w = Get-Content $wf -Raw | ConvertFrom-Json }
-        $missing = @($real.sentinels.$n.watch_paths | Where-Object { -not ($w -and $w.tree_hashes.$_) })
-        Assert-Test "$n watch paths all resolve to a tree hash" ($missing.Count -eq 0) "unresolved: $($missing -join ', ')"
-        $c3 = Invoke-Wrapper -ManifestPath $lintManifest -Name $ln
-        Assert-Test "$n goes idle right after its own watermark is written" ($c3 -eq 0 -and (Get-Decisions)[-1] -eq "idle") "decisions=$((Get-Decisions) -join ',')"
-        Remove-Item $lintLock -Force -ErrorAction SilentlyContinue
+        $lintManifest = Join-Path $tmp "lint-manifest.json"
+        $lint | ConvertTo-Json -Depth 10 | Set-Content $lintManifest -Encoding utf8
+        foreach ($n in $names) {
+            $ln = "lint-$n"
+            $lintLock = Join-Path $lockDir "sentinel-$ln.lock"
+            Remove-Item $lintLock -Force -ErrorAction SilentlyContinue
+            $c1 = Invoke-Wrapper -ManifestPath $lintManifest -Name $ln
+            $c2 = Invoke-Wrapper @("-Complete") -ManifestPath $lintManifest -Name $ln
+            $w = $null
+            $wf = Join-Path $tmp "lint-$n.json"
+            if (Test-Path $wf) { $w = Get-Content $wf -Raw | ConvertFrom-Json }
+            $missing = @($real.sentinels.$n.watch_paths | Where-Object { -not ($w -and $w.tree_hashes.$_) })
+            Assert-Test "$n watch paths all resolve to a tree hash" ($missing.Count -eq 0) "unresolved: $($missing -join ', ')"
+            $c3 = Invoke-Wrapper -ManifestPath $lintManifest -Name $ln
+            Assert-Test "$n goes idle right after its own watermark is written" ($c3 -eq 0 -and (Get-Decisions)[-1] -eq "idle") "decisions=$((Get-Decisions) -join ',')"
+            Remove-Item $lintLock -Force -ErrorAction SilentlyContinue
+        }
     }
 }
 finally {
