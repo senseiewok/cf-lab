@@ -1955,7 +1955,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -2036,7 +2036,7 @@
       "title": "Variant layer: MyVariant.info and gnomAD providers (aggregate frequencies only)",
       "repo": "cf-skills",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T21:40:00Z",
       "created_by": {
@@ -2054,9 +2054,9 @@
         "benefit": 4,
         "rationale": "Carrier-frequency and classification claims for CFTR and HBB variants need a population denominator; both APIs are public and aggregate.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 4.0,
+        "measured_outcome": "gnomAD provider (gnomad.py) implemented with fail-closed catalog gate; MyVariant.info provider extended with ClinVar clinical significance and gnomAD aggregate allele frequency extraction; 220 unit tests and live F508del/HbS checks verified (PR #29).",
         "categories": {
           "curative_biophysics": 7.5,
           "clinical_translation": 9.0,
@@ -2071,9 +2071,14 @@
       "review_tier": "elevated",
       "depends_on": [],
       "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Update 2026-10-04: catalog entries gnomad and myvariant now exist (research/sources/catalog.yaml). gnomad is access manual: its robots.txt is 'Disallow: *' with an allowlist that has no API path, and no API usage terms were found on its policies page, so a gnomAD API provider is blocked until the gnomAD team states API terms (a human may ask them). myvariant is api but has no base_url yet and its rate limit is unstated (capped at 1/s); it is not reachable by the skill until a human admits it. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "completed_at": "2026-10-16T03:33:53Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Gemini Flash & Argon (Antigravity)",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "2026-10-15 session: daily-research-sentinel build slot round 9"
+      },
+      "notes": "Update 2026-10-04: catalog entries gnomad and myvariant now exist (research/sources/catalog.yaml). gnomad is access manual: its robots.txt is 'Disallow: *' with an allowlist that has no API path, and no API usage terms were found on its policies page, so a gnomAD API provider is blocked until the gnomAD team states API terms (a human may ask them). myvariant is api but has no base_url yet and its rate limit is unstated (capped at 1/s); it is not reachable by the skill until a human admits it. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15 Sentinel Research Build: Marked done. Deliverables verified with 220 passing tests in cf-skills PR #29; live F508del and HbS classification and gnomAD allele frequencies verified.",
       "recommended_route": "local",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.",
       "complexity": "medium"
@@ -8078,7 +8083,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8126,7 +8131,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
