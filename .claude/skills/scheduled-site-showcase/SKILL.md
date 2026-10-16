@@ -11,7 +11,7 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ## Cadence & Trigger
 
-- **Dedicated Front-Door Cadence**: Every 2 hours at :40 PT (`CRON_TZ=America/Los_Angeles 40 */2 * * *`), set in `tasks/sentinels.json` and rendered into the sidecar by `tasks/render-sentinel-sidecars.ps1`, staggered 20 minutes after `daily-research-sentinel` and 40 minutes after `daily-security-sentinel` (alias: `daily-site-security-sentinel`). No heartbeat: nothing new to showcase means no run.
+- **Dedicated Front-Door Cadence**: Every 30 minutes at :20 and :50 PT (`CRON_TZ=America/Los_Angeles 20,50 * * * *`), set in `tasks/sentinels.json` and rendered into the sidecar by `tasks/render-sentinel-sidecars.ps1`, staggered 10 minutes after `daily-research-sentinel` and 20 minutes after `daily-security-sentinel` (alias: `daily-site-security-sentinel`). No heartbeat: nothing new to showcase means no run.
 - **Build slot (bigger, bolder work)**: besides audits, this sentinel builds. When no watched tree changed but `python tasks/pick_bold_task.py --lane showcase --check` finds a bundle, the wrapper still starts a run. The picker ranks `ready` board tasks by impact x priority x scope (not impact per hour, which favors the smallest task), bundles up to 3 related tasks of one repo (about 8 estimated hours), skips anything a person must do (human-gated, referencing a human task, needing a person's review, or a "Decide ..." task), anything with an unfinished dependency and any task that failed twice in 48 hours, never hands out a single task estimated above 12 hours (it lists those so the board can split them), and builds nothing while a `work/sentinel-showcase-*` pull request is still waiting for review (a draft counts). The wrapper claims the bundle, records the attempt and writes `.loop-logs/bold-bundle-showcase.json`; the run's prompt (`tasks/sentinel-prompts`) carries the build round: worktree, review gate, one pull request per repo, a draft when unfinished, never a merge. A build slot does not advance the watermark, so the heartbeat audits still happen. These build-round pull requests are separate from the Anti-Churn rule above, which governs audit and translation pull requests.
 - **Antigravity Sidecar ID**: `daily-site-showcase-sentinel`
 - **Review Tier**: `elevated` / `full` (depending on public claims and security boundaries).
@@ -23,7 +23,7 @@ Continuously builds and improves the public lab website ([senseiewok.ai](https:/
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 2 Hours)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
+    Trigger["Scheduled Trigger (Every 30 Minutes)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|No New Research (Code 20)| IdleExit["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Deltas Detected (Code 0)| Worktree["1. Spawn Dedicated Worktree & Branch\n(Never Edit main)"]

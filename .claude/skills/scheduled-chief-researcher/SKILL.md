@@ -11,7 +11,7 @@ Maintains strict scientific grounding and mission alignment across all autonomou
 
 ## Cadence & Trigger
 
-- **Cadence**: Every 2 hours at :20 PT (`CRON_TZ=America/Los_Angeles 20 */2 * * *`), set in `tasks/sentinels.json` and rendered into the sidecar by `tasks/render-sentinel-sidecars.ps1`, staggered 20 minutes after `daily-site-security-sentinel`. The agent starts only when proposals, landscape or the source catalog changed, or the 24-hour heartbeat is due (registry polls are not git state). Integrated within `daily-research-sentinel`.
+- **Cadence**: Every 30 minutes at :10 and :40 PT (`CRON_TZ=America/Los_Angeles 10,40 * * * *`), set in `tasks/sentinels.json` and rendered into the sidecar by `tasks/render-sentinel-sidecars.ps1`, staggered 10 minutes after `daily-site-security-sentinel`. The agent starts only when proposals, landscape or the source catalog changed, or the 24-hour heartbeat is due (registry polls are not git state). Integrated within `daily-research-sentinel`.
 - **Build slot (bigger, bolder work)**: besides audits, this sentinel builds. When no watched tree changed but `python tasks/pick_bold_task.py --lane research --check` finds a bundle, the wrapper still starts a run. The picker ranks `ready` board tasks by impact x priority x scope (not impact per hour, which favors the smallest task), bundles up to 3 related tasks of one repo (about 8 estimated hours), skips anything a person must do (human-gated, referencing a human task, needing a person's review, or a "Decide ..." task), anything with an unfinished dependency and any task that failed twice in 48 hours, never hands out a single task estimated above 12 hours (it lists those so the board can split them), and builds nothing while a `work/sentinel-research-*` pull request is still waiting for review (a draft counts). The wrapper claims the bundle, records the attempt and writes `.loop-logs/bold-bundle-research.json`; the run's prompt (`tasks/sentinel-prompts`) carries the build round: worktree, review gate, one pull request per repo, a draft when unfinished, never a merge. A build slot does not advance the watermark, so the heartbeat audits still happen. These build-round pull requests are separate from the Anti-Churn rule above, which governs audit and translation pull requests.
 - **Antigravity Sidecar ID**: `daily-research-sentinel`
 - **Review Tier**: `elevated`
@@ -23,7 +23,7 @@ Maintains strict scientific grounding and mission alignment across all autonomou
 
 ```mermaid
 flowchart TD
-    Trigger["Scheduled Trigger (Every 2 Hours)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
+    Trigger["Scheduled Trigger (Every 30 Minutes)"] --> FastGate["0. Wrapper: Sync + Fast Gate\n(tasks/run-sentinel.ps1)"]
     FastGate -->|Lock Busy (Code 10)| ExitBackoff["Exit 10 Cleanly (0 Tokens Burned)"]
     FastGate -->|Zero Deltas (Code 20)| ExitIdle["Exit 20 Cleanly (0 Tokens Burned)"]
     FastGate -->|Lock Acquired (Code 0)| Sync["1. Sync & Pull from main\n(sync-main.py)"]
