@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 38 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 39 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (84)
+## ready (83)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -85,7 +85,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0135 | P2 | Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample | cf-research | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | cloud |  |  |
 | T-0137 | P2 | AI in care: read the four preprints and papers in full and re-rate the topics honestly | .ai | 6-14 | 4 | 4 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | local |  |  |
 | T-0090 | P2 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
-| T-0126 | P2 | A small public benchmark of the lab's own checks (20 to 30 frozen tasks) | cf-research | 8-16 | 4 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | high | local |  |  |
 | T-0133 | P2 | Opt-in browser-test job for the lab's graphics and viewer tests | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | medium | local | T-0131 |  |
 | T-0134 | P2 | Which 10 percent? A definitions ledger for modulator-eligibility denominators, after the April 2026 label change | cf-research | 8-16 | 4 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high | cloud |  |  |
 | T-0130 | P2 | CF trial endpoint atlas from a dated ClinicalTrials.gov snapshot (flagship showcase) | cf-research | 12-24 | 5 | 2.8 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high | cloud |  |  |
@@ -102,7 +101,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (69)
+## done (70)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -166,6 +165,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0100 | P2 | Loop v2.1 V2-02: freeze the verifier with a manifest hash and a safe re-verify path | cf-lab | 6-10 | 4 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | high |  |  |  |
 | T-0060 | P2 | Refresh the private .ai website for the first release: new repo names, evidence loop, setup, claim fixes | .ai | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated | medium | local | T-0041 |  |
 | T-0124 | P2 | A reusable intake tool so local agents can propose Resources rows from any permitted site | cf-research | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-10 | full | high | local |  |  |
+| T-0126 | P2 | A small public benchmark of the lab's own checks (20 to 30 frozen tasks) [T2] | cf-research | 8-16 | 4 | 3.3 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | high | local |  |  |
 | T-0023 | P3 | Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy | .ai | 0.5-0.5 | 2 | 40 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0026 | P3 | Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals | cf-research | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
 | T-0107 | P3 | Take the conference banner down after NACFC 2026 | .ai | 0.5-1 | 2 | 26.7 | yes | model: claude-sonnet-5-5 | 2026-10-09 | routine | low |  |  | site/nacfc-and-es-mx-2026-10-13 |
@@ -1315,7 +1315,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** 20 to 30 tasks with fixed inputs and expected outputs built from public data the catalog permits (for example evidence-record lookups, quote-checking, claim-to-source matching); a runner; results for the local worker with and without the lab's checks, including failures; a short note on what the numbers do not show. The set is frozen with hashes. No patient data, no invented expected answers (each expected output has a source line).
 - **Evidence:** 2026-10-10: the same shared report noted, fairly, that nothing published shows the AI loop helps; the lab has small measurements (an injection probe, the findings verifier, six fixture diffs for the local review) but no frozen public set.
-- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Start from what the lab already measures and publish negatives; a person reviews the expected answers. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Evidence Package:** `tools/checks_benchmark/README.md` *(Tier: T2)*
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Start from what the lab already measures and publish negatives; a person reviews the expected answers. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Completed and verified by daily-research-sentinel via senseiewok/cf-research PR #71. All 25 frozen tasks pass acceptance checks, 40 pytest tests pass, manifest verified.
+- **Measured:** 5 h; Implemented 25 frozen tasks across 5 categories in tools/checks_benchmark with SHA-256 manifest verification, automated runner comparing with/without lab checks (100% flaw detection), empirical local worker results, and epistemic limitation note via senseiewok/cf-research PR #71.
 
 ### T-0133 Opt-in browser-test job for the lab's graphics and viewer tests
 
