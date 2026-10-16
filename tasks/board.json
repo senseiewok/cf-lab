@@ -6674,7 +6674,7 @@
       "title": "Site: one date style for generated pages (10 October 2026 versus October 10, 2026)",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-12T12:00:00Z",
       "created_by": {
@@ -6692,9 +6692,9 @@
         "benefit": 2,
         "rationale": "Estimate: a small consistency win; test lines to change are listed in the editor's memo.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.5,
+        "measured_outcome": "All site generators (make_evidence, make_resources, make_preview_index, make_trial_atlas) and static pages standardized on American English Month day, year date style. Passed all 548 unit tests and 6 generator checks; 0 day-first dates remaining across src/ HTML. Delivered in .ai PR #92.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -6708,11 +6708,16 @@
       "acceptance": "One date style chosen by the maintainer; the generators and the tests that pin the old form change together; every page uses the same form; the voice checker and all site tests pass.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-15T21:06:00Z",
+      "completed_at": "2026-10-15T21:06:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-site-showcase-sentinel cycle 21 bold build round"
+      },
       "complexity": "low",
-      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. A site-wide decision for the maintainer; the council did not take it. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. A site-wide decision for the maintainer; the council did not take it. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15 daily-site-showcase-sentinel: Completed and verified across all site generators and test suites (548 unit tests passing, all 6 generator checks green). Opened .ai PR #92.",
       "recommended_route": "cloud",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity."
     },
