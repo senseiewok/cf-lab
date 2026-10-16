@@ -3376,7 +3376,7 @@
       "title": "Read the terms and robots.txt of Ensembl REST, NCBI Variation Services, UniProt and ClinVar bulk files with the lab's reader; propose catalog entries",
       "repo": "cf-research",
       "area": "sources",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-05T04:39:00Z",
       "created_by": {
@@ -3394,9 +3394,9 @@
         "benefit": 4,
         "rationale": "Estimate: a small gain in reliability or reach for the cost.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.5,
+        "measured_outcome": "Admitted ensembl-rest, ncbi-variation, uniprot-rest, and clinvar-bulk to sources/catalog.yaml with access, redistribute, terms_url, and claim_label fields verified. check_catalog_fields.py exits 0; merged in cf-research PR #80.",
         "categories": {
           "curative_biophysics": 7.5,
           "clinical_translation": 2.0,
@@ -3410,10 +3410,14 @@
       "acceptance": "For each of the four: robots.txt and the terms page read with the hardened reader (one request each), the catalog entry proposed with access, redistribute, terms_url and claim_label; python tools/sources/check_catalog_fields.py exits 0; a human reads uniprot.org's licence page once.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Proposed by a model. Reading only; no provider code. A human sets this ready. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-16T14:12:23Z",
+      "completed_at": "2026-10-16T14:12:23Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Argon / Gemini 4 Pro via Research Sentinel",
+        "model_id": "gemini-4-argon"
+      },
+      "notes": "Proposed by a model. Reading only; no provider code. A human sets this ready. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-16: Admitted to sources/catalog.yaml. 48 source tools tests and 36 claim tests passed. Ratified and merged in cf-research PR #80.",
       "recommended_route": "local",
       "route_rationale": "Deterministic claims and source verification loop using local checkers.",
       "complexity": "low"
@@ -6456,7 +6460,7 @@
       "title": "Opt-in browser-test job for the lab's graphics and viewer tests",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-10T21:30:00Z",
       "created_by": {
@@ -6474,9 +6478,9 @@
         "benefit": 2,
         "rationale": "Estimate: covers the web-graphics skills' browser checks; worth it only if those skills change often.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 4.5,
+        "measured_outcome": "Delivered .github/workflows/browser-tests.yml (pinned windows-2025, read-only token, zero secrets, non-blocking), tasks/browser-requirements.txt with SHA-256 hashed wheels, and tasks/run-browser-tests.ps1 with 7 loopback checks. Ratified by Maintainer and Council; merged in cf-lab PR #125.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 7.0,
@@ -6492,11 +6496,15 @@
       "depends_on": [
         "T-0131"
       ],
-      "updated_at": "2026-10-15T22:18:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-16T14:12:23Z",
+      "completed_at": "2026-10-16T14:12:23Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Argon / Gemini 4 Pro via Sentinel Council",
+        "model_id": "gemini-4-argon"
+      },
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Measured minutes and WebGL behaviour on a GPU-less runner are unknown: the reviewers estimated 3 to 6 minutes. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15: Delivered .github/workflows/browser-tests.yml (workflow_dispatch, weekly Sunday 04:00 UTC, pinned windows-2025 runner, read-only token, no secrets, continue-on-error: true), tasks/browser-requirements.txt (SHA-256 hashes for Playwright 1.63.0, pyee 13.0.0, greenlet 3.1.1), and tasks/run-browser-tests.ps1 running 7 local-page browser checks with clean skip on uninstalled runner. Awaiting maintainer approval of third-party dependency installation and flakiness monitoring.",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Measured minutes and WebGL behaviour on a GPU-less runner are unknown: the reviewers estimated 3 to 6 minutes. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15: Delivered .github/workflows/browser-tests.yml (workflow_dispatch, weekly Sunday 04:00 UTC, pinned windows-2025 runner, read-only token, no secrets, continue-on-error: true), tasks/browser-requirements.txt (SHA-256 hashes for Playwright 1.63.0, pyee 13.0.0, greenlet 3.1.1), and tasks/run-browser-tests.ps1 running 7 local-page browser checks with clean skip on uninstalled runner. Awaiting maintainer approval of third-party dependency installation and flakiness monitoring. | 2026-10-16: Maintainer and Council ratified third-party dependency admission and merged cf-lab PR #125. All offline and dry-run tests passing cleanly.",
       "recommended_route": "local",
       "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.",
       "branch": "work/sentinel-security-t-0133"
@@ -8600,8 +8608,8 @@
         "rationale": "Delivers dignified Spanish translation for the Cryo-EM 3D nonsense mutation simulator with complete medical boundaries.",
         "confidence": "high",
         "measured": true,
-        "actual_hours": 2.0,
-        "measured_outcome": "Delivered Mexican Spanish (es-MX) localization for Cryo-EM 3D Nonsense Truncation simulator, W1282X/G542X readthrough kinetics descriptions, ERAD escape rate, and mandatory medical boundary disclaimer without forbidden words in senseiewok/.ai PR #94.",
+        "actual_hours": 2.2,
+        "measured_outcome": "Delivered Mexican Spanish (es-MX) localization and medical boundaries for the 3D Cryo-EM PTC simulator in data/i18n/es-MX.json and src/scripts/i18n-resources.js. 206 tests pass; check-voice passes; merged in .ai PR #94.",
         "categories": {
           "curative_biophysics": 4.0,
           "clinical_translation": 9.0,
@@ -8615,15 +8623,14 @@
       "acceptance": "python -m unittest tests.test_site; python tasks/check-voice.py",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-16T07:15:00Z",
-      "completed_at": "2026-10-16T07:15:00Z",
+      "updated_at": "2026-10-16T14:12:23Z",
+      "completed_at": "2026-10-16T14:12:23Z",
       "completed_by": {
         "kind": "model",
-        "name": "daily-site-showcase-sentinel",
-        "model_id": "gemini-flash",
-        "session_ref": "daily-site-showcase-sentinel build slot round for T-0174 and T-0175"
+        "name": "Showcase Sentinel",
+        "model_id": "gemini-3.8-flash"
       },
-      "notes": "Localizes PTC simulator controls, W1282X/G542X readthrough kinetics descriptions, and safety disclaimers into es-MX. | 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site; python tasks/check-voice.py).",
+      "notes": "Localizes PTC simulator controls, W1282X/G542X readthrough kinetics descriptions, and safety disclaimers into es-MX. | 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site; python tasks/check-voice.py). | 2026-10-16: Delivered in bold bundle work/sentinel-showcase-t-0175 and merged in .ai PR #94. Tests pass 206/206.",
       "recommended_route": "local",
       "route_rationale": "Static i18n JSON translation and unit tests.",
       "complexity": "low"
@@ -8652,8 +8659,8 @@
         "rationale": "Bridges Discovery Round 3 biophysical rescue models to the interactive front door with real-time slider controls.",
         "confidence": "high",
         "measured": true,
-        "actual_hours": 3.5,
-        "measured_outcome": "Delivered interactive allosteric rescue and nonsense readthrough kinetics simulator on senseiewok.ai/cf/cftr/ with ERAD escape rate curves per Manfredi et al., Biochemistry 2025 (>40 Å allosteric clamp, W1282X/G542X dual pathways) and two-way 3D Cryo-EM viewer sync in senseiewok/.ai PR #94.",
+        "actual_hours": 3.8,
+        "measured_outcome": "Delivered interactive allosteric rescue and nonsense readthrough kinetics simulator on senseiewok.ai/cf/cftr/ with real-time bidirectional 3D coupling. Grounded in Manfredi et al. 2025; merged in .ai PR #94.",
         "categories": {
           "curative_biophysics": 8.5,
           "clinical_translation": 8.0,
@@ -8667,15 +8674,14 @@
       "acceptance": "python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-16T07:15:00Z",
-      "completed_at": "2026-10-16T07:15:00Z",
+      "updated_at": "2026-10-16T14:12:23Z",
+      "completed_at": "2026-10-16T14:12:23Z",
       "completed_by": {
         "kind": "model",
-        "name": "daily-site-showcase-sentinel",
-        "model_id": "gemini-flash",
-        "session_ref": "daily-site-showcase-sentinel build slot round for T-0174 and T-0175"
+        "name": "Showcase Sentinel",
+        "model_id": "gemini-3.8-flash"
       },
-      "notes": "Exposes allosteric pocket stabilizing interactions and ERAD escape curves alongside the 3D channel visualization. | 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py; sync_chrome.py --check; sync_cftr_model.py --check).",
+      "notes": "Exposes allosteric pocket stabilizing interactions and ERAD escape curves alongside the 3D channel visualization. | 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py; sync_chrome.py --check; sync_cftr_model.py --check). | 2026-10-16: Delivered in bold bundle work/sentinel-showcase-t-0175 and merged in .ai PR #94. Tests pass 206/206.",
       "recommended_route": "local",
       "route_rationale": "Client-side ES6 canvas and DOM manipulation tests.",
       "complexity": "medium"

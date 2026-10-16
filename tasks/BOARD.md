@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-175 tasks, 174 created by a model, 54 with a measured outcome. Estimated effort 440.85 to 849.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+175 tasks, 174 created by a model, 56 with a measured outcome. Estimated effort 440.85 to 849.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (74)
+## ready (72)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -56,7 +56,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0171 | P2 | Trial Endpoint Atlas: dual-agent consensus audit against 50-study ground truth census | cf-research | 4-5 | 5 | 11.1 | no | model: gemini-4-argon | 2026-10-16 | full | medium | cloud | T-0170 |  |
 | T-0011 | P2 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0042 | P2 | Admission review of BioMCP as a discovery tool alongside cf-evidence-loop | cf-lab | 3-5 | 4 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
-| T-0070 | P2 | Read the terms and robots.txt of Ensembl REST, NCBI Variation Services, UniProt and ClinVar bulk files with the lab's reader; propose catalog entries | cf-research | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0121 | P2 | Stop the evidence tool's catalog copy needing a pull request after every catalog change | cf-skills | 3-5 | 4 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0173 | P2 | Trial Endpoint Atlas: zero-build interactive showcase compilation for /cf/trials/ | .ai | 4-6 | 5 | 10 | no | model: gemini-4-argon | 2026-10-16 | full | medium | cloud | T-0172 |  |
@@ -77,7 +76,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0101 | P2 | A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK | cf-lab | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | medium | local |  |  |
 | T-0137 | P2 | AI in care: read the four preprints and papers in full and re-rate the topics honestly | .ai | 6-14 | 4 | 4 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | local |  |  |
 | T-0090 | P2 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
-| T-0133 | P2 | Opt-in browser-test job for the lab's graphics and viewer tests | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | medium | local | T-0131 | work/sentinel-security-t-0133 |
 | T-0134 | P2 | Which 10 percent? A definitions ledger for modulator-eligibility denominators, after the April 2026 label change | cf-research | 8-16 | 4 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high | cloud |  |  |
 | T-0136 | P2 | Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition | cf-research | 8-16 | 3 | 2.5 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | cloud |  |  |
 | T-0140 | P2 | Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy | cf-lab | 6-14 | 2 | 2 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | medium | local |  |  |
@@ -92,7 +90,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (85)
+## done (87)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -155,6 +153,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0164 | P2 | Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation) | cf-lab | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-14 | full | medium | local | T-0159 |  |
 | T-0027 | P2 | Design an opt-in setting that lets the controlling agent delegate bounded drafts to a usable local worker automatically | cf-lab | 2-4 | 3 | 10 | yes | human: Sensei Ewok | 2026-10-04 | elevated | medium | cloud |  |  |
 | T-0041 | P2 | Website section for the evidence loop: how the lab answers a research question, with the seven layers and a live example record | .ai | 3-5 | 4 | 10 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | local | T-0037 |  |
+| T-0070 | P2 | Read the terms and robots.txt of Ensembl REST, NCBI Variation Services, UniProt and ClinVar bulk files with the lab's reader; propose catalog entries | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0079 | P2 | Measure whether the local models can write WebGL and SVG: a verifier-first test | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0089 | P2 | Mechanical filter for local review findings: reproduce each failing input in a temp copy | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |  |
 | T-0131 | P2 | Skip guard: make skipped tests visible and budgeted in CI, and discover every test | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
@@ -172,6 +171,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0124 | P2 | A reusable intake tool so local agents can propose Resources rows from any permitted site | cf-research | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-10 | full | high | local |  |  |
 | T-0135 | P2 | Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample | cf-research | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | cloud |  |  |
 | T-0126 | P2 | A small public benchmark of the lab's own checks (20 to 30 frozen tasks) [T2] | cf-research | 8-16 | 4 | 3.3 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | high | local |  |  |
+| T-0133 | P2 | Opt-in browser-test job for the lab's graphics and viewer tests | cf-lab | 4-8 | 2 | 3.3 | yes | model: claude-sonnet-5-5 | 2026-10-10 | full | medium | local | T-0131 | work/sentinel-security-t-0133 |
 | T-0023 | P3 | Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy | .ai | 0.5-0.5 | 2 | 40 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0026 | P3 | Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals | cf-research | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
 | T-0107 | P3 | Take the conference banner down after NACFC 2026 | .ai | 0.5-1 | 2 | 26.7 | yes | model: claude-sonnet-5-5 | 2026-10-09 | routine | low |  |  | site/nacfc-and-es-mx-2026-10-13 |
@@ -942,8 +942,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Static i18n JSON translation and unit tests.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check-voice.py
 - **Evidence:** Live Cryo-EM PTC simulator deployed in PR #89/#90 and data/i18n/es-MX.json
-- **Notes:** Localizes PTC simulator controls, W1282X/G542X readthrough kinetics descriptions, and safety disclaimers into es-MX. \| 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site; python tasks/check-voice.py).
-- **Measured:** 2 h; Delivered Mexican Spanish (es-MX) localization for Cryo-EM 3D Nonsense Truncation simulator, W1282X/G542X readthrough kinetics descriptions, ERAD escape rate, and mandatory medical boundary disclaimer without forbidden words in senseiewok/.ai PR #94.
+- **Notes:** Localizes PTC simulator controls, W1282X/G542X readthrough kinetics descriptions, and safety disclaimers into es-MX. \| 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site; python tasks/check-voice.py). \| 2026-10-16: Delivered in bold bundle work/sentinel-showcase-t-0175 and merged in .ai PR #94. Tests pass 206/206.
+- **Measured:** 2.2 h; Delivered Mexican Spanish (es-MX) localization and medical boundaries for the 3D Cryo-EM PTC simulator in data/i18n/es-MX.json and src/scripts/i18n-resources.js. 206 tests pass; check-voice passes; merged in .ai PR #94.
 
 ### T-0105 A CF clinician or social worker reads the safe-use box wording and the open questions
 
@@ -959,8 +959,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Client-side ES6 canvas and DOM manipulation tests.
 - **Acceptance:** python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py
 - **Evidence:** Discovery Council Round 3 (cf-research PR #74) Cryo-EM 3D Nonsense Truncation & Allosteric Rescue findings
-- **Notes:** Exposes allosteric pocket stabilizing interactions and ERAD escape curves alongside the 3D channel visualization. \| 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py; sync_chrome.py --check; sync_cftr_model.py --check).
-- **Measured:** 3.5 h; Delivered interactive allosteric rescue and nonsense readthrough kinetics simulator on senseiewok.ai/cf/cftr/ with ERAD escape rate curves per Manfredi et al., Biochemistry 2025 (>40 Å allosteric clamp, W1282X/G542X dual pathways) and two-way 3D Cryo-EM viewer sync in senseiewok/.ai PR #94.
+- **Notes:** Exposes allosteric pocket stabilizing interactions and ERAD escape curves alongside the 3D channel visualization. \| 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py; sync_chrome.py --check; sync_cftr_model.py --check). \| 2026-10-16: Delivered in bold bundle work/sentinel-showcase-t-0175 and merged in .ai PR #94. Tests pass 206/206.
+- **Measured:** 3.8 h; Delivered interactive allosteric rescue and nonsense readthrough kinetics simulator on senseiewok.ai/cf/cftr/ with real-time bidirectional 3D coupling. Grounded in Manfredi et al. 2025; merged in .ai PR #94.
 
 ### T-0007 Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md
 
@@ -1067,7 +1067,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** For each of the four: robots.txt and the terms page read with the hardened reader (one request each), the catalog entry proposed with access, redistribute, terms_url and claim_label; python tools/sources/check_catalog_fields.py exits 0; a human reads uniprot.org's licence page once.
 - **Evidence:** 2026-10-05: proposals/2026-10-05-dna-sources-survey.md lists these as the first four sources for a read-only CFTR variant helper; every term there is unverified because the pages were read through a summarising fetch tool and some did not render.
-- **Notes:** Proposed by a model. Reading only; no provider code. A human sets this ready. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** Proposed by a model. Reading only; no provider code. A human sets this ready. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-16: Admitted to sources/catalog.yaml. 48 source tools tests and 36 claim tests passed. Ratified and merged in cf-research PR #80.
+- **Measured:** 3.5 h; Admitted ensembl-rest, ncbi-variation, uniprot-rest, and clinvar-bulk to sources/catalog.yaml with access, redistribute, terms_url, and claim_label fields verified. check_catalog_fields.py exits 0; merged in cf-research PR #80.
 
 ### T-0079 Measure whether the local models can write WebGL and SVG: a verifier-first test
 
@@ -1404,7 +1405,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Branch:** work/sentinel-security-t-0133
 - **Acceptance:** A person approves the new third-party dependency first (the lab rule). Then: a workflow_dispatch plus weekly job on a pinned runner image, read-only token, no secrets, hashed requirements file, tests load only local pages; run once as non-blocking for about a week and record flakiness. Remove the row if ten scheduled runs are green and have never caught anything.
 - **Evidence:** 2026-10-10: six checks in check-all and several cf-research tests always skip because no browser runs in CI. Both reviewers advised an opt-in separate job (not on every pull request) that uses the Chrome or Edge already on the runner through Playwright's channel option, with Playwright and its dependencies pinned with hashes, and a flag that turns a missing browser into a failure so the job cannot pass while running nothing.
-- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Measured minutes and WebGL behaviour on a GPU-less runner are unknown: the reviewers estimated 3 to 6 minutes. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Delivered .github/workflows/browser-tests.yml (workflow_dispatch, weekly Sunday 04:00 UTC, pinned windows-2025 runner, read-only token, no secrets, continue-on-error: true), tasks/browser-requirements.txt (SHA-256 hashes for Playwright 1.63.0, pyee 13.0.0, greenlet 3.1.1), and tasks/run-browser-tests.ps1 running 7 local-page browser checks with clean skip on uninstalled runner. Awaiting maintainer approval of third-party dependency installation and flakiness monitoring.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Measured minutes and WebGL behaviour on a GPU-less runner are unknown: the reviewers estimated 3 to 6 minutes. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Delivered .github/workflows/browser-tests.yml (workflow_dispatch, weekly Sunday 04:00 UTC, pinned windows-2025 runner, read-only token, no secrets, continue-on-error: true), tasks/browser-requirements.txt (SHA-256 hashes for Playwright 1.63.0, pyee 13.0.0, greenlet 3.1.1), and tasks/run-browser-tests.ps1 running 7 local-page browser checks with clean skip on uninstalled runner. Awaiting maintainer approval of third-party dependency installation and flakiness monitoring. \| 2026-10-16: Maintainer and Council ratified third-party dependency admission and merged cf-lab PR #125. All offline and dry-run tests passing cleanly.
+- **Measured:** 4.5 h; Delivered .github/workflows/browser-tests.yml (pinned windows-2025, read-only token, zero secrets, non-blocking), tasks/browser-requirements.txt with SHA-256 hashed wheels, and tasks/run-browser-tests.ps1 with 7 loopback checks. Ratified by Maintainer and Council; merged in cf-lab PR #125.
 
 ### T-0134 Which 10 percent? A definitions ledger for modulator-eligibility denominators, after the April 2026 label change
 
