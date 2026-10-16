@@ -6513,7 +6513,7 @@
       "title": "Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample",
       "repo": "cf-research",
       "area": "atlas",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-12T12:00:00Z",
       "created_by": {
@@ -6531,9 +6531,9 @@
         "benefit": 4,
         "rationale": "Estimate: readers (a physician lens and an evidence lens) both read 1.00 from 43 entries as exact.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 6.0,
+        "measured_outcome": "Implemented S1-S4 accuracy gate threshold display in #method, precision and recall stratified bootstrap confidence intervals on class pages, model-sorted inclusion statement in accuracy sample, and plain-words definitions of weighted estimate, few checked, and synthetic marker. Verified via 189 unit tests in .ai (PR https://github.com/senseiewok/.ai/pull/88) and 111 unit tests in cf-research (PR https://github.com/senseiewok/cf-research/pull/75).",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -6547,11 +6547,16 @@
       "acceptance": "From the run record and the gate code, not memory: the threshold (S1 to S4 values) is printed on the front page; each class page shows an interval for the precision and recall it prints (computed by a named method from the sample counts, verified by a test); a sentence says whether model-sorted entries are in the accuracy sample (and a check fails if the answer changes); 'weighted estimate', 'few checked' and 'synthetic marker' are each defined once in plain words; the prose ledger and banned-claims scan pass.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-15T18:53:00Z",
+      "completed_at": "2026-10-15T18:53:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Antigravity (Gemini 2.5 Flash)",
+        "model_id": "gemini-2.5-flash",
+        "session_ref": "daily-research-sentinel-2026-10-15"
+      },
       "complexity": "medium",
-      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. No numbers from memory; the interval method must be named and tested. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. No numbers from memory; the interval method must be named and tested. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15: Completed by daily-research-sentinel. Verified via companion PRs in .ai (#88) and cf-research (#75).",
       "recommended_route": "cloud",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity."
     },

@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-168 tasks, 167 created by a model, 41 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+168 tasks, 167 created by a model, 42 with a measured outcome. Estimated effort 415.85 to 812.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (81)
+## ready (80)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -80,7 +80,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0101 | P2 | A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK | cf-lab | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | medium | local |  |  |
 | T-0084 | P2 | Local worker playbook cards v0 and the bare-versus-card measurement | cf-lab | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |  |
 | T-0087 | P2 | Faster site and package test suites with the same assertions | cf-research | 3-6 | 2 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine | medium | local |  |  |
-| T-0135 | P2 | Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample | cf-research | 6-12 | 4 | 4.4 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | cloud |  |  |
 | T-0137 | P2 | AI in care: read the four preprints and papers in full and re-rate the topics honestly | .ai | 6-14 | 4 | 4 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | local |  |  |
 | T-0090 | P2 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
 | T-0133 | P2 | Opt-in browser-test job for the lab's graphics and viewer tests | cf-lab | 4-8 | 2 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | medium | local | T-0131 |  |
@@ -99,7 +98,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (72)
+## done (73)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -165,6 +164,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0100 | P2 | Loop v2.1 V2-02: freeze the verifier with a manifest hash and a safe re-verify path | cf-lab | 6-10 | 4 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | high |  |  |  |
 | T-0060 | P2 | Refresh the private .ai website for the first release: new repo names, evidence loop, setup, claim fixes | .ai | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated | medium | local | T-0041 |  |
 | T-0124 | P2 | A reusable intake tool so local agents can propose Resources rows from any permitted site | cf-research | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-10 | full | high | local |  |  |
+| T-0135 | P2 | Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample | cf-research | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | cloud |  |  |
 | T-0126 | P2 | A small public benchmark of the lab's own checks (20 to 30 frozen tasks) [T2] | cf-research | 8-16 | 4 | 3.3 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | high | local |  |  |
 | T-0023 | P3 | Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy | .ai | 0.5-0.5 | 2 | 40 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0026 | P3 | Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals | cf-research | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
@@ -1278,7 +1278,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** From the run record and the gate code, not memory: the threshold (S1 to S4 values) is printed on the front page; each class page shows an interval for the precision and recall it prints (computed by a named method from the sample counts, verified by a test); a sentence says whether model-sorted entries are in the accuracy sample (and a check fails if the answer changes); 'weighted estimate', 'few checked' and 'synthetic marker' are each defined once in plain words; the prose ledger and banned-claims scan pass.
 - **Evidence:** 2026-10-11 role-played evidence-expert review of the atlas pages (T0, model): the front page says classes fell below 'the lab's accuracy threshold' without a number; the class page shows 'Precision 1.00 ... 43 entries checked' without an interval; it is not said whether the 70 model-sorted entries sit inside the accuracy sample (a possible model-scored-against-model circularity); 'weighted estimate', 'few checked' and 'synthetic marker' are not explained.
-- **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. No numbers from memory; the interval method must be named and tested. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. No numbers from memory; the interval method must be named and tested. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Completed by daily-research-sentinel. Verified via companion PRs in .ai (#88) and cf-research (#75).
+- **Measured:** 6 h; Implemented S1-S4 accuracy gate threshold display in #method, precision and recall stratified bootstrap confidence intervals on class pages, model-sorted inclusion statement in accuracy sample, and plain-words definitions of weighted estimate, few checked, and synthetic marker. Verified via 189 unit tests in .ai (PR https://github.com/senseiewok/.ai/pull/88) and 111 unit tests in cf-research (PR https://github.com/senseiewok/cf-research/pull/75).
 
 ### T-0077 Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding
 
