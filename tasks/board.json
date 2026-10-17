@@ -1973,7 +1973,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8161,7 +8161,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8209,7 +8209,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8719,6 +8719,50 @@
       "notes": "Exposes allosteric pocket stabilizing interactions and ERAD escape curves alongside the 3D channel visualization. | 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py; sync_chrome.py --check; sync_cftr_model.py --check). | 2026-10-16: Delivered in bold bundle work/sentinel-showcase-t-0175 and merged in .ai PR #94. Tests pass 206/206.",
       "recommended_route": "local",
       "route_rationale": "Client-side ES6 canvas and DOM manipulation tests.",
+      "complexity": "medium"
+    },
+    {
+      "id": "T-0176",
+      "title": "Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "ready",
+      "priority": "P1",
+      "created_at": "2026-10-17T01:30:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon / Gemini 4 Pro via Frontier Council Architect",
+        "model_id": "gemini-4-argon",
+        "session_ref": "maintainer directive: twice-a-day schedule for GitHub hygiene"
+      },
+      "source_evidence": "tasks/sentinels.json, tasks/HUMAN-TASKS.md, .claude/skills/workspace-siblings/scripts/worktrees.py, and multi-repo PR state",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "roi": {
+        "benefit": 4,
+        "rationale": "Automated PR hygiene eliminates merge conflict friction, identifies unresolved review comments across the multi-repo workspace, protects human-gated boundaries, audits stale worktrees, and prevents maintainer cognitive overload.",
+        "confidence": "high",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null,
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 9.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 6.3,
+        "roi_ratio": 1.94
+      },
+      "acceptance": "python tasks/audit_github_hygiene.py --check; python -m unittest tasks.test_audit_github_hygiene; pwsh -NoProfile -File tasks/test-run-sentinel.ps1; pwsh -NoProfile -File tasks/render-sentinel-sidecars.ps1 -Check",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "notes": "Multi-repo GitHub hygiene engine inspecting cf-lab, cf-skills, cf-research. Emits .loop-logs/github-hygiene-digest.json and syncs memory/handoff.md when maintainer action is required. Integrated into daily-security-sentinel audit suite.",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic git/gh inspection, offline unit tests, and fast-gate preflight.",
       "complexity": "medium"
     }
   ]
