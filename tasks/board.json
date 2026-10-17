@@ -409,7 +409,7 @@
       "title": "ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators)",
       "repo": "cf-research",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -427,9 +427,9 @@
         "benefit": 4,
         "rationale": "The core deliverable. ECFSPR is fully fetchable, so this is unblocked today.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 7.0,
+        "measured_outcome": "Delivered tools/registry-extract/extract_ecfspr.py extraction pipeline extracting 185 rows across 5 ECFSPR report years (2020-2024), 16 indicators, 16 European country strata (stratum_country), and all 5 ECFSPR denominator scopes (denominator_scope). Verified 100% (185/185) url and page coverage. Conducted 100-cell random audit achieving 100.0% extraction accuracy with Wilson 95% CI [0.9630, 1.0000]. Committed disagreement_log.md, audit_100_cells.json, and passing test suite (24 unit tests). Delivered in senseiewok/cf-research PR #86.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -445,10 +445,15 @@
       "depends_on": [
         "T-0008"
       ],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-17T14:30:00Z",
+      "completed_at": "2026-10-17T14:30:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-research-sentinel build slot round (cf-research PR #86, T-0009 + T-0010)"
+      },
+      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #86 (extract_ecfspr.py extracts 185 rows across 5 report years, 16 European country strata, and 5 denominator scopes; 100% rows carry url+page; 100-cell random audit achieved 100.0% accuracy, Wilson 95% CI [0.9630, 1.0000]; disagreement_log.md committed; all 24 unit tests passed).",
       "recommended_route": "local",
       "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.",
       "complexity": "low"
@@ -458,7 +463,7 @@
       "title": "Claim-check harness + frozen 60-claim evaluation set",
       "repo": "cf-research",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -476,9 +481,9 @@
         "benefit": 4,
         "rationale": "Turns the table into something a person or local model can be checked against; abstention-by-construction is the safety property.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 4.5,
+        "measured_outcome": "Delivered tools/registry-extract/frozen_60_claims.json (30 supported, 20 contradicted across numeric/stratum/denominator-conflation errors, 10 out_of_scope) frozen with canonical SHA-256 digests (blind_input_sha256=ea8a0b29... and full_benchmark_sha256=b16548d8...) before evaluation, plus claim_harness.py and test_claim_harness.py achieving 60/60 (100.0% >= 90%) overall verdicts and 10/10 out_of_scope abstentions. Delivered in senseiewok/cf-research PR #86.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -494,10 +499,15 @@
       "depends_on": [
         "T-0009"
       ],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-17T14:30:00Z",
+      "completed_at": "2026-10-17T14:30:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-research-sentinel build slot round (cf-research PR #86, T-0009 + T-0010)"
+      },
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #86 (frozen_60_claims.json cryptographically frozen prior to evaluation; claim_harness.py achieves 60/60 = 100.0% correct verdicts and 10/10 out_of_scope abstentions; verified by test_claim_harness.py).",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance.",
       "complexity": "low"
@@ -1976,7 +1986,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8223,7 +8233,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8271,7 +8281,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
