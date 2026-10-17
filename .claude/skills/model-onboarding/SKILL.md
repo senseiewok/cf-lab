@@ -60,10 +60,7 @@ ollama ps                  # record intentional CPU/GPU placement and context
 | `failed-shown` | Wrong logic on examples it can see |
 | `failed-hidden-only` | Fits the examples but doesn't generalise |
 | `rejected-unsafe` | Reached for a command outside the read-only allowlist |
-
-**Proposal, design only.** Build `../cf-research/tools/sources/fixtures/claim-mapping-v0.json` from the extracted ECFSPR summary indicators: 30 claims the table supports, 20 it contradicts, 10 it does not cover. Score models on verdict accuracy and on abstention discipline separately; a model that answers confidently on the 10 out-of-scope claims fails regardless of its accuracy on the rest. Report with the same small-sample caveats the injection probe uses.
-
-This should not be built until the extraction schema is frozen; otherwise the fixture encodes a schema that will change.
+**ECFSPR claim-mapping & abstention discipline benchmark (`T-0021`).** Run `python .claude/skills/model-onboarding/scripts/score_claim_mapping.py --check` (or `--eval-ollama <model>`) against `.claude/skills/model-onboarding/fixtures/claim-mapping-v0.json` (60 items derived from extracted ECFSPR v0.1 summary indicators: 30 `supported`, 20 `contradicted`, 10 `abstain`). The scorer reports `covered_accuracy` (across the 50 covered items) separately from `abstention_rate_on_uncovered` and `false_confident_on_uncovered` (across the 10 out-of-scope items) in `.claude/skills/model-onboarding/fixtures/claim-mapping-baseline-results.json`. Any model that answers confidently (`supported` or `contradicted`) on the 10 uncovered claims (`false_confident_on_uncovered > 1` or `abstention_rate_on_uncovered < 0.90`) fails admission (`admitted: false`) regardless of its accuracy on the 50 covered items. On the baseline run, `qwen3.8:27b-64k` achieved `covered_accuracy: 1.0` (50/50) and `abstention_rate_on_uncovered: 1.0` (10/10, `false_confident_on_uncovered: 0`).
 
 ## 5. Speed
 
