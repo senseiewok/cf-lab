@@ -1,0 +1,7 @@
+Invented example for check_claims.py. Not a real report; every name and number here is made up.
+
+Section 3. Variant review, 2024 edition.
+
+In the 2024 review, 127 variants were classed as benign or likely benign and 437 were left unclassified.
+The 2023 review used the same three classes.
+Only variants seen in at least two families were reviewed.
