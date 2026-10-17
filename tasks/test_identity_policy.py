@@ -63,7 +63,7 @@ class TestIdentityPolicy(unittest.TestCase):
         self.assertIn("commit author and committer identity", text)
         self.assertIn("GIT_AUTHOR_IDENT", text)
         self.assertIn("commit-author", text)
-        self.assertIn("@(gmail|outlook|hotmail|yahoo|icloud|proton|protonmail)", text)
+        self.assertIn("@(senseiewok\\.ai|users\\.noreply\\.github\\.com|example\\.invalid)$", text)
 
 
 if __name__ == "__main__":

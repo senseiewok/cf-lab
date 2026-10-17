@@ -4,8 +4,8 @@
 # Case-sensitive unless the regex starts with (?i).
 
 local-path	[A-Za-z]:\\(Users|senseiewok)\\	C:\Users\someone\file.txt
-local-path	/home/[a-z][a-z0-9_-]+/	/home/someone/file.txt
-local-path	/Users/[a-z][A-Za-z0-9_-]+/	/Users/someone/file.txt
+local-path	(?<![A-Za-z0-9._-])/home/[a-z][a-z0-9_-]+/	/home/someone/file.txt
+local-path	(?<![A-Za-z0-9._-])/Users/[a-z][A-Za-z0-9_-]+/	/Users/someone/file.txt
 identity-email	(?i)[A-Za-z0-9._%+-]+@(gmail|outlook|hotmail|yahoo|icloud|proton|protonmail)\.[a-z]+	someone@gmail.com
 hardware	(?i)\b(RTX|GTX)\s?\d{3,4}\b	RTX 5090
 hardware	(?i)\b\d{1,3}\s?GB\s+(VRAM|of VRAM)\b	24 GB VRAM

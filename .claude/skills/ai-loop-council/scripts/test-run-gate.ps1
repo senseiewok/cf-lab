@@ -59,10 +59,13 @@ try {
     $stillStaged = @(& git -C $tmp2 diff --cached --name-only) -join ','
     Check '-MessageFile does not commit on a fail' ($nc.Code -eq 1 -and $nc.Out -match 'NOT COMMITTED' -and $nc.Out -notmatch '(?m)^COMMITTED' -and (Commits $tmp2) -eq 1 -and $stillStaged -eq 'b.md' -and $nc.Last -match '^OPEN ROWS: \d+$') $nc.Out
 
-    # commit author email check: personal email fails and does not commit
+    # commit author email check: personal email or unpermitted domain fails and does not commit
     $env:GIT_AUTHOR_EMAIL = 'developer@gmail.com'  # privacy-scan: allow
     $cBadAuthor = Run @('-Tier', 'routine', '-Expected', 'b.md', '-MessageFile', $msg) $tmp2
     Check 'personal webmail author blocks commit' ($cBadAuthor.Code -eq 1 -and $cBadAuthor.Out -match 'GATE FAILED:.*commit-author' -and $cBadAuthor.Out -match 'NOT COMMITTED') $cBadAuthor.Out
+    $env:GIT_AUTHOR_EMAIL = 'person@aol.com'  # privacy-scan: allow
+    $cBadDomain = Run @('-Tier', 'routine', '-Expected', 'b.md', '-MessageFile', $msg) $tmp2
+    Check 'non-allowlisted domain author blocks commit' ($cBadDomain.Code -eq 1 -and $cBadDomain.Out -match 'GATE FAILED:.*commit-author' -and $cBadDomain.Out -match 'NOT COMMITTED') $cBadDomain.Out
     $env:GIT_AUTHOR_EMAIL = 't@example.invalid'
     Remove-Item (Join-Path $tmp2 'stray.txt')
     Set-Content (Join-Path $tmp2 'a.md') 'edited, not staged' -Encoding utf8
@@ -236,6 +239,26 @@ try {
     $ls = Run @('-Tier', 'routine', '-Expected', 'd.md', '-LocalReview', '-ReviewScript', $skip.Script) $tmp2
     Check 'the review is not run when a deterministic row failed' ($ls.Code -eq 1 -and -not (Test-Path $skip.Marker) -and $ls.Out -match 'not run: a deterministic row failed') $ls.Out
     Remove-Item (Join-Path $tmp2 'stray.txt')
+
+    # T-0074: a 30-word copy in a staged note fails run-gate.ps1 when sources/downloads exists
+    $realCso = Join-Path $PSScriptRoot '../../../../../cf-research/tools/sources/check_source_overlap.py'
+    if (Test-Path -LiteralPath $realCso) {
+        $tmp3 = Join-Path ([IO.Path]::GetTempPath()) ('gate-cso-' + [guid]::NewGuid().ToString('N'))
+        New-Item -ItemType Directory -Force $tmp3, (Join-Path $tmp3 'tools/sources'), (Join-Path $tmp3 'sources/downloads') | Out-Null
+        try {
+            & git -C $tmp3 init -q 2>&1 | Out-Null
+            Set-Content (Join-Path $tmp3 '.gitignore') 'sources/downloads/' -Encoding utf8
+            Copy-Item -LiteralPath (Resolve-Path -LiteralPath $realCso).Path -Destination (Join-Path $tmp3 'tools/sources/check_source_overlap.py')
+            $thirty = (0..29 | ForEach-Object { "copiedword$_" }) -join ' '
+            Set-Content (Join-Path $tmp3 'sources/downloads/src.txt') ("Intro " + $thirty + " outro.") -Encoding utf8
+            Set-Content (Join-Path $tmp3 'note.md') ("Lead " + $thirty + " tail.") -Encoding utf8
+            & git -C $tmp3 -c core.safecrlf=false add .gitignore tools/sources/check_source_overlap.py note.md 2>&1 | Out-Null
+            $csoGate = Run @('-Tier', 'routine', '-Expected', '.gitignore,tools/sources/check_source_overlap.py,note.md') $tmp3
+            Check 'T-0074: a 30-word copy fails run-gate.ps1 when sources/downloads exists' ($csoGate.Code -eq 1 -and $csoGate.Out -match 'FAIL owning checker check_source_overlap\.py' -and $csoGate.Out -match 'GATE FAILED: check-changed') $csoGate.Out
+        } finally {
+            Remove-Item -Recurse -Force $tmp3 -ErrorAction SilentlyContinue
+        }
+    }
 } finally {
     Remove-Item -Recurse -Force $tmp, $tmp2, $msgDir -ErrorAction SilentlyContinue
     Remove-Item Env:GIT_AUTHOR_NAME, Env:GIT_AUTHOR_EMAIL, Env:GIT_COMMITTER_NAME, Env:GIT_COMMITTER_EMAIL -ErrorAction SilentlyContinue

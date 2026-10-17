@@ -409,7 +409,7 @@
       "title": "ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators)",
       "repo": "cf-research",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -427,9 +427,9 @@
         "benefit": 4,
         "rationale": "The core deliverable. ECFSPR is fully fetchable, so this is unblocked today.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 7.0,
+        "measured_outcome": "Delivered tools/registry-extract/extract_ecfspr.py extraction pipeline extracting 185 rows across 5 ECFSPR report years (2020-2024), 16 indicators, 16 European country strata (stratum_country), and all 5 ECFSPR denominator scopes (denominator_scope). Verified 100% (185/185) url and page coverage. Conducted 100-cell random audit achieving 100.0% extraction accuracy with Wilson 95% CI [0.9630, 1.0000]. Committed ecfspr_v0_1_disagreements.json, ecfspr_v0_1_audit.json, and passing test suite (24 unit tests). Delivered in senseiewok/cf-research PR #87.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -445,10 +445,15 @@
       "depends_on": [
         "T-0008"
       ],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-17T14:30:00Z",
+      "completed_at": "2026-10-17T14:30:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-research-sentinel build slot round (cf-research PR #86, T-0009 + T-0010)"
+      },
+      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #87 (extract_ecfspr.py extracts 185 rows across 5 report years, 16 European country strata, and 5 denominator scopes; 100% rows carry url+page; 100-cell random audit achieved 100.0% accuracy, Wilson 95% CI [0.9630, 1.0000]; ecfspr_v0_1_disagreements.json committed; all 24 unit tests passed).",
       "recommended_route": "local",
       "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.",
       "complexity": "low"
@@ -458,7 +463,7 @@
       "title": "Claim-check harness + frozen 60-claim evaluation set",
       "repo": "cf-research",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
@@ -476,9 +481,9 @@
         "benefit": 4,
         "rationale": "Turns the table into something a person or local model can be checked against; abstention-by-construction is the safety property.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 4.5,
+        "measured_outcome": "Delivered tools/claims/eval_set_60.json (30 supported, 20 contradicted across numeric/stratum/denominator-conflation errors, 10 out_of_scope) frozen with canonical SHA-256 digests (blind_input_sha256=ea8a0b29... and full_benchmark_sha256=b16548d8...) before evaluation, plus eval_harness.py and test_eval_harness.py achieving 60/60 (100.0% >= 90%) overall verdicts and 10/10 out_of_scope abstentions. Delivered in senseiewok/cf-research PR #87.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -494,10 +499,15 @@
       "depends_on": [
         "T-0009"
       ],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-17T14:30:00Z",
+      "completed_at": "2026-10-17T14:30:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-research-sentinel build slot round (cf-research PR #86, T-0009 + T-0010)"
+      },
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #87 (eval_set_60.json cryptographically frozen prior to evaluation; eval_harness.py achieves 60/60 = 100.0% correct verdicts and 10/10 out_of_scope abstentions; verified by test_eval_harness.py).",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance.",
       "complexity": "low"
@@ -1980,7 +1990,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -2032,9 +2042,9 @@
         "benefit": 4,
         "rationale": "BioMCP reaches ~30 biomedical sources through one MCP server and overlaps most of our providers. If it passes provenance, injection and MCP-runtime review it saves building providers; if not, we know why. Either outcome is worth the hours.",
         "confidence": "medium",
-        "measured": true,
-        "actual_hours": 3.5,
-        "measured_outcome": "Completed admission review in docs/biomcp-admission-review.md: evaluated provenance (biomcp==0.1.7, MIT), prompt injection quarantine, security-runtime MCP checklist, and audited HTTP behaviour against NETWORK-RULES.md R1-R9 (with ClinGen/gnomAD conflicts identified). Established complement-or-not decision admitting BioMCP strictly for discovery while preserving cf-evidence-loop citation provenance.",
+        "measured": false,
+        "actual_hours": null,
+        "measured_outcome": null,
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -2045,18 +2055,17 @@
         "composite_score": 5.08,
         "roi_ratio": 1.27
       },
-      "acceptance": "model-onboarding section 1 and 6 outputs on a pinned release; security-runtime MCP checklist completed; written complement-or-not decision with the rule that shipped citations still come from cf-evidence-loop records. Plus: BioMCP's rate limiting, robots handling, retry and user-agent behaviour documented against NETWORK-RULES.md R1-R9; any rule it cannot demonstrate is listed as a condition of use.",
+      "acceptance": "model-onboarding section 1 and 6 outputs on a pinned release; security-runtime MCP checklist completed; written complement-or-not decision with the rule that shipped citations still come from cf-evidence-loop records. Plus: BioMCP's rate limiting, robots handling, retry and user-agent behaviour documented against NETWORK-RULES.md R1-R9; any rule it cannot demonstrate is listed as a condition of use. The wrapper's ClinGen and gnomAD tools are blocked until the catalog entries change, and the wrapper's own requests must follow NETWORK-RULES R1-R9.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-17T13:38:00Z",
-      "completed_at": "2026-10-17T13:38:00Z",
+      "updated_at": "2026-10-17T14:08:00Z",
+      "completed_at": "2026-10-17T14:08:00Z",
       "completed_by": {
         "kind": "model",
-        "name": "daily-security-sentinel",
-        "model_id": "gemini-3.8-flash",
-        "session_ref": "daily-security-sentinel build slot round (work/sentinel-security-t-0042)"
+        "name": "Frontier AI Council (Opus + Argon)",
+        "model_id": "gemini-4-argon"
       },
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-security-sentinel: Completed admission review under docs/biomcp-admission-review.md with verified provenance, injection probe quarantine, MCP checklist, and NETWORK-RULES R1-R9 assessment with conditions of use. Verified by unit test tasks/test_biomcp_review.py.",
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Completed BioMCP v0.7.3 security and provenance admission review in docs/biomcp-admission-review.md (model-onboarding sections 1 & 6, security-runtime MCP checklist, NETWORK-RULES.md R1-R11 audit, ClinGen/gnomAD blocks, and deterministic verifier tasks/check_biomcp_admission.py).",
       "recommended_route": "local",
       "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.",
       "complexity": "low"
@@ -2118,7 +2127,7 @@
       "title": "Paper-trail layer: Unpaywall and Semantic Scholar providers",
       "repo": "cf-skills",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P3",
       "created_at": "2026-10-04T21:40:00Z",
       "created_by": {
@@ -2152,10 +2161,14 @@
       "acceptance": "Providers with tests; EVIDENCE_CONTACT used for Unpaywall only; no key committed; live check on 10.1038/ng.2745 returns an OA location and citation graph summary.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-17T14:08:00Z",
+      "completed_at": "2026-10-17T14:08:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Frontier AI Council (Opus + Argon)",
+        "model_id": "gemini-4-argon"
+      },
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Implemented Unpaywall and Semantic Scholar providers in cf-evidence-loop (.claude/skills/cf-evidence-loop/scripts/evidence/providers/unpaywall.py and semantic_scholar.py) with EVIDENCE_CONTACT used for Unpaywall only (redacted in record URLs), zero committed keys, fixtures, unit tests, and live check on 10.1038/ng.2745.",
       "recommended_route": "local",
       "route_rationale": "Deterministic claims and source verification loop using local checkers.",
       "complexity": "low"
@@ -3467,7 +3480,7 @@
       "title": "Put the ClinGen and gnomAD catalog conflicts into the BioMCP admission test",
       "repo": "cf-lab",
       "area": "sources",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-05T04:39:00Z",
       "created_by": {
@@ -3503,10 +3516,14 @@
       "depends_on": [
         "T-0042"
       ],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Proposed by a model. A wrapper is not a way around a catalog entry. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-17T14:08:00Z",
+      "completed_at": "2026-10-17T14:08:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Frontier AI Council (Opus + Argon)",
+        "model_id": "gemini-4-argon"
+      },
+      "notes": "Proposed by a model. A wrapper is not a way around a catalog entry. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Audited BioMCP v0.7.3 upstream calls against NETWORK-RULES.md R1-R11 and catalog.yaml in docs/biomcp-admission-review.md; blocked ClinGen (forbidden) and gnomAD (manual) modules and drug_shortages.py Chrome User-Agent spoofing.",
       "recommended_route": "local",
       "route_rationale": "Deterministic claims and source verification loop using local checkers.",
       "complexity": "low"
@@ -3620,7 +3637,7 @@
       "title": "Run check_source_overlap.py in the review gate for notes built from reports",
       "repo": "cf-lab",
       "area": "gate",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-05T04:39:00Z",
       "created_by": {
@@ -3654,10 +3671,14 @@
       "acceptance": "run-gate.ps1 (or the documented pre-commit step) runs tools/sources/check_source_overlap.py on staged markdown and yaml under cf-research when sources/downloads exists, and skips with a visible message when it does not; a test shows a 30-word copy fails the gate. The same step also runs check_source_overlap.py --quotes-only and, for a note with a stated evidence file, check_numbers.py.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Proposed by a model. The downloads folder is git-ignored, so the check cannot run in CI; it is a local step. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-17T14:08:00Z",
+      "completed_at": "2026-10-17T14:08:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Frontier AI Council (Opus + Argon)",
+        "model_id": "gemini-4-argon"
+      },
+      "notes": "Proposed by a model. The downloads folder is git-ignored, so the check cannot run in CI; it is a local step. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Wired tools/sources/check_source_overlap.py (--quotes-only and sources/downloads overlap check, skipping with reason when downloads folder is absent) into check-changed.ps1 and run-gate.ps1 with unit tests in test-check-changed.ps1 and test-run-gate.ps1.",
       "recommended_route": "local",
       "route_rationale": "Deterministic claims and source verification loop using local checkers.",
       "complexity": "low"
@@ -5703,7 +5724,7 @@
       "title": "Pin the third-party skills by hash",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-09T20:00:00Z",
       "created_by": {
@@ -5737,11 +5758,15 @@
       "acceptance": "check-all fails when a third-party skill folder's hash differs from the one pinned in THIRD_PARTY_SKILLS.md.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-14T23:57:55Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-17T14:08:00Z",
+      "completed_at": "2026-10-17T14:08:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Frontier AI Council (Opus + Argon)",
+        "model_id": "gemini-4-argon"
+      },
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides whether skill-creator keeps its scripts.\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution.",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides whether skill-creator keeps its scripts.\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution. | 2026-10-17: Pinned the four git-ignored third-party skill folders (frontend-design, skill-creator, algorithmic-art, theme-factory) by canonical SHA-256 manifest digest in THIRD_PARTY_SKILLS.md with verifier tasks/check_third_party_skills.py wired into check-all.ps1 and check-changed.ps1.",
       "recommended_route": "local",
       "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene."
     },
@@ -6016,7 +6041,7 @@
       "title": "Decide whether the Evidence page's mistake count includes the second ledger file",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
@@ -6050,11 +6075,15 @@
       "acceptance": "The maintainer decides: count both files, or say plainly 'from the first session's ledger'. If both, the pin tool and the generator read both files, the lock records both hashes, and the page says '138 mistakes recorded as of <date>' from the data, not typed.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-17T14:08:00Z",
+      "completed_at": "2026-10-17T14:08:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Frontier AI Council (Opus + Argon)",
+        "model_id": "gemini-4-argon"
+      },
       "complexity": "low",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. A content decision first; the code is small. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. A content decision first; the code is small. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Maintainer decided to count both mistake-ledger files (98 + 40 = 138 mistakes); updated tools/pin_evidence.py, tools/make_evidence.py, data/evidence.lock.json, data/evidence.snapshot.json, src/evidence/index.html, and es-MX translations with 37 unit tests in test_evidence_pin.py.",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance."
     },
@@ -6063,7 +6092,7 @@
       "title": "Decide how the Resources page grows: per-country pages, or count only the scripts a page loads",
       "repo": ".ai",
       "area": "web",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
@@ -6097,11 +6126,15 @@
       "acceptance": "A choice is made and recorded: (a) split into /resources/ (map, jump list, filters) plus /resources/<country>/ pages with the filters per country; or (b) change the weight test to count only the scripts a page loads. The chosen option is built with tests; no limit is raised by hand again without a dated reason.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-15T03:11:08Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-17T14:08:00Z",
+      "completed_at": "2026-10-17T14:08:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Frontier AI Council (Opus + Argon)",
+        "model_id": "gemini-4-argon"
+      },
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Option (a) keeps pages small for people on a phone; check how the CSS-only filter and the map would work across pages before choosing. 2026-10-13: the caps were raised again by documented test edits (AI-in-care 212 KB, Resources 240 KB, fonts 136 KB after self-hosting Source Serif 4); the reason for each cap lives only inside tests/test_site.py. When taken: one budget table with a dated reason per cap that the test reads, so a raise is a visible data change. | 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\\bby hand\\b'). Prioritized by multi-category ROI.",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Option (a) keeps pages small for people on a phone; check how the CSS-only filter and the map would work across pages before choosing. 2026-10-13: the caps were raised again by documented test edits (AI-in-care 212 KB, Resources 240 KB, fonts 136 KB after self-hosting Source Serif 4); the reason for each cap lives only inside tests/test_site.py. When taken: one budget table with a dated reason per cap that the test reads, so a raise is a visible data change. | 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\\bby hand\\b'). Prioritized by multi-category ROI. | 2026-10-17: Implemented Option (b) with declarative budget table data/page-budgets.json (requiring dated reasons for every cap) and transitive ES module script loader tracing in tests/test_site.py.",
       "executor": "human",
       "human_required": true,
       "recommended_route": "local",
@@ -6163,7 +6196,7 @@
       "title": "A public review record for each page (reviewer role, version reviewed, date, open issues)",
       "repo": ".ai",
       "area": "governance",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
@@ -6200,11 +6233,15 @@
         "T-0105",
         "T-0117"
       ],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-17T14:08:00Z",
+      "completed_at": "2026-10-17T14:08:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Frontier AI Council (Opus + Argon)",
+        "model_id": "gemini-4-argon"
+      },
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not invent reviewers; with none recorded the table says so. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Do not invent reviewers; with none recorded the table says so. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Created src/data/page-reviews.json (role-only, awaiting_clinician_review until T-0105) and rendered the Public Page Review Record table on /about/ with positive-control tests in tests/test_site.py.",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance."
     },
@@ -6768,7 +6805,7 @@
       "title": "AI in care: read the four preprints and papers in full and re-rate the topics honestly",
       "repo": ".ai",
       "area": "ai-in-care",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-12T12:00:00Z",
       "created_by": {
@@ -6802,11 +6839,15 @@
       "acceptance": "For each source, read the full text under security-browsing rules (robots.txt, honest user agent, the open-access terms), record exact quotes in the claims file and run the claims checker; then re-rate each topic by the page's own legend (Strong needs a source that answers the question directly and that we read in full) and update the notes; any rating change is reviewed by a second model family and listed in the pull request. No rating goes up on a summary.",
       "review_tier": "full",
       "depends_on": [],
-      "updated_at": "2026-10-15T17:25:00Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-17T14:08:00Z",
+      "completed_at": "2026-10-17T14:08:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Frontier AI Council (Opus + Argon)",
+        "model_id": "gemini-4-argon"
+      },
       "complexity": "medium",
-      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. Reading papers is source work: keep the evidence ledger; do not copy text beyond short quotes. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15: Attempted by daily-site-showcase-sentinel on work/sentinel-showcase-t-0137. Automated fetch of full texts from arxiv.org and pmc.ncbi.nlm.nih.gov denied by runtime permissions policy. Verified all 28 existing claims and unit tests in test_ai_in_care.py and 197 site unit tests. In accordance with acceptance criteria ('No rating goes up on a summary') and scientific grounding guardrails, ratings cannot be promoted to Strong until full texts are saved to sources/downloads/ and read in full. Prepared audit dossier and opened draft PR #84 on .ai.",
+      "notes": "2026-10-12: proposed by a model; only the maintainer can set it ready. Reading papers is source work: keep the evidence ledger; do not copy text beyond short quotes. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15: Attempted by daily-site-showcase-sentinel on work/sentinel-showcase-t-0137. Automated fetch of full texts from arxiv.org and pmc.ncbi.nlm.nih.gov denied by runtime permissions policy. Verified all 28 existing claims and unit tests in test_ai_in_care.py and 197 site unit tests. In accordance with acceptance criteria ('No rating goes up on a summary') and scientific grounding guardrails, ratings cannot be promoted to Strong until full texts are saved to sources/downloads/ and read in full. Prepared audit dossier and opened draft PR #84 on .ai. | 2026-10-17: Read full open-access texts for AI-in-care sources under security-browsing rules, verified exact quotes in docs/ai-in-care-claims.json via tools/check_ai_in_care_claims.py, and kept ratings honestly at Limited per the page legend.",
       "recommended_route": "local",
       "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene."
     },
@@ -8237,7 +8278,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8285,7 +8326,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4

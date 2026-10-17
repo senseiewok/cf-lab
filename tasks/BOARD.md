@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-182 tasks, 181 created by a model, 84 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+182 tasks, 181 created by a model, 85 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (6)
 
@@ -15,7 +15,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 | work/frontier-showcase-t0173-t0077-t0120 |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (49)
+## ready (39)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -25,18 +25,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0128 | P1 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0001 | P1 | Replace hq LICENSE.md with a named OSI license; add a LICENSE to research, .ai, skills | cf-lab | 0.5-1.5 | 5 | 50 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
-| T-0071 | P1 | Put the ClinGen and gnomAD catalog conflicts into the BioMCP admission test | cf-lab | 0.5-1 | 3 | 40 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local | T-0042 |  |
 | T-0145 | P1 | Decide the leftover git state from the 2026-10-11 to 13 session: one stale remote branch, two worktrees with unpushed commits, two worktrees that would not remove | cf-lab | 0.25-0.75 | 2 | 40 | no | model: claude-sonnet-5-5 | 2026-10-13 | routine | low | cloud |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0094 | P1 | Decide, after the review memo, whether the AI-agent robots.txt rule from T-0067 ships, then merge it in both repos | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | full | medium | local | T-0067 |  |
 | T-0095 | P1 | Make the website's footer and credit wording agree with the README's 'Thanks to the tools' section | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0096 | P1 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
-| T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0092 | P2 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0083 |  |
 | T-0104 | P2 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | local |  |  |
-| T-0116 | P2 | Pin the third-party skills by hash | cf-lab | 1-2 | 3 | 20 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low | local |  |  |
 | T-0144 | P2 | Observe what Antigravity loads from cf-lab, then state only that: a declared mirror under its documented paths, or no claim | cf-lab | 1-3 | 3 | 15 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | low | local |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0143 | P2 | A pull request template and a body check: every PR carries its review-loop record, a size line and a declaration of files copied from another repo | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | low | local |  |  |
@@ -49,15 +45,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0049 | P2 | Pilot Gemini Deep Research (collaborative planning) as the frontier-planning leg; verify every citation through cf-evidence-loop | cf-lab | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0037 |  |
 | T-0021 | P2 | Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008) | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local | T-0008, T-0010 |  |
-| T-0125 | P2 | A public review record for each page (reviewer role, version reviewed, date, open issues) | .ai | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local | T-0105, T-0117 |  |
 | T-0080 | P2 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
-| T-0010 | P2 | Claim-check harness + frozen 60-claim evaluation set | cf-research | 4-8 | 4 | 6.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0009 |  |
 | T-0083 | P2 | Release review of the site-seo-review skill | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
-| T-0123 | P2 | Decide how the Resources page grows: per-country pages, or count only the scripts a page loads | .ai | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 | T-0132 | P2 | Make the 11 skipped cftr-model data tests run: commit the five hashed structure files | cf-research | 2-4 | 2 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | low | local | T-0131 |  |
-| T-0009 | P2 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 | T-0101 | P2 | A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK | cf-lab | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | medium | local |  |  |
-| T-0137 | P2 | AI in care: read the four preprints and papers in full and re-rate the topics honestly | .ai | 6-14 | 4 | 4 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | local |  |  |
 | T-0090 | P2 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
 | T-0134 | P2 | Which 10 percent? A definitions ledger for modulator-eligibility denominators, after the April 2026 label change | cf-research | 8-16 | 4 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high | cloud |  |  |
 | T-0136 | P2 | Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition | cf-research | 8-16 | 3 | 2.5 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | cloud |  |  |
@@ -65,11 +56,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0086 | P3 | Depth probe for the 64K local alias | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine | low | local |  |  |
 | T-0114 | P3 | Test CI for the three public repos | cf-lab | 2-4 | 3 | 10 | no | model: claude-opus-5-5 | 2026-10-09 | full | medium | local |  |  |
 | T-0113 | P3 | Eval tallies as data: commit verdict rows, recount the grid, state judge drift | cf-skills | 3-6 | 4 | 8.9 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium | local |  |  |
-| T-0044 | P3 | Paper-trail layer: Unpaywall and Semantic Scholar providers | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (115)
+## done (125)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -78,6 +68,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0005 | P1 | Download CFF Patient Registry PDFs by hand into research/sources/downloads | cf-research | 0.5-0.75 | 4 | 64 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 | T-0057 | P1 | Human edits to the protected .github folder after the rename: CODEOWNERS, copilot-instructions names, CI workflows | cf-lab | 0.1-0.25 | 1 | 57.1 | yes | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
 | T-0014 | P1 | Decide the 'CF - until there's a cure' site tagline against lab-voice | .ai | 0.25-0.5 | 2 | 53.3 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
+| T-0071 | P1 | Put the ClinGen and gnomAD catalog conflicts into the BioMCP admission test | cf-lab | 0.5-1 | 3 | 40 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local | T-0042 |  |
 | T-0099 | P1 | Add a reviewed lesson to ai-loop-council: appends to a log shared by parallel runs lose lines unless the file is opened exclusively | cf-lab | 0.5-1 | 3 | 40 | yes | model: claude-sonnet-5-5 | 2026-10-07 | elevated | low | local |  | work/frontier-lab-unbinding |
 | T-0037 | P1 | Add Retraction Watch (via Crossref) retraction check to the catalog and to the claim-check harness design | cf-research | 1-2 | 5 | 33.3 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0003 | P1 | Apply the HQ skill-update proposal (security-browsing, cf-research-context, ai-loop-council, model-onboarding) | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
@@ -85,6 +76,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0072 | P1 | Decision: cloud-model use on reports with unread terms; permission requests to the CFF Registry and the CF Trust; the CC0 label on skills that carry quotations | cf-research | 1-2 | 4 | 26.7 | yes | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | cloud |  |  |
 | T-0109 | P1 | A rule for questions about one real person: generalise before any search | cf-lab | 1-3 | 5 | 25 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |  |
 | T-0073 | P1 | A tool-limited agent definition for read-only reviewers | cf-lab | 1-2 | 3 | 20 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
+| T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
 | T-0181 | P1 | Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py) | .ai | 1.5-3 | 4 | 17.8 | yes | model: claude-3-opus | 2026-10-17 | elevated | low | local | T-0180 |  |
 | T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | yes | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |  |
 | T-0167 | P1 | Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification | .ai | 2-4 | 5 | 16.7 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud |  |  |
@@ -98,7 +90,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
-| T-0042 | P1 | Admission review of BioMCP as a discovery tool alongside cf-evidence-loop | cf-lab | 3-5 | 4 | 10 | yes | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
+| T-0042 | P1 | Admission review of BioMCP as a discovery tool alongside cf-evidence-loop | cf-lab | 3-5 | 4 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
 | T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer [T2] | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
 | T-0155 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  | feat/turbo-sentinel-cadence |
@@ -131,6 +123,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0028 | P2 | Add a reviewed lesson to ai-loop-council: a verbatim-quote check does not verify inferences, and a truncated quote can produce a false 'differs' claim | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local |  |  |
 | T-0062 | P2 | A generated manual-downloads page with links, file names and a prompt to run when the files are saved | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0065 | P2 | Delegation: a sequential batch runner and a verifier-suspect hint | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | medium | cloud |  |  |
+| T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
+| T-0116 | P2 | Pin the third-party skills by hash | cf-lab | 1-2 | 3 | 20 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low | local |  |  |
 | T-0139 | P2 | Server steps only a person can do: X-Robots-Tag for the atlas and a 301 for /letter/ | .ai | 1-2 | 3 | 20 | yes | model: claude-sonnet-5-5 | 2026-10-12 | full | low |  |  |  |
 | T-0008 | P2 | Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256) | cf-research | 2-3 | 4 | 16 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | cloud | T-0005 |  |
 | T-0112 | P2 | A merge check: catch commits a squash merge dropped | cf-lab | 2-3 | 4 | 16 | yes | model: claude-opus-5-5 | 2026-10-09 | routine | low | local |  | work/frontier-lab-unbinding |
@@ -165,16 +159,21 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0056 | P2 | check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-04 | full | medium | cloud |  |  |
 | T-0064 | P2 | More sources: UKRI Gateway to Research, CORDIS, EU Clinical Trials Register, WHO ICTRP, PubPeer, ClinGen, and the CFF 2025 highlights link | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | cloud |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
+| T-0125 | P2 | A public review record for each page (reviewer role, version reviewed, date, open issues) | .ai | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local | T-0105, T-0117 |  |
+| T-0010 | P2 | Claim-check harness + frozen 60-claim evaluation set | cf-research | 4-8 | 4 | 6.7 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0009 |  |
 | T-0053 | P2 | Data Commons provider in cf-evidence-loop for population denominators (if the admission is accepted) | cf-skills | 3-6 | 3 | 6.7 | yes | model: claude-sonnet-5-5 | 2026-10-04 | full | medium | local | T-0048 |  |
 | T-0063 | P2 | ascii-art skill: a craft process, a canvas library, a rendering and accessibility checker, one new piece, and the research behind them | cf-lab | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | medium | local |  |  |
 | T-0085 | P2 | Delegation loop: answer-first contract, grouped verifier feedback and a PowerShell AST lint | cf-lab | 3-6 | 3 | 6.7 | yes | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |  |
+| T-0123 | P2 | Decide how the Resources page grows: per-country pages, or count only the scripts a page loads | .ai | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 | T-0138 | P2 | Site: one date style for generated pages (10 October 2026 versus October 10, 2026) | .ai | 2-5 | 2 | 5.7 | yes | model: claude-sonnet-5-5 | 2026-10-12 | routine | low | cloud |  |  |
+| T-0009 | P2 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 | T-0100 | P2 | Loop v2.1 V2-02: freeze the verifier with a manifest hash and a safe re-verify path | cf-lab | 6-10 | 4 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | high |  |  |  |
 | T-0060 | P2 | Refresh the private .ai website for the first release: new repo names, evidence loop, setup, claim fixes | .ai | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated | medium | local | T-0041 |  |
 | T-0084 | P2 | Local worker playbook cards v0 and the bare-versus-card measurement | cf-lab | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |  |
 | T-0087 | P2 | Faster site and package test suites with the same assertions | cf-research | 3-6 | 2 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-06 | routine | medium | local |  |  |
 | T-0124 | P2 | A reusable intake tool so local agents can propose Resources rows from any permitted site | cf-research | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-10 | full | high | local |  |  |
 | T-0135 | P2 | Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample | cf-research | 6-12 | 4 | 4.4 | yes | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | cloud |  |  |
+| T-0137 | P2 | AI in care: read the four preprints and papers in full and re-rate the topics honestly | .ai | 6-14 | 4 | 4 | no | model: claude-sonnet-5-5 | 2026-10-12 | full | medium | local |  |  |
 | T-0126 | P2 | A small public benchmark of the lab's own checks (20 to 30 frozen tasks) [T2] | cf-research | 8-16 | 4 | 3.3 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | high | local |  |  |
 | T-0133 | P2 | Opt-in browser-test job for the lab's graphics and viewer tests | cf-lab | 4-8 | 2 | 3.3 | yes | model: claude-sonnet-5-5 | 2026-10-10 | full | medium | local | T-0131 | work/sentinel-security-t-0133 |
 | T-0023 | P3 | Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy | .ai | 0.5-0.5 | 2 | 40 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
@@ -188,6 +187,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0163 | P3 | Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n | .ai | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-14 | elevated | medium | cloud | T-0147, T-0150, T-0152, T-0160 | site/showcase-phage-dynamics |
 | T-0127 | P3 | A board consistency check in render-board | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  | work/frontier-lab-unbinding |
 | T-0119 | P3 | A local AI review of a diff in the gate, so the lab does not depend on GitHub's quota-limited AI check | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
+| T-0044 | P3 | Paper-trail layer: Unpaywall and Semantic Scholar providers | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
 
 ## dropped (12)
 
@@ -305,7 +305,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** T-0042's acceptance text lists the wrapper's ClinGen and gnomAD tools as blocked until the catalog entries change, and says the wrapper's own requests must follow NETWORK-RULES R1-R9.
 - **Evidence:** 2026-10-05: the survey found that BioMCP, OpenCRAVAT and a gnomAD MCP call ClinGen or gnomAD, while the catalog records clingen as forbidden (robots.txt refuses other agents) and gnomad as manual (API paths disallowed).
-- **Notes:** Proposed by a model. A wrapper is not a way around a catalog entry. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** Proposed by a model. A wrapper is not a way around a catalog entry. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17: Audited BioMCP v0.7.3 upstream calls against NETWORK-RULES.md R1-R11 and catalog.yaml in docs/biomcp-admission-review.md; blocked ClinGen (forbidden) and gnomAD (manual) modules and drug_shortages.py Chrome User-Agent spoofing.
 
 ### T-0099 Add a reviewed lesson to ai-loop-council: appends to a log shared by parallel runs lose lines unless the file is opened exclusively
 
@@ -435,7 +435,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** The maintainer decides: count both files, or say plainly 'from the first session's ledger'. If both, the pin tool and the generator read both files, the lock records both hashes, and the page says '138 mistakes recorded as of <date>' from the data, not typed.
 - **Evidence:** 2026-10-10: the page counts mistakes from ledger/2026-10-04-first-session.md only (98 rows); cf-research/ledger/2026-10-07-second-session.md holds 40 more rows that the page has never counted (found by the evidence-pin builder).
-- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. A content decision first; the code is small. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. A content decision first; the code is small. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17: Maintainer decided to count both mistake-ledger files (98 + 40 = 138 mistakes); updated tools/pin_evidence.py, tools/make_evidence.py, data/evidence.lock.json, data/evidence.snapshot.json, src/evidence/index.html, and es-MX translations with 37 unit tests in test_evidence_pin.py.
 
 ### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
 
@@ -565,10 +565,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 - **Why / ROI rationale:** BioMCP reaches ~30 biomedical sources through one MCP server and overlaps most of our providers. If it passes provenance, injection and MCP-runtime review it saves building providers; if not, we know why. Either outcome is worth the hours. *(confidence: medium)*
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
-- **Acceptance:** model-onboarding section 1 and 6 outputs on a pinned release; security-runtime MCP checklist completed; written complement-or-not decision with the rule that shipped citations still come from cf-evidence-loop records. Plus: BioMCP's rate limiting, robots handling, retry and user-agent behaviour documented against NETWORK-RULES.md R1-R9; any rule it cannot demonstrate is listed as a condition of use.
+- **Acceptance:** model-onboarding section 1 and 6 outputs on a pinned release; security-runtime MCP checklist completed; written complement-or-not decision with the rule that shipped citations still come from cf-evidence-loop records. Plus: BioMCP's rate limiting, robots handling, retry and user-agent behaviour documented against NETWORK-RULES.md R1-R9; any rule it cannot demonstrate is listed as a condition of use. The wrapper's ClinGen and gnomAD tools are blocked until the catalog entries change, and the wrapper's own requests must follow NETWORK-RULES R1-R9.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 1
-- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17 daily-security-sentinel: Completed admission review under docs/biomcp-admission-review.md with verified provenance, injection probe quarantine, MCP checklist, and NETWORK-RULES R1-R9 assessment with conditions of use. Verified by unit test tasks/test_biomcp_review.py.
-- **Measured:** 3.5 h; Completed admission review in docs/biomcp-admission-review.md: evaluated provenance (biomcp==0.1.7, MIT), prompt injection quarantine, security-runtime MCP checklist, and audited HTTP behaviour against NETWORK-RULES.md R1-R9 (with ClinGen/gnomAD conflicts identified). Established complement-or-not decision admitting BioMCP strictly for discovery while preserving cf-evidence-loop citation provenance.
+- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17: Completed BioMCP v0.7.3 security and provenance admission review in docs/biomcp-admission-review.md (model-onboarding sections 1 & 6, security-runtime MCP checklist, NETWORK-RULES.md R1-R11 audit, ClinGen/gnomAD blocks, and deterministic verifier tasks/check_biomcp_admission.py).
 
 ### T-0102 Bring the lab's sources together: one question, one cross-checked record, then the variant layer
 
@@ -855,7 +854,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** run-gate.ps1 (or the documented pre-commit step) runs tools/sources/check_source_overlap.py on staged markdown and yaml under cf-research when sources/downloads exists, and skips with a visible message when it does not; a test shows a 30-word copy fails the gate. The same step also runs check_source_overlap.py --quotes-only and, for a note with a stated evidence file, check_numbers.py.
 - **Evidence:** 2026-10-05: the checker found a 26-word run copied from an ECFSPR report in a published skill and three over-long quotations in catalog notes.
-- **Notes:** Proposed by a model. The downloads folder is git-ignored, so the check cannot run in CI; it is a local step. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** Proposed by a model. The downloads folder is git-ignored, so the check cannot run in CI; it is a local step. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17: Wired tools/sources/check_source_overlap.py (--quotes-only and sources/downloads overlap check, skipping with reason when downloads folder is absent) into check-changed.ps1 and run-gate.ps1 with unit tests in test-check-changed.ps1 and test-run-gate.ps1.
 
 ### T-0092 Re-run the SEO skill release review after the SEO008 fix
 
@@ -879,7 +878,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** check-all fails when a third-party skill folder's hash differs from the one pinned in THIRD_PARTY_SKILLS.md.
 - **Evidence:** 2026-10-09: four third-party skills are loaded by every session; one spawns nested agents; review was a grep, not a line-by-line read.
-- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides whether skill-creator keeps its scripts. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides whether skill-creator keeps its scripts. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. \| 2026-10-17: Pinned the four git-ignored third-party skill folders (frontend-design, skill-creator, algorithmic-art, theme-factory) by canonical SHA-256 manifest digest in THIRD_PARTY_SKILLS.md with verifier tasks/check_third_party_skills.py wired into check-all.ps1 and check-changed.ps1.
 
 ### T-0139 Server steps only a person can do: X-Robots-Tag for the atlas and a 301 for /letter/
 
@@ -1310,7 +1309,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** A data file lists each page, its review status, the reviewer's ROLE (no names unless the identity decision T-0117 allows it), the version or date reviewed, issues raised and not yet resolved, and the next review date; a page (or a section of About) renders it from the data; tests refuse a page marked reviewed with no entry. Nothing is marked reviewed until the clinician reading (T-0105) has happened.
 - **Evidence:** 2026-10-10: a Gemini strategy report the maintainer shared (an AI-written, unsourced triage reviewed by the controlling agent) asked for formal review records and visible accountability; the site already stamps pages 'Draft, in review' but records no reviewer.
-- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Do not invent reviewers; with none recorded the table says so. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Do not invent reviewers; with none recorded the table says so. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17: Created src/data/page-reviews.json (role-only, awaiting_clinician_review until T-0105) and rendered the Public Page Review Record table on /about/ with positive-control tests in tests/test_site.py.
 
 ### T-0080 Website revamp and a better organization across the lab, with Fable's guidance
 
@@ -1326,7 +1325,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** >=90% correct verdicts; all 10 out-of-scope claims return out_of_scope; set frozen before any model sees it.
 - **Evidence:** cf-first-project-scoping-memo.md (private session document, not in the repo) section 4 and 6
-- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #87 (eval_set_60.json cryptographically frozen prior to evaluation; eval_harness.py achieves 60/60 = 100.0% correct verdicts and 10/10 out_of_scope abstentions; verified by test_eval_harness.py).
+- **Measured:** 4.5 h; Delivered tools/claims/eval_set_60.json (30 supported, 20 contradicted across numeric/stratum/denominator-conflation errors, 10 out_of_scope) frozen with canonical SHA-256 digests (blind_input_sha256=ea8a0b29... and full_benchmark_sha256=b16548d8...) before evaluation, plus eval_harness.py and test_eval_harness.py achieving 60/60 (100.0% >= 90%) overall verdicts and 10/10 out_of_scope abstentions. Delivered in senseiewok/cf-research PR #87.
 
 ### T-0019 Add model profile skills for Gemma 4 31B and Laguna XS 2.1, or remove them from the site's field guide
 
@@ -1384,7 +1384,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A choice is made and recorded: (a) split into /resources/ (map, jump list, filters) plus /resources/<country>/ pages with the filters per country; or (b) change the weight test to count only the scripts a page loads. The chosen option is built with tests; no limit is raised by hand again without a dated reason.
 - **Evidence:** 2026-10-10: the Resources page measured 239,778 bytes against its limit (raised from 224 KB to 236 KB for 36 rows; the page HTML alone is 76,912 bytes and grows about 2 KB per row); the proposal planned /resources/<code>/ pages when a page passes 80 percent of its cap.
-- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Option (a) keeps pages small for people on a phone; check how the CSS-only filter and the map would work across pages before choosing. 2026-10-13: the caps were raised again by documented test edits (AI-in-care 212 KB, Resources 240 KB, fonts 136 KB after self-hosting Source Serif 4); the reason for each cap lives only inside tests/test_site.py. When taken: one budget table with a dated reason per cap that the test reads, so a raise is a visible data change. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\bby hand\b'). Prioritized by multi-category ROI.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Option (a) keeps pages small for people on a phone; check how the CSS-only filter and the map would work across pages before choosing. 2026-10-13: the caps were raised again by documented test edits (AI-in-care 212 KB, Resources 240 KB, fonts 136 KB after self-hosting Source Serif 4); the reason for each cap lives only inside tests/test_site.py. When taken: one budget table with a dated reason per cap that the test reads, so a raise is a visible data change. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\bby hand\b'). Prioritized by multi-category ROI. \| 2026-10-17: Implemented Option (b) with declarative budget table data/page-budgets.json (requiring dated reasons for every cap) and transitive ES module script loader tracing in tests/test_site.py.
 
 ### T-0132 Make the 11 skipped cftr-model data tests run: commit the five hashed structure files
 
@@ -1409,7 +1409,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** >=99% extraction accuracy on a 100-cell random audit (Wilson 95% CI reported); 100% rows carry url+page; disagreement log committed.
 - **Evidence:** cf-first-project-scoping-memo.md (private session document, not in the repo) sections 5-6
-- **Notes:** 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #87 (extract_ecfspr.py extracts 185 rows across 5 report years, 16 European country strata, and 5 denominator scopes; 100% rows carry url+page; 100-cell random audit achieved 100.0% accuracy, Wilson 95% CI [0.9630, 1.0000]; ecfspr_v0_1_disagreements.json committed; all 24 unit tests passed).
+- **Measured:** 7 h; Delivered tools/registry-extract/extract_ecfspr.py extraction pipeline extracting 185 rows across 5 ECFSPR report years (2020-2024), 16 indicators, 16 European country strata (stratum_country), and all 5 ECFSPR denominator scopes (denominator_scope). Verified 100% (185/185) url and page coverage. Conducted 100-cell random audit achieving 100.0% extraction accuracy with Wilson 95% CI [0.9630, 1.0000]. Committed ecfspr_v0_1_disagreements.json, ecfspr_v0_1_audit.json, and passing test suite (24 unit tests). Delivered in senseiewok/cf-research PR #87.
 
 ### T-0100 Loop v2.1 V2-02: freeze the verifier with a manifest hash and a safe re-verify path
 
@@ -1486,7 +1487,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** For each source, read the full text under security-browsing rules (robots.txt, honest user agent, the open-access terms), record exact quotes in the claims file and run the claims checker; then re-rate each topic by the page's own legend (Strong needs a source that answers the question directly and that we read in full) and update the notes; any rating change is reviewed by a second model family and listed in the pull request. No rating goes up on a summary.
 - **Evidence:** 2026-10-12 council decision: four topics were re-rated from Strong to Limited because each rests on an abstract-only or partly read source (Liu and others, Walters and Wilder, Bean and others, Sharma and others; the APA advisory read in part). Walters and Wilder has a PubMed Central id; the preprints are on arXiv.
-- **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. Reading papers is source work: keep the evidence ledger; do not copy text beyond short quotes. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Attempted by daily-site-showcase-sentinel on work/sentinel-showcase-t-0137. Automated fetch of full texts from arxiv.org and pmc.ncbi.nlm.nih.gov denied by runtime permissions policy. Verified all 28 existing claims and unit tests in test_ai_in_care.py and 197 site unit tests. In accordance with acceptance criteria ('No rating goes up on a summary') and scientific grounding guardrails, ratings cannot be promoted to Strong until full texts are saved to sources/downloads/ and read in full. Prepared audit dossier and opened draft PR #84 on .ai.
+- **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. Reading papers is source work: keep the evidence ledger; do not copy text beyond short quotes. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Attempted by daily-site-showcase-sentinel on work/sentinel-showcase-t-0137. Automated fetch of full texts from arxiv.org and pmc.ncbi.nlm.nih.gov denied by runtime permissions policy. Verified all 28 existing claims and unit tests in test_ai_in_care.py and 197 site unit tests. In accordance with acceptance criteria ('No rating goes up on a summary') and scientific grounding guardrails, ratings cannot be promoted to Strong until full texts are saved to sources/downloads/ and read in full. Prepared audit dossier and opened draft PR #84 on .ai. \| 2026-10-17: Read full open-access texts for AI-in-care sources under security-browsing rules, verified exact quotes in docs/ai-in-care-claims.json via tools/check_ai_in_care_claims.py, and kept ratings honestly at Limited per the page legend.
 
 ### T-0090 Re-measure the local reviewer with the thinking profile and more runs per arm
 
@@ -1711,7 +1712,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** Providers with tests; EVIDENCE_CONTACT used for Unpaywall only; no key committed; live check on 10.1038/ng.2745 returns an OA location and citation graph summary.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 3
-- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17: Implemented Unpaywall and Semantic Scholar providers in cf-evidence-loop (.claude/skills/cf-evidence-loop/scripts/evidence/providers/unpaywall.py and semantic_scholar.py) with EVIDENCE_CONTACT used for Unpaywall only (redacted in record URLs), zero committed keys, fixtures, unit tests, and live check on 10.1038/ng.2745.
 
 ### T-0103 Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts
 

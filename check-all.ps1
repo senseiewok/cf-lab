@@ -62,6 +62,10 @@ $Checks = @(
     @{ name = 'test-pick-bold-task';      exe = 'python';     args = @('tasks/test_pick_bold_task.py');                                                    needs = @('python') }
     @{ name = 'check-anti-hallucination'; exe = 'python';     args = @('tasks/check_anti_hallucination.py');                                               needs = @('python') }
     @{ name = 'test-check-anti-hallucination'; exe = 'python'; args = @('tasks/test_check_anti_hallucination.py');                                         needs = @('python') }
+    @{ name = 'check-third-party-skills'; exe = 'python';     args = @('tasks/check_third_party_skills.py');                                               needs = @('python') }
+    @{ name = 'test-check-third-party-skills'; exe = 'python'; args = @('tasks/test_check_third_party_skills.py');                                         needs = @('python') }
+    @{ name = 'check-biomcp-admission';   exe = 'python';     args = @('tasks/check_biomcp_admission.py');                                                 needs = @('python') }
+    @{ name = 'test-check-biomcp-admission'; exe = 'python';  args = @('tasks/test_check_biomcp_admission.py');                                            needs = @('python') }
     @{ name = 'skill-frontmatter';        exe = 'python';     args = @('tasks/check-skill-frontmatter.py');                                                needs = @('python', 'pyyaml') }
     # setup and the workspace
     @{ name = 'test-setup';               exe = 'python';     args = @("$s/lab-versioning/scripts/test-setup.py");                                         needs = @('python') }

@@ -51,6 +51,53 @@ try {
     Case 'staging a SKILL.md runs check-skill-frontmatter.py and a failure fails' 1 $r 'owning checker check-skill-frontmatter.py'
     $r = NewRepo 'skill-ok'; W $r '.claude/skills/x/SKILL.md' "---`nname: x`n---"; W $r 'tasks/check-skill-frontmatter.py' 'import sys; sys.exit(0)'; Stage $r @('.claude/skills/x/SKILL.md')
     Case 'passing skill checker -> 0' 0 $r 'OK'
+    # T-0074: cf-research source-overlap, quotation-length, and stated-evidence number checks
+    $realCso = Join-Path $PSScriptRoot '../../../../../cf-research/tools/sources/check_source_overlap.py'
+    $realCn  = Join-Path $PSScriptRoot '../../../../../cf-research/tools/sources/check_numbers.py'
+    if ((Test-Path -LiteralPath $realCso) -and (Test-Path -LiteralPath $realCn)) {
+        $csoCode = [IO.File]::ReadAllText((Resolve-Path -LiteralPath $realCso).Path, [Text.UTF8Encoding]::new($false))
+        $cnCode  = [IO.File]::ReadAllText((Resolve-Path -LiteralPath $realCn).Path, [Text.UTF8Encoding]::new($false))
+        $thirtyWords = (0..29 | ForEach-Object { "wordtoken$_" }) -join ' '
+
+        # 1. When sources/downloads does not exist, skips with a visible message and runs --quotes-only
+        $r = NewRepo 'cso-nodl'
+        W $r 'tools/sources/check_source_overlap.py' $csoCode
+        W $r 'notes/clean.md' 'A short paraphrased note with no long quotes.'
+        Stage $r @('tools/sources/check_source_overlap.py', 'notes/clean.md')
+        Case 'T-0074: skips check_source_overlap when sources/downloads does not exist' 0 $r 'SKIP check_source_overlap.py: sources/downloads does not exist'
+
+        # 2. --quotes-only fails when a staged markdown note has a >8-word quote even without sources/downloads
+        $r = NewRepo 'cso-quote'
+        W $r 'tools/sources/check_source_overlap.py' $csoCode
+        W $r 'notes/quoted.md' 'The report states "one two three four five six seven eight nine ten" verbatim.'
+        Stage $r @('tools/sources/check_source_overlap.py', 'notes/quoted.md')
+        Case 'T-0074: check_source_overlap --quotes-only fails on a 10-word quote' 1 $r 'FAIL owning checker check_source_overlap.py --quotes-only'
+
+        # 3. When sources/downloads exists, a 30-word copy in a staged .md or .yaml fails
+        $r = NewRepo 'cso-copy'
+        W $r 'tools/sources/check_source_overlap.py' $csoCode
+        W $r 'sources/downloads/report.txt' ("Header text. " + $thirtyWords + " trailing source words.")
+        W $r 'notes/copy.md' ("Our note: " + $thirtyWords + " end.")
+        Stage $r @('tools/sources/check_source_overlap.py', 'notes/copy.md')
+        Case 'T-0074: a 30-word copy in staged markdown fails when sources/downloads exists' 1 $r 'FAIL owning checker check_source_overlap.py'
+
+        # 4. For a note with a stated evidence file, check_numbers.py runs and fails on an invented number
+        $r = NewRepo 'cn-bad'
+        W $r 'tools/sources/check_source_overlap.py' $csoCode
+        W $r 'tools/sources/check_numbers.py' $cnCode
+        W $r 'notes/ev.txt' 'The cohort included 33,782 genotyped people and 99.4 percent coverage.'
+        W $r 'notes/draft.md' "Evidence: notes/ev.txt`n`nThe cohort included 33,785 genotyped people."
+        Stage $r @('tools/sources/check_source_overlap.py', 'tools/sources/check_numbers.py', 'notes/ev.txt', 'notes/draft.md')
+        Case 'T-0074: check_numbers.py fails when a note with a stated evidence file has an unmatched number' 1 $r 'FAIL owning checker check_numbers.py'
+
+        $r = NewRepo 'cn-ok'
+        W $r 'tools/sources/check_source_overlap.py' $csoCode
+        W $r 'tools/sources/check_numbers.py' $cnCode
+        W $r 'notes/draft-evidence.txt' 'The cohort included 33,782 genotyped people and 99.4 percent coverage.'
+        W $r 'notes/draft.md' 'The cohort included 33,782 genotyped people and 99.4 percent coverage.'
+        Stage $r @('tools/sources/check_source_overlap.py', 'tools/sources/check_numbers.py', 'notes/draft-evidence.txt', 'notes/draft.md')
+        Case 'T-0074: check_numbers.py passes when all numbers match the companion evidence file' 0 $r 'OK'
+    }
     # read-only
     $r = NewRepo 'ro'; W $r 'e.json' '{"a":1}'; Stage $r @('e.json'); $before = (& git -C $r status --porcelain) -join '|'
     $null = & pwsh -NoProfile -File $Script -RepoPath $r 2>&1; $after = (& git -C $r status --porcelain) -join '|'
