@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-182 tasks, 181 created by a model, 83 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+182 tasks, 181 created by a model, 84 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (6)
 
@@ -15,7 +15,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 | work/frontier-showcase-t0173-t0077-t0120 |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (50)
+## ready (49)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -37,7 +37,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0092 | P2 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0083 |  |
 | T-0104 | P2 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | local |  |  |
 | T-0116 | P2 | Pin the third-party skills by hash | cf-lab | 1-2 | 3 | 20 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low | local |  |  |
-| T-0117 | P2 | Identity in public files: one role address, one way to sign | cf-lab | 1-3 | 3 | 15 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0144 | P2 | Observe what Antigravity loads from cf-lab, then state only that: a declared mirror under its documented paths, or no claim | cf-lab | 1-3 | 3 | 15 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | low | local |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0143 | P2 | A pull request template and a body check: every PR carries its review-loop record, a size line and a declaration of files copied from another repo | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | low | local |  |  |
@@ -70,7 +69,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (114)
+## done (115)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -137,6 +136,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0112 | P2 | A merge check: catch commits a squash merge dropped | cf-lab | 2-3 | 4 | 16 | yes | model: claude-opus-5-5 | 2026-10-09 | routine | low | local |  | work/frontier-lab-unbinding |
 | T-0012 | P2 | Unit tests for tools/sources/fetch_sources.py | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0088 | P2 | Keep everything a verifier reads inside its temp copy | cf-lab | 1-3 | 3 | 15 | yes | model: claude-sonnet-5-5 | 2026-10-06 | routine | low | local |  |  |
+| T-0117 | P2 | Identity in public files: one role address, one way to sign | cf-lab | 1-3 | 3 | 15 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0120 | P2 | An intermittent WebKit failure in the site's policy test | .ai | 1-3 | 3 | 15 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | low | local |  | work/frontier-showcase-t0173-t0077-t0120 |
 | T-0048 | P2 | Admission review of Google's Data Commons MCP server for population denominators (layer 5) | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0059 | P2 | delegate.ps1: let a model-only setup run fast, and make the token budget and thinking mode explicit | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | cloud |  |  |
@@ -946,7 +946,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** One role address in public files, letters signed by the lab, the catalog names 'the contact in the terms' instead of addresses, a recorded decision on vendor credit, and commit author addresses checked by the gate.
 - **Evidence:** 2026-10-09: public files use a first-name address; the two letter drafts disagree on signing and on where replies go; organisation contact addresses sit in the catalog; READMEs credit an AI vendor; commit author addresses are mixed.
-- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice. \| 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice. \| 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17: Completed by daily-security-sentinel. Enforced single role address (contact@senseiewok.ai) in SECURITY.md; authored docs/vendor-credit-decision.md and docs/identity-and-signing-policy.md; implemented commit author address validation in run-gate.ps1; verified 64/64 passed in test-run-gate.ps1 and 5/5 in test_identity_policy.py; Full Review Tier passed by orthogonal frontier challenger Argon (pro).
+- **Measured:** 2 h; Enforced single role address (contact@senseiewok.ai) in public files, documented letters signed by the lab, recorded vendor credit decision in docs/vendor-credit-decision.md, established catalog publisher contact standard, and integrated commit author address verification into run-gate.ps1 with unit tests in test-run-gate.ps1 and test_identity_policy.py.
 
 ### T-0120 An intermittent WebKit failure in the site's policy test
 

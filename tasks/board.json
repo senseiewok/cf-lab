@@ -5750,7 +5750,7 @@
       "title": "Identity in public files: one role address, one way to sign",
       "repo": "cf-lab",
       "area": "compliance",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-09T20:00:00Z",
       "created_by": {
@@ -5768,9 +5768,9 @@
         "benefit": 3,
         "rationale": "Estimate: keeps the lab separate from the maintainer's identity.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 2.0,
+        "measured_outcome": "Enforced single role address (contact@senseiewok.ai) in public files, documented letters signed by the lab, recorded vendor credit decision in docs/vendor-credit-decision.md, established catalog publisher contact standard, and integrated commit author address verification into run-gate.ps1 with unit tests in test-run-gate.ps1 and test_identity_policy.py.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -5784,11 +5784,16 @@
       "acceptance": "One role address in public files, letters signed by the lab, the catalog names 'the contact in the terms' instead of addresses, a recorded decision on vendor credit, and commit author addresses checked by the gate.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-15T03:07:51Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-17T15:15:00Z",
+      "completed_at": "2026-10-17T15:15:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Antigravity",
+        "model_id": "gemini-2.5-flash",
+        "session_ref": "daily-security-sentinel"
+      },
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice. | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice. | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Completed by daily-security-sentinel. Enforced single role address (contact@senseiewok.ai) in SECURITY.md; authored docs/vendor-credit-decision.md and docs/identity-and-signing-policy.md; implemented commit author address validation in run-gate.ps1; verified 64/64 passed in test-run-gate.ps1 and 5/5 in test_identity_policy.py; Full Review Tier passed by orthogonal frontier challenger Argon (pro).",
       "recommended_route": "cloud",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity."
     },
