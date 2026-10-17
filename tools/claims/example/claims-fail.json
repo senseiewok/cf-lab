@@ -1,0 +1,24 @@
+[
+  {
+    "id": "f1",
+    "claim": "The 2024 review left 473 variants unclassified.",
+    "source": "review",
+    "quote": "In the 2024 review, 127 variants were classed as benign or likely benign and 437 were left unclassified.",
+    "kind": "observed"
+  },
+  {
+    "id": "f2",
+    "claim": "Every review from 2019 to 2024 used the same three classes.",
+    "source": "review",
+    "quote": "The 2023 review used the same three classes.",
+    "kind": "observed",
+    "scope": "Section 3"
+  },
+  {
+    "id": "f3",
+    "claim": "The review does not say how families were counted.",
+    "source": "review",
+    "quote": "only variants seen in at least two families were reviewed.",
+    "kind": "observed"
+  }
+]

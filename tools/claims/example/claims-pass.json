@@ -1,0 +1,33 @@
+[
+  {
+    "id": "c1",
+    "claim": "The 2024 review left 437 variants unclassified.",
+    "source": "review",
+    "quote": "In the 2024 review, 127 variants were classed as benign or likely benign and 437 were left unclassified.",
+    "kind": "observed"
+  },
+  {
+    "id": "c2",
+    "claim": "Together, 564 variants in the 2024 review were benign-leaning or unclassified.",
+    "source": "review",
+    "quote": "In the 2024 review, 127 variants were classed as benign or likely benign and 437 were left unclassified.",
+    "kind": "computed",
+    "computed": [{"expr": "127 + 437", "result": 564}]
+  },
+  {
+    "id": "c3",
+    "claim": "The review covered only variants seen in at least two families.",
+    "source": "review",
+    "quote": "Only variants seen in at least two families were reviewed.",
+    "kind": "observed",
+    "scope": "the whole invented example text, Section 3, read in full on one page"
+  },
+  {
+    "id": "c4",
+    "claim": "Our inference: a variant seen in a single family would not appear among the 127.",
+    "source": "review",
+    "quote": ["Only variants seen in at least two families were reviewed.", "127 variants were classed as benign"],
+    "kind": "inferred",
+    "basis": "the review criterion excludes single-family variants, and the 127 come from that review"
+  }
+]
