@@ -1656,7 +1656,7 @@
       "acceptance": "A claims file (id, type, text, evidence location) is checked by a script: a truncated-prefix quote fails; an unnumbered contents entry defeats an absence claim made from parsed structure; a count claim is compared with a counted value; a verifier that cannot find its planted instance exits non-zero. Fixtures reproduce E12 and E13 and fail without the guard.",
       "review_tier": "elevated",
       "depends_on": [],
-      "notes": "Draft by a cloud agent, tests drafted by the local worker, human approves the .claude/ diff. Does not judge inferences; it only settles what a script can settle. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "Draft by a cloud agent, tests drafted by the local worker, human approves the .claude/ diff. Does not judge inferences; it only settles what a script can settle. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-16: verified claims checker implementation in cf-research/tools/claims/check_claims.py where all 36 tests pass including E12/E13 ledger cases and mutation tests. Remained ready on cf-lab board pending decision on whether to mirror tool to cf-lab or update repo assignment.",
       "updated_at": "2026-10-14T21:27:13Z",
       "completed_at": null,
       "completed_by": null,
@@ -1973,7 +1973,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -2827,7 +2827,7 @@
       "updated_at": "2026-10-15T22:18:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Needs a human with a Mac. Proposed by a model. Until it is done, README and AGENTS.md should not say macOS is supported beyond 'written to be portable and tested under dash and bash'. A macos-latest GitHub Actions runner (T-0061) would run test-setup.py on a real macOS shell without owning a Mac; that run's output would satisfy this task for macOS. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15: Verified test-setup.py --target sh prints 'repo files: all checks passed', 'sh: all checks passed', and 'VERIFIED'. Physical execution on a real Mac/Linux machine or macos-latest runner (T-0061) required by maintainer to complete physical platform acceptance.",
+      "notes": "Needs a human with a Mac. Proposed by a model. Until it is done, README and AGENTS.md should not say macOS is supported beyond 'written to be portable and tested under dash and bash'. A macos-latest GitHub Actions runner (T-0061) would run test-setup.py on a real macOS shell without owning a Mac; that run's output would satisfy this task for macOS. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-15: Verified test-setup.py --target sh prints 'repo files: all checks passed', 'sh: all checks passed', and 'VERIFIED'. Physical execution on a real Mac/Linux machine or macos-latest runner (T-0061) required by maintainer to complete physical platform acceptance. | 2026-10-16: checked during daily-security-sentinel build round. Requires physical macOS and Linux machine testing; cannot be executed in Windows environment.",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance.",
       "complexity": "low"
@@ -8161,7 +8161,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8209,7 +8209,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8726,7 +8726,7 @@
       "title": "Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-17T01:30:00Z",
       "created_by": {
@@ -8744,9 +8744,9 @@
         "benefit": 4,
         "rationale": "Automated PR hygiene eliminates merge conflict friction, identifies unresolved review comments across the multi-repo workspace, protects human-gated boundaries, audits stale worktrees, and prevents maintainer cognitive overload.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.0,
+        "measured_outcome": "Delivered multi-repo GitHub hygiene engine in tasks/audit_github_hygiene.py with unit tests in tasks/test_audit_github_hygiene.py, pre-gate tests passing in tasks/test-run-sentinel.ps1, and sentinel sidecar verification. Merged via PR #136 and validated in daily-security-sentinel execution.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -8760,10 +8760,18 @@
       "acceptance": "python tasks/audit_github_hygiene.py --check; python -m unittest tasks.test_audit_github_hygiene; pwsh -NoProfile -File tasks/test-run-sentinel.ps1; pwsh -NoProfile -File tasks/render-sentinel-sidecars.ps1 -Check",
       "review_tier": "elevated",
       "depends_on": [],
-      "notes": "Multi-repo GitHub hygiene engine inspecting cf-lab, cf-skills, cf-research. Emits .loop-logs/github-hygiene-digest.json and syncs memory/handoff.md when maintainer action is required. Integrated into daily-security-sentinel audit suite.",
+      "notes": "Multi-repo GitHub hygiene engine inspecting cf-lab, cf-skills, cf-research. Emits .loop-logs/github-hygiene-digest.json and syncs memory/handoff.md when maintainer action is required. Integrated into daily-security-sentinel audit suite. | 2026-10-16: verified acceptance check (tasks/audit_github_hygiene.py --check, test_audit_github_hygiene, test-run-sentinel.ps1, render-sentinel-sidecars.ps1 -Check; 96 tests passed). Merged via PR #136.",
       "recommended_route": "local",
       "route_rationale": "Deterministic git/gh inspection, offline unit tests, and fast-gate preflight.",
-      "complexity": "medium"
+      "complexity": "medium",
+      "updated_at": "2026-10-17T02:24:00Z",
+      "completed_at": "2026-10-17T02:24:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-security-sentinel",
+        "model_id": "gemini-2.5-flash",
+        "session_ref": "2026-10-16 daily-security-sentinel build round T-0176; PR #136"
+      }
     },
     {
       "id": "T-0177",
