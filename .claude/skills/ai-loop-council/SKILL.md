@@ -32,6 +32,7 @@ This skill describes **roles**, not models. The actual model in each role is cho
     - **Top tasks:** Delegate deep reasoning, complex biophysical curative research synthesis, high-risk security adjudication, and frontier challenger reviews to **Argon** (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`).
     - **Tasks where local agents are good:** Delegate bounded drafting, mechanical edits, first-pass diff reviews with `review-diff.ps1`, log/transcript triage, claims & citations extraction from primary sources, and JSON/YAML ledger updates to our preferred local agent (**`qwen3.8:27b-64k`** via Ollama using `invoke-local-model.ps1` or `delegate.ps1`).
     - **Automations & Sentinels:** All scheduled background sentinels must actively offload routine mechanical triage to the local worker before escalating top tasks to Argon.
+11. **Tool-limited agent for read-only extraction.** For read-only extraction, evidence verification, and repository inspection without mutation risk, use the tool-limited reviewer agent definition (`.claude/agents/reviewer.md`). It restricts tools strictly to `Read`, `Grep`, and `Glob`; command execution (`Bash`, `PowerShell`) and file edits (`Edit`, `Write`) are refused.
 
 
 ## The tier gate (proposed; scripts tested)

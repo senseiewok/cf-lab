@@ -346,6 +346,19 @@ exit 1
     $dupes = ([regex]::Matches($p2, 'title length 85 not in 20\.\.70')).Count
     Check 'identical failure lines are shown once with a count and the other cause is still shown' ($dupes -eq 1 -and $p2 -match '\(x5\)' -and $p2 -match 'the one other cause') $p2
 
+    # 20b. grouped feedback preserves expected and actual on the first failure (T-0085)
+    Set-Content (Join-Path $vdir 'verify-expected-actual.ps1') @'
+param([string] $Script)
+if ((Get-Content -Raw $Script) -match 'GOOD') { Write-Output '1/1 passed'; exit 0 }
+1..3 | ForEach-Object { Write-Output "FAIL test_spec: expected 'strict-transport-security' but got 'none'" }
+Write-Output "FAIL test_spec: expected 200, actual 500"
+exit 1
+'@ -Encoding utf8
+    $c = NewCase @("$fence`nbad`n$fence", "$fence`nGOOD`n$fence")
+    $r = Delegate $c @() 'verify-expected-actual.ps1'
+    $p2 = Get-Content -Raw (Join-Path $c 'seen-prompt-2.md')
+    Check 'grouped feedback preserves expected and actual on the first failure with count' ($p2 -match "expected 'strict-transport-security' but got 'none' \(x3\)" -and $p2 -match 'expected 200, actual 500') $p2
+
     # 18. the outcome line: one JSON line per run with the tag, outcome and attempts; the tag reaches the worker only when given
     $c = NewCase @("$fence`nbad`n$fence", "$fence`nGOOD`n$fence")
     $r = Delegate $c @('-Tag', 'unit-test-tag')

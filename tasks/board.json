@@ -3533,7 +3533,7 @@
       "title": "A tool-limited agent definition for read-only reviewers",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-05T04:39:00Z",
       "created_by": {
@@ -3551,9 +3551,9 @@
         "benefit": 3,
         "rationale": "Estimate: a small gain in reliability or reach for the cost.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 1.5,
+        "measured_outcome": "Created .claude/agents/reviewer.md restricted strictly to Read, Grep, Glob; added test_reviewer_agent.py proving Bash/PowerShell refusal; updated ai-loop-council SKILL.md for read-only extraction.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 7.0,
@@ -3568,9 +3568,14 @@
       "review_tier": "elevated",
       "depends_on": [],
       "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Proposed by a model. The listings were local and harmless; the point is that the rule was unenforced. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "completed_at": "2026-10-16T18:45:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-security-sentinel (Antigravity)",
+        "model_id": "gemini-2.5-flash",
+        "session_ref": "daily-security-sentinel build slot bundle T-0085/T-0073/T-0088"
+      },
+      "notes": "Proposed by a model. The listings were local and harmless; the point is that the rule was unenforced. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-16 Sentinel: Completed and verified via test_reviewer_agent.py and ai-loop-council SKILL.md update.",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance.",
       "complexity": "low"
@@ -4110,7 +4115,7 @@
       "title": "Delegation loop: answer-first contract, grouped verifier feedback and a PowerShell AST lint",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
@@ -4128,9 +4133,9 @@
         "benefit": 3,
         "rationale": "Estimate: the two most frequent failure causes in the logs; cheap and testable offline.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 4.5,
+        "measured_outcome": "Added grouped feedback assertion with expected/actual on first failure to test-delegate.ps1; verified AST lint pre-flight rejection of observed PowerShell failure causes; 97/97 tests passing.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 7.0,
@@ -4145,9 +4150,14 @@
       "review_tier": "elevated",
       "depends_on": [],
       "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "completed_at": "2026-10-16T18:45:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-security-sentinel (Antigravity)",
+        "model_id": "gemini-2.5-flash",
+        "session_ref": "daily-security-sentinel build slot bundle T-0085/T-0073/T-0088"
+      },
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-16 Sentinel: Completed and verified via test-delegate.ps1 and lint-powershell.",
       "complexity": "medium",
       "recommended_route": "local",
       "route_rationale": "Offline script changes with an existing test file; the controller reads the diff."
@@ -4255,7 +4265,7 @@
       "title": "Keep everything a verifier reads inside its temp copy",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
@@ -4273,9 +4283,9 @@
         "benefit": 3,
         "rationale": "Estimate: avoids wasted attempts and false failures during a long unattended run.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 2.0,
+        "measured_outcome": "Updated verify-in-copy.py make_link to copy directory and file dependencies into the temp copy, preventing concurrent sibling repo edits from altering verifier execution state; added test_a_run_started_before_an_edit_of_the_sibling_repo_gives_the_same_result_as_one_started_after.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 7.0,
@@ -4290,9 +4300,14 @@
       "review_tier": "routine",
       "depends_on": [],
       "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Lesson candidate, reproduce with: start a delegation, then edit cf-research/ledger/*.md, and watch tools/make_evidence.py --check fail in the verifier copy. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "completed_at": "2026-10-16T18:45:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-security-sentinel (Antigravity)",
+        "model_id": "gemini-2.5-flash",
+        "session_ref": "daily-security-sentinel build slot bundle T-0085/T-0073/T-0088"
+      },
+      "notes": "Lesson candidate, reproduce with: start a delegation, then edit cf-research/ledger/*.md, and watch tools/make_evidence.py --check fail in the verifier copy. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-16 Sentinel: Completed and verified via test_verify_in_copy.py isolation test.",
       "recommended_route": "local",
       "route_rationale": "A small change to a Python verifier helper.",
       "complexity": "low"
