@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-175 tasks, 174 created by a model, 61 with a measured outcome. Estimated effort 440.85 to 849.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+175 tasks, 174 created by a model, 62 with a measured outcome. Estimated effort 440.85 to 849.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (67)
+## ready (66)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -63,7 +63,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0034 | P2 | Claim checker for the elevated tier: quote, absence and count claims with a mandatory positive control | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0125 | P2 | A public review record for each page (reviewer role, version reviewed, date, open issues) | .ai | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local | T-0105, T-0117 |  |
 | T-0080 | P2 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
-| T-0053 | P2 | Data Commons provider in cf-evidence-loop for population denominators (if the admission is accepted) | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | full | medium | local | T-0048 |  |
 | T-0055 | P2 | EMA medicines provider: read the downloaded JSON report as evidence records (marketing authorisation date, status) | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0083 | P2 | Release review of the site-seo-review skill | cf-skills | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0123 | P2 | Decide how the Resources page grows: per-country pages, or count only the scripts a page loads | .ai | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
@@ -85,7 +84,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (92)
+## done (93)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -161,6 +160,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0056 | P2 | check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-04 | full | medium | cloud |  |  |
 | T-0064 | P2 | More sources: UKRI Gateway to Research, CORDIS, EU Clinical Trials Register, WHO ICTRP, PubPeer, ClinGen, and the CFF 2025 highlights link | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | cloud |  |  |
 | T-0075 | P2 | Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
+| T-0053 | P2 | Data Commons provider in cf-evidence-loop for population denominators (if the admission is accepted) | cf-skills | 3-6 | 3 | 6.7 | yes | model: claude-sonnet-5-5 | 2026-10-04 | full | medium | local | T-0048 |  |
 | T-0063 | P2 | ascii-art skill: a craft process, a canvas library, a rendering and accessibility checker, one new piece, and the research behind them | cf-lab | 3-6 | 3 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | medium | local |  |  |
 | T-0085 | P2 | Delegation loop: answer-first contract, grouped verifier feedback and a PowerShell AST lint | cf-lab | 3-6 | 3 | 6.7 | yes | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local |  |  |
 | T-0138 | P2 | Site: one date style for generated pages (10 October 2026 versus October 10, 2026) | .ai | 2-5 | 2 | 5.7 | yes | model: claude-sonnet-5-5 | 2026-10-12 | routine | low | cloud |  |  |
@@ -1242,7 +1242,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** After a human sets base_url and admits the source: offline tests on a saved response fixture pass, including a positive control (a fixture with no observation returns not_found); EVIDENCE_DRY_RUN=1 prints only the catalogued host; the record's limitations name the underlying Census method and date; DC_API_KEY appears in git grep only as a placeholder or documentation.
 - **Evidence:** research/proposals/2026-10-04-datacommons-admission.md section 4: Count_Person for country/USA and geoId/53 returned date 2025 with measurementMethod CensusPEPSurvey and a provenanceUrl; no CF or SCD indicator found. The catalog entry has api_root but no base_url, so the skill cannot reach it until a human admits it.
-- **Notes:** Proposed by a model; only a human moves it to ready. Do not write it before the admission decision. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution.
+- **Notes:** Proposed by a model; only a human moves it to ready. Do not write it before the admission decision. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. \| 2026-10-16 Sentinel Security Build: Marked done. Deliverables verified with 223 passing tests in cf-skills PR #30; limitations name Census method and date; positive controls and dry-run host isolation verified.
+- **Measured:** 4 h; Data Commons provider in cf-evidence-loop implemented and verified (cf-skills PR #30); limitations name underlying CensusPEPSurvey method and observation date; positive controls on empty fixtures and dry-run host isolation pass with 223 offline tests.
 
 ### T-0055 EMA medicines provider: read the downloaded JSON report as evidence records (marketing authorisation date, status)
 
