@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-176 tasks, 175 created by a model, 63 with a measured outcome. Estimated effort 443.35 to 853.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+182 tasks, 181 created by a model, 66 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (66)
+## ready (69)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -33,8 +33,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0096 | P1 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
+| T-0181 | P1 | Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py) | .ai | 1.5-3 | 4 | 17.8 | no | model: claude-3-opus | 2026-10-17 | elevated | low | local | T-0180 |  |
+| T-0180 | P1 | Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py) | cf-research | 2-4 | 4 | 13.3 | no | model: gpt-5-frontier | 2026-10-17 | elevated | medium | local | T-0177, T-0178, T-0179 |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | no | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0170 | P1 | Trial Endpoint Atlas: 8-class primary outcome lexicon & verbatim span extraction | cf-research | 4-6 | 5 | 10 | no | model: gemini-4-argon | 2026-10-16 | elevated | medium | local | T-0169 |  |
+| T-0182 | P1 | Zero-build In Silico Delivery Hypothesis Explorer UI with Dignity Boundary Card (src/cf/delivery/) | .ai | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-17 | full | medium | local | T-0181 |  |
 | T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0092 | P2 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0083 |  |
 | T-0104 | P2 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | local |  |  |
@@ -84,7 +87,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (94)
+## done (97)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -104,6 +107,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
 | T-0168 | P1 | Author multi-registry modulator eligibility & ultra-rare variant landscape dossier from verified 2024 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports [T2] | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-15 | full | high | frontier | T-0005 |  |
+| T-0177 | P1 | Airway epithelial transcytosis receptor kinetics model for apical-to-basal delivery (tools/discovery/transcytosis_model.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local |  |  |
+| T-0178 | P1 | Secretory-to-basal epithelial dedifferentiation plasticity simulation (tools/discovery/epithelial_plasticity.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local |  |  |
+| T-0179 | P1 | Cross-domain delivery innovation miner and biophysical feasibility scoring (tools/discovery/cross_domain_miner.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer [T2] | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
@@ -428,6 +434,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-10: the page counts mistakes from ledger/2026-10-04-first-session.md only (98 rows); cf-research/ledger/2026-10-07-second-session.md holds 40 more rows that the page has never counted (found by the evidence-pin builder).
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. A content decision first; the code is small. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
 
+### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
+
+- **Why / ROI rationale:** Guarantees that public website visualizations never display unverified, modified, or out-of-sync simulation datasets by enforcing SHA-256 cryptographic parity against cf-research canonical outputs. *(confidence: high)*
+- **Route:** local - Cryptographic hash verification and unit test suite.
+- **Acceptance:** python tools/pin_delivery_model.py --check; python -m unittest tests.test_delivery_pin
+- **Evidence:** Single-source-of-truth invariant in AGENTS.md; cf-research PR #84 discovery models
+- **Notes:** Enforces delivery.lock.json pinning in .ai. Any discrepancy between cf-research export and pinned web assets halts CI immediately.
+
 ### T-0108 Block the agent web tool for catalog hosts marked manual, request or forbidden
 
 - **Why / ROI rationale:** Estimate: the catalog's permission field is then enforced by the tool, not by memory. *(confidence: medium)*
@@ -461,6 +475,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Operational sentinel verifying live HTTP headers, 65 roses count, and voice dignity; zero-network local checks. Tier routine. Recommended ready. \| 2026-10-14 Opus Frontier Council Review: Approved architecture with strict safety boundary. Automated worktree clean (--yes) rejected per AGENTS.md; read-only worktree audit (worktrees.py list) adopted. Cadence Daily at 01:00 PT (CRON_TZ=America/Los_Angeles 0 1 * * *). Skill created in cf-lab/.claude/skills/scheduled-site-audit/SKILL.md; sidecar config prepared. Invariant held: remains proposed awaiting human maintainer to set ready. \| 2026-10-14 CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing.
 - **Measured:** 3 h; Skill scheduled-site-audit operationalized and active in repo; daily automated audit runs live headers, 65 roses motif check, task board validation, and worktree hygiene (PR #66, #79).
 
+### T-0180 Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py)
+
+- **Why / ROI rationale:** Provides single-source-of-truth JSON/TSV data exports with cryptographic SHA-256 hashes, DataCite/Zenodo JSON-LD metadata, and reproducible terminal commands for computational biologists and web visualization. *(confidence: high)*
+- **Route:** local - Deterministic serialization, hash generation, and unit tests.
+- **Acceptance:** python tools/discovery/export_delivery_web_data.py --check; pytest tools/discovery/test_export_delivery_web_data.py -v
+- **Evidence:** Discovery tools tools/discovery/{transcytosis_model,epithelial_plasticity,cross_domain_miner}.py; PR senseiewok/cf-research#84
+- **Notes:** Generates data/discovery_delivery_snapshot.json and corresponding TSVs with SHA-256 checksums and DataCite JSON-LD metadata adhering to the council SCHEMA.md specification.
+
 ### T-0156 Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring)
 
 - **Why / ROI rationale:** Guarantees zero citation rot or reliance on retracted studies across the live site, research proposals, and evidence ledger. *(confidence: high)*
@@ -479,6 +501,33 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence Package:** `cf-research/landscape/multi-registry-eligibility-2026.md` *(Tier: T2 | Claims: `cf-research/landscape/multi-registry-eligibility-claims.json` | Sources: cffpr-adr-2024, ecfspr-adr-2024, ukcfr-adr-2024, ccfr-adr-2024, acfdr-adr-2025)*
 - **Notes:** 2026-10-15: Created and approved during schedule and website publishing audit after verifying T-0005 downloads. \| 2026-10-15: Completed and submitted via senseiewok/cf-research PR #67.
 - **Measured:** 3.5 h; Submitted PR #67 on senseiewok/cf-research. Authored landscape/multi-registry-eligibility-2026.md synthesizing 2024-2025 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports with non-pooling invariant, openFDA drug label surveillance, and showcase_targets manifest. Passed check_claims.py (12 passed), check_numbers.py, and check_source_overlap.py.
+
+### T-0177 Airway epithelial transcytosis receptor kinetics model for apical-to-basal delivery (tools/discovery/transcytosis_model.py)
+
+- **Why / ROI rationale:** Apical aerosol vectors cannot penetrate tight junctions to access basal stem cells. Modeling FcRn/TfR/pIgR receptor transcytosis kinetics establishes the biophysical feasibility of bypassing junctional barriers non-destructively. *(confidence: high)*
+- **Route:** local - Deterministic biophysical ODE modeling and offline pytest suite.
+- **Acceptance:** pytest tools/discovery/test_transcytosis_model.py -v
+- **Evidence:** Conner & Schmid 2003 Nature; Roopenian & Akilesh 2007 Nat Rev Immunol; Su et al. 2021 Mol Ther; PR senseiewok/cf-research#84
+- **Notes:** Models apical-to-basolateral transcytosis targeting basolateral basal stem cells. Parameterized for FcRn (KD 210 nM), TfR (KD 18 nM), pIgR (KD 45 nM). Verified Tier T2. Merged/delivered in cf-research PR #84.
+- **Measured:** 4 h; Delivered transcytosis kinetics model tools/discovery/transcytosis_model.py with pH-dependent binding, Rab11a exocytosis vs lysosomal degradation, and stoichiometric flux equations. 5 unit tests passing. PR senseiewok/cf-research#84.
+
+### T-0178 Secretory-to-basal epithelial dedifferentiation plasticity simulation (tools/discovery/epithelial_plasticity.py)
+
+- **Why / ROI rationale:** Circumvents the intractable basal stem cell delivery bottleneck by targeting readily accessible apical secretory/club cells, then simulating transient Notch inhibition (4-5 day pulse) to induce dedifferentiation into permanent KRT5+/TP63+ basal stem cells. *(confidence: high)*
+- **Route:** local - Mathematical biology ODE simulation and offline pytest suite.
+- **Acceptance:** pytest tools/discovery/test_epithelial_plasticity.py -v
+- **Evidence:** Tata et al. 2013 Nature 503:272-277; Rock et al. 2011 PNAS; Lynch et al. 2018; PR senseiewok/cf-research#84
+- **Notes:** Simulates transient Notch inhibition yielding 38% basal stem cell replenishment within 14 days and >28% long-term corrected stem cell pool at 180 days. Grounded in Tata et al. 2013. Tier T2 certified. PR senseiewok/cf-research#84.
+- **Measured:** 4 h; Delivered 180-day epithelial plasticity simulator tools/discovery/epithelial_plasticity.py with Notch-Delta signaling dynamics, dedifferentiation rates, and long-term CFTR-corrected clone maintenance. 4 unit tests passing. PR senseiewok/cf-research#84.
+
+### T-0179 Cross-domain delivery innovation miner and biophysical feasibility scoring (tools/discovery/cross_domain_miner.py)
+
+- **Why / ROI rationale:** Mines physical and cellular barrier solutions across oncology, neurobiology, and immunology. Computes Biophysical Feasibility Index (BFI) across mucus penetration, protease resistance, and basal stem cell tropism to prioritize high-yield vectors. *(confidence: high)*
+- **Route:** local - Algorithmic multi-domain scoring and offline pytest suite.
+- **Acceptance:** pytest tools/discovery/test_cross_domain_miner.py -v
+- **Evidence:** Discovery Landscape Dossier landscape/discovery-cross-domain-stem-cell-delivery.md; PR senseiewok/cf-research#84
+- **Notes:** Scores 8 cross-domain vectors. Top candidate: Dedifferentiation Bypass (BFI 0.82), followed by Paramyxovirus F/HN pseudotypes (0.76) and FcRn Transcytosis (0.74). Tier T2 certified. PR senseiewok/cf-research#84.
+- **Measured:** 4 h; Delivered cross-domain innovation scoring engine tools/discovery/cross_domain_miner.py with 8 analogous biological transfer domains, penalty matrices, and composite BFI ranking. 5 unit tests passing. PR senseiewok/cf-research#84.
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
@@ -542,6 +591,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools/trial_atlas/test_lexicon.py tools/trial_atlas/test_propose_tags.py
 - **Evidence:** Canonical CF outcome measures and PRISMA 2020 outcome class taxonomy
 - **Notes:** Decomposed from T-0130 (Sub-Task 2). Maps primary outcomes to 8 classes with verbatim span tuples.
+
+### T-0182 Zero-build In Silico Delivery Hypothesis Explorer UI with Dignity Boundary Card (src/cf/delivery/)
+
+- **Why / ROI rationale:** Empowers researchers, clinicians, and community members to explore cross-domain stem cell delivery hypotheses with interactive controls, while upholding strict dignity boundaries and zero-build accessibility. *(confidence: high)*
+- **Route:** local - Client-side ES6 canvas and DOM manipulation tests.
+- **Acceptance:** python -m unittest tests.test_site tests.test_delivery_page; python tasks/check-voice.py
+- **Evidence:** Discovery models T-0177, T-0178, T-0179; cf-research-context dignity rules; 65 roses convention
+- **Notes:** Interactive zero-build ES module UI: BFI radar explorer, 180-day plasticity simulator, transcytosis kinetics curve. Features non-dismissible Dignity Boundary Card, Tier T2 badges, biological penalty warnings (squamous metaplasia, GSI enteropathy), Container Queries, aria-live updates, and downloadable TSV/JSON cards.
 
 ### T-0147 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 
