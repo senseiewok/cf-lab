@@ -8428,7 +8428,7 @@
       "title": "Trial Endpoint Atlas: 8-class primary outcome lexicon & verbatim span extraction",
       "repo": "cf-research",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-16T06:49:18Z",
       "created_by": {
@@ -8446,9 +8446,9 @@
         "benefit": 5,
         "rationale": "Extracts exact character spans for 8 canonical outcome classes with zero invented substrings.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 4.0,
+        "measured_outcome": "Delivered 8-class primary outcome mapping (CANONICAL_8_CLASSES, CANONICAL_8_MAP), verbatim character span tuples [start, end], and 100% exact substring match invariant. Verified via 153 passing tests across test_lexicon.py and test_propose_tags.py, and 464 passing tests across tools/trial_atlas in senseiewok/cf-research PR #83.",
         "categories": {
           "curative_biophysics": 4.0,
           "clinical_translation": 9.0,
@@ -8464,10 +8464,15 @@
       "depends_on": [
         "T-0169"
       ],
-      "updated_at": "2026-10-16T06:49:18Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "Decomposed from T-0130 (Sub-Task 2). Maps primary outcomes to 8 classes with verbatim span tuples.",
+      "updated_at": "2026-10-16T19:24:00Z",
+      "completed_at": "2026-10-16T19:24:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-research-sentinel build slot round (cf-research PR #83)"
+      },
+      "notes": "Decomposed from T-0130 (Sub-Task 2). Maps primary outcomes to 8 classes with verbatim span tuples. | 2026-10-16 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #83 (python -m unittest tools/trial_atlas/test_lexicon.py tools/trial_atlas/test_propose_tags.py: 153 passed; full trial_atlas suite: 464 passed).",
       "recommended_route": "local",
       "route_rationale": "Deterministic regex and span verification tests.",
       "complexity": "medium"
