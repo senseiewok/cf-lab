@@ -174,7 +174,33 @@ def is_human_gated(task: dict, human_ids: set[str]) -> tuple[bool, str]:
     return False, ""
 
 
-def verify_anti_hallucination_guardrails(task: dict) -> tuple[bool, str, list[str]]:
+_SNAPSHOT_NCT_CACHE: dict[str, set[str] | None] = {}
+
+
+def load_snapshot_nct_ids(repo_root: Path = REPO_ROOT) -> set[str] | None:
+    """Load verified ClinicalTrials.gov NCT IDs from cf-research/tools/trial_atlas/snapshot.json when present."""
+    key = str(repo_root.resolve())
+    if key in _SNAPSHOT_NCT_CACHE:
+        return _SNAPSHOT_NCT_CACHE[key]
+    snap_file = resolve_repo_file(repo_root, "cf-research/tools/trial_atlas/snapshot.json")
+    if not snap_file or not snap_file.is_file():
+        _SNAPSHOT_NCT_CACHE[key] = None
+        return None
+    try:
+        data = json.loads(snap_file.read_text(encoding="utf-8"))
+        ids = {s["nct_id"] for s in data.get("studies", []) if isinstance(s, dict) and "nct_id" in s}
+        _SNAPSHOT_NCT_CACHE[key] = ids
+        return ids
+    except Exception:
+        _SNAPSHOT_NCT_CACHE[key] = None
+        return None
+
+
+def verify_anti_hallucination_guardrails(
+    task: dict,
+    repo_root: Path = REPO_ROOT,
+    snapshot_ncts: set[str] | None = None,
+) -> tuple[bool, str, list[str]]:
     """Verify that task evidence is strictly anchored and satisfies anti-hallucination rules."""
     warnings: list[str] = []
     ev = task.get("source_evidence", "").strip()
@@ -196,6 +222,29 @@ def verify_anti_hallucination_guardrails(task: dict) -> tuple[bool, str, list[st
     )
     if not has_anchor:
         return False, "Missing verifiable primary literature, trial, coordinate, catalog, or code anchor", warnings
+
+    # Verify any cited NCT IDs against snapshot.json when available
+    ncts_cited = sorted(set(re.findall(r"\bNCT\d{8}\b", f"{title} {ev} {acc}", re.I)))
+    if ncts_cited:
+        known_ncts = snapshot_ncts if snapshot_ncts is not None else load_snapshot_nct_ids(repo_root)
+        if known_ncts:
+            missing_ncts = [
+                n.upper() for n in ncts_cited
+                if n.upper() not in known_ncts and n.upper() != "NCT00000000"
+            ]
+            if missing_ncts:
+                return (
+                    False,
+                    f"Unverified NCT ID(s) not found in snapshot.json: {', '.join(missing_ncts)}",
+                    warnings,
+                )
+
+    # Verify any cited proposals/*.md or landscape/*.md paths in source_evidence exist on disk when cf-research is present
+    cited_dossiers = re.findall(r"\b((?:cf-research/)?(?:proposals|landscape)/[A-Za-z0-9._-]+\.md)\b", ev)
+    if cited_dossiers and resolve_repo_file(repo_root, "cf-research/sources/catalog.yaml") is not None:
+        for rel_doc in cited_dossiers:
+            if resolve_repo_file(repo_root, rel_doc) is None:
+                return False, f"source_evidence cites non-existent dossier: {rel_doc}", warnings
 
     # Check for ungrounded widening words in title or acceptance
     combined_claim = f"{title} {acc}"
@@ -285,7 +334,7 @@ def verify_evidence_package(task: dict, repo_root: Path = REPO_ROOT) -> tuple[bo
 
 def is_grounded_executable(task: dict, repo_root: Path = REPO_ROOT) -> tuple[bool, str]:
     """Check if task has solid evidence, verifiable acceptance, valid ROI, and verified evidence package."""
-    is_anchored, reason, _ = verify_anti_hallucination_guardrails(task)
+    is_anchored, reason, _ = verify_anti_hallucination_guardrails(task, repo_root=repo_root)
     if not is_anchored:
         return False, reason
 

@@ -138,6 +138,31 @@ class TestTriageBoard(unittest.TestCase):
         self.assertFalse(is_valid_fake)
         self.assertIn("Missing verifiable primary literature", reason_fake)
 
+        # Hallucinated NCT ID not in snapshot.json
+        hallucinated_nct_task = {
+            "title": "Analyze trial NCT99999999",
+            "source_evidence": "ClinicalTrials.gov record NCT99999999; DOI 10.1056/NEJMoa2000001",
+            "acceptance": "Verify NCT99999999 outcomes",
+            "review_tier": "elevated",
+        }
+        ok_nct, reason_nct, _ = tb.verify_anti_hallucination_guardrails(
+            hallucinated_nct_task, snapshot_ncts={"NCT05668741", "NCT03525444"}
+        )
+        self.assertFalse(ok_nct)
+        self.assertIn("NCT99999999", reason_nct)
+
+        # Non-existent dossier path in source_evidence (when cf-research is present)
+        ghost_dossier_task = {
+            "title": "Showcase ghost dossier",
+            "source_evidence": "cf-research/proposals/2026-10-99-ghost-proposal-that-never-existed.md",
+            "acceptance": "Render ghost proposal on site",
+            "review_tier": "elevated",
+        }
+        if tb.resolve_repo_file(ROOT, "cf-research/sources/catalog.yaml") is not None:
+            ok_doc, reason_doc, _ = tb.verify_anti_hallucination_guardrails(ghost_dossier_task)
+            self.assertFalse(ok_doc)
+            self.assertIn("non-existent dossier", reason_doc)
+
     def test_curative_mission_classification(self):
         task_150 = self.mock_board["tasks"][3]
         cls_150 = tb.classify_curative_mission(task_150)
