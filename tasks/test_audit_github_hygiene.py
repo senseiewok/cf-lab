@@ -238,6 +238,78 @@ SUMMARY 2 worktree(s): 1 removable, 1 kept
             self.assertEqual(digest["open_prs_count"], 1)
             self.assertEqual(digest["summary"]["conflicts_count"], 0)
 
+    def test_default_repos_includes_ai(self):
+        self.assertIn(".ai", agh.DEFAULT_REPOS)
+        self.assertIn("cf-lab", agh.DEFAULT_REPOS)
+        self.assertIn("cf-skills", agh.DEFAULT_REPOS)
+        self.assertIn("cf-research", agh.DEFAULT_REPOS)
+
+    def test_detect_ci_failures(self):
+        mock_data = {
+            ".ai": [
+                {
+                    "number": 95,
+                    "title": "Delivery hypothesis explorer",
+                    "headRefName": "work/delivery",
+                    "mergeable": "MERGEABLE",
+                    "mergeStateStatus": "CLEAN",
+                    "reviewDecision": "",
+                    "statusCheckRollup": [
+                        {
+                            "name": "Checks (generators and static tests)",
+                            "workflowName": "Deploy",
+                            "conclusion": "FAILURE",
+                            "detailsUrl": "https://github.com/senseiewok/.ai/actions/runs/123"
+                        },
+                        {
+                            "name": "CodeQL",
+                            "workflowName": "CodeQL",
+                            "conclusion": "SUCCESS",
+                            "detailsUrl": "https://github.com/senseiewok/.ai/actions/runs/124"
+                        }
+                    ]
+                }
+            ]
+        }
+        res = agh.audit_prs("senseiewok", [".ai"], pr_data=mock_data, check_threads=False)
+        self.assertEqual(len(res["prs"]), 1)
+        self.assertEqual(len(res["ci_failures"]), 1)
+        self.assertEqual(res["ci_failures"][0]["number"], 95)
+        self.assertEqual(res["ci_failures"][0]["failed_checks"][0]["name"], "Checks (generators and static tests)")
+        self.assertEqual(res["ci_failures"][0]["failed_checks"][0]["conclusion"], "FAILURE")
+
+    def test_update_handoff_document_ci_failures(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            handoff_file = Path(tmpdir) / "handoff.md"
+            handoff_file.write_text("# Session Handoff\n", encoding="utf-8")
+
+            digest = {
+                "timestamp": "2026-10-17T09:00:00Z",
+                "conflicts": [],
+                "review_blockers": [],
+                "ci_failures": [
+                    {
+                        "repo": "senseiewok/.ai",
+                        "number": 95,
+                        "title": "Delivery Explorer",
+                        "branch": "work/delivery",
+                        "url": "https://github.com/senseiewok/.ai/pull/95",
+                        "failed_checks": [
+                            {"name": "Checks (generators and static tests)", "conclusion": "FAILURE"}
+                        ]
+                    }
+                ],
+                "human_deliverables": {"pending_human_actions": []},
+                "worktrees": {"removable": []}
+            }
+
+            updated = agh.update_handoff_document(digest, handoff_path=handoff_file)
+            self.assertTrue(updated)
+            content = handoff_file.read_text(encoding="utf-8")
+            self.assertIn("Failing CI Checks Detected", content)
+            self.assertIn(".ai#95", content)
+            self.assertIn("Checks (generators and static tests)", content)
+
 
 if __name__ == "__main__":
     unittest.main()

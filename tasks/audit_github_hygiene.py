@@ -27,7 +27,7 @@ BOARD_PATH = REPO_ROOT / "tasks" / "board.json"
 WORKTREES_SCRIPT = REPO_ROOT / ".claude" / "skills" / "workspace-siblings" / "scripts" / "worktrees.py"
 
 DEFAULT_OWNER = "senseiewok"
-DEFAULT_REPOS = ["cf-lab", "cf-skills", "cf-research"]
+DEFAULT_REPOS = ["cf-lab", "cf-skills", "cf-research", ".ai"]
 
 # Redaction patterns for sensitive tokens per security-baseline
 REDACT_PATTERNS = [
@@ -62,7 +62,7 @@ def fetch_open_prs_gh(owner: str, repo: str) -> Tuple[Optional[List[Dict[str, An
         "gh", "pr", "list",
         "--repo", slug,
         "--state", "open",
-        "--json", "number,title,headRefName,url,updatedAt,mergeable,mergeStateStatus,reviewDecision,isDraft",
+        "--json", "number,title,headRefName,url,updatedAt,mergeable,mergeStateStatus,reviewDecision,isDraft,statusCheckRollup",
         "--limit", "100"
     ]
     try:
@@ -141,6 +141,7 @@ def audit_prs(
         "prs": [],
         "conflicts": [],
         "review_blockers": [],
+        "ci_failures": [],
         "errors": []
     }
 
@@ -174,6 +175,19 @@ def audit_prs(
             # Detect merge conflict / dirty states
             is_conflicting = (mergeable == "CONFLICTING" or merge_state in ("DIRTY", "BLOCKED_BY_DIRTY"))
 
+            # Detect failing CI status checks
+            failed_checks = []
+            status_rollup = pr.get("statusCheckRollup") or []
+            for check in status_rollup:
+                conclusion = (check.get("conclusion") or "").upper()
+                if conclusion in ("FAILURE", "TIMED_OUT", "CANCELLED", "ACTION_REQUIRED"):
+                    failed_checks.append({
+                        "name": check.get("name") or "unknown",
+                        "workflow": check.get("workflowName") or "",
+                        "conclusion": conclusion,
+                        "details_url": check.get("detailsUrl") or ""
+                    })
+
             pr_entry = {
                 "repo": slug,
                 "number": num,
@@ -185,6 +199,7 @@ def audit_prs(
                 "review_decision": review_decision,
                 "is_draft": is_draft,
                 "has_conflict": is_conflicting,
+                "failed_checks": failed_checks,
                 "unresolved_threads": []
             }
 
@@ -197,6 +212,16 @@ def audit_prs(
                     "url": url,
                     "mergeable": mergeable,
                     "merge_state": merge_state
+                })
+
+            if failed_checks:
+                results["ci_failures"].append({
+                    "repo": slug,
+                    "number": num,
+                    "title": title,
+                    "branch": branch,
+                    "url": url,
+                    "failed_checks": failed_checks
                 })
 
             # Check review comments
@@ -380,11 +405,12 @@ def update_handoff_document(
 
     conflicts = digest.get("conflicts", [])
     review_blockers = digest.get("review_blockers", [])
+    ci_failures = digest.get("ci_failures", [])
     human_actions = digest.get("human_deliverables", {}).get("pending_human_actions", [])
     removable_wts = digest.get("worktrees", {}).get("removable", [])
 
     # If everything is clean, do not churn handoff.md
-    if not conflicts and not review_blockers and not human_actions and not removable_wts:
+    if not conflicts and not review_blockers and not ci_failures and not human_actions and not removable_wts:
         return False
 
     handoff_path.parent.mkdir(parents=True, exist_ok=True)
@@ -402,6 +428,12 @@ def update_handoff_document(
         lines.append("- **Merge Conflicts Detected**:")
         for c in conflicts:
             lines.append(f"  - [{c['repo']}#{c['number']}]({c['url']}) (`{c['branch']}`): Status `{c['mergeable']}` / `{c['merge_state']}` - *{c['title']}*")
+
+    if ci_failures:
+        lines.append("- **Failing CI Checks Detected**:")
+        for cf in ci_failures:
+            checks_summary = ", ".join(f"`{c['name']}` ({c['conclusion']})" for c in cf.get("failed_checks", []))
+            lines.append(f"  - [{cf['repo']}#{cf['number']}]({cf['url']}) (`{cf['branch']}`): Failing: {checks_summary} - *{cf['title']}*")
 
     if review_blockers:
         lines.append("- **Unresolved PR Comments & Review Requests**:")
@@ -473,12 +505,13 @@ def run_github_hygiene_audit(
     # 4. Formulate Summary
     has_conflicts = len(pr_audit["conflicts"]) > 0
     has_review_blockers = len(pr_audit["review_blockers"]) > 0
+    has_ci_failures = len(pr_audit["ci_failures"]) > 0
     pending_human_count = len(human_audit["pending_human_actions"])
     removable_wt_count = len(wt_audit.get("removable", []))
     has_errors = len(pr_audit.get("errors", [])) > 0
 
     status = "clean"
-    if has_conflicts or has_review_blockers:
+    if has_conflicts or has_review_blockers or has_ci_failures:
         status = "action_required"
     elif has_errors:
         status = "warning_offline"
@@ -491,6 +524,7 @@ def run_github_hygiene_audit(
         "open_prs_count": len(pr_audit["prs"]),
         "conflicts": pr_audit["conflicts"],
         "review_blockers": pr_audit["review_blockers"],
+        "ci_failures": pr_audit["ci_failures"],
         "human_deliverables": human_audit,
         "worktrees": wt_audit,
         "errors": pr_audit["errors"],
@@ -498,6 +532,7 @@ def run_github_hygiene_audit(
             "total_open_prs": len(pr_audit["prs"]),
             "conflicts_count": len(pr_audit["conflicts"]),
             "review_blockers_count": len(pr_audit["review_blockers"]),
+            "ci_failures_count": len(pr_audit["ci_failures"]),
             "pending_human_actions_count": pending_human_count,
             "removable_worktrees_count": removable_wt_count,
             "offline_or_errored_repos": len(pr_audit["errors"])
@@ -522,7 +557,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--skip-worktrees", action="store_true", help="Skip worktree inspection")
     parser.add_argument("--update-handoff", action="store_true", help="Update memory/handoff.md if action required")
     parser.add_argument("--handoff-file", help="Custom handoff file destination (for testing)")
-    parser.add_argument("--check", action="store_true", help="Exit 1 if conflicts or review blockers found; 0 otherwise")
+    parser.add_argument("--check", action="store_true", help="Exit 1 if conflicts, review blockers, or failing CI checks found; 0 otherwise")
     parser.add_argument("--quiet", action="store_true", help="Suppress summary printing")
 
     args = parser.parse_args(argv)
@@ -548,6 +583,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"  Open PRs: {summary['total_open_prs']} across {len(repos_list)} repos")
         print(f"  Merge Conflicts: {summary['conflicts_count']}")
         print(f"  Review Blockers: {summary['review_blockers_count']}")
+        print(f"  CI Failures: {summary['ci_failures_count']}")
         print(f"  Pending Human Deliverables: {summary['pending_human_actions_count']}")
         print(f"  Removable Worktrees: {summary['removable_worktrees_count']}")
         if digest["errors"]:
@@ -556,7 +592,9 @@ def main(argv: Optional[List[str]] = None) -> int:
                 print(f"    - {err['repo']}: {err['error']}")
 
     if args.check:
-        if digest["summary"]["conflicts_count"] > 0 or digest["summary"]["review_blockers_count"] > 0:
+        if (digest["summary"]["conflicts_count"] > 0
+                or digest["summary"]["review_blockers_count"] > 0
+                or digest["summary"]["ci_failures_count"] > 0):
             return 1
 
     return 0
