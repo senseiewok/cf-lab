@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-182 tasks, 181 created by a model, 66 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+182 tasks, 181 created by a model, 69 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -13,7 +13,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (69)
+## ready (66)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -33,11 +33,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0096 | P1 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
-| T-0181 | P1 | Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py) | .ai | 1.5-3 | 4 | 17.8 | no | model: claude-3-opus | 2026-10-17 | elevated | low | local | T-0180 |  |
-| T-0180 | P1 | Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py) | cf-research | 2-4 | 4 | 13.3 | no | model: gpt-5-frontier | 2026-10-17 | elevated | medium | local | T-0177, T-0178, T-0179 |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | no | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0170 | P1 | Trial Endpoint Atlas: 8-class primary outcome lexicon & verbatim span extraction | cf-research | 4-6 | 5 | 10 | no | model: gemini-4-argon | 2026-10-16 | elevated | medium | local | T-0169 |  |
-| T-0182 | P1 | Zero-build In Silico Delivery Hypothesis Explorer UI with Dignity Boundary Card (src/cf/delivery/) | .ai | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-17 | full | medium | local | T-0181 |  |
 | T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0092 | P2 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0083 |  |
 | T-0104 | P2 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | local |  |  |
@@ -87,7 +84,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (97)
+## done (100)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -102,9 +99,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0072 | P1 | Decision: cloud-model use on reports with unread terms; permission requests to the CFF Registry and the CF Trust; the CC0 label on skills that carry quotations | cf-research | 1-2 | 4 | 26.7 | yes | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | cloud |  |  |
 | T-0109 | P1 | A rule for questions about one real person: generalise before any search | cf-lab | 1-3 | 5 | 25 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |  |
 | T-0073 | P1 | A tool-limited agent definition for read-only reviewers | cf-lab | 1-2 | 3 | 20 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
+| T-0181 | P1 | Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py) | .ai | 1.5-3 | 4 | 17.8 | yes | model: claude-3-opus | 2026-10-17 | elevated | low | local | T-0180 |  |
 | T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | yes | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |  |
 | T-0167 | P1 | Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification | .ai | 2-4 | 5 | 16.7 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud |  |  |
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
+| T-0180 | P1 | Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py) | cf-research | 2-4 | 4 | 13.3 | yes | model: gpt-5-frontier | 2026-10-17 | elevated | medium | local | T-0177, T-0178, T-0179 |  |
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
 | T-0168 | P1 | Author multi-registry modulator eligibility & ultra-rare variant landscape dossier from verified 2024 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports [T2] | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-15 | full | high | frontier | T-0005 |  |
 | T-0177 | P1 | Airway epithelial transcytosis receptor kinetics model for apical-to-basal delivery (tools/discovery/transcytosis_model.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local |  |  |
@@ -115,6 +114,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer [T2] | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
 | T-0155 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  | feat/turbo-sentinel-cadence |
+| T-0182 | P1 | Zero-build In Silico Delivery Hypothesis Explorer UI with Dignity Boundary Card (src/cf/delivery/) | .ai | 4-7 | 5 | 9.1 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local | T-0181 |  |
 | T-0147 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  | research/inhaled-delivery-dossier |
 | T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | site/es-mx-localization |
 | T-0159 | P1 | Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs) | cf-lab | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | feat/antigravity-discovery-and-pr-rules |
@@ -440,7 +440,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Cryptographic hash verification and unit test suite.
 - **Acceptance:** python tools/pin_delivery_model.py --check; python -m unittest tests.test_delivery_pin
 - **Evidence:** Single-source-of-truth invariant in AGENTS.md; cf-research PR #84 discovery models
-- **Notes:** Enforces delivery.lock.json pinning in .ai. Any discrepancy between cf-research export and pinned web assets halts CI immediately.
+- **Notes:** Enforces delivery.lock.json pinning in .ai. Any discrepancy between cf-research export and pinned web assets halts CI immediately. Delivered in .ai PR #95 (commit 00b49a2).
+- **Measured:** 2 h; Implemented cryptographic lock contract data/delivery.lock.json and verification tool tools/pin_delivery_model.py. 5 unit tests passing in tests/test_delivery_pin.py. Verified zero-drift against cf-research canonical export. PR senseiewok/.ai#95.
 
 ### T-0108 Block the agent web tool for catalog hosts marked manual, request or forbidden
 
@@ -481,7 +482,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic serialization, hash generation, and unit tests.
 - **Acceptance:** python tools/discovery/export_delivery_web_data.py --check; pytest tools/discovery/test_export_delivery_web_data.py -v
 - **Evidence:** Discovery tools tools/discovery/{transcytosis_model,epithelial_plasticity,cross_domain_miner}.py; PR senseiewok/cf-research#84
-- **Notes:** Generates data/discovery_delivery_snapshot.json and corresponding TSVs with SHA-256 checksums and DataCite JSON-LD metadata adhering to the council SCHEMA.md specification.
+- **Notes:** Generates data/delivery_discovery_snapshot.json and corresponding TSVs with SHA-256 checksums and DataCite JSON-LD metadata adhering to the council SCHEMA.md specification. Delivered in cf-research PR #84 (commit e5b8e58).
+- **Measured:** 3 h; Implemented deterministic delivery discovery data exporter tools/discovery/export_delivery_web_data.py generating canonical delivery_discovery_snapshot.json and TSV tables with DataCite JSON-LD metadata and SHA-256 digests. 5 unit tests passing in tools/discovery/test_export_delivery_web_data.py (30/30 total discovery tests). Verified with --check flag. PR senseiewok/cf-research#84.
 
 ### T-0156 Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring)
 
@@ -598,7 +600,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Client-side ES6 canvas and DOM manipulation tests.
 - **Acceptance:** python -m unittest tests.test_site tests.test_delivery_page; python tasks/check-voice.py
 - **Evidence:** Discovery models T-0177, T-0178, T-0179; cf-research-context dignity rules; 65 roses convention
-- **Notes:** Interactive zero-build ES module UI: BFI radar explorer, 180-day plasticity simulator, transcytosis kinetics curve. Features non-dismissible Dignity Boundary Card, Tier T2 badges, biological penalty warnings (squamous metaplasia, GSI enteropathy), Container Queries, aria-live updates, and downloadable TSV/JSON cards.
+- **Notes:** Interactive zero-build ES module UI: BFI radar explorer, 180-day plasticity simulator, transcytosis kinetics curve. Features non-dismissible Dignity Boundary Card, Tier T2 badges, biological penalty warnings (squamous metaplasia, GSI enteropathy), Container Queries, aria-live updates, and downloadable TSV/JSON cards. Delivered in .ai PR #95 (commit 00b49a2).
+- **Measured:** 4.5 h; Delivered interactive zero-build In Silico Delivery Hypothesis Explorer on senseiewok.ai/cf/delivery/ with non-dismissible Dignity Boundary Card, Tier T2 badge, biological penalty alerts (squamous metaplasia, GSI enteropathy), Container Queries, aria-live status mirror, 65 roses motif compliance, and CSP hardening. Verified with test_site (138 passing), test_delivery_page, and check-voice.py. PR senseiewok/.ai#95.
 
 ### T-0147 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 

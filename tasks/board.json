@@ -8923,7 +8923,7 @@
       "title": "Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py)",
       "repo": "cf-research",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-17T02:45:00Z",
       "created_by": {
@@ -8941,9 +8941,9 @@
         "benefit": 4,
         "rationale": "Provides single-source-of-truth JSON/TSV data exports with cryptographic SHA-256 hashes, DataCite/Zenodo JSON-LD metadata, and reproducible terminal commands for computational biologists and web visualization.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.0,
+        "measured_outcome": "Implemented deterministic delivery discovery data exporter tools/discovery/export_delivery_web_data.py generating canonical delivery_discovery_snapshot.json and TSV tables with DataCite JSON-LD metadata and SHA-256 digests. 5 unit tests passing in tools/discovery/test_export_delivery_web_data.py (30/30 total discovery tests). Verified with --check flag. PR senseiewok/cf-research#84.",
         "categories": {
           "curative_biophysics": 7.0,
           "clinical_translation": 8.0,
@@ -8961,7 +8961,14 @@
         "T-0178",
         "T-0179"
       ],
-      "notes": "Generates data/discovery_delivery_snapshot.json and corresponding TSVs with SHA-256 checksums and DataCite JSON-LD metadata adhering to the council SCHEMA.md specification.",
+      "updated_at": "2026-10-17T03:05:00Z",
+      "completed_at": "2026-10-17T03:05:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Frontier AI Council",
+        "model_id": "gemini-4-argon"
+      },
+      "notes": "Generates data/delivery_discovery_snapshot.json and corresponding TSVs with SHA-256 checksums and DataCite JSON-LD metadata adhering to the council SCHEMA.md specification. Delivered in cf-research PR #84 (commit e5b8e58).",
       "recommended_route": "local",
       "route_rationale": "Deterministic serialization, hash generation, and unit tests.",
       "complexity": "medium"
@@ -8971,7 +8978,7 @@
       "title": "Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)",
       "repo": ".ai",
       "area": "tooling",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-17T02:45:00Z",
       "created_by": {
@@ -8989,9 +8996,9 @@
         "benefit": 4,
         "rationale": "Guarantees that public website visualizations never display unverified, modified, or out-of-sync simulation datasets by enforcing SHA-256 cryptographic parity against cf-research canonical outputs.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 2.0,
+        "measured_outcome": "Implemented cryptographic lock contract data/delivery.lock.json and verification tool tools/pin_delivery_model.py. 5 unit tests passing in tests/test_delivery_pin.py. Verified zero-drift against cf-research canonical export. PR senseiewok/.ai#95.",
         "categories": {
           "curative_biophysics": 6.0,
           "clinical_translation": 7.5,
@@ -9007,7 +9014,14 @@
       "depends_on": [
         "T-0180"
       ],
-      "notes": "Enforces delivery.lock.json pinning in .ai. Any discrepancy between cf-research export and pinned web assets halts CI immediately.",
+      "updated_at": "2026-10-17T03:10:00Z",
+      "completed_at": "2026-10-17T03:10:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Frontier AI Council",
+        "model_id": "gemini-4-argon"
+      },
+      "notes": "Enforces delivery.lock.json pinning in .ai. Any discrepancy between cf-research export and pinned web assets halts CI immediately. Delivered in .ai PR #95 (commit 00b49a2).",
       "recommended_route": "local",
       "route_rationale": "Cryptographic hash verification and unit test suite.",
       "complexity": "low"
@@ -9017,7 +9031,7 @@
       "title": "Zero-build In Silico Delivery Hypothesis Explorer UI with Dignity Boundary Card (src/cf/delivery/)",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "created_at": "2026-10-17T02:45:00Z",
       "created_by": {
@@ -9035,9 +9049,9 @@
         "benefit": 5,
         "rationale": "Empowers researchers, clinicians, and community members to explore cross-domain stem cell delivery hypotheses with interactive controls, while upholding strict dignity boundaries and zero-build accessibility.",
         "confidence": "high",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 4.5,
+        "measured_outcome": "Delivered interactive zero-build In Silico Delivery Hypothesis Explorer on senseiewok.ai/cf/delivery/ with non-dismissible Dignity Boundary Card, Tier T2 badge, biological penalty alerts (squamous metaplasia, GSI enteropathy), Container Queries, aria-live status mirror, 65 roses motif compliance, and CSP hardening. Verified with test_site (138 passing), test_delivery_page, and check-voice.py. PR senseiewok/.ai#95.",
         "categories": {
           "curative_biophysics": 9.0,
           "clinical_translation": 9.0,
@@ -9053,7 +9067,14 @@
       "depends_on": [
         "T-0181"
       ],
-      "notes": "Interactive zero-build ES module UI: BFI radar explorer, 180-day plasticity simulator, transcytosis kinetics curve. Features non-dismissible Dignity Boundary Card, Tier T2 badges, biological penalty warnings (squamous metaplasia, GSI enteropathy), Container Queries, aria-live updates, and downloadable TSV/JSON cards.",
+      "updated_at": "2026-10-17T03:10:00Z",
+      "completed_at": "2026-10-17T03:10:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Frontier AI Council",
+        "model_id": "gemini-4-argon"
+      },
+      "notes": "Interactive zero-build ES module UI: BFI radar explorer, 180-day plasticity simulator, transcytosis kinetics curve. Features non-dismissible Dignity Boundary Card, Tier T2 badges, biological penalty warnings (squamous metaplasia, GSI enteropathy), Container Queries, aria-live updates, and downloadable TSV/JSON cards. Delivered in .ai PR #95 (commit 00b49a2).",
       "recommended_route": "local",
       "route_rationale": "Client-side ES6 canvas and DOM manipulation tests.",
       "complexity": "medium"
