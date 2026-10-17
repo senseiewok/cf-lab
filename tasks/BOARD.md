@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-175 tasks, 174 created by a model, 62 with a measured outcome. Estimated effort 440.85 to 849.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+176 tasks, 175 created by a model, 63 with a measured outcome. Estimated effort 443.35 to 853.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (4)
 
@@ -33,6 +33,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0096 | P1 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
+| T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | no | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0170 | P1 | Trial Endpoint Atlas: 8-class primary outcome lexicon & verbatim span extraction | cf-research | 4-6 | 5 | 10 | no | model: gemini-4-argon | 2026-10-16 | elevated | medium | local | T-0169 |  |
 | T-0074 | P2 | Run check_source_overlap.py in the review gate for notes built from reports | cf-lab | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0092 | P2 | Re-run the SEO skill release review after the SEO008 fix | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0083 |  |
@@ -83,7 +84,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0009 | P3 | ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators) | cf-research | 6-10 | 4 | 5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local | T-0008 |  |
 
-## done (93)
+## done (94)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -478,6 +479,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence Package:** `cf-research/landscape/multi-registry-eligibility-2026.md` *(Tier: T2 | Claims: `cf-research/landscape/multi-registry-eligibility-claims.json` | Sources: cffpr-adr-2024, ecfspr-adr-2024, ukcfr-adr-2024, ccfr-adr-2024, acfdr-adr-2025)*
 - **Notes:** 2026-10-15: Created and approved during schedule and website publishing audit after verifying T-0005 downloads. \| 2026-10-15: Completed and submitted via senseiewok/cf-research PR #67.
 - **Measured:** 3.5 h; Submitted PR #67 on senseiewok/cf-research. Authored landscape/multi-registry-eligibility-2026.md synthesizing 2024-2025 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports with non-pooling invariant, openFDA drug label surveillance, and showcase_targets manifest. Passed check_claims.py (12 passed), check_numbers.py, and check_source_overlap.py.
+
+### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
+
+- **Why / ROI rationale:** Automated PR hygiene eliminates merge conflict friction, identifies unresolved review comments across the multi-repo workspace, protects human-gated boundaries, audits stale worktrees, and prevents maintainer cognitive overload. *(confidence: high)*
+- **Route:** local - Deterministic git/gh inspection, offline unit tests, and fast-gate preflight.
+- **Acceptance:** python tasks/audit_github_hygiene.py --check; python -m unittest tasks.test_audit_github_hygiene; pwsh -NoProfile -File tasks/test-run-sentinel.ps1; pwsh -NoProfile -File tasks/render-sentinel-sidecars.ps1 -Check
+- **Evidence:** tasks/sentinels.json, tasks/HUMAN-TASKS.md, .claude/skills/workspace-siblings/scripts/worktrees.py, and multi-repo PR state
+- **Notes:** Multi-repo GitHub hygiene engine inspecting cf-lab, cf-skills, cf-research. Emits .loop-logs/github-hygiene-digest.json and syncs memory/handoff.md when maintainer action is required. Integrated into daily-security-sentinel audit suite.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
