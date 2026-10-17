@@ -155,6 +155,79 @@ def _check_skills(root: Path, home: Path) -> list[tuple[bool, str]]:
     return results
 
 
+REQUIRED_GH_DENY_RULES = (
+    "Bash(gh api -X PUT*)",
+    "PowerShell(gh api -X PUT*)",
+    "Bash(gh api --method PUT*)",
+    "PowerShell(gh api --method PUT*)",
+    "Bash(gh api * -X PUT*)",
+    "PowerShell(gh api * -X PUT*)",
+    "Bash(gh api * --method PUT*)",
+    "PowerShell(gh api * --method PUT*)",
+    "Bash(gh api -X PATCH*)",
+    "PowerShell(gh api -X PATCH*)",
+    "Bash(gh api --method PATCH*)",
+    "PowerShell(gh api --method PATCH*)",
+    "Bash(gh api * -X PATCH*)",
+    "PowerShell(gh api * -X PATCH*)",
+    "Bash(gh api * --method PATCH*)",
+    "PowerShell(gh api * --method PATCH*)",
+    "Bash(gh api -X DELETE*)",
+    "PowerShell(gh api -X DELETE*)",
+    "Bash(gh api --method DELETE*)",
+    "PowerShell(gh api --method DELETE*)",
+    "Bash(gh api * -X DELETE*)",
+    "PowerShell(gh api * -X DELETE*)",
+    "Bash(gh api * --method DELETE*)",
+    "PowerShell(gh api * --method DELETE*)",
+    "Bash(gh api -X POST*)",
+    "PowerShell(gh api -X POST*)",
+    "Bash(gh api * -X POST*)",
+    "PowerShell(gh api * -X POST*)",
+    "Bash(gh secret*)",
+    "PowerShell(gh secret*)",
+    "Bash(gh repo edit*)",
+    "PowerShell(gh repo edit*)",
+)
+
+
+def _check_runtime_and_gh_deny(root: Path, full_lab_deny: list[str] | None) -> list[tuple[bool, str]]:
+    """When security-runtime is present, assert gh settings deny rules in settings.json and mode record in SKILL.md (T-0115)."""
+    rt_skill = root / ".claude" / "skills" / "security-runtime" / "SKILL.md"
+    if not rt_skill.is_file():
+        return []
+    out: list[tuple[bool, str]] = []
+    if full_lab_deny is not None:
+        missing_gh = [r for r in REQUIRED_GH_DENY_RULES if r not in full_lab_deny]
+        if missing_gh:
+            out.append((
+                False,
+                f"FAIL gh settings deny: {len(missing_gh)} required GitHub settings deny rule(s) missing in .claude/settings.json, e.g. {missing_gh[0]}",
+            ))
+        else:
+            out.append((
+                True,
+                f"PASS gh settings deny: all {len(REQUIRED_GH_DENY_RULES)} GitHub settings deny rules (gh api PUT/PATCH/DELETE, gh secret, gh repo edit) present",
+            ))
+    try:
+        rt_text = rt_skill.read_text(encoding="utf-8-sig")
+    except (OSError, UnicodeDecodeError):
+        rt_text = ""
+    required_tokens = ("auto mode", "permissions.ask", "gh api -X PUT", "gh secret", "gh repo edit")
+    missing_tok = [t for t in required_tokens if t not in rt_text]
+    if missing_tok:
+        out.append((
+            False,
+            f"FAIL security-runtime mode record: .claude/skills/security-runtime/SKILL.md missing required token(s): {', '.join(missing_tok)}",
+        ))
+    else:
+        out.append((
+            True,
+            "PASS security-runtime mode record: documents auto mode, ask behavior, and GitHub settings deny rules",
+        ))
+    return out
+
+
 def run_checks(root: Path, home: Path | None = None, stop: Path | None = None) -> list[tuple[bool, str]]:
     results: list[tuple[bool, str]] = []
     parent = root.parent
@@ -164,12 +237,14 @@ def run_checks(root: Path, home: Path | None = None, stop: Path | None = None) -
         stop = Path(os.environ["CF_LAB_CHECK_STOP"]).resolve()
 
     # 1. Root deny rules
-    lab_deny = _read_deny(root / ".claude" / "settings.json")
-    if lab_deny is None:
+    full_lab_deny = _read_deny(root / ".claude" / "settings.json")
+    if full_lab_deny is None:
         results.append((False, "FAIL cf-lab settings: cannot read deny rules (missing file or invalid JSON) in .claude/settings.json"))
+        lab_deny = None
     else:
-        results.append((True, f"PASS cf-lab settings: {len(lab_deny)} deny rules read"))
-        lab_deny = _file_rules(lab_deny)
+        results.append((True, f"PASS cf-lab settings: {len(full_lab_deny)} deny rules read"))
+        lab_deny = _file_rules(full_lab_deny)
+    results.extend(_check_runtime_and_gh_deny(root, full_lab_deny))
 
     # 2. Siblings
     for name, expected in SIBLINGS.items():
@@ -389,6 +464,25 @@ def self_test() -> int:
         (home13 / ".claude" / "CLAUDE.md").write_text("x\n", encoding="utf-8")
         r13 = mk("case13")
 
+        # 14. security-runtime present with all gh settings deny rules and mode record passes
+        r14 = mk("case14")
+        _write_settings(r14, lab_deny + list(REQUIRED_GH_DENY_RULES))
+        sr14 = r14 / ".claude" / "skills" / "security-runtime"
+        sr14.mkdir(parents=True, exist_ok=True)
+        (sr14 / "SKILL.md").write_text(
+            "---\nname: security-runtime\ndescription: x\n---\nauto mode permissions.ask gh api -X PUT gh secret gh repo edit\n",
+            encoding="utf-8",
+        )
+
+        # 15. security-runtime present but gh settings deny rules missing fails
+        r15 = mk("case15")
+        sr15 = r15 / ".claude" / "skills" / "security-runtime"
+        sr15.mkdir(parents=True, exist_ok=True)
+        (sr15 / "SKILL.md").write_text(
+            "---\nname: security-runtime\ndescription: x\n---\nauto mode permissions.ask gh api -X PUT gh secret gh repo edit\n",
+            encoding="utf-8",
+        )
+
         # each case: (name, root, required tokens in one FAIL line or None, home)
         cases = [
             ("good tree", r1, None, home),
@@ -404,6 +498,8 @@ def self_test() -> int:
             ("skill shadowed by personal skill", r11, ["mine", "~/.claude/skills"], home),
             ("unique skills pass", r12, None, home),
             ("CLAUDE.md in home .claude", r13, ["CLAUDE.md", "AGENTS.md"], home13),
+            ("gh settings deny and mode record pass", r14, None, home),
+            ("missing gh settings deny fails", r15, ["gh settings deny", "gh api"], home),
         ]
 
         passed = 0

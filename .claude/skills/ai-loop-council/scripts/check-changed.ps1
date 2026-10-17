@@ -109,6 +109,25 @@ try {
         }
     }
 
+    if ($files | Where-Object { $_ -eq 'tasks/board.json' -or $_ -eq 'tasks/HUMAN-TASKS.md' -or $_ -eq 'tasks/sentinels.json' -or $_ -eq 'AGENTS.md' -or $_ -cmatch '^tasks/sentinel-prompts/' }) {
+        $ah = Join-Path $root 'tasks/check_anti_hallucination.py'
+        if (Test-Path $ah) {
+            $pyExe = Get-PythonExe
+            if (-not $pyExe) { Write-Host "SKIP check_anti_hallucination.py: python not found" }
+            else {
+                Push-Location $root
+                try {
+                    $ahOut = (& $pyExe tasks/check_anti_hallucination.py 2>&1) -join "`n"
+                    if ($LASTEXITCODE -ne 0) {
+                        if ($ahOut) { Write-Host $ahOut }
+                        Write-Host "FAIL owning checker check_anti_hallucination.py"
+                        $failures++
+                    }
+                } finally { Pop-Location }
+            }
+        }
+    }
+
     $skillFiles = @($files | Where-Object { $_ -cmatch '^\.claude/skills/[^/]+/SKILL\.md$' })
     if ($skillFiles.Count -gt 0) {
         $sc = Join-Path $root 'tasks/check-skill-frontmatter.py'

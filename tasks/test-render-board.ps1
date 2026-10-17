@@ -89,6 +89,28 @@ try {
     Check 'created_at renders as an ISO date (yyyy-MM-dd), not a culture date' ($r.Md -match '\| 2026-10-05 \|' -and $r.Md -notmatch '\d\d/\d\d/\d{4}') $r.Md
     Check 'tied tasks are ordered by id' ($r.Md.IndexOf('| T-0001 |') -lt $r.Md.IndexOf('| T-0002 |')) $r.Md
 
+    # T-0127 board consistency rules
+    $r = Run-Render @((New-Task @{ status = 'ready' } 'T-0001'), (New-Task @{ status = 'in_progress'; depends_on = @('T-0001') } 'T-0002'))
+    Check 'in_progress row with unfinished dependency is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'in_progress task depends on T-0001') $r.Out
+
+    $r = Run-Render @((New-Task @{ status = 'in_progress'; notes = 'Taken | Done 2026-10-05, commit abc' } 'T-0001'))
+    Check 'open row whose notes say Done is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'notes say Done') $r.Out
+
+    $r = Run-Render @((New-Task @{ status = 'ready'; priority = 'P3' } 'T-0001'), (New-Task @{ status = 'ready'; priority = 'P1'; depends_on = @('T-0001') } 'T-0002'))
+    Check 'task with higher priority than unfinished dependency is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'higher priority than unfinished dependency') $r.Out
+
+    $p1Tasks = 1..4 | ForEach-Object { New-Task @{ status = 'proposed'; priority = 'P1' } ("T-000$_") }
+    $bCap = Join-Path $base 'cap.json'
+    (@{ schema_version = 1; tasks = $p1Tasks } | ConvertTo-Json -Depth 10) | Set-Content $bCap -Encoding utf8
+    $capOut = & pwsh -NoProfile -File $Script -BoardPath $bCap -OutPath ($bCap -replace '\.json$', '.md') -MaxProposedP1 2 2>&1 | Out-String
+    Check 'proposed P1 count above MaxProposedP1 cap is rejected with exit 2' ($LASTEXITCODE -eq 2 -and $capOut -match 'exceeds MaxProposedP1') $capOut
+
+    $bomFile = Join-Path $base 'bom.json'
+    $bomBytes = [byte[]]@(0xEF, 0xBB, 0xBF) + [System.Text.Encoding]::UTF8.GetBytes((@{ schema_version = 1; tasks = @((New-Task)) } | ConvertTo-Json -Depth 10))
+    [System.IO.File]::WriteAllBytes($bomFile, $bomBytes)
+    $bomOut = & pwsh -NoProfile -File $Script -BoardPath $bomFile -OutPath ($bomFile -replace '\.json$', '.md') 2>&1 | Out-String
+    Check 'UTF-8 BOM in board.json is rejected with exit 2' ($LASTEXITCODE -eq 2 -and $bomOut -match 'byte-order mark') $bomOut
+
     $real = Join-Path $PSScriptRoot 'board.json'
     if (Test-Path $real) {
         $o = & pwsh -NoProfile -File $Script -BoardPath $real -OutPath (Join-Path $PSScriptRoot 'BOARD.md') -Check 2>&1 | Out-String

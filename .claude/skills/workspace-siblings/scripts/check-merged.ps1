@@ -41,6 +41,8 @@ param(
     [string] $Repo,
     [int] $Pr,
     [string] $RepoPath,
+    [switch] $CheckBeforePush,
+    [string] $Branch,
     [switch] $SelfTest
 )
 $ErrorActionPreference = 'Stop'
@@ -237,6 +239,22 @@ function Write-Result($r) {
     if ($r.Fails -gt 0) { Write-Output "RESULT FAIL ($($r.Fails) check(s) failed)" } else { Write-Output 'RESULT PASS' }
 }
 
+function Test-BeforePush($Api, [string] $Repo, [string] $Branch) {
+    $lines = [System.Collections.Generic.List[string]]::new()
+    $fails = 0
+    $owner = ($Repo -split '/')[0]
+    $prs = @(& $Api "repos/$Repo/pulls?state=closed&head=${owner}:$(Get-Escaped $Branch)&per_page=30")
+    $mergedPrs = @($prs | Where-Object { $_ -and ($_.merged -eq $true -or $_.merged_at) })
+    if ($mergedPrs.Count -gt 0) {
+        $fails++
+        $nums = ($mergedPrs | ForEach-Object { "#$($_.number)" }) -join ', '
+        $lines.Add("FAIL pre-push: branch '$Branch' in $Repo already has merged pull request(s) ($nums); create a new branch from origin/main instead of pushing to a merged branch")
+    } else {
+        $lines.Add("PASS pre-push: branch '$Branch' in $Repo has no merged pull request")
+    }
+    return @{ Lines = $lines; Fails = $fails }
+}
+
 if ($SelfTest) {
     $R = 'o/r'
     function New-Canned([bool] $merged, [string] $branchNow, [string] $base = 'main', [string] $defaultNow = 'm2', [hashtable] $extra = @{}) {
@@ -254,6 +272,7 @@ if ($SelfTest) {
             "repos/$R/git/trees/m2?recursive=1"              = @{ truncated = $false; tree = @(@{ type = 'blob'; path = 'a.txt'; sha = 'A1' }, @{ type = 'blob'; path = 'b.txt'; sha = 'B9' }) }
             "repos/$R/compare/h1...h2"                       = @{ status = 'ahead'; commits = @(@{ sha = 'h2'; commit = @{ message = "security fix pushed late`nbody" } }); files = @(@{ filename = 'a.txt' }, @{ filename = 'c.txt' }) }
             "repos/$R/compare/main...m1"                     = @{ status = 'ahead' }
+            "repos/$R/pulls?state=closed&head=o:feat/x&per_page=30" = $(if ($merged) { @(@{ number = 1; merged = $true; merged_at = '2026-10-08T12:00:00Z' }) } else { @() })
         }
         foreach ($k in $extra.Keys) { $c[$k] = $extra[$k] }
         # Round-trip through JSON so the script sees the same shapes as from gh api.
@@ -288,12 +307,40 @@ if ($SelfTest) {
             } else { Write-Output "PASS self-test: $($c.name)" }
         } catch { $bad++; Write-Output "FAIL self-test: $($c.name) threw: $($_.Exception.Message)" }
     }
-    Write-Output $(if ($bad) { "RESULT FAIL ($bad self-test case(s) failed)" } else { "RESULT PASS ($($cases.Count) self-test cases)" })
+    $prePushMerged = Test-BeforePush (New-Api (New-Canned $true 'h1')) $R 'feat/x'
+    if ($prePushMerged.Fails -eq 1 -and ($prePushMerged.Lines -join "`n").Contains('FAIL pre-push')) {
+        Write-Output 'PASS self-test: pre-push refuses branch whose PR is merged'
+    } else { $bad++; Write-Output 'FAIL self-test: pre-push refuses branch whose PR is merged' }
+
+    $prePushClean = Test-BeforePush (New-Api (New-Canned $false 'h1')) $R 'feat/x'
+    if ($prePushClean.Fails -eq 0 -and ($prePushClean.Lines -join "`n").Contains('PASS pre-push')) {
+        Write-Output 'PASS self-test: pre-push allows branch with no merged PR'
+    } else { $bad++; Write-Output 'FAIL self-test: pre-push allows branch with no merged PR' }
+
+    $totalCases = $cases.Count + 2
+    Write-Output $(if ($bad) { "RESULT FAIL ($bad self-test case(s) failed)" } else { "RESULT PASS ($totalCases self-test cases)" })
     exit $(if ($bad) { 1 } else { 0 })
 }
 
+if ($CheckBeforePush) {
+    if (-not $Repo -or $Repo -notmatch '^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$' -or -not $Branch) {
+        Write-Output 'usage: check-merged.ps1 -Repo <owner/name> -CheckBeforePush -Branch <branch>'
+        exit 2
+    }
+    if (-not (Get-Command gh -CommandType Application -ErrorAction SilentlyContinue)) { Write-Output 'ERROR gh (GitHub CLI) is not installed or not on PATH'; exit 2 }
+    try {
+        $result = Test-BeforePush ${function:Invoke-GhGet} $Repo $Branch
+    } catch [ApiError] {
+        Write-Output "ERROR $($_.Exception.Message)"; exit 2
+    } catch {
+        Write-Output "ERROR $($_.Exception.Message)"; exit 2
+    }
+    Write-Result $result
+    exit $(if ($result.Fails -gt 0) { 1 } else { 0 })
+}
+
 if (-not $Repo -or $Repo -notmatch '^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$' -or $Pr -le 0) {
-    Write-Output 'usage: check-merged.ps1 -Repo <owner/name> -Pr <number> [-RepoPath <local clone>] | -SelfTest'
+    Write-Output 'usage: check-merged.ps1 -Repo <owner/name> -Pr <number> [-RepoPath <local clone>] | -CheckBeforePush -Branch <branch> | -SelfTest'
     exit 2
 }
 if (-not (Get-Command gh -CommandType Application -ErrorAction SilentlyContinue)) { Write-Output 'ERROR gh (GitHub CLI) is not installed or not on PATH'; exit 2 }

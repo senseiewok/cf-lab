@@ -19,8 +19,9 @@ function New-Folder([string] $name, [scriptblock] $build) {
 function Run([string[]] $ArgList, [hashtable] $Env = @{}) {
     $saved = @{}
     foreach ($k in $Env.Keys) { $saved[$k] = [Environment]::GetEnvironmentVariable($k); [Environment]::SetEnvironmentVariable($k, $Env[$k]) }
+    Push-Location $root
     try { $out = & pwsh -NoProfile -File $Script @ArgList 2>&1 | Out-String; $code = $LASTEXITCODE }
-    finally { foreach ($k in $Env.Keys) { [Environment]::SetEnvironmentVariable($k, $saved[$k]) } }
+    finally { Pop-Location; foreach ($k in $Env.Keys) { [Environment]::SetEnvironmentVariable($k, $saved[$k]) } }
     return [pscustomobject]@{ Code = $code; Out = $out }
 }
 function Expect-Violation([string] $label, [string] $dir, [string] $rule, [string] $mustMention, [string[]] $mustNotEcho = @(), [hashtable] $Env = @{}) {

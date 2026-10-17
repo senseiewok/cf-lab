@@ -263,6 +263,76 @@ class PickerTests(unittest.TestCase):
         for key in ("id", "title", "acceptance", "review_tier", "recommended_route", "effort_hours"):
             self.assertIn(key, t)
 
+    def test_draft_sentinel_pr_skips_its_task_without_freezing_the_lane(self):
+        self.prs.write_text(
+            json.dumps([{"repo": "cf-skills", "headRefName": "work/sentinel-security-t-0083", "isDraft": True}]),
+            encoding="utf-8",
+        )
+        tasks = [
+            task("T-0083", repo="cf-skills", area="skills", complexity="high", low=4, high=6, composite=9),
+            task("T-0055", repo="cf-skills", area="skills", complexity="medium", low=2, high=4, composite=8),
+        ]
+        # Draft PR awaiting human sign-off does not exit 21; it skips T-0083 and picks T-0055
+        self.assertEqual(self.bundle_ids(tasks, "security"), ["T-0055"])
+
+    def test_expanded_person_needed_wording_is_excluded(self):
+        for text in (
+            "the human reads SKILL.md and confirms the licence",
+            "Verified on a real Mac in Terminal",
+            "Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot",
+            "AWAITING_HUMAN: waiting on maintainer sign-off",
+        ):
+            code, _ = self.run_picker([task("T-0001", acceptance=text)], "security", "--check")
+            self.assertEqual(code, 20, text)
+
+    def test_bundle_chains_direct_dependent_within_hour_budget(self):
+        first = task("T-0171", repo="cf-research", area="research", complexity="medium", low=3, high=5, composite=8)
+        second = task(
+            "T-0172", repo="cf-research", area="research", complexity="medium", low=3, high=5,
+            composite=8, depends_on=["T-0171"],
+        )
+        self.assertEqual(self.bundle_ids([first, second], "research", "--max-bundle-hours", "10"), ["T-0171", "T-0172"])
+
+    def test_draft_pr_skips_multi_task_and_compact_ids(self):
+        self.prs.write_text(
+            json.dumps([{
+                "repo": "cf-skills",
+                "headRefName": "work/sentinel-security-t0083-t-0055",
+                "isDraft": True,
+                "title": "feat: complete T-0083 and T-0055 (plus T-0069)",
+            }]),
+            encoding="utf-8",
+        )
+        tasks = [
+            task("T-0083", composite=10),
+            task("T-0055", composite=9),
+            task("T-0069", composite=8),
+            task("T-0115", composite=5),
+        ]
+        self.assertEqual(self.bundle_ids(tasks, "security"), ["T-0115"])
+
+    def test_two_draft_prs_freeze_lane(self):
+        self.prs.write_text(
+            json.dumps([
+                {
+                    "repo": "cf-skills",
+                    "headRefName": "work/sentinel-security-t0083",
+                    "isDraft": True,
+                    "title": "draft 1",
+                },
+                {
+                    "repo": "cf-lab",
+                    "headRefName": "work/sentinel-security-t0055",
+                    "isDraft": True,
+                    "title": "draft 2",
+                },
+            ]),
+            encoding="utf-8",
+        )
+        code, out = self.run_picker([task("T-0115")], "security", "--check")
+        self.assertEqual(code, 21)
+        self.assertIn("cap 2", out)
+
 
 class RealBoardTests(unittest.TestCase):
     def test_every_lane_runs_on_the_real_board_without_error(self):

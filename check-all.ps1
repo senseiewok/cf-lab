@@ -60,6 +60,8 @@ $Checks = @(
     @{ name = 'test-fast-sentinel-gate';  exe = 'pwsh';       args = @('tasks/test-fast-sentinel-gate.ps1');                                              needs = @('git') }
     @{ name = 'test-run-sentinel';        exe = 'pwsh';       args = @('tasks/test-run-sentinel.ps1');                                                    needs = @('git') }
     @{ name = 'test-pick-bold-task';      exe = 'python';     args = @('tasks/test_pick_bold_task.py');                                                    needs = @('python') }
+    @{ name = 'check-anti-hallucination'; exe = 'python';     args = @('tasks/check_anti_hallucination.py');                                               needs = @('python') }
+    @{ name = 'test-check-anti-hallucination'; exe = 'python'; args = @('tasks/test_check_anti_hallucination.py');                                         needs = @('python') }
     @{ name = 'skill-frontmatter';        exe = 'python';     args = @('tasks/check-skill-frontmatter.py');                                                needs = @('python', 'pyyaml') }
     # setup and the workspace
     @{ name = 'test-setup';               exe = 'python';     args = @("$s/lab-versioning/scripts/test-setup.py");                                         needs = @('python') }

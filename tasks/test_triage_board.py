@@ -138,6 +138,31 @@ class TestTriageBoard(unittest.TestCase):
         self.assertFalse(is_valid_fake)
         self.assertIn("Missing verifiable primary literature", reason_fake)
 
+        # Hallucinated NCT ID not in snapshot.json
+        hallucinated_nct_task = {
+            "title": "Analyze trial NCT99999999",
+            "source_evidence": "ClinicalTrials.gov record NCT99999999; DOI 10.1056/NEJMoa2000001",
+            "acceptance": "Verify NCT99999999 outcomes",
+            "review_tier": "elevated",
+        }
+        ok_nct, reason_nct, _ = tb.verify_anti_hallucination_guardrails(
+            hallucinated_nct_task, snapshot_ncts={"NCT05668741", "NCT03525444"}
+        )
+        self.assertFalse(ok_nct)
+        self.assertIn("NCT99999999", reason_nct)
+
+        # Non-existent dossier path in source_evidence (when cf-research is present)
+        ghost_dossier_task = {
+            "title": "Showcase ghost dossier",
+            "source_evidence": "cf-research/proposals/2026-10-99-ghost-proposal-that-never-existed.md",
+            "acceptance": "Render ghost proposal on site",
+            "review_tier": "elevated",
+        }
+        if tb.resolve_repo_file(ROOT, "cf-research/sources/catalog.yaml") is not None:
+            ok_doc, reason_doc, _ = tb.verify_anti_hallucination_guardrails(ghost_dossier_task)
+            self.assertFalse(ok_doc)
+            self.assertIn("non-existent dossier", reason_doc)
+
     def test_curative_mission_classification(self):
         task_150 = self.mock_board["tasks"][3]
         cls_150 = tb.classify_curative_mission(task_150)
@@ -214,6 +239,38 @@ class TestTriageBoard(unittest.TestCase):
         self.assertGreaterEqual(roi_meta["categories"]["curative_biophysics"], 9.0)
         self.assertGreater(roi_meta["composite_score"], 0)
         self.assertGreater(roi_meta["roi_ratio"], 0)
+
+    def test_high_impact_multi_hour_milestones_prioritized_as_p1(self):
+        milestone = {
+            "id": "T-0173",
+            "title": "Trial Endpoint Atlas: zero-build interactive showcase compilation for /cf/trials/",
+            "repo": ".ai",
+            "area": "site",
+            "status": "ready",
+            "priority": "P2",
+            "effort_hours": {"low": 4.0, "high": 6.0},
+            "roi": {"benefit": 5, "rationale": "Zero-build public atlas"},
+            "acceptance": "python -m unittest tests.test_site",
+            "review_tier": "full",
+        }
+        roi_meta = tb.compute_multi_category_roi(milestone)
+        # Even though mean_effort_hours is 5.0 (> 4.0), its high mission impact keeps it P1
+        self.assertEqual(tb.determine_roi_priority(milestone, roi_meta), "P1")
+
+        tiny_routine = {
+            "id": "T-0990",
+            "title": "Minor typo cleanup in internal note",
+            "repo": "cf-lab",
+            "area": "docs",
+            "status": "ready",
+            "priority": "P2",
+            "effort_hours": {"low": 0.25, "high": 0.5},
+            "roi": {"benefit": 2, "rationale": "Small cleanup"},
+            "acceptance": "check passes",
+            "review_tier": "routine",
+        }
+        tiny_meta = tb.compute_multi_category_roi(tiny_routine)
+        self.assertNotEqual(tb.determine_roi_priority(tiny_routine, tiny_meta), "P1")
 
     def test_council_approved_and_boilerplate_not_human_gated(self):
         import tempfile
