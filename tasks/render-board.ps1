@@ -26,25 +26,33 @@
 param(
     [string]$BoardPath,
     [string]$OutPath,
-    [switch]$Check
+    [switch]$Check,
+    [int]$MaxProposedP1 = 15
 )
 
 $ErrorActionPreference = 'Stop'
 $here = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
 if (-not $BoardPath) { $BoardPath = Join-Path $here 'board.json' }
 if (-not $OutPath)   { $OutPath   = Join-Path $here 'BOARD.md' }
+
+$rawBytes = [System.IO.File]::ReadAllBytes($BoardPath)
+if ($rawBytes.Length -ge 3 -and $rawBytes[0] -eq 0xEF -and $rawBytes[1] -eq 0xBB -and $rawBytes[2] -eq 0xBF) {
+    Write-Error "$BoardPath begins with a UTF-8 byte-order mark (ef bb bf); save as UTF-8 without BOM" -ErrorAction Continue
+    exit 2
+}
 $board = Get-Content -Raw -Path $BoardPath -Encoding UTF8 | ConvertFrom-Json
 
 $requiredFields = 'id','title','repo','status','priority','created_at','created_by','source_evidence','effort_hours','roi','acceptance','review_tier'
 $errors = @()
 $ids = @{}
+$byId = @{}
 foreach ($t in $board.tasks) {
     foreach ($f in $requiredFields) {
         if (-not ($t.PSObject.Properties.Name -contains $f) -or $null -eq $t.$f) { $errors += "$($t.id): missing field '$f'" }
     }
-    if ($ids.ContainsKey($t.id)) { $errors += "duplicate id $($t.id)" } else { $ids[$t.id] = $true }
+    if ($ids.ContainsKey($t.id)) { $errors += "duplicate id $($t.id)" } else { $ids[$t.id] = $true; $byId[$t.id] = $t }
     if ($t.created_by.kind -notin 'model','human') { $errors += "$($t.id): created_by.kind must be model or human" }
-    if ($t.created_by.kind -eq 'model' -and -not $t.created_by.model_id) { $errors += "$($t.id): model-created task needs model_id" }
+    if ($t.created_by.kind -eq 'model' -and -not $t.created_by.created_by -and -not $t.created_by.model_id) { $errors += "$($t.id): model-created task needs model_id" }
     if ($t.status -notin 'proposed','ready','in_progress','blocked','done','dropped') { $errors += "$($t.id): bad status '$($t.status)'" }
     if ($t.priority -notmatch '^P[0-3]$') { $errors += "$($t.id): bad priority '$($t.priority)'" }
     if ($t.roi.benefit -lt 1 -or $t.roi.benefit -gt 5) { $errors += "$($t.id): roi.benefit must be 1-5" }
@@ -68,8 +76,29 @@ foreach ($t in $board.tasks) {
             $errors += "$($t.id): evidence_package.answer_tier must be T0, T1, T2, or T3"
         }
     }
+    if ($t.status -notin 'done','dropped' -and [string]$t.notes -match '(?:^|\|\s*|\r?\n)\s*(?:\d{4}-\d{2}-\d{2}[^:]*:\s*)?Done\b') {
+        $errors += "$($t.id): notes say Done while status is '$($t.status)' (close the task or write 'Agent part done')"
+    }
 }
-foreach ($t in $board.tasks) { foreach ($d in $t.depends_on) { if (-not $ids.ContainsKey($d)) { $errors += "$($t.id): depends_on unknown $d" } } }
+foreach ($t in $board.tasks) {
+    foreach ($d in $t.depends_on) {
+        if (-not $ids.ContainsKey($d)) {
+            $errors += "$($t.id): depends_on unknown $d"
+            continue
+        }
+        $dep = $byId[$d]
+        if ($t.status -eq 'in_progress' -and $dep.status -ne 'done') {
+            $errors += "$($t.id): in_progress task depends on $d ($($dep.status), not done)"
+        }
+        if ($t.status -notin 'done','dropped' -and $dep.status -notin 'done','dropped' -and [string]$t.priority -lt [string]$dep.priority) {
+            $errors += "$($t.id) ($($t.priority)) has higher priority than unfinished dependency $d ($($dep.priority))"
+        }
+    }
+}
+$proposedP1 = @($board.tasks | Where-Object { $_.status -eq 'proposed' -and $_.priority -eq 'P1' }).Count
+if ($proposedP1 -gt $MaxProposedP1) {
+    $errors += "proposed P1 count ($proposedP1) exceeds MaxProposedP1 ($MaxProposedP1)"
+}
 if ($errors) { $errors | ForEach-Object { Write-Error $_ -ErrorAction Continue }; exit 2 }
 
 function RoiIndex($t) {

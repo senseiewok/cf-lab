@@ -51,7 +51,8 @@ if (-not $ManifestFile) { $ManifestFile = Join-Path $PSScriptRoot "sentinels.jso
 if (-not $RunLog) { $RunLog = Join-Path $repoRoot ".loop-logs/sentinel-runs.jsonl" }
 
 function Write-RunLog([string]$Decision, [string]$Detail = "") {
-    $dir = Split-Path -Parent $RunLog
+    $full = [IO.Path]::GetFullPath($RunLog)
+    $dir = Split-Path -Parent $full
     if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir -Force | Out-Null }
     $line = [ordered]@{
         ts       = (Get-Date).ToUniversalTime().ToString("o")
@@ -59,7 +60,17 @@ function Write-RunLog([string]$Decision, [string]$Detail = "") {
         decision = $Decision
         detail   = $Detail
     } | ConvertTo-Json -Compress
-    Add-Content -Path $RunLog -Value $line -Encoding utf8
+    $bytes = [Text.UTF8Encoding]::new($false).GetBytes($line + [Environment]::NewLine)
+    for ($try = 1; $try -le 200; $try++) {
+        try {
+            $fs = [IO.File]::Open($full, [IO.FileMode]::Append, [IO.FileAccess]::Write, [IO.FileShare]::None)
+            try { $fs.Write($bytes, 0, $bytes.Length) } finally { $fs.Dispose() }
+            return
+        } catch [IO.IOException] {
+            if ($try -eq 200) { throw }
+            Start-Sleep -Milliseconds (Get-Random -Minimum 5 -Maximum 40)
+        }
+    }
 }
 
 if (-not (Test-Path $ManifestFile)) {

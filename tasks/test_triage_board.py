@@ -215,6 +215,38 @@ class TestTriageBoard(unittest.TestCase):
         self.assertGreater(roi_meta["composite_score"], 0)
         self.assertGreater(roi_meta["roi_ratio"], 0)
 
+    def test_high_impact_multi_hour_milestones_prioritized_as_p1(self):
+        milestone = {
+            "id": "T-0173",
+            "title": "Trial Endpoint Atlas: zero-build interactive showcase compilation for /cf/trials/",
+            "repo": ".ai",
+            "area": "site",
+            "status": "ready",
+            "priority": "P2",
+            "effort_hours": {"low": 4.0, "high": 6.0},
+            "roi": {"benefit": 5, "rationale": "Zero-build public atlas"},
+            "acceptance": "python -m unittest tests.test_site",
+            "review_tier": "full",
+        }
+        roi_meta = tb.compute_multi_category_roi(milestone)
+        # Even though mean_effort_hours is 5.0 (> 4.0), its high mission impact keeps it P1
+        self.assertEqual(tb.determine_roi_priority(milestone, roi_meta), "P1")
+
+        tiny_routine = {
+            "id": "T-0990",
+            "title": "Minor typo cleanup in internal note",
+            "repo": "cf-lab",
+            "area": "docs",
+            "status": "ready",
+            "priority": "P2",
+            "effort_hours": {"low": 0.25, "high": 0.5},
+            "roi": {"benefit": 2, "rationale": "Small cleanup"},
+            "acceptance": "check passes",
+            "review_tier": "routine",
+        }
+        tiny_meta = tb.compute_multi_category_roi(tiny_routine)
+        self.assertNotEqual(tb.determine_roi_priority(tiny_routine, tiny_meta), "P1")
+
     def test_council_approved_and_boilerplate_not_human_gated(self):
         import tempfile
         with tempfile.TemporaryDirectory() as d:

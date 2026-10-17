@@ -419,7 +419,15 @@ def compute_multi_category_roi(task: dict) -> dict:
         "security_compliance": 0.15,
     }
 
-    composite_score = round(
+    existing_roi = task.get("roi") if isinstance(task.get("roi"), dict) else {}
+    existing_cats = existing_roi.get("categories") if isinstance(existing_roi.get("categories"), dict) else {}
+    curative = max(curative, float(existing_cats.get("curative_biophysics", 0.0)))
+    translation = max(translation, float(existing_cats.get("clinical_translation", 0.0)))
+    integrity = max(integrity, float(existing_cats.get("scientific_integrity", 0.0)))
+    velocity = max(velocity, float(existing_cats.get("operational_velocity", 0.0)))
+    security = max(security, float(existing_cats.get("security_compliance", 0.0)))
+
+    computed_score = round(
         curative * weights["curative_biophysics"] +
         translation * weights["clinical_translation"] +
         integrity * weights["scientific_integrity"] +
@@ -427,6 +435,8 @@ def compute_multi_category_roi(task: dict) -> dict:
         security * weights["security_compliance"],
         2
     )
+    existing_score = existing_roi.get("composite_score")
+    composite_score = max(computed_score, float(existing_score)) if isinstance(existing_score, (int, float)) else computed_score
 
     eff = task.get("effort_hours") or {}
     low = eff.get("low", 1.0)
@@ -451,16 +461,23 @@ def compute_multi_category_roi(task: dict) -> dict:
 
 
 def determine_roi_priority(task: dict, roi_meta: dict) -> str:
-    """Map composite ROI ratio and mission impact to priority level."""
+    """Map composite mission impact and ROI ratio to priority level without penalizing bold 4-12h milestones."""
     title_lower = task.get("title", "").lower()
-    if task.get("priority") == "P0" or (roi_meta["categories"]["security_compliance"] >= 9.0 and "p0" in title_lower):
+    cats = roi_meta.get("categories") or {}
+    if task.get("priority") == "P0" or (cats.get("security_compliance", 0.0) >= 9.0 and "p0" in title_lower):
         return "P0"
 
-    # High ROI ratio (>= 3.5) OR High Curative/Translation (>= 7.0) with low/medium effort (<= 4h)
-    if roi_meta["roi_ratio"] >= 3.5 or (roi_meta["composite_score"] >= 7.0 and roi_meta["mean_effort_hours"] <= 4.0):
+    score = roi_meta["composite_score"]
+    effort = roi_meta["mean_effort_hours"]
+    ratio = roi_meta["roi_ratio"]
+    high_mission_track = cats.get("curative_biophysics", 0.0) >= 8.0 or cats.get("clinical_translation", 0.0) >= 8.0
+
+    # High mission impact (composite >= 6.5 or Track A/B >= 8.0 within the 12h single-run ceiling)
+    # OR high ROI ratio (>= 3.5) backed by meaningful impact (composite >= 5.0)
+    if (score >= 6.5 and effort <= 12.0) or (high_mission_track and effort <= 12.0) or (ratio >= 3.5 and score >= 5.0):
         return "P1"
     # Substantial ROI (>= 1.5) or strong composite score (>= 5.0)
-    elif roi_meta["roi_ratio"] >= 1.5 or roi_meta["composite_score"] >= 5.0:
+    elif ratio >= 1.5 or score >= 5.0:
         return "P2"
     else:
         return "P3"
