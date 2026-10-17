@@ -25,7 +25,7 @@ Status: reviewed (2026-10-17). Board tasks: `T-0042` and `T-0071`. Owner repo: `
 - **Publisher & repository:** GenomOncology (`https://github.com/genomoncology/biomcp`, homepage `https://genomoncology.com/biomcp/`).
 - **Verified artifact digests (SHA-256):**
   - Wheel (`biomcp_python-0.7.3-py3-none-any.whl`): `80dfae9eb9c47cee35801cd334df57b05225bb023343183f6035f3303c7a960b`
-  - Source archive (`biomcp_python-0.7.3.tar.gz`): `ab3550e09ef10b53f7218a53f7218a53116b2fb32ccddab413eb203a3b3b82f9253f1638` (`ab3550e09ef10b53f7218a53116b2fb32ccddab413eb203a3b3b82f9253f1638`)
+  - Source archive (`biomcp_python-0.7.3.tar.gz`): `ab3550e09ef10b53f7218a53116b2fb32ccddab413eb203a3b3b82f9253f1638`
 - **Licence:** MIT (`biomcp_python-0.7.3.dist-info/licenses/LICENSE`, Copyright (c) 2025 GenomOncology).
 - **Install hooks & runtime architecture:** Pure Python FastMCP wheel (`py3-none-any`), no `setup.py` install hooks. Console entry points (`entry_points.txt`): `biomcp = biomcp:main` and `biomcp-cli = biomcp:main`.
 - **Direct runtime dependencies (12 required + 3 optional `worker` extra):** `certifi>=2025.1.31`, `diskcache>=5.6.3`, `httpx>=0.28.1`, `mcp[cli]<2.0.0,>=1.12.3`, `platformdirs>=4.3.6`, `psutil>=7.0.0`, `pydantic>=2.10.6`, `python-dotenv>=1.0.0`, `rich>=14.0.0`, `typer>=0.15.2`, `uvicorn>=0.34.2`, `alphagenome>=0.1.0`.
