@@ -109,8 +109,16 @@ $Checks = @(
     @{ name = 'test-check-restricted-hosts'; exe = 'python';  args = @('tasks/test_check_restricted_hosts.py');                                            needs = @('python') }
     @{ name = 'scan-person-generalization'; exe = 'python';   args = @('tasks/scan_person_generalization.py', '--self-test');                               needs = @('python') }
     @{ name = 'test-scan-person-generalization'; exe = 'python'; args = @('tasks/test_scan_person_generalization.py');                                    needs = @('python') }
+    @{ name = 'check-catalog-snapshot';   exe = 'python';     args = @('tasks/sync_catalog_snapshot.py', '--check', '--max-age-days', '3650');             needs = @('python') }
+    @{ name = 'test-sync-catalog-snapshot'; exe = 'python';   args = @('tasks/test_sync_catalog_snapshot.py');                                             needs = @('python') }
+    @{ name = 'check-pr-body';            exe = 'python';     args = @('tasks/check_pr_body.py', '--self-test');                                           needs = @('python') }
+    @{ name = 'test-check-pr-body';       exe = 'python';     args = @('tasks/test_check_pr_body.py');                                                     needs = @('python') }
+    @{ name = 'check-ci-workflows';       exe = 'python';     args = @('tasks/check_ci_workflows.py');                                                     needs = @('python') }
+    @{ name = 'test-check-ci-workflows';  exe = 'python';     args = @('tasks/test_check_ci_workflows.py');                                                needs = @('python') }
+    @{ name = 'test-evidence-cli-launcher'; exe = 'python';   args = @('tasks/test_evidence_cli_launcher.py');                                             needs = @('python') }
     # models (the guard only; nothing here talks to Ollama)
     @{ name = 'test-restart-ollama';      exe = 'pwsh';       args = @("$s/model-qwen3-8-27b/test-restart-ollama.ps1");                                    needs = @() }
+    @{ name = 'test-score-claim-mapping'; exe = 'python';     args = @("$s/model-onboarding/scripts/test_score_claim_mapping.py");                         needs = @('python') }
     # ascii-art
     @{ name = 'test-asciicanvas';         exe = 'python';     args = @("$s/ascii-art/scripts/test-asciicanvas.py");                                        needs = @('python') }
     @{ name = 'test-check-ascii';         exe = 'python';     args = @("$s/ascii-art/scripts/test-check-ascii.py");                                        needs = @('python') }
