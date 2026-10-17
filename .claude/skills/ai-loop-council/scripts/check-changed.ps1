@@ -144,6 +144,147 @@ try {
         }
     }
 
+    if ($files | Where-Object { $_ -eq 'THIRD_PARTY_SKILLS.md' -or $_ -eq 'tasks/check_third_party_skills.py' }) {
+        $tps = Join-Path $root 'tasks/check_third_party_skills.py'
+        if (Test-Path $tps) {
+            $pyExe = Get-PythonExe
+            if (-not $pyExe) { Write-Host "SKIP check_third_party_skills.py: python not found" }
+            else {
+                Push-Location $root
+                try {
+                    $tpsOut = (& $pyExe tasks/check_third_party_skills.py 2>&1) -join "`n"
+                    if ($LASTEXITCODE -ne 0) {
+                        if ($tpsOut) { Write-Host $tpsOut }
+                        Write-Host "FAIL owning checker check_third_party_skills.py"
+                        $failures++
+                    }
+                } finally { Pop-Location }
+            }
+        }
+    }
+
+    if ($files | Where-Object { $_ -eq 'docs/biomcp-admission-review.md' -or $_ -eq 'tasks/check_biomcp_admission.py' }) {
+        $bma = Join-Path $root 'tasks/check_biomcp_admission.py'
+        if (Test-Path $bma) {
+            $pyExe = Get-PythonExe
+            if (-not $pyExe) { Write-Host "SKIP check_biomcp_admission.py: python not found" }
+            else {
+                Push-Location $root
+                try {
+                    $bmaOut = (& $pyExe tasks/check_biomcp_admission.py 2>&1) -join "`n"
+                    if ($LASTEXITCODE -ne 0) {
+                        if ($bmaOut) { Write-Host $bmaOut }
+                        Write-Host "FAIL owning checker check_biomcp_admission.py"
+                        $failures++
+                    }
+                } finally { Pop-Location }
+            }
+        }
+    }
+
+    # cf-research source-overlap, quotation-length, and stated-evidence number checks (T-0074)
+    $csoScript = Join-Path $root 'tools/sources/check_source_overlap.py'
+    $csoFiles = @($files | Where-Object {
+        $_ -notmatch '(^|/)known-wrong/' -and
+        ([System.IO.Path]::GetExtension($_).ToLowerInvariant() -in @('.md', '.yaml', '.yml'))
+    })
+    if ((Test-Path -LiteralPath $csoScript -PathType Leaf) -and $csoFiles.Count -gt 0) {
+        $pyExe = Get-PythonExe
+        if (-not $pyExe) { Write-Host "SKIP check_source_overlap.py: python not found" }
+        else {
+            $stageMirror = Join-Path ([IO.Path]::GetTempPath()) ('cso-staged-' + [guid]::NewGuid().ToString('N'))
+            New-Item -ItemType Directory -Force -Path $stageMirror | Out-Null
+            try {
+                foreach ($f in $files) {
+                    $dest = Join-Path $stageMirror $f
+                    New-Item -ItemType Directory -Force -Path (Split-Path -Parent $dest) | Out-Null
+                    [IO.File]::WriteAllText($dest, (Get-StagedText $f), [Text.UTF8Encoding]::new($false))
+                }
+                $stagedMd = @($csoFiles | Where-Object { [System.IO.Path]::GetExtension($_).ToLowerInvariant() -eq '.md' } | ForEach-Object { Join-Path $stageMirror $_ })
+                $stagedOverlap = @($csoFiles | ForEach-Object { Join-Path $stageMirror $_ })
+
+                if ($stagedMd.Count -gt 0) {
+                    $qOut = (& $pyExe $csoScript --quotes-only @stagedMd 2>&1) -join "`n"
+                    if ($LASTEXITCODE -ne 0) {
+                        if ($qOut) { Write-Host $qOut }
+                        Write-Host "FAIL owning checker check_source_overlap.py --quotes-only"
+                        $failures++
+                    }
+                }
+
+                $dlDir = Join-Path $root 'sources/downloads'
+                if (-not (Test-Path -LiteralPath $dlDir -PathType Container)) {
+                    Write-Host "SKIP check_source_overlap.py: sources/downloads does not exist"
+                } else {
+                    $oOut = (& $pyExe $csoScript --max-quote 0 --sources $dlDir @stagedOverlap 2>&1) -join "`n"
+                    if ($LASTEXITCODE -eq 2 -and $oOut -match 'no \.txt or \.pdf files|pdftotext is not installed') {
+                        Write-Host "SKIP check_source_overlap.py: $oOut"
+                    } elseif ($LASTEXITCODE -ne 0) {
+                        if ($oOut) { Write-Host $oOut }
+                        Write-Host "FAIL owning checker check_source_overlap.py"
+                        $failures++
+                    }
+                }
+
+                $cnScript = Join-Path $root 'tools/sources/check_numbers.py'
+                if (Test-Path -LiteralPath $cnScript -PathType Leaf) {
+                    foreach ($mdRel in @($csoFiles | Where-Object { [System.IO.Path]::GetExtension($_).ToLowerInvariant() -eq '.md' })) {
+                        $mdStagedPath = Join-Path $stageMirror $mdRel
+                        $mdText = [IO.File]::ReadAllText($mdStagedPath, [Text.UTF8Encoding]::new($false))
+                        $evList = @()
+                        foreach ($m in [regex]::Matches($mdText, '(?im)^(?:<!--\s*)?evidence(?:-file)?\s*:\s*([^\r\n>]+?)(?:\s*-->)?\s*$')) {
+                            $rawEv = $m.Groups[1].Value.Trim()
+                            $candStage = Join-Path $stageMirror $rawEv
+                            $candRoot = Join-Path $root $rawEv
+                            $candRel = Join-Path (Split-Path -Parent (Join-Path $root $mdRel)) $rawEv
+                            if (Test-Path -LiteralPath $candStage) { $evList += $candStage }
+                            elseif (Test-Path -LiteralPath $candRoot) { $evList += $candRoot }
+                            elseif (Test-Path -LiteralPath $candRel) { $evList += $candRel }
+                            else { $evList += $candRoot }
+                        }
+                        $stemRel = [IO.Path]::ChangeExtension($mdRel, $null).TrimEnd('.')
+                        $compEvStage = Join-Path $stageMirror ($stemRel + '-evidence.txt')
+                        $compEvRoot = Join-Path $root ($stemRel + '-evidence.txt')
+                        if ($evList.Count -eq 0) {
+                            if (Test-Path -LiteralPath $compEvStage -PathType Leaf) { $evList += $compEvStage }
+                            elseif (Test-Path -LiteralPath $compEvRoot -PathType Leaf) { $evList += $compEvRoot }
+                        }
+                        if ($evList.Count -gt 0) {
+                            $allowPath = $null
+                            $am = [regex]::Match($mdText, '(?im)^(?:<!--\s*)?allow-file\s*:\s*([^\r\n>]+?)(?:\s*-->)?\s*$')
+                            if ($am.Success) {
+                                $rawAl = $am.Groups[1].Value.Trim()
+                                $alStage = Join-Path $stageMirror $rawAl
+                                $alRoot = Join-Path $root $rawAl
+                                if (Test-Path -LiteralPath $alStage -PathType Leaf) { $allowPath = $alStage }
+                                else { $allowPath = $alRoot }
+                            } else {
+                                foreach ($suf in @('-allow.txt', '-numbers-allow.txt')) {
+                                    $alStage = Join-Path $stageMirror ($stemRel + $suf)
+                                    $alRoot = Join-Path $root ($stemRel + $suf)
+                                    if (Test-Path -LiteralPath $alStage -PathType Leaf) { $allowPath = $alStage; break }
+                                    if (Test-Path -LiteralPath $alRoot -PathType Leaf) { $allowPath = $alRoot; break }
+                                }
+                            }
+                            $cnArgs = @()
+                            foreach ($ep in $evList) { $cnArgs += @('--evidence', $ep) }
+                            if ($allowPath) { $cnArgs += @('--allow-file', $allowPath) }
+                            $cnArgs += $mdStagedPath
+                            $cnOut = (& $pyExe $cnScript @cnArgs 2>&1) -join "`n"
+                            if ($LASTEXITCODE -ne 0) {
+                                if ($cnOut) { Write-Host $cnOut }
+                                Write-Host "FAIL owning checker check_numbers.py ($mdRel)"
+                                $failures++
+                            }
+                        }
+                    }
+                }
+            } finally {
+                Remove-Item -LiteralPath $stageMirror -Recurse -Force -ErrorAction SilentlyContinue
+            }
+        }
+    }
+
     if ($failures -eq 0) { Write-Host "OK"; exit 0 }
     else { Write-Host "FAILED: $failures problem(s)"; exit 1 }
 } catch {
