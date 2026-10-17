@@ -22,14 +22,16 @@ Use a lab-owned address, never a personal one. Keys go only in the git-ignored `
 
 ## 2. External Permission Letters & Outbound Communications
 
-Letters must be reviewed, filled, and sent by the human maintainer from the lab's official email address. Replies take weeks and gate registry citation data. Drafts live in `cf-research` (PR #12, PR #19).
+Letters must be reviewed, filled, and sent by the human maintainer from the lab's official email address. Replies take weeks and gate registry citation data. Complete drafts and the central reply tracking ledger live in untracked personal files at `../cf-lab-files/permission-letters-dispatch.md`.
 
-- [ ] **Send CFTR2 permission letter**: Request quotation / citation terms for variant allele counts.
-- [ ] **Send Child Opportunity Index (COI) letter**: Request usage confirmation for pediatric social determinants.
-- [ ] **Send CF Foundation Patient Registry letter**: Request data citation terms and record reply in `landscape/registry-data-access.md`.
-- [ ] **Send ECFSPR letter**: European Cystic Fibrosis Society Patient Registry.
-- [ ] **Send UK Cystic Fibrosis Trust Registry letter**.
-- [ ] **Send Australian Cystic Fibrosis Data Registry (ACFDR) letter**.
+- [ ] **Send CFTR2 permission letter (Letter 1)**: Johns Hopkins / CFF (`cftr2`) — request quotation and citation terms for single searched variants.
+- [ ] **Send Child Opportunity Index letter (Letter 2)**: diversitydatakids.org / Brandeis (`coi-diversitydatakids`) — request usage confirmation for aggregate neighborhood scores in open educational resources.
+- [ ] **Send CF Foundation Patient Registry letter (Letter 3)**: CFF Registry Team (`cffpr-adr-2024`) — request data citation terms and programmatic access preferences; record reply in `sources/catalog.yaml`.
+- [ ] **Send ECFSPR letter (Letter 4)**: European Cystic Fibrosis Society (`ecfspr-adr-2024`) — request confirmation on redistributing aggregate cited values and attribution wording.
+- [ ] **Send UK Cystic Fibrosis Trust Registry letter (Letter 5)**: Cystic Fibrosis Trust (`ukcfr-adr-2024`) — request permission to quote short phrases and cite single published values with page references.
+- [ ] **Send Australian Cystic Fibrosis Data Registry letter (Letter 6)**: Monash University (`acfdr-adr-2025`) — request confirmation on citing published values and short quotes.
+
+*Note: Maintainer records outcomes in `sources/catalog.yaml` and the ledger in `../cf-lab-files/permission-letters-dispatch.md`. Private email correspondence stays in `../cf-lab-files/` and is never committed to git.*
 
 ---
 
@@ -37,7 +39,7 @@ Letters must be reviewed, filled, and sent by the human maintainer from the lab'
 
 Medical boundary and community safety require external human expertise; AI cannot replace licensed clinicians or lived experience.
 
-- [ ] **Clinician / Social Worker Safe-Use Review (T-0105)**: Have a CF clinician or social worker review safe-use box wording, crisis language, 988 inclusion, and priority ordering (emergency services vs. CF care team urgent line).
+- [ ] **Clinician / Social Worker Safe-Use Review (T-0105)**: Have a CF clinician or social worker review safe-use box wording, crisis language, 988 inclusion, and priority ordering (emergency services vs. CF care team urgent line). Draft invitation template is in `../cf-lab-files/permission-letters-dispatch.md` (Letter 7).
 - [ ] **Community & Registry Review (T-0011)**: Arrange an external review round by a person with CF or family caregiver (on plain-language dignity) and a registry biostatistician (on data comparability). No public page may claim community endorsement until completed.
 
 ---
