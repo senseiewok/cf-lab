@@ -310,6 +310,44 @@ SUMMARY 2 worktree(s): 1 removable, 1 kept
             self.assertIn(".ai#95", content)
             self.assertIn("Checks (generators and static tests)", content)
 
+    def test_detect_status_context_and_superseded_prs(self):
+        mock_data = {
+            "cf-research": [
+                {
+                    "number": 86,
+                    "title": "feat: ECFSPR v0.1 (T-0009, T-0010)",
+                    "headRefName": "work/sentinel-research-t-0009",
+                    "mergeable": "CONFLICTING",
+                    "mergeStateStatus": "DIRTY",
+                    "reviewDecision": "",
+                    "statusCheckRollup": [
+                        {
+                            "context": "status/external-gate",
+                            "state": "ERROR",
+                            "targetUrl": "https://example.com/status"
+                        }
+                    ]
+                }
+            ]
+        }
+        res = agh.audit_prs(
+            "senseiewok",
+            ["cf-research"],
+            pr_data=mock_data,
+            check_threads=False,
+            done_task_ids={"T-0009", "T-0010"}
+        )
+        self.assertEqual(len(res["conflicts"]), 1)
+        self.assertTrue(res["conflicts"][0]["ci_blocked_by_conflict"])
+        self.assertEqual(len(res["ci_failures"]), 1)
+        self.assertEqual(res["ci_failures"][0]["failed_checks"][0]["name"], "status/external-gate")
+        self.assertEqual(res["ci_failures"][0]["failed_checks"][0]["conclusion"], "ERROR")
+        self.assertEqual(len(res["superseded_prs"]), 1)
+        self.assertEqual(res["superseded_prs"][0]["number"], 86)
+        self.assertEqual(len(res["repair_queue"]), 1)
+        self.assertTrue(res["repair_queue"][0]["is_superseded"])
+        self.assertTrue(res["repair_queue"][0]["has_conflict"])
+
 
 if __name__ == "__main__":
     unittest.main()

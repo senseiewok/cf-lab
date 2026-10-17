@@ -236,7 +236,7 @@ def build_bundle(candidates: list[dict], max_tasks: int, max_hours: float,
 
 
 def read_open_prs(path: str | None) -> list[dict] | None:
-    """Open pull requests as [{repo, headRefName, isDraft, title}], or None when they cannot be read."""
+    """Open pull requests with merge and check status, or None when they cannot be read."""
     if path:
         try:
             raw = json.loads(Path(path).read_text(encoding="utf-8"))
@@ -245,9 +245,16 @@ def read_open_prs(path: str | None) -> list[dict] | None:
             return [
                 {
                     "repo": p["repo"],
+                    "number": p.get("number"),
                     "headRefName": p["headRefName"],
                     "isDraft": bool(p.get("isDraft", False)),
                     "title": str(p.get("title", "")),
+                    "url": str(p.get("url", "")),
+                    "mergeable": str(p.get("mergeable", "MERGEABLE")),
+                    "mergeStateStatus": str(p.get("mergeStateStatus", "CLEAN")),
+                    "reviewDecision": str(p.get("reviewDecision", "")),
+                    "statusCheckRollup": list(p.get("statusCheckRollup") or []),
+                    "unresolved_threads": list(p.get("unresolved_threads") or []),
                 }
                 for p in raw
             ]
@@ -258,8 +265,9 @@ def read_open_prs(path: str | None) -> list[dict] | None:
         try:
             res = subprocess.run(
                 ["gh", "pr", "list", "--repo", f"{GITHUB_OWNER}/{repo}", "--state", "open",
-                 "--json", "headRefName,isDraft,title", "--limit", "100"],
-                capture_output=True, text=True, timeout=60,
+                 "--json", "number,headRefName,isDraft,title,url,mergeable,mergeStateStatus,reviewDecision,statusCheckRollup",
+                 "--limit", "100"],
+                capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=60,
             )
         except (OSError, subprocess.TimeoutExpired):
             return None
@@ -269,15 +277,132 @@ def read_open_prs(path: str | None) -> list[dict] | None:
             prs.extend(
                 {
                     "repo": repo,
+                    "number": p.get("number"),
                     "headRefName": p["headRefName"],
                     "isDraft": bool(p.get("isDraft", False)),
                     "title": str(p.get("title", "")),
+                    "url": str(p.get("url", "")),
+                    "mergeable": str(p.get("mergeable", "UNKNOWN")),
+                    "mergeStateStatus": str(p.get("mergeStateStatus", "UNKNOWN")),
+                    "reviewDecision": str(p.get("reviewDecision", "")),
+                    "statusCheckRollup": list(p.get("statusCheckRollup") or []),
+                    "unresolved_threads": list(p.get("unresolved_threads") or []),
                 }
                 for p in json.loads(res.stdout)
             )
         except (ValueError, KeyError, TypeError):
             return None
     return prs
+
+
+def pr_task_ids(pr: dict) -> list[str]:
+    """Ordered unique T-XXXX task IDs mentioned in a PR's branch or title."""
+    combined = f"{pr.get('headRefName', '')} {pr.get('title', '')}"
+    out: list[str] = []
+    for digits in TASK_ID_TOKEN_RX.findall(combined):
+        tid = f"T-{digits}"
+        if tid not in out:
+            out.append(tid)
+    return out
+
+
+def is_sentinel_branch(branch: str) -> bool:
+    """True when a branch follows one of the lab's autonomous sentinel naming conventions."""
+    low = branch.lower()
+    return low.startswith(("work/sentinel-", "site/showcase-", "sec-fix-", "agent-improve-"))
+
+
+def pr_lane_of(pr: dict, tasks_by_id: dict[str, dict]) -> str | None:
+    """Assign an open sentinel PR to the lane responsible for checking and repairing it.
+
+    Non-sentinel branches (e.g. human feature branches or external bots without a sentinel prefix
+    or known board task ID) return None so sentinels never hijack unrelated branches.
+    """
+    branch = str(pr.get("headRefName", ""))
+    low = branch.lower()
+    m = re.match(r"^work/sentinel-(security|research|showcase)-", low)
+    if m:
+        return m.group(1)
+    if low.startswith("site/showcase-"):
+        return "showcase"
+    if low.startswith(("sec-fix-", "agent-improve-")):
+        return "security"
+    for tid in pr_task_ids(pr):
+        if tid in tasks_by_id:
+            return lane_of(tasks_by_id[tid])
+    return None
+
+
+def pr_failed_checks(pr: dict) -> list[dict]:
+    """Return failing CheckRun or StatusContext entries from statusCheckRollup."""
+    failed: list[dict] = []
+    for check in (pr.get("statusCheckRollup") or []):
+        if not isinstance(check, dict):
+            continue
+        conclusion = str(check.get("conclusion") or check.get("state") or "").upper()
+        if conclusion in ("FAILURE", "ERROR", "TIMED_OUT", "ACTION_REQUIRED", "STARTUP_FAILURE"):
+            failed.append({
+                "name": str(check.get("name") or check.get("context") or "unknown"),
+                "workflow": str(check.get("workflowName") or ""),
+                "conclusion": conclusion,
+                "details_url": str(check.get("detailsUrl") or check.get("targetUrl") or ""),
+            })
+    return failed
+
+
+def pr_issues(pr: dict, done_ids: set[str]) -> list[str]:
+    """Return actionable PR issues (merge_conflict, ci_failure, review_blocker, superseded_by_main)."""
+    issues: list[str] = []
+    mergeable = str(pr.get("mergeable") or "").upper()
+    merge_state = str(pr.get("mergeStateStatus") or "").upper()
+    if mergeable == "CONFLICTING" or merge_state in ("DIRTY", "BLOCKED_BY_DIRTY"):
+        issues.append("merge_conflict")
+
+    failed = pr_failed_checks(pr)
+    for fc in failed:
+        issues.append(f"ci_failure:{fc['name']}({fc['conclusion']})")
+
+    review_decision = str(pr.get("reviewDecision") or "").upper()
+    threads = pr.get("unresolved_threads") or []
+    if review_decision == "CHANGES_REQUESTED" or len(threads) > 0:
+        issues.append("review_blocker")
+
+    tids = pr_task_ids(pr)
+    branch = str(pr.get("headRefName", ""))
+    if tids and done_ids and is_sentinel_branch(branch) and all(tid in done_ids for tid in tids):
+        issues.append("superseded_by_main")
+
+    return issues
+
+
+def pr_attempt_key(pr: dict) -> str:
+    ident = pr.get("number") if pr.get("number") is not None else pr.get("headRefName", "unknown")
+    return f"PR:{pr.get('repo', 'unknown')}#{ident}"
+
+
+def summarize_pr_repair(pr: dict, issues: list[str]) -> dict:
+    repo = str(pr.get("repo") or "")
+    return {
+        "repo": repo,
+        "repo_slug": f"{GITHUB_OWNER}/{repo}" if repo else GITHUB_OWNER,
+        "number": pr.get("number"),
+        "branch": pr.get("headRefName"),
+        "title": pr.get("title"),
+        "url": pr.get("url"),
+        "is_draft": bool(pr.get("isDraft", False)),
+        "mergeable": pr.get("mergeable"),
+        "merge_state": pr.get("mergeStateStatus"),
+        "review_decision": pr.get("reviewDecision"),
+        "failed_checks": pr_failed_checks(pr),
+        "unresolved_threads": pr.get("unresolved_threads") or [],
+        "task_ids": pr_task_ids(pr),
+        "issues": issues,
+        "repair_steps": [
+            "If superseded_by_main: verify deliverables and task status on origin/main, then close the duplicate PR with 'gh pr close <number> --repo <repo_slug>'.",
+            "If merge_conflict: in the PR worktree, run 'git fetch origin main' and 'git merge origin/main' (never force-push), resolve conflicts, regenerate derived files (e.g. render-board.ps1), run checks + run-gate.ps1, and push.",
+            "If ci_failure or review_blocker: inspect failed check logs ('gh pr checks <number> --repo <repo_slug>' / 'gh run view --log-failed') and unresolved review comments ('gh api repos/<repo_slug>/pulls/<number>/comments'), apply minimal deterministic fix in the worktree, verify via run-gate.ps1, and push.",
+        ],
+    }
 
 
 def summarize(t: dict) -> dict:
@@ -315,6 +440,8 @@ def main(argv: list[str] | None = None) -> int:
 
     board = json.loads(Path(args.board).read_text(encoding="utf-8"))
     tasks = board["tasks"] if isinstance(board, dict) else board
+    tasks_by_id = {t["id"]: t for t in tasks if isinstance(t, dict) and "id" in t}
+    done_ids = {t["id"] for t in tasks if isinstance(t, dict) and t.get("status") == "done" and "id" in t}
     human_ids = triage_board.load_human_gated_ids(Path(args.human_file))
     attempts_path = Path(args.attempts_file)
     try:
@@ -322,15 +449,70 @@ def main(argv: list[str] | None = None) -> int:
     except (OSError, ValueError):
         attempts = {}
 
-    # Capacity first: a lane with a non-draft sentinel pull request still waiting for review builds nothing more.
-    # Draft sentinel PRs (e.g. parked awaiting human sign-off on a licence or API key) do not freeze the lane,
-    # and their task IDs are skipped in eligible() so they are not re-claimed.
     prs = read_open_prs(args.open_prs_file)
     if prs is None:
         print("capacity unknown: open pull requests could not be read, building nothing")
         return 22
+
+    # 1. PR Check & Merge Conflict Repair First:
+    # Before blocking a lane on an open PR, check whether any open sentinel PR in this lane has failing CI checks,
+    # merge conflicts (CONFLICTING / DIRTY), review blockers, or is superseded by tasks already done on main.
+    # If so, wake the sentinel in pr_repair mode (up to attempt_limit retries per window) instead of exiting 21.
+    repairs: list[dict] = []
+    repair_keys: list[str] = []
+    for p in prs:
+        if pr_lane_of(p, tasks_by_id) != args.lane:
+            continue
+        issues = pr_issues(p, done_ids)
+        if not issues:
+            continue
+        rkey = pr_attempt_key(p)
+        if recent_attempts(attempts, rkey, now, args.attempt_window_hours) >= args.attempt_limit:
+            continue
+        repairs.append(summarize_pr_repair(p, issues))
+        repair_keys.append(rkey)
+
+    if repairs:
+        top_repair = repairs[0]
+        top_key = repair_keys[0]
+        repair_result = {
+            "mode": "pr_repair",
+            "lane": args.lane,
+            "branch": top_repair["branch"],
+            "repo": top_repair["repo"],
+            "repo_slug": top_repair["repo_slug"],
+            "total_mean_effort_hours": 1.5,
+            "pr_repairs": [top_repair],
+            "queued_pr_repairs_count": len(repairs),
+            "bundle": [],
+            "why": "open pull request in this lane has failing checks, merge conflicts, review blockers, or is superseded by main",
+            "too_big_to_hand_out": [],
+        }
+        if args.check:
+            summary_str = ", ".join(
+                f"{r['repo_slug']}#{r['number'] if r.get('number') is not None else r['branch']} ({'+'.join(r['issues'])})"
+                for r in repairs
+            )
+            print(f"pr repair needed: {summary_str}")
+            return 0
+        if args.claim:
+            stamp = now.isoformat()
+            attempts.setdefault(top_key, []).append(stamp)
+            attempts_path.parent.mkdir(parents=True, exist_ok=True)
+            attempts_path.write_text(json.dumps(attempts, indent=2), encoding="utf-8")
+        print(json.dumps(repair_result, indent=2))
+        return 0
+
+    # 2. Capacity check for healthy open sentinel PRs:
+    # A lane with a healthy non-draft sentinel pull request still waiting for review builds nothing more.
+    # Draft sentinel PRs (e.g. parked awaiting human sign-off on a licence or API key) do not freeze the lane,
+    # and their task IDs are skipped in eligible() so they are not re-claimed.
     prefix = f"work/sentinel-{args.lane}-"
-    lane_prs = [p for p in prs if str(p.get("headRefName", "")).startswith(prefix)]
+    lane_prs = [
+        p for p in prs
+        if str(p.get("headRefName", "")).startswith(prefix)
+        or (args.lane == "showcase" and str(p.get("headRefName", "")).lower().startswith("site/showcase-"))
+    ]
     waiting = [p for p in lane_prs if not p.get("isDraft", False)]
     if waiting:
         print(f"lane {args.lane} already has an open sentinel pull request ({waiting[0]['repo']}: {waiting[0]['headRefName']})")
@@ -357,10 +539,12 @@ def main(argv: list[str] | None = None) -> int:
         return 20
 
     result = {
+        "mode": "build",
         "lane": args.lane,
         "branch": f"{prefix}{bundle[0]['id'].lower()}",
         "repo": bundle[0].get("repo"),
         "total_mean_effort_hours": round(sum(mean_effort(t) for t in bundle), 2),
+        "pr_repairs": [],
         "bundle": [summarize(t) for t in bundle],
         "why": "ranked by impact x priority x scope (complexity, effort), not by impact per hour",
         "too_big_to_hand_out": oversize,
