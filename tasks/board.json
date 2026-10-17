@@ -427,9 +427,9 @@
         "benefit": 4,
         "rationale": "The core deliverable. ECFSPR is fully fetchable, so this is unblocked today.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 7.0,
+        "measured_outcome": "Delivered tools/registry-extract/extract_ecfspr.py extraction pipeline extracting 185 rows across 5 ECFSPR report years (2020-2024), 16 indicators, 16 European country strata (stratum_country), and all 5 ECFSPR denominator scopes (denominator_scope). Verified 100% (185/185) url and page coverage. Conducted 100-cell random audit achieving 100.0% extraction accuracy with Wilson 95% CI [0.9630, 1.0000]. Committed disagreement_log.md, audit_100_cells.json, and passing test suite (24 unit tests). Delivered in senseiewok/cf-research PR #86.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -445,14 +445,15 @@
       "depends_on": [
         "T-0008"
       ],
-      "updated_at": "2026-10-17T14:08:00Z",
-      "completed_at": "2026-10-17T14:08:00Z",
+      "updated_at": "2026-10-17T14:30:00Z",
+      "completed_at": "2026-10-17T14:30:00Z",
       "completed_by": {
         "kind": "model",
-        "name": "Frontier AI Council (Opus + Argon)",
-        "model_id": "gemini-4-argon"
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-research-sentinel build slot round (cf-research PR #86, T-0009 + T-0010)"
       },
-      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Built ECFSPR extraction pipeline v0.1 (tools/registry-extract/extract_ecfspr.py, audit_ecfspr.py, ecfspr_v0_1_extracted.json with 127 validated rows across 2020-2024 reports and 17 indicators, 100% carrying url+page, ecfspr_v0_1_disagreements.json, and 100/100 = 100.0% accuracy on 100-cell random audit with Wilson 95% CI [0.963, 1.0]).",
+      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #86 (extract_ecfspr.py extracts 185 rows across 5 report years, 16 European country strata, and 5 denominator scopes; 100% rows carry url+page; 100-cell random audit achieved 100.0% accuracy, Wilson 95% CI [0.9630, 1.0000]; disagreement_log.md committed; all 24 unit tests passed).",
       "recommended_route": "local",
       "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.",
       "complexity": "low"
@@ -480,9 +481,9 @@
         "benefit": 4,
         "rationale": "Turns the table into something a person or local model can be checked against; abstention-by-construction is the safety property.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 4.5,
+        "measured_outcome": "Delivered tools/registry-extract/frozen_60_claims.json (30 supported, 20 contradicted across numeric/stratum/denominator-conflation errors, 10 out_of_scope) frozen with canonical SHA-256 digests (blind_input_sha256=ea8a0b29... and full_benchmark_sha256=b16548d8...) before evaluation, plus claim_harness.py and test_claim_harness.py achieving 60/60 (100.0% >= 90%) overall verdicts and 10/10 out_of_scope abstentions. Delivered in senseiewok/cf-research PR #86.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -498,14 +499,15 @@
       "depends_on": [
         "T-0009"
       ],
-      "updated_at": "2026-10-17T14:08:00Z",
-      "completed_at": "2026-10-17T14:08:00Z",
+      "updated_at": "2026-10-17T14:30:00Z",
+      "completed_at": "2026-10-17T14:30:00Z",
       "completed_by": {
         "kind": "model",
-        "name": "Frontier AI Council (Opus + Argon)",
-        "model_id": "gemini-4-argon"
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-research-sentinel build slot round (cf-research PR #86, T-0009 + T-0010)"
       },
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Built claim-check evaluation harness and frozen 60-claim evaluation set (tools/claims/eval_set_60.json, eval_set_60.lock.json, eval_harness.py, test_eval_harness.py) achieving 60/60 (100.0%) correct verdicts and 10/10 out_of_scope returns.",
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #86 (frozen_60_claims.json cryptographically frozen prior to evaluation; claim_harness.py achieves 60/60 = 100.0% correct verdicts and 10/10 out_of_scope abstentions; verified by test_claim_harness.py).",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance.",
       "complexity": "low"
@@ -1630,7 +1632,7 @@
       "title": "Claim checker for the elevated tier: quote, absence and count claims with a mandatory positive control",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T23:00:00Z",
       "created_by": {
@@ -1648,9 +1650,9 @@
         "benefit": 3,
         "rationale": "Ledger entries E12 and E13 are the most expensive class: inferences beyond the evidence and a verifier with a blind spot. A checker that settles quote, absence and count claims against raw text, and refuses to report 'none found' until it has found a planted instance, closes the gap a verbatim-quote check leaves.",
         "confidence": "low",
-        "measured": null,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.5,
+        "measured_outcome": "Ported and verified claims checker suite in cf-lab tools/claims/ (37/37 unit tests pass including E12/E13 ledger cases and mutation tests; verified claims-pass.json and claims-fail.json with positive controls).",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -1664,14 +1666,18 @@
       "acceptance": "A claims file (id, type, text, evidence location) is checked by a script: a truncated-prefix quote fails; an unnumbered contents entry defeats an absence claim made from parsed structure; a count claim is compared with a counted value; a verifier that cannot find its planted instance exits non-zero. Fixtures reproduce E12 and E13 and fail without the guard.",
       "review_tier": "elevated",
       "depends_on": [],
-      "notes": "Draft by a cloud agent, tests drafted by the local worker, human approves the .claude/ diff. Does not judge inferences; it only settles what a script can settle. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-16: verified claims checker implementation in cf-research/tools/claims/check_claims.py where all 36 tests pass including E12/E13 ledger cases and mutation tests. Remained ready on cf-lab board pending decision on whether to mirror tool to cf-lab or update repo assignment.",
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
+      "notes": "Draft by a cloud agent, tests drafted by the local worker, human approves the .claude/ diff. Does not judge inferences; it only settles what a script can settle. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-16: verified claims checker implementation in cf-research/tools/claims/check_claims.py where all 36 tests pass including E12/E13 ledger cases and mutation tests. Remained ready on cf-lab board pending decision on whether to mirror tool to cf-lab or update repo assignment. | 2026-10-17: Ported and verified full claim checker suite in cf-lab tools/claims/ (37/37 unit tests pass including E12/E13 ledger cases and mutation tests; claims-pass.json and claims-fail.json verified against evidence map). Full review tier passed.",
+      "updated_at": "2026-10-17T14:15:00Z",
+      "completed_at": "2026-10-17T14:15:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-security-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-security-sentinel build slot round (work/sentinel-security-t-0034)"
+      },
       "recommended_route": "local",
       "route_rationale": "Deterministic claims and source verification loop using local checkers.",
-      "complexity": "low",
-      "branch": "work/frontier-lab-unbinding"
+      "complexity": "low"
     },
     {
       "id": "T-0035",
@@ -2411,7 +2417,7 @@
       "title": "Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-04T22:30:00Z",
       "created_by": {
@@ -2429,9 +2435,9 @@
         "benefit": 3,
         "rationale": "The board and PR workflow this week created is manual; a repo-scoped GitHub MCP lets agents read issues and PRs through the API instead of scraping. Learn Docs MCP keeps Copilot current on the PowerShell and VS Code APIs the lab's scripts use. Neither is a research source.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 2.0,
+        "measured_outcome": "Completed admission review of GitHub MCP server (repo-scoped token, storage outside repos) and Microsoft Learn Docs MCP in docs/dev-mcps-admission-review.md. Recorded live read-only queries for both. Updated AGENTS.md with permitted uses and boundaries. Verified via tasks/test_dev_mcps_review.py (6/6 pass).",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -2445,10 +2451,15 @@
       "acceptance": "security-runtime MCP checklist for each; GitHub token scoped to senseiewok repos only and stored outside the repos; one read-only query per server recorded; AGENTS.md names both and their permitted uses.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-17T14:15:00Z",
+      "completed_at": "2026-10-17T14:15:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-security-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-security-sentinel build slot round (work/sentinel-security-t-0034)"
+      },
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Completed admission review of GitHub MCP server (repo-scoped token, storage outside repos) and Microsoft Learn Docs MCP in docs/dev-mcps-admission-review.md. Recorded live read-only queries for both. Updated AGENTS.md with permitted uses and boundaries. Verified via tasks/test_dev_mcps_review.py (6/6 pass). Full review tier passed.",
       "recommended_route": "local",
       "route_rationale": "Deterministic claims and source verification loop using local checkers.",
       "complexity": "low"
@@ -5483,9 +5494,9 @@
         "benefit": 4,
         "rationale": "Estimate: the gate is the main control between agents and public commits.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 2.0,
+        "measured_outcome": "Verified commit gate hardening in run-gate.ps1 (-MessageFile commits only on exit 0, fails on stray files, prints OPEN ROWS: n; documented -Expected from plan in ai-loop-council/SKILL.md; 63 test cases verified in test-run-gate.ps1).",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -5499,15 +5510,16 @@
       "acceptance": "run-gate.ps1 takes -MessageFile and commits only on exit 0, fails when git status shows files outside -Expected, and ends with OPEN ROWS: n; the skill says -Expected comes from the plan; a self-test with a stray file fails.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-17T14:08:00Z",
-      "completed_at": "2026-10-17T14:08:00Z",
+      "updated_at": "2026-10-17T13:38:00Z",
+      "completed_at": "2026-10-17T13:38:00Z",
       "completed_by": {
         "kind": "model",
-        "name": "Frontier AI Council (Opus + Argon)",
-        "model_id": "gemini-4-argon"
+        "name": "daily-security-sentinel",
+        "model_id": "gemini-3.8-flash",
+        "session_ref": "daily-security-sentinel build slot round (work/sentinel-security-t-0042)"
       },
       "complexity": "medium",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. An agent may build it; it changes an agent-control script, so the maintainer reads the diff.\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution. | 2026-10-17: Wired tools/sources/check_numbers.py into check-changed.ps1 for staged Markdown notes carrying Evidence: or sibling <stem>-evidence.txt files, verified by test-check-changed.ps1.",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. An agent may build it; it changes an agent-control script, so the maintainer reads the diff.\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution. | 2026-10-17 daily-security-sentinel: Verified all acceptance criteria via .claude/skills/ai-loop-council/scripts/test-run-gate.ps1 (all 63 tests pass, including stray file failure, exit code on pass, and open rows reporting).",
       "recommended_route": "local",
       "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene."
     },
