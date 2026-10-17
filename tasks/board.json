@@ -5894,7 +5894,7 @@
       "title": "Stop the evidence tool's catalog copy needing a pull request after every catalog change",
       "repo": "cf-skills",
       "area": "reliability",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-10T19:00:00Z",
       "created_by": {
@@ -5912,9 +5912,9 @@
         "benefit": 4,
         "rationale": "Estimate: removes a recurring manual step and the red checks between merges, while the public skill keeps a standalone copy.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.5,
+        "measured_outcome": "Delivered scripts/pin_catalog.py with --status, --check, and --verify CLI, catalog.lock.json in cf-evidence-loop, 14 unit tests in tests/test_pin_catalog.py with FakeGit fixtures, and CI workflow integration in senseiewok/cf-skills#31. Upstream catalog changes in cf-research no longer turn cf-skills red.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -5928,11 +5928,16 @@
       "acceptance": "The copy is pinned like the site's data: a pin tool records the research commit and hashes, a status command says how far behind the pin is, and the check in cf-skills compares the copy with the PINNED commit (not with main), so a catalog change in cf-research no longer turns cf-skills red. Moving the pin is one pull request. Tests with fakes; the skill still works standalone.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-14T23:57:55Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-17T01:16:30Z",
+      "completed_at": "2026-10-17T01:16:30Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-security-sentinel",
+        "model_id": "gemini-2.5-flash",
+        "session_ref": "2026-10-16 daily-security-sentinel build round T-0121; PR senseiewok/cf-skills#31"
+      },
       "complexity": "medium",
-      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Follows the pattern of .ai #38 (tools/pin_evidence.py) and the Resources pin. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: all three reviewers named it: every catalog change needed a sync pull request in cf-skills (four in one day).\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution.",
+      "notes": "2026-10-10: proposed by a model; only the maintainer can set it ready. Follows the pattern of .ai #38 (tools/pin_evidence.py) and the Resources pin. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: all three reviewers named it: every catalog change needed a sync pull request in cf-skills (four in one day).\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution.\n2026-10-16: verified and delivered in PR cf-skills#31. Pinned catalog copy to research commit 79f23dd with catalog.lock.json, scripts/pin_catalog.py, and 14 unit tests. --status reports commits behind, and --check verifies against the pinned commit rather than main. Standalone checks and all 223 evidence loop tests pass.",
       "recommended_route": "local",
       "route_rationale": "Deterministic claims and source verification loop using local checkers."
     },
