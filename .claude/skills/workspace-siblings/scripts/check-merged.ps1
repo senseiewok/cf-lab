@@ -332,6 +332,8 @@ if ($CheckBeforePush) {
         $result = Test-BeforePush ${function:Invoke-GhGet} $Repo $Branch
     } catch [ApiError] {
         Write-Output "ERROR $($_.Exception.Message)"; exit 2
+    } catch {
+        Write-Output "ERROR $($_.Exception.Message)"; exit 2
     }
     Write-Result $result
     exit $(if ($result.Fails -gt 0) { 1 } else { 0 })

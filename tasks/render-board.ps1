@@ -52,7 +52,7 @@ foreach ($t in $board.tasks) {
     }
     if ($ids.ContainsKey($t.id)) { $errors += "duplicate id $($t.id)" } else { $ids[$t.id] = $true; $byId[$t.id] = $t }
     if ($t.created_by.kind -notin 'model','human') { $errors += "$($t.id): created_by.kind must be model or human" }
-    if ($t.created_by.kind -eq 'model' -and -not $t.created_by.created_by -and -not $t.created_by.model_id) { $errors += "$($t.id): model-created task needs model_id" }
+    if ($t.created_by.kind -eq 'model' -and -not $t.created_by.model_id) { $errors += "$($t.id): model-created task needs model_id" }
     if ($t.status -notin 'proposed','ready','in_progress','blocked','done','dropped') { $errors += "$($t.id): bad status '$($t.status)'" }
     if ($t.priority -notmatch '^P[0-3]$') { $errors += "$($t.id): bad priority '$($t.priority)'" }
     if ($t.roi.benefit -lt 1 -or $t.roi.benefit -gt 5) { $errors += "$($t.id): roi.benefit must be 1-5" }

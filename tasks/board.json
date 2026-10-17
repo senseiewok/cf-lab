@@ -1622,7 +1622,7 @@
       "title": "Claim checker for the elevated tier: quote, absence and count claims with a mandatory positive control",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "done",
+      "status": "ready",
       "priority": "P2",
       "created_at": "2026-10-04T23:00:00Z",
       "created_by": {
@@ -1640,12 +1640,7 @@
         "benefit": 3,
         "rationale": "Ledger entries E12 and E13 are the most expensive class: inferences beyond the evidence and a verifier with a blind spot. A checker that settles quote, absence and count claims against raw text, and refuses to report 'none found' until it has found a planted instance, closes the gap a verbatim-quote check leaves.",
         "confidence": "low",
-        "measured": {
-          "actual_effort_hours": 0.3,
-          "actual_saved_hours": 3.0,
-          "measured_at": "2026-10-17",
-          "note": "Done 2026-10-17: verified check-lab-files and test-check-lab-files in check-all.ps1 and fixed temp-root Push-Location isolation in test-check-lab-files.ps1."
-        },
+        "measured": null,
         "actual_hours": null,
         "measured_outcome": null,
         "categories": {
@@ -1661,9 +1656,9 @@
       "acceptance": "A claims file (id, type, text, evidence location) is checked by a script: a truncated-prefix quote fails; an unnumbered contents entry defeats an absence claim made from parsed structure; a count claim is compared with a counted value; a verifier that cannot find its planted instance exits non-zero. Fixtures reproduce E12 and E13 and fail without the guard.",
       "review_tier": "elevated",
       "depends_on": [],
-      "notes": "Draft by a cloud agent, tests drafted by the local worker, human approves the .claude/ diff. Does not judge inferences; it only settles what a script can settle. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-16: verified claims checker implementation in cf-research/tools/claims/check_claims.py where all 36 tests pass including E12/E13 ledger cases and mutation tests. Remained ready on cf-lab board pending decision on whether to mirror tool to cf-lab or update repo assignment. | Done 2026-10-17: verified check-lab-files and test-check-lab-files in check-all.ps1 and fixed temp-root Push-Location isolation in test-check-lab-files.ps1.",
+      "notes": "Draft by a cloud agent, tests drafted by the local worker, human approves the .claude/ diff. Does not judge inferences; it only settles what a script can settle. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-16: verified claims checker implementation in cf-research/tools/claims/check_claims.py where all 36 tests pass including E12/E13 ledger cases and mutation tests. Remained ready on cf-lab board pending decision on whether to mirror tool to cf-lab or update repo assignment.",
       "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": "2026-10-17",
+      "completed_at": null,
       "completed_by": null,
       "recommended_route": "local",
       "route_rationale": "Deterministic claims and source verification loop using local checkers.",
@@ -2652,7 +2647,7 @@
       "title": "EMA medicines provider: read the downloaded JSON report as evidence records (marketing authorisation date, status)",
       "repo": "cf-skills",
       "area": "tooling",
-      "status": "done",
+      "status": "in_progress",
       "priority": "P2",
       "created_at": "2026-10-04T23:40:00Z",
       "created_by": {
@@ -2670,12 +2665,7 @@
         "benefit": 3,
         "rationale": "Estimate: answers 'approved where, for whom' for the EU, which openFDA cannot. The legal notice requires EMA to be acknowledged as the source, so every record's limitations must say so.",
         "confidence": "low",
-        "measured": {
-          "actual_effort_hours": 1.0,
-          "actual_saved_hours": 6.0,
-          "measured_at": "2026-10-17",
-          "note": "Done 2026-10-17: implemented offline EMA medicines provider (.claude/skills/cf-evidence-loop/scripts/evidence/providers/ema.py) with saved slice fixture, positive-control test, and zero-network enforcement."
-        },
+        "measured": null,
         "actual_hours": null,
         "measured_outcome": null,
         "categories": {
@@ -2692,11 +2682,11 @@
       "review_tier": "elevated",
       "depends_on": [],
       "updated_at": "2026-10-15T03:11:08Z",
-      "completed_at": "2026-10-17",
+      "completed_at": null,
       "completed_by": null,
-      "notes": "Proposed by a model; only a human moves it to ready. The terms were read through a summarising tool; a human should read the legal notice first. | 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\\bonly a human\\b'). Prioritized by multi-category ROI. | Done 2026-10-17: implemented offline EMA medicines provider (.claude/skills/cf-evidence-loop/scripts/evidence/providers/ema.py) with saved slice fixture, positive-control test, and zero-network enforcement.",
+      "notes": "Proposed by a model; only a human moves it to ready. The terms were read through a summarising tool; a human should read the legal notice first. | 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\\bonly a human\\b'). Prioritized by multi-category ROI. | Agent part done 2026-10-17 (cf-skills PR #33, awaiting human review of EMA legal notice & file location): implemented offline EMA medicines provider (.claude/skills/cf-evidence-loop/scripts/evidence/providers/ema.py) with saved slice fixture, positive-control test, and zero-network enforcement.",
       "executor": "agent",
-      "human_required": false,
+      "human_required": true,
       "recommended_route": "local",
       "route_rationale": "Deterministic claims and source verification loop using local checkers.",
       "complexity": "low",
@@ -3759,7 +3749,7 @@
       "title": "Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding",
       "repo": "cf-lab",
       "area": "web",
-      "status": "done",
+      "status": "in_progress",
       "priority": "P2",
       "created_at": "2026-10-05T05:09:00Z",
       "created_by": {
@@ -3777,12 +3767,7 @@
         "benefit": 5,
         "rationale": "Estimate: a small gain in reliability or reach for the cost.",
         "confidence": "medium",
-        "measured": {
-          "actual_effort_hours": 1.5,
-          "actual_saved_hours": 10.0,
-          "measured_at": "2026-10-17",
-          "note": "Done 2026-10-17: built zero-CDN CSP-safe interactive CFTR channel gating vs F508del ER retention schematic on /cf/cftr/ with keyboard/pause/reduced-motion support, screen-reader region, and PDB/DOI claim records."
-        },
+        "measured": null,
         "actual_hours": null,
         "measured_outcome": null,
         "categories": {
@@ -3801,13 +3786,14 @@
         "T-0078"
       ],
       "updated_at": "2026-10-10T20:00:00Z",
-      "completed_at": "2026-10-17",
+      "completed_at": null,
       "completed_by": null,
-      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. Scientific claims need the full review tier and the cf-research-context rules. Decide first whether to write raw WebGL2 or vendor three.js (a new dependency to flag). 2026-10-05: the site builder found that the only verified statements in the repos (cf-research/cystic-fibrosis.md) support no caption about chloride, folding or the cell surface, so the CFTR page is a labelled planned-not-built placeholder. The schematic needs a sourced scientific packet first (primary sources for each caption, then the full review tier). 2026-10-05 later: the maintainer said the goal is a 3D model that matters to the CF community. The page was rebuilt around four real published structures instead of a hand-drawn schematic (RCSB PDB 6MSM, 5UAK, 8EIQ, 8EJ1, CC0; UniProt P13569): backbone traces, coloured by part, residue 508 marked and shown absent in the two F508del structures, unmodelled stretches shown as dashed bridges, a walk-along-the-chain control, an overlay with computed distances. Captions use only facts checked against the files (a Fable storyboard was cut where the data did not support it). Built, tested and mutation-proven in the private site repo (tests/test_cftr_viewer.py, test_cftr_superpose.py). NOT done: the cell-scale 'misfolding and the surface' drawing (no checked source yet), an outside scientific review of the captions, a read by a person with CF or a carer, and anything public. Acceptance above is for the earlier schematic idea; the structure viewer replaces its first half and the misfolding drawing stays open. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): stalled: needs T-0078, which is only 'ready'; either start T-0078 or reset this row's acceptance and park it. | Done 2026-10-17: built zero-CDN CSP-safe interactive CFTR channel gating vs F508del ER retention schematic on /cf/cftr/ with keyboard/pause/reduced-motion support, screen-reader region, and PDB/DOI claim records.",
+      "notes": "Requested by the maintainer in this session on 2026-10-05, so it is ready. Scientific claims need the full review tier and the cf-research-context rules. Decide first whether to write raw WebGL2 or vendor three.js (a new dependency to flag). 2026-10-05: the site builder found that the only verified statements in the repos (cf-research/cystic-fibrosis.md) support no caption about chloride, folding or the cell surface, so the CFTR page is a labelled planned-not-built placeholder. The schematic needs a sourced scientific packet first (primary sources for each caption, then the full review tier). 2026-10-05 later: the maintainer said the goal is a 3D model that matters to the CF community. The page was rebuilt around four real published structures instead of a hand-drawn schematic (RCSB PDB 6MSM, 5UAK, 8EIQ, 8EJ1, CC0; UniProt P13569): backbone traces, coloured by part, residue 508 marked and shown absent in the two F508del structures, unmodelled stretches shown as dashed bridges, a walk-along-the-chain control, an overlay with computed distances. Captions use only facts checked against the files (a Fable storyboard was cut where the data did not support it). Built, tested and mutation-proven in the private site repo (tests/test_cftr_viewer.py, test_cftr_superpose.py). NOT done: the cell-scale 'misfolding and the surface' drawing (no checked source yet), an outside scientific review of the captions, a read by a person with CF or a carer, and anything public. Acceptance above is for the earlier schematic idea; the structure viewer replaces its first half and the misfolding drawing stays open. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): stalled: needs T-0078, which is only 'ready'; either start T-0078 or reset this row's acceptance and park it. | Agent part done 2026-10-17 (.ai PR #96, awaiting outside scientific review & CF community read): built zero-CDN CSP-safe interactive CFTR channel gating vs F508del ER retention schematic on /cf/cftr/ with keyboard/pause/reduced-motion support, screen-reader region, and PDB/DOI claim records.",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance.",
       "complexity": "low",
-      "branch": "work/frontier-showcase-t0173-t0077-t0120"
+      "branch": "work/frontier-showcase-t0173-t0077-t0120",
+      "human_required": true
     },
     {
       "id": "T-0078",
@@ -5649,7 +5635,7 @@
       "title": "Record the agent's permission mode and deny GitHub settings commands",
       "repo": "cf-lab",
       "area": "security",
-      "status": "done",
+      "status": "in_progress",
       "priority": "P1",
       "created_at": "2026-10-09T20:00:00Z",
       "created_by": {
@@ -5667,12 +5653,7 @@
         "benefit": 4,
         "rationale": "Estimate: makes the ask list's real effect known and closes settings changes to agents.",
         "confidence": "medium",
-        "measured": {
-          "actual_effort_hours": 0.6,
-          "actual_saved_hours": 5.0,
-          "measured_at": "2026-10-17",
-          "note": "Done 2026-10-17: added gh api -X PUT/PATCH/DELETE, gh secret, and gh repo edit deny rules for Bash and PowerShell in .claude/settings.json, documented auto mode in security-runtime/SKILL.md, and added assertions + self-tests in check-workspace.py."
-        },
+        "measured": null,
         "actual_hours": null,
         "measured_outcome": null,
         "categories": {
@@ -5689,13 +5670,14 @@
       "review_tier": "full",
       "depends_on": [],
       "updated_at": "2026-10-14T23:57:55Z",
-      "completed_at": "2026-10-17",
+      "completed_at": null,
       "completed_by": null,
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Settings edits are human-only; the maintainer decides the mode while away. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: security, 1.5h, benefit 4; all three reviewers placed it in the first ten.\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution. | Done 2026-10-17: added gh api -X PUT/PATCH/DELETE, gh secret, and gh repo edit deny rules for Bash and PowerShell in .claude/settings.json, documented auto mode in security-runtime/SKILL.md, and added assertions + self-tests in check-workspace.py.",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Settings edits are human-only; the maintainer decides the mode while away. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: security, 1.5h, benefit 4; all three reviewers placed it in the first ten.\n2026-10-14 Council Approval: Approved from proposed to ready for agent execution. | Agent part done 2026-10-17 (cf-lab PR #142, awaiting maintainer approval of .claude/settings.json diff): added gh api -X PUT/PATCH/DELETE, gh secret, and gh repo edit deny rules for Bash and PowerShell in .claude/settings.json, documented auto mode in security-runtime/SKILL.md, and added assertions + self-tests in check-workspace.py.",
       "recommended_route": "local",
       "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.",
-      "branch": "work/frontier-lab-unbinding"
+      "branch": "work/frontier-lab-unbinding",
+      "human_required": true
     },
     {
       "id": "T-0116",

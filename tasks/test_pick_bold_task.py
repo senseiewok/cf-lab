@@ -311,6 +311,28 @@ class PickerTests(unittest.TestCase):
         ]
         self.assertEqual(self.bundle_ids(tasks, "security"), ["T-0115"])
 
+    def test_two_draft_prs_freeze_lane(self):
+        self.prs.write_text(
+            json.dumps([
+                {
+                    "repo": "cf-skills",
+                    "headRefName": "work/sentinel-security-t0083",
+                    "isDraft": True,
+                    "title": "draft 1",
+                },
+                {
+                    "repo": "cf-lab",
+                    "headRefName": "work/sentinel-security-t0055",
+                    "isDraft": True,
+                    "title": "draft 2",
+                },
+            ]),
+            encoding="utf-8",
+        )
+        code, out = self.run_picker([task("T-0115")], "security", "--check")
+        self.assertEqual(code, 21)
+        self.assertIn("cap 2", out)
+
 
 class RealBoardTests(unittest.TestCase):
     def test_every_lane_runs_on_the_real_board_without_error(self):

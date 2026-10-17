@@ -351,6 +351,28 @@ try {
         if ((Test-Path $sk) -and ((Get-Content $sk -Raw) -match '(?i)every 10 minutes|10-minute cadence|Turbo Mode Cadence|\*/10 \* \* \* \*|\d-59/10')) { $_.Name }
     })
     Assert-Test "No scheduled-* skill still documents the 10-minute turbo cadence" ($stale.Count -eq 0) ($stale -join ", ")
+
+    # ---- 24-way parallel writer contention on run log (FileShare.None retry) ----------------
+    $parLog = Join-Path $tmp "parallel-runs.jsonl"
+    1..24 | ForEach-Object -Parallel {
+        $i = $_
+        $p = $using:parLog
+        $line = ([ordered]@{ writer = $i; status = "ok" } | ConvertTo-Json -Compress) + [Environment]::NewLine
+        $bytes = [Text.UTF8Encoding]::new($false).GetBytes($line)
+        for ($try = 1; $try -le 40; $try++) {
+            try {
+                $fs = [IO.File]::Open($p, [IO.FileMode]::Append, [IO.FileAccess]::Write, [IO.FileShare]::None)
+                try { $fs.Write($bytes, 0, $bytes.Length) } finally { $fs.Dispose() }
+                break
+            } catch [IO.IOException] {
+                if ($try -eq 40) { throw }
+                Start-Sleep -Milliseconds 15
+            }
+        }
+    } -ThrottleLimit 24
+    $parLines = @(Get-Content $parLog)
+    $parValid = @($parLines | ForEach-Object { try { ($_ | ConvertFrom-Json).writer } catch { $null } } | Where-Object { $_ })
+    Assert-Test "24-way parallel exclusive JSONL append preserves all 24 records without corruption" ($parLines.Count -eq 24 -and ($parValid | Sort-Object -Unique).Count -eq 24) "lines=$($parLines.Count) valid=$($parValid.Count)"
     # Every real watch path must resolve to a real tree hash (otherwise the gate never idles). Uses a
     # copy of the manifest with 'lint-' names and temp watermarks so no live lock or watermark is touched.
     # In standalone CI without sibling repos checked out, skip this section gracefully.

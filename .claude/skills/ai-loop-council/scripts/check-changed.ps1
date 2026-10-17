@@ -117,8 +117,12 @@ try {
             else {
                 Push-Location $root
                 try {
-                    & $pyExe tasks/check_anti_hallucination.py 2>&1 | Out-Null
-                    if ($LASTEXITCODE -ne 0) { Write-Host "FAIL owning checker check_anti_hallucination.py"; $failures++ }
+                    $ahOut = (& $pyExe tasks/check_anti_hallucination.py 2>&1) -join "`n"
+                    if ($LASTEXITCODE -ne 0) {
+                        if ($ahOut) { Write-Host $ahOut }
+                        Write-Host "FAIL owning checker check_anti_hallucination.py"
+                        $failures++
+                    }
                 } finally { Pop-Location }
             }
         }

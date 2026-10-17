@@ -330,9 +330,14 @@ def main(argv: list[str] | None = None) -> int:
         print("capacity unknown: open pull requests could not be read, building nothing")
         return 22
     prefix = f"work/sentinel-{args.lane}-"
-    waiting = [p for p in prs if str(p.get("headRefName", "")).startswith(prefix) and not p.get("isDraft", False)]
+    lane_prs = [p for p in prs if str(p.get("headRefName", "")).startswith(prefix)]
+    waiting = [p for p in lane_prs if not p.get("isDraft", False)]
     if waiting:
         print(f"lane {args.lane} already has an open sentinel pull request ({waiting[0]['repo']}: {waiting[0]['headRefName']})")
+        return 21
+    drafts = [p for p in lane_prs if p.get("isDraft", False)]
+    if len(drafts) >= 2:
+        print(f"lane {args.lane} already has {len(drafts)} open draft sentinel pull requests (cap 2)")
         return 21
 
     skip_ids = open_pr_task_ids(prs)

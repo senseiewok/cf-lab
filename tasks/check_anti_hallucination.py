@@ -226,6 +226,10 @@ def check_sentinel_prompts(root: Path) -> List[str]:
             errors.append(
                 f"[LAB-AH-4] {prompt_rel} is missing explicit prohibition boundaries ('never')"
             )
+        if not re.search(r"\b[a-z0-9_-]+\.(?:py|ps1)\b", lower):
+            errors.append(
+                f"[LAB-AH-4] {prompt_rel} is missing a deterministic verification script reference (.py or .ps1)"
+            )
     return errors
 
 

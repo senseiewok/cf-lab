@@ -243,7 +243,8 @@ def verify_anti_hallucination_guardrails(
     cited_dossiers = re.findall(r"\b((?:cf-research/)?(?:proposals|landscape)/[A-Za-z0-9._-]+\.md)\b", ev)
     if cited_dossiers and resolve_repo_file(repo_root, "cf-research/sources/catalog.yaml") is not None:
         for rel_doc in cited_dossiers:
-            if resolve_repo_file(repo_root, rel_doc) is None:
+            lookup_doc = rel_doc if rel_doc.startswith("cf-research/") else f"cf-research/{rel_doc}"
+            if resolve_repo_file(repo_root, lookup_doc) is None:
                 return False, f"source_evidence cites non-existent dossier: {rel_doc}", warnings
 
     # Check for ungrounded widening words in title or acceptance
@@ -468,15 +469,7 @@ def compute_multi_category_roi(task: dict) -> dict:
         "security_compliance": 0.15,
     }
 
-    existing_roi = task.get("roi") if isinstance(task.get("roi"), dict) else {}
-    existing_cats = existing_roi.get("categories") if isinstance(existing_roi.get("categories"), dict) else {}
-    curative = max(curative, float(existing_cats.get("curative_biophysics", 0.0)))
-    translation = max(translation, float(existing_cats.get("clinical_translation", 0.0)))
-    integrity = max(integrity, float(existing_cats.get("scientific_integrity", 0.0)))
-    velocity = max(velocity, float(existing_cats.get("operational_velocity", 0.0)))
-    security = max(security, float(existing_cats.get("security_compliance", 0.0)))
-
-    computed_score = round(
+    composite_score = round(
         curative * weights["curative_biophysics"] +
         translation * weights["clinical_translation"] +
         integrity * weights["scientific_integrity"] +
@@ -484,8 +477,6 @@ def compute_multi_category_roi(task: dict) -> dict:
         security * weights["security_compliance"],
         2
     )
-    existing_score = existing_roi.get("composite_score")
-    composite_score = max(computed_score, float(existing_score)) if isinstance(existing_score, (int, float)) else computed_score
 
     eff = task.get("effort_hours") or {}
     low = eff.get("low", 1.0)
