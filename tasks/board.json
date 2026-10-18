@@ -10603,7 +10603,7 @@
       "title": "Interactive Prime Editing (F508del & W1282X pegRNA/nicking-sgRNA) Feasibility Explorer panel on /cf/cftr/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -10631,7 +10631,7 @@
       "roi": {
         "benefit": 5,
         "confidence": "high",
-        "measured": false,
+        "measured": true,
         "rationale": "Translates T-0184 prime editing pegRNA PBS/RTT thermodynamics and PE3/PE3b flap resolution for F508del and W1282X into a bilingual interactive workbench on /cf/cftr/.",
         "categories": {
           "curative_biophysics": 9.5,
@@ -10641,9 +10641,18 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.72,
-        "roi_ratio": 1.63
+        "roi_ratio": 1.63,
+        "actual_hours": 4.75,
+        "measured_outcome": "Implemented Interactive Prime Editing Feasibility Explorer on /cf/cftr/ with Mexican Spanish (es-MX) parity in senseiewok/.ai#115. Grounded in T-0184 biophysical modeling (SantaLucia 1998 Tm, RTT processivity, epegRNA mpknot/tevpre motifs, PE3/PE3b indel hazard, vector packaging limits). All acceptance checks and tests.test_cftr_prime_editing verified. Certified with Argon frontier challenger review (APPROVE WITH ADVISORIES incorporated)."
       },
-      "notes": "2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor). Chains after T-0184."
+      "notes": "2026-10-18 Sentinel Showcase Build Round: Completed and verified in PR senseiewok/.ai#115. Acceptance criteria 100% satisfied.",
+      "completed_at": "2026-10-18T21:10:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel (Gemini 2.5 Flash + Argon)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 daily-site-showcase-sentinel build round"
+      }
     },
     {
       "id": "T-0210",
@@ -10695,7 +10704,7 @@
       "title": "Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -10733,7 +10742,9 @@
         "composite_score": 8.03,
         "roi_ratio": 1.69
       },
-      "notes": "2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor)."
+      "notes": "2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor). Completed in senseiewok/.ai#112: Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified.",
+      "completed_at": "2026-10-18",
+      "actual_hours": 4.5
     },
     {
       "id": "T-0212",
