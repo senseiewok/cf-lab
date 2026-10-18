@@ -35,7 +35,7 @@ jobs:
   check-all:
     name: check-all.ps1 (offline checks)
     runs-on: windows-2025
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -53,7 +53,7 @@ jobs:
           $PSVersionTable.PSVersion.ToString()
           python --version
           git --version
-      # test-delegate took 267 s on a passing run and timed out at the 300 s default on the next one (runner speed varies), so the
-      # per-check limit is 600 s here; the job's own limit above (25 minutes) still ends a hung run.
+      # Standard 2-vCPU Windows runners thrash when 4 PowerShell process-spawning suites run concurrently;
+      # -ThrottleLimit 2 and -TimeoutSec 900 prevent CPU starvation timeouts while keeping the 30-minute job cap.
       - name: check-all.ps1
-        run: pwsh -NoProfile -File ./check-all.ps1 -Parallel -TimeoutSec 600 -CheckSkips
+        run: pwsh -NoProfile -File ./check-all.ps1 -Parallel -ThrottleLimit 2 -TimeoutSec 900 -CheckSkips
