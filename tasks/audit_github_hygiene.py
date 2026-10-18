@@ -412,6 +412,99 @@ def audit_human_gated_tasks(
     return deliverables
 
 
+
+# --- Sentinel Backlog Depth Telemetry ---
+
+SENTINEL_LANES = ("security", "research", "showcase")
+SHOWCASE_AREAS = {"content", "web", "website", "site", "ai-in-care", "ui", "viewer", "frontend"}
+RESEARCH_AREAS = {"research", "science", "sources", "evidence", "grounding", "atlas"}
+
+
+def lane_of_task(task: Dict[str, Any]) -> str:
+    """Classify a board task into its sentinel lane (showcase, research, or security)."""
+    repo = task.get("repo")
+    area = task.get("area")
+    if area in SHOWCASE_AREAS:
+        return "showcase"
+    if repo == "cf-research":
+        return "research"
+    if area in RESEARCH_AREAS:
+        return "research"
+    return "security"
+
+
+def audit_sentinel_backlog_depth(
+    board_path: Path = BOARD_PATH,
+    starvation_threshold: int = 2
+) -> Dict[str, Any]:
+    """Audit ready task backlog depth per sentinel lane and flag starvation (< threshold)."""
+    results: Dict[str, Any] = {
+        "lanes": {
+            lane: {
+                "ready_count": 0,
+                "automated_ready_count": 0,
+                "starved": False,
+                "task_ids": [],
+                "automated_task_ids": []
+            }
+            for lane in SENTINEL_LANES
+        },
+        "starvation_threshold": starvation_threshold,
+        "starved_lanes": [],
+        "is_starved": False
+    }
+
+    if not board_path.is_file():
+        results["error"] = f"board.json not found at {board_path}"
+        results["is_starved"] = True
+        results["starved_lanes"] = list(SENTINEL_LANES)
+        for lane in SENTINEL_LANES:
+            results["lanes"][lane]["starved"] = True
+        return results
+
+    try:
+        board = json.loads(board_path.read_text(encoding="utf-8"))
+        tasks = board.get("tasks", []) if isinstance(board, dict) else board
+        for t in tasks:
+            if not isinstance(t, dict):
+                continue
+            if t.get("status") == "ready":
+                lane = lane_of_task(t)
+                tid = t.get("id", "UNKNOWN")
+                if lane not in results["lanes"]:
+                    results["lanes"][lane] = {
+                        "ready_count": 0,
+                        "automated_ready_count": 0,
+                        "starved": False,
+                        "task_ids": [],
+                        "automated_task_ids": []
+                    }
+                results["lanes"][lane]["ready_count"] += 1
+                results["lanes"][lane]["task_ids"].append(tid)
+
+                is_human = (t.get("executor") == "human" or t.get("human_required") is True)
+                if not is_human:
+                    results["lanes"][lane]["automated_ready_count"] += 1
+                    results["lanes"][lane]["automated_task_ids"].append(tid)
+
+        starved = []
+        for lane, data in results["lanes"].items():
+            if data["automated_ready_count"] < starvation_threshold:
+                data["starved"] = True
+                starved.append(lane)
+            else:
+                data["starved"] = False
+
+        results["starved_lanes"] = starved
+        results["is_starved"] = len(starved) > 0
+    except Exception as e:
+        results["error"] = f"Failed inspecting sentinel backlog depth: {e}"
+        results["is_starved"] = True
+        results["starved_lanes"] = list(SENTINEL_LANES)
+
+    return results
+
+
 # --- Worktree Audit ---
 
 def audit_worktrees(
@@ -487,9 +580,10 @@ def update_handoff_document(
     superseded_prs = digest.get("superseded_prs", [])
     human_actions = digest.get("human_deliverables", {}).get("pending_human_actions", [])
     removable_wts = digest.get("worktrees", {}).get("removable", [])
+    starved_lanes = digest.get("sentinel_backlog_depth", {}).get("starved_lanes", [])
 
     # If everything is clean, do not churn handoff.md
-    if not conflicts and not review_blockers and not ci_failures and not superseded_prs and not human_actions and not removable_wts:
+    if not conflicts and not review_blockers and not ci_failures and not superseded_prs and not human_actions and not removable_wts and not starved_lanes:
         return False
 
     handoff_path.parent.mkdir(parents=True, exist_ok=True)
@@ -536,6 +630,9 @@ def update_handoff_document(
 
     if removable_wts:
         lines.append(f"- **Stale Worktrees Eligible for Cleanup**: {len(removable_wts)} removable worktrees detected (`python .claude/skills/workspace-siblings/scripts/worktrees.py clean --yes`).")
+
+    if starved_lanes:
+        lines.append(f"- **Sentinel Lane Starvation Warning**: Lane(s) `{', '.join(starved_lanes)}` have fewer than 2 ready tasks. Replenishment needed to prevent sentinel idle state.")
 
     lines.append("")
     section_text = "\n".join(lines)
@@ -597,12 +694,15 @@ def run_github_hygiene_audit(
     # 2. Inspect Human Tasks & Board
     human_audit = audit_human_gated_tasks(board_path=board_path)
 
-    # 3. Inspect Worktrees
+    # 3. Inspect Sentinel Backlog Depth
+    backlog_audit = audit_sentinel_backlog_depth(board_path=board_path)
+
+    # 4. Inspect Worktrees
     wt_audit = {"removable": [], "kept": [], "total": 0, "skipped": True}
     if not skip_worktrees:
         wt_audit = audit_worktrees(REPO_ROOT.parent, WORKTREES_SCRIPT, pr_state_file=pr_data_file, github=(pr_mock is None))
 
-    # 4. Formulate Summary
+    # 5. Formulate Summary
     has_conflicts = len(pr_audit["conflicts"]) > 0
     has_review_blockers = len(pr_audit["review_blockers"]) > 0
     has_ci_failures = len(pr_audit["ci_failures"]) > 0
@@ -629,6 +729,7 @@ def run_github_hygiene_audit(
         "superseded_prs": pr_audit["superseded_prs"],
         "repair_queue": pr_audit["repair_queue"],
         "human_deliverables": human_audit,
+        "sentinel_backlog_depth": backlog_audit,
         "worktrees": wt_audit,
         "errors": pr_audit["errors"],
         "summary": {
@@ -640,7 +741,9 @@ def run_github_hygiene_audit(
             "repair_queue_count": len(pr_audit["repair_queue"]),
             "pending_human_actions_count": pending_human_count,
             "removable_worktrees_count": removable_wt_count,
-            "offline_or_errored_repos": len(pr_audit["errors"])
+            "offline_or_errored_repos": len(pr_audit["errors"]),
+            "sentinel_starved_lanes": backlog_audit.get("starved_lanes", []),
+            "sentinel_is_starved": backlog_audit.get("is_starved", False)
         }
     }
 
@@ -693,6 +796,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"  PRs Needing Repair: {summary['repair_queue_count']}")
         print(f"  Pending Human Deliverables: {summary['pending_human_actions_count']}")
         print(f"  Removable Worktrees: {summary['removable_worktrees_count']}")
+        backlog = digest.get("sentinel_backlog_depth", {})
+        if backlog and "lanes" in backlog:
+            print(f"  Sentinel Backlog Depth (threshold < {backlog.get('starvation_threshold', 2)}):")
+            for lane, ldata in backlog["lanes"].items():
+                starved_flag = " [STARVED]" if ldata.get("starved") else ""
+                print(f"    - {lane}: {ldata.get('automated_ready_count', 0)} automated ready (total {ldata.get('ready_count', 0)}){starved_flag}")
         if digest["errors"]:
             print(f"  Warnings/Errors ({len(digest['errors'])}):")
             for err in digest["errors"]:

@@ -348,6 +348,84 @@ SUMMARY 2 worktree(s): 1 removable, 1 kept
         self.assertTrue(res["repair_queue"][0]["is_superseded"])
         self.assertTrue(res["repair_queue"][0]["has_conflict"])
 
+    def test_lane_of_task_classification(self):
+        self.assertEqual(agh.lane_of_task({"area": "viewer"}), "showcase")
+        self.assertEqual(agh.lane_of_task({"area": "content"}), "showcase")
+        self.assertEqual(agh.lane_of_task({"repo": "cf-research", "area": "anything"}), "research")
+        self.assertEqual(agh.lane_of_task({"repo": "cf-lab", "area": "science"}), "research")
+        self.assertEqual(agh.lane_of_task({"repo": "cf-lab", "area": "security"}), "security")
+        self.assertEqual(agh.lane_of_task({"repo": "cf-skills", "area": "tooling"}), "security")
+
+    def test_audit_sentinel_backlog_depth_healthy_and_starved(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            board_file = Path(tmpdir) / "board.json"
+            board_data = {
+                "tasks": [
+                    {"id": "T-0001", "status": "ready", "repo": "cf-lab", "area": "security"},
+                    {"id": "T-0002", "status": "ready", "repo": "cf-lab", "area": "security"},
+                    {"id": "T-0003", "status": "ready", "repo": "cf-research", "area": "research"},
+                    {"id": "T-0004", "status": "ready", "repo": "cf-research", "area": "research"},
+                    {"id": "T-0005", "status": "ready", "repo": ".ai", "area": "viewer"},
+                ]
+            }
+            board_file.write_text(json.dumps(board_data), encoding="utf-8")
+
+            res = agh.audit_sentinel_backlog_depth(board_file, starvation_threshold=2)
+            self.assertTrue(res["is_starved"])
+            self.assertIn("showcase", res["starved_lanes"])
+            self.assertNotIn("security", res["starved_lanes"])
+            self.assertNotIn("research", res["starved_lanes"])
+            self.assertEqual(res["lanes"]["security"]["automated_ready_count"], 2)
+            self.assertEqual(res["lanes"]["showcase"]["automated_ready_count"], 1)
+
+    def test_audit_sentinel_backlog_depth_human_exclusion(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            board_file = Path(tmpdir) / "board.json"
+            board_data = {
+                "tasks": [
+                    {"id": "T-0001", "status": "ready", "repo": "cf-lab", "area": "security", "executor": "human"},
+                    {"id": "T-0002", "status": "ready", "repo": "cf-lab", "area": "security", "human_required": True},
+                    {"id": "T-0003", "status": "ready", "repo": "cf-lab", "area": "security", "executor": "model"},
+                ]
+            }
+            board_file.write_text(json.dumps(board_data), encoding="utf-8")
+
+            res = agh.audit_sentinel_backlog_depth(board_file, starvation_threshold=2)
+            self.assertEqual(res["lanes"]["security"]["ready_count"], 3)
+            self.assertEqual(res["lanes"]["security"]["automated_ready_count"], 1)
+            self.assertTrue(res["lanes"]["security"]["starved"])
+            self.assertIn("security", res["starved_lanes"])
+
+    def test_audit_sentinel_backlog_depth_missing_board(self):
+        missing = Path("/nonexistent/board.json")
+        res = agh.audit_sentinel_backlog_depth(missing, starvation_threshold=2)
+        self.assertTrue(res["is_starved"])
+        self.assertEqual(set(res["starved_lanes"]), set(agh.SENTINEL_LANES))
+        self.assertIn("error", res)
+
+    def test_update_handoff_document_starvation_warning(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            handoff_file = Path(tmpdir) / "handoff.md"
+            digest = {
+                "timestamp": "2026-10-18T12:00:00Z",
+                "conflicts": [],
+                "review_blockers": [],
+                "ci_failures": [],
+                "superseded_prs": [],
+                "human_deliverables": {"pending_human_actions": []},
+                "worktrees": {"removable": []},
+                "sentinel_backlog_depth": {
+                    "starved_lanes": ["showcase", "research"],
+                    "is_starved": True
+                }
+            }
+            updated = agh.update_handoff_document(digest, handoff_path=handoff_file)
+            self.assertTrue(updated)
+            content = handoff_file.read_text(encoding="utf-8")
+            self.assertIn("Sentinel Lane Starvation Warning", content)
+            self.assertIn("showcase, research", content)
+
 
 if __name__ == "__main__":
     unittest.main()
+
