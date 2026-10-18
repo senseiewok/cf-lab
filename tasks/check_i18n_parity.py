@@ -58,8 +58,8 @@ FALLBACK_SECTIONS = [
 ]
 
 
-def find_ai_root(start_dir: Optional[Path] = None) -> Path:
-    """Dynamically resolve the .ai repository root directory."""
+def find_ai_root(start_dir: Optional[Path] = None) -> Optional[Path]:
+    """Dynamically resolve the .ai repository root directory across standard sibling and worktree layouts."""
     env_root = os.environ.get("AI_ROOT")
     if env_root:
         p = Path(env_root)
@@ -82,7 +82,7 @@ def find_ai_root(start_dir: Optional[Path] = None) -> Path:
             ):
                 return candidate.resolve()
 
-    raise FileNotFoundError("Could not locate .ai repository root with src/ and data/i18n/es-MX.json")
+    return None
 
 
 def load_catalog(catalog_path: Path) -> Dict[str, Any]:
@@ -248,7 +248,7 @@ def audit_parity(
     }
 
 
-def main() -> int:
+def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description="Verify data-i18n Spanish translation completeness and orphan keys across .ai routes."
     )
@@ -274,10 +274,25 @@ def main() -> int:
         help="Path to .ai repository root.",
     )
 
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+
+    ai_root = args.root or find_ai_root()
+    if not ai_root or not (ai_root / "src").is_dir() or not (ai_root / "data" / "i18n" / "es-MX.json").is_file():
+        if args.json:
+            print(json.dumps({
+                "status": "SKIPPED",
+                "reason": "Could not locate .ai repository root with src/ and data/i18n/es-MX.json",
+                "routes_scanned": 0,
+                "total_attribute_uses": 0,
+                "missing_keys_count": 0,
+                "orphan_keys_count": 0,
+            }, indent=2))
+            return 0
+        repo_root = Path(__file__).resolve().parents[1]
+        print(f"SKIP: .ai repository root not found (looked around {repo_root}); skipping cross-repo check in standalone clone")
+        return 0
 
     try:
-        ai_root = args.root or find_ai_root()
         digest = audit_parity(ai_root)
     except Exception as exc:
         sys.stderr.write(f"Error during i18n parity audit: {exc}\n")

@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -121,19 +123,17 @@ class TestCheckI18nParity(unittest.TestCase):
             self.assertIn("Missing from catalog", reasons)
 
     def test_find_ai_root_resolves(self):
-        try:
-            root = cip.find_ai_root()
-            self.assertTrue(root.is_dir())
-            self.assertTrue((root / "src").is_dir())
-            self.assertTrue((root / "data" / "i18n" / "es-MX.json").is_file())
-        except FileNotFoundError:
+        root = cip.find_ai_root()
+        if root is None:
             self.skipTest(".ai repository sibling not present in this environment")
+        self.assertTrue(root.is_dir())
+        self.assertTrue((root / "src").is_dir())
+        self.assertTrue((root / "data" / "i18n" / "es-MX.json").is_file())
 
     def test_live_workspace_i18n_parity(self):
         """Invariant: All data-i18n attributes across all .ai routes must resolve to valid translations."""
-        try:
-            root = cip.find_ai_root()
-        except FileNotFoundError:
+        root = cip.find_ai_root()
+        if root is None:
             self.skipTest(".ai repository sibling not present in this environment")
         digest = cip.audit_parity(root)
         self.assertEqual(
@@ -147,6 +147,7 @@ class TestCheckI18nParity(unittest.TestCase):
 
     def test_cli_execution_check(self):
         script_path = ROOT / "tasks" / "check_i18n_parity.py"
+        has_ai = cip.find_ai_root() is not None
         res = subprocess.run(
             [sys.executable, str(script_path), "--check"],
             capture_output=True,
@@ -154,21 +155,79 @@ class TestCheckI18nParity(unittest.TestCase):
             check=False,
         )
         self.assertEqual(res.returncode, 0, f"CLI exited with non-zero code: {res.stderr}")
-        self.assertIn("Status:                 CLEAN", res.stdout)
-        self.assertIn("Missing / Unresolved:   0", res.stdout)
+        if has_ai:
+            self.assertIn("Status:                 CLEAN", res.stdout)
+            self.assertIn("Missing / Unresolved:   0", res.stdout)
+        else:
+            self.assertIn("SKIP:", res.stdout)
 
     def test_cli_execution_json(self):
         script_path = ROOT / "tasks" / "check_i18n_parity.py"
+        has_ai = cip.find_ai_root() is not None
         res = subprocess.run(
             [sys.executable, str(script_path), "--json"],
             capture_output=True,
             text=True,
             check=False,
         )
-        self.assertEqual(res.returncode, 0)
+        self.assertEqual(res.returncode, 0, f"CLI exited with non-zero code: {res.stderr}")
         data = json.loads(res.stdout)
-        self.assertEqual(data["status"], "CLEAN")
+        if has_ai:
+            self.assertEqual(data["status"], "CLEAN")
+        else:
+            self.assertEqual(data["status"], "SKIPPED")
         self.assertEqual(data["missing_keys_count"], 0)
+
+    def test_cli_execution_with_custom_root(self):
+        """Verify CLI execution works end-to-end with --root flag even without sibling .ai."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_root = Path(tmpdir)
+            src_dir = tmp_root / "src"
+            data_dir = tmp_root / "data" / "i18n"
+            src_dir.mkdir(parents=True)
+            data_dir.mkdir(parents=True)
+
+            catalog = {"chrome": {"title": "Título"}}
+            (data_dir / "es-MX.json").write_text(json.dumps(catalog), encoding="utf-8")
+            (src_dir / "index.html").write_text('<h1 data-i18n="chrome.title">T</h1>', encoding="utf-8")
+
+            script_path = ROOT / "tasks" / "check_i18n_parity.py"
+            res = subprocess.run(
+                [sys.executable, str(script_path), "--root", str(tmp_root), "--check"],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(res.returncode, 0, res.stderr)
+            self.assertIn("Status:                 CLEAN", res.stdout)
+            self.assertIn("Missing / Unresolved:   0", res.stdout)
+
+    def test_skips_when_ai_absent(self):
+        """A standalone cf-lab clone (GitHub Actions) has no ../.ai: skip, exit 0."""
+        import contextlib
+        import io
+        from unittest import mock
+
+        out = io.StringIO()
+        with mock.patch.object(cip, "find_ai_root", return_value=None), \
+                contextlib.redirect_stdout(out):
+            ret = cip.main(["--check"])
+        self.assertEqual(ret, 0)
+        self.assertIn("SKIP: .ai repository root not found", out.getvalue())
+
+    def test_standalone_copy_exits_zero(self):
+        """Run the script from a copy with no sibling repositories, as CI sees it."""
+        env = {k: v for k, v in os.environ.items() if k != "AI_ROOT"}
+        with tempfile.TemporaryDirectory() as tmp:
+            clone = Path(tmp) / "cf-lab"
+            (clone / "tasks").mkdir(parents=True)
+            shutil.copy2(ROOT / "tasks" / "check_i18n_parity.py", clone / "tasks")
+            proc = subprocess.run(
+                [sys.executable, str(clone / "tasks" / "check_i18n_parity.py"), "--check"],
+                capture_output=True, text=True, env=env, cwd=clone, timeout=60,
+            )
+        self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
+        self.assertIn("SKIP", proc.stdout)
 
 
 if __name__ == "__main__":
