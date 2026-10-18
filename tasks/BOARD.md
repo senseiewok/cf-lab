@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-205 tasks, 204 created by a model, 95 with a measured outcome. Estimated effort 527.35 to 1001.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+205 tasks, 204 created by a model, 96 with a measured outcome. Estimated effort 527.35 to 1001.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (28)
+## ready (27)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,7 +18,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0205 | P1 | Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py) | cf-lab | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0204 | P1 | Clinical Trial Endpoint Plain-Language Decoder (ppFEV1, Sweat Chloride, LCI2.5, CFQ-R) on /cf/trials/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0200 | P1 | Epithelial sodium channel (ENaC / SCNN1A) RNAi & small-molecule knockdown dose-response model for ASL rehydration (tools/discovery/enac_knockdown_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -43,7 +42,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (163)
+## done (164)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -73,6 +72,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | yes | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |  |
 | T-0167 | P1 | Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification | .ai | 2-4 | 5 | 16.7 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud |  |  |
 | T-0193 | P1 | Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
+| T-0205 | P1 | Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py) | cf-lab | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0188 | P1 | Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0189 | P1 | Unify /atlas/ and /atlas/classes/*/ with 4-Pillar Navigation, Library Drawer (Alt+L), Command Palette, and nav-rail.js (tools/make_trial_atlas.py) | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
@@ -487,7 +487,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic Python static verifier and unit tests for bilingual i18n parity.
 - **Acceptance:** pytest tasks/test_check_i18n_parity.py -v; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/audit_github_hygiene.py; ../.ai/src/data/i18n/es-MX.json; ../.ai/tools/sync_chrome.py
-- **Notes:** 2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Security/Governance lane.
+- **Notes:** 2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Security/Governance lane. \| 2026-10-18 Daily Security Sentinel: Implemented tasks/check_i18n_parity.py and test_check_i18n_parity.py. Verified all 19 canonical HTML routes and 137 attribute uses resolve cleanly; 0 orphans; acceptance check passed; marked done.
+- **Measured:** 2.5 h; Implemented automated data-i18n parity and orphan key verifier (tasks/check_i18n_parity.py) with 10 offline unit tests (tasks/test_check_i18n_parity.py). Verified all 19 canonical .ai HTML routes resolve 100% of 137 data-i18n attribute uses to valid non-empty Mexican Spanish strings with 0 orphan keys. Integrated into check-all.ps1.
 
 ### T-0188 Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure
 
