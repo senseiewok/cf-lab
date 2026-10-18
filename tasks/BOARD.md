@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-205 tasks, 204 created by a model, 95 with a measured outcome. Estimated effort 527.35 to 1001.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+205 tasks, 204 created by a model, 96 with a measured outcome. Estimated effort 527.35 to 1001.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -82,7 +82,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0177 | P1 | Airway epithelial transcytosis receptor kinetics model for apical-to-basal delivery (tools/discovery/transcytosis_model.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local |  |  |
 | T-0178 | P1 | Secretory-to-basal epithelial dedifferentiation plasticity simulation (tools/discovery/epithelial_plasticity.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local |  |  |
 | T-0179 | P1 | Cross-domain delivery innovation miner and biophysical feasibility scoring (tools/discovery/cross_domain_miner.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local |  |  |
-| T-0194 | P1 | Care-team & family plain-language question cards for each workbench (/cf/ptc/, /cf/delivery/, /cf/trials/, /cf/registries/) | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0194 | P1 | Care-team & family plain-language question cards for each workbench (/cf/ptc/, /cf/delivery/, /cf/trials/, /cf/registries/) | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
@@ -600,7 +600,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Plain-language CF community question prompts grounded in cf-research-context and lab-voice.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check-voice.py; python tools/check_anti_hallucination.py
 - **Evidence:** src/cf/ptc/index.html; src/cf/delivery/index.html; src/cf/trials/index.html; src/cf/registries/index.html; .claude/skills/lab-voice/SKILL.md
-- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Track B community help. Merged in senseiewok/.ai#108 (commit 4b02aa0): Care-Team & Genetic Counselor Question Cards across /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ with safe-use boundary callouts and es-MX parity.
+- **Notes:** 2026-10-18 daily-site-showcase-sentinel: Completed and verified. PR https://github.com/senseiewok/.ai/pull/109 (commit fc6dfe8). Acceptance criteria fully met.
+- **Measured:** 4 h; Delivered plain-language care-team and loved-ones discussion question cards across all 4 canonical workbenches (/cf/ptc/, /cf/delivery/, /cf/trials/, /cf/registries/) with 100% Mexican Spanish (es-MX) translation parity. Verified with 146 site tests, 77 component tests, 0 anti-hallucination violations, and Diversity Frontier Council review by Gemini 4 Argon.
 
 ### T-0200 Epithelial sodium channel (ENaC / SCNN1A) RNAi & small-molecule knockdown dose-response model for ASL rehydration (tools/discovery/enac_knockdown_model.py)
 
