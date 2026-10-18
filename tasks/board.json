@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8379,7 +8379,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8427,7 +8427,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -9943,7 +9943,7 @@
       "title": "Expand verified international CF community resources intake (Latin America & Southern Europe official organizations) in cf-research/sources/catalog.yaml and /resources/",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -9981,7 +9981,8 @@
         "composite_score": 6.45,
         "roi_ratio": 1.36
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Track B global CF community support."
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Track B global CF community support. Merged in senseiewok/cf-research#92 (commit a8d7303) and senseiewok/.ai#111 (commit 69b1291): FEFQ (Spain), FIPAN (Argentina), and FCFQ (Colombia) added to catalog.yaml and /resources/ with es-MX parity.",
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0196",
@@ -10270,7 +10271,7 @@
       "title": "Interactive Mucociliary Clearance & Airway Surface Liquid (ASL) Rheology Workbench panel on /cf/delivery/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -10310,7 +10311,8 @@
         "composite_score": 7.12,
         "roi_ratio": 1.5
       },
-      "notes": "2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Chains after T-0185."
+      "notes": "2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Chains after T-0185. Merged in senseiewok/.ai#111 (commit 69b1291): Interactive Airway Mucus Rheology & Mucin Mesh Clearance Explorer on /cf/delivery/ with es-MX parity and 19 Wave 3 unit tests.",
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0203",
@@ -10350,14 +10352,14 @@
         "categories": {
           "curative_biophysics": 9.5,
           "clinical_translation": 9.0,
-          "scientific_integrity": 7.0,
+          "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.72,
-        "roi_ratio": 1.63
+        "composite_score": 8.03,
+        "roi_ratio": 1.69
       },
-      "notes": "2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Chains after T-0186. Completed in senseiewok/.ai#110: Interactive Alternative Ion Channel & Modifier Epistasis (SLC26A9 / TMEM16A / ENaC) Explorer on /cf/tree/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified.",
+      "notes": "2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Chains after T-0186. Completed in senseiewok/.ai#110: Interactive Alternative Ion Channel & Modifier Epistasis (SLC26A9 / TMEM16A / ENaC) Explorer on /cf/tree/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified. Merged in senseiewok/.ai#110 and senseiewok/.ai#111 (commit 69b1291): Interactive Alternative Conductance & Epistatic Modifier Explorer on /cf/tree/ with es-MX parity.",
       "actual_hours": 4.5,
       "completed_at": "2026-10-18"
     },
@@ -10366,7 +10368,7 @@
       "title": "Clinical Trial Endpoint Plain-Language Decoder (ppFEV1, Sweat Chloride, LCI2.5, CFQ-R) on /cf/trials/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -10404,7 +10406,8 @@
         "composite_score": 5.48,
         "roi_ratio": 1.57
       },
-      "notes": "2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Grounded in NCT00635141 and NCT04043806."
+      "notes": "2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Grounded in NCT00635141 and NCT04043806. Merged in senseiewok/.ai#111 (commit 69b1291): Interactive Clinical Trial Endpoint Plain-Language Decoder (ppFEV1, Sweat Chloride, LCI2.5, CFQ-R) on /cf/trials/ with es-MX parity.",
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0205",
@@ -10459,6 +10462,323 @@
         "model_id": "gemini-2.5-flash",
         "session_ref": "daily-security-sentinel 2026-10-18 build round"
       }
+    },
+    {
+      "id": "T-0206",
+      "title": "Dual-AAV split-intein trans-splicing biophysical reconstitution model for CFTR (tools/discovery/dual_aav_intein_model.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Track A biophysical delivery modeling and multi-vector kinetics.",
+      "created_at": "2026-10-18T17:15:00Z",
+      "updated_at": "2026-10-18T18:50:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 council of councils wave 4 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 4.0,
+        "high": 7.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-dual-aav-intein-packaging.md; DOI 10.1038/s41467-019-11246-8; DOI 10.1016/j.omtm.2020.10.007; ClinicalTrials.gov NCT05248230",
+      "acceptance": "pytest tools/discovery/test_dual_aav_intein_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Models split-intein reconstitution kinetics, Poisson co-infection probabilities, and mature CFTR Band C yield across the 4.7-kb AAV packaging limit.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 6.62,
+        "roi_ratio": 1.2
+      },
+      "notes": "2026-10-18 Track A Curative Biophysics milestone (cf-research#91)."
+    },
+    {
+      "id": "T-0207",
+      "title": "CFTR Delta-R domain minigene packaging and single-channel patch-clamp conductance simulator (tools/discovery/cftr_minigene_model.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Track A structural biophysics and patch-clamp electrophysiology simulation.",
+      "created_at": "2026-10-18T17:15:00Z",
+      "updated_at": "2026-10-18T18:50:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 council of councils wave 4 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.5
+      },
+      "source_evidence": "cf-research/landscape/discovery-dual-aav-intein-packaging.md; DOI 10.1073/pnas.1901174116; RCSB PDB 6MSM; PDB 5UAK",
+      "acceptance": "pytest tools/discovery/test_cftr_minigene_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Validates single-AAV vector packaging by mapping the 52-residue R-domain deletion (residues 708-759) onto PDB 6MSM and 5UAK and simulating patch-clamp conductance.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 5.98,
+        "roi_ratio": 1.2
+      },
+      "notes": "2026-10-18 Track A Curative Biophysics milestone (cf-research#91)."
+    },
+    {
+      "id": "T-0208",
+      "title": "Aerosolized AAV capsid lung tropism and neutralizing antibody neutralization titer calculator (tools/discovery/aav_tropism_model.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "full",
+      "recommended_route": "local",
+      "route_rationale": "High-complexity aerosol biophysics and mucosal neutralization modeling.",
+      "created_at": "2026-10-18T17:15:00Z",
+      "updated_at": "2026-10-18T18:50:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 council of councils wave 4 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 4.5,
+        "high": 8.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-dual-aav-intein-packaging.md; ClinicalTrials.gov NCT05248230; DOI 10.1126/sciadv.aaw3507",
+      "acceptance": "pytest tools/discovery/test_aav_tropism_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Models aerosol droplet deposition, mucus hydrogel mesh diffusion, and mucosal neutralizing antibody evasion for directed-evolution AAV capsids (4D-A101 / NCT05248230).",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.22,
+        "roi_ratio": 1.16
+      },
+      "notes": "2026-10-18 Track A Curative Biophysics milestone (cf-research#91)."
+    },
+    {
+      "id": "T-0209",
+      "title": "Interactive Prime Editing (F508del & W1282X pegRNA/nicking-sgRNA) Feasibility Explorer panel on /cf/cftr/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive panel and bilingual localization on /cf/cftr/.",
+      "created_at": "2026-10-18T18:50:00Z",
+      "updated_at": "2026-10-18T18:50:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 council of councils wave 4 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0184"
+      ],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.0
+      },
+      "source_evidence": "cf-research/tools/discovery/prime_editing_cftr.py; RCSB PDB 6MSM; PDB 8EIQ; ClinicalTrials.gov NCT05668741; src/cf/cftr/index.html",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Translates T-0184 prime editing pegRNA PBS/RTT thermodynamics and PE3/PE3b flap resolution for F508del and W1282X into a bilingual interactive workbench on /cf/cftr/.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.63
+      },
+      "notes": "2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor). Chains after T-0184."
+    },
+    {
+      "id": "T-0210",
+      "title": "Interactive Dual-AAV Split-Intein & Delta-R Minigene Packaging Explorer panel on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive panel and bilingual localization on /cf/delivery/.",
+      "created_at": "2026-10-18T18:50:00Z",
+      "updated_at": "2026-10-18T18:50:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 council of councils wave 4 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-dual-aav-intein-packaging.md; DOI 10.1038/s41467-019-11246-8; DOI 10.1073/pnas.1901174116; ClinicalTrials.gov NCT05248230; src/cf/delivery/index.html",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_delivery_page tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Translates the 4.7-kb AAV capsid packaging limit, Delta-R minigene truncation, and split-intein trans-splicing kinetics into an interactive explorer on /cf/delivery/.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.12,
+        "roi_ratio": 1.5
+      },
+      "notes": "2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor). Grounded in NCT05248230 and cf-research#91."
+    },
+    {
+      "id": "T-0211",
+      "title": "Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive panel and bilingual localization on /cf/registries/.",
+      "created_at": "2026-10-18T18:50:00Z",
+      "updated_at": "2026-10-18T18:50:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 council of councils wave 4 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.0
+      },
+      "source_evidence": "cf-research/sources/catalog.yaml (cftr2, ecfspr-adr-2024); ClinicalTrials.gov NCT04043806; NCT06429176; NCT05668741; src/cf/registries/index.html",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Helps people with CF and families understand how variant classes (Class I-VII) map to approved modulator coverage vs investigational mRNA, ASO, and gene-editing trials across global registries.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.03,
+        "roi_ratio": 1.69
+      },
+      "notes": "2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor)."
+    },
+    {
+      "id": "T-0212",
+      "title": "Plain-language CF Genetic Testing & Variant Class (Class I-VII) Primer Cards on /cf/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Community-centered plain-language educational cards with bilingual localization on /cf/.",
+      "created_at": "2026-10-18T18:50:00Z",
+      "updated_at": "2026-10-18T18:50:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 council of councils wave 4 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "cf-research/landscape/cftr-biology-and-classes.md; cf-research/sources/catalog.yaml (cftr2, clinvar); src/cf/index.html",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Provides families and newly diagnosed individuals with a warm, plain-language visual guide to CFTR mutation classes (I-VII) and how each links to the specialized workbenches.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.03,
+        "roi_ratio": 2.29
+      },
+      "notes": "2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor)."
     }
   ],
   "updated": "2026-10-17"
