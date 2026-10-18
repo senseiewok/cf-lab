@@ -9,7 +9,7 @@
       ],
       "sidecar_dir": "daily-site-security-sentinel",
       "display_name": "Daily Multi-Repo Security & Session Error Sentinel",
-      "description": "Every 30 minutes at :00 and :30 (America/Los_Angeles). A wrapper syncs origin/main and runs the zero-token gate first; the agent starts only when watched trees changed or the 8-hour heartbeat is due (live headers, session errors, roses, Playwright). It also takes a build slot when the board has a bigger ready bundle in the security lane and that lane has no sentinel pull request waiting.",
+      "description": "Every 30 minutes at :00 and :30 (America/Los_Angeles). A wrapper syncs origin/main and runs the zero-token gate first; the agent starts only when watched trees changed or the 3-hour heartbeat is due (live headers, session errors, roses, Playwright). It also takes a build slot when the board has a bigger ready bundle in the security lane and that lane has no sentinel pull request waiting.",
       "cron": "0,30 * * * *",
       "prompt_file": "tasks/sentinel-prompts/daily-security-sentinel.md",
       "watermark": ".loop-logs/last-security-audit.json",
@@ -20,7 +20,7 @@
         "../cf-skills/.claude",
         "../.ai/src"
       ],
-      "max_idle_hours": 8,
+      "max_idle_hours": 3,
       "lock_timeout_minutes": 25,
       "build": {
         "lane": "security"
@@ -29,7 +29,7 @@
     "daily-research-sentinel": {
       "sidecar_dir": "daily-research-sentinel",
       "display_name": "Daily Curative Research Sentinel",
-      "description": "Every 30 minutes at :10 and :40 (America/Los_Angeles). A wrapper syncs origin/main and runs the zero-token gate first; the agent starts only when research proposals, landscape or the source catalog changed, or the 8-hour heartbeat is due (registry polls and proactive discovery). It also takes a build slot when the board has a bigger ready bundle in the research lane and that lane has no sentinel pull request waiting.",
+      "description": "Every 30 minutes at :10 and :40 (America/Los_Angeles). A wrapper syncs origin/main and runs the zero-token gate first; the agent starts only when research proposals, landscape or the source catalog changed, or the 3-hour heartbeat is due (registry polls and proactive discovery). It also takes a build slot when the board has a bigger ready bundle in the research lane and that lane has no sentinel pull request waiting.",
       "cron": "10,40 * * * *",
       "prompt_file": "tasks/sentinel-prompts/daily-research-sentinel.md",
       "watermark": ".loop-logs/last-research-audit.json",
@@ -38,7 +38,7 @@
         "../cf-research/landscape",
         "../cf-research/sources/catalog.yaml"
       ],
-      "max_idle_hours": 8,
+      "max_idle_hours": 3,
       "lock_timeout_minutes": 25,
       "build": {
         "lane": "research"
@@ -47,7 +47,7 @@
     "daily-site-showcase-sentinel": {
       "sidecar_dir": "daily-site-showcase-sentinel",
       "display_name": "Daily Front-Door & Site Showcase Sentinel",
-      "description": "Every 30 minutes at :20 and :50 (America/Los_Angeles). A wrapper syncs origin/main and runs the zero-token gate first; the agent starts only when cf-research landscape, proposals, catalog or the .ai site source changed, or the 12-hour freshness heartbeat is due. It also takes a build slot when the board has a bigger ready bundle in the showcase lane and that lane has no sentinel pull request waiting.",
+      "description": "Every 30 minutes at :20 and :50 (America/Los_Angeles). A wrapper syncs origin/main and runs the zero-token gate first; the agent starts only when cf-research landscape, proposals, catalog or the .ai site source changed, or the 4-hour freshness heartbeat is due. It also takes a build slot when the board has a bigger ready bundle in the showcase lane and that lane has no sentinel pull request waiting.",
       "cron": "20,50 * * * *",
       "prompt_file": "tasks/sentinel-prompts/daily-site-showcase-sentinel.md",
       "watermark": ".loop-logs/last-showcase-audit.json",
@@ -57,7 +57,7 @@
         "../cf-research/sources/catalog.yaml",
         "../.ai/src"
       ],
-      "max_idle_hours": 12,
+      "max_idle_hours": 4,
       "lock_timeout_minutes": 25,
       "build": {
         "lane": "showcase"
