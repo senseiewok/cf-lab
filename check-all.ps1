@@ -52,6 +52,11 @@ $Root = $PSScriptRoot
 # needs: pwsh, python, git, pyyaml, sh, windows; browser and model are never met here.
 $s = '.claude/skills'
 $Checks = @(
+    # long-running ai-loop-council suites started first so -Parallel schedules them at t=0s
+    @{ name = 'test-delegate';            exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-delegate.ps1");                                    needs = @() }
+    @{ name = 'test-verifier-freeze';     exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-verifier-freeze.ps1");                             needs = @() }
+    @{ name = 'test-review-diff';         exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-review-diff.ps1");                                 needs = @('python', 'git') }
+    @{ name = 'test-run-gate';            exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-run-gate.ps1");                                    needs = @('git') }
     # the task board
     @{ name = 'render-board';             exe = 'pwsh';       args = @('tasks/render-board.ps1', '-Check');                                                needs = @() }
     @{ name = 'test-render-board';        exe = 'pwsh';       args = @('tasks/test-render-board.ps1');                                                     needs = @() }
@@ -86,12 +91,8 @@ $Checks = @(
     @{ name = 'test-check-changed';       exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-check-changed.ps1");                               needs = @('git') }
     @{ name = 'test-count-rendered';      exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-count-rendered.ps1");                              needs = @() }
     @{ name = 'test-guard';               exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-guard.ps1");                                       needs = @() }
-    @{ name = 'test-run-gate';            exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-run-gate.ps1");                                    needs = @('git') }
     @{ name = 'test-build-review-packet'; exe = 'python';     args = @("$s/ai-loop-council/scripts/test_build_review_packet.py");                          needs = @('python', 'git') }
-    @{ name = 'test-review-diff';         exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-review-diff.ps1");                                 needs = @('python', 'git') }
-    @{ name = 'test-delegate';            exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-delegate.ps1");                                    needs = @() }
     @{ name = 'test-delegate-batch';      exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-delegate-batch.ps1");                              needs = @() }
-    @{ name = 'test-verifier-freeze';     exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-verifier-freeze.ps1");                             needs = @() }
     @{ name = 'check-quote-completeness'; exe = 'python';     args = @("$s/ai-loop-council/scripts/check-quote-completeness.py", '--self-test');           needs = @('python') }
     @{ name = 'test-check-quote';         exe = 'python';     args = @("$s/ai-loop-council/scripts/test-check-quote-completeness.py");                     needs = @('python') }
     @{ name = 'test-depth-probe';         exe = 'python';     args = @("$s/ai-loop-council/scripts/test_depth_probe.py");                                  needs = @('python') }
