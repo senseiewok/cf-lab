@@ -67,6 +67,10 @@ try {
     $cBadDomain = Run @('-Tier', 'routine', '-Expected', 'b.md', '-MessageFile', $msg) $tmp2
     Check 'non-allowlisted domain author blocks commit' ($cBadDomain.Code -eq 1 -and $cBadDomain.Out -match 'GATE FAILED:.*commit-author' -and $cBadDomain.Out -match 'NOT COMMITTED') $cBadDomain.Out
     $env:GIT_AUTHOR_EMAIL = 't@example.invalid'
+    $env:GIT_COMMITTER_EMAIL = 'committer@gmx.de'  # privacy-scan: allow
+    $cBadCommitter = Run @('-Tier', 'routine', '-Expected', 'b.md', '-MessageFile', $msg) $tmp2
+    Check 'non-allowlisted domain committer blocks commit' ($cBadCommitter.Code -eq 1 -and $cBadCommitter.Out -match 'GATE FAILED:.*commit-author' -and $cBadCommitter.Out -match 'NOT COMMITTED') $cBadCommitter.Out
+    $env:GIT_COMMITTER_EMAIL = 't@example.invalid'
     Remove-Item (Join-Path $tmp2 'stray.txt')
     Set-Content (Join-Path $tmp2 'a.md') 'edited, not staged' -Encoding utf8
     $m = Run @('-Tier', 'routine', '-Expected', 'b.md', '-MessageFile', $msg) $tmp2

@@ -237,12 +237,15 @@ if ($LASTEXITCODE -eq 0 -and $committerIdent -match '<([^>]+)>') {
     $committerEmail = (& git -C $repo config user.email 2>$null)
 }
 
+$allowedEmailPattern = '(?i)^[A-Za-z0-9._%+-]+@(senseiewok\.ai|users\.noreply\.github\.com|example\.invalid)$'
 if (-not $authorEmail -or -not $authorEmail.Trim()) {
     Write-Host 'FORBIDDEN AUTHOR: commit author email is not set'; $failed += 'commit-author'
 } elseif ($authorEmail -notmatch '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$') {
     Write-Host "FORBIDDEN AUTHOR: commit author email '$authorEmail' is not a valid email address"; $failed += 'commit-author'
-} elseif ($authorEmail -notmatch '(?i)@(senseiewok\.ai|users\.noreply\.github\.com|example\.invalid)$' -or ($committerEmail -and $committerEmail -notmatch '(?i)@(senseiewok\.ai|users\.noreply\.github\.com|example\.invalid)$')) {
-    $badEmail = if ($authorEmail -notmatch '(?i)@(senseiewok\.ai|users\.noreply\.github\.com|example\.invalid)$') { $authorEmail } else { $committerEmail }
+} elseif ($committerEmail -and $committerEmail -notmatch '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$') {
+    Write-Host "FORBIDDEN AUTHOR: commit committer email '$committerEmail' is not a valid email address"; $failed += 'commit-author'
+} elseif ($authorEmail -notmatch $allowedEmailPattern -or ($committerEmail -and $committerEmail -notmatch $allowedEmailPattern)) {
+    $badEmail = if ($authorEmail -notmatch $allowedEmailPattern) { $authorEmail } else { $committerEmail }
     Write-Host "FORBIDDEN AUTHOR: commit email ($badEmail) is outside permitted domains (senseiewok.ai, users.noreply.github.com, example.invalid); use a role address or github noreply"; $failed += 'commit-author'
 } else {
     Write-Host "commit author address: clean ($authorEmail)"
