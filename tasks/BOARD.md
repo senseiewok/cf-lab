@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-212 tasks, 211 created by a model, 96 with a measured outcome. Estimated effort 552.35 to 1045.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+212 tasks, 211 created by a model, 97 with a measured outcome. Estimated effort 552.35 to 1045.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (29)
+## ready (28)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -25,7 +25,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0197 | P1 | Bacteriophage-antibiotic synergy & biofilm penetration kinetics model for chronic CF Pseudomonas aeruginosa (tools/discovery/phage_biofilm_kinetics.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0198 | P1 | Inhaled viral vs non-viral vector repeat-dosing neutralizing antibody & epithelial turnover decay model (tools/discovery/vector_redosing_kinetics.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0199 | P1 | CFTR NBD1 thermal unfolding (dTm) & allosteric domain-interface free energy landscape model across rare missense variants (tools/discovery/nbd1_thermodynamics.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
-| T-0209 | P1 | Interactive Prime Editing (F508del & W1282X pegRNA/nicking-sgRNA) Feasibility Explorer panel on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0184 |  |
 | T-0210 | P1 | Interactive Dual-AAV Split-Intein & Delta-R Minigene Packaging Explorer panel on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0206 | P1 | Dual-AAV split-intein trans-splicing biophysical reconstitution model for CFTR (tools/discovery/dual_aav_intein_model.py) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | local |  |  |
@@ -44,7 +43,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (169)
+## done (170)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -94,6 +93,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0195 | P1 | Expand verified international CF community resources intake (Latin America & Southern Europe official organizations) in cf-research/sources/catalog.yaml and /resources/ | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0202 | P1 | Interactive Mucociliary Clearance & Airway Surface Liquid (ASL) Rheology Workbench panel on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0185 |  |
 | T-0203 | P1 | Interactive Alternative Ion Channel & Modifier Epistasis (SLC26A9 / TMEM16A / ENaC) Explorer on /cf/tree/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0186 |  |
+| T-0209 | P1 | Interactive Prime Editing (F508del & W1282X pegRNA/nicking-sgRNA) Feasibility Explorer panel on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0184 |  |
 | T-0211 | P1 | Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0042 | P1 | Admission review of BioMCP as a discovery tool alongside cf-evidence-loop | cf-lab | 3-5 | 4 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
 | T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer [T2] | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
@@ -732,7 +732,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Zero-build ES6 interactive panel and bilingual localization on /cf/cftr/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/prime_editing_cftr.py; RCSB PDB 6MSM; PDB 8EIQ; ClinicalTrials.gov NCT05668741; src/cf/cftr/index.html
-- **Notes:** 2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor). Chains after T-0184.
+- **Notes:** 2026-10-18 Sentinel Showcase Build Round: Completed and verified in PR senseiewok/.ai#115. Acceptance criteria 100% satisfied.
+- **Measured:** 4.75 h; Implemented Interactive Prime Editing Feasibility Explorer on /cf/cftr/ with Mexican Spanish (es-MX) parity in senseiewok/.ai#115. Grounded in T-0184 biophysical modeling (SantaLucia 1998 Tm, RTT processivity, epegRNA mpknot/tevpre motifs, PE3/PE3b indel hazard, vector packaging limits). All acceptance checks and tests.test_cftr_prime_editing verified. Certified with Argon frontier challenger review (APPROVE WITH ADVISORIES incorporated).
 
 ### T-0210 Interactive Dual-AAV Split-Intein & Delta-R Minigene Packaging Explorer panel on /cf/delivery/ with es-MX parity
 
