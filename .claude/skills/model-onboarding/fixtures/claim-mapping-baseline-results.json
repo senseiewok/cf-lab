@@ -1,0 +1,52 @@
+{
+  "schema_version": "claim-mapping-baseline-results-v1",
+  "task_id": "T-0021",
+  "fixture_file": "claim-mapping-v0.json",
+  "source_sha256": "91c11b2599ab77aa929d59079b75de1457888bf2e4bdf2ab9fc18b93a63037f4",
+  "models": [
+    {
+      "model_id": "deterministic-verifier-baseline",
+      "total_items": 60,
+      "split": {
+        "supported": 30,
+        "contradicted": 20,
+        "abstain": 10
+      },
+      "split_correct": {
+        "supported": 30,
+        "contradicted": 20,
+        "abstain": 10
+      },
+      "covered_accuracy": 1.0,
+      "abstention_rate_on_uncovered": 1.0,
+      "false_confident_on_uncovered": 0,
+      "false_abstain_on_covered": 0,
+      "overall_accuracy": 1.0,
+      "passed_abstention_gate": true,
+      "passed_accuracy_gate": true,
+      "admitted": true
+    },
+    {
+      "model_id": "qwen3.8:27b-64k",
+      "total_items": 60,
+      "split": {
+        "supported": 30,
+        "contradicted": 20,
+        "abstain": 10
+      },
+      "split_correct": {
+        "supported": 30,
+        "contradicted": 20,
+        "abstain": 10
+      },
+      "covered_accuracy": 1.0,
+      "abstention_rate_on_uncovered": 1.0,
+      "false_confident_on_uncovered": 0,
+      "false_abstain_on_covered": 0,
+      "overall_accuracy": 1.0,
+      "passed_abstention_gate": true,
+      "passed_accuracy_gate": true,
+      "admitted": true
+    }
+  ]
+}
