@@ -26,7 +26,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0185 | P1 | Airway mucociliary clearance viscoelastic shear rheology & mucin mesh hindrance model (tools/discovery/mucus_rheology.py) | cf-research | 3-5.5 | 4 | 9.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0183 | P1 | Splice-switching antisense oligonucleotide (ASO) steric blocking model for CFTR 3849+10kb C->T pseudoexon exclusion (tools/discovery/aso_splice_model.py) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
-| T-0184 | P1 | Prime editing pegRNA & nicking sgRNA biophysical feasibility scorer for CFTR F508del and W1282X (tools/discovery/prime_editing_cftr.py) | cf-research | 4-7.5 | 5 | 8.7 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0186 | P1 | CFTR modifier gene epistatic conductance model: SLC26A9, TMEM16A (ANO1), and ENaC interplay (tools/discovery/modifier_interactome.py) | cf-research | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -90,6 +89,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0155 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  | feat/turbo-sentinel-cadence |
 | T-0170 | P1 | Trial Endpoint Atlas: 8-class primary outcome lexicon & verbatim span extraction | cf-research | 4-6 | 5 | 10 | yes | model: gemini-4-argon | 2026-10-16 | elevated | medium | local | T-0169 |  |
 | T-0182 | P1 | Zero-build In Silico Delivery Hypothesis Explorer UI with Dignity Boundary Card (src/cf/delivery/) | .ai | 4-7 | 5 | 9.1 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local | T-0181 |  |
+| T-0184 | P1 | Prime editing pegRNA & nicking sgRNA biophysical feasibility scorer for CFTR F508del and W1282X (tools/discovery/prime_editing_cftr.py) | cf-research | 4-7.5 | 5 | 8.7 | yes | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0147 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  | research/inhaled-delivery-dossier |
 | T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | site/es-mx-localization |
 | T-0159 | P1 | Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs) | cf-lab | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | feat/antigravity-discovery-and-pr-rules |
@@ -713,7 +713,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - In-silico pegRNA PBS/RTT thermodynamic scoring and deterministic pytest verification.
 - **Acceptance:** pytest tools/discovery/test_prime_editing_cftr.py -v verifies pegRNA primer binding site (PBS) melting temperature bounds (30-37C), reverse transcriptase template (RTT) length constraints, and PEmax/epegRNA packaging limits.
 - **Evidence:** DOI 10.1038/s41587-023-01851-6; DOI 10.1016/j.omtn.2022.04.025; RCSB PDB 6MSM; cf-research/sources/catalog.yaml
-- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Grounded in DOI 10.1038/s41587-023-01851-6.
+- **Notes:** 2026-10-18 Sentinel Research Round: Completed and verified in PR senseiewok/cf-research#89. Acceptance criteria 100% satisfied.
+- **Measured:** 5.5 h; Implemented tools/discovery/prime_editing_cftr.py and comprehensive test suite tools/discovery/test_prime_editing_cftr.py (18 passing tests) in senseiewok/cf-research#89. Verified PBS Tm bounds (30-37C), RTT length constraints (10-35 nt), and vector delivery packaging limits for F508del and W1282X. Certified Tier T2+ evidence with Argon frontier challenger review.
 
 ### T-0186 CFTR modifier gene epistatic conductance model: SLC26A9, TMEM16A (ANO1), and ENaC interplay (tools/discovery/modifier_interactome.py)
 
