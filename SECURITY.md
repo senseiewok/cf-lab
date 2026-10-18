@@ -4,7 +4,7 @@ Sensei Ewok's CF Lab is an open-source, donated-time project. We take security s
 
 ## Reporting a vulnerability
 
-If you find a security issue in any repo in this workspace (`cf-lab`, `cf-skills`, or `cf-research`), please **do not open a public issue**. Instead, email **diego@senseiewok.ai** with `[security]` in the subject. We'll acknowledge reports and work on a fix before public disclosure.
+If you find a security issue in any repo in this workspace (`cf-lab`, `cf-skills`, or `cf-research`), please **do not open a public issue**. Instead, email **contact@senseiewok.ai** with `[security]` in the subject. We'll acknowledge reports and work on a fix before public disclosure.
 
 ## Scope
 

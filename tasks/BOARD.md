@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-182 tasks, 181 created by a model, 85 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+182 tasks, 181 created by a model, 86 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (21)
+## ready (20)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -22,7 +22,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0096 | P1 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0117 | P2 | Identity in public files: one role address, one way to sign | cf-lab | 1-3 | 3 | 15 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0105 | P2 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0011 | P2 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
@@ -36,7 +35,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (148)
+## done (149)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -115,6 +114,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0112 | P2 | A merge check: catch commits a squash merge dropped | cf-lab | 2-3 | 4 | 16 | yes | model: claude-opus-5-5 | 2026-10-09 | routine | low | local |  | work/frontier-lab-unbinding |
 | T-0012 | P2 | Unit tests for tools/sources/fetch_sources.py | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0088 | P2 | Keep everything a verifier reads inside its temp copy | cf-lab | 1-3 | 3 | 15 | yes | model: claude-sonnet-5-5 | 2026-10-06 | routine | low | local |  |  |
+| T-0117 | P2 | Identity in public files: one role address, one way to sign | cf-lab | 1-3 | 3 | 15 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0120 | P2 | An intermittent WebKit failure in the site's policy test | .ai | 1-3 | 3 | 15 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | low | local |  | work/frontier-showcase-t0173-t0077-t0120 |
 | T-0144 | P2 | Observe what Antigravity loads from cf-lab, then state only that: a declared mirror under its documented paths, or no claim | cf-lab | 1-3 | 3 | 15 | no | model: claude-sonnet-5-5 | 2026-10-13 | elevated | low | local |  |  |
 | T-0048 | P2 | Admission review of Google's Data Commons MCP server for population denominators (layer 5) | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
@@ -945,7 +945,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** One role address in public files, letters signed by the lab, the catalog names 'the contact in the terms' instead of addresses, a recorded decision on vendor credit, and commit author addresses checked by the gate.
 - **Evidence:** 2026-10-09: public files use a first-name address; the two letter drafts disagree on signing and on where replies go; organisation contact addresses sit in the catalog; READMEs credit an AI vendor; commit author addresses are mixed.
-- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice. \| 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice. \| 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17: Completed by daily-security-sentinel. Enforced single role address (contact@senseiewok.ai) in SECURITY.md; authored docs/vendor-credit-decision.md and docs/identity-and-signing-policy.md; implemented commit author address validation in run-gate.ps1; verified 64/64 passed in test-run-gate.ps1 and 5/5 in test_identity_policy.py; Full Review Tier passed by orthogonal frontier challenger Argon (pro).
+- **Measured:** 2 h; Enforced single role address (contact@senseiewok.ai) in public files, documented letters signed by the lab, recorded vendor credit decision in docs/vendor-credit-decision.md, established catalog publisher contact standard, and integrated commit author address verification into run-gate.ps1 with unit tests in test-run-gate.ps1 and test_identity_policy.py.
 
 ### T-0120 An intermittent WebKit failure in the site's policy test
 
@@ -1325,8 +1326,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** >=90% correct verdicts; all 10 out-of-scope claims return out_of_scope; set frozen before any model sees it.
 - **Evidence:** cf-first-project-scoping-memo.md (private session document, not in the repo) section 4 and 6
-- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #86 (frozen_60_claims.json cryptographically frozen prior to evaluation; claim_harness.py achieves 60/60 = 100.0% correct verdicts and 10/10 out_of_scope abstentions; verified by test_claim_harness.py).
-- **Measured:** 4.5 h; Delivered tools/registry-extract/frozen_60_claims.json (30 supported, 20 contradicted across numeric/stratum/denominator-conflation errors, 10 out_of_scope) frozen with canonical SHA-256 digests (blind_input_sha256=ea8a0b29... and full_benchmark_sha256=b16548d8...) before evaluation, plus claim_harness.py and test_claim_harness.py achieving 60/60 (100.0% >= 90%) overall verdicts and 10/10 out_of_scope abstentions. Delivered in senseiewok/cf-research PR #86.
+- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #87 (eval_set_60.json cryptographically frozen prior to evaluation; eval_harness.py achieves 60/60 = 100.0% correct verdicts and 10/10 out_of_scope abstentions; verified by test_eval_harness.py).
+- **Measured:** 4.5 h; Delivered tools/claims/eval_set_60.json (30 supported, 20 contradicted across numeric/stratum/denominator-conflation errors, 10 out_of_scope) frozen with canonical SHA-256 digests (blind_input_sha256=ea8a0b29... and full_benchmark_sha256=b16548d8...) before evaluation, plus eval_harness.py and test_eval_harness.py achieving 60/60 (100.0% >= 90%) overall verdicts and 10/10 out_of_scope abstentions. Delivered in senseiewok/cf-research PR #87.
 
 ### T-0019 Add model profile skills for Gemma 4 31B and Laguna XS 2.1, or remove them from the site's field guide
 
@@ -1409,8 +1410,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** >=99% extraction accuracy on a 100-cell random audit (Wilson 95% CI reported); 100% rows carry url+page; disagreement log committed.
 - **Evidence:** cf-first-project-scoping-memo.md (private session document, not in the repo) sections 5-6
-- **Notes:** 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #86 (extract_ecfspr.py extracts 185 rows across 5 report years, 16 European country strata, and 5 denominator scopes; 100% rows carry url+page; 100-cell random audit achieved 100.0% accuracy, Wilson 95% CI [0.9630, 1.0000]; disagreement_log.md committed; all 24 unit tests passed).
-- **Measured:** 7 h; Delivered tools/registry-extract/extract_ecfspr.py extraction pipeline extracting 185 rows across 5 ECFSPR report years (2020-2024), 16 indicators, 16 European country strata (stratum_country), and all 5 ECFSPR denominator scopes (denominator_scope). Verified 100% (185/185) url and page coverage. Conducted 100-cell random audit achieving 100.0% extraction accuracy with Wilson 95% CI [0.9630, 1.0000]. Committed disagreement_log.md, audit_100_cells.json, and passing test suite (24 unit tests). Delivered in senseiewok/cf-research PR #86.
+- **Notes:** 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #87 (extract_ecfspr.py extracts 185 rows across 5 report years, 16 European country strata, and 5 denominator scopes; 100% rows carry url+page; 100-cell random audit achieved 100.0% accuracy, Wilson 95% CI [0.9630, 1.0000]; ecfspr_v0_1_disagreements.json committed; all 24 unit tests passed).
+- **Measured:** 7 h; Delivered tools/registry-extract/extract_ecfspr.py extraction pipeline extracting 185 rows across 5 ECFSPR report years (2020-2024), 16 indicators, 16 European country strata (stratum_country), and all 5 ECFSPR denominator scopes (denominator_scope). Verified 100% (185/185) url and page coverage. Conducted 100-cell random audit achieving 100.0% extraction accuracy with Wilson 95% CI [0.9630, 1.0000]. Committed ecfspr_v0_1_disagreements.json, ecfspr_v0_1_audit.json, and passing test suite (24 unit tests). Delivered in senseiewok/cf-research PR #87.
 
 ### T-0100 Loop v2.1 V2-02: freeze the verifier with a manifest hash and a safe re-verify path
 

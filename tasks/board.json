@@ -433,7 +433,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 7.0,
-        "measured_outcome": "Delivered tools/registry-extract/extract_ecfspr.py extraction pipeline extracting 185 rows across 5 ECFSPR report years (2020-2024), 16 indicators, 16 European country strata (stratum_country), and all 5 ECFSPR denominator scopes (denominator_scope). Verified 100% (185/185) url and page coverage. Conducted 100-cell random audit achieving 100.0% extraction accuracy with Wilson 95% CI [0.9630, 1.0000]. Committed disagreement_log.md, audit_100_cells.json, and passing test suite (24 unit tests). Delivered in senseiewok/cf-research PR #86.",
+        "measured_outcome": "Delivered tools/registry-extract/extract_ecfspr.py extraction pipeline extracting 185 rows across 5 ECFSPR report years (2020-2024), 16 indicators, 16 European country strata (stratum_country), and all 5 ECFSPR denominator scopes (denominator_scope). Verified 100% (185/185) url and page coverage. Conducted 100-cell random audit achieving 100.0% extraction accuracy with Wilson 95% CI [0.9630, 1.0000]. Committed ecfspr_v0_1_disagreements.json, ecfspr_v0_1_audit.json, and passing test suite (24 unit tests). Delivered in senseiewok/cf-research PR #87.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -457,7 +457,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "daily-research-sentinel build slot round (cf-research PR #86, T-0009 + T-0010)"
       },
-      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #86 (extract_ecfspr.py extracts 185 rows across 5 report years, 16 European country strata, and 5 denominator scopes; 100% rows carry url+page; 100-cell random audit achieved 100.0% accuracy, Wilson 95% CI [0.9630, 1.0000]; disagreement_log.md committed; all 24 unit tests passed).",
+      "notes": "2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 18 hours behind T-0005 and T-0008; not two-week work. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #87 (extract_ecfspr.py extracts 185 rows across 5 report years, 16 European country strata, and 5 denominator scopes; 100% rows carry url+page; 100-cell random audit achieved 100.0% accuracy, Wilson 95% CI [0.9630, 1.0000]; ecfspr_v0_1_disagreements.json committed; all 24 unit tests passed).",
       "recommended_route": "local",
       "route_rationale": "Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.",
       "complexity": "low"
@@ -487,7 +487,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 4.5,
-        "measured_outcome": "Delivered tools/registry-extract/frozen_60_claims.json (30 supported, 20 contradicted across numeric/stratum/denominator-conflation errors, 10 out_of_scope) frozen with canonical SHA-256 digests (blind_input_sha256=ea8a0b29... and full_benchmark_sha256=b16548d8...) before evaluation, plus claim_harness.py and test_claim_harness.py achieving 60/60 (100.0% >= 90%) overall verdicts and 10/10 out_of_scope abstentions. Delivered in senseiewok/cf-research PR #86.",
+        "measured_outcome": "Delivered tools/claims/eval_set_60.json (30 supported, 20 contradicted across numeric/stratum/denominator-conflation errors, 10 out_of_scope) frozen with canonical SHA-256 digests (blind_input_sha256=ea8a0b29... and full_benchmark_sha256=b16548d8...) before evaluation, plus eval_harness.py and test_eval_harness.py achieving 60/60 (100.0% >= 90%) overall verdicts and 10/10 out_of_scope abstentions. Delivered in senseiewok/cf-research PR #87.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -511,7 +511,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "daily-research-sentinel build slot round (cf-research PR #86, T-0009 + T-0010)"
       },
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #86 (frozen_60_claims.json cryptographically frozen prior to evaluation; claim_harness.py achieves 60/60 = 100.0% correct verdicts and 10/10 out_of_scope abstentions; verified by test_claim_harness.py).",
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #87 (eval_set_60.json cryptographically frozen prior to evaluation; eval_harness.py achieves 60/60 = 100.0% correct verdicts and 10/10 out_of_scope abstentions; verified by test_eval_harness.py).",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance.",
       "complexity": "low"
@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -5843,7 +5843,7 @@
       "title": "Identity in public files: one role address, one way to sign",
       "repo": "cf-lab",
       "area": "compliance",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "created_at": "2026-10-09T20:00:00Z",
       "created_by": {
@@ -5861,9 +5861,9 @@
         "benefit": 3,
         "rationale": "Estimate: keeps the lab separate from the maintainer's identity.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 2.0,
+        "measured_outcome": "Enforced single role address (contact@senseiewok.ai) in public files, documented letters signed by the lab, recorded vendor credit decision in docs/vendor-credit-decision.md, established catalog publisher contact standard, and integrated commit author address verification into run-gate.ps1 with unit tests in test-run-gate.ps1 and test_identity_policy.py.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -5877,11 +5877,16 @@
       "acceptance": "One role address in public files, letters signed by the lab, the catalog names 'the contact in the terms' instead of addresses, a recorded decision on vendor credit, and commit author addresses checked by the gate.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-15T03:07:51Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-17T15:15:00Z",
+      "completed_at": "2026-10-17T15:15:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Antigravity",
+        "model_id": "gemini-2.5-flash",
+        "session_ref": "daily-security-sentinel"
+      },
       "complexity": "low",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice. | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. Each item is the maintainer's choice. | 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Completed by daily-security-sentinel. Enforced single role address (contact@senseiewok.ai) in SECURITY.md; authored docs/vendor-credit-decision.md and docs/identity-and-signing-policy.md; implemented commit author address validation in run-gate.ps1; verified 64/64 passed in test-run-gate.ps1 and 5/5 in test_identity_policy.py; Full Review Tier passed by orthogonal frontier challenger Argon (pro).",
       "recommended_route": "cloud",
       "route_rationale": "Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity."
     },
@@ -8369,7 +8374,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8417,7 +8422,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
