@@ -28,7 +28,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'females'), indicator 'pwcf_registered' is reported as 47.5 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R01, stratum 'females'), indicator 'pwcf_registered' is reported as 47.5 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-02",
@@ -48,7 +48,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'males'), indicator 'pwcf_registered' is reported as 52.5 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R02, stratum 'males'), indicator 'pwcf_registered' is reported as 52.5 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-03",
@@ -68,7 +68,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'total'), indicator 'pwcf_registered' is reported as 52246 (count)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R03, stratum 'total'), indicator 'pwcf_registered' is reported as 52246 (count)."
     },
     {
       "id": "CM-SUP-04",
@@ -88,7 +88,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'females'), indicator 'age_at_followup' is reported as 18.8 (years)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R04, stratum 'females'), indicator 'age_at_followup' is reported as 18.8 (years)."
     },
     {
       "id": "CM-SUP-05",
@@ -108,7 +108,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'males'), indicator 'age_at_followup' is reported as 19.8 (years)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R05, stratum 'males'), indicator 'age_at_followup' is reported as 19.8 (years)."
     },
     {
       "id": "CM-SUP-06",
@@ -128,7 +128,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'total'), indicator 'age_at_followup' is reported as 19.4 (years)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R06, stratum 'total'), indicator 'age_at_followup' is reported as 19.4 (years)."
     },
     {
       "id": "CM-SUP-07",
@@ -148,7 +148,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'females'), indicator 'pwcf_adult_ge18' is reported as 51.9 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R07, stratum 'females'), indicator 'pwcf_adult_ge18' is reported as 51.9 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-08",
@@ -168,7 +168,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'males'), indicator 'pwcf_adult_ge18' is reported as 54.2 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R08, stratum 'males'), indicator 'pwcf_adult_ge18' is reported as 54.2 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-09",
@@ -188,7 +188,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'total'), indicator 'pwcf_adult_ge18' is reported as 53.1 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R09, stratum 'total'), indicator 'pwcf_adult_ge18' is reported as 53.1 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-10",
@@ -208,7 +208,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'females'), indicator 'age_at_diagnosis_months' is reported as 3.6 (months)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R10, stratum 'females'), indicator 'age_at_diagnosis_months' is reported as 3.6 (months)."
     },
     {
       "id": "CM-SUP-11",
@@ -228,7 +228,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'males'), indicator 'age_at_diagnosis_months' is reported as 3.6 (months)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R11, stratum 'males'), indicator 'age_at_diagnosis_months' is reported as 3.6 (months)."
     },
     {
       "id": "CM-SUP-12",
@@ -248,7 +248,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'total'), indicator 'age_at_diagnosis_months' is reported as 3.6 (months)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R12, stratum 'total'), indicator 'age_at_diagnosis_months' is reported as 3.6 (months)."
     },
     {
       "id": "CM-SUP-13",
@@ -268,7 +268,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'females'), indicator 'pwcf_f508del_allele' is reported as 80.7 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R13, stratum 'females'), indicator 'pwcf_f508del_allele' is reported as 80.7 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-14",
@@ -288,7 +288,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'males'), indicator 'pwcf_f508del_allele' is reported as 80.7 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R14, stratum 'males'), indicator 'pwcf_f508del_allele' is reported as 80.7 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-15",
@@ -308,7 +308,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'total'), indicator 'pwcf_f508del_allele' is reported as 80.7 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R15, stratum 'total'), indicator 'pwcf_f508del_allele' is reported as 80.7 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-16",
@@ -328,7 +328,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'females'), indicator 'pwcf_lung_transplant' is reported as 6.1 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R16, stratum 'females'), indicator 'pwcf_lung_transplant' is reported as 6.1 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-17",
@@ -348,7 +348,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'males'), indicator 'pwcf_lung_transplant' is reported as 5.4 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R17, stratum 'males'), indicator 'pwcf_lung_transplant' is reported as 5.4 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-18",
@@ -368,7 +368,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'total'), indicator 'pwcf_lung_transplant' is reported as 5.7 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R18, stratum 'total'), indicator 'pwcf_lung_transplant' is reported as 5.7 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-19",
@@ -388,7 +388,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'females'), indicator 'pwcf_liver_transplant' is reported as 0.4 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R19, stratum 'females'), indicator 'pwcf_liver_transplant' is reported as 0.4 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-20",
@@ -408,7 +408,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'males'), indicator 'pwcf_liver_transplant' is reported as 0.8 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R20, stratum 'males'), indicator 'pwcf_liver_transplant' is reported as 0.8 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-21",
@@ -428,7 +428,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'total'), indicator 'pwcf_liver_transplant' is reported as 0.6 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R21, stratum 'total'), indicator 'pwcf_liver_transplant' is reported as 0.6 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-22",
@@ -448,7 +448,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'females'), indicator 'pwcf_deceased' is reported as 0.7 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R22, stratum 'females'), indicator 'pwcf_deceased' is reported as 0.7 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-23",
@@ -468,7 +468,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'males'), indicator 'pwcf_deceased' is reported as 0.7 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R23, stratum 'males'), indicator 'pwcf_deceased' is reported as 0.7 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-24",
@@ -488,7 +488,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'total'), indicator 'pwcf_deceased' is reported as 0.7 (count_and_percentage)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R24, stratum 'total'), indicator 'pwcf_deceased' is reported as 0.7 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-25",
@@ -508,7 +508,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'females'), indicator 'age_at_death' is reported as 30.0 (years)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R25, stratum 'females'), indicator 'age_at_death' is reported as 30.0 (years)."
     },
     {
       "id": "CM-SUP-26",
@@ -528,7 +528,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'males'), indicator 'age_at_death' is reported as 32.5 (years)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R26, stratum 'males'), indicator 'age_at_death' is reported as 32.5 (years)."
     },
     {
       "id": "CM-SUP-27",
@@ -548,7 +548,7 @@
         "page": 11,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 11, stratum 'total'), indicator 'age_at_death' is reported as 32.0 (years)."
+      "claim": "In the ECFSPR 2020 cohort data (page 11, row ECFSPR-2020-P11-R27, stratum 'total'), indicator 'age_at_death' is reported as 32.0 (years)."
     },
     {
       "id": "CM-SUP-28",
@@ -568,7 +568,7 @@
         "page": 75,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/ECFSPR_Report_2020_v1.0-07Jun2022_website.pdf"
       },
-      "claim": "In the ECFSPR 2020 cohort data (page 75, stratum 'total'), indicator 'bmi_adults' is reported as 21.9 (score)."
+      "claim": "In the ECFSPR 2020 cohort data (page 75, row ECFSPR-2020-P75-R01, stratum 'total'), indicator 'bmi_adults' is reported as 21.9 (score)."
     },
     {
       "id": "CM-SUP-29",
@@ -588,7 +588,7 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'females'), indicator 'pwcf_registered' is reported as 47.7 (count_and_percentage)."
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R01, stratum 'females'), indicator 'pwcf_registered' is reported as 47.7 (count_and_percentage)."
     },
     {
       "id": "CM-SUP-30",
@@ -608,7 +608,7 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'males'), indicator 'pwcf_registered' is reported as 52.3 (count_and_percentage)."
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R02, stratum 'males'), indicator 'pwcf_registered' is reported as 52.3 (count_and_percentage)."
     },
     {
       "id": "CM-CON-01",
@@ -628,8 +628,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 102.4,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'total'), indicator 'pwcf_registered' is reported as 102.4 (count_and_percentage)."
+      "stated_wrong_value": 115.0,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R03, stratum 'total'), indicator 'pwcf_registered' is reported as 115.0 (count_and_percentage)."
     },
     {
       "id": "CM-CON-02",
@@ -649,8 +649,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 17.4,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'females'), indicator 'age_at_followup' is reported as 17.4 (years)."
+      "stated_wrong_value": 34.2,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R04, stratum 'females'), indicator 'age_at_followup' is reported as 34.2 (years)."
     },
     {
       "id": "CM-CON-03",
@@ -670,8 +670,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 23.4,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'males'), indicator 'age_at_followup' is reported as 23.4 (years)."
+      "stated_wrong_value": 35.3,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R05, stratum 'males'), indicator 'age_at_followup' is reported as 35.3 (years)."
     },
     {
       "id": "CM-CON-04",
@@ -691,8 +691,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 17.3,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'total'), indicator 'age_at_followup' is reported as 17.3 (years)."
+      "stated_wrong_value": 34.8,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R06, stratum 'total'), indicator 'age_at_followup' is reported as 34.8 (years)."
     },
     {
       "id": "CM-CON-05",
@@ -712,8 +712,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 54.5,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'females'), indicator 'pwcf_adult_ge18' is reported as 54.5 (count_and_percentage)."
+      "stated_wrong_value": 67.8,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R07, stratum 'females'), indicator 'pwcf_adult_ge18' is reported as 67.8 (count_and_percentage)."
     },
     {
       "id": "CM-CON-06",
@@ -733,8 +733,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 51.9,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'males'), indicator 'pwcf_adult_ge18' is reported as 51.9 (count_and_percentage)."
+      "stated_wrong_value": 70.1,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R08, stratum 'males'), indicator 'pwcf_adult_ge18' is reported as 70.1 (count_and_percentage)."
     },
     {
       "id": "CM-CON-07",
@@ -754,8 +754,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 56.9,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'total'), indicator 'pwcf_adult_ge18' is reported as 56.9 (count_and_percentage)."
+      "stated_wrong_value": 69.0,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R09, stratum 'total'), indicator 'pwcf_adult_ge18' is reported as 69.0 (count_and_percentage)."
     },
     {
       "id": "CM-CON-08",
@@ -775,8 +775,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 2.2,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'females'), indicator 'age_at_diagnosis_months' is reported as 2.2 (months)."
+      "stated_wrong_value": 18.6,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R10, stratum 'females'), indicator 'age_at_diagnosis_months' is reported as 18.6 (months)."
     },
     {
       "id": "CM-CON-09",
@@ -796,8 +796,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 7.8,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'males'), indicator 'age_at_diagnosis_months' is reported as 7.8 (months)."
+      "stated_wrong_value": 18.6,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R11, stratum 'males'), indicator 'age_at_diagnosis_months' is reported as 18.6 (months)."
     },
     {
       "id": "CM-CON-10",
@@ -817,8 +817,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 1.5,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'total'), indicator 'age_at_diagnosis_months' is reported as 1.5 (months)."
+      "stated_wrong_value": 18.6,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R12, stratum 'total'), indicator 'age_at_diagnosis_months' is reported as 18.6 (months)."
     },
     {
       "id": "CM-CON-11",
@@ -838,8 +838,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 82.7,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'females'), indicator 'pwcf_f508del_allele' is reported as 82.7 (count_and_percentage)."
+      "stated_wrong_value": 95.3,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R13, stratum 'females'), indicator 'pwcf_f508del_allele' is reported as 95.3 (count_and_percentage)."
     },
     {
       "id": "CM-CON-12",
@@ -859,8 +859,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 78.5,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'males'), indicator 'pwcf_f508del_allele' is reported as 78.5 (count_and_percentage)."
+      "stated_wrong_value": 95.3,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R14, stratum 'males'), indicator 'pwcf_f508del_allele' is reported as 95.3 (count_and_percentage)."
     },
     {
       "id": "CM-CON-13",
@@ -880,8 +880,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 83.4,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'total'), indicator 'pwcf_f508del_allele' is reported as 83.4 (count_and_percentage)."
+      "stated_wrong_value": 95.3,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R15, stratum 'total'), indicator 'pwcf_f508del_allele' is reported as 95.3 (count_and_percentage)."
     },
     {
       "id": "CM-CON-14",
@@ -901,8 +901,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 3.5,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'females'), indicator 'pwcf_lung_transplant' is reported as 3.5 (count_and_percentage)."
+      "stated_wrong_value": 21.0,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R16, stratum 'females'), indicator 'pwcf_lung_transplant' is reported as 21.0 (count_and_percentage)."
     },
     {
       "id": "CM-CON-15",
@@ -922,8 +922,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 7.0,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'males'), indicator 'pwcf_lung_transplant' is reported as 7.0 (count_and_percentage)."
+      "stated_wrong_value": 20.3,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R17, stratum 'males'), indicator 'pwcf_lung_transplant' is reported as 20.3 (count_and_percentage)."
     },
     {
       "id": "CM-CON-16",
@@ -943,8 +943,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 2.4,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'total'), indicator 'pwcf_lung_transplant' is reported as 2.4 (count_and_percentage)."
+      "stated_wrong_value": 20.6,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R18, stratum 'total'), indicator 'pwcf_lung_transplant' is reported as 20.6 (count_and_percentage)."
     },
     {
       "id": "CM-CON-17",
@@ -964,8 +964,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 3.3,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'females'), indicator 'pwcf_liver_transplant' is reported as 3.3 (count_and_percentage)."
+      "stated_wrong_value": 15.4,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R19, stratum 'females'), indicator 'pwcf_liver_transplant' is reported as 15.4 (count_and_percentage)."
     },
     {
       "id": "CM-CON-18",
@@ -985,8 +985,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 0.1,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'males'), indicator 'pwcf_liver_transplant' is reported as 0.1 (count_and_percentage)."
+      "stated_wrong_value": 15.9,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R20, stratum 'males'), indicator 'pwcf_liver_transplant' is reported as 15.9 (count_and_percentage)."
     },
     {
       "id": "CM-CON-19",
@@ -1006,8 +1006,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 4.9,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'total'), indicator 'pwcf_liver_transplant' is reported as 4.9 (count_and_percentage)."
+      "stated_wrong_value": 15.7,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R21, stratum 'total'), indicator 'pwcf_liver_transplant' is reported as 15.7 (count_and_percentage)."
     },
     {
       "id": "CM-CON-20",
@@ -1027,8 +1027,8 @@
         "page": 8,
         "url": "https://pr.ecfs.eu/wp-content/uploads/2025/06/Annual-Report_2021_09Jun2023_ECFSPR_final.pdf"
       },
-      "stated_wrong_value": 0.1,
-      "claim": "In the ECFSPR 2021 cohort data (page 8, stratum 'females'), indicator 'pwcf_deceased' is reported as 0.1 (count_and_percentage)."
+      "stated_wrong_value": 15.7,
+      "claim": "In the ECFSPR 2021 cohort data (page 8, row ECFSPR-2021-P08-R22, stratum 'females'), indicator 'pwcf_deceased' is reported as 15.7 (count_and_percentage)."
     },
     {
       "id": "CM-ABS-01",

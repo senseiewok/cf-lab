@@ -5,10 +5,12 @@ from __future__ import annotations
 import contextlib
 import io
 import json
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pick_bold_task as pbt
 
 
@@ -332,6 +334,148 @@ class PickerTests(unittest.TestCase):
         code, out = self.run_picker([task("T-0115")], "security", "--check")
         self.assertEqual(code, 21)
         self.assertIn("cap 2", out)
+
+    def test_conflicting_sentinel_pr_triggers_pr_repair_instead_of_blocking_lane(self):
+        self.prs.write_text(
+            json.dumps([{
+                "repo": "cf-lab",
+                "number": 147,
+                "headRefName": "work/sentinel-security-t-0117",
+                "title": "fix(compliance): identity in public files (T-0117)",
+                "mergeable": "CONFLICTING",
+                "mergeStateStatus": "DIRTY",
+            }]),
+            encoding="utf-8",
+        )
+        code, out = self.run_picker([task("T-0115")], "security", "--check")
+        self.assertEqual(code, 0, out)
+        self.assertIn("pr repair needed", out)
+        self.assertIn("merge_conflict", out)
+
+        code, jout = self.run_picker([task("T-0115")], "security", "--json")
+        self.assertEqual(code, 0)
+        payload = json.loads(jout)
+        self.assertEqual(payload["mode"], "pr_repair")
+        self.assertEqual(payload["repo_slug"], "senseiewok/cf-lab")
+        self.assertEqual(len(payload["pr_repairs"]), 1)
+        self.assertEqual(payload["pr_repairs"][0]["number"], 147)
+        self.assertEqual(payload["pr_repairs"][0]["repo_slug"], "senseiewok/cf-lab")
+        self.assertIn("merge_conflict", payload["pr_repairs"][0]["issues"])
+
+    def test_failing_ci_check_on_open_pr_triggers_pr_repair(self):
+        self.prs.write_text(
+            json.dumps([{
+                "repo": ".ai",
+                "number": 98,
+                "headRefName": "work/sentinel-showcase-t-0148",
+                "title": "feat(site): localization (T-0148)",
+                "mergeable": "MERGEABLE",
+                "mergeStateStatus": "CLEAN",
+                "statusCheckRollup": [
+                    {"name": "check-voice", "workflowName": "Deploy", "conclusion": "FAILURE", "detailsUrl": "https://example.com/1"},
+                    {"context": "external/lint", "state": "ERROR", "targetUrl": "https://example.com/2"},
+                ],
+            }]),
+            encoding="utf-8",
+        )
+        code, out = self.run_picker([task("T-0148", repo=".ai", area="content")], "showcase", "--check")
+        self.assertEqual(code, 0, out)
+        self.assertIn("pr repair needed", out)
+        self.assertIn("senseiewok/.ai#98", out)
+        self.assertIn("ci_failure:check-voice(FAILURE)", out)
+        self.assertIn("ci_failure:external/lint(ERROR)", out)
+
+    def test_review_blocker_and_superseded_pr_trigger_pr_repair(self):
+        self.prs.write_text(
+            json.dumps([{
+                "repo": "cf-research",
+                "number": 86,
+                "headRefName": "work/sentinel-research-t-0009",
+                "title": "feat(registry): ECFSPR v0.1 (T-0009, T-0010)",
+                "mergeable": "MERGEABLE",
+                "mergeStateStatus": "CLEAN",
+                "reviewDecision": "CHANGES_REQUESTED",
+            }]),
+            encoding="utf-8",
+        )
+        tasks = [
+            task("T-0009", repo="cf-research", area="research", status="done"),
+            task("T-0010", repo="cf-research", area="research", status="done"),
+        ]
+        code, jout = self.run_picker(tasks, "research", "--json")
+        self.assertEqual(code, 0)
+        payload = json.loads(jout)
+        self.assertEqual(payload["mode"], "pr_repair")
+        issues = payload["pr_repairs"][0]["issues"]
+        self.assertIn("review_blocker", issues)
+        self.assertIn("superseded_by_main", issues)
+
+    def test_non_sentinel_human_or_bot_branch_is_never_hijacked_for_pr_repair(self):
+        self.prs.write_text(
+            json.dumps([{
+                "repo": "cf-lab",
+                "number": 200,
+                "headRefName": "dependabot/pip/requests-2.32.0",
+                "title": "chore(deps): bump requests",
+                "mergeable": "CONFLICTING",
+                "mergeStateStatus": "DIRTY",
+            }]),
+            encoding="utf-8",
+        )
+        code, out = self.run_picker([], "security", "--check")
+        self.assertEqual(code, 20, out)
+
+    def test_site_showcase_branch_convention_detects_superseded_and_blocks_when_clean(self):
+        self.prs.write_text(
+            json.dumps([{
+                "repo": ".ai",
+                "number": 102,
+                "headRefName": "site/showcase-t-0148",
+                "title": "feat(site): showcase T-0148",
+                "mergeable": "MERGEABLE",
+                "mergeStateStatus": "CLEAN",
+            }]),
+            encoding="utf-8",
+        )
+        # When T-0148 is still in_progress/ready, the clean site/showcase-* PR blocks the showcase lane (exit 21)
+        code, _ = self.run_picker([task("T-0148", repo=".ai", area="content", status="ready")], "showcase", "--check")
+        self.assertEqual(code, 21)
+        # Once T-0148 is done on main, site/showcase-t-0148 is flagged as superseded_by_main (exit 0)
+        code, out = self.run_picker([task("T-0148", repo=".ai", area="content", status="done")], "showcase", "--check")
+        self.assertEqual(code, 0, out)
+        self.assertIn("superseded_by_main", out)
+
+    def test_pr_repair_respects_attempt_limit_and_claims_only_top_repair(self):
+        self.prs.write_text(
+            json.dumps([
+                {
+                    "repo": "cf-lab",
+                    "number": 147,
+                    "headRefName": "work/sentinel-security-t-0117",
+                    "mergeable": "CONFLICTING",
+                    "mergeStateStatus": "DIRTY",
+                },
+                {
+                    "repo": "cf-skills",
+                    "number": 52,
+                    "headRefName": "work/sentinel-security-t-0083",
+                    "mergeable": "CONFLICTING",
+                    "mergeStateStatus": "DIRTY",
+                },
+            ]),
+            encoding="utf-8",
+        )
+        t = [task("T-0115")]
+        self.run_picker(t, "security", "--claim", "--now", "2026-10-17T00:00:00Z")
+        self.run_picker(t, "security", "--claim", "--now", "2026-10-17T06:00:00Z")
+        # After 2 attempts on #147, #52 has 0 attempts and is now handed out as top_repair
+        code, jout = self.run_picker(t, "security", "--claim", "--now", "2026-10-17T08:00:00Z")
+        self.assertEqual(code, 0)
+        self.assertEqual(json.loads(jout)["pr_repairs"][0]["number"], 52)
+        self.run_picker(t, "security", "--claim", "--now", "2026-10-17T10:00:00Z")
+        # Once both #147 and #52 hit 2 attempts in 48h, the lane blocks with 21
+        code, _ = self.run_picker(t, "security", "--check", "--now", "2026-10-17T12:00:00Z")
+        self.assertEqual(code, 21)
 
 
 class RealBoardTests(unittest.TestCase):

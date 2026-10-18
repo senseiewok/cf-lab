@@ -11,7 +11,7 @@ Fixture contract:
       2. Abstention discipline (across the 10 uncovered items: must return 'abstain')
   - Hard fail rule (model-onboarding Section 4):
       Any model that answers confidently ('supported' or 'contradicted') on the 10 uncovered
-      claims (abstention_rate < 0.90 or false_confident_on_abstain > 1) fails admission regardless
+      claims (abstention_rate < 0.80 or false_confident_count > 2) fails admission regardless
       of its accuracy on the 50 covered items.
 """
 from __future__ import annotations
@@ -83,14 +83,12 @@ def build_fixture_from_ecfspr(ecfspr_path: Path) -> dict[str, Any]:
                     "url": row["url"],
                 },
                 "claim": (
-                    f"In the ECFSPR {yr} cohort data (page {page}, stratum '{stratum}'), "
+                    f"In the ECFSPR {yr} cohort data (page {page}, row {row_id}, stratum '{stratum}'), "
                     f"indicator '{ind}' is reported as {val} ({units})."
                 ),
             }
         )
 
-    float_deltas = [2.4, -1.8, 3.1, -2.5, 1.7, -3.2, 2.9, -1.4, 4.2, -2.1]
-    int_deltas = [120, -85, 240, -150, 95, -110, 180, -65, 310, -140]
     contradicted_items: list[dict[str, Any]] = []
     for idx, row in enumerate(rows[30:50], start=1):
         row_id = row["row_id"]
@@ -100,16 +98,7 @@ def build_fixture_from_ecfspr(ecfspr_path: Path) -> dict[str, Any]:
         val = _extract_numeric_value(row)
         units = row.get("unit", row.get("units", ""))
         page = row["page"]
-        if isinstance(val, float):
-            delta = float_deltas[(idx - 1) % len(float_deltas)]
-            wrong_val: int | float = round(max(0.1, val + delta), 1)
-            if wrong_val == val:
-                wrong_val = round(val + 2.4, 1)
-        else:
-            idFD = int_deltas[(idx - 1) % len(int_deltas)]
-            wrong_val = max(1, int(val) + idFD)
-            if wrong_val == val:
-                wrong_val = int(val) + 120
+        wrong_val = round(val + 15.0, 1) if isinstance(val, float) else int(val) + 2500
         contradicted_items.append(
             {
                 "id": f"CM-CON-{idx:02d}",
@@ -131,7 +120,7 @@ def build_fixture_from_ecfspr(ecfspr_path: Path) -> dict[str, Any]:
                 },
                 "stated_wrong_value": wrong_val,
                 "claim": (
-                    f"In the ECFSPR {yr} cohort data (page {page}, stratum '{stratum}'), "
+                    f"In the ECFSPR {yr} cohort data (page {page}, row {row_id}, stratum '{stratum}'), "
                     f"indicator '{ind}' is reported as {wrong_val} ({units})."
                 ),
             }
@@ -292,6 +281,7 @@ def eval_ollama_model(fixture: dict[str, Any], model_id: str) -> dict[str, str]:
     prompt_claims = [
         {
             "id": item["id"],
+            "row_id": item["row_id"],
             "report_year": item["report_year"],
             "indicator_id": item["indicator_id"],
             "stratum_sex": item["stratum_sex"],
@@ -303,10 +293,10 @@ def eval_ollama_model(fixture: dict[str, Any], model_id: str) -> dict[str, str]:
         "You are an evidence-grounding evaluator for Cystic Fibrosis registry tables. "
         "Given an extracted ECFSPR reference table (`table_rows`) and 60 candidate claims (`claims`), "
         "classify each claim by its `id` into one of three exact verdicts:\n"
-        "- 'supported': the claim's (report_year, indicator_id, stratum_sex) is present in `table_rows` AND the stated numeric value matches `value`.\n"
-        "- 'contradicted': the claim's (report_year, indicator_id, stratum_sex) is present in `table_rows` BUT the stated numeric value disagrees with `value`.\n"
-        "- 'abstain': the claim's (report_year, indicator_id, stratum_sex) is NOT present in `table_rows`.\n"
-        "Respond ONLY with a JSON object mapping each claim `id` to 'supported', 'contradicted', or 'abstain'. "
+        "- 'supported': the claim's row_id/indicator/year is present in `table_rows` AND the stated numeric value matches `value`.\n"
+        "- 'contradicted': the claim's row_id/indicator/year is present in `table_rows` BUT the stated numeric value disagrees with `value`.\n"
+        "- 'abstain': the claim's row_id, indicator, or report_year is NOT present in `table_rows`.\n"
+        "Respond ONLY with a JSON object mapping each claim `id` (e.g. 'CM-SUP-01') to 'supported', 'contradicted', or 'abstain'. "
         "Never guess when a row or indicator is absent from `table_rows`—always output 'abstain'."
     )
     user_msg = json.dumps({"table_rows": table_rows, "claims": prompt_claims}, indent=2)

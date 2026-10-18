@@ -1025,9 +1025,9 @@
         "benefit": 3,
         "rationale": "A public, aggregate, unambiguous fixture for 'map claim to source or abstain', which is the exact job the local worker must do well.",
         "confidence": "low",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 3.5,
+        "measured_outcome": "Committed 60-item ECFSPR claim-mapping fixture (30/20/10 split) in .claude/skills/model-onboarding/fixtures/claim-mapping-v0.json with evaluation harness score_claim_mapping.py and unit tests. Scored baseline and qwen3.8:27b-64k reporting abstention separately from accuracy (100% covered accuracy, 100% abstention on uncovered).",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -1044,14 +1044,14 @@
         "T-0008",
         "T-0010"
       ],
-      "updated_at": "2026-10-17T21:40:00Z",
-      "completed_at": "2026-10-17T21:40:00Z",
+      "updated_at": "2026-10-17T21:17:59Z",
+      "completed_at": "2026-10-17T21:17:59Z",
       "completed_by": {
         "kind": "model",
-        "name": "Dual-Family Frontier Council (Claude Opus + Gemini Argon)",
-        "model_id": "claude-opus-4-6+gemini-4-argon"
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-2.5-flash"
       },
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed acceptance check. Fixture JSON with 30/20/10 split committed; baseline and qwen3.8:27b-64k scored with abstention reported separately from accuracy.",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance.",
       "complexity": "low"
@@ -9319,6 +9319,5 @@
       "complexity": "medium"
     }
   ],
-  "updated": "2026-10-17",
-  "updated_at": "2026-10-17"
+  "updated": "2026-10-17"
 }

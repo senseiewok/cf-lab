@@ -130,20 +130,39 @@ def fetch_unresolved_review_threads_gh(owner: str, repo: str, pr_number: int) ->
         return [], str(e)
 
 
+TASK_ID_RX = re.compile(r"\bT-?(\d{4})\b", re.I)
+SENTINEL_BRANCH_RX = re.compile(r"^(?:work/sentinel-|site/showcase-|sec-fix-|agent-improve-)", re.I)
+PR_SUITE_TOKEN_RX = re.compile(r"\b(?:ci|checks?|tests?|deploy)\b", re.I)
+
+
+def extract_pr_task_ids(branch: str, title: str) -> List[str]:
+    """Extract canonical T-XXXX task IDs from PR branch name and title."""
+    seen: List[str] = []
+    for digits in TASK_ID_RX.findall(f"{branch} {title}"):
+        tid = f"T-{digits}"
+        if tid not in seen:
+            seen.append(tid)
+    return seen
+
+
 def audit_prs(
     owner: str,
     repos: List[str],
     pr_data: Optional[Dict[str, Any]] = None,
-    check_threads: bool = True
+    check_threads: bool = True,
+    done_task_ids: Optional[Set[str]] = None
 ) -> Dict[str, Any]:
-    """Inspect open PRs, merge conflicts, and review statuses across repositories."""
-    results = {
+    """Inspect open PRs, merge conflicts, CI check failures, review statuses, and superseded PRs across repositories."""
+    results: Dict[str, Any] = {
         "prs": [],
         "conflicts": [],
         "review_blockers": [],
         "ci_failures": [],
+        "superseded_prs": [],
+        "repair_queue": [],
         "errors": []
     }
+    done_ids = done_task_ids or set()
 
     for repo in repos:
         slug = f"{owner}/{repo}"
@@ -175,18 +194,43 @@ def audit_prs(
             # Detect merge conflict / dirty states
             is_conflicting = (mergeable == "CONFLICTING" or merge_state in ("DIRTY", "BLOCKED_BY_DIRTY"))
 
-            # Detect failing CI status checks
+            # Detect failing CI status checks (both CheckRun conclusions and StatusContext states)
             failed_checks = []
             status_rollup = pr.get("statusCheckRollup") or []
+            has_pr_suite = False
             for check in status_rollup:
-                conclusion = (check.get("conclusion") or "").upper()
-                if conclusion in ("FAILURE", "TIMED_OUT", "CANCELLED", "ACTION_REQUIRED"):
+                wf_name = check.get("workflowName") or ""
+                chk_name = check.get("name") or check.get("context") or "unknown"
+                if PR_SUITE_TOKEN_RX.search(f"{wf_name} {chk_name}"):
+                    has_pr_suite = True
+                conclusion = (check.get("conclusion") or check.get("state") or "").upper()
+                if conclusion in ("FAILURE", "ERROR", "TIMED_OUT", "ACTION_REQUIRED", "STARTUP_FAILURE"):
                     failed_checks.append({
-                        "name": check.get("name") or "unknown",
-                        "workflow": check.get("workflowName") or "",
+                        "name": chk_name,
+                        "workflow": wf_name,
                         "conclusion": conclusion,
-                        "details_url": check.get("detailsUrl") or ""
+                        "details_url": check.get("detailsUrl") or check.get("targetUrl") or ""
                     })
+
+            ci_blocked_by_conflict = bool(is_conflicting and not is_draft and not has_pr_suite)
+
+            # Detect superseded sentinel PRs whose referenced board tasks are all already done on main
+            pr_task_ids = extract_pr_task_ids(branch, title)
+            is_superseded = bool(
+                pr_task_ids
+                and done_ids
+                and SENTINEL_BRANCH_RX.match(branch)
+                and all(tid in done_ids for tid in pr_task_ids)
+            )
+
+            # Check review comments
+            threads = []
+            if "unresolved_threads" in pr:
+                threads = pr["unresolved_threads"]
+            elif check_threads and not pr_data and not is_draft:
+                threads, _ = fetch_unresolved_review_threads_gh(owner, repo, num)
+
+            has_review_blocker = (review_decision == "CHANGES_REQUESTED" or len(threads) > 0)
 
             pr_entry = {
                 "repo": slug,
@@ -199,8 +243,11 @@ def audit_prs(
                 "review_decision": review_decision,
                 "is_draft": is_draft,
                 "has_conflict": is_conflicting,
+                "ci_blocked_by_conflict": ci_blocked_by_conflict,
                 "failed_checks": failed_checks,
-                "unresolved_threads": []
+                "unresolved_threads": threads,
+                "task_ids": pr_task_ids,
+                "is_superseded": is_superseded
             }
 
             if is_conflicting:
@@ -211,7 +258,8 @@ def audit_prs(
                     "branch": branch,
                     "url": url,
                     "mergeable": mergeable,
-                    "merge_state": merge_state
+                    "merge_state": merge_state,
+                    "ci_blocked_by_conflict": ci_blocked_by_conflict
                 })
 
             if failed_checks:
@@ -224,16 +272,7 @@ def audit_prs(
                     "failed_checks": failed_checks
                 })
 
-            # Check review comments
-            threads = []
-            if "unresolved_threads" in pr:
-                threads = pr["unresolved_threads"]
-            elif check_threads and not pr_data and not is_draft:
-                threads, _ = fetch_unresolved_review_threads_gh(owner, repo, num)
-
-            pr_entry["unresolved_threads"] = threads
-
-            if review_decision == "CHANGES_REQUESTED" or len(threads) > 0:
+            if has_review_blocker:
                 results["review_blockers"].append({
                     "repo": slug,
                     "number": num,
@@ -242,6 +281,45 @@ def audit_prs(
                     "url": url,
                     "review_decision": review_decision,
                     "unresolved_threads": threads
+                })
+
+            if is_superseded:
+                results["superseded_prs"].append({
+                    "repo": slug,
+                    "number": num,
+                    "title": title,
+                    "branch": branch,
+                    "url": url,
+                    "task_ids": pr_task_ids
+                })
+
+            reasons = []
+            if is_superseded:
+                reasons.append(f"superseded (tasks {', '.join(pr_task_ids)} already done on main)")
+            if is_conflicting:
+                reasons.append(f"merge_conflict ({mergeable}/{merge_state})")
+            if ci_blocked_by_conflict:
+                reasons.append("ci_blocked_by_conflict (pull_request workflow could not run)")
+            if failed_checks:
+                reasons.append("ci_failure (" + ", ".join(f"{c['name']}:{c['conclusion']}" for c in failed_checks) + ")")
+            if has_review_blocker:
+                reasons.append(f"review_blocker ({len(threads)} unresolved thread(s), decision={review_decision or 'NONE'})")
+
+            if reasons:
+                results["repair_queue"].append({
+                    "repo": slug,
+                    "repo_name": repo,
+                    "number": num,
+                    "branch": branch,
+                    "title": title,
+                    "url": url,
+                    "task_ids": pr_task_ids,
+                    "is_superseded": is_superseded,
+                    "has_conflict": is_conflicting,
+                    "ci_blocked_by_conflict": ci_blocked_by_conflict,
+                    "failed_checks": failed_checks,
+                    "unresolved_threads": threads,
+                    "reasons": reasons
                 })
 
             results["prs"].append(pr_entry)
@@ -406,11 +484,12 @@ def update_handoff_document(
     conflicts = digest.get("conflicts", [])
     review_blockers = digest.get("review_blockers", [])
     ci_failures = digest.get("ci_failures", [])
+    superseded_prs = digest.get("superseded_prs", [])
     human_actions = digest.get("human_deliverables", {}).get("pending_human_actions", [])
     removable_wts = digest.get("worktrees", {}).get("removable", [])
 
     # If everything is clean, do not churn handoff.md
-    if not conflicts and not review_blockers and not ci_failures and not human_actions and not removable_wts:
+    if not conflicts and not review_blockers and not ci_failures and not superseded_prs and not human_actions and not removable_wts:
         return False
 
     handoff_path.parent.mkdir(parents=True, exist_ok=True)
@@ -427,7 +506,8 @@ def update_handoff_document(
     if conflicts:
         lines.append("- **Merge Conflicts Detected**:")
         for c in conflicts:
-            lines.append(f"  - [{c['repo']}#{c['number']}]({c['url']}) (`{c['branch']}`): Status `{c['mergeable']}` / `{c['merge_state']}` - *{c['title']}*")
+            blocked_note = " (PR CI blocked by conflict)" if c.get("ci_blocked_by_conflict") else ""
+            lines.append(f"  - [{c['repo']}#{c['number']}]({c['url']}) (`{c['branch']}`): Status `{c['mergeable']}` / `{c['merge_state']}`{blocked_note} - *{c['title']}*")
 
     if ci_failures:
         lines.append("- **Failing CI Checks Detected**:")
@@ -441,6 +521,12 @@ def update_handoff_document(
             lines.append(f"  - [{r['repo']}#{r['number']}]({r['url']}) (`{r['branch']}`): Decision `{r['review_decision']}`")
             for th in r.get("unresolved_threads", []):
                 lines.append(f"    - Comment by @{th.get('author')}: \"{th.get('snippet')}\" ({th.get('url')})")
+
+    if superseded_prs:
+        lines.append("- **Superseded Sentinel PRs (Tasks Already Done on Main)**:")
+        for sp in superseded_prs:
+            tids = ", ".join(sp.get("task_ids", []))
+            lines.append(f"  - [{sp['repo']}#{sp['number']}]({sp['url']}) (`{sp['branch']}`): Tasks `{tids}` already done on `main` - *{sp['title']}*")
 
     if human_actions:
         lines.append("- **Pending Human-Gated Deliverables**:")
@@ -467,6 +553,18 @@ def update_handoff_document(
 
 # --- Main Engine ---
 
+def load_done_task_ids(board_path: Path = BOARD_PATH) -> Set[str]:
+    """Return set of task IDs marked status: 'done' on tasks/board.json."""
+    if not board_path.is_file():
+        return set()
+    try:
+        board = json.loads(board_path.read_text(encoding="utf-8"))
+        tasks = board.get("tasks", []) if isinstance(board, dict) else board
+        return {t["id"] for t in tasks if isinstance(t, dict) and t.get("status") == "done" and "id" in t}
+    except Exception:
+        return set()
+
+
 def run_github_hygiene_audit(
     owner: str = DEFAULT_OWNER,
     repos: Optional[List[str]] = None,
@@ -474,7 +572,8 @@ def run_github_hygiene_audit(
     pr_data_file: Optional[Path] = None,
     skip_worktrees: bool = False,
     update_handoff: bool = False,
-    handoff_path: Optional[Path] = None
+    handoff_path: Optional[Path] = None,
+    board_path: Path = BOARD_PATH
 ) -> Dict[str, Any]:
     """Execute complete hygiene audit and write JSON digest."""
     if repos is None:
@@ -490,12 +589,13 @@ def run_github_hygiene_audit(
             print(f"Warning: Failed reading PR mock file {pr_data_file}: {e}", file=sys.stderr)
 
     now_utc = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    done_ids = load_done_task_ids(board_path)
 
     # 1. Inspect PRs
-    pr_audit = audit_prs(owner, repos, pr_data=pr_mock, check_threads=(pr_mock is None))
+    pr_audit = audit_prs(owner, repos, pr_data=pr_mock, check_threads=(pr_mock is None), done_task_ids=done_ids)
 
     # 2. Inspect Human Tasks & Board
-    human_audit = audit_human_gated_tasks()
+    human_audit = audit_human_gated_tasks(board_path=board_path)
 
     # 3. Inspect Worktrees
     wt_audit = {"removable": [], "kept": [], "total": 0, "skipped": True}
@@ -506,12 +606,13 @@ def run_github_hygiene_audit(
     has_conflicts = len(pr_audit["conflicts"]) > 0
     has_review_blockers = len(pr_audit["review_blockers"]) > 0
     has_ci_failures = len(pr_audit["ci_failures"]) > 0
+    has_superseded = len(pr_audit["superseded_prs"]) > 0
     pending_human_count = len(human_audit["pending_human_actions"])
     removable_wt_count = len(wt_audit.get("removable", []))
     has_errors = len(pr_audit.get("errors", [])) > 0
 
     status = "clean"
-    if has_conflicts or has_review_blockers or has_ci_failures:
+    if has_conflicts or has_review_blockers or has_ci_failures or has_superseded:
         status = "action_required"
     elif has_errors:
         status = "warning_offline"
@@ -525,6 +626,8 @@ def run_github_hygiene_audit(
         "conflicts": pr_audit["conflicts"],
         "review_blockers": pr_audit["review_blockers"],
         "ci_failures": pr_audit["ci_failures"],
+        "superseded_prs": pr_audit["superseded_prs"],
+        "repair_queue": pr_audit["repair_queue"],
         "human_deliverables": human_audit,
         "worktrees": wt_audit,
         "errors": pr_audit["errors"],
@@ -533,6 +636,8 @@ def run_github_hygiene_audit(
             "conflicts_count": len(pr_audit["conflicts"]),
             "review_blockers_count": len(pr_audit["review_blockers"]),
             "ci_failures_count": len(pr_audit["ci_failures"]),
+            "superseded_prs_count": len(pr_audit["superseded_prs"]),
+            "repair_queue_count": len(pr_audit["repair_queue"]),
             "pending_human_actions_count": pending_human_count,
             "removable_worktrees_count": removable_wt_count,
             "offline_or_errored_repos": len(pr_audit["errors"])
@@ -557,7 +662,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--skip-worktrees", action="store_true", help="Skip worktree inspection")
     parser.add_argument("--update-handoff", action="store_true", help="Update memory/handoff.md if action required")
     parser.add_argument("--handoff-file", help="Custom handoff file destination (for testing)")
-    parser.add_argument("--check", action="store_true", help="Exit 1 if conflicts, review blockers, or failing CI checks found; 0 otherwise")
+    parser.add_argument("--check", action="store_true", help="Exit 1 if conflicts, review blockers, failing CI checks, or superseded PRs found; 0 otherwise")
     parser.add_argument("--quiet", action="store_true", help="Suppress summary printing")
 
     args = parser.parse_args(argv)
@@ -584,6 +689,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"  Merge Conflicts: {summary['conflicts_count']}")
         print(f"  Review Blockers: {summary['review_blockers_count']}")
         print(f"  CI Failures: {summary['ci_failures_count']}")
+        print(f"  Superseded Sentinel PRs: {summary['superseded_prs_count']}")
+        print(f"  PRs Needing Repair: {summary['repair_queue_count']}")
         print(f"  Pending Human Deliverables: {summary['pending_human_actions_count']}")
         print(f"  Removable Worktrees: {summary['removable_worktrees_count']}")
         if digest["errors"]:
@@ -594,7 +701,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     if args.check:
         if (digest["summary"]["conflicts_count"] > 0
                 or digest["summary"]["review_blockers_count"] > 0
-                or digest["summary"]["ci_failures_count"] > 0):
+                or digest["summary"]["ci_failures_count"] > 0
+                or digest["summary"]["superseded_prs_count"] > 0):
             return 1
 
     return 0

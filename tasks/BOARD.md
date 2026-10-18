@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-182 tasks, 181 created by a model, 84 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+182 tasks, 181 created by a model, 85 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -144,7 +144,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0051 | P2 | Decide and implement how the control repo consumes the evidence skill | cf-lab | 2-5 | 3 | 8.6 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local | T-0037 |  |
 | T-0043 | P2 | Variant layer: MyVariant.info and gnomAD providers (aggregate frequencies only) | cf-skills | 4-6 | 4 | 8 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | local |  |  |
 | T-0172 | P2 | Trial Endpoint Atlas: PRISMA screening flow & surrogate-to-registrational endpoint evolution | cf-research | 4-6 | 4 | 8 | yes | model: gemini-4-argon | 2026-10-16 | elevated | medium | local | T-0171 | work/frontier-trial-atlas-t0171-t0172 |
-| T-0021 | P2 | Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008) | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local | T-0008, T-0010 |  |
+| T-0021 | P2 | Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008) | cf-lab | 3-5 | 3 | 7.5 | yes | model: claude-fable-5-1 | 2026-10-04 | routine | low | local | T-0008, T-0010 |  |
 | T-0034 | P2 | Claim checker for the elevated tier: quote, absence and count claims with a mandatory positive control | cf-lab | 3-5 | 3 | 7.5 | yes | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0056 | P2 | check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not | cf-lab | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-04 | full | medium | cloud |  |  |
 | T-0064 | P2 | More sources: UKRI Gateway to Research, CORDIS, EU Clinical Trials Register, WHO ICTRP, PubPeer, ClinGen, and the CFF 2025 highlights link | cf-research | 3-5 | 3 | 7.5 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | cloud |  |  |
@@ -1268,7 +1268,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** Fixture JSON with 30/20/10 split committed; at least one model scored with abstention reported separately from accuracy.
 - **Evidence:** research/proposals/2026-10-04-hq-skill-updates.md item 5
-- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17 daily-research-sentinel: Completed acceptance check. Fixture JSON with 30/20/10 split committed; baseline and qwen3.8:27b-64k scored with abstention reported separately from accuracy.
+- **Measured:** 3.5 h; Committed 60-item ECFSPR claim-mapping fixture (30/20/10 split) in .claude/skills/model-onboarding/fixtures/claim-mapping-v0.json with evaluation harness score_claim_mapping.py and unit tests. Scored baseline and qwen3.8:27b-64k reporting abstention separately from accuracy (100% covered accuracy, 100% abstention on uncovered).
 
 ### T-0034 Claim checker for the elevated tier: quote, absence and count claims with a mandatory positive control
 
