@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-205 tasks, 204 created by a model, 95 with a measured outcome. Estimated effort 527.35 to 1001.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+208 tasks, 207 created by a model, 98 with a measured outcome. Estimated effort 539.35 to 1022.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (28)
+## ready (31)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -30,6 +30,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0202 | P1 | Interactive Mucociliary Clearance & Airway Surface Liquid (ASL) Rheology Workbench panel on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0185 |  |
 | T-0203 | P1 | Interactive Alternative Ion Channel & Modifier Epistasis (SLC26A9 / TMEM16A / ENaC) Explorer on /cf/tree/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0186 |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
+| T-0206 | P1 | Dual-AAV split-intein trans-splicing biophysical reconstitution model for CFTR (tools/discovery/dual_aav_intein_model.py) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | local |  |  |
+| T-0207 | P1 | CFTR Delta-R domain minigene packaging and single-channel patch-clamp conductance simulator (tools/discovery/cftr_minigene_model.py) | cf-research | 3.5-6.5 | 4 | 8 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0208 | P1 | Aerosolized AAV capsid lung tropism and neutralizing antibody neutralization titer calculator (tools/discovery/aav_tropism_model.py) | cf-research | 4.5-8 | 5 | 8 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
 | T-0110 | P2 | Rulesets on main for the public repos | cf-lab | 0.5-1 | 5 | 66.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low | local |  |  |
@@ -93,11 +96,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
 | T-0155 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  | feat/turbo-sentinel-cadence |
 | T-0170 | P1 | Trial Endpoint Atlas: 8-class primary outcome lexicon & verbatim span extraction | cf-research | 4-6 | 5 | 10 | yes | model: gemini-4-argon | 2026-10-16 | elevated | medium | local | T-0169 |  |
-| T-0185 | P1 | Airway mucociliary clearance viscoelastic shear rheology & mucin mesh hindrance model (tools/discovery/mucus_rheology.py) | cf-research | 3-5.5 | 4 | 9.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0185 | P1 | Airway mucociliary clearance viscoelastic shear rheology & mucin mesh hindrance model (tools/discovery/mucus_rheology.py) | cf-research | 3-5.5 | 4 | 9.4 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0182 | P1 | Zero-build In Silico Delivery Hypothesis Explorer UI with Dignity Boundary Card (src/cf/delivery/) | .ai | 4-7 | 5 | 9.1 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local | T-0181 |  |
-| T-0183 | P1 | Splice-switching antisense oligonucleotide (ASO) steric blocking model for CFTR 3849+10kb C->T pseudoexon exclusion (tools/discovery/aso_splice_model.py) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
+| T-0183 | P1 | Splice-switching antisense oligonucleotide (ASO) steric blocking model for CFTR 3849+10kb C->T pseudoexon exclusion (tools/discovery/aso_splice_model.py) | cf-research | 4-7 | 5 | 9.1 | yes | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0184 | P1 | Prime editing pegRNA & nicking sgRNA biophysical feasibility scorer for CFTR F508del and W1282X (tools/discovery/prime_editing_cftr.py) | cf-research | 4-7.5 | 5 | 8.7 | yes | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
-| T-0186 | P1 | CFTR modifier gene epistatic conductance model: SLC26A9, TMEM16A (ANO1), and ENaC interplay (tools/discovery/modifier_interactome.py) | cf-research | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0186 | P1 | CFTR modifier gene epistatic conductance model: SLC26A9, TMEM16A (ANO1), and ENaC interplay (tools/discovery/modifier_interactome.py) | cf-research | 3.5-6 | 4 | 8.4 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0147 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  | research/inhaled-delivery-dossier |
 | T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | site/es-mx-localization |
 | T-0159 | P1 | Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs) | cf-lab | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | feat/antigravity-discovery-and-pr-rules |
@@ -771,6 +774,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_mucus_rheology.py -v verifies complex modulus G*(omega), mucin pore size distribution across 2% to 8% solids content, and PEG-brush diffusive permeability.
 - **Evidence:** DOI 10.1126/sciadv.aaw3507; DOI 10.1073/pnas.1910397116; ClinicalTrials.gov NCT05668741; cf-research/landscape/delivery-biophysics.md
 - **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Grounded in DOI 10.1126/sciadv.aaw3507 and NCT05668741. Merged in senseiewok/cf-research#90 (commit 989554e): tools/discovery/mucus_rheology.py + 17 unit tests in test_mucus_rheology.py passing.
+- **Measured:** 5 h; Implemented airway mucociliary clearance viscoelastic shear rheology & mucin pore scaling model (tools/discovery/mucus_rheology.py); verified complex modulus G*(omega), loss tangent, hindered diffusivity, and mucolytic rescue across 17 passing unit tests in PR senseiewok/cf-research#90.
 
 ### T-0182 Zero-build In Silico Delivery Hypothesis Explorer UI with Dignity Boundary Card (src/cf/delivery/)
 
@@ -788,6 +792,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_aso_splice_model.py -v passes 100% assertion coverage across 2-O-MOE/PMO steric hybridization free energy, pseudoexon exclusion dose-response, and zero hallucinated identifiers.
 - **Evidence:** ClinicalTrials.gov NCT06429176 (SPL84 in CF 3849+10kb C->T); DOI 10.1016/j.jcf.2021.08.014; RCSB PDB 6MSM; cf-research/sources/catalog.yaml
 - **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Grounded in NCT06429176 and DOI 10.1016/j.jcf.2021.08.014. Merged in senseiewok/cf-research#90 (commit 989554e): tools/discovery/aso_splice_model.py + 16 unit tests in test_aso_splice_model.py passing.
+- **Measured:** 5.5 h; Implemented splice-switching antisense oligonucleotide (ASO) steric blocking model for CFTR 3849+10kb C->T, 2789+5G->A, and 1811+1.6kbA->G (tools/discovery/aso_splice_model.py); verified 2-O-MOE and PMO steric hybridization free energy, dose-response pseudoexon exclusion, and zero hallucinated identifiers across 16 passing unit tests in PR senseiewok/cf-research#90.
+
+### T-0206 Dual-AAV split-intein trans-splicing biophysical reconstitution model for CFTR (tools/discovery/dual_aav_intein_model.py)
+
+- **Why / ROI rationale:** Resolves the primary biophysical barrier to viral CFTR gene therapy (the 4.7-kb AAV packaging limit) by modeling split-intein reconstitution kinetics, Poisson co-infection probabilities, and junctional scarless peptide bond formation. *(confidence: high)*
+- **Route:** local - Track A biophysical delivery modeling and multi-vector kinetics.
+- **Acceptance:** tools/discovery/dual_aav_intein_model.py implements Poisson dual-vector co-transduction, split-site extein integrity, and trans-splicing kinetics; python -m pytest tools/discovery/test_dual_aav_intein_model.py passes 100% of unit tests with zero network access.
+- **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; Tornabene et al. DOI 10.1038/s41467-019-11246-8; Dual AAV CFTR DOI 10.1016/j.omtm.2020.10.007
+- **Notes:** Models dual AAV vectors (N-terminal and C-terminal vectors splitting CFTR within the R-domain). Evaluates reconstitution efficiency across MOI ranges 0.5 to 20, predicting mature Band C 170 kDa glycoprotein yield and restored transepithelial chloride transport fraction.
 
 ### T-0184 Prime editing pegRNA & nicking sgRNA biophysical feasibility scorer for CFTR F508del and W1282X (tools/discovery/prime_editing_cftr.py)
 
@@ -805,6 +818,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_modifier_interactome.py -v verifies apical chloride/bicarbonate flux compensation equations and airway surface liquid height restoration bounds.
 - **Evidence:** DOI 10.1038/s41467-020-19255-2; DOI 10.1152/ajplung.00350.2020; cf-research/landscape/alternative-conductance.md; cf-research/sources/catalog.yaml
 - **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Grounded in DOI 10.1038/s41467-020-19255-2. Merged in senseiewok/cf-research#90 (commit 989554e): tools/discovery/modifier_interactome.py + 15 unit tests in test_modifier_interactome.py passing.
+- **Measured:** 4.5 h; Implemented CFTR modifier gene epistatic conductance model for SLC26A9, TMEM16A, and ENaC (tools/discovery/modifier_interactome.py); verified short-circuit current redirection, ASL height restoration, and luminal pH recovery across 15 passing unit tests in PR senseiewok/cf-research#90.
 
 ### T-0147 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 
@@ -843,6 +857,22 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** Skill scheduled-site-showcase created under .claude/skills/; multi-stage execution verifies skills, generates site pages (make_evidence, sync_cftr_model, /es/ copy), runs tests.test_site and Playwright visual audits, commits via run-gate.ps1, and prepares PRs via gh pr create with attached screenshots.
 - **Evidence:** 2026-10-12: Maintainer requested an autonomous schedule to maintain and build the website, conducting a round of research and improving relevant skills on every run, exposing recent lab breakthroughs (Trial Atlas, delivery biophysics, 3D CFTR), and preparing verified PRs for the site with Playwright screenshots. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready. \| 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. \| 2026-10-13: Full 4-stage workflow executed; biophysical dossiers scanned, skills evolved, site localized and visual audit passed; passed elevated gate and merged in PR #56 (https://github.com/senseiewok/.ai/pull/56). \| 2026-10-13: Second scheduled showcase cycle executed: scanned biophysical dossiers (T-0147, T-0150, T-0151, T-0152), updated cf-research-context and webgl-threejs-graphics skills; exposed Cryo-EM rare-variant theratyping presets on 3D viewer (src/cf/cftr/index.html) and refined Mexican Spanish (es-MX) localization; all tests and Playwright visual audits passed; passed elevated gate on worktree showcase-curative-biophysics and prepared PR #57 (https://github.com/senseiewok/.ai/pull/57) with evidence screenshots published to pr-evidence. \| 2026-10-13: Third scheduled showcase cycle executed: scanned biophysical dossiers (T-0147, T-0150, T-0151, T-0152), updated frontend-design skill with biophysical evidence ledger guidelines; exposed primary biophysical research breakthroughs on the CF story page (src/cf/index.html) under #stewardship; updated table of contents and expanded Mexican Spanish (es-MX) localization across data/i18n/es-MX.json and src/scripts/i18n-resources.js with mandatory medical disclaimer; passed all 195 unit tests and Playwright visual audits; committed 533bbb0 via run-gate.ps1 on worktree showcase-curative-breakthroughs and prepared PR #58 (https://github.com/senseiewok/.ai/pull/58) with screenshot evidence published to pr-evidence. \| 2026-10-13: PR #58 merged into .ai main (commit 0269321) by maintainer; cycle 3 showcase and localization verified live. \| 2026-10-13: Cycle 4 executed and merged in PR #59 (commit 28a7872). \| 2026-10-13: Cycle 5 executed: exposed Cryo-EM 3D structural perturbation modeling (T-0150) under #stewardship on CF story page; expanded es-MX localization in data/i18n/es-MX.json and src/scripts/i18n-resources.js with mandatory medical disclaimer; passed all 195 unit tests and Playwright visual audits; committed 283f06a on worktree showcase-curative-frontiers and merged in PR #60 (commit 288c794). \| 2026-10-13: Hardened scheduled-site-showcase skill with explicit test timing discipline: strictly forbidding running test suites during Pre-flight or at the beginning of a run. \| 2026-10-14 Opus Frontier Council Review: Re-anchored cadence to canonical Weekly on Thursdays at 04:00 PT (CRON_TZ=America/Los_Angeles 0 4 * * 4). Added persistent research watermark check (.loop-logs/last-showcase-audit.json) to eliminate PR churn when no new research dossiers exist. \| 2026-10-14: Cycle 6 executed: scanned biophysical dossiers (T-0150, rare-variants-theratypes.md), updated webgl-threejs-graphics skill; exposed R347 and R1070 rare-variant presets on 3D CFTR viewer (src/cf/cftr/index.html) and expanded Mexican Spanish (es-MX) strings across data/i18n/es-MX.json and src/scripts/i18n-resources.js with mandatory medical disclaimer; passed unit tests, check-voice, and Playwright visual audits on worktree showcase-curative-theratypes; merged in PR #62 (https://github.com/senseiewok/.ai/pull/62).
+
+### T-0207 CFTR Delta-R domain minigene packaging and single-channel patch-clamp conductance simulator (tools/discovery/cftr_minigene_model.py)
+
+- **Why / ROI rationale:** Validates single-AAV vector packaging by mapping the 52-amino acid deletion (residues 708-759, 156 bp) onto cryo-EM disordered regions, simulating patch-clamp open probability and confirming 8.5 pS single-channel conductance. *(confidence: high)*
+- **Route:** local - Track A structural biophysics and patch-clamp electrophysiology simulation.
+- **Acceptance:** tools/discovery/cftr_minigene_model.py calculates single-vector AAV payload compression (4,284 bp CDS within 4.7 kb limit), simulates single-channel 8.5 pS patch-clamp current, and verifies basal vs cAMP-stimulated open probability; pytest suite passes 100%.
+- **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; Ostedgaard et al. DOI 10.1073/pnas.1901174116; PDB 6MSM; PDB 5UAK
+- **Notes:** Structural mapping against PDB 6MSM (Zhang & Chen 2018) and PDB 5UAK (Liu et al. 2017) confirms that residues 708-759 reside entirely within the flexible, unresolved R-domain loop, leaving TMD1, TMD2, NBD1, and NBD2 folding intact.
+
+### T-0208 Aerosolized AAV capsid lung tropism and neutralizing antibody neutralization titer calculator (tools/discovery/aav_tropism_model.py)
+
+- **Why / ROI rationale:** Bridges molecular vector design to inhaled in vivo administration by modeling aerosol droplet size distribution (MMAD 1-3 um), airway mucus hydrogel permeation, and neutralization evasion across circulating and mucosal neutralizing antibody titers. *(confidence: high)*
+- **Route:** local - High-complexity aerosol biophysics, immunological barrier kinetics, and clinical trial translation.
+- **Acceptance:** tools/discovery/aav_tropism_model.py computes airway mucosal deposition fractions, mucus hydrogel mesh diffusion, and NAb neutralization curves for directed-evolution capsids (4D-A101); python -m pytest tools/discovery/test_aav_tropism_model.py passes 100%.
+- **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; Clinical trial NCT05248230 / NCT05248022; 4D-A101 capsid directed evolution data
+- **Notes:** Directly grounded in the 4D-710 Phase 1/2 aerosolized trial parameters (NCT05248230 / NCT05248022). Incorporates nebulizer droplet aerodynamics, mucin-binding dissociation constants, and serum dilution factors.
 
 ### T-0066 Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules
 
