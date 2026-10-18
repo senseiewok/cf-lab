@@ -661,6 +661,27 @@ def triage_board(
             if not task.get("complexity"):
                 task["complexity"] = classification["complexity"]
 
+    # 4. Enforce render-board.ps1 dependency priority invariant:
+    # An open task cannot have higher priority than an unfinished dependency (P0 > P1 > P2 > P3).
+    prio_rank = {"P0": 0, "P1": 1, "P2": 2, "P3": 3}
+    tasks_by_id = {t["id"]: t for t in board_data["tasks"] if isinstance(t, dict) and "id" in t}
+    changed = True
+    while changed:
+        changed = False
+        for task in board_data["tasks"]:
+            if task.get("status") in ("done", "dropped"):
+                continue
+            tp = task.get("priority", "P2")
+            for dep_id in (task.get("depends_on") or []):
+                dep = tasks_by_id.get(dep_id)
+                if not dep or dep.get("status") in ("done", "dropped"):
+                    continue
+                dp = dep.get("priority", "P2")
+                if prio_rank.get(tp, 2) < prio_rank.get(dp, 2):
+                    task["priority"] = dp
+                    tp = dp
+                    changed = True
+
     return board_data, stats
 
 

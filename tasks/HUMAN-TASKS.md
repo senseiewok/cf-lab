@@ -47,6 +47,7 @@ Medical boundary and community safety require external human expertise; AI canno
 ## 4. Physical Device & Hardware Usability Testing
 
 - [ ] **CFTR 3D Molecule Viewer on Physical Phone**: Test 3D touch interaction, trackball rotation, bottom-sheet sheet drag, and gesture responsiveness on a physical iOS / Android device (cannot be fully validated via headless Playwright emulation).
+- [ ] **Re-measure Local Reviewer with Thinking Profile (T-0090)**: Maintainer-scheduled multi-hour GPU run when the machine is free (8+ runs per arm across fast and thinking profiles).
 
 ---
 
@@ -56,6 +57,7 @@ Administrative controls and external platform settings that cannot or should not
 
 - [ ] **Turn on GitHub Rulesets on `main` (T-0110)**: In repository settings for `cf-lab`, `cf-research`, and `cf-skills`, enable branch rulesets: require pull requests, block force pushes, and require maintainer review.
 - [ ] **Repository Contribution Settings (T-0128)**: Ensure GitHub repository settings reflect "no outside contributions": turn Discussions off and restrict public pull requests / issues.
+- [ ] **Operational Continuity Runbook Second-Person Review (T-0129)**: Have a second person review the private continuity note in `../cf-lab-files/` and confirm whether it is sufficient.
 - [x] **Update YouTube Channel About Text (T-0002)** (2026-10-15): In YouTube Studio, channel description updated to approved boundary text (contains 'not medical advice' and 'not affiliated', removes 'accelerate the cure'). Verified live on @SenseiEwok via `python tasks/test_youtube_about.py --live`.
 
 ---
