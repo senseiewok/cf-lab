@@ -4267,7 +4267,7 @@
       "title": "Depth probe for the 64K local alias",
       "repo": "cf-lab",
       "area": "delegation",
-      "status": "ready",
+      "status": "done",
       "priority": "P3",
       "created_at": "2026-10-06T03:45:00Z",
       "created_by": {
@@ -4285,9 +4285,9 @@
         "benefit": 3,
         "rationale": "Estimate: every long-note task depends on it.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 2.5,
+        "measured_outcome": "Implemented depth-probe.ps1 with -SelfTest suite and dry-run verification; verified 13/13 offline tests pass; updated model-qwen3-8-27b profile skill with recorded counts per depth for fast and thinking profiles and negative controls; added depth-probe row to check-all.ps1.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -4301,10 +4301,15 @@
       "acceptance": "depth-probe.ps1 -SelfTest passes; counts per depth for the fast and thinking profiles are recorded in the profile skill with a negative control.",
       "review_tier": "routine",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
-      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "updated_at": "2026-10-18T17:10:00Z",
+      "completed_at": "2026-10-18T17:10:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "Daily Security Sentinel",
+        "model_id": "gemini-2.5-flash",
+        "session_ref": "daily-security-sentinel 2026-10-18 build round"
+      },
+      "notes": "2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-18 Daily Security Sentinel: Implemented depth-probe.ps1 with -SelfTest suite. Acceptance check passed; marked done.",
       "recommended_route": "local",
       "route_rationale": "A fixed prompt generator with an exact-match check.",
       "complexity": "low"
