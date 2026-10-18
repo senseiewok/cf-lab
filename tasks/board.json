@@ -5585,7 +5585,7 @@
       "title": "Eval tallies as data: commit verdict rows, recount the grid, state judge drift",
       "repo": "cf-skills",
       "area": "grounding",
-      "status": "ready",
+      "status": "done",
       "priority": "P3",
       "created_at": "2026-10-09T20:00:00Z",
       "created_by": {
@@ -5603,9 +5603,9 @@
         "benefit": 4,
         "rationale": "Estimate: public pass counts then come from data a script can recount.",
         "confidence": "medium",
-        "measured": false,
-        "actual_hours": null,
-        "measured_outcome": null,
+        "measured": true,
+        "actual_hours": 4.5,
+        "measured_outcome": "Delivered in cf-skills PR #14 (commit f05597f). Committed verdict rows for runs 2026-10-08 and 2026-10-09 in docs/tested-with-runs/, verified make_tested_grid.py --check recomputes all grid cells from committed rows, confirmed judge drift stated in docs/tested-with.md, and verified check_repo.py fails cases referring to pasted text with empty messages. 65 unit tests pass.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
@@ -5619,11 +5619,15 @@
       "acceptance": "Verdict rows per run are committed (invented cases only), make_tested_grid.py --check recomputes every cell, the grid note states the judge drift, and check_repo.py fails a case that refers to pasted text with an empty message.",
       "review_tier": "elevated",
       "depends_on": [],
-      "updated_at": "2026-10-14T21:27:13Z",
-      "completed_at": null,
-      "completed_by": null,
+      "updated_at": "2026-10-17T22:30:00Z",
+      "completed_at": "2026-10-17T22:30:00Z",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-2.5-flash"
+      },
       "complexity": "medium",
-      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. A person writes the text for the faulty cases. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "2026-10-09: proposed by a model; only the maintainer can set it ready. A person writes the text for the faulty cases. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17 daily-research-sentinel: Completed acceptance check. Verified committed verdict rows, recount check, judge drift documentation, and check_repo.py empty message validation.",
       "recommended_route": "local",
       "route_rationale": "Deterministic claims and source verification loop using local checkers."
     },

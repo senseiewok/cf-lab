@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-182 tasks, 181 created by a model, 85 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+182 tasks, 181 created by a model, 86 with a measured outcome. Estimated effort 459.85 to 882.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (6)
 
@@ -15,7 +15,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0077 | P2 | Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding | cf-lab | 8-16 | 5 | 4.2 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0078 | work/frontier-showcase-t0173-t0077-t0120 |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## ready (39)
+## ready (38)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -55,11 +55,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0140 | P2 | Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy | cf-lab | 6-14 | 2 | 2 | no | model: claude-sonnet-5-5 | 2026-10-13 | full | medium | local |  |  |
 | T-0086 | P3 | Depth probe for the 64K local alias | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine | low | local |  |  |
 | T-0114 | P3 | Test CI for the three public repos | cf-lab | 2-4 | 3 | 10 | no | model: claude-opus-5-5 | 2026-10-09 | full | medium | local |  |  |
-| T-0113 | P3 | Eval tallies as data: commit verdict rows, recount the grid, state judge drift | cf-skills | 3-6 | 4 | 8.9 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (125)
+## done (126)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -186,6 +185,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0111 | P3 | Harden the commit gate: commit only on pass, fail on stray files, show open rows | cf-lab | 2-4 | 4 | 13.3 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0163 | P3 | Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n | .ai | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-14 | elevated | medium | cloud | T-0147, T-0150, T-0152, T-0160 | site/showcase-phage-dynamics |
 | T-0127 | P3 | A board consistency check in render-board | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  | work/frontier-lab-unbinding |
+| T-0113 | P3 | Eval tallies as data: commit verdict rows, recount the grid, state judge drift | cf-skills | 3-6 | 4 | 8.9 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0119 | P3 | A local AI review of a diff in the gate, so the lab does not depend on GitHub's quota-limited AI check | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 | T-0044 | P3 | Paper-trail layer: Unpaywall and Semantic Scholar providers | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
 
@@ -1695,7 +1695,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** Verdict rows per run are committed (invented cases only), make_tested_grid.py --check recomputes every cell, the grid note states the judge drift, and check_repo.py fails a case that refers to pasted text with an empty message.
 - **Evidence:** 2026-10-09: the published grid counts match the verdict files (recounted by script), but those files sit only in a temporary folder; re-judging the same old replies moved one count from 14 to 19 passes, more than the gain reported; three translation cases send no text.
-- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. A person writes the text for the faulty cases. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. A person writes the text for the faulty cases. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17 daily-research-sentinel: Completed acceptance check. Verified committed verdict rows, recount check, judge drift documentation, and check_repo.py empty message validation.
+- **Measured:** 4.5 h; Delivered in cf-skills PR #14 (commit f05597f). Committed verdict rows for runs 2026-10-08 and 2026-10-09 in docs/tested-with-runs/, verified make_tested_grid.py --check recomputes all grid cells from committed rows, confirmed judge drift stated in docs/tested-with.md, and verified check_repo.py fails cases referring to pasted text with empty messages. 65 unit tests pass.
 
 ### T-0119 A local AI review of a diff in the gate, so the lab does not depend on GitHub's quota-limited AI check
 
