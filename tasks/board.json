@@ -10314,7 +10314,7 @@
       "title": "Interactive Alternative Ion Channel & Modifier Epistasis (SLC26A9 / TMEM16A / ENaC) Explorer on /cf/tree/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -10354,7 +10354,9 @@
         "composite_score": 7.72,
         "roi_ratio": 1.63
       },
-      "notes": "2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Chains after T-0186."
+      "notes": "2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Chains after T-0186. Completed in senseiewok/.ai#110: Interactive Alternative Ion Channel & Modifier Epistasis (SLC26A9 / TMEM16A / ENaC) Explorer on /cf/tree/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified.",
+      "actual_hours": 4.5,
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0204",
