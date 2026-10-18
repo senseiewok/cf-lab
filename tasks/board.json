@@ -4505,10 +4505,10 @@
       "depends_on": [
         "T-0083"
       ],
-      "updated_at": "2026-10-14T21:27:13Z",
+      "updated_at": "2026-10-18T02:08:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human step: the maintainer decides when the machine is free (a thinking review of about 16K prompt tokens may reach the 16,384 output limit). Do not run while another Ollama experiment is using the worker. Judges must be a different model family from the worker. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "Human step: the maintainer decides when the machine is free (a thinking review of about 16K prompt tokens may reach the 16,384 output limit). Do not run while another Ollama experiment is using the worker. Judges must be a different model family from the worker. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-18 Sentinel Security build round: Ground truth updated with 18th defect (SEO008, canonical with no base, merged in cf-skills #36). Runner script updated for 8-run-per-arm fast vs thinking execution. Evaluation plan documented in docs/reviewer-eval-t0090-plan.md. Multi-hour Ollama execution and cross-family blind judging prepared for maintainer-scheduled benchmark run.",
       "complexity": "medium",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance."
