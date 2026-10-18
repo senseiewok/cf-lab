@@ -182,6 +182,95 @@ try {
         }
     }
 
+    # Catalog snapshot and skill catalog drift checks (T-0051, T-0140)
+    if ($files | Where-Object { $_ -eq 'sources/catalog.snapshot.yaml' -or $_ -eq 'tasks/sync_catalog_snapshot.py' }) {
+        $scs = Join-Path $root 'tasks/sync_catalog_snapshot.py'
+        if (Test-Path $scs) {
+            $pyExe = Get-PythonExe
+            if (-not $pyExe) { Write-Host "SKIP sync_catalog_snapshot.py: python not found" }
+            else {
+                $tmpSnap = $null
+                try {
+                    $snapTarget = Join-Path $root 'sources/catalog.snapshot.yaml'
+                    if ($files -contains 'sources/catalog.snapshot.yaml') {
+                        $tmpSnap = [IO.Path]::GetTempFileName()
+                        $snapStaged = (Get-StagedText 'sources/catalog.snapshot.yaml')
+                        if (-not $snapStaged.EndsWith("`n")) { $snapStaged += "`n" }
+                        [IO.File]::WriteAllText($tmpSnap, $snapStaged, [Text.UTF8Encoding]::new($false))
+                        $snapTarget = $tmpSnap
+                    }
+                    $scsOut = (& $pyExe $scs --check --snapshot $snapTarget 2>&1) -join "`n"
+                    if ($LASTEXITCODE -ne 0) {
+                        if ($scsOut) { Write-Host $scsOut }
+                        Write-Host "FAIL owning checker sync_catalog_snapshot.py --check"
+                        $failures++
+                    }
+                } finally {
+                    if ($tmpSnap) { Remove-Item -LiteralPath $tmpSnap -ErrorAction SilentlyContinue }
+                }
+            }
+        }
+    }
+
+    $catStaged = @($files | Where-Object { $_ -eq 'sources/catalog.yaml' -or $_ -eq '.claude/skills/cf-evidence-loop/catalog.yaml' })
+    if ($catStaged.Count -gt 0) {
+        $pyExe = Get-PythonExe
+        if (-not $pyExe) { Write-Host "SKIP sync_skill_catalog.py: python not found" }
+        else {
+            $syncScript = $null
+            foreach ($cand in @(
+                (Join-Path $root 'tools/sources/sync_skill_catalog.py'),
+                (Join-Path $root '../cf-research/tools/sources/sync_skill_catalog.py'),
+                (Join-Path $root '../../cf-research/tools/sources/sync_skill_catalog.py'),
+                (Join-Path $root '../../../cf-research/tools/sources/sync_skill_catalog.py')
+            )) {
+                if (Test-Path -LiteralPath $cand -PathType Leaf) { $syncScript = (Resolve-Path -LiteralPath $cand).Path; break }
+            }
+            $srcCat = $null
+            foreach ($cand in @(
+                (Join-Path $root 'sources/catalog.yaml'),
+                (Join-Path $root '../cf-research/sources/catalog.yaml'),
+                (Join-Path $root '../../cf-research/sources/catalog.yaml'),
+                (Join-Path $root '../../../cf-research/sources/catalog.yaml')
+            )) {
+                if (Test-Path -LiteralPath $cand -PathType Leaf) { $srcCat = (Resolve-Path -LiteralPath $cand).Path; break }
+            }
+            $dstCat = $null
+            foreach ($cand in @(
+                (Join-Path $root '.claude/skills/cf-evidence-loop/catalog.yaml'),
+                (Join-Path $root '../cf-skills/.claude/skills/cf-evidence-loop/catalog.yaml'),
+                (Join-Path $root '../../cf-skills/.claude/skills/cf-evidence-loop/catalog.yaml'),
+                (Join-Path $root '../../../cf-skills/.claude/skills/cf-evidence-loop/catalog.yaml')
+            )) {
+                if (Test-Path -LiteralPath $cand -PathType Leaf) { $dstCat = (Resolve-Path -LiteralPath $cand).Path; break }
+            }
+            if ($syncScript -and $srcCat -and $dstCat) {
+                $tmpSrc = $null; $tmpDst = $null
+                try {
+                    if ($files -contains 'sources/catalog.yaml') {
+                        $tmpSrc = [IO.Path]::GetTempFileName()
+                        [IO.File]::WriteAllText($tmpSrc, (Get-StagedText 'sources/catalog.yaml'), [Text.UTF8Encoding]::new($false))
+                        $srcCat = $tmpSrc
+                    }
+                    if ($files -contains '.claude/skills/cf-evidence-loop/catalog.yaml') {
+                        $tmpDst = [IO.Path]::GetTempFileName()
+                        [IO.File]::WriteAllText($tmpDst, (Get-StagedText '.claude/skills/cf-evidence-loop/catalog.yaml'), [Text.UTF8Encoding]::new($false))
+                        $dstCat = $tmpDst
+                    }
+                    $syncOut = (& $pyExe $syncScript --source $srcCat --target $dstCat --check 2>&1) -join "`n"
+                    if ($LASTEXITCODE -ne 0) {
+                        if ($syncOut) { Write-Host $syncOut }
+                        Write-Host "FAIL owning checker sync_skill_catalog.py --check"
+                        $failures++
+                    }
+                } finally {
+                    if ($tmpSrc) { Remove-Item -LiteralPath $tmpSrc -ErrorAction SilentlyContinue }
+                    if ($tmpDst) { Remove-Item -LiteralPath $tmpDst -ErrorAction SilentlyContinue }
+                }
+            }
+        }
+    }
+
     # cf-research source-overlap, quotation-length, and stated-evidence number checks (T-0074)
     $csoScript = Join-Path $root 'tools/sources/check_source_overlap.py'
     $csoFiles = @($files | Where-Object {

@@ -18,7 +18,7 @@ Which file an agent reads depends on the tool and on where the session starts. T
 
 Observed here (T1, 2026-10-10): a general-purpose subagent started from a session in `cf-lab` listed 51 invocable skills, the 23 `cf-lab` skills among them and the sibling skills (for example `cf-evidence-loop`), and received `cf-lab/AGENTS.md` automatically. No `CLAUDE.md` existed in `cf-lab`, any parent folder or the user's `.claude` folder, and no managed-policy file existed. The three repos share no skill name and none collides with a personal skill.
 
-Observed here (2026-10-12): Antigravity automatically injected `cf-lab/AGENTS.md` as its `<user_rules>` in both root and subagent sessions. Declarative skill discovery is specified via `.agents/skills.json` (pointing to `.claude/skills`) per Antigravity's JSON customization guide; `.agents/skills/` is git-ignored and can be locally linked via `pwsh -File .claude/skills/workspace-siblings/scripts/link-agent-skills.ps1`.
+Observed here (T1, 2026-10-12 and re-verified 2026-10-17, recorded in `../cf-lab-files/memory/antigravity-loading-2026-10-17.md`): Antigravity (AGY 2.0) automatically injected `cf-lab/AGENTS.md` as `<user_rules>` in both root and subagent sessions, and loaded all 33 project skills directly from `.claude/skills/<name>/SKILL.md` via tracked `.agents/skills.json` (`{"entries": [{"path": ".claude/skills"}]}`) per Antigravity's JSON customization specification (`agy-customizations/docs/json_configs.md`). No duplicate `.agents/skills/` or `.agents/rules/` folder is created or needed in a clean checkout.
 
 ## Layout rules that follow
 

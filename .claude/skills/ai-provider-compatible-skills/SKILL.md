@@ -102,7 +102,7 @@ Use function calling to...
 ### Directory Structure
 
 ```
-.skills/
+.claude/skills/
 └── skill-name/
     ├── SKILL.md          # Main skill documentation (required)
     ├── examples/         # Example code (optional)
@@ -114,7 +114,7 @@ Use function calling to...
 
 ### SKILL.md Location
 
-- In this lab, use `.claude/skills/skill-name/SKILL.md`. The format specification describes the skill directory, not a universal client discovery root; verify each client's supported paths. Do not create a parallel `.skills/` copy.
+- In this lab, use `.claude/skills/skill-name/SKILL.md`. The format specification describes the skill directory, not a universal client discovery root; verify each client's supported paths. Do not create a parallel second copy.
 - Folders each client reads (read on vendor pages on 2026-10-05, not tested in a real client; the maintained table, with sources and caveats, is `docs/install.md` in `../cf-skills`): `.claude/skills/` for Claude Code (its skills page does not mention `.agents/skills/`); `.agents/skills/` for Copilot, Codex, Gemini CLI, Cursor, Windsurf/Devin, Amp, OpenCode and Goose; `.claude/skills/` also for Copilot, Cursor, Amp and OpenCode; `.qwen/skills/` for Qwen Code (its page names neither shared folder). No one folder reaches every client, so a skill meant for several keeps one source and links or copies it, never edits two copies.
 - Filename must be exactly `SKILL.md` (uppercase)
 - No spaces in directory or file names
@@ -279,7 +279,7 @@ metadata:
 ---
 ```
 
-## 7. Testing Skills
+## 9. Testing Skills
 
 ### Cross-Platform Testing
 
@@ -299,7 +299,7 @@ Do not label discovery or cross-platform behavior verified without exercising th
 
 Format checked against [Agent Skills specification](https://agentskills.io/specification) on 2026-10-03. Only `name` and `description` are required by that specification; `license`, `compatibility`, `metadata`, and experimental `allowed-tools` are optional. An allowlist field is not a platform-independent permission grant.
 
-## 8. Example Skill Template
+## 10. Example Skill Template
 
 ```yaml
 ---
@@ -362,7 +362,7 @@ Links to related documentation and tools.
 Remember: Skills should be practical, actionable, and platform-agnostic.
 ```
 
-## 9. Common Pitfalls to Avoid
+## 11. Common Pitfalls to Avoid
 
 1. **Provider-specific references** - "Use Claude's..." instead of "Use function calling..."
 2. **Overly complex examples** - Keep examples simple and focused
@@ -370,7 +370,7 @@ Remember: Skills should be practical, actionable, and platform-agnostic.
 4. **No validation steps** - Explain how to verify the skill works
 5. **Unclear licensing** - Always include a license
 
-## 10. Quality Checklist
+## 12. Quality Checklist
 
 Before publishing a skill, verify:
 
@@ -384,7 +384,7 @@ Before publishing a skill, verify:
 - [ ] Platform-specific language is avoided
 - [ ] Examples work across providers
 
-## 11. Layering on a third-party skill
+## 13. Layering on a third-party skill
 
 When a good skill already exists elsewhere, for example one of Anthropic's public skills, write a thin layer on top of it and copy nothing.
 
