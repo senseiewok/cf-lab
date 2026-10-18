@@ -118,6 +118,8 @@ $Checks = @(
     @{ name = 'check-ci-workflows';       exe = 'python';     args = @('tasks/check_ci_workflows.py');                                                     needs = @('python') }
     @{ name = 'test-check-ci-workflows';  exe = 'python';     args = @('tasks/test_check_ci_workflows.py');                                                needs = @('python') }
     @{ name = 'test-evidence-cli-launcher'; exe = 'python';   args = @('tasks/test_evidence_cli_launcher.py');                                             needs = @('python') }
+    @{ name = 'check-i18n-parity';        exe = 'python';     args = @('tasks/check_i18n_parity.py', '--check');                                           needs = @('python') }
+    @{ name = 'test-check-i18n-parity';   exe = 'python';     args = @('tasks/test_check_i18n_parity.py');                                                 needs = @('python') }
     # models (the guard only; nothing here talks to Ollama)
     @{ name = 'test-restart-ollama';      exe = 'pwsh';       args = @("$s/model-qwen3-8-27b/test-restart-ollama.ps1");                                    needs = @() }
     @{ name = 'test-score-claim-mapping'; exe = 'python';     args = @("$s/model-onboarding/scripts/test_score_claim_mapping.py");                         needs = @('python') }
