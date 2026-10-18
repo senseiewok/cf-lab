@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-196 tasks, 195 created by a model, 91 with a measured outcome. Estimated effort 499.35 to 953.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+196 tasks, 195 created by a model, 92 with a measured outcome. Estimated effort 499.35 to 953.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (28)
+## ready (27)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -38,12 +38,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0101 | P2 | A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK | cf-lab | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | medium | local |  |  |
-| T-0196 | P3 | Automated sentinel health & backlog depth telemetry check in tasks/audit_github_hygiene.py | cf-lab | 2-4 | 4 | 13.3 | no | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0086 | P3 | Depth probe for the 64K local alias | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-06 | routine | low | local |  |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (154)
+## done (155)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -194,6 +193,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0054 | P3 | fetch_sources.py: make --verify honour --only | cf-research | 0.5-1 | 1 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
 | T-0098 | P3 | cf-research: make the script-style tests in tools/sources collectable by python -m unittest | cf-research | 1-2 | 2 | 13.3 | yes | model: claude-sonnet-5-5 | 2026-10-07 | routine | low | local |  |  |
 | T-0111 | P3 | Harden the commit gate: commit only on pass, fail on stray files, show open rows | cf-lab | 2-4 | 4 | 13.3 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | medium | local |  |  |
+| T-0196 | P3 | Automated sentinel health & backlog depth telemetry check in tasks/audit_github_hygiene.py | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0163 | P3 | Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n | .ai | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-14 | elevated | medium | cloud | T-0147, T-0150, T-0152, T-0160 | site/showcase-phage-dynamics |
 | T-0114 | P3 | Test CI for the three public repos | cf-lab | 2-4 | 3 | 10 | no | model: claude-opus-5-5 | 2026-10-09 | full | medium | local |  |  |
 | T-0127 | P3 | A board consistency check in render-board | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  | work/frontier-lab-unbinding |
@@ -1775,7 +1775,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic Python telemetry check with unit tests in tasks/test_audit_github_hygiene.py.
 - **Acceptance:** pytest tasks/test_audit_github_hygiene.py -v; python tasks/audit_github_hygiene.py --check
 - **Evidence:** tasks/audit_github_hygiene.py; tasks/pick_bold_task.py; .loop-logs/sentinel-runs.jsonl
-- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Security/Infrastructure lane.
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Security/Infrastructure lane. \| 2026-10-18 Daily Security Sentinel: Implemented audit_sentinel_backlog_depth in tasks/audit_github_hygiene.py with automated sentinel lane starvation detection (<2 ready tasks). Verified acceptance with 17 passed unit tests and clean CLI execution.
+- **Measured:** 2 h; Implemented audit_sentinel_backlog_depth in tasks/audit_github_hygiene.py with sentinel lane classification, ready vs automated depth tracking, starvation threshold detection (<2), handoff sync, and 5 dedicated unit tests.
 
 ### T-0163 Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n
 
