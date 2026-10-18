@@ -219,7 +219,7 @@ We explore AI review loops, reusable agent skills, and research tools: propose a
 > *A machine is only a branch. It is the tree we are growing together that
 > decides what is fruit and what is just wood.*
 
-This is the control repository, [senseiewok/cf-lab](https://github.com/senseiewok/cf-lab). Before 2026-10-04 it was `senseiewok/lab`, with a local folder called `hq`. [AGENTS.md](AGENTS.md) describes the operational rules; [SECURITY.md](SECURITY.md) covers reporting vulnerabilities. Code and tooling are MIT-licensed ([LICENSE.md](LICENSE.md)); each skill under `.claude/skills/` declares its own license in its frontmatter (CC0-1.0 for the existing ones). See [CONTRIBUTING.md](CONTRIBUTING.md) to help.
+This is the control repository, [senseiewok/cf-lab](https://github.com/senseiewok/cf-lab). Before 2026-10-04 it was `senseiewok/lab`, with a local folder called `hq`. [AGENTS.md](AGENTS.md) describes the operational rules; [SECURITY.md](SECURITY.md) covers reporting vulnerabilities. Code and tooling are MIT-licensed ([LICENSE](LICENSE) / [LICENSE.md](LICENSE.md)); each skill under `.claude/skills/` declares its own license in its frontmatter (CC0-1.0 for the existing ones). See [CONTRIBUTING.md](CONTRIBUTING.md) to help.
 
 ## How the work is divided
 
