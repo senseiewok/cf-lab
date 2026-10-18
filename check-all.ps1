@@ -95,6 +95,7 @@ $Checks = @(
     @{ name = 'test-delegate-batch';      exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/test-delegate-batch.ps1");                              needs = @() }
     @{ name = 'check-quote-completeness'; exe = 'python';     args = @("$s/ai-loop-council/scripts/check-quote-completeness.py", '--self-test');           needs = @('python') }
     @{ name = 'test-check-quote';         exe = 'python';     args = @("$s/ai-loop-council/scripts/test-check-quote-completeness.py");                     needs = @('python') }
+    @{ name = 'depth-probe';              exe = 'pwsh';       args = @("$s/ai-loop-council/scripts/depth-probe.ps1", '-SelfTest');                         needs = @('python') }
     @{ name = 'test-depth-probe';         exe = 'python';     args = @("$s/ai-loop-council/scripts/test_depth_probe.py");                                  needs = @('python') }
     @{ name = 'test-filter-findings';     exe = 'python';     args = @("$s/ai-loop-council/scripts/test_filter_review_findings.py");                       needs = @('python') }
     @{ name = 'test-findings-evidence';   exe = 'python';     args = @("$s/ai-loop-council/scripts/test_check_findings_evidence.py");                      needs = @('python') }
