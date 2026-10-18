@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (30)
+## ready (29)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -27,7 +27,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0199 | P1 | CFTR NBD1 thermal unfolding (dTm) & allosteric domain-interface free energy landscape model across rare missense variants (tools/discovery/nbd1_thermodynamics.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0209 | P1 | Interactive Prime Editing (F508del & W1282X pegRNA/nicking-sgRNA) Feasibility Explorer panel on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0184 |  |
 | T-0210 | P1 | Interactive Dual-AAV Split-Intein & Delta-R Minigene Packaging Explorer panel on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
-| T-0211 | P1 | Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0206 | P1 | Dual-AAV split-intein trans-splicing biophysical reconstitution model for CFTR (tools/discovery/dual_aav_intein_model.py) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | local |  |  |
 | T-0207 | P1 | CFTR Delta-R domain minigene packaging and single-channel patch-clamp conductance simulator (tools/discovery/cftr_minigene_model.py) | cf-research | 3.5-6.5 | 4 | 8 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -45,7 +44,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (168)
+## done (169)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -95,6 +94,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0195 | P1 | Expand verified international CF community resources intake (Latin America & Southern Europe official organizations) in cf-research/sources/catalog.yaml and /resources/ | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0202 | P1 | Interactive Mucociliary Clearance & Airway Surface Liquid (ASL) Rheology Workbench panel on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0185 |  |
 | T-0203 | P1 | Interactive Alternative Ion Channel & Modifier Epistasis (SLC26A9 / TMEM16A / ENaC) Explorer on /cf/tree/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0186 |  |
+| T-0211 | P1 | Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0042 | P1 | Admission review of BioMCP as a discovery tool alongside cf-evidence-loop | cf-lab | 3-5 | 4 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
 | T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer [T2] | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
@@ -748,7 +748,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Zero-build ES6 interactive panel and bilingual localization on /cf/registries/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/sources/catalog.yaml (cftr2, ecfspr-adr-2024); ClinicalTrials.gov NCT04043806; NCT06429176; NCT05668741; src/cf/registries/index.html
-- **Notes:** 2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor).
+- **Notes:** 2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor). Completed in senseiewok/.ai#112: Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified.
 
 ### T-0011 External review round: registry scientist on comparability, person with CF/caregiver on wording
 
