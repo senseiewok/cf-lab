@@ -23,7 +23,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 
 def find_sibling_repo(name: str, repo_root: Path = REPO_ROOT) -> Path | None:
     """Find a sibling repo ('cf-skills' or 'cf-research') from a main checkout or worktree."""
-    env_key = f"CF_{name.upper().replace('-', '_')}_ROOT"
+    env_key = f"{name.upper().replace('-', '_')}_ROOT"
     env_val = os.environ.get(env_key, "").strip()
     if env_val:
         cand_env = Path(env_val)
