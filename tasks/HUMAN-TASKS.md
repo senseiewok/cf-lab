@@ -15,7 +15,7 @@ Use a lab-owned address, never a personal one. Keys go only in the git-ignored `
 - [ ] **openFDA key**: Optional (raises request rate limits from 40 to 240 req/min).
 - [ ] **Data Commons API key**: Free per Google catalog entry; completes T-0048 integration.
 - [ ] **Semantic Scholar API key**: Decide on Ai2 licence terms (indemnity, Washington State law); request key through their form.
-- [ ] **Gemini API key (T-0101)**: Decide whether Pro IDE licence covers API use or if separate Google AI Studio API key is preferred.
+- [x] **Gemini API key (T-0101)** (2026-10-17): Decided by maintainer: current plan does not include API access. API-based integrations (T-0049, T-0101) dropped / not viable under current licensing.
 - [ ] **Paid items (T-0047)**: Decide on any paid research subscriptions (e.g. Scite Pro).
 
 ---

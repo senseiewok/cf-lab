@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (20)
+## ready (19)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -27,7 +27,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0011 | P2 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
-| T-0049 | P2 | Pilot Gemini Deep Research (collaborative planning) as the frontier-planning leg; verify every citation through cf-evidence-loop | cf-lab | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0037 |  |
 | T-0080 | P2 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0101 | P2 | A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK | cf-lab | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-07 | full | medium | local |  |  |
 | T-0090 | P2 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -189,7 +188,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0044 | P3 | Paper-trail layer: Unpaywall and Semantic Scholar providers | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## dropped (12)
+## dropped (13)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -197,6 +196,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0045 | P2 | Decide and document the install/link mechanism for using skills/cf-evidence-loop from hq without copying it | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0046 | P2 | Sickle cell disease coverage: HBB variant checks, ASH guideline source terms, and an SCD worked example in SKILL.md | cf-skills | 2-3 | 4 | 16 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  | T-0043 |  |
 | T-0035 | P2 | Tier table and loop housekeeping: elevated challenger rule, slim ai-loop-council, retire the loop-orchestrator prototype | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-04 | full |  |  | T-0030 |  |
+| T-0049 | P2 | Pilot Gemini Deep Research (collaborative planning) as the frontier-planning leg; verify every citation through cf-evidence-loop | cf-lab | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0037 |  |
 | T-0019 | P2 | Add model profile skills for Gemma 4 31B and Laguna XS 2.1, or remove them from the site's field guide | cf-lab | 2-4 | 2 | 6.7 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
 | T-0097 | P2 | Re-run the local reviewer evaluation on a second, different script | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium |  |  |  |
 | T-0130 | P2 | CF trial endpoint atlas from a dated ClinicalTrials.gov snapshot (flagship showcase) | cf-research | 12-24 | 5 | 2.8 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | high | cloud |  |  |
@@ -1251,7 +1251,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** One research question run with collaborative_planning; plan reviewed by a human before execution; report saved; every cited DOI/NCT/approval run through cf-evidence-loop with the ledger committed; count of citations that were clean, flagged, or unresolvable reported. No private material in the prompt.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4c; ai.google.dev Deep Research docs read 2026-10-04
-- **Notes:** Human decision: spend. Check current preview status and pricing on ai.google.dev at pilot time. Add generativelanguage.googleapis.com to the catalog as access: api with terms_url before any code calls it. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+- **Notes:** Human decision: spend. Check current preview status and pricing on ai.google.dev at pilot time. Add generativelanguage.googleapis.com to the catalog as access: api with terms_url before any code calls it. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17: Dropped per maintainer directive ('the draft pr about gemini deep research is a no go because my plan doies not include api'). Draft PR #140 closed. Maintainer confirmed current plan does not include Gemini API access; API-based Deep Research pilot rejected/not viable under current licensing.
 
 ### T-0172 Trial Endpoint Atlas: PRISMA screening flow & surrogate-to-registrational endpoint evolution
 

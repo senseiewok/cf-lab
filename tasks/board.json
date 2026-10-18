@@ -2378,7 +2378,7 @@
       "title": "Pilot Gemini Deep Research (collaborative planning) as the frontier-planning leg; verify every citation through cf-evidence-loop",
       "repo": "cf-lab",
       "area": "research",
-      "status": "ready",
+      "status": "dropped",
       "priority": "P2",
       "created_at": "2026-10-04T22:10:00Z",
       "created_by": {
@@ -2414,10 +2414,10 @@
       "depends_on": [
         "T-0037"
       ],
-      "updated_at": "2026-10-14T21:27:13Z",
+      "updated_at": "2026-10-17T19:00:00Z",
       "completed_at": null,
       "completed_by": null,
-      "notes": "Human decision: spend. Check current preview status and pricing on ai.google.dev at pilot time. Add generativelanguage.googleapis.com to the catalog as access: api with terms_url before any code calls it. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.",
+      "notes": "Human decision: spend. Check current preview status and pricing on ai.google.dev at pilot time. Add generativelanguage.googleapis.com to the catalog as access: api with terms_url before any code calls it. | 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. | 2026-10-17: Dropped per maintainer directive ('the draft pr about gemini deep research is a no go because my plan doies not include api'). Draft PR #140 closed. Maintainer confirmed current plan does not include Gemini API access; API-based Deep Research pilot rejected/not viable under current licensing.",
       "recommended_route": "local",
       "route_rationale": "Bounded mechanical edits and documentation maintenance.",
       "complexity": "low",
