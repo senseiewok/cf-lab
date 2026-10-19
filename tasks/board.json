@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -11710,7 +11710,7 @@
       "recommended_route": "local",
       "route_rationale": "Zero-build ES6 interactive simulation panel and bilingual localization on /cf/ptc/ connecting base editing and splice rescue.",
       "created_at": "2026-10-18T21:10:00Z",
-      "updated_at": "2026-10-19T05:50:00Z",
+      "updated_at": "2026-10-18",
       "completed_at": "2026-10-18",
       "completed_by": {
         "kind": "model",
@@ -11738,8 +11738,9 @@
         "benefit": 4,
         "confidence": "high",
         "measured": {
-          "actual_hours": 1.5,
-          "notes": "Delivered in senseiewok/.ai#125 (commit ce53469) expanding the ABE8e base editing explorer with 2789+5G->A splice rescue and es-MX parity."
+          "actual_hours": 0.8,
+          "completed_at": "2026-10-18",
+          "outcome": "Delivered in senseiewok/.ai#125: expanded ABE8e base editing explorer on /cf/gene-therapy/ with 2789+5G->A canonical splice-site rescue, bystander window profiling, and full es-MX translation parity."
         },
         "rationale": "Translates base editing deamination profile, bystander missense risk, and SpRY/SpCas9 PAM accessibility into an interactive public explorer on /cf/ptc/.",
         "categories": {
@@ -11766,7 +11767,7 @@
       "recommended_route": "local",
       "route_rationale": "Zero-build ES6 interactive MWC allosteric gating cycle simulation and bilingual localization on /cf/cftr/.",
       "created_at": "2026-10-18T21:10:00Z",
-      "updated_at": "2026-10-19T05:50:00Z",
+      "updated_at": "2026-10-18",
       "completed_at": "2026-10-18",
       "completed_by": {
         "kind": "model",
@@ -11794,8 +11795,9 @@
         "benefit": 4,
         "confidence": "high",
         "measured": {
-          "actual_hours": 2.5,
-          "notes": "Implemented src/scripts/allosteric-gating-explorer.js, mounted #allosteric-gating-explorer on /cf/cftr/, added 23 es-MX keys, and verified with tests/test_allosteric_gating_explorer.py + Playwright desktop/mobile screenshots."
+          "actual_hours": 1.1,
+          "completed_at": "2026-10-18",
+          "outcome": "Delivered in senseiewok/.ai#127: interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer (#allosteric-gating-explorer) on /cf/cftr/ with 2^N-state MWC partition function, 5 genotypes, 4 regimens, and full es-MX parity (97/97 unit tests passing)."
         },
         "rationale": "Translates Cryo-EM 8EIQ multi-ligand allosteric stabilization across TMD1, TMD2, and TM4/5/8 hinge into an interactive MWC gating cycle explorer on /cf/cftr/.",
         "categories": {
@@ -11822,7 +11824,7 @@
       "recommended_route": "local",
       "route_rationale": "Zero-build ES6 interactive aerosol delivery simulation and bilingual localization on /cf/delivery/.",
       "created_at": "2026-10-18T21:10:00Z",
-      "updated_at": "2026-10-19T05:50:00Z",
+      "updated_at": "2026-10-18",
       "completed_at": "2026-10-18",
       "completed_by": {
         "kind": "model",
@@ -11850,8 +11852,9 @@
         "benefit": 4,
         "confidence": "high",
         "measured": {
-          "actual_hours": 1.0,
-          "notes": "Delivered via src/scripts/sort-lnp-matrix-explorer.js on /cf/delivery/ with es-MX parity and verified by StaticTests."
+          "actual_hours": 0.5,
+          "completed_at": "2026-10-18",
+          "outcome": "Verified active on /cf/delivery/ via src/scripts/sort-lnp-matrix-explorer.js (delivered in senseiewok/.ai#122) with full es-MX translation parity and deterministic check_anti_hallucination.py pass."
         },
         "rationale": "Translates aerosol SORT-LNP biophysical parameters, crosslinked mucin pore mesh penetration, and basal stem cell tropism into an interactive explorer on /cf/delivery/.",
         "categories": {

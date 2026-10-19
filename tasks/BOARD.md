@@ -935,7 +935,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_website_wave9_ptc_tree
 - **Evidence:** cf-research/tools/discovery/base_editing_cftr.py; cf-research/tools/discovery/base_editing_cftr_designs.json; DOI 10.1038/s41587-020-0453-z; RCSB PDB 6MSM; NCT06237335
 - **Notes:** Showcase Sentinel Proactive Replenishment. Expands curative gene editing visualization to span both nonsense and splice donor mutations. \| Done 2026-10-18: Merged in senseiewok/.ai#125 (ce53469).
-- **Measured:** 1.5 h; Delivered in senseiewok/.ai#125 (commit ce53469) expanding the ABE8e base editing explorer with 2789+5G->A splice rescue and es-MX parity.
+- **Measured:** 0.8 h; 
 
 ### T-0232 Interactive SORT-LNP Mucin Penetration & Airway Basal Cell Tropism Matrix Explorer on /cf/delivery/ with es-MX parity
 
@@ -944,7 +944,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; cf-research/landscape/delivery-biophysics.md; DOI 10.1038/s41565-021-00870-1; DOI 10.1073/pnas.2001532117
 - **Notes:** Showcase Sentinel Proactive Replenishment. Interactive delivery explorer connecting formulation chemistry with airway mucus biophysical penetration barriers. \| Done 2026-10-18: Verified active on /cf/delivery/ via src/scripts/sort-lnp-matrix-explorer.js.
-- **Measured:** 1 h; Delivered via src/scripts/sort-lnp-matrix-explorer.js on /cf/delivery/ with es-MX parity and verified by StaticTests.
+- **Measured:** 0.5 h; 
 
 ### T-0185 Airway mucociliary clearance viscoelastic shear rheology & mucin mesh hindrance model (tools/discovery/mucus_rheology.py)
 
@@ -1033,7 +1033,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/discovery-cryoem-3d-truncation-model.md; cf-research/landscape/cftr-structures.md; RCSB PDB 8EIQ; RCSB PDB 6MSM; DOI 10.1126/science.ade2216; NCT04043806
 - **Notes:** Showcase Sentinel Proactive Replenishment. Bridges structural biology of Trikafta / Next-Gen triple correctors to live interactive allosteric curves. \| Done 2026-10-18: Implemented #allosteric-gating-explorer on /cf/cftr/ with MWC 2^N microstate grand partition functions and es-MX parity.
-- **Measured:** 2.5 h; Implemented src/scripts/allosteric-gating-explorer.js, mounted #allosteric-gating-explorer on /cf/cftr/, added 23 es-MX keys, and verified with tests/test_allosteric_gating_explorer.py + Playwright desktop/mobile screenshots.
+- **Measured:** 1.1 h; 
 
 ### T-0233 Nonviral Minimal DNA Vector (minidnacftr) CpG Depletion & TLR9 Evasion Simulation for Suppressor ACE-tRNAs (tools/discovery/minidna_evasion_model.py)
 
