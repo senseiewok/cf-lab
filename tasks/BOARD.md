@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (27)
+## ready (25)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,7 +18,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0212 | P1 | Plain-language CF Genetic Testing & Variant Class (Class I-VII) Primer Cards on /cf/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0200 | P1 | Epithelial sodium channel (ENaC / SCNN1A) RNAi & small-molecule knockdown dose-response model for ASL rehydration (tools/discovery/enac_knockdown_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0201 | P1 | Rare CFTR frameshift, large deletion & splicing allele theratyping decision matrix across global registry cohorts (tools/discovery/rare_allele_matrix.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -41,7 +40,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (171)
+## done (173)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -75,6 +74,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0188 | P1 | Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0189 | P1 | Unify /atlas/ and /atlas/classes/*/ with 4-Pillar Navigation, Library Drawer (Alt+L), Command Palette, and nav-rail.js (tools/make_trial_atlas.py) | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0204 | P1 | Clinical Trial Endpoint Plain-Language Decoder (ppFEV1, Sweat Chloride, LCI2.5, CFQ-R) on /cf/trials/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0212 | P1 | Plain-language CF Genetic Testing & Variant Class (Class I-VII) Primer Cards on /cf/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
 | T-0180 | P1 | Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py) | cf-research | 2-4 | 4 | 13.3 | yes | model: gpt-5-frontier | 2026-10-17 | elevated | medium | local | T-0177, T-0178, T-0179 |  |
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
@@ -529,7 +529,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Community-centered plain-language educational cards with bilingual localization on /cf/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/cftr-biology-and-classes.md; cf-research/sources/catalog.yaml (cftr2, clinvar); src/cf/index.html
-- **Notes:** 2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor).
+- **Notes:** 2026-10-18 Showcase sentinel build round: completed and verified. Authored plain-language CF genetic testing & Class I-VII mutation primer cards on /cf/ with full Mexican Spanish (es-MX) parity, keyboard accessibility, zero innerHTML, and exact medical boundary disclaimer. PR senseiewok/.ai#117.
 
 ### T-0061 Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows)
 
