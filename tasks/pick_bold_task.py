@@ -127,12 +127,10 @@ def recent_attempts(attempts: dict, task_id: str, now: datetime, window_hours: f
 
 
 def open_pr_task_ids(prs: list[dict]) -> set[str]:
-    """Task IDs (e.g. 'T-0083') that already have an open sentinel PR (including draft PRs and bundled secondary tasks)."""
+    """Task IDs (e.g. 'T-0083') that already have an open PR (including interactive/human PRs, draft PRs, and bundled secondary tasks)."""
     ids: set[str] = set()
     for p in prs:
         branch = str(p.get("headRefName", ""))
-        if not SENTINEL_BRANCH_PREFIX_RX.match(branch):
-            continue
         combined = f"{branch} {p.get('title', '')}"
         for digits in TASK_ID_TOKEN_RX.findall(combined):
             ids.add(f"T-{digits}")

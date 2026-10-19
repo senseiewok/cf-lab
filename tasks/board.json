@@ -11030,14 +11030,20 @@
       "title": "Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py)",
       "repo": "cf-research",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "high",
       "review_tier": "elevated",
       "recommended_route": "local",
       "route_rationale": "Atomistic Cryo-EM coordinate analysis of NBD2 core packing and thermal stability.",
       "created_at": "2026-10-18T18:55:00Z",
-      "updated_at": "2026-10-18T18:55:00Z",
+      "updated_at": "2026-10-18T22:50:00Z",
+      "completed_at": "2026-10-18",
+      "completed_by": {
+        "kind": "model",
+        "name": "Dual-Family Frontier Council (Claude Opus + Gemini Argon)",
+        "model_id": "gemini-4-argon"
+      },
       "created_by": {
         "kind": "model",
         "name": "Argon (Chief Researcher Officer Strategist)",
@@ -11058,7 +11064,10 @@
       "roi": {
         "benefit": 3,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 5.5,
+          "notes": "Delivered PTCCryoEMAllosteryModel in tools/discovery/ptc_cryoem_allostery.py with 9 unit tests in test_ptc_cryoem_allostery.py modeling PDB 6MSM/8EIQ Cryo-EM coordinates, 120 A^3 vacuum cavity for W1282C, steric clashes for G542C, and allosteric rescue in senseiewok/cf-research#100."
+        },
         "rationale": "Quantifies the atomistic vacuum cavity (~120 A^3) and NBD2 destabilization resulting from near-cognate Cys/Arg substitution vs cognate Trp1282 insertion in Cryo-EM coordinates.",
         "categories": {
           "curative_biophysics": 9.5,
@@ -11070,7 +11079,7 @@
         "composite_score": 5.98,
         "roi_ratio": 1.09
       },
-      "notes": "Wave 8 Discovery Council Replenishment. Analyzes why engineered suppressor tRNA inserting authentic cognate amino acids is required to preserve channel gating and avoid ERAD."
+      "notes": "Delivered in senseiewok/cf-research#100. Acceptance checks passed: pytest tools/discovery/test_ptc_cryoem_allostery.py -v (9/9 passed) and python tools/claims/check_anti_hallucination.py passed."
     },
     {
       "id": "T-0218",
@@ -11694,14 +11703,20 @@
       "title": "Interactive Adenine Base Editing (ABE8e) & Splice Rescue Multi-Allele Explorer on /cf/ptc/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
       "route_rationale": "Zero-build ES6 interactive simulation panel and bilingual localization on /cf/ptc/ connecting base editing and splice rescue.",
       "created_at": "2026-10-18T21:10:00Z",
-      "updated_at": "2026-10-18T21:10:00Z",
+      "updated_at": "2026-10-18",
+      "completed_at": "2026-10-18",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-flash"
+      },
       "created_by": {
         "kind": "model",
         "name": "daily-site-showcase-sentinel",
@@ -11722,6 +11737,11 @@
       "roi": {
         "benefit": 4,
         "confidence": "high",
+        "measured": {
+          "actual_hours": 0.8,
+          "completed_at": "2026-10-18",
+          "outcome": "Delivered in senseiewok/.ai#125: expanded ABE8e base editing explorer on /cf/gene-therapy/ with 2789+5G->A canonical splice-site rescue, bystander window profiling, and full es-MX translation parity."
+        },
         "rationale": "Translates base editing deamination profile, bystander missense risk, and SpRY/SpCas9 PAM accessibility into an interactive public explorer on /cf/ptc/.",
         "categories": {
           "curative_biophysics": 9.5,
@@ -11733,21 +11753,27 @@
         "composite_score": 7.72,
         "roi_ratio": 1.93
       },
-      "notes": "Showcase Sentinel Proactive Replenishment. Expands curative gene editing visualization to span both nonsense and splice donor mutations."
+      "notes": "Showcase Sentinel Proactive Replenishment. Expands curative gene editing visualization to span both nonsense and splice donor mutations. | Done 2026-10-18: Merged in senseiewok/.ai#125 (ce53469)."
     },
     {
       "id": "T-0231",
       "title": "Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer on /cf/cftr/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
       "route_rationale": "Zero-build ES6 interactive MWC allosteric gating cycle simulation and bilingual localization on /cf/cftr/.",
       "created_at": "2026-10-18T21:10:00Z",
-      "updated_at": "2026-10-18T21:10:00Z",
+      "updated_at": "2026-10-18",
+      "completed_at": "2026-10-18",
+      "completed_by": {
+        "kind": "model",
+        "name": "Dual-Family Frontier Council (Claude Opus + Gemini Argon)",
+        "model_id": "gemini-4-argon"
+      },
       "created_by": {
         "kind": "model",
         "name": "daily-site-showcase-sentinel",
@@ -11768,6 +11794,11 @@
       "roi": {
         "benefit": 4,
         "confidence": "high",
+        "measured": {
+          "actual_hours": 1.1,
+          "completed_at": "2026-10-18",
+          "outcome": "Delivered in senseiewok/.ai#127: interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer (#allosteric-gating-explorer) on /cf/cftr/ with 2^N-state MWC partition function, 5 genotypes, 4 regimens, and full es-MX parity (97/97 unit tests passing)."
+        },
         "rationale": "Translates Cryo-EM 8EIQ multi-ligand allosteric stabilization across TMD1, TMD2, and TM4/5/8 hinge into an interactive MWC gating cycle explorer on /cf/cftr/.",
         "categories": {
           "curative_biophysics": 9.5,
@@ -11779,21 +11810,27 @@
         "composite_score": 7.72,
         "roi_ratio": 1.63
       },
-      "notes": "Showcase Sentinel Proactive Replenishment. Bridges structural biology of Trikafta / Next-Gen triple correctors to live interactive allosteric curves."
+      "notes": "Showcase Sentinel Proactive Replenishment. Bridges structural biology of Trikafta / Next-Gen triple correctors to live interactive allosteric curves. | Done 2026-10-18: Implemented #allosteric-gating-explorer on /cf/cftr/ with MWC 2^N microstate grand partition functions and es-MX parity."
     },
     {
       "id": "T-0232",
       "title": "Interactive SORT-LNP Mucin Penetration & Airway Basal Cell Tropism Matrix Explorer on /cf/delivery/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
       "route_rationale": "Zero-build ES6 interactive aerosol delivery simulation and bilingual localization on /cf/delivery/.",
       "created_at": "2026-10-18T21:10:00Z",
-      "updated_at": "2026-10-18T21:10:00Z",
+      "updated_at": "2026-10-18",
+      "completed_at": "2026-10-18",
+      "completed_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-flash"
+      },
       "created_by": {
         "kind": "model",
         "name": "daily-site-showcase-sentinel",
@@ -11814,6 +11851,11 @@
       "roi": {
         "benefit": 4,
         "confidence": "high",
+        "measured": {
+          "actual_hours": 0.5,
+          "completed_at": "2026-10-18",
+          "outcome": "Verified active on /cf/delivery/ via src/scripts/sort-lnp-matrix-explorer.js (delivered in senseiewok/.ai#122) with full es-MX translation parity and deterministic check_anti_hallucination.py pass."
+        },
         "rationale": "Translates aerosol SORT-LNP biophysical parameters, crosslinked mucin pore mesh penetration, and basal stem cell tropism into an interactive explorer on /cf/delivery/.",
         "categories": {
           "curative_biophysics": 9.5,
@@ -11825,7 +11867,99 @@
         "composite_score": 7.72,
         "roi_ratio": 1.93
       },
-      "notes": "Showcase Sentinel Proactive Replenishment. Interactive delivery explorer connecting formulation chemistry with airway mucus biophysical penetration barriers."
+      "notes": "Showcase Sentinel Proactive Replenishment. Interactive delivery explorer connecting formulation chemistry with airway mucus biophysical penetration barriers. | Done 2026-10-18: Verified active on /cf/delivery/ via src/scripts/sort-lnp-matrix-explorer.js."
+    },
+    {
+      "id": "T-0233",
+      "title": "Nonviral Minimal DNA Vector (minidnacftr) CpG Depletion & TLR9 Evasion Simulation for Suppressor ACE-tRNAs (tools/discovery/minidna_evasion_model.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Quantitative biophysical ODE modeling of CpG depletion, endosomal TLR9 activation, and chromatinized episomal nuclear persistence.",
+      "created_at": "2026-10-18T22:50:00Z",
+      "updated_at": "2026-10-18T22:50:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 research queue replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.0
+      },
+      "source_evidence": "cf-research/landscape/frontier-discovery-2026-10-18.md; DOI 10.1093/nar/gkag082; DOI 10.1038/s41467-023-41392-8; ClinicalTrials.gov NCT05668741; tasks/specs/T-0233.md",
+      "spec_path": "tasks/specs/T-0233.md",
+      "acceptance": "pytest tools/discovery/test_minidna_evasion_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Overcomes the TLR9 inflammation bottleneck that halted VX-522, modeling minimal nonviral DNA vectors for persistent ACE-tRNA delivery.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.22,
+        "roi_ratio": 1.52
+      },
+      "notes": "Wave 9 Research Council Replenishment. Models CpG dinucleotide depletion and chromatinized nuclear transcription of suppressor tRNAs."
+    },
+    {
+      "id": "T-0234",
+      "title": "Extracellular Vesicle (EV) Basal Stem Cell Tropism & Trans-Tight-Junction Permeation Model (tools/discovery/ev_basal_tropism.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Compartmental transport and cellular uptake modeling across pseudostratified airway epithelial junctions.",
+      "created_at": "2026-10-18T22:50:00Z",
+      "updated_at": "2026-10-18T22:50:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 research queue replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 4.0,
+        "high": 6.5
+      },
+      "source_evidence": "cf-research/landscape/frontier-discovery-2026-10-18.md; DOI 10.3389/fbioe.2026.1855907; DOI 10.1172/jci.insight.206375; ClinicalTrials.gov NCT05248230; tasks/specs/T-0234.md",
+      "spec_path": "tasks/specs/T-0234.md",
+      "acceptance": "pytest tools/discovery/test_ev_basal_tropism.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Quantifies non-immunogenic EV delivery across airway tight junctions to reach KRT5+/TP63+ basal progenitors for lifelong curative persistence.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 6.62,
+        "roi_ratio": 1.26
+      },
+      "notes": "Wave 9 Research Council Replenishment. Trans-junctional permeation and basal stem cell chimerism modeling."
     }
   ],
   "updated": "2026-10-18"
