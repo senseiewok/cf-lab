@@ -203,7 +203,8 @@ def verify_anti_hallucination_guardrails(
 ) -> tuple[bool, str, list[str]]:
     """Verify that task evidence is strictly anchored and satisfies anti-hallucination rules."""
     warnings: list[str] = []
-    ev = task.get("source_evidence", "").strip()
+    raw_ev = task.get("source_evidence", "")
+    ev = " ".join(raw_ev).strip() if isinstance(raw_ev, list) else (raw_ev or "").strip()
     title = task.get("title", "")
     acc = task.get("acceptance", "").strip()
 
@@ -384,10 +385,12 @@ def is_grounded_executable(task: dict, repo_root: Path = REPO_ROOT) -> tuple[boo
 
 def classify_curative_mission(task: dict) -> dict:
     """Classify task into curative mission track and determine recommended priority and route."""
+    raw_ev = task.get("source_evidence") or ""
+    ev_str = " ".join(raw_ev) if isinstance(raw_ev, list) else str(raw_ev)
     text = " ".join([
         task.get("title") or "",
         task.get("acceptance") or "",
-        task.get("source_evidence") or "",
+        ev_str,
         task.get("area") or "",
         task.get("roi", {}).get("rationale") or "",
     ])
@@ -442,10 +445,12 @@ def classify_curative_mission(task: dict) -> dict:
 
 def compute_multi_category_roi(task: dict) -> dict:
     """Calculate multi-dimensional ROI across curative, translation, integrity, velocity, and security."""
+    raw_ev = task.get("source_evidence") or ""
+    ev_str = " ".join(raw_ev) if isinstance(raw_ev, list) else str(raw_ev)
     text = " ".join([
         task.get("title") or "",
         task.get("acceptance") or "",
-        task.get("source_evidence") or "",
+        ev_str,
         task.get("area") or "",
         task.get("roi", {}).get("rationale") or "",
         task.get("notes") or "",

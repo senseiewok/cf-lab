@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-234 tasks, 233 created by a model, 127 with a measured outcome. Estimated effort 619.85 to 1162.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+235 tasks, 234 created by a model, 130 with a measured outcome. Estimated effort 621.35 to 1164.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (19)
+## ready (17)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -20,8 +20,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
-| T-0233 | P1 | Nonviral Minimal DNA Vector (minidnacftr) CpG Depletion & TLR9 Evasion Simulation for Suppressor ACE-tRNAs (tools/discovery/minidna_evasion_model.py) | cf-research | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
-| T-0234 | P1 | Extracellular Vesicle (EV) Basal Stem Cell Tropism & Trans-Tight-Junction Permeation Model (tools/discovery/ev_basal_tropism.py) | cf-research | 4-6.5 | 4 | 7.6 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
 | T-0110 | P2 | Rulesets on main for the public repos | cf-lab | 0.5-1 | 5 | 66.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low | local |  |  |
@@ -34,7 +32,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (201)
+## done (204)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -54,6 +52,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0115 | P1 | Record the agent's permission mode and deny GitHub settings commands | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low | local |  | work/frontier-lab-unbinding |
 | T-0109 | P1 | A rule for questions about one real person: generalise before any search | cf-lab | 1-3 | 5 | 25 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |  |
 | T-0227 | P1 | Spec dossier integrity checker (tasks/check_task_specs.py) verifying spec_path dossiers for primary citations and test commands | cf-lab | 1.5-2.5 | 5 | 25 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
+| T-0235 | P1 | Interactive Nonviral Minimal DNA (minidnacftr) TLR9 Evasion & Engineered EV Basal Stem Cell Tropism Explorer on /cf/ptc/ with es-MX parity | .ai | 1.5-2.5 | 5 | 25 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0233, T-0234 |  |
 | T-0191 | P1 | Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0192 | P1 | Aggressive sentinel cadence: reduce max_idle_hours from 8h/12h to 3h/4h in tasks/sentinels.json and replenish multi-lane ready backlog | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0067 | P1 | Decision: treat robots.txt groups that name AI agents as applying to our fetch sources | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -120,6 +119,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0186 | P1 | CFTR modifier gene epistatic conductance model: SLC26A9, TMEM16A (ANO1), and ENaC interplay (tools/discovery/modifier_interactome.py) | cf-research | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0218 | P1 | Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0216 |  |
 | T-0231 | P1 | Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | yes | model: gemini-flash | 2026-10-18 | elevated | medium | local | T-0214 |  |
+| T-0233 | P1 | Nonviral Minimal DNA Vector (minidnacftr) CpG Depletion & TLR9 Evasion Simulation for Suppressor ACE-tRNAs (tools/discovery/minidna_evasion_model.py) | cf-research | 3.5-6 | 4 | 8.4 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0147 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  | research/inhaled-delivery-dossier |
 | T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | site/es-mx-localization |
 | T-0159 | P1 | Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs) | cf-lab | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | feat/antigravity-discovery-and-pr-rules |
@@ -127,6 +127,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0207 | P1 | CFTR Delta-R domain minigene packaging and single-channel patch-clamp conductance simulator (tools/discovery/cftr_minigene_model.py) | cf-research | 3.5-6.5 | 4 | 8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0208 | P1 | Aerosolized AAV capsid lung tropism and neutralizing antibody neutralization titer calculator (tools/discovery/aav_tropism_model.py) | cf-research | 4.5-8 | 5 | 8 | yes | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0216 | P1 | Engineered Suppressor tRNA & SMG1 NMD Inhibition Biophysical Synergy Model for CFTR PTCs (tools/discovery/suppressor_trna_model.py) | cf-research | 3.5-6.5 | 4 | 8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | high | local |  |  |
+| T-0234 | P1 | Extracellular Vesicle (EV) Basal Stem Cell Tropism & Trans-Tight-Junction Permeation Model (tools/discovery/ev_basal_tropism.py) | cf-research | 4-6.5 | 4 | 7.6 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0066 | P1 | Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules | cf-skills | 3-5 | 3 | 7.5 | yes | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | local |  |  |
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0152 | P1 | Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid | cf-research | 4-8 | 4 | 6.7 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | medium | cloud |  |  |
@@ -409,6 +410,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0227.md`
 - **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Implemented and verified in feat/lab-context-specs-and-skill-evolution.
 - **Measured:** 1.5 h; Implemented tasks/check_task_specs.py and test_check_task_specs.py, integrated verify_task_spec into triage_board.py.
+
+### T-0235 Interactive Nonviral Minimal DNA (minidnacftr) TLR9 Evasion & Engineered EV Basal Stem Cell Tropism Explorer on /cf/ptc/ with es-MX parity
+
+- **Why / ROI rationale:** Translates nonviral minimal DNA TLR9 evasion and engineered EV basal stem cell tropism into an interactive bilingual public workbench. *(confidence: )*
+- **Route:** local - Deterministic zero-build ES module and es-MX translation workbench grounded in T-0233 and T-0234.
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_minidna_ev_explorer tests.test_site.StaticTests
+- **Evidence:** DOI:10.1093/nar/gkag082 (Porter et al., Nucleic Acids Res 2026, PMID 41641696: nonviral minimal DNA ACE-tRNA vectors) DOI:10.3389/fbioe.2026.1855907 (Ivleva et al., Front Bioeng Biotechnol 2026, PMID 42529376: EV delivery to airway basal cells) DOI:10.1172/jci.insight.206375 (Vijaykumar et al., JCI Insight 2026, PMID 42611556: basal cell multilineage CFTR restoration) ClinicalTrials.gov:NCT05668741, NCT05248230
+- **Notes:** Exposes T-0233 and T-0234 interactively on /cf/ptc/ (#minidna-ev-explorer) with full Mexican Spanish (es-MX) parity.
+- **Measured:** 1 h; 
 
 ### T-0191 Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty
 
@@ -1043,6 +1053,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/landscape/frontier-discovery-2026-10-18.md; DOI 10.1093/nar/gkag082; DOI 10.1038/s41467-023-41392-8; ClinicalTrials.gov NCT05668741; tasks/specs/T-0233.md
 - **Spec:** `tasks/specs/T-0233.md`
 - **Notes:** Wave 9 Research Council Replenishment. Models CpG dinucleotide depletion and chromatinized nuclear transcription of suppressor tRNAs.
+- **Measured:** 1 h; 
 
 ### T-0147 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 
@@ -1117,6 +1128,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/landscape/frontier-discovery-2026-10-18.md; DOI 10.3389/fbioe.2026.1855907; DOI 10.1172/jci.insight.206375; ClinicalTrials.gov NCT05248230; tasks/specs/T-0234.md
 - **Spec:** `tasks/specs/T-0234.md`
 - **Notes:** Wave 9 Research Council Replenishment. Trans-junctional permeation and basal stem cell chimerism modeling.
+- **Measured:** 1 h; 
 
 ### T-0066 Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules
 
