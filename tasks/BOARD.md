@@ -23,7 +23,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0224 | P1 | Interactive Sweat Chloride vs. ppFEV1 Non-Linear Sigmoidal Concordance Explorer on /cf/registries/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0214 | P1 | Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
-| T-0215 | P1 | Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0220 | P1 | Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy | cf-research | 3.5-6.5 | 5 | 10 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
 | T-0219 | P1 | Base Editing (ABE8e / CBE) bystander deamination window & PAM accessibility model for CFTR nonsense and canonical splice alleles (W1282X, R553X, G542X, 2789+5G->A) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
@@ -104,6 +103,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0209 | P1 | Interactive Prime Editing (F508del & W1282X pegRNA/nicking-sgRNA) Feasibility Explorer panel on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0184 |  |
 | T-0210 | P1 | Interactive Dual-AAV Split-Intein & Delta-R Minigene Packaging Explorer panel on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0211 | P1 | Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0215 | P1 | Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0042 | P1 | Admission review of BioMCP as a discovery tool alongside cf-evidence-loop | cf-lab | 3-5 | 4 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
 | T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer [T2] | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
@@ -842,7 +842,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Aerosol LNP biophysical parameters and delivery matrix explorer on /cf/delivery/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; ClinicalTrials.gov NCT05668741; DOI 10.1038/s41565-021-00870-x; DOI 10.1073/pnas.1916113117; src/cf/delivery/index.html
-- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor).
+- **Notes:** Completed in senseiewok/.ai#122: Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified with Argon frontier review (ACCEPT).
+- **Measured:**  h; 
 
 ### T-0011 External review round: registry scientist on comparability, person with CF/caregiver on wording
 
