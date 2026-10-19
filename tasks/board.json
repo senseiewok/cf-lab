@@ -11740,7 +11740,7 @@
       "title": "Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer on /cf/cftr/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -11777,9 +11777,14 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.72,
-        "roi_ratio": 1.63
+        "roi_ratio": 1.63,
+        "measured": {
+          "actual_hours": 4.5,
+          "note": "Implemented and verified in senseiewok/.ai PR #128 (commit 0940fc1). Argon frontier review loop incorporated (F-01 through F-07 resolved). 101/101 tests PASS."
+        }
       },
-      "notes": "Showcase Sentinel Proactive Replenishment. Bridges structural biology of Trikafta / Next-Gen triple correctors to live interactive allosteric curves."
+      "notes": "Showcase Sentinel Proactive Replenishment. Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer implemented on /cf/cftr/ with full es-MX parity, verified via Argon frontier review loop. PR senseiewok/.ai#128.",
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0232",

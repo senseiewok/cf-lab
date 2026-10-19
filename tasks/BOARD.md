@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-232 tasks, 231 created by a model, 123 with a measured outcome. Estimated effort 612.35 to 1149.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+232 tasks, 231 created by a model, 124 with a measured outcome. Estimated effort 612.35 to 1149.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (21)
+## ready (20)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -22,7 +22,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0230 | P1 | Interactive Adenine Base Editing (ABE8e) & Splice Rescue Multi-Allele Explorer on /cf/ptc/ with es-MX parity | .ai | 3-5 | 4 | 10 | no | model: gemini-flash | 2026-10-18 | elevated | medium | local | T-0219 |  |
 | T-0232 | P1 | Interactive SORT-LNP Mucin Penetration & Airway Basal Cell Tropism Matrix Explorer on /cf/delivery/ with es-MX parity | .ai | 3-5 | 4 | 10 | no | model: gemini-flash | 2026-10-18 | elevated | medium | local | T-0215 |  |
-| T-0231 | P1 | Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | no | model: gemini-flash | 2026-10-18 | elevated | medium | local | T-0214 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0217 | P1 | Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py) | cf-research | 4-7 | 3 | 5.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | local | T-0216 |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -36,7 +35,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (197)
+## done (198)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -119,6 +118,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0184 | P1 | Prime editing pegRNA & nicking sgRNA biophysical feasibility scorer for CFTR F508del and W1282X (tools/discovery/prime_editing_cftr.py) | cf-research | 4-7.5 | 5 | 8.7 | yes | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0186 | P1 | CFTR modifier gene epistatic conductance model: SLC26A9, TMEM16A (ANO1), and ENaC interplay (tools/discovery/modifier_interactome.py) | cf-research | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0218 | P1 | Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0216 |  |
+| T-0231 | P1 | Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | yes | model: gemini-flash | 2026-10-18 | elevated | medium | local | T-0214 |  |
 | T-0147 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  | research/inhaled-delivery-dossier |
 | T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | site/es-mx-localization |
 | T-0159 | P1 | Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs) | cf-lab | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | feat/antigravity-discovery-and-pr-rules |
@@ -1028,7 +1028,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Zero-build ES6 interactive MWC allosteric gating cycle simulation and bilingual localization on /cf/cftr/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/discovery-cryoem-3d-truncation-model.md; cf-research/landscape/cftr-structures.md; RCSB PDB 8EIQ; RCSB PDB 6MSM; DOI 10.1126/science.ade2216; NCT04043806
-- **Notes:** Showcase Sentinel Proactive Replenishment. Bridges structural biology of Trikafta / Next-Gen triple correctors to live interactive allosteric curves.
+- **Notes:** Showcase Sentinel Proactive Replenishment. Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer implemented on /cf/cftr/ with full es-MX parity, verified via Argon frontier review loop. PR senseiewok/.ai#128.
+- **Measured:** 4.5 h; 
 
 ### T-0147 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 
