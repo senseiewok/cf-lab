@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -10885,7 +10885,7 @@
       "title": "Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -10911,7 +10911,10 @@
       "roi": {
         "benefit": 5,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 0.5,
+          "note": "Implemented and verified in senseiewok/.ai commit e0665bd (147/147 tests PASS + Playwright desktop/mobile audit)."
+        },
         "rationale": "Empowers people with CF producing zero functional CFTR (Class I/VII) with an interactive biophysical explorer of mutation-agnostic bypass rehydration via ENaC blockade and TMEM16A/SLC26A9 activation.",
         "categories": {
           "curative_biophysics": 9.5,
@@ -10923,7 +10926,8 @@
         "composite_score": 7.72,
         "roi_ratio": 1.93
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor)."
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor).",
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0215",
@@ -11073,7 +11077,7 @@
       "title": "Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -11101,7 +11105,10 @@
       "roi": {
         "benefit": 4,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 0.5,
+          "note": "Implemented and verified in senseiewok/.ai commit e0665bd (147/147 tests PASS + Playwright desktop/mobile audit)."
+        },
         "rationale": "Translates suppressor tRNA decoding competition, SMG1 NMD suppression, and supra-additive electrophysiology for W1282X and G542X into a bilingual interactive explorer on /cf/cftr/.",
         "categories": {
           "curative_biophysics": 9.5,
@@ -11113,7 +11120,8 @@
         "composite_score": 7.72,
         "roi_ratio": 1.63
       },
-      "notes": "Wave 8 Discovery Council Replenishment. Interactive companion workbench empowering families and researchers to visualize nonsense mutation rescue mechanics."
+      "notes": "Wave 8 Discovery Council Replenishment. Interactive companion workbench empowering families and researchers to visualize nonsense mutation rescue mechanics.",
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0219",
@@ -11261,7 +11269,7 @@
       "title": "Interactive Base Editing (ABE8e) Protospacer Window & Bystander Edit Simulator panel on /cf/ptc/ and /cf/cftr/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -11288,7 +11296,10 @@
       "roi": {
         "benefit": 5,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 0.5,
+          "note": "Implemented and verified in senseiewok/.ai commit e0665bd (147/147 tests PASS + Playwright desktop/mobile audit)."
+        },
         "rationale": "Provides patients with rare stop codons an intuitive visual simulator of genetic base editing, protospacer windows, and bystander safety.",
         "categories": {
           "curative_biophysics": 9.5,
@@ -11300,14 +11311,15 @@
         "composite_score": 8.4,
         "roi_ratio": 2.4
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0216.md."
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0216.md.",
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0223",
       "title": "Interactive Clinical Trial Eligibility, Washout & Endpoint Plain-Language Decoder on /cf/trials/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -11334,7 +11346,10 @@
       "roi": {
         "benefit": 5,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 0.5,
+          "note": "Implemented and verified in senseiewok/.ai commit e0665bd (147/147 tests PASS + Playwright desktop/mobile audit)."
+        },
         "rationale": "Empowers individuals with CF and families to understand trial eligibility, washout periods, and endpoints without intimidation.",
         "categories": {
           "curative_biophysics": 2.0,
@@ -11346,14 +11361,15 @@
         "composite_score": 5.48,
         "roi_ratio": 1.57
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0217.md."
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0217.md.",
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0224",
       "title": "Interactive Sweat Chloride vs. ppFEV1 Non-Linear Sigmoidal Concordance Explorer on /cf/registries/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -11380,7 +11396,10 @@
       "roi": {
         "benefit": 5,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 0.5,
+          "note": "Implemented and verified in senseiewok/.ai commit e0665bd (147/147 tests PASS + Playwright desktop/mobile audit)."
+        },
         "rationale": "Visualizes non-linear relationship between in vivo CFTR biomarker normalization and long-term lung function stabilization.",
         "categories": {
           "curative_biophysics": 7.5,
@@ -11392,7 +11411,8 @@
         "composite_score": 7.42,
         "roi_ratio": 2.12
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0218.md."
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0218.md.",
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0225",
