@@ -33,7 +33,7 @@ flowchart TD
     Triage -->|No| Clean["Emit Clean Audit Record to .loop-logs/"]
     Triage -->|Fixable Defect or Error| Fix["4. Automated Remediation Worktree Pipeline"]
     Triage -->|Secret / Critical Leak| Alert["5. Emergency Handoff Alert & Revocation Notice"]
-    Fix --> Gate["Full Gate: run-gate.ps1 -Tier full"]
+    Fix --> Gate["Fast Pre-Push Check: Targeted Checks + check-staged.ps1\n(Full Gate Runs in Cloud CI)"]
     Gate --> PR["Open Pull Request via gh pr create"]
     Clean --> Release["6. Release Lock via run-sentinel -Complete"]
     PR --> Release
@@ -114,14 +114,10 @@ When a fixable hygiene or security defect is detected (e.g. missing `.gitignore`
    - When claiming a board task for the fix, set `"status": "in_progress"` and `"branch": "sec-fix-<topic>"` in `tasks/board.json` and run `pwsh -NoProfile -File tasks/render-board.ps1`.
 3. **Apply Minimal Deterministic Patch**:
    - Apply only the focused remediation code.
-4. **Run Local Diff Review & Full Review Gate**:
-   - Run first-pass diff review via local worker:
+4. **Run Targeted Verification & Fast Pre-Push Check**:
+   - Run the task's targeted unit/acceptance test and the fast (~0.3s) pre-push staged secret/privacy check (`check-staged.ps1`); skip redundant local `run-gate.ps1` / `review-diff.ps1` runs because GitHub Actions CI executes the full gate in the cloud:
      ```powershell
-     pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/review-diff.ps1 -RepoPath:. -Staged
-     ```
-   - Execute full review gate:
-     ```powershell
-     pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier full -Expected "<changed-files>" -MessageFile <path-to-commit-msg>
+     pwsh -NoProfile -File .claude/skills/security-git/scripts/check-staged.ps1 -RepoPath <worktree-path> -Expected "<changed-files>"
      ```
 5. **Top-Task Escalation: Diversity Frontier Council (Argon + Opus)**:
    - For Tier Full review and blind challenger passes, escalate top tasks to **Argon** (Gemini 4 Argon via `invoke_subagent` with `Model: 'pro'`) paired with Anthropic Claude Opus.
@@ -154,7 +150,7 @@ The security sentinel also owns a bounded improvement round for the three schedu
 - A proposed change to an agent must cite the reproduced failure or measured gap it fixes. A model's opinion is not evidence.
 
 **How to apply it:**
-- Open one `proposed` task in `tasks/board.json` per round with the evidence and a runnable acceptance check, then make one narrow edit to the owning `SKILL.md` or script in a worktree (`worktrees.py new cf-lab agent-improve-<topic>`). Run `python tasks/check-skill-frontmatter.py`, the focused test for any script you touched, and the Full gate with the Argon plus Opus review.
+- Open one `proposed` task in `tasks/board.json` per round with the evidence and a runnable acceptance check, then make one narrow edit to the owning `SKILL.md` or script in a worktree (`worktrees.py new cf-lab agent-improve-<topic>`). Run `python tasks/check-skill-frontmatter.py`, the focused test for any script you touched, and `check-staged.ps1` with the Argon plus Opus review.
 - The live sidecar configs in `C:\Users\<user>\.gemini\config\sidecars\` sit outside git. Do not edit them. Write the proposed change into `memory/handoff.md` for the maintainer.
 - Anti-churn still applies: with no evidence-backed gap, write `.loop-logs/last-agent-improvement.json` and stop. No PR, no board edit.
 
@@ -174,5 +170,5 @@ If an active API key or private credential is ever detected in a log or commit:
 - **Maintainer Gate**: The sentinel opens pull requests and logs alerts; only the human maintainer merges code.
 - **Anti-Hallucination Guardrails**:
   - **Grounded Defect Verification**: Every reported secret leak or PHI violation must be verified against exact file path, commit hash, and line number in the local repository. Differentiate real credentials from synthetic test fixtures and regex patterns before escalating.
-  - **Deterministic Proof Before Fix PR**: Remediations must be verified by `run-gate.ps1 -Tier full` and targeted test execution; never claim a leak is fixed without clean scanner output.
+  - **Deterministic Proof Before Fix PR**: Remediations must be verified by targeted test execution and `check-staged.ps1` before push (full gate runs in cloud CI); never claim a leak is fixed without clean scanner output.
 
