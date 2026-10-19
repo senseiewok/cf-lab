@@ -11232,14 +11232,14 @@
       "title": "CFTR potentiator + triple-corrector cooperative allosteric gating thermodynamic cycle (VX-445 / VX-661 / VX-121 / VX-561 open-channel stabilization)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "high",
       "review_tier": "elevated",
       "recommended_route": "frontier",
       "route_rationale": "Thermodynamic cycle and multi-state linkage biophysics requiring Cryo-EM coordinate integration.",
       "created_at": "2026-10-18T19:00:00Z",
-      "updated_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-19T03:25:00Z",
       "created_by": {
         "kind": "model",
         "name": "Council of Councils (Argon + Claude Opus + Qwen)",
@@ -11259,7 +11259,10 @@
       "roi": {
         "benefit": 5,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 5.5,
+          "notes": "Implemented AllostericModulatorCycle parameterizing VX-445, VX-661, VX-121, VX-561, and VX-770 with MWC 2^N state grand partition functions, pairwise cooperativity, detailed balance closed-loop verification, and clinical sweat chloride concordance in senseiewok/cf-research#98."
+        },
         "rationale": "Models multi-ligand thermodynamic synergy between TMD1, TMD2, and gating hinge pockets to explain next-generation vanzacaftor regimen superiority.",
         "categories": {
           "curative_biophysics": 7.5,
@@ -11271,7 +11274,7 @@
         "composite_score": 6.62,
         "roi_ratio": 1.2
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0215.md."
+      "notes": "Delivered in senseiewok/cf-research#98 with tools/discovery/allosteric_potentiator_model.py and test_allosteric_potentiator_model.py (13/13 passing)."
     },
     {
       "id": "T-0222",
