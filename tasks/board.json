@@ -11177,14 +11177,20 @@
       "title": "Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P3",
       "complexity": "high",
       "review_tier": "elevated",
       "recommended_route": "frontier",
       "route_rationale": "Dynamical systems modeling of stem cell kinetics and vector persistence across clinical multi-year horizons.",
       "created_at": "2026-10-18T19:00:00Z",
-      "updated_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-19T04:15:00Z",
+      "completed_at": "2026-10-18",
+      "completed_by": {
+        "kind": "model",
+        "name": "Dual-Family Frontier Council (Claude Opus + Gemini Argon)",
+        "model_id": "gemini-4-argon"
+      },
       "created_by": {
         "kind": "model",
         "name": "Council of Councils (Argon + Claude Opus + Qwen)",
@@ -11198,13 +11204,16 @@
         "low": 3.5,
         "high": 6.5
       },
-      "source_evidence": "DOI 10.1038/s41586-018-0394-6; ClinicalTrials.gov NCT06515002; NCT05248230; tasks/specs/T-0214.md",
+      "source_evidence": "DOI 10.1038/s41586-018-0394-6; DOI 10.1164/rccm.202505-1242oc; DOI 10.1172/jci.insight.206375; DOI 10.3389/fbioe.2026.1855907; ClinicalTrials.gov NCT06515002; NCT05248230; tasks/specs/T-0214.md",
       "spec_path": "tasks/specs/T-0220.md",
       "acceptance": "pytest tools/discovery/test_basal_stem_persistence.py",
       "roi": {
         "benefit": 5,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 3.5,
+          "notes": "Implemented BasalStemPersistenceKinetics in tools/discovery/basal_stem_persistence.py with 6 unit tests in test_basal_stem_persistence.py modeling KRT5+/TP63+ basal stem self-renewal, FOXI1+ ionocyte / secretory / ciliated progeny differentiation, episomal mitotic dilution, and clinical redosing intervals."
+        },
         "rationale": "Establishes quantitative criteria for curative durability, determining redosing intervals for aerosolized mRNA vs lifelong persistence of basal stem gene editing.",
         "categories": {
           "curative_biophysics": 2.0,
@@ -11216,7 +11225,7 @@
         "composite_score": 4.98,
         "roi_ratio": 1.0
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0214.md."
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0214.md. | Done 2026-10-18: Implemented tools/discovery/basal_stem_persistence.py and test_basal_stem_persistence.py (6/6 passing) alongside landscape/frontier-discovery-2026-10-18.md."
     },
     {
       "id": "T-0221",
@@ -11566,7 +11575,120 @@
         "roi_ratio": 1.56
       },
       "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Implemented and verified in feat/lab-context-specs-and-skill-evolution."
+    },
+    {
+      "id": "T-0228",
+      "title": "Mechano-acoustic mucus conditioning, PIEZO1/TMEM16A ASL hydration, and EV/nanoparticle delivery flux model (tools/discovery/mechano_acoustic_delivery.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "frontier",
+      "route_rationale": "Cross-domain biophysical synthesis coupling thixo-viscoelastoplastic mucus rheology, acoustic microbubble mucolysis, PIEZO1 mechanotransduction, and basal stem niche access.",
+      "created_at": "2026-10-19T03:30:00Z",
+      "updated_at": "2026-10-19T04:15:00Z",
+      "completed_at": "2026-10-18",
+      "completed_by": {
+        "kind": "model",
+        "name": "Dual-Family Frontier Council (Claude Opus + Gemini Argon)",
+        "model_id": "gemini-4-argon"
+      },
+      "created_by": {
+        "kind": "model",
+        "name": "Dual-Family Frontier Council (Claude Opus + Gemini Argon)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 frontier discovery round across vibration therapy, stem cell niches, minimal DNA, and EVs"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0220"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/landscape/frontier-discovery-2026-10-18.md; DOI 10.1038/s41598-025-16178-z; DOI 10.1016/j.biomaterials.2026.124585; DOI 10.3389/fbioe.2026.1855907; DOI 10.1093/nar/gkag082; ClinicalTrials.gov NCT07175012; NCT06515002; NCT05248230; NCT06237335; NCT06963008",
+      "acceptance": "pytest tools/discovery/test_mechano_acoustic_delivery.py -v",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": {
+          "actual_hours": 3.0,
+          "notes": "Implemented tools/discovery/mechano_acoustic_delivery.py + test_mechano_acoustic_delivery.py (4/4 passing) and landscape/frontier-discovery-2026-10-18.md with 24 verified primary identifiers."
+        },
+        "rationale": "Quantifies how 12-25 Hz OEP acoustic conditioning, ultrasound microbubble mucolysis, and PIEZO1/ATP/TMEM16A ASL hydration expand mucin pore size and rescue nanoparticle/EV diffusion to basal stem cells.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.52,
+        "roi_ratio": 1.88
+      },
+      "notes": "Delivered in frontier discovery round alongside T-0220; all 24 DOIs, PMIDs, and NCT IDs verified via cf-evidence-loop cite-check and Crossref Retraction Watch."
+    },
+    {
+      "id": "T-0229",
+      "title": "Interactive Mechano-Acoustic Mucus Conditioning & 10-Year Basal Stem Cell Persistence Explorer (#mechano-stem-explorer) on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive simulation workbench and Mexican Spanish localization on /cf/delivery/.",
+      "created_at": "2026-10-19T03:30:00Z",
+      "updated_at": "2026-10-19T04:15:00Z",
+      "completed_at": "2026-10-18",
+      "completed_by": {
+        "kind": "model",
+        "name": "Dual-Family Frontier Council (Claude Opus + Gemini Argon)",
+        "model_id": "gemini-4-argon"
+      },
+      "created_by": {
+        "kind": "model",
+        "name": "Dual-Family Frontier Council (Claude Opus + Gemini Argon)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 frontier discovery round across vibration therapy, stem cell niches, minimal DNA, and EVs"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0220",
+        "T-0228"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "cf-research/landscape/frontier-discovery-2026-10-18.md; cf-research/tools/discovery/basal_stem_persistence.py; cf-research/tools/discovery/mechano_acoustic_delivery.py; src/cf/delivery/index.html",
+      "acceptance": "python -m unittest tests.test_site tests.test_delivery_page tests.test_mechano_stem_explorer",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": {
+          "actual_hours": 2.5,
+          "notes": "Implemented src/scripts/mechano-stem-explorer.js, wired #mechano-stem-explorer on /cf/delivery/, synchronized 34 es-MX keys, and verified with test_mechano_stem_explorer.py."
+        },
+        "rationale": "Translates cross-domain acoustic mucus shear-thinning, PIEZO1 ASL hydration, and 10-year KRT5+/TP63+ basal stem cell vs episomal persistence kinetics into an interactive bilingual workbench on /cf/delivery/.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 6.5
+        },
+        "composite_score": 8.7,
+        "roi_ratio": 2.49
+      },
+      "notes": "Delivered in frontier discovery round with strict CSP compliance, zero innerHTML/inline styles, and full Mexican Spanish (es-MX) parity."
     }
   ],
-  "updated": "2026-10-17"
+  "updated": "2026-10-18"
 }

@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-227 tasks, 226 created by a model, 120 with a measured outcome. Estimated effort 597.35 to 1124.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+229 tasks, 228 created by a model, 123 with a measured outcome. Estimated effort 602.85 to 1133.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (19)
+## ready (18)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -30,11 +30,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
-| T-0220 | P3 | Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy | cf-research | 3.5-6.5 | 5 | 10 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (194)
+## done (197)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -74,6 +73,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0222 | P1 | Interactive Base Editing (ABE8e) Protospacer Window & Bystander Edit Simulator panel on /cf/ptc/ and /cf/cftr/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0223 | P1 | Interactive Clinical Trial Eligibility, Washout & Endpoint Plain-Language Decoder on /cf/trials/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0224 | P1 | Interactive Sweat Chloride vs. ppFEV1 Non-Linear Sigmoidal Concordance Explorer on /cf/registries/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0229 | P1 | Interactive Mechano-Acoustic Mucus Conditioning & 10-Year Basal Stem Cell Persistence Explorer (#mechano-stem-explorer) on /cf/delivery/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local | T-0220, T-0228 |  |
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
 | T-0180 | P1 | Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py) | cf-research | 2-4 | 4 | 13.3 | yes | model: gpt-5-frontier | 2026-10-17 | elevated | medium | local | T-0177, T-0178, T-0179 |  |
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
@@ -86,6 +86,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0201 | P1 | Rare CFTR frameshift, large deletion & splicing allele theratyping decision matrix across global registry cohorts (tools/discovery/rare_allele_matrix.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0213 | P1 | Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0208, T-0210 |  |
 | T-0214 | P1 | Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0228 | P1 | Mechano-acoustic mucus conditioning, PIEZO1/TMEM16A ASL hydration, and EV/nanoparticle delivery flux model (tools/discovery/mechano_acoustic_delivery.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-19 | elevated | high | frontier | T-0220 |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
@@ -228,6 +229,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0086 | P3 | Depth probe for the 64K local alias | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-06 | routine | low | local |  |  |
 | T-0114 | P3 | Test CI for the three public repos | cf-lab | 2-4 | 3 | 10 | no | model: claude-opus-5-5 | 2026-10-09 | full | medium | local |  |  |
 | T-0127 | P3 | A board consistency check in render-board | cf-lab | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  | work/frontier-lab-unbinding |
+| T-0220 | P3 | Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy | cf-research | 3.5-6.5 | 5 | 10 | yes | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
 | T-0113 | P3 | Eval tallies as data: commit verdict rows, recount the grid, state judge drift | cf-skills | 3-6 | 4 | 8.9 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0119 | P3 | A local AI review of a diff in the gate, so the lab does not depend on GitHub's quota-limited AI check | cf-lab | 3-6 | 4 | 8.9 | yes | model: claude-sonnet-5-5 | 2026-10-10 | elevated | medium | local |  |  |
 | T-0044 | P3 | Paper-trail layer: Unpaywall and Semantic Scholar providers | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
@@ -597,6 +599,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0218.md.
 - **Measured:** 0.5 h; 
 
+### T-0229 Interactive Mechano-Acoustic Mucus Conditioning & 10-Year Basal Stem Cell Persistence Explorer (#mechano-stem-explorer) on /cf/delivery/ with es-MX parity
+
+- **Why / ROI rationale:** Translates cross-domain acoustic mucus shear-thinning, PIEZO1 ASL hydration, and 10-year KRT5+/TP63+ basal stem cell vs episomal persistence kinetics into an interactive bilingual workbench on /cf/delivery/. *(confidence: high)*
+- **Route:** local - Zero-build ES6 interactive simulation workbench and Mexican Spanish localization on /cf/delivery/.
+- **Acceptance:** python -m unittest tests.test_site tests.test_delivery_page tests.test_mechano_stem_explorer
+- **Evidence:** cf-research/landscape/frontier-discovery-2026-10-18.md; cf-research/tools/discovery/basal_stem_persistence.py; cf-research/tools/discovery/mechano_acoustic_delivery.py; src/cf/delivery/index.html
+- **Notes:** Delivered in frontier discovery round with strict CSP compliance, zero innerHTML/inline styles, and full Mexican Spanish (es-MX) parity.
+- **Measured:** 2.5 h; Implemented src/scripts/mechano-stem-explorer.js, wired #mechano-stem-explorer on /cf/delivery/, synchronized 34 es-MX keys, and verified with test_mechano_stem_explorer.py.
+
 ### T-0061 Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows)
 
 - **Why / ROI rationale:** Estimate: a public repo that accepts pull requests should show whether its own tests pass; one matrix job also verifies setup.sh on macOS and Linux. *(confidence: medium)*
@@ -719,6 +730,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/landscape/alternative-conductance.md; Enterprise Therapeutics PubMed 33177112, 34588145; Nature 2017 PubMed 28959951; JCI 2012 PubMed 22446184; src/cf/index.html
 - **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor).
 - **Measured:** 0.5 h; 
+
+### T-0228 Mechano-acoustic mucus conditioning, PIEZO1/TMEM16A ASL hydration, and EV/nanoparticle delivery flux model (tools/discovery/mechano_acoustic_delivery.py)
+
+- **Why / ROI rationale:** Quantifies how 12-25 Hz OEP acoustic conditioning, ultrasound microbubble mucolysis, and PIEZO1/ATP/TMEM16A ASL hydration expand mucin pore size and rescue nanoparticle/EV diffusion to basal stem cells. *(confidence: high)*
+- **Route:** frontier - Cross-domain biophysical synthesis coupling thixo-viscoelastoplastic mucus rheology, acoustic microbubble mucolysis, PIEZO1 mechanotransduction, and basal stem niche access.
+- **Acceptance:** pytest tools/discovery/test_mechano_acoustic_delivery.py -v
+- **Evidence:** cf-research/landscape/frontier-discovery-2026-10-18.md; DOI 10.1038/s41598-025-16178-z; DOI 10.1016/j.biomaterials.2026.124585; DOI 10.3389/fbioe.2026.1855907; DOI 10.1093/nar/gkag082; ClinicalTrials.gov NCT07175012; NCT06515002; NCT05248230; NCT06237335; NCT06963008
+- **Notes:** Delivered in frontier discovery round alongside T-0220; all 24 DOIs, PMIDs, and NCT IDs verified via cf-evidence-loop cite-check and Crossref Retraction Watch.
+- **Measured:** 3 h; Implemented tools/discovery/mechano_acoustic_delivery.py + test_mechano_acoustic_delivery.py (4/4 passing) and landscape/frontier-discovery-2026-10-18.md with 24 verified primary identifiers.
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
@@ -2134,9 +2154,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Establishes quantitative criteria for curative durability, determining redosing intervals for aerosolized mRNA vs lifelong persistence of basal stem gene editing. *(confidence: high)*
 - **Route:** frontier - Dynamical systems modeling of stem cell kinetics and vector persistence across clinical multi-year horizons.
 - **Acceptance:** pytest tools/discovery/test_basal_stem_persistence.py
-- **Evidence:** DOI 10.1038/s41586-018-0394-6; ClinicalTrials.gov NCT06515002; NCT05248230; tasks/specs/T-0214.md
+- **Evidence:** DOI 10.1038/s41586-018-0394-6; DOI 10.1164/rccm.202505-1242oc; DOI 10.1172/jci.insight.206375; DOI 10.3389/fbioe.2026.1855907; ClinicalTrials.gov NCT06515002; NCT05248230; tasks/specs/T-0214.md
 - **Spec:** `tasks/specs/T-0220.md`
-- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0214.md.
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0214.md. \| Done 2026-10-18: Implemented tools/discovery/basal_stem_persistence.py and test_basal_stem_persistence.py (6/6 passing) alongside landscape/frontier-discovery-2026-10-18.md.
+- **Measured:** 3.5 h; Implemented BasalStemPersistenceKinetics in tools/discovery/basal_stem_persistence.py with 6 unit tests in test_basal_stem_persistence.py modeling KRT5+/TP63+ basal stem self-renewal, FOXI1+ ionocyte / secretory / ciliated progeny differentiation, episomal mitotic dilution, and clinical redosing intervals.
 
 ### T-0113 Eval tallies as data: commit verdict rows, recount the grid, state judge drift
 
