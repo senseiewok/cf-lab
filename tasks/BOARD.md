@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-227 tasks, 226 created by a model, 114 with a measured outcome. Estimated effort 597.35 to 1124.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+227 tasks, 226 created by a model, 115 with a measured outcome. Estimated effort 597.35 to 1124.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (25)
+## ready (24)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -24,7 +24,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0214 | P1 | Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
-| T-0221 | P1 | CFTR potentiator + triple-corrector cooperative allosteric gating thermodynamic cycle (VX-445 / VX-661 / VX-121 / VX-561 open-channel stabilization) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
 | T-0218 | P1 | Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0216 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0217 | P1 | Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py) | cf-research | 4-7 | 3 | 5.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | local | T-0216 |  |
@@ -40,7 +39,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (188)
+## done (189)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -113,6 +112,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0183 | P1 | Splice-switching antisense oligonucleotide (ASO) steric blocking model for CFTR 3849+10kb C->T pseudoexon exclusion (tools/discovery/aso_splice_model.py) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0206 | P1 | Dual-AAV split-intein trans-splicing biophysical reconstitution model for CFTR (tools/discovery/dual_aav_intein_model.py) | cf-research | 4-7 | 5 | 9.1 | yes | model: gemini-4-argon | 2026-10-18 | elevated | high | local |  |  |
 | T-0219 | P1 | Base Editing (ABE8e / CBE) bystander deamination window & PAM accessibility model for CFTR nonsense and canonical splice alleles (W1282X, R553X, G542X, 2789+5G->A) | cf-research | 4-7 | 5 | 9.1 | yes | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
+| T-0221 | P1 | CFTR potentiator + triple-corrector cooperative allosteric gating thermodynamic cycle (VX-445 / VX-661 / VX-121 / VX-561 open-channel stabilization) | cf-research | 4-7 | 5 | 9.1 | yes | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
 | T-0184 | P1 | Prime editing pegRNA & nicking sgRNA biophysical feasibility scorer for CFTR F508del and W1282X (tools/discovery/prime_editing_cftr.py) | cf-research | 4-7.5 | 5 | 8.7 | yes | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0186 | P1 | CFTR modifier gene epistatic conductance model: SLC26A9, TMEM16A (ANO1), and ENaC interplay (tools/discovery/modifier_interactome.py) | cf-research | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0147 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  | research/inhaled-delivery-dossier |
@@ -950,7 +950,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_allosteric_potentiator_model.py
 - **Evidence:** DOI 10.1126/science.ade2216; PDB 8EIQ; PDB 6MSM; ClinicalTrials.gov NCT04043806; NCT06468527; tasks/specs/T-0215.md
 - **Spec:** `tasks/specs/T-0221.md`
-- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0215.md.
+- **Notes:** Delivered in senseiewok/cf-research#98 with tools/discovery/allosteric_potentiator_model.py and test_allosteric_potentiator_model.py (13/13 passing).
+- **Measured:** 5.5 h; Implemented AllostericModulatorCycle parameterizing VX-445, VX-661, VX-121, VX-561, and VX-770 with MWC 2^N state grand partition functions, pairwise cooperativity, detailed balance closed-loop verification, and clinical sweat chloride concordance in senseiewok/cf-research#98.
 
 ### T-0184 Prime editing pegRNA & nicking sgRNA biophysical feasibility scorer for CFTR F508del and W1282X (tools/discovery/prime_editing_cftr.py)
 
