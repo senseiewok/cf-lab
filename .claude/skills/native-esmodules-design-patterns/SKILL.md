@@ -341,4 +341,129 @@ Verify vanilla ES modules without heavy test frameworks:
 - [ ] **Pure Function Isolation**: Math, coordinate transforms, and parsers must have zero DOM dependencies and run cleanly under Python or Node unit tests.
 - [ ] **Immutable Records**: Verify that data dictionaries use `Object.freeze()` and throw `TypeError` on attempted mutation in strict mode.
 - [ ] **Module Cache Isolation**: Test that module singletons reset state predictably between test runs.
-- [ ] **Strict CSP Compliance**: Ensure no `eval()`, `new Function()`, or inline event handler attributes (`onclick`) are emitted.
+- [ ] **Strict CSP Compliance**: Ensure no `eval()`, `new Function()`, or inline event handler attributes (`onclick`) are emitted. Zero `.innerHTML` across biophysical workbenches.
+
+---
+
+## 8. Zero-`innerHTML` DOM & SVG namespace factory pattern
+
+In strict Content Security Policy environments (`require-trusted-types-for 'script'`, `style-src-attr 'none'`) and clinical biophysical workbenches, assignment to `.innerHTML` or `.outerHTML` is strictly prohibited. Furthermore, creating SVG elements via `.innerHTML` inside an HTML document often defaults elements to the `http://www.w3.org/1999/xhtml` namespace, causing SVG elements (`<circle>`, `<path>`, `<g>`) to fail to render or participate in SVG geometry rendering.
+
+Use pure DOM APIs (`document.createElement`, `document.createElementNS`, and `Element.prototype.replaceChildren()`) through a clean, reusable 15-line helper pattern:
+
+```javascript
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+/** Safe HTML element factory */
+export function el(tag, attrs = {}, ...children) {
+  const node = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k.startsWith('on') && typeof v === 'function') node.addEventListener(k.slice(2).toLowerCase(), v);
+    else if (k === 'className') node.className = v;
+    else if (v !== null && v !== undefined) node.setAttribute(k, String(v));
+  }
+  node.append(...children.flat().filter(Boolean));
+  return node;
+}
+
+/** Namespace-safe SVG element factory */
+export function svgEl(tag, attrs = {}, ...children) {
+  const node = document.createElementNS(SVG_NS, tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (v !== null && v !== undefined) node.setAttribute(k, String(v));
+  }
+  node.append(...children.flat().filter(Boolean));
+  return node;
+}
+
+/** Atomic, XSS-proof DOM replacement */
+export function mountView(container, ...nodes) {
+  container.replaceChildren(...nodes.flat().filter(Boolean));
+}
+```
+
+---
+
+## 9. `AbortController` (`{ signal }`) listener lifecycle & batched microtask reactivity
+
+### A. Automatic Listener Cleanup with `AbortSignal`
+
+When building interactive workbenches (e.g. parameter sliders, media queries, tab switches), attaching anonymous event listeners without cleanup causes memory leaks and stale event handler execution across page re-renders. Modern `addEventListener` accepts an `AbortSignal`:
+
+```javascript
+export class BiophysicsPanel {
+  #abort = new AbortController();
+
+  mount(root) {
+    const { signal } = this.#abort;
+
+    // Window and document listeners automatically detach when aborted
+    window.addEventListener('languagechange', () => this.#onLanguage(), { signal });
+    window.matchMedia('(prefers-reduced-motion: reduce)')
+      .addEventListener('change', () => this.#onMotionPref(), { signal });
+
+    // Slider inputs with signal lifecycle
+    const slider = root.querySelector('#solids-slider');
+    slider.addEventListener('input', () => this.#scheduleUpdate(), { signal });
+  }
+
+  destroy() {
+    // Single call cleanly tears down all bound listeners
+    this.#abort.abort();
+  }
+}
+```
+
+### B. Microtask Coalescing (`queueMicrotask`) for High-Frequency Inputs
+
+When users drag range sliders (which fire `input` events at 60–120 Hz), triggering immediate heavy DOM recalculations or WebGL uniform updates per event introduces severe jank. Coalesce events into a single update per event-loop tick using `queueMicrotask`:
+
+```javascript
+export class ResponsiveSimulator {
+  #pendingUpdate = false;
+  #state = { temp: 37.0, conc: 150 };
+
+  updateParam(key, val) {
+    this.#state[key] = val;
+    if (this.#pendingUpdate) return;
+
+    this.#pendingUpdate = true;
+    queueMicrotask(() => {
+      this.#pendingUpdate = false;
+      this.#render(this.#state); // Executes once per microtask tick
+    });
+  }
+
+  #render(state) {
+    // Recompute biophysical model & redraw SVG/canvas
+  }
+}
+```
+
+---
+
+## 10. Module Web Workers & transferable `Float32Array` buffers
+
+Offload compute-heavy biophysical simulations (such as stiff Runge-Kutta ODE numerical integration of CFTR gating kinetics, Monte Carlo mucin mesh penetration sweeps, or 3D coordinate superpositions) off the main UI thread using native module Web Workers and zero-copy transferable buffers:
+
+```javascript
+// main.js - Spawning a module Web Worker with relative URL resolution
+export function spawnBiophysicsWorker() {
+  const workerUrl = new URL('./biophysics-solver.worker.js', import.meta.url);
+  const worker = new Worker(workerUrl, { type: 'module' });
+
+  // Allocate 100,000 particle coordinates (3 coordinates per particle)
+  const particleBuffer = new Float32Array(300_000);
+
+  // Send buffer with zero-copy transfer (buffer ownership moves to worker)
+  worker.postMessage({ type: 'SOLVE_STEP', dt: 0.01, buffer: particleBuffer }, [particleBuffer.buffer]);
+
+  worker.onmessage = (e) => {
+    const { buffer } = e.data;
+    // buffer is transferred back without copying; ready for WebGL gl.bufferSubData
+    renderGpuCoordinates(buffer);
+  };
+
+  return worker;
+}
+```

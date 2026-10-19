@@ -84,6 +84,47 @@ Under `style-src` without `unsafe-inline`, `<style>` elements, `style="..."` att
 
 Optionally, `scripts/test-playwright.py` runs the same claims for both examples through real Playwright for Python (run it with the python of the environment `playwright-browser-testing` sets up; it prints `VERIFIED`, and with a bad page of its own it proves it can fail).
 
+## Programmatic SVG coordinate mapping & crisp scaling
+
+When rendering biophysical charts and models (such as NBD1 thermal melting curves ΔTm, organoid forskolin-induced swelling FIS AUC curves, or pharmacokinetic ASO concentration decays) dynamically in ES modules:
+
+1. **Physical Domain Mapping**:
+   Map continuous physical values (temperature $T \in [30^\circ\text{C}, 60^\circ\text{C}]$, unfolded fraction $f \in [0, 1]$) to SVG `viewBox` space using linear interpolation functions:
+   ```javascript
+   const SVG_NS = 'http://www.w3.org/2000/svg';
+
+   function mapDomainToSvg(tCelsius, fUnfolded, box = { x: 50, y: 30, w: 500, h: 220 }) {
+     const tNorm = (tCelsius - 30.0) / (60.0 - 30.0);
+     const svgX = box.x + tNorm * box.w;
+     // SVG y=0 is top; physical f=0 (folded) sits at the bottom axis
+     const svgY = (box.y + box.h) - fUnfolded * box.h;
+     return { x: svgX, y: svgY };
+   }
+   ```
+
+2. **Crisp Stroke Preservation via `vector-effect="non-scaling-stroke"`**:
+   When an SVG chart scales across responsive viewport widths (from desktop down to 375px mobile viewports), standard strokes scale proportionally with the coordinate matrix, leading to bloated or sub-pixel blurry paths. Always apply `vector-effect="non-scaling-stroke"` to plotted curves, axis lines, and annotations:
+   ```javascript
+   const curve = document.createElementNS(SVG_NS, 'path');
+   curve.setAttribute('class', 'nbd1-curve-path svg-draw-line');
+   curve.setAttribute('vector-effect', 'non-scaling-stroke');
+   curve.setAttribute('pathLength', '1');
+   curve.setAttribute('d', pathData);
+   ```
+
+3. **Accessible Live Output Readouts**:
+   When users adjust parameters using sliders, do not rely solely on SVG visual updates. Synchronize an `<output>` element with `aria-live="polite"` so screen-reader users hear parameter changes:
+   ```javascript
+   slider.addEventListener('input', () => {
+     const val = parseFloat(slider.value);
+     const liveOut = document.getElementById('thermo-readout-live');
+     if (liveOut) {
+       liveOut.textContent = `Melting temperature Tm shifted to ${val.toFixed(1)} degrees Celsius.`;
+     }
+     redrawSvg(val);
+   });
+   ```
+
 ## Dynamic SVG line drawing & frozen time contract
 
 When SVG paths with line-drawing animations (`.svg-draw-line`, `pathLength="1"`) are dynamically created or injected by JavaScript, or when automated visual review harnesses freeze time via `?t=SECONDS` or `html.is-svg-frozen-time`:
@@ -95,6 +136,27 @@ When SVG paths with line-drawing animations (`.svg-draw-line`, `pathLength="1"`)
     .svg-draw-line {
       stroke-dashoffset: 0 !important;
       animation: none !important;
+    }
+  }
+  ```
+- **Imperative WAAPI Time Scrubbing**:
+  In addition to declarative CSS negative animation delays, harness scripts and review drivers scrub dynamically generated ES module paths via the Web Animations API `document.getAnimations()`:
+  ```javascript
+  // Deterministic ?t=SECONDS scrubber
+  const params = new URLSearchParams(window.location.search);
+  const tParam = params.get('t');
+  if (tParam !== null && tParam !== '') {
+    const seconds = parseFloat(tParam);
+    if (!isNaN(seconds)) {
+      document.documentElement.classList.add('is-svg-frozen-time');
+      if (typeof document.getAnimations === 'function') {
+        document.getAnimations().forEach((anim) => {
+          try {
+            anim.currentTime = seconds * 1000;
+            anim.pause();
+          } catch (e) { /* ignore non-scrubbable */ }
+        });
+      }
     }
   }
   ```

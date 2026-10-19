@@ -45,6 +45,7 @@ Avoid constraining data-dense or interactive scientific content to narrow single
   grid-template-rows: subgrid;
   grid-row: span 3;
 }
+```
 
 ### Mobile (375px) zero-overflow & slider grid rule
 
@@ -76,7 +77,6 @@ Multi-column parameter controls, sliders, or metrics panels (`.tool-grid`, `.sli
     align-items: stretch;
   }
 }
-```
 ```
 
 ### CSS Container Queries (`@container`)
@@ -122,14 +122,72 @@ Use native CSS nesting without preprocessors (Sass/Less) and leverage `color-mix
 }
 ```
 
+### CSS `@property` Typed Custom Properties & `oklch` Perceptual Color Scales
+
+Modern CSS `@property` (CSS Properties and Values API Level 1) registers custom properties with explicit types, inheritance, and default initial values. This enables the browser's interpolation engine to smoothly transition and animate custom properties (such as gauge progress, angles, and percentages) purely in declarative CSS—eliminating script-driven `requestAnimationFrame` style ticks and inline `style=""` attribute mutations:
+
+```css
+/* Register typed animatable property */
+@property --gauge-progress {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --thermo-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.biophysics-gauge {
+  --gauge-progress: 0;
+  transition: --gauge-progress 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  background: conic-gradient(
+    var(--neon-cyan) calc(var(--gauge-progress) * 1turn),
+    rgba(255, 255, 255, 0.05) 0
+  );
+}
+
+.biophysics-gauge.is-active {
+  --gauge-progress: 0.85; /* Smoothly interpolated by compositor */
+}
+```
+
+#### Perceptual Color Interpolation with `oklch`
+
+For scientific heatmaps, dose-response gradients, and organoid theratyping states, sRGB and HSL suffer from severe perceptual non-uniformity (e.g. yellow appears vastly brighter than blue at identical lightness values). Modern `oklch` (Lightness, Chroma, Hue in Oklab space) ensures uniform perceived contrast across data scales:
+
+```css
+:root {
+  --scale-start: oklch(0.75 0.18 195); /* Calibrated Cyan */
+  --scale-mid: oklch(0.82 0.16 135);   /* Vibrant Lime */
+  --scale-end: oklch(0.68 0.22 30);    /* Saturated Amber */
+}
+
+/* color-mix in oklch preserves perceptual lightness linearity */
+.heatmap-cell-50 {
+  background-color: color-mix(in oklch, var(--scale-start) 50%, var(--scale-mid));
+}
+
+/* Accessible high-contrast adaptation for WCAG AAA */
+@media (prefers-contrast: more) {
+  :root {
+    --scale-start: oklch(0.85 0.25 195);
+    --scale-end: oklch(0.55 0.30 30);
+  }
+}
+```
+
 ---
 
 ## 3. Web Components & Custom Elements
 
-For reusable interactive widgets (such as coordinate viewers, sliders, or research filters), use autonomous Custom Elements without shadow DOM overhead when global styling applies:
+For reusable interactive widgets (such as coordinate viewers, sliders, or research filters), use autonomous Custom Elements without shadow DOM overhead when global styling applies. To comply with strict Content Security Policy (`style-src-attr 'none'`) and Trusted Types, never use `innerHTML` or template literal injection:
 
 ```javascript
 // Native autonomous custom element using Light DOM for seamless styling
+// Zero-innerHTML, strict CSP & Trusted-Types compliant via replaceChildren()
 export class BiophysicsCard extends HTMLElement {
   static get observedAttributes() {
     return ['track', 'task-id'];
@@ -148,15 +206,23 @@ export class BiophysicsCard extends HTMLElement {
   render() {
     const track = this.getAttribute('track') || 'Track A';
     const taskId = this.getAttribute('task-id') || '';
-    
-    // Declarative, safe DOM generation
-    this.innerHTML = `
-      <div class="card-inner">
-        <span class="card-badge">${track}</span>
-        <span class="card-task">${taskId}</span>
-        <slot></slot>
-      </div>
-    `;
+
+    // Declarative, safe DOM generation without innerHTML
+    const inner = document.createElement('div');
+    inner.className = 'card-inner';
+
+    const badge = document.createElement('span');
+    badge.className = 'card-badge';
+    badge.textContent = track;
+
+    const task = document.createElement('span');
+    task.className = 'card-task';
+    task.textContent = taskId;
+
+    const slot = document.createElement('slot');
+
+    inner.append(badge, task, slot);
+    this.replaceChildren(inner);
   }
 }
 

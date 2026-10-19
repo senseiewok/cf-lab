@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -6510,11 +6510,11 @@
           "curative_biophysics": 2.0,
           "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
-          "operational_velocity": 3.0,
+          "operational_velocity": 8.5,
           "security_compliance": 9.0
         },
-        "composite_score": 5.5,
-        "roi_ratio": 1.83
+        "composite_score": 6.32,
+        "roi_ratio": 2.11
       },
       "acceptance": "A short document in the private lab files (never in a public repo, and with no secret in it) lists where each thing lives and who may do it: the deploy path and how to stop it, how to take the site down, how to rotate the deploy credential, which accounts matter, and what to tell visitors. A person other than the maintainer has read it and says whether it is enough. No credentials, no host details in any public file.",
       "review_tier": "full",
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -10930,7 +10930,7 @@
       "title": "Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -10956,7 +10956,7 @@
       "roi": {
         "benefit": 5,
         "confidence": "high",
-        "measured": false,
+        "measured": true,
         "rationale": "Visualizes the post-VX-522 biophysical delivery frontier: aerodynamic size restriction (MMAD 2.8-3.2 um), zwitterionic polysarcosine shielding, and selective organ targeting for genetic CFTR inhalation.",
         "categories": {
           "curative_biophysics": 9.5,
@@ -10968,7 +10968,9 @@
         "composite_score": 7.72,
         "roi_ratio": 1.63
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor)."
+      "notes": "Completed in senseiewok/.ai#122: Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified with Argon frontier review (ACCEPT).",
+      "completed_at": "2026-10-18T19:48:00Z",
+      "actual_hours": 4.5
     },
     {
       "id": "T-0216",
@@ -11118,14 +11120,14 @@
       "title": "Base Editing (ABE8e / CBE) bystander deamination window & PAM accessibility model for CFTR nonsense and canonical splice alleles (W1282X, R553X, G542X, 2789+5G->A)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "high",
       "review_tier": "elevated",
       "recommended_route": "frontier",
       "route_rationale": "High-stakes biophysical deaminase window and structural perturbation modeling requiring frontier verification.",
       "created_at": "2026-10-18T19:00:00Z",
-      "updated_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-19T02:55:00Z",
       "created_by": {
         "kind": "model",
         "name": "Council of Councils (Argon + Claude Opus + Qwen)",
@@ -11145,19 +11147,22 @@
       "roi": {
         "benefit": 5,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 5.0,
+          "notes": "Implemented CFTRBaseEditingModel modeling SpCas9/SpRY/SpG PAM variants, Gaussian deamination window (W_E), bystander purity ratio (P), and Cryo-EM 6MSM structural perturbation scoring (DeltaDelta G_fold) for W1282X, R553X, G542X, 2789+5G->A in senseiewok/cf-research#97."
+        },
         "rationale": "Enables precise in silico screening of base editor gRNAs and bystander mutation risk for refractory nonsense mutations (W1282X, R553X) and splice variants.",
         "categories": {
-          "curative_biophysics": 9.8,
-          "clinical_translation": 9.2,
-          "scientific_integrity": 9.5,
-          "operational_velocity": 8.0,
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 8.52,
-        "roi_ratio": 1.55
+        "composite_score": 7.22,
+        "roi_ratio": 1.31
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0213.md."
+      "notes": "Delivered in senseiewok/cf-research#97 with tools/discovery/base_editing_cftr.py, base_editing_cftr_designs.json, and test_base_editing_cftr.py (10/10 passing)."
     },
     {
       "id": "T-0220",
@@ -11165,7 +11170,7 @@
       "repo": "cf-research",
       "area": "science",
       "status": "ready",
-      "priority": "P1",
+      "priority": "P3",
       "complexity": "high",
       "review_tier": "elevated",
       "recommended_route": "frontier",
@@ -11194,14 +11199,14 @@
         "measured": false,
         "rationale": "Establishes quantitative criteria for curative durability, determining redosing intervals for aerosolized mRNA vs lifelong persistence of basal stem gene editing.",
         "categories": {
-          "curative_biophysics": 9.7,
-          "clinical_translation": 9.0,
-          "scientific_integrity": 9.3,
-          "operational_velocity": 8.2,
+          "curative_biophysics": 2.0,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 8.41,
-        "roi_ratio": 1.68
+        "composite_score": 4.98,
+        "roi_ratio": 1.0
       },
       "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0214.md."
     },
@@ -11240,14 +11245,14 @@
         "measured": false,
         "rationale": "Models multi-ligand thermodynamic synergy between TMD1, TMD2, and gating hinge pockets to explain next-generation vanzacaftor regimen superiority.",
         "categories": {
-          "curative_biophysics": 9.6,
-          "clinical_translation": 8.8,
-          "scientific_integrity": 9.4,
-          "operational_velocity": 8.0,
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 8.33,
-        "roi_ratio": 1.51
+        "composite_score": 6.62,
+        "roi_ratio": 1.2
       },
       "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0215.md."
     },
@@ -11286,14 +11291,14 @@
         "measured": false,
         "rationale": "Provides patients with rare stop codons an intuitive visual simulator of genetic base editing, protospacer windows, and bystander safety.",
         "categories": {
-          "curative_biophysics": 8.5,
-          "clinical_translation": 9.6,
-          "scientific_integrity": 9.0,
-          "operational_velocity": 8.8,
-          "security_compliance": 2.0
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 6.5
         },
-        "composite_score": 8.25,
-        "roi_ratio": 2.36
+        "composite_score": 8.4,
+        "roi_ratio": 2.4
       },
       "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0216.md."
     },
@@ -11332,14 +11337,14 @@
         "measured": false,
         "rationale": "Empowers individuals with CF and families to understand trial eligibility, washout periods, and endpoints without intimidation.",
         "categories": {
-          "curative_biophysics": 8.0,
-          "clinical_translation": 9.8,
-          "scientific_integrity": 9.0,
+          "curative_biophysics": 2.0,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 8.18,
-        "roi_ratio": 2.34
+        "composite_score": 5.48,
+        "roi_ratio": 1.57
       },
       "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0217.md."
     },
@@ -11378,14 +11383,14 @@
         "measured": false,
         "rationale": "Visualizes non-linear relationship between in vivo CFTR biomarker normalization and long-term lung function stabilization.",
         "categories": {
-          "curative_biophysics": 8.2,
-          "clinical_translation": 9.5,
-          "scientific_integrity": 9.2,
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 8.16,
-        "roi_ratio": 2.33
+        "composite_score": 7.42,
+        "roi_ratio": 2.12
       },
       "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0218.md."
     },
@@ -11429,13 +11434,13 @@
         "rationale": "Prevents redundant re-implementation and duplicate PR creation by detecting unmerged worktree commits.",
         "categories": {
           "curative_biophysics": 2.0,
-          "clinical_translation": 3.0,
-          "scientific_integrity": 9.5,
-          "operational_velocity": 9.8,
-          "security_compliance": 9.6
+          "clinical_translation": 2.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
         },
-        "composite_score": 7.95,
-        "roi_ratio": 2.89
+        "composite_score": 4.17,
+        "roi_ratio": 1.52
       },
       "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Implemented and verified in feat/lab-context-specs-and-skill-evolution."
     },
@@ -11444,14 +11449,14 @@
       "title": "Deterministic SVG/WebGL2 ?t=SECONDS visual visibility & mobile zero-overflow verifier (tasks/test_svg_freeze_contract.py)",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "complexity": "medium",
       "review_tier": "routine",
       "recommended_route": "local",
       "route_rationale": "Automated test suite verifying SVG stroke offset contracts and mobile 375px zero-overflow.",
       "created_at": "2026-10-18T19:00:00Z",
-      "updated_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:43:00Z",
       "created_by": {
         "kind": "model",
         "name": "Council of Councils (Argon + Claude Opus + Qwen)",
@@ -11471,19 +11476,23 @@
       "roi": {
         "benefit": 4,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 2.0,
+          "notes": "Implemented tasks/test_svg_freeze_contract.py, updated svg-animation, webgl-threejs-graphics, modern-web-standards skills and check-all.ps1."
+        },
         "rationale": "Guards against invisible paused SVG curves (stroke-dashoffset: 1) and broken mobile slider layouts.",
         "categories": {
           "curative_biophysics": 2.0,
-          "clinical_translation": 8.0,
-          "scientific_integrity": 9.2,
-          "operational_velocity": 8.8,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
           "security_compliance": 9.0
         },
-        "composite_score": 7.72,
-        "roi_ratio": 2.81
+        "composite_score": 4.17,
+        "roi_ratio": 1.52
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0220.md."
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). 2026-10-18 daily-security-sentinel: Completed. Implemented tasks/test_svg_freeze_contract.py, updated skills and check-all.ps1. Acceptance passed (13 tests in 0.04s).",
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0227",
@@ -11525,13 +11534,13 @@
         "rationale": "Eliminates task context loss by deterministically verifying spec dossiers across board tasks.",
         "categories": {
           "curative_biophysics": 2.0,
-          "clinical_translation": 3.0,
-          "scientific_integrity": 9.8,
-          "operational_velocity": 9.5,
-          "security_compliance": 9.7
+          "clinical_translation": 2.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
         },
-        "composite_score": 7.92,
-        "roi_ratio": 3.96
+        "composite_score": 3.12,
+        "roi_ratio": 1.56
       },
       "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Implemented and verified in feat/lab-context-specs-and-skill-evolution."
     }
