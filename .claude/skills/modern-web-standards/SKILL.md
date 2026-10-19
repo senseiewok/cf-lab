@@ -76,8 +76,7 @@ Multi-column parameter controls, sliders, or metrics panels (`.tool-grid`, `.sli
     align-items: stretch;
   }
 }
-```
-```
+- **Automated Verification**: Enforced via `tasks/test_svg_freeze_contract.py`, verifying that responsive multi-column control layouts implement `@media (max-width: 640px)` with `grid-template-columns: 1fr` and `min-width: 0`.
 
 ### CSS Container Queries (`@container`)
 

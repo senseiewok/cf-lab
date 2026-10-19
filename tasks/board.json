@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -11444,14 +11444,14 @@
       "title": "Deterministic SVG/WebGL2 ?t=SECONDS visual visibility & mobile zero-overflow verifier (tasks/test_svg_freeze_contract.py)",
       "repo": "cf-lab",
       "area": "tooling",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "complexity": "medium",
       "review_tier": "routine",
       "recommended_route": "local",
       "route_rationale": "Automated test suite verifying SVG stroke offset contracts and mobile 375px zero-overflow.",
       "created_at": "2026-10-18T19:00:00Z",
-      "updated_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:43:00Z",
       "created_by": {
         "kind": "model",
         "name": "Council of Councils (Argon + Claude Opus + Qwen)",
@@ -11471,7 +11471,10 @@
       "roi": {
         "benefit": 4,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 2.0,
+          "notes": "Implemented tasks/test_svg_freeze_contract.py, updated svg-animation, webgl-threejs-graphics, modern-web-standards skills and check-all.ps1."
+        },
         "rationale": "Guards against invisible paused SVG curves (stroke-dashoffset: 1) and broken mobile slider layouts.",
         "categories": {
           "curative_biophysics": 2.0,
@@ -11483,7 +11486,8 @@
         "composite_score": 7.72,
         "roi_ratio": 2.81
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0220.md."
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). 2026-10-18 daily-security-sentinel: Completed. Implemented tasks/test_svg_freeze_contract.py, updated skills and check-all.ps1. Acceptance passed (13 tests in 0.04s).",
+      "completed_at": "2026-10-18"
     },
     {
       "id": "T-0227",
