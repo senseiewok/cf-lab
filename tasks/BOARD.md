@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-235 tasks, 234 created by a model, 130 with a measured outcome. Estimated effort 621.35 to 1164.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+238 tasks, 237 created by a model, 131 with a measured outcome. Estimated effort 626.85 to 1173.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (17)
+## ready (19)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,6 +18,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
+| T-0237 | P1 | Interactive Airway Epithelial Basal Stem Cell (KRT5+/TP63+) Clonal Lineage Plasticity & Long-Term Engraftment Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0220 |  |
+| T-0238 | P1 | Interactive CFTR Truncation 3D Backbone Trace & Cryptic Domain Stability Explorer on /cf/cftr/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0217 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -32,7 +34,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (204)
+## done (205)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -53,6 +55,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0109 | P1 | A rule for questions about one real person: generalise before any search | cf-lab | 1-3 | 5 | 25 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |  |
 | T-0227 | P1 | Spec dossier integrity checker (tasks/check_task_specs.py) verifying spec_path dossiers for primary citations and test commands | cf-lab | 1.5-2.5 | 5 | 25 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0235 | P1 | Interactive Nonviral Minimal DNA (minidnacftr) TLR9 Evasion & Engineered EV Basal Stem Cell Tropism Explorer on /cf/ptc/ with es-MX parity | .ai | 1.5-2.5 | 5 | 25 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0233, T-0234 |  |
+| T-0236 | P1 | Interactive Inhaled Bacteriophage-Antibiotic Synergy (PAS) & Biofilm Depolymerization Explorer on /cf/delivery/ with es-MX parity | .ai | 1.5-2.5 | 5 | 25 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0154 |  |
 | T-0191 | P1 | Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0192 | P1 | Aggressive sentinel cadence: reduce max_idle_hours from 8h/12h to 3h/4h in tasks/sentinels.json and replenish multi-lane ready backlog | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0067 | P1 | Decision: treat robots.txt groups that name AI agents as applying to our fetch sources | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -420,6 +423,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Exposes T-0233 and T-0234 interactively on /cf/ptc/ (#minidna-ev-explorer) with full Mexican Spanish (es-MX) parity.
 - **Measured:** 1 h; 
 
+### T-0236 Interactive Inhaled Bacteriophage-Antibiotic Synergy (PAS) & Biofilm Depolymerization Explorer on /cf/delivery/ with es-MX parity
+
+- **Why / ROI rationale:** Translates anti-resistance bacteriophage cocktail co-evolution dynamics, alginate lyase biofilm depolymerization, and MexAB-OprM efflux collapse into an interactive bilingual public workbench. *(confidence: )*
+- **Route:** local - Deterministic zero-build ES module and es-MX translation workbench grounded in T-0154 (phage_biofilm_kinetics.py and landscape/phage-coevolution-dynamics.md).
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_phage_biofilm_explorer tests.test_site.StaticTests
+- **Evidence:** DOI:10.1038/s41591-021-01659-5 (Dedrick et al., Nat Med 2022: Phage therapy in CF) DOI:10.1093/emph/eow012 (Chan et al., Evol Med Public Health 2016: Phage OMKO1 OprM trade-off) DOI:10.1016/j.chom.2019.01.014 (Kortright et al., Cell Host Microbe 2019: Phage-antibiotic synergy) DOI:10.3389/fmicb.2019.02087 (Cafora et al., Front Microbiol 2019: Alginate lyase biofilm dispersal) ClinicalTrials.gov:NCT04684641, NCT05453578, NCT05616221
+- **Notes:** Exposes T-0154 interactively on /cf/delivery/ (#phage-biofilm-explorer) with full Mexican Spanish (es-MX) parity.
+- **Measured:** 1 h; 
+
 ### T-0191 Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty
 
 - **Why / ROI rationale:** Prevents step execution permission errors on missing bundle files and ensures sentinels proactively replenish the board instead of idling. *(confidence: high)*
@@ -530,6 +542,22 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tools/make_evidence.py in ../.ai and cf-research/sources/catalog.yaml (commit 601da99, admitting OpenAlex and updating catalog metadata); src/index.html and src/evidence/index.html still display static snapshot from 11 October 2026 (cf0ae72).
 - **Notes:** 2026-10-15: Created and approved during schedule and website publishing audit. \| 2026-10-15: Completed and submitted via senseiewok/.ai PR #81.
 - **Measured:** 2.5 h; Submitted PR #81 on senseiewok/.ai. Pinned evidence snapshot to cf-research commit 601da99 (67 sources, 98 ledger rows), regenerated counts and ledger blocks, and updated es-MX localization.
+
+### T-0237 Interactive Airway Epithelial Basal Stem Cell (KRT5+/TP63+) Clonal Lineage Plasticity & Long-Term Engraftment Simulator on /cf/delivery/ with es-MX parity
+
+- **Why / ROI rationale:** Models basal stem cell engraftment and ionocyte replenishment dynamics for curative gene addition. *(confidence: )*
+- **Route:** local - Deterministic zero-build ES module and SVG lineage diagram grounded in tools/discovery/basal_stem_persistence.py (T-0220).
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_basal_stem_explorer tests.test_site.StaticTests
+- **Evidence:** DOI:10.1038/s41586-018-0394-6 (Montoro et al., Nature 2018: Airway basal cells and ionocytes) DOI:10.1172/jci.insight.206375 (Vijaykumar et al., JCI Insight 2026: Basal cell transplantation in CF airways) DOI:10.1164/rccm.202505-1242oc (Yuan et al., Am J Respir Crit Care Med 2025: Ionocyte CFTR coordination)
+- **Notes:** Simulates KRT5+/TP63+ asymmetric self-renewal and 10-year homeostatic CFTR restoration floor on /cf/delivery/.
+
+### T-0238 Interactive CFTR Truncation 3D Backbone Trace & Cryptic Domain Stability Explorer on /cf/cftr/ with es-MX parity
+
+- **Why / ROI rationale:** Connects Cryo-EM atomic coordinates with nonsense truncation stability for community understanding. *(confidence: )*
+- **Route:** local - WebGL2 and SVG 3D residue backbone trace grounded in tools/discovery/cftr_truncation_3d_trace.json and ptc_cryoem_allostery.py (T-0217).
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_truncation_explorer tests.test_site.StaticTests
+- **Evidence:** PDB:6MSM, PDB:5UAK, PDB:7SVR DOI:10.1126/science.aaw4942 (Zhang & Chen, Science 2019: Human CFTR Cryo-EM structure) DOI:10.1016/j.jcf.2026.01.012 (Cryo-EM mapping of premature termination codons)
+- **Notes:** Visualizes 3D backbone truncation, steric residue loss, and thermal unfolding profiles for W1282X, G542X, and R1162X on /cf/cftr/.
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
