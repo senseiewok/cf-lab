@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-238 tasks, 237 created by a model, 131 with a measured outcome. Estimated effort 626.85 to 1173.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+241 tasks, 240 created by a model, 131 with a measured outcome. Estimated effort 636.85 to 1190.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (19)
+## ready (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -21,6 +21,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0237 | P1 | Interactive Airway Epithelial Basal Stem Cell (KRT5+/TP63+) Clonal Lineage Plasticity & Long-Term Engraftment Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0220 |  |
 | T-0238 | P1 | Interactive CFTR Truncation 3D Backbone Trace & Cryptic Domain Stability Explorer on /cf/cftr/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0217 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
+| T-0240 | P1 | TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
+| T-0239 | P1 | Inhaled CFTR mRNA Lipid Nanoparticle (LNP) Endosomal Escape Kinetics, Ionizable Lipid pKa Inversion & Nebulization Shear Stability Model (tools/discovery/mrna_lnp_escape_model.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
+| T-0241 | P1 | Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Premature Termination Codon (PTC) Escape Matrix (tools/discovery/nmd_ptc_kinetics.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -801,6 +804,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-18 daily-site-showcase-sentinel: Completed and verified. PR https://github.com/senseiewok/.ai/pull/107 (commits c145d32 and 5ac7248). Acceptance criteria fully met.
 - **Measured:** 4.25 h; Delivered full Mexican Spanish (es-MX) translation coverage and non-dismissible COFEPRIS / NOM-012-SSA3-2012 clinical boundary disclaimers across all 5 canonical workbenches (/cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, /cf/registries/). Verified with 222 site tests and 34 workbench unit tests, zero anti-hallucination drift, and PR review loop by Gemini 4 Argon.
 
+### T-0240 TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py)
+
+- **Why / ROI rationale:** Models genotype-agnostic ASL rehydration via allosteric CaCC activation, restoring airway hydration above 7.0 um for Class I-III CFTR null mutations. *(confidence: high)*
+- **Route:** local - Biophysical MWC/Hill cooperativity and voltage-dependent gating simulation parameterized against Cryo-EM structures PDB:5OYB and PDB:6QP6.
+- **Acceptance:** pytest tools/discovery/test_tmem16a_conductance_model.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; ClinicalTrials.gov:NCT06478706; PDB:5OYB; PDB:6QP6; DOI:10.1038/nature24652; DOI:10.1038/s41598-020-73905-2; DOI:10.1016/j.jcf.2019.06.004
+- **Notes:** Wave 10 Research Council Replenishment. Allosteric TMEM16A potentiator kinetics, Cryo-EM cooperativity, and ASL height recovery.
+
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
 - **Why / ROI rationale:** Keeps the lab's flagship atlas perpetually synchronized with global CF clinical trial activity under catalog access rules. *(confidence: high)*
@@ -911,6 +922,22 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; ClinicalTrials.gov NCT05668741; DOI 10.1038/s41565-021-00870-x; DOI 10.1073/pnas.1916113117; src/cf/delivery/index.html
 - **Notes:** Completed in senseiewok/.ai#122: Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified with Argon frontier review (ACCEPT).
 - **Measured:**  h; 
+
+### T-0239 Inhaled CFTR mRNA Lipid Nanoparticle (LNP) Endosomal Escape Kinetics, Ionizable Lipid pKa Inversion & Nebulization Shear Stability Model (tools/discovery/mrna_lnp_escape_model.py)
+
+- **Why / ROI rationale:** Overcomes the double bottleneck of nebulization shear stress and endosomal entrapment that limited BEACON-CF (NCT05668741), establishing quantitative formulation rules for inhaled mRNA delivery. *(confidence: high)*
+- **Route:** local - Quantitative biophysical ODE modeling of pH-dependent ionizable lipid protonation, inverted hexagonal H_II phase membrane fusion, and vibrating mesh nebulizer shear stability.
+- **Acceptance:** pytest tools/discovery/test_mrna_lnp_escape_model.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; ClinicalTrials.gov:NCT05668741; DOI:10.1038/s41467-019-12503-4; DOI:10.1038/s41565-021-01040-4; DOI:10.1021/acs.nanolett.0c03387
+- **Notes:** Wave 10 Research Council Replenishment. Inhaled CFTR mRNA-LNP endosomal escape, pKa inversion, and aerosol shear stability modeling.
+
+### T-0241 Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Premature Termination Codon (PTC) Escape Matrix (tools/discovery/nmd_ptc_kinetics.py)
+
+- **Why / ROI rationale:** Resolves the severe substrate depletion barrier of CFTR PTCs, modeling SMG1 kinase inhibition and readthrough synergy to exceed 10% WT transepithelial current. *(confidence: high)*
+- **Route:** local - Deterministic kinetic modeling of SURF complex assembly, UPF1 phosphorylation branches, and +4 context decoding competition at W1282X and G542X.
+- **Acceptance:** pytest tools/discovery/test_nmd_ptc_kinetics.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; ClinicalTrials.gov:NCT04135495; DOI:10.1038/s41580-019-0126-2; DOI:10.1016/j.molcel.2012.08.018; DOI:10.1074/jbc.M112.390815
+- **Notes:** Wave 10 Research Council Replenishment. UPF1-SMG1 phosphorylation branching, SMG6 vs SMG5/7 degradation, and CFTR PTC escape kinetics.
 
 ### T-0011 External review round: registry scientist on comparability, person with CF/caregiver on wording
 
