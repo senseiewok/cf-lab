@@ -495,6 +495,22 @@ class PickerTests(unittest.TestCase):
         self.assertEqual(entry["spec_path"], "tasks/specs/T-0001.md")
         self.assertEqual(entry["spec_markdown"], spec_content)
 
+    def test_non_sentinel_pr_with_task_id_skips_that_task(self):
+        self.prs.write_text(
+            json.dumps([{
+                "repo": ".ai",
+                "number": 127,
+                "headRefName": "allosteric-gating-explorer-t0231",
+                "title": "feat(cftr): Interactive Potentiator & Triple-Corrector Cooperative Allosteric Gating Explorer (T-0231)",
+            }]),
+            encoding="utf-8",
+        )
+        tasks = [
+            task("T-0231", repo=".ai", area="content", complexity="medium", low=2, high=4, composite=9.0),
+            task("T-0232", repo=".ai", area="content", complexity="medium", low=2, high=4, composite=8.0),
+        ]
+        self.assertEqual(self.bundle_ids(tasks, "showcase"), ["T-0232"])
+
 
 class RealBoardTests(unittest.TestCase):
     def test_every_lane_runs_on_the_real_board_without_error(self):
