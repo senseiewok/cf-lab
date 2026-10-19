@@ -110,6 +110,7 @@ When SVG paths with line-drawing animations (`.svg-draw-line`, `pathLength="1"`)
     });
   });
   ```
+- **Automated Verification**: Verified deterministically by `tasks/test_svg_freeze_contract.py` (`python -m unittest tasks/test_svg_freeze_contract.py`), enforcing that all animated paths have an `.is-svg-frozen-time` override (`stroke-dashoffset: 0 !important`) and WCAG 2.2.2 pause controls.
 
 ## Tooling
 

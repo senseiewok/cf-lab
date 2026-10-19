@@ -77,6 +77,7 @@ When implementing molecular, particle, or mesh shaders (e.g. ion channel pore co
     }
   }
   ```
+- **Automated Verification**: Enforced via `tasks/test_svg_freeze_contract.py`, asserting `URLSearchParams` parameterization for `t`, `webglcontextlost`/`webglcontextrestored` recovery, and headless 2D fallback across canvas visual assets.
 
 ## three.js
 
