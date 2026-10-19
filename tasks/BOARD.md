@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-212 tasks, 211 created by a model, 99 with a measured outcome. Estimated effort 552.35 to 1045.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+215 tasks, 214 created by a model, 100 with a measured outcome. Estimated effort 561.85 to 1061.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (25)
+## ready (27)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -21,8 +21,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0200 | P1 | Epithelial sodium channel (ENaC / SCNN1A) RNAi & small-molecule knockdown dose-response model for ASL rehydration (tools/discovery/enac_knockdown_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0201 | P1 | Rare CFTR frameshift, large deletion & splicing allele theratyping decision matrix across global registry cohorts (tools/discovery/rare_allele_matrix.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0214 | P1 | Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0198 | P1 | Inhaled viral vs non-viral vector repeat-dosing neutralizing antibody & epithelial turnover decay model (tools/discovery/vector_redosing_kinetics.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0199 | P1 | CFTR NBD1 thermal unfolding (dTm) & allosteric domain-interface free energy landscape model across rare missense variants (tools/discovery/nbd1_thermodynamics.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
+| T-0215 | P1 | Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0206 | P1 | Dual-AAV split-intein trans-splicing biophysical reconstitution model for CFTR (tools/discovery/dual_aav_intein_model.py) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | local |  |  |
 | T-0207 | P1 | CFTR Delta-R domain minigene packaging and single-channel patch-clamp conductance simulator (tools/discovery/cftr_minigene_model.py) | cf-research | 3.5-6.5 | 4 | 8 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -40,7 +42,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (173)
+## done (174)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -83,6 +85,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0178 | P1 | Secretory-to-basal epithelial dedifferentiation plasticity simulation (tools/discovery/epithelial_plasticity.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local |  |  |
 | T-0179 | P1 | Cross-domain delivery innovation miner and biophysical feasibility scoring (tools/discovery/cross_domain_miner.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local |  |  |
 | T-0194 | P1 | Care-team & family plain-language question cards for each workbench (/cf/ptc/, /cf/delivery/, /cf/trials/, /cf/registries/) | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0213 | P1 | Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0208, T-0210 |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
@@ -635,6 +638,23 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/sources/catalog.yaml (cftr2, gnomad, ecfspr-adr-2024); ClinicalTrials.gov NCT06429176; NCT05668741; DOI 10.1016/j.jcf.2023.09.006
 - **Notes:** 2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Grounded in catalog.yaml, NCT06429176, NCT05668741.
 
+### T-0213 Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity
+
+- **Why / ROI rationale:** Exposes directed evolution capsid tropism (4D-A101 vs wild-type serotypes), mucin adhesion kinetics, and mucosal NAb evasion to the public research community. *(confidence: high)*
+- **Route:** local - Zero-build ES6 interactive panel and bilingual localization on /cf/delivery/.
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests tests.test_delivery_page
+- **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; cf-research/tools/discovery/aav_tropism_model.py; ClinicalTrials.gov NCT05248230; Hill et al. Sci Adv 2019 (DOI 10.1126/sciadv.aaw3507)
+- **Notes:** Completed in senseiewok/.ai#119: Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified.
+- **Measured:**  h; 
+
+### T-0214 Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity
+
+- **Why / ROI rationale:** Empowers people with CF producing zero functional CFTR (Class I/VII) with an interactive biophysical explorer of mutation-agnostic bypass rehydration via ENaC blockade and TMEM16A/SLC26A9 activation. *(confidence: high)*
+- **Route:** local - Mutation-agnostic alternative conductance biophysical simulation and bilingual cards on /cf/.
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
+- **Evidence:** cf-research/landscape/alternative-conductance.md; Enterprise Therapeutics PubMed 33177112, 34588145; Nature 2017 PubMed 28959951; JCI 2012 PubMed 22446184; src/cf/index.html
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor).
+
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
 - **Why / ROI rationale:** Automated PR hygiene eliminates merge conflict friction, identifies unresolved review comments across the multi-repo workspace, protects human-gated boundaries, audits stale worktrees, and prevents maintainer cognitive overload. *(confidence: high)*
@@ -752,6 +772,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/sources/catalog.yaml (cftr2, ecfspr-adr-2024); ClinicalTrials.gov NCT04043806; NCT06429176; NCT05668741; src/cf/registries/index.html
 - **Notes:** 2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor). Completed in senseiewok/.ai#112: Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified.
+
+### T-0215 Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity
+
+- **Why / ROI rationale:** Visualizes the post-VX-522 biophysical delivery frontier: aerodynamic size restriction (MMAD 2.8-3.2 um), zwitterionic polysarcosine shielding, and selective organ targeting for genetic CFTR inhalation. *(confidence: high)*
+- **Route:** local - Aerosol LNP biophysical parameters and delivery matrix explorer on /cf/delivery/.
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
+- **Evidence:** cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; ClinicalTrials.gov NCT05668741; DOI 10.1038/s41565-021-00870-x; DOI 10.1073/pnas.1916113117; src/cf/delivery/index.html
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor).
 
 ### T-0011 External review round: registry scientist on comparability, person with CF/caregiver on wording
 
