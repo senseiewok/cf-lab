@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-215 tasks, 214 created by a model, 108 with a measured outcome. Estimated effort 561.85 to 1061.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+218 tasks, 217 created by a model, 109 with a measured outcome. Estimated effort 572.85 to 1080.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (19)
+## ready (21)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -22,7 +22,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0214 | P1 | Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0215 | P1 | Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
+| T-0218 | P1 | Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0216 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
+| T-0217 | P1 | Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py) | cf-research | 4-7 | 3 | 5.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | local | T-0216 |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
 | T-0110 | P2 | Rulesets on main for the public repos | cf-lab | 0.5-1 | 5 | 66.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low | local |  |  |
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
@@ -34,7 +36,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (182)
+## done (183)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -111,6 +113,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0160 | P1 | Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs) | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0148, T-0149 | site/showcase-curative-theratypes |
 | T-0207 | P1 | CFTR Delta-R domain minigene packaging and single-channel patch-clamp conductance simulator (tools/discovery/cftr_minigene_model.py) | cf-research | 3.5-6.5 | 4 | 8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0208 | P1 | Aerosolized AAV capsid lung tropism and neutralizing antibody neutralization titer calculator (tools/discovery/aav_tropism_model.py) | cf-research | 4.5-8 | 5 | 8 | yes | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
+| T-0216 | P1 | Engineered Suppressor tRNA & SMG1 NMD Inhibition Biophysical Synergy Model for CFTR PTCs (tools/discovery/suppressor_trna_model.py) | cf-research | 3.5-6.5 | 4 | 8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | high | local |  |  |
 | T-0066 | P1 | Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules | cf-skills | 3-5 | 3 | 7.5 | yes | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | local |  |  |
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0152 | P1 | Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid | cf-research | 4-8 | 4 | 6.7 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | medium | cloud |  |  |
@@ -890,6 +893,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** DOI 10.1038/s41467-020-19255-2; DOI 10.1152/ajplung.00350.2020; cf-research/landscape/alternative-conductance.md; cf-research/sources/catalog.yaml
 - **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Grounded in DOI 10.1038/s41467-020-19255-2. Merged in senseiewok/cf-research#90 (commit 989554e): tools/discovery/modifier_interactome.py + 15 unit tests in test_modifier_interactome.py passing.
 
+### T-0218 Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity
+
+- **Why / ROI rationale:** Translates suppressor tRNA decoding competition, SMG1 NMD suppression, and supra-additive electrophysiology for W1282X and G542X into a bilingual interactive explorer on /cf/cftr/. *(confidence: high)*
+- **Route:** local - Zero-build ES6 interactive simulation panel and bilingual localization on /cf/cftr/.
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests
+- **Evidence:** cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; cf-research/tools/discovery/suppressor_trna_model.py; DOI 10.1038/s41467-023-41392-8; src/cf/cftr/index.html
+- **Notes:** Wave 8 Discovery Council Replenishment. Interactive companion workbench empowering families and researchers to visualize nonsense mutation rescue mechanics.
+
 ### T-0147 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 
 - **Why / ROI rationale:** Directly targets the primary failure mode in CF genetic therapy. Produces non-inflammatory LNP formulation specs and the Overcoming Delivery public brief. *(confidence: high)*
@@ -944,6 +955,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_aav_tropism_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; ClinicalTrials.gov NCT05248230; DOI 10.1126/sciadv.aaw3507
 - **Notes:** 2026-10-18 Track A Curative Biophysics milestone (cf-research#91). Done in cf-research PR #94 (tools/discovery/aav_tropism_model.py + test_aav_tropism_model.py, 24/24 PASS).
+- **Measured:**  h; 
+
+### T-0216 Engineered Suppressor tRNA & SMG1 NMD Inhibition Biophysical Synergy Model for CFTR PTCs (tools/discovery/suppressor_trna_model.py)
+
+- **Why / ROI rationale:** Models ribosomal A-site competition, tetranucleotide context hierarchy (+4 base), SMG1 NMD suppression, and patch-clamp Delta Isc restoration for G542X and W1282X. *(confidence: high)*
+- **Route:** local - Track A biophysical decoding competition, NMD mRNA turnover, and electrophysiological simulation.
+- **Acceptance:** pytest tools/discovery/test_suppressor_trna_model.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; DOI 10.1038/s41467-023-41392-8; DOI 10.1073/pnas.1908401116; DOI 10.1016/j.jcf.2023.04.012; PDB 6MSM; PDB 8EIQ; ClinicalTrials.gov NCT04135495
+- **Notes:** Wave 8 Discovery Council Replenishment. Delivered and verified in cf-research#96 (9/9 pytest passed, 100% anti-hallucination guardrails passed).
 - **Measured:**  h; 
 
 ### T-0066 Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules
@@ -1023,6 +1043,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: Rare CF genotypes have cohorts too small for phase 3 FEV1 trials; European theratyping centers have validated rectal organoid swelling (FIS) as an accurate predictor of in vivo modulator response. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in published rectal organoid FIS swelling assay correlations; links Track A theratyping to Track B Trial Endpoint Atlas. Tier full. Recommended ready. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-14: Marked done. Open-access adaptive N-of-1 trial framework and organoid FIS surrogate endpoint models published in proposals/2026-10-adaptive-n-of-1-organoid-framework.md (PR cf-research#63).
 - **Measured:** 6 h; Adaptive N-of-1 trial protocol framework, mathematical FIS-to-FEV1/SwCl transfer functions (r = -0.71, P < 0.0001), and JSON Schema calculator specs published in proposals/2026-10-adaptive-n-of-1-organoid-framework.md (PR cf-research#63).
+
+### T-0217 Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py)
+
+- **Why / ROI rationale:** Quantifies the atomistic vacuum cavity (~120 A^3) and NBD2 destabilization resulting from near-cognate Cys/Arg substitution vs cognate Trp1282 insertion in Cryo-EM coordinates. *(confidence: high)*
+- **Route:** local - Atomistic Cryo-EM coordinate analysis of NBD2 core packing and thermal stability.
+- **Acceptance:** pytest tools/discovery/test_ptc_cryoem_allostery.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; PDB 6MSM; PDB 8EIQ; DOI 10.1038/s41467-023-41392-8; DOI 10.1021/acs.biochem.5c00590
+- **Notes:** Wave 8 Discovery Council Replenishment. Analyzes why engineered suppressor tRNA inserting authentic cognate amino acids is required to preserve channel gating and avoid ERAD.
 
 ### T-0090 Re-measure the local reviewer with the thinking profile and more runs per arm
 
