@@ -1,0 +1,7 @@
+{
+  "model": "nemotron-3.5-lightning:30b",
+  "num_ctx": 32768,
+  "think": false,
+  "temperature": 1.0,
+  "top_p": 0.95
+}
