@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-232 tasks, 231 created by a model, 123 with a measured outcome. Estimated effort 612.35 to 1149.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+234 tasks, 233 created by a model, 127 with a measured outcome. Estimated effort 619.85 to 1162.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (21)
+## ready (19)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -20,11 +20,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
-| T-0230 | P1 | Interactive Adenine Base Editing (ABE8e) & Splice Rescue Multi-Allele Explorer on /cf/ptc/ with es-MX parity | .ai | 3-5 | 4 | 10 | no | model: gemini-flash | 2026-10-18 | elevated | medium | local | T-0219 |  |
-| T-0232 | P1 | Interactive SORT-LNP Mucin Penetration & Airway Basal Cell Tropism Matrix Explorer on /cf/delivery/ with es-MX parity | .ai | 3-5 | 4 | 10 | no | model: gemini-flash | 2026-10-18 | elevated | medium | local | T-0215 |  |
-| T-0231 | P1 | Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | no | model: gemini-flash | 2026-10-18 | elevated | medium | local | T-0214 |  |
+| T-0233 | P1 | Nonviral Minimal DNA Vector (minidnacftr) CpG Depletion & TLR9 Evasion Simulation for Suppressor ACE-tRNAs (tools/discovery/minidna_evasion_model.py) | cf-research | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0234 | P1 | Extracellular Vesicle (EV) Basal Stem Cell Tropism & Trans-Tight-Junction Permeation Model (tools/discovery/ev_basal_tropism.py) | cf-research | 4-6.5 | 4 | 7.6 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
-| T-0217 | P1 | Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py) | cf-research | 4-7 | 3 | 5.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | local | T-0216 |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
 | T-0110 | P2 | Rulesets on main for the public repos | cf-lab | 0.5-1 | 5 | 66.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low | local |  |  |
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
@@ -36,7 +34,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (197)
+## done (201)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -110,6 +108,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
 | T-0155 | P1 | Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills) | cf-lab | 4-6 | 5 | 10 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | local |  | feat/turbo-sentinel-cadence |
 | T-0170 | P1 | Trial Endpoint Atlas: 8-class primary outcome lexicon & verbatim span extraction | cf-research | 4-6 | 5 | 10 | yes | model: gemini-4-argon | 2026-10-16 | elevated | medium | local | T-0169 |  |
+| T-0230 | P1 | Interactive Adenine Base Editing (ABE8e) & Splice Rescue Multi-Allele Explorer on /cf/ptc/ with es-MX parity | .ai | 3-5 | 4 | 10 | yes | model: gemini-flash | 2026-10-18 | elevated | medium | local | T-0219 |  |
+| T-0232 | P1 | Interactive SORT-LNP Mucin Penetration & Airway Basal Cell Tropism Matrix Explorer on /cf/delivery/ with es-MX parity | .ai | 3-5 | 4 | 10 | yes | model: gemini-flash | 2026-10-18 | elevated | medium | local | T-0215 |  |
 | T-0185 | P1 | Airway mucociliary clearance viscoelastic shear rheology & mucin mesh hindrance model (tools/discovery/mucus_rheology.py) | cf-research | 3-5.5 | 4 | 9.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0182 | P1 | Zero-build In Silico Delivery Hypothesis Explorer UI with Dignity Boundary Card (src/cf/delivery/) | .ai | 4-7 | 5 | 9.1 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local | T-0181 |  |
 | T-0183 | P1 | Splice-switching antisense oligonucleotide (ASO) steric blocking model for CFTR 3849+10kb C->T pseudoexon exclusion (tools/discovery/aso_splice_model.py) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
@@ -119,6 +119,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0184 | P1 | Prime editing pegRNA & nicking sgRNA biophysical feasibility scorer for CFTR F508del and W1282X (tools/discovery/prime_editing_cftr.py) | cf-research | 4-7.5 | 5 | 8.7 | yes | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0186 | P1 | CFTR modifier gene epistatic conductance model: SLC26A9, TMEM16A (ANO1), and ENaC interplay (tools/discovery/modifier_interactome.py) | cf-research | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0218 | P1 | Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0216 |  |
+| T-0231 | P1 | Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | yes | model: gemini-flash | 2026-10-18 | elevated | medium | local | T-0214 |  |
 | T-0147 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  | research/inhaled-delivery-dossier |
 | T-0149 | P1 | Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | site/es-mx-localization |
 | T-0159 | P1 | Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs) | cf-lab | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud |  | feat/antigravity-discovery-and-pr-rules |
@@ -134,6 +135,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0148 | P1 | Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools) | .ai | 6-12 | 5 | 5.6 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0149 | site/es-mx-localization |
 | T-0150 | P1 | In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery for rare and unclassified CFTR variants | cf-research | 6-12 | 5 | 5.6 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | high | cloud |  |  |
 | T-0153 | P1 | Adaptive trial frameworks and organoid (FIS) surrogate endpoints for ultra-rare CF genotypes | cf-research | 6-12 | 5 | 5.6 | yes | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0130 |  |
+| T-0217 | P1 | Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py) | cf-research | 4-7 | 3 | 5.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | high | local | T-0216 |  |
 | T-0018 | P2 | Add one explicit 'not affiliated with the Cystic Fibrosis Foundation' line near the site's donate link | .ai | 0.25-0.25 | 3 | 120 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0118 | P2 | Decide read and discard (cf-research #23) | cf-research | 0.5-1 | 4 | 53.3 | yes | model: claude-opus-5-5 | 2026-10-09 | full | low |  | T-0108 |  |
 | T-0015 | P2 | Reconcile the website's 'M365 Copilot drives the lab's task scheduling' claim with reality | .ai | 0.25-1 | 3 | 48 | no | model: claude-fable-5-1 | 2026-10-04 | routine |  |  |  |  |
@@ -932,7 +934,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Zero-build ES6 interactive simulation panel and bilingual localization on /cf/ptc/ connecting base editing and splice rescue.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_website_wave9_ptc_tree
 - **Evidence:** cf-research/tools/discovery/base_editing_cftr.py; cf-research/tools/discovery/base_editing_cftr_designs.json; DOI 10.1038/s41587-020-0453-z; RCSB PDB 6MSM; NCT06237335
-- **Notes:** Showcase Sentinel Proactive Replenishment. Expands curative gene editing visualization to span both nonsense and splice donor mutations.
+- **Notes:** Showcase Sentinel Proactive Replenishment. Expands curative gene editing visualization to span both nonsense and splice donor mutations. \| Done 2026-10-18: Merged in senseiewok/.ai#125 (ce53469).
+- **Measured:** 1.5 h; Delivered in senseiewok/.ai#125 (commit ce53469) expanding the ABE8e base editing explorer with 2789+5G->A splice rescue and es-MX parity.
 
 ### T-0232 Interactive SORT-LNP Mucin Penetration & Airway Basal Cell Tropism Matrix Explorer on /cf/delivery/ with es-MX parity
 
@@ -940,7 +943,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Zero-build ES6 interactive aerosol delivery simulation and bilingual localization on /cf/delivery/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; cf-research/landscape/delivery-biophysics.md; DOI 10.1038/s41565-021-00870-1; DOI 10.1073/pnas.2001532117
-- **Notes:** Showcase Sentinel Proactive Replenishment. Interactive delivery explorer connecting formulation chemistry with airway mucus biophysical penetration barriers.
+- **Notes:** Showcase Sentinel Proactive Replenishment. Interactive delivery explorer connecting formulation chemistry with airway mucus biophysical penetration barriers. \| Done 2026-10-18: Verified active on /cf/delivery/ via src/scripts/sort-lnp-matrix-explorer.js.
+- **Measured:** 1 h; Delivered via src/scripts/sort-lnp-matrix-explorer.js on /cf/delivery/ with es-MX parity and verified by StaticTests.
 
 ### T-0185 Airway mucociliary clearance viscoelastic shear rheology & mucin mesh hindrance model (tools/discovery/mucus_rheology.py)
 
@@ -1028,7 +1032,17 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Zero-build ES6 interactive MWC allosteric gating cycle simulation and bilingual localization on /cf/cftr/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/discovery-cryoem-3d-truncation-model.md; cf-research/landscape/cftr-structures.md; RCSB PDB 8EIQ; RCSB PDB 6MSM; DOI 10.1126/science.ade2216; NCT04043806
-- **Notes:** Showcase Sentinel Proactive Replenishment. Bridges structural biology of Trikafta / Next-Gen triple correctors to live interactive allosteric curves.
+- **Notes:** Showcase Sentinel Proactive Replenishment. Bridges structural biology of Trikafta / Next-Gen triple correctors to live interactive allosteric curves. \| Done 2026-10-18: Implemented #allosteric-gating-explorer on /cf/cftr/ with MWC 2^N microstate grand partition functions and es-MX parity.
+- **Measured:** 2.5 h; Implemented src/scripts/allosteric-gating-explorer.js, mounted #allosteric-gating-explorer on /cf/cftr/, added 23 es-MX keys, and verified with tests/test_allosteric_gating_explorer.py + Playwright desktop/mobile screenshots.
+
+### T-0233 Nonviral Minimal DNA Vector (minidnacftr) CpG Depletion & TLR9 Evasion Simulation for Suppressor ACE-tRNAs (tools/discovery/minidna_evasion_model.py)
+
+- **Why / ROI rationale:** Overcomes the TLR9 inflammation bottleneck that halted VX-522, modeling minimal nonviral DNA vectors for persistent ACE-tRNA delivery. *(confidence: high)*
+- **Route:** local - Quantitative biophysical ODE modeling of CpG depletion, endosomal TLR9 activation, and chromatinized episomal nuclear persistence.
+- **Acceptance:** pytest tools/discovery/test_minidna_evasion_model.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/frontier-discovery-2026-10-18.md; DOI 10.1093/nar/gkag082; DOI 10.1038/s41467-023-41392-8; ClinicalTrials.gov NCT05668741; tasks/specs/T-0233.md
+- **Spec:** `tasks/specs/T-0233.md`
+- **Notes:** Wave 9 Research Council Replenishment. Models CpG dinucleotide depletion and chromatinized nuclear transcription of suppressor tRNAs.
 
 ### T-0147 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 
@@ -1094,6 +1108,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; DOI 10.1038/s41467-023-41392-8; DOI 10.1073/pnas.1908401116; DOI 10.1016/j.jcf.2023.04.012; PDB 6MSM; PDB 8EIQ; ClinicalTrials.gov NCT04135495
 - **Notes:** Wave 8 Discovery Council Replenishment. Delivered and verified in cf-research#96 (9/9 pytest passed, 100% anti-hallucination guardrails passed).
 - **Measured:** 4.5 h; 
+
+### T-0234 Extracellular Vesicle (EV) Basal Stem Cell Tropism & Trans-Tight-Junction Permeation Model (tools/discovery/ev_basal_tropism.py)
+
+- **Why / ROI rationale:** Quantifies non-immunogenic EV delivery across airway tight junctions to reach KRT5+/TP63+ basal progenitors for lifelong curative persistence. *(confidence: high)*
+- **Route:** local - Compartmental transport and cellular uptake modeling across pseudostratified airway epithelial junctions.
+- **Acceptance:** pytest tools/discovery/test_ev_basal_tropism.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/frontier-discovery-2026-10-18.md; DOI 10.3389/fbioe.2026.1855907; DOI 10.1172/jci.insight.206375; ClinicalTrials.gov NCT05248230; tasks/specs/T-0234.md
+- **Spec:** `tasks/specs/T-0234.md`
+- **Notes:** Wave 9 Research Council Replenishment. Trans-junctional permeation and basal stem cell chimerism modeling.
 
 ### T-0066 Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules
 
@@ -1179,7 +1202,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Atomistic Cryo-EM coordinate analysis of NBD2 core packing and thermal stability.
 - **Acceptance:** pytest tools/discovery/test_ptc_cryoem_allostery.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; PDB 6MSM; PDB 8EIQ; DOI 10.1038/s41467-023-41392-8; DOI 10.1021/acs.biochem.5c00590
-- **Notes:** Wave 8 Discovery Council Replenishment. Analyzes why engineered suppressor tRNA inserting authentic cognate amino acids is required to preserve channel gating and avoid ERAD.
+- **Notes:** Delivered in senseiewok/cf-research#100. Acceptance checks passed: pytest tools/discovery/test_ptc_cryoem_allostery.py -v (9/9 passed) and python tools/claims/check_anti_hallucination.py passed.
+- **Measured:** 5.5 h; Delivered PTCCryoEMAllosteryModel in tools/discovery/ptc_cryoem_allostery.py with 9 unit tests in test_ptc_cryoem_allostery.py modeling PDB 6MSM/8EIQ Cryo-EM coordinates, 120 A^3 vacuum cavity for W1282C, steric clashes for G542C, and allosteric rescue in senseiewok/cf-research#100.
 
 ### T-0090 Re-measure the local reviewer with the thinking profile and more runs per arm
 
