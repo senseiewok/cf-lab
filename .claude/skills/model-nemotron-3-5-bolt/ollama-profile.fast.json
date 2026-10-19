@@ -1,0 +1,7 @@
+{
+  "model": "nemotron-3.5-bolt:74b-a9b",
+  "num_ctx": 32768,
+  "think": false,
+  "temperature": 1.0,
+  "top_p": 0.95
+}
