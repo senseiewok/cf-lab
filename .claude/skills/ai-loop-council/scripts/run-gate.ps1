@@ -61,14 +61,22 @@
 #>
 [CmdletBinding(PositionalBinding = $false)]
 param(
-    [Parameter(Mandatory)] [ValidateSet('routine', 'elevated', 'full')] [string] $Tier,
-    [Parameter(Mandatory)] [string[]] $Expected,
+    [string] $Tier,
+    [string[]] $Expected = @(),
     [string] $RepoPath = '.',
     [string] $MessageFile,
     [switch] $LocalReview,
     [string] $ReviewScript = (Join-Path $PSScriptRoot 'review-diff.ps1')
 )
 $ErrorActionPreference = 'Stop'
+if (-not $Tier -or $Tier -notin @('routine', 'elevated', 'full')) {
+    Write-Host "error: -Tier is required ('routine', 'elevated' or 'full')"
+    exit 2
+}
+if (-not $Expected -or @($Expected | Where-Object { $_ -and $_.Trim() }).Count -eq 0) {
+    Write-Host 'error: -Expected is required (pass the planned file list, e.g. -Expected file1,file2)'
+    exit 2
+}
 # Text from the review is shown on a terminal: C0 and C1 controls, DEL, line separators, bidi, zero-width, variation
 # selectors, tag characters and other default-ignorable characters become '?'.
 $script:Unprintable = [regex]::new('[\x00-\x1F\x7F-\x9F\u00ad\u034f\u061c\u115f\u1160\u17b4\u17b5\u180b-\u180f\u200b-\u200f\u2028-\u202e\u2060-\u206f\u3164\ufe00-\ufe0f\ufeff\uffa0\ufff0-\ufffd]|[' + [char]0xD82F + [char]0xD834 + '][' + [char]0xDC00 + '-' + [char]0xDFFF + ']|[' + [char]0xDB40 + '-' + [char]0xDB43 + '][' + [char]0xDC00 + '-' + [char]0xDFFF + ']|[' + [char]0xD800 + '-' + [char]0xDBFF + '](?![' + [char]0xDC00 + '-' + [char]0xDFFF + '])|(?<![' + [char]0xD800 + '-' + [char]0xDBFF + '])[' + [char]0xDC00 + '-' + [char]0xDFFF + ']')

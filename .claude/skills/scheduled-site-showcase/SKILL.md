@@ -30,7 +30,7 @@ flowchart TD
     Worktree --> Stage1["2. Research Round & Skill Evolution"]
     Stage1 --> Stage2["3. Public Translation & Site Showcase\n(In Worktree)"]
     Stage2 --> Stage3["4. Grounded Review Loop & Build Verification\n(Unit Tests + Playwright Audits)"]
-    Stage3 --> Stage4["5. Elevated Gate & Dual-Family PR Submission"]
+    Stage3 --> Stage4["5. Fast Pre-Push Check & PR Submission\n(Full Gate Runs in Cloud CI)"]
     Stage4 --> Release["6. Release Lock via run-sentinel -Complete"]
 ```
 
@@ -117,12 +117,12 @@ Execute the mandatory 3-layer Grounded Review Loop:
      ```
    - Inspect screenshots in `../cf-lab-files/scratch/screenshots/` to verify zero visual overlap, no mobile overflow, and legible typography.
 
-### Stage 4: Elevated Gate, Dual-Family Frontier Review (Argon + Opus) & PR Submission
+### Stage 4: Fast Pre-Push Check, Dual-Family Frontier Review (Argon + Opus) & PR Submission
 
-1. **Elevated Gate Enforcement**:
-   - Inside the dedicated worktree, stage changed files, run first-pass local diff review (`pwsh .claude/skills/ai-loop-council/scripts/review-diff.ps1 -Staged`), and verify through the repo gate:
+1. **Fast Pre-Push Secret & Privacy Check**:
+   - Stage changed files inside the dedicated worktree and run the fast (~0.3s) pre-push staged secret/privacy check (`check-staged.ps1`); skip redundant local `run-gate.ps1` / `check-changed.ps1` runs because Stage 3 already verified the targeted checks and GitHub Actions CI runs the full gate in the cloud:
      ```powershell
-     pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier elevated -Expected "<changed-files>" -MessageFile <path-to-commit-msg>
+     pwsh -NoProfile -File .claude/skills/security-git/scripts/check-staged.ps1 -RepoPath <worktree-path> -Expected "<changed-files>"
      ```
 2. **Execute `pr-review-loop` with Diversity Frontier Council (Argon + Opus)**:
    - For elevated review before PR submission, escalate top-task challenger reviews to **Argon** (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`) paired with Anthropic Claude Opus.

@@ -399,8 +399,8 @@ def summarize_pr_repair(pr: dict, issues: list[str]) -> dict:
         "issues": issues,
         "repair_steps": [
             "If superseded_by_main: verify deliverables and task status on origin/main, then close the duplicate PR with 'gh pr close <number> --repo <repo_slug>'.",
-            "If merge_conflict: in the PR worktree, run 'git fetch origin main' and 'git merge origin/main' (never force-push), resolve conflicts, regenerate derived files (e.g. render-board.ps1), run checks + run-gate.ps1, and push.",
-            "If ci_failure or review_blocker: inspect failed check logs ('gh pr checks <number> --repo <repo_slug>' / 'gh run view --log-failed') and unresolved review comments ('gh api repos/<repo_slug>/pulls/<number>/comments'), apply minimal deterministic fix in the worktree, verify via run-gate.ps1, and push.",
+            "If merge_conflict: in the PR worktree, run 'git fetch origin main' and 'git merge origin/main' (never force-push), resolve conflicts, regenerate derived files (e.g. render-board.ps1), run targeted checks + check-staged.ps1, and push.",
+            "If ci_failure or review_blocker: inspect failed check logs ('gh pr checks <number> --repo <repo_slug>' / 'gh run view --log-failed') and unresolved review comments ('gh api repos/<repo_slug>/pulls/<number>/comments'), apply minimal deterministic fix in the worktree, verify via targeted checks + check-staged.ps1, and push.",
         ],
     }
 
