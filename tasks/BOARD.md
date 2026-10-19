@@ -24,8 +24,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0214 | P1 | Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
-| T-0220 | P1 | Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy | cf-research | 3.5-6.5 | 5 | 10 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
-| T-0219 | P1 | Base Editing (ABE8e / CBE) bystander deamination window & PAM accessibility model for CFTR nonsense and canonical splice alleles (W1282X, R553X, G542X, 2789+5G->A) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
 | T-0221 | P1 | CFTR potentiator + triple-corrector cooperative allosteric gating thermodynamic cycle (VX-445 / VX-661 / VX-121 / VX-561 open-channel stabilization) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
 | T-0218 | P1 | Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0216 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -38,6 +36,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
+| T-0220 | P3 | Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy | cf-research | 3.5-6.5 | 5 | 10 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
@@ -113,6 +112,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0182 | P1 | Zero-build In Silico Delivery Hypothesis Explorer UI with Dignity Boundary Card (src/cf/delivery/) | .ai | 4-7 | 5 | 9.1 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local | T-0181 |  |
 | T-0183 | P1 | Splice-switching antisense oligonucleotide (ASO) steric blocking model for CFTR 3849+10kb C->T pseudoexon exclusion (tools/discovery/aso_splice_model.py) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0206 | P1 | Dual-AAV split-intein trans-splicing biophysical reconstitution model for CFTR (tools/discovery/dual_aav_intein_model.py) | cf-research | 4-7 | 5 | 9.1 | yes | model: gemini-4-argon | 2026-10-18 | elevated | high | local |  |  |
+| T-0219 | P1 | Base Editing (ABE8e / CBE) bystander deamination window & PAM accessibility model for CFTR nonsense and canonical splice alleles (W1282X, R553X, G542X, 2789+5G->A) | cf-research | 4-7 | 5 | 9.1 | yes | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
 | T-0184 | P1 | Prime editing pegRNA & nicking sgRNA biophysical feasibility scorer for CFTR F508del and W1282X (tools/discovery/prime_editing_cftr.py) | cf-research | 4-7.5 | 5 | 8.7 | yes | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0186 | P1 | CFTR modifier gene epistatic conductance model: SLC26A9, TMEM16A (ANO1), and ENaC interplay (tools/discovery/modifier_interactome.py) | cf-research | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0147 | P1 | Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination) | cf-research | 4-8 | 5 | 8.3 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud |  | research/inhaled-delivery-dossier |
@@ -899,15 +899,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Decomposed from T-0130 (Sub-Task 2). Maps primary outcomes to 8 classes with verbatim span tuples. \| 2026-10-16 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #83 (python -m unittest tools/trial_atlas/test_lexicon.py tools/trial_atlas/test_propose_tags.py: 153 passed; full trial_atlas suite: 464 passed).
 - **Measured:** 4 h; Delivered 8-class primary outcome mapping (CANONICAL_8_CLASSES, CANONICAL_8_MAP), verbatim character span tuples [start, end], and 100% exact substring match invariant. Verified via 153 passing tests across test_lexicon.py and test_propose_tags.py, and 464 passing tests across tools/trial_atlas in senseiewok/cf-research PR #83.
 
-### T-0220 Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy
-
-- **Why / ROI rationale:** Establishes quantitative criteria for curative durability, determining redosing intervals for aerosolized mRNA vs lifelong persistence of basal stem gene editing. *(confidence: high)*
-- **Route:** frontier - Dynamical systems modeling of stem cell kinetics and vector persistence across clinical multi-year horizons.
-- **Acceptance:** pytest tools/discovery/test_basal_stem_persistence.py
-- **Evidence:** DOI 10.1038/s41586-018-0394-6; ClinicalTrials.gov NCT06515002; NCT05248230; tasks/specs/T-0214.md
-- **Spec:** `tasks/specs/T-0220.md`
-- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0214.md.
-
 ### T-0185 Airway mucociliary clearance viscoelastic shear rheology & mucin mesh hindrance model (tools/discovery/mucus_rheology.py)
 
 - **Why / ROI rationale:** Quantifies the dehydrated CF airway mucus barrier across solids concentrations to guide aerosolized LNP (NCT05668741) and AAV (NCT05248230, NCT06526923) vector engineering. *(confidence: high)*
@@ -949,7 +940,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_base_editing_cftr.py
 - **Evidence:** DOI 10.1038/s41587-020-0453-z; ClinicalTrials.gov NCT06237335; PDB 6MSM; tasks/specs/T-0213.md
 - **Spec:** `tasks/specs/T-0219.md`
-- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0213.md.
+- **Notes:** Delivered in senseiewok/cf-research#97 with tools/discovery/base_editing_cftr.py, base_editing_cftr_designs.json, and test_base_editing_cftr.py (10/10 passing).
+- **Measured:** 5 h; Implemented CFTRBaseEditingModel modeling SpCas9/SpRY/SpG PAM variants, Gaussian deamination window (W_E), bystander purity ratio (P), and Cryo-EM 6MSM structural perturbation scoring (DeltaDelta G_fold) for W1282X, R553X, G542X, 2789+5G->A in senseiewok/cf-research#97.
 
 ### T-0221 CFTR potentiator + triple-corrector cooperative allosteric gating thermodynamic cycle (VX-445 / VX-661 / VX-121 / VX-561 open-channel stabilization)
 
@@ -2130,6 +2122,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-10: two reviewers asked for it; the board has an in_progress row whose dependency is only 'ready' (T-0077 on T-0078), several rows whose notes say Done but are not closed, and 20 proposed P1 rows.
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Do not auto-fix; the check reports. 2026-10-13: two more rules from cf-lab PR 50: -Check fails when board.json begins with a UTF-8 byte-order mark (bytes ef bb bf; an earlier head of that PR wrote one, and Python's json.loads rejects it) and when two rows share an id (that PR created a second T-0140). Both were caught by hand, not by the renderer. render-board.ps1 already rejects a duplicate id (line 43 on 2026-10-13), so check that the new rule covers a collision across two branches, which a per-file check cannot see. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. \| Done 2026-10-17: added UTF-8 BOM rejection, unfinished-dependency in_progress check, open-row Done note check, priority inversion check, and -MaxProposedP1 cap to tasks/render-board.ps1 with fixture tests in tasks/test-render-board.ps1.
 - **Measured:**  h; 
+
+### T-0220 Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy
+
+- **Why / ROI rationale:** Establishes quantitative criteria for curative durability, determining redosing intervals for aerosolized mRNA vs lifelong persistence of basal stem gene editing. *(confidence: high)*
+- **Route:** frontier - Dynamical systems modeling of stem cell kinetics and vector persistence across clinical multi-year horizons.
+- **Acceptance:** pytest tools/discovery/test_basal_stem_persistence.py
+- **Evidence:** DOI 10.1038/s41586-018-0394-6; ClinicalTrials.gov NCT06515002; NCT05248230; tasks/specs/T-0214.md
+- **Spec:** `tasks/specs/T-0220.md`
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0214.md.
 
 ### T-0113 Eval tallies as data: commit verdict rows, recount the grid, state judge drift
 
