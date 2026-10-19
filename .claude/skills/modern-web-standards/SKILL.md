@@ -45,6 +45,38 @@ Avoid constraining data-dense or interactive scientific content to narrow single
   grid-template-rows: subgrid;
   grid-row: span 3;
 }
+
+### Mobile (375px) zero-overflow & slider grid rule
+
+Multi-column parameter controls, sliders, or metrics panels (`.tool-grid`, `.slider-group`, `.cards-grid`) must adapt gracefully to narrow mobile devices (down to 375px viewport width, satisfying WCAG 1.4.10 Reflow without horizontal scrollbars):
+- Below 640px viewport width, collapse multi-column slider layouts to a single column (`grid-template-columns: 1fr`).
+- Always apply `min-width: 0` to CSS Grid and Flexbox children; by default, grid items have `min-width: auto`, which prevents children with wide inputs or code blocks from shrinking and causes horizontal clipping:
+
+```css
+/* Multi-column desktop parameter/slider controls */
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Crucial: allow grid children to shrink below content intrinsic minimum */
+.controls-grid > * {
+  min-width: 0;
+}
+
+/* Narrow mobile viewport collapse (< 640px down to 375px) */
+@media (max-width: 640px) {
+  .controls-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slider-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+```
 ```
 
 ### CSS Container Queries (`@container`)

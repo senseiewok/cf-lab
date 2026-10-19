@@ -84,6 +84,33 @@ Under `style-src` without `unsafe-inline`, `<style>` elements, `style="..."` att
 
 Optionally, `scripts/test-playwright.py` runs the same claims for both examples through real Playwright for Python (run it with the python of the environment `playwright-browser-testing` sets up; it prints `VERIFIED`, and with a bad page of its own it proves it can fail).
 
+## Dynamic SVG line drawing & frozen time contract
+
+When SVG paths with line-drawing animations (`.svg-draw-line`, `pathLength="1"`) are dynamically created or injected by JavaScript, or when automated visual review harnesses freeze time via `?t=SECONDS` or `html.is-svg-frozen-time`:
+- An animation paused before completion leaves paths at `stroke-dashoffset: 1`, rendering curves and trajectory lines completely invisible on visual captures.
+- Always include an explicit stylesheet override ensuring drawn state is visible:
+  ```css
+  .is-svg-frozen-time .svg-draw-line,
+  @media (prefers-reduced-motion: reduce) {
+    .svg-draw-line {
+      stroke-dashoffset: 0 !important;
+      animation: none !important;
+    }
+  }
+  ```
+- **Universal WCAG 2.2.2 Pause/Resume Wiring**: Wire interactive animation controls using the standard `data-svg-target` attribute:
+  ```javascript
+  document.querySelectorAll('button[data-svg-target]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const svg = document.getElementById(btn.dataset.svgTarget);
+      if (!svg) return;
+      const isPaused = svg.classList.toggle('is-svg-paused');
+      btn.setAttribute('aria-pressed', isPaused ? 'true' : 'false');
+      btn.textContent = isPaused ? 'Resume' : 'Pause';
+    });
+  });
+  ```
+
 ## Tooling
 
 - Run illustrations through SVGO to strip editor cruft, then check the output still has the `id`s, `viewBox`, `<title>` and `<desc>` you need; behaviour depends on the SVGO version and configuration.

@@ -33,7 +33,7 @@ flowchart TD
     Triage -->|No| Clean["Emit Clean Audit Record to .loop-logs/"]
     Triage -->|Fixable Defect or Error| Fix["4. Automated Remediation Worktree Pipeline"]
     Triage -->|Secret / Critical Leak| Alert["5. Emergency Handoff Alert & Revocation Notice"]
-    Fix --> Gate["Fast Pre-Push Check: Targeted Checks + check-staged.ps1\n(Full Gate Runs in Cloud CI)"]
+    Fix --> Gate["Full Gate: run-gate.ps1 -Tier full"]
     Gate --> PR["Open Pull Request via gh pr create"]
     Clean --> Release["6. Release Lock via run-sentinel -Complete"]
     PR --> Release
@@ -100,13 +100,19 @@ When orchestrating on Gemini Flash, **delegate the first-pass mechanical triage 
    - Mines all session transcripts under `<appDataDir>/brain/` and task logs for Non-Zero Exit Codes, PowerShell Syntax/ScriptBlock errors, Python Tracebacks, path resolution failures, and lock contention.
    - Saves structured audit ledger to `.loop-logs/session-error-digest.json`.
    - Converts recurring failure patterns into concrete script hardening, skill guideline updates, and auto-fix pull requests.
+7. **Worktree Drift Harvest & Duplicate-PR Preflight Guard**:
+   - Run `python tasks/check_worktree_drift.py --check` across `.worktrees/*/*`.
+   - Inspect unharvested commits on stale branches to prevent duplicate re-implementation or colliding PRs.
+   - When building security lane tasks from `.loop-logs/bold-bundle-security.json`, inspect `existing_worktrees` and read `spec_markdown` directly.
+8. **Task Spec Dossier Integrity Audit**:
+   - Run `python tasks/check_task_specs.py --check` to verify that every `spec_path` declared on `tasks/board.json` resolves to a valid markdown specification with primary-source citations and test commands.
 
 ### 3. Automated Remediation & PR Pipeline
 
 When a fixable hygiene or security defect is detected (e.g. missing `.gitignore` pattern, unescaped catalog URL, lint regression, or stale hash):
 
 1. **Check Active Worktrees & Board Branches**:
-   - Inspect `tasks/board.json` (`status: "in_progress"` and `"branch"`) and `git -C <repo> worktree list` before touching any repository. If an active branch/worktree is already modifying the affected files, log the finding to `memory/handoff.md` rather than racing on the same target.
+   - Inspect `tasks/board.json` (`status: "in_progress"` and `"branch"`), `tasks/check_worktree_drift.py`, and `git -C <repo> worktree list` before touching any repository. If an active branch/worktree is already modifying the affected files, harvest its commits or log the finding to `memory/handoff.md` rather than racing on the same target.
 2. **Spawn Isolated Git Worktree & Record Branch**:
    ```powershell
    python .claude/skills/workspace-siblings/scripts/worktrees.py new <repo> sec-fix-<topic>
@@ -114,10 +120,14 @@ When a fixable hygiene or security defect is detected (e.g. missing `.gitignore`
    - When claiming a board task for the fix, set `"status": "in_progress"` and `"branch": "sec-fix-<topic>"` in `tasks/board.json` and run `pwsh -NoProfile -File tasks/render-board.ps1`.
 3. **Apply Minimal Deterministic Patch**:
    - Apply only the focused remediation code.
-4. **Run Targeted Verification & Fast Pre-Push Check**:
-   - Run the task's targeted unit/acceptance test and the fast (~0.3s) pre-push staged secret/privacy check (`check-staged.ps1`); skip redundant local `run-gate.ps1` / `review-diff.ps1` runs because GitHub Actions CI executes the full gate in the cloud:
+4. **Run Local Diff Review & Full Review Gate**:
+   - Run first-pass diff review via local worker:
      ```powershell
-     pwsh -NoProfile -File .claude/skills/security-git/scripts/check-staged.ps1 -RepoPath <worktree-path> -Expected "<changed-files>"
+     pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/review-diff.ps1 -RepoPath:. -Staged
+     ```
+   - Execute full review gate:
+     ```powershell
+     pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier full -Expected "<changed-files>" -MessageFile <path-to-commit-msg>
      ```
 5. **Top-Task Escalation: Diversity Frontier Council (Argon + Opus)**:
    - For Tier Full review and blind challenger passes, escalate top tasks to **Argon** (Gemini 4 Argon via `invoke_subagent` with `Model: 'pro'`) paired with Anthropic Claude Opus.
@@ -150,7 +160,7 @@ The security sentinel also owns a bounded improvement round for the three schedu
 - A proposed change to an agent must cite the reproduced failure or measured gap it fixes. A model's opinion is not evidence.
 
 **How to apply it:**
-- Open one `proposed` task in `tasks/board.json` per round with the evidence and a runnable acceptance check, then make one narrow edit to the owning `SKILL.md` or script in a worktree (`worktrees.py new cf-lab agent-improve-<topic>`). Run `python tasks/check-skill-frontmatter.py`, the focused test for any script you touched, and `check-staged.ps1` with the Argon plus Opus review.
+- Open one `proposed` task in `tasks/board.json` per round with the evidence and a runnable acceptance check, then make one narrow edit to the owning `SKILL.md` or script in a worktree (`worktrees.py new cf-lab agent-improve-<topic>`). Run `python tasks/check-skill-frontmatter.py`, the focused test for any script you touched, and the Full gate with the Argon plus Opus review.
 - The live sidecar configs in `C:\Users\<user>\.gemini\config\sidecars\` sit outside git. Do not edit them. Write the proposed change into `memory/handoff.md` for the maintainer.
 - Anti-churn still applies: with no evidence-backed gap, write `.loop-logs/last-agent-improvement.json` and stop. No PR, no board edit.
 
@@ -170,5 +180,5 @@ If an active API key or private credential is ever detected in a log or commit:
 - **Maintainer Gate**: The sentinel opens pull requests and logs alerts; only the human maintainer merges code.
 - **Anti-Hallucination Guardrails**:
   - **Grounded Defect Verification**: Every reported secret leak or PHI violation must be verified against exact file path, commit hash, and line number in the local repository. Differentiate real credentials from synthetic test fixtures and regex patterns before escalating.
-  - **Deterministic Proof Before Fix PR**: Remediations must be verified by targeted test execution and `check-staged.ps1` before push (full gate runs in cloud CI); never claim a leak is fixed without clean scanner output.
+  - **Deterministic Proof Before Fix PR**: Remediations must be verified by `run-gate.ps1 -Tier full` and targeted test execution; never claim a leak is fixed without clean scanner output.
 

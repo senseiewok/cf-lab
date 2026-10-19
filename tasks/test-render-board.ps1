@@ -79,6 +79,14 @@ try {
     $r = Run-Render @((New-Task @{ evidence_package = @{ packet_path = 'valid.md'; answer_tier = 'T9' } }))
     Check 'evidence_package with invalid answer_tier is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'answer_tier must be') $r.Out
 
+    # optional spec_path field
+    $r = Run-Render @((New-Task @{ spec_path = 'tasks/specs/T-0001.md' }))
+    Check 'spec_path renders in detail when set' ($r.Code -eq 0 -and $r.Md -match '\*\*Spec:\*\* `tasks/specs/T-0001.md`') $r.Out
+    $r = Run-Render @((New-Task @{ spec_path = 'tasks/specs/../bad.md' }))
+    Check 'spec_path with .. is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'bad spec_path') $r.Out
+    $r = Run-Render @((New-Task @{ spec_path = 'not-a-markdown-file.txt' }))
+    Check 'spec_path not ending in .md is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'bad spec_path') $r.Out
+
     # statuses are untouched by rendering, and the real board still renders as current
     $tasks = @((New-Task @{ status = 'in_progress' } 'T-0001'), (New-Task @{ status = 'proposed'; complexity = 'low' } 'T-0002'))
     $r = Run-Render $tasks

@@ -333,8 +333,29 @@ def verify_evidence_package(task: dict, repo_root: Path = REPO_ROOT) -> tuple[bo
     return True, "Evidence package structurally verified"
 
 
+def verify_task_spec(task: dict, repo_root: Path = REPO_ROOT) -> tuple[bool, str]:
+    """Deterministically verify an attached task specification dossier."""
+    spec_path = task.get("spec_path")
+    if not spec_path:
+        return True, "No spec_path attached (optional)"
+
+    resolved = resolve_repo_file(repo_root, spec_path)
+    if not resolved or not resolved.is_file():
+        return False, f"spec_path file not found: {spec_path}"
+
+    try:
+        content = resolved.read_text(encoding="utf-8")
+    except Exception as e:
+        return False, f"Failed to read spec_path '{spec_path}': {e}"
+
+    if len(content.strip()) < 50:
+        return False, f"spec_path dossier '{spec_path}' is empty or too short"
+
+    return True, "Task spec dossier verified"
+
+
 def is_grounded_executable(task: dict, repo_root: Path = REPO_ROOT) -> tuple[bool, str]:
-    """Check if task has solid evidence, verifiable acceptance, valid ROI, and verified evidence package."""
+    """Check if task has solid evidence, verifiable acceptance, valid ROI, verified evidence package, and valid spec."""
     is_anchored, reason, _ = verify_anti_hallucination_guardrails(task, repo_root=repo_root)
     if not is_anchored:
         return False, reason
@@ -342,6 +363,10 @@ def is_grounded_executable(task: dict, repo_root: Path = REPO_ROOT) -> tuple[boo
     is_ep_valid, ep_reason = verify_evidence_package(task, repo_root)
     if not is_ep_valid:
         return False, ep_reason
+
+    is_spec_valid, spec_reason = verify_task_spec(task, repo_root)
+    if not is_spec_valid:
+        return False, spec_reason
 
     acc = task.get("acceptance", "").strip()
     roi = task.get("roi", {})
@@ -744,6 +769,7 @@ def main(argv=None) -> int:
     parser.add_argument("--roi-model", action="store_true", help="Compute multi-category ROI breakdown and score for all tasks")
     parser.add_argument("--council", action="store_true", help="Execute full AI Loop Council triage and emit audit report")
     parser.add_argument("--check", action="store_true", help="Check that board is triaged without modifying")
+    parser.add_argument("--apply", action="store_true", help="Apply triage changes to board and render")
     parser.add_argument("--no-render", action="store_true", help="Skip invoking render-board.ps1")
     args = parser.parse_args(argv)
 

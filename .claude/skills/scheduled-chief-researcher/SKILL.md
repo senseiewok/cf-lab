@@ -44,13 +44,19 @@ The cron job runs `tasks/run-sentinel.ps1 -SentinelName daily-research-sentinel`
 ### 1. Deterministic Board Auto-Triage & Approval (`tasks/triage_board.py`)
 Per maintainer directive, the Chief Researcher Officer sentinel automatically triages and approves tasks on `tasks/board.json`:
 ```powershell
-python tasks/triage_board.py
+python tasks/triage_board.py --apply
 ```
-- **Auto-Approval (`proposed` -> `ready`)**: Tasks with primary source evidence (DOI, NCT, PDB, catalog), verifiable acceptance criteria, effort estimates, and valid ROI are automatically promoted to `ready`.
+- **Auto-Approval (`proposed` -> `ready`)**: Tasks with primary source evidence (DOI, NCT, PDB, catalog), verifiable acceptance criteria, effort estimates, valid ROI, and verified spec dossiers (`spec_path`) are automatically promoted to `ready`.
 - **Auto-Completion (`proposed` / `in_progress` -> `done`)**: Sentinel deliverables and merged features are marked `done` with measured outcomes and actual hours recorded.
 - **Human Gate Guardrail**: Tasks listed in `tasks/HUMAN-TASKS.md` or requiring human-only actions (signing legal letters, purchasing commercial subscriptions, in-person clinical review) are held in `proposed`.
 
-### 2. Grounding & Coordination Audit of Board Tasks (Local Worker Delegation)
+### 2. Build Slot Grounding & Spec Dossier Invariants
+- When executing the build slot for claimed `research` lane tasks from `.loop-logs/bold-bundle-research.json`:
+  - **Read `spec_markdown` directly**: Do not rely on brief title summaries alone; read the embedded `spec_markdown` containing exact biophysical equations, primary literature citations, and deterministic test commands.
+  - **Check `existing_worktrees` & `gh pr list`**: Inspect `existing_worktrees` in `bold-bundle-research.json` and check `gh pr list --state open` before creating branches. If an unmerged worktree exists matching the task, harvest and resume its commits.
+  - **Audit `spec_path`**: Verify every complex Track A biophysical task has an accompanying specification dossier in `tasks/specs/<TASK-ID>.md` (`python tasks/check_task_specs.py --check`).
+
+### 3. Grounding & Coordination Audit of Board Tasks (Local Worker Delegation)
 - When orchestrating on Gemini Flash, **delegate citation and scope extraction to the preferred local worker (`qwen3.8:27b-64k`)** using `.claude/skills/ai-loop-council/scripts/invoke-local-model.ps1`:
   - Scans all `status: proposed`, `ready`, and `in_progress` tasks in `tasks/board.json`:
     - Asserts that `source_evidence` cites primary peer-reviewed literature (DOI), clinical registries (NCT), Cryo-EM coordinates (PDB), or official regulatory documentation.

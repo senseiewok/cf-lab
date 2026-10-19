@@ -37,6 +37,47 @@ Each point is either tested by `scripts/test-check-webgl.py` or sourced (the URL
 - **`drawElements` counts indices.** The `count` argument is the number of elements of the bound element array buffer to render, so for `gl.TRIANGLES` it is the index count (three per triangle in that mode), not the triangle count. Passing the triangle count draws the first third of the mesh and raises no error and no GL error. Measured in this lab: three of six pages written by the local worker passed a count that covered only part of the element array (two passed the triangle count, one half the indices) and drew a partial mesh (an open, partial torus in the two frames that were viewed); two of them still reported the full triangle count in their probe. Compute both from the same array: `indices.length` to `drawElements`, `indices.length / 3` for any triangle count you report. `type` is `UNSIGNED_BYTE` or `UNSIGNED_SHORT`; `UNSIGNED_INT` is listed there only with the `OES_element_index_uint` extension (the page read does not say how WebGL 2 differs).
 - **A lit mesh** needs a normal for every vertex, a light fixed in world space, and the model's rotation applied to the normals as well as the positions. A shape that is symmetric about the axis it spins around looks identical in every frame (measured with a torus spun about its own axis), so a spin that is applied before the tilt shows nothing; tilt first, then spin. Measured: two of six worker pages applied the spin before the tilt; one of them was identical in every frame, and the other passed a rotation check, which we infer is because its missing triangles broke the symmetry (not tested).
 
+## WebGL2 biophysical particle & mesh shader pattern
+
+When implementing molecular, particle, or mesh shaders (e.g. ion channel pore conduction, LNP aerosol particle dynamics, or allosteric conformation transitions):
+- **Context initialization & headless fallback**:
+  ```javascript
+  let gl = canvas.getContext('webgl2');
+  if (!gl) {
+    // Graceful fallback for headless or software environments without WebGL2
+    canvas.dataset.rendererMode = '2d-fallback';
+    const ctx = canvas.getContext('2d');
+    renderStaticBiophysicalSchematic(ctx);
+    return;
+  }
+  canvas.dataset.rendererMode = 'webgl2';
+  ```
+- **Context Loss & Recovery**:
+  ```javascript
+  canvas.addEventListener('webglcontextlost', (e) => {
+    e.preventDefault();
+    if (rafId) cancelAnimationFrame(rafId);
+  });
+  canvas.addEventListener('webglcontextrestored', () => {
+    initGLResources();
+    startLoop();
+  });
+  ```
+- **Deterministic `?t=SECONDS` Shader Time Freeze**:
+  ```javascript
+  const params = new URLSearchParams(window.location.search);
+  const frozenTime = params.has('t') ? parseFloat(params.get('t')) : null;
+
+  function render(timeMs) {
+    const elapsedSeconds = frozenTime !== null ? frozenTime : timeMs * 0.001;
+    gl.uniform1f(uTimeLoc, elapsedSeconds);
+    gl.drawArrays(gl.POINTS, 0, particleCount);
+    if (frozenTime === null && !isPaused) {
+      rafId = requestAnimationFrame(render);
+    }
+  }
+  ```
+
 ## three.js
 
 - **Setup.** Load three.js as ES modules and pin one tested release for `three` and its addons; never `@latest`. On lab sites, vendor the complete matching module files with their relative paths (`three.module.js` alone may import others) so the page makes no third-party request. An import map and module script written inline need a nonce or hash under a strict Content-Security-Policy; a local bundle avoids that.

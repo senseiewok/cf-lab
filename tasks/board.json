@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -11112,6 +11112,428 @@
         "roi_ratio": 1.63
       },
       "notes": "Wave 8 Discovery Council Replenishment. Interactive companion workbench empowering families and researchers to visualize nonsense mutation rescue mechanics."
+    },
+    {
+      "id": "T-0219",
+      "title": "Base Editing (ABE8e / CBE) bystander deamination window & PAM accessibility model for CFTR nonsense and canonical splice alleles (W1282X, R553X, G542X, 2789+5G->A)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "frontier",
+      "route_rationale": "High-stakes biophysical deaminase window and structural perturbation modeling requiring frontier verification.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 4.0,
+        "high": 7.0
+      },
+      "source_evidence": "DOI 10.1038/s41587-020-0453-z; ClinicalTrials.gov NCT06237335; PDB 6MSM; tasks/specs/T-0213.md",
+      "spec_path": "tasks/specs/T-0219.md",
+      "acceptance": "pytest tools/discovery/test_base_editing_cftr.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Enables precise in silico screening of base editor gRNAs and bystander mutation risk for refractory nonsense mutations (W1282X, R553X) and splice variants.",
+        "categories": {
+          "curative_biophysics": 9.8,
+          "clinical_translation": 9.2,
+          "scientific_integrity": 9.5,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.52,
+        "roi_ratio": 1.55
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0213.md."
+    },
+    {
+      "id": "T-0220",
+      "title": "Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "frontier",
+      "route_rationale": "Dynamical systems modeling of stem cell kinetics and vector persistence across clinical multi-year horizons.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.5
+      },
+      "source_evidence": "DOI 10.1038/s41586-018-0394-6; ClinicalTrials.gov NCT06515002; NCT05248230; tasks/specs/T-0214.md",
+      "spec_path": "tasks/specs/T-0220.md",
+      "acceptance": "pytest tools/discovery/test_basal_stem_persistence.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Establishes quantitative criteria for curative durability, determining redosing intervals for aerosolized mRNA vs lifelong persistence of basal stem gene editing.",
+        "categories": {
+          "curative_biophysics": 9.7,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.3,
+          "operational_velocity": 8.2,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.41,
+        "roi_ratio": 1.68
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0214.md."
+    },
+    {
+      "id": "T-0221",
+      "title": "CFTR potentiator + triple-corrector cooperative allosteric gating thermodynamic cycle (VX-445 / VX-661 / VX-121 / VX-561 open-channel stabilization)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "frontier",
+      "route_rationale": "Thermodynamic cycle and multi-state linkage biophysics requiring Cryo-EM coordinate integration.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 4.0,
+        "high": 7.0
+      },
+      "source_evidence": "DOI 10.1126/science.ade2216; PDB 8EIQ; PDB 6MSM; ClinicalTrials.gov NCT04043806; NCT06468527; tasks/specs/T-0215.md",
+      "spec_path": "tasks/specs/T-0221.md",
+      "acceptance": "pytest tools/discovery/test_allosteric_potentiator_model.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Models multi-ligand thermodynamic synergy between TMD1, TMD2, and gating hinge pockets to explain next-generation vanzacaftor regimen superiority.",
+        "categories": {
+          "curative_biophysics": 9.6,
+          "clinical_translation": 8.8,
+          "scientific_integrity": 9.4,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.33,
+        "roi_ratio": 1.51
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0215.md."
+    },
+    {
+      "id": "T-0222",
+      "title": "Interactive Base Editing (ABE8e) Protospacer Window & Bystander Edit Simulator panel on /cf/ptc/ and /cf/cftr/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build interactive SVG visualization and bilingual copy on senseiewok.ai.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "DOI 10.1038/s41587-020-0453-z; ClinicalTrials.gov NCT06237335; src/cf/index.html; tasks/specs/T-0216.md",
+      "spec_path": "tasks/specs/T-0222.md",
+      "acceptance": "python -m unittest tests.test_site tests.test_resources_page",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Provides patients with rare stop codons an intuitive visual simulator of genetic base editing, protospacer windows, and bystander safety.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 9.6,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.8,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.25,
+        "roi_ratio": 2.36
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0216.md."
+    },
+    {
+      "id": "T-0223",
+      "title": "Interactive Clinical Trial Eligibility, Washout & Endpoint Plain-Language Decoder on /cf/trials/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Patient-facing educational cards, timeline diagrams, and Spanish translation on /cf/trials/.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "ClinicalTrials.gov NCT05248230; NCT05668741; NCT06429176; cf-research/tools/trial_atlas/snapshot.json; tasks/specs/T-0217.md",
+      "spec_path": "tasks/specs/T-0223.md",
+      "acceptance": "python -m unittest tests.test_site tests.test_resources_page",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Empowers individuals with CF and families to understand trial eligibility, washout periods, and endpoints without intimidation.",
+        "categories": {
+          "curative_biophysics": 8.0,
+          "clinical_translation": 9.8,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.18,
+        "roi_ratio": 2.34
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0217.md."
+    },
+    {
+      "id": "T-0224",
+      "title": "Interactive Sweat Chloride vs. ppFEV1 Non-Linear Sigmoidal Concordance Explorer on /cf/registries/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Client-side non-linear trajectory visualizer and Spanish translation on /cf/registries/.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "DOI 10.1164/rccm.201909-1812OC; ClinicalTrials.gov NCT04043806; cf-research/sources/catalog.yaml; tasks/specs/T-0218.md",
+      "spec_path": "tasks/specs/T-0224.md",
+      "acceptance": "python -m unittest tests.test_site tests.test_resources_page",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Visualizes non-linear relationship between in vivo CFTR biomarker normalization and long-term lung function stabilization.",
+        "categories": {
+          "curative_biophysics": 8.2,
+          "clinical_translation": 9.5,
+          "scientific_integrity": 9.2,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.16,
+        "roi_ratio": 2.33
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0218.md."
+    },
+    {
+      "id": "T-0225",
+      "title": "Automated worktree harvest & duplicate-PR preflight guard (tasks/check_worktree_drift.py) integrated into pick_bold_task.py and security sentinel",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Workspace git worktree and task picker governance engine.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:15:00Z",
+      "completed_at": "2026-10-18",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": ".claude/skills/workspace-siblings/scripts/worktrees.py; tasks/pick_bold_task.py; tasks/specs/T-0219.md",
+      "spec_path": "tasks/specs/T-0225.md",
+      "acceptance": "python -m unittest tasks/test_check_worktree_drift.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": {
+          "actual_hours": 2.0,
+          "notes": "Implemented tasks/check_worktree_drift.py and test_check_worktree_drift.py, integrated existing_worktrees scanning into tasks/pick_bold_task.py."
+        },
+        "rationale": "Prevents redundant re-implementation and duplicate PR creation by detecting unmerged worktree commits.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 3.0,
+          "scientific_integrity": 9.5,
+          "operational_velocity": 9.8,
+          "security_compliance": 9.6
+        },
+        "composite_score": 7.95,
+        "roi_ratio": 2.89
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Implemented and verified in feat/lab-context-specs-and-skill-evolution."
+    },
+    {
+      "id": "T-0226",
+      "title": "Deterministic SVG/WebGL2 ?t=SECONDS visual visibility & mobile zero-overflow verifier (tasks/test_svg_freeze_contract.py)",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "ready",
+      "priority": "P2",
+      "complexity": "medium",
+      "review_tier": "routine",
+      "recommended_route": "local",
+      "route_rationale": "Automated test suite verifying SVG stroke offset contracts and mobile 375px zero-overflow.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": ".claude/skills/svg-animation/SKILL.md; .claude/skills/webgl-threejs-graphics/SKILL.md; tasks/specs/T-0220.md",
+      "spec_path": "tasks/specs/T-0226.md",
+      "acceptance": "python -m unittest tasks/test_svg_freeze_contract.py",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Guards against invisible paused SVG curves (stroke-dashoffset: 1) and broken mobile slider layouts.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 9.2,
+          "operational_velocity": 8.8,
+          "security_compliance": 9.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.81
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0220.md."
+    },
+    {
+      "id": "T-0227",
+      "title": "Spec dossier integrity checker (tasks/check_task_specs.py) verifying spec_path dossiers for primary citations and test commands",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic task spec validation utility.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:15:00Z",
+      "completed_at": "2026-10-18",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "source_evidence": "tasks/board.json; tasks/render-board.ps1; tasks/triage_board.py; tasks/specs/T-0221.md",
+      "spec_path": "tasks/specs/T-0227.md",
+      "acceptance": "python -m unittest tasks/test_check_task_specs.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": {
+          "actual_hours": 1.5,
+          "notes": "Implemented tasks/check_task_specs.py and test_check_task_specs.py, integrated verify_task_spec into triage_board.py."
+        },
+        "rationale": "Eliminates task context loss by deterministically verifying spec dossiers across board tasks.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 3.0,
+          "scientific_integrity": 9.8,
+          "operational_velocity": 9.5,
+          "security_compliance": 9.7
+        },
+        "composite_score": 7.92,
+        "roi_ratio": 3.96
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Implemented and verified in feat/lab-context-specs-and-skill-evolution."
     }
   ],
   "updated": "2026-10-17"

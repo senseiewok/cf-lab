@@ -76,6 +76,12 @@ foreach ($t in $board.tasks) {
             $errors += "$($t.id): evidence_package.answer_tier must be T0, T1, T2, or T3"
         }
     }
+    if ($t.PSObject.Properties.Name -contains 'spec_path' -and $null -ne $t.spec_path -and [string]$t.spec_path -ne '') {
+        $sp = [string]$t.spec_path
+        if ($sp -notmatch '^[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*\.md$' -or $sp -match '\.\.') {
+            $errors += "$($t.id): bad spec_path '$sp'"
+        }
+    }
     if ($t.status -notin 'done','dropped' -and [string]$t.notes -match '(?:^|\|\s*|\r?\n)\s*(?:\d{4}-\d{2}-\d{2}[^:]*:\s*)?Done\b') {
         $errors += "$($t.id): notes say Done while status is '$($t.status)' (close the task or write 'Agent part done')"
     }
@@ -186,8 +192,17 @@ foreach ($t in $sorted) {
         $tierNote = if ($ep.PSObject.Properties.Name -contains 'answer_tier' -and $ep.answer_tier) { "Tier: $($ep.answer_tier)" } else { "Tier: unranked" }
         [void]$sb.AppendLine("- **Evidence Package:** ``$($ep.packet_path)`` *($tierNote$claimsNote$sourcesNote)*")
     }
+    if ($t.PSObject.Properties.Name -contains 'spec_path' -and $t.spec_path) { [void]$sb.AppendLine("- **Spec:** ``$($t.spec_path)``") }
     if ($t.notes) { [void]$sb.AppendLine("- **Notes:** $(Esc $t.notes)") }
-    if ($t.roi.measured) { [void]$sb.AppendLine("- **Measured:** $($t.roi.actual_hours) h; $(Esc $t.roi.measured_outcome)") }
+    if ($t.roi.measured) {
+        $actual = if ($t.roi.PSObject.Properties.Name -contains 'actual_hours' -and $null -ne $t.roi.actual_hours) { $t.roi.actual_hours }
+                  elseif ($t.roi.measured.PSObject.Properties.Name -contains 'actual_hours') { $t.roi.measured.actual_hours }
+                  else { '' }
+        $outc = if ($t.roi.PSObject.Properties.Name -contains 'measured_outcome' -and $null -ne $t.roi.measured_outcome) { $t.roi.measured_outcome }
+                elseif ($t.roi.measured.PSObject.Properties.Name -contains 'notes') { $t.roi.measured.notes }
+                else { '' }
+        [void]$sb.AppendLine("- **Measured:** $actual h; $(Esc $outc)")
+    }
     [void]$sb.AppendLine()
 }
 

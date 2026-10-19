@@ -30,7 +30,7 @@ flowchart TD
     Worktree --> Stage1["2. Research Round & Skill Evolution"]
     Stage1 --> Stage2["3. Public Translation & Site Showcase\n(In Worktree)"]
     Stage2 --> Stage3["4. Grounded Review Loop & Build Verification\n(Unit Tests + Playwright Audits)"]
-    Stage3 --> Stage4["5. Fast Pre-Push Check & PR Submission\n(Full Gate Runs in Cloud CI)"]
+    Stage3 --> Stage4["5. Elevated Gate & Dual-Family PR Submission"]
     Stage4 --> Release["6. Release Lock via run-sentinel -Complete"]
 ```
 
@@ -49,14 +49,16 @@ Before touching any `.ai` or skill files:
    git -C c:/senseiewok/repos/.ai pull --ff-only origin main
    ```
 3. **Persistent Research Watermark Check**: Inspect `.loop-logs/last-showcase-audit.json`. Compare the current git commit tree hash of `../cf-research/landscape/` and `../cf-research/proposals/` against `last_showcased_tree_hash`. If no new validated research dossiers or commits have been merged since the last showcase cycle, **exit 0 cleanly** without spawning worktrees or running visual audits.
-4. **Check for In-Flight Work**: Check `tasks/board.json` for any `.ai` task already marked `"status": "in_progress"` with a `"branch"` set, and check active git worktrees (`git -C ../.ai worktree list`).
-5. **Collision Detection**: If another agent or worktree is already working on the target site task or branch (e.g. `site/showcase-*` under `../.worktrees/.ai/`), **stop immediately and exit cleanly** so two agents never race on `.ai/src/`.
-6. **Spawn Isolated Worktree First**: Never edit `.ai` in the main checkout. Create the isolated worktree *first* before making any file changes:
+4. **Read Build Bundle & Spec Dossiers**: Read `.loop-logs/bold-bundle-showcase.json` (if present). If tasks have `spec_markdown`, consume the full biophysical equations, primary-source citations, DOM element IDs, and test commands directly from the dossier rather than guessing requirements.
+5. **Check Existing Worktrees & Duplicate PRs**: Inspect the `existing_worktrees` array in `bold-bundle-showcase.json` and check `gh pr list --state open` before creating branches or PRs. If an unmerged worktree exists matching the claimed task or branch, resume and harvest its commits instead of starting from scratch or opening duplicate PRs.
+6. **Page Word Budget Cap**: When modifying `/cf/index.html`, enforce a strict **1,800-word budget cap** (`python .claude/skills/lab-voice/scripts/check-voice.py src/cf/index.html`). If adding new showcase panels or variant cards, condense existing copy or migrate detail to dedicated sub-pages (`/cf/ptc/`, `/cf/trials/`, `/cf/registries/`) to maintain warm, concise dignity.
+7. **Collision Detection**: If another agent or worktree is already working on the target site task or branch (e.g. `site/showcase-*` under `../.worktrees/.ai/`), **stop immediately and exit cleanly** so two agents never race on `.ai/src/`.
+8. **Spawn Isolated Worktree**: Never edit `.ai` in the main checkout. Create the isolated worktree *first* before making any file changes:
    ```powershell
    python .claude/skills/workspace-siblings/scripts/worktrees.py new .ai showcase-<topic> --branch site/showcase-<topic> --push
    ```
    Set `"status": "in_progress"` and `"branch": "site/showcase-<topic>"` on the claimed task in `tasks/board.json` and run `pwsh -NoProfile -File tasks/render-board.ps1`.
-7. **Never run check-all or test suites at the beginning**: Strictly avoid running `check-all.ps1` or test suites (`tests.test_site`, `check-voice.py`, Playwright visual audits, or claims checkers) during Pre-flight or before changes are applied in the worktree. Running full `check-all.ps1` spends excessive execution time (several minutes across 30+ control-repo suites), risks spawning orphaned background server processes on test ports, and risks modifying or locking git index and worktree states. All deterministic testing belongs strictly in Stage 3 on the completed, staged changes inside the dedicated worktree.
+9. **Never run check-all or test suites at the beginning**: Strictly avoid running `check-all.ps1` or test suites (`tests.test_site`, `check-voice.py`, Playwright visual audits, or claims checkers) during Pre-flight or before changes are applied in the worktree. Running full `check-all.ps1` spends excessive execution time (several minutes across 30+ control-repo suites), risks spawning orphaned background server processes on test ports, and risks modifying or locking git index and worktree states. All deterministic testing belongs strictly in Stage 3 on the completed, staged changes inside the dedicated worktree.
 
 ### Stage 1: Research Round & Skill Evolution
 
@@ -117,12 +119,12 @@ Execute the mandatory 3-layer Grounded Review Loop:
      ```
    - Inspect screenshots in `../cf-lab-files/scratch/screenshots/` to verify zero visual overlap, no mobile overflow, and legible typography.
 
-### Stage 4: Fast Pre-Push Check, Dual-Family Frontier Review (Argon + Opus) & PR Submission
+### Stage 4: Elevated Gate, Dual-Family Frontier Review (Argon + Opus) & PR Submission
 
-1. **Fast Pre-Push Secret & Privacy Check**:
-   - Stage changed files inside the dedicated worktree and run the fast (~0.3s) pre-push staged secret/privacy check (`check-staged.ps1`); skip redundant local `run-gate.ps1` / `check-changed.ps1` runs because Stage 3 already verified the targeted checks and GitHub Actions CI runs the full gate in the cloud:
+1. **Elevated Gate Enforcement**:
+   - Inside the dedicated worktree, stage changed files, run first-pass local diff review (`pwsh .claude/skills/ai-loop-council/scripts/review-diff.ps1 -Staged`), and verify through the repo gate:
      ```powershell
-     pwsh -NoProfile -File .claude/skills/security-git/scripts/check-staged.ps1 -RepoPath <worktree-path> -Expected "<changed-files>"
+     pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/run-gate.ps1 -Tier elevated -Expected "<changed-files>" -MessageFile <path-to-commit-msg>
      ```
 2. **Execute `pr-review-loop` with Diversity Frontier Council (Argon + Opus)**:
    - For elevated review before PR submission, escalate top-task challenger reviews to **Argon** (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`) paired with Anthropic Claude Opus.
