@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -10965,12 +10965,12 @@
         "categories": {
           "curative_biophysics": 9.5,
           "clinical_translation": 9.0,
-          "scientific_integrity": 7.0,
+          "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.72,
-        "roi_ratio": 1.63
+        "composite_score": 8.03,
+        "roi_ratio": 1.69
       },
       "notes": "Completed in senseiewok/.ai#122: Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified with Argon frontier review (ACCEPT).",
       "completed_at": "2026-10-18T19:48:00Z",
@@ -11563,6 +11563,144 @@
         "roi_ratio": 1.56
       },
       "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Implemented and verified in feat/lab-context-specs-and-skill-evolution."
+    },
+    {
+      "id": "T-0228",
+      "title": "Interactive Adenine Base Editing (ABE8e) & Splice Rescue Multi-Allele Explorer on /cf/ptc/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive simulation panel and bilingual localization on /cf/ptc/ connecting base editing and splice rescue.",
+      "created_at": "2026-10-18T21:10:00Z",
+      "updated_at": "2026-10-18T21:10:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-flash",
+        "session_ref": "2026-10-18 showcase sentinel proactive replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0219"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/tools/discovery/base_editing_cftr.py; cf-research/tools/discovery/base_editing_cftr_designs.json; DOI 10.1038/s41587-020-0453-z; RCSB PDB 6MSM; NCT06237335",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_website_wave9_ptc_tree",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Translates base editing deamination profile, bystander missense risk, and SpRY/SpCas9 PAM accessibility into an interactive public explorer on /cf/ptc/.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.93
+      },
+      "notes": "Showcase Sentinel Proactive Replenishment. Expands curative gene editing visualization to span both nonsense and splice donor mutations."
+    },
+    {
+      "id": "T-0229",
+      "title": "Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer on /cf/cftr/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive MWC allosteric gating cycle simulation and bilingual localization on /cf/cftr/.",
+      "created_at": "2026-10-18T21:10:00Z",
+      "updated_at": "2026-10-18T21:10:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-flash",
+        "session_ref": "2026-10-18 showcase sentinel proactive replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0214"
+      ],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-cryoem-3d-truncation-model.md; cf-research/landscape/cftr-structures.md; RCSB PDB 8EIQ; RCSB PDB 6MSM; DOI 10.1126/science.ade2216; NCT04043806",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Translates Cryo-EM 8EIQ multi-ligand allosteric stabilization across TMD1, TMD2, and TM4/5/8 hinge into an interactive MWC gating cycle explorer on /cf/cftr/.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.63
+      },
+      "notes": "Showcase Sentinel Proactive Replenishment. Bridges structural biology of Trikafta / Next-Gen triple correctors to live interactive allosteric curves."
+    },
+    {
+      "id": "T-0230",
+      "title": "Interactive SORT-LNP Mucin Penetration & Airway Basal Cell Tropism Matrix Explorer on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive aerosol delivery simulation and bilingual localization on /cf/delivery/.",
+      "created_at": "2026-10-18T21:10:00Z",
+      "updated_at": "2026-10-18T21:10:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-flash",
+        "session_ref": "2026-10-18 showcase sentinel proactive replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0215"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; cf-research/landscape/delivery-biophysics.md; DOI 10.1038/s41565-021-00870-1; DOI 10.1073/pnas.2001532117",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Translates aerosol SORT-LNP biophysical parameters, crosslinked mucin pore mesh penetration, and basal stem cell tropism into an interactive explorer on /cf/delivery/.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.93
+      },
+      "notes": "Showcase Sentinel Proactive Replenishment. Interactive delivery explorer connecting formulation chemistry with airway mucus biophysical penetration barriers."
     }
   ],
   "updated": "2026-10-17"
