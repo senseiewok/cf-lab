@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -6510,11 +6510,11 @@
           "curative_biophysics": 2.0,
           "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
-          "operational_velocity": 3.0,
+          "operational_velocity": 8.5,
           "security_compliance": 9.0
         },
-        "composite_score": 5.5,
-        "roi_ratio": 1.83
+        "composite_score": 6.32,
+        "roi_ratio": 2.11
       },
       "acceptance": "A short document in the private lab files (never in a public repo, and with no secret in it) lists where each thing lives and who may do it: the deploy path and how to stop it, how to take the site down, how to rotate the deploy credential, which accounts matter, and what to tell visitors. A person other than the maintainer has read it and says whether it is enough. No credentials, no host details in any public file.",
       "review_tier": "full",
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -10826,6 +10826,149 @@
       },
       "notes": "2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor).",
       "completed_at": "2026-10-18"
+    },
+    {
+      "id": "T-0216",
+      "title": "Engineered Suppressor tRNA & SMG1 NMD Inhibition Biophysical Synergy Model for CFTR PTCs (tools/discovery/suppressor_trna_model.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Track A biophysical decoding competition, NMD mRNA turnover, and electrophysiological simulation.",
+      "created_at": "2026-10-18T18:55:00Z",
+      "updated_at": "2026-10-18T18:55:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 proactive autonomous research discovery & wave 8 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.5
+      },
+      "source_evidence": "cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; DOI 10.1038/s41467-023-41392-8; DOI 10.1073/pnas.1908401116; DOI 10.1016/j.jcf.2023.04.012; PDB 6MSM; PDB 8EIQ; ClinicalTrials.gov NCT04135495",
+      "acceptance": "pytest tools/discovery/test_suppressor_trna_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "measured": {
+          "actual_hours": 4.5,
+          "note": "Implemented tools/discovery/suppressor_trna_model.py + 9 unit tests in test_suppressor_trna_model.py (cf-research PR #96)."
+        },
+        "rationale": "Models ribosomal A-site competition, tetranucleotide context hierarchy (+4 base), SMG1 NMD suppression, and patch-clamp Delta Isc restoration for G542X and W1282X.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.52,
+        "roi_ratio": 1.5
+      },
+      "notes": "Wave 8 Discovery Council Replenishment. Delivered and verified in cf-research#96 (9/9 pytest passed, 100% anti-hallucination guardrails passed).",
+      "completed_at": "2026-10-18"
+    },
+    {
+      "id": "T-0217",
+      "title": "Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Atomistic Cryo-EM coordinate analysis of NBD2 core packing and thermal stability.",
+      "created_at": "2026-10-18T18:55:00Z",
+      "updated_at": "2026-10-18T18:55:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 proactive autonomous research discovery & wave 8 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0216"
+      ],
+      "effort_hours": {
+        "low": 4.0,
+        "high": 7.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; PDB 6MSM; PDB 8EIQ; DOI 10.1038/s41467-023-41392-8; DOI 10.1021/acs.biochem.5c00590",
+      "acceptance": "pytest tools/discovery/test_ptc_cryoem_allostery.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 3,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Quantifies the atomistic vacuum cavity (~120 A^3) and NBD2 destabilization resulting from near-cognate Cys/Arg substitution vs cognate Trp1282 insertion in Cryo-EM coordinates.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 5.98,
+        "roi_ratio": 1.09
+      },
+      "notes": "Wave 8 Discovery Council Replenishment. Analyzes why engineered suppressor tRNA inserting authentic cognate amino acids is required to preserve channel gating and avoid ERAD."
+    },
+    {
+      "id": "T-0218",
+      "title": "Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive simulation panel and bilingual localization on /cf/cftr/.",
+      "created_at": "2026-10-18T18:55:00Z",
+      "updated_at": "2026-10-18T18:55:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 proactive autonomous research discovery & wave 8 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0216"
+      ],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; cf-research/tools/discovery/suppressor_trna_model.py; DOI 10.1038/s41467-023-41392-8; src/cf/cftr/index.html",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Translates suppressor tRNA decoding competition, SMG1 NMD suppression, and supra-additive electrophysiology for W1282X and G542X into a bilingual interactive explorer on /cf/cftr/.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.63
+      },
+      "notes": "Wave 8 Discovery Council Replenishment. Interactive companion workbench empowering families and researchers to visualize nonsense mutation rescue mechanics."
     }
   ],
   "updated": "2026-10-17"

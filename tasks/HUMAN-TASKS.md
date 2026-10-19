@@ -24,7 +24,7 @@ Use a lab-owned address, never a personal one. Keys go only in the git-ignored `
 
 Letters must be reviewed, filled, and sent by the human maintainer from the lab's official email address. Replies take weeks and gate registry citation data. Complete drafts and the central reply tracking ledger live in untracked personal files at `../cf-lab-files/permission-letters-dispatch.md`.
 
-- [ ] **Send CFTR2 permission letter (Letter 1)**: Johns Hopkins / CFF (`cftr2`) — request quotation and citation terms for single searched variants.
+- [ ] **Send CFTR2 permission letter (Letter 1) (T-0106)**: Johns Hopkins / CFF (`cftr2`) — request quotation and citation terms for single searched variants.
 - [ ] **Send Child Opportunity Index letter (Letter 2)**: diversitydatakids.org / Brandeis (`coi-diversitydatakids`) — request usage confirmation for aggregate neighborhood scores in open educational resources.
 - [ ] **Send CF Foundation Patient Registry letter (Letter 3)**: CFF Registry Team (`cffpr-adr-2024`) — request data citation terms and programmatic access preferences; record reply in `sources/catalog.yaml`.
 - [ ] **Send ECFSPR letter (Letter 4)**: European Cystic Fibrosis Society (`ecfspr-adr-2024`) — request confirmation on redistributing aggregate cited values and attribution wording.
