@@ -11073,7 +11073,7 @@
       "title": "Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity",
       "repo": ".ai",
       "area": "site",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -11101,7 +11101,7 @@
       "roi": {
         "benefit": 4,
         "confidence": "high",
-        "measured": false,
+        "measured": true,
         "rationale": "Translates suppressor tRNA decoding competition, SMG1 NMD suppression, and supra-additive electrophysiology for W1282X and G542X into a bilingual interactive explorer on /cf/cftr/.",
         "categories": {
           "curative_biophysics": 9.5,
@@ -11113,7 +11113,9 @@
         "composite_score": 7.72,
         "roi_ratio": 1.63
       },
-      "notes": "Wave 8 Discovery Council Replenishment. Interactive companion workbench empowering families and researchers to visualize nonsense mutation rescue mechanics."
+      "notes": "Completed in senseiewok/.ai#123: Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified with Argon frontier review (ACCEPT).",
+      "completed_at": "2026-10-18T20:45:00Z",
+      "actual_hours": 4.5
     },
     {
       "id": "T-0219",
