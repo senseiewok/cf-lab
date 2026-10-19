@@ -10826,6 +10826,714 @@
       },
       "notes": "2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor).",
       "completed_at": "2026-10-18"
+    },
+    {
+      "id": "T-0213",
+      "title": "Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive panel and bilingual localization on /cf/delivery/.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 showcase sentinel proactive round"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0208",
+        "T-0210"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-dual-aav-intein-packaging.md; cf-research/tools/discovery/aav_tropism_model.py; ClinicalTrials.gov NCT05248230; Hill et al. Sci Adv 2019 (DOI 10.1126/sciadv.aaw3507)",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests tests.test_delivery_page",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": {
+          "actual_hours": 3.5,
+          "notes": "Implemented T-0213 aerosolized AAV capsid tropism & NAb neutralization calculator on /cf/delivery/ with full Mexican Spanish parity (senseiewok/.ai PR #119)."
+        },
+        "rationale": "Exposes directed evolution capsid tropism (4D-A101 vs wild-type serotypes), mucin adhesion kinetics, and mucosal NAb evasion to the public research community.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.42,
+        "roi_ratio": 1.85
+      },
+      "notes": "Completed in senseiewok/.ai#119: Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified.",
+      "completed_at": "2026-10-18",
+      "actual_hours": 3.5
+    },
+    {
+      "id": "T-0214",
+      "title": "Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Mutation-agnostic alternative conductance biophysical simulation and bilingual cards on /cf/.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 showcase sentinel proactive round"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/landscape/alternative-conductance.md; Enterprise Therapeutics PubMed 33177112, 34588145; Nature 2017 PubMed 28959951; JCI 2012 PubMed 22446184; src/cf/index.html",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Empowers people with CF producing zero functional CFTR (Class I/VII) with an interactive biophysical explorer of mutation-agnostic bypass rehydration via ENaC blockade and TMEM16A/SLC26A9 activation.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.93
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor)."
+    },
+    {
+      "id": "T-0215",
+      "title": "Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Aerosol LNP biophysical parameters and delivery matrix explorer on /cf/delivery/.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 showcase sentinel proactive round"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; ClinicalTrials.gov NCT05668741; DOI 10.1038/s41565-021-00870-x; DOI 10.1073/pnas.1916113117; src/cf/delivery/index.html",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Visualizes the post-VX-522 biophysical delivery frontier: aerodynamic size restriction (MMAD 2.8-3.2 um), zwitterionic polysarcosine shielding, and selective organ targeting for genetic CFTR inhalation.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.63
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor)."
+    },
+    {
+      "id": "T-0216",
+      "title": "Engineered Suppressor tRNA & SMG1 NMD Inhibition Biophysical Synergy Model for CFTR PTCs (tools/discovery/suppressor_trna_model.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Track A biophysical decoding competition, NMD mRNA turnover, and electrophysiological simulation.",
+      "created_at": "2026-10-18T18:55:00Z",
+      "updated_at": "2026-10-18T18:55:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 proactive autonomous research discovery & wave 8 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.5
+      },
+      "source_evidence": "cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; DOI 10.1038/s41467-023-41392-8; DOI 10.1073/pnas.1908401116; DOI 10.1016/j.jcf.2023.04.012; PDB 6MSM; PDB 8EIQ; ClinicalTrials.gov NCT04135495",
+      "acceptance": "pytest tools/discovery/test_suppressor_trna_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "measured": {
+          "actual_hours": 4.5,
+          "note": "Implemented tools/discovery/suppressor_trna_model.py + 9 unit tests in test_suppressor_trna_model.py (cf-research PR #96)."
+        },
+        "rationale": "Models ribosomal A-site competition, tetranucleotide context hierarchy (+4 base), SMG1 NMD suppression, and patch-clamp Delta Isc restoration for G542X and W1282X.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.52,
+        "roi_ratio": 1.5
+      },
+      "notes": "Wave 8 Discovery Council Replenishment. Delivered and verified in cf-research#96 (9/9 pytest passed, 100% anti-hallucination guardrails passed).",
+      "completed_at": "2026-10-18"
+    },
+    {
+      "id": "T-0217",
+      "title": "Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Atomistic Cryo-EM coordinate analysis of NBD2 core packing and thermal stability.",
+      "created_at": "2026-10-18T18:55:00Z",
+      "updated_at": "2026-10-18T18:55:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 proactive autonomous research discovery & wave 8 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0216"
+      ],
+      "effort_hours": {
+        "low": 4.0,
+        "high": 7.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; PDB 6MSM; PDB 8EIQ; DOI 10.1038/s41467-023-41392-8; DOI 10.1021/acs.biochem.5c00590",
+      "acceptance": "pytest tools/discovery/test_ptc_cryoem_allostery.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 3,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Quantifies the atomistic vacuum cavity (~120 A^3) and NBD2 destabilization resulting from near-cognate Cys/Arg substitution vs cognate Trp1282 insertion in Cryo-EM coordinates.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 5.98,
+        "roi_ratio": 1.09
+      },
+      "notes": "Wave 8 Discovery Council Replenishment. Analyzes why engineered suppressor tRNA inserting authentic cognate amino acids is required to preserve channel gating and avoid ERAD."
+    },
+    {
+      "id": "T-0218",
+      "title": "Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive simulation panel and bilingual localization on /cf/cftr/.",
+      "created_at": "2026-10-18T18:55:00Z",
+      "updated_at": "2026-10-18T18:55:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 proactive autonomous research discovery & wave 8 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0216"
+      ],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; cf-research/tools/discovery/suppressor_trna_model.py; DOI 10.1038/s41467-023-41392-8; src/cf/cftr/index.html",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Translates suppressor tRNA decoding competition, SMG1 NMD suppression, and supra-additive electrophysiology for W1282X and G542X into a bilingual interactive explorer on /cf/cftr/.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.63
+      },
+      "notes": "Wave 8 Discovery Council Replenishment. Interactive companion workbench empowering families and researchers to visualize nonsense mutation rescue mechanics."
+    },
+    {
+      "id": "T-0219",
+      "title": "Base Editing (ABE8e / CBE) bystander deamination window & PAM accessibility model for CFTR nonsense and canonical splice alleles (W1282X, R553X, G542X, 2789+5G->A)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "frontier",
+      "route_rationale": "High-stakes biophysical deaminase window and structural perturbation modeling requiring frontier verification.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 4.0,
+        "high": 7.0
+      },
+      "source_evidence": "DOI 10.1038/s41587-020-0453-z; ClinicalTrials.gov NCT06237335; PDB 6MSM; tasks/specs/T-0213.md",
+      "spec_path": "tasks/specs/T-0219.md",
+      "acceptance": "pytest tools/discovery/test_base_editing_cftr.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Enables precise in silico screening of base editor gRNAs and bystander mutation risk for refractory nonsense mutations (W1282X, R553X) and splice variants.",
+        "categories": {
+          "curative_biophysics": 9.8,
+          "clinical_translation": 9.2,
+          "scientific_integrity": 9.5,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.52,
+        "roi_ratio": 1.55
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0213.md."
+    },
+    {
+      "id": "T-0220",
+      "title": "Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "frontier",
+      "route_rationale": "Dynamical systems modeling of stem cell kinetics and vector persistence across clinical multi-year horizons.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.5
+      },
+      "source_evidence": "DOI 10.1038/s41586-018-0394-6; ClinicalTrials.gov NCT06515002; NCT05248230; tasks/specs/T-0214.md",
+      "spec_path": "tasks/specs/T-0220.md",
+      "acceptance": "pytest tools/discovery/test_basal_stem_persistence.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Establishes quantitative criteria for curative durability, determining redosing intervals for aerosolized mRNA vs lifelong persistence of basal stem gene editing.",
+        "categories": {
+          "curative_biophysics": 9.7,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.3,
+          "operational_velocity": 8.2,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.41,
+        "roi_ratio": 1.68
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0214.md."
+    },
+    {
+      "id": "T-0221",
+      "title": "CFTR potentiator + triple-corrector cooperative allosteric gating thermodynamic cycle (VX-445 / VX-661 / VX-121 / VX-561 open-channel stabilization)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "high",
+      "review_tier": "elevated",
+      "recommended_route": "frontier",
+      "route_rationale": "Thermodynamic cycle and multi-state linkage biophysics requiring Cryo-EM coordinate integration.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 4.0,
+        "high": 7.0
+      },
+      "source_evidence": "DOI 10.1126/science.ade2216; PDB 8EIQ; PDB 6MSM; ClinicalTrials.gov NCT04043806; NCT06468527; tasks/specs/T-0215.md",
+      "spec_path": "tasks/specs/T-0221.md",
+      "acceptance": "pytest tools/discovery/test_allosteric_potentiator_model.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Models multi-ligand thermodynamic synergy between TMD1, TMD2, and gating hinge pockets to explain next-generation vanzacaftor regimen superiority.",
+        "categories": {
+          "curative_biophysics": 9.6,
+          "clinical_translation": 8.8,
+          "scientific_integrity": 9.4,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.33,
+        "roi_ratio": 1.51
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0215.md."
+    },
+    {
+      "id": "T-0222",
+      "title": "Interactive Base Editing (ABE8e) Protospacer Window & Bystander Edit Simulator panel on /cf/ptc/ and /cf/cftr/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build interactive SVG visualization and bilingual copy on senseiewok.ai.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "DOI 10.1038/s41587-020-0453-z; ClinicalTrials.gov NCT06237335; src/cf/index.html; tasks/specs/T-0216.md",
+      "spec_path": "tasks/specs/T-0222.md",
+      "acceptance": "python -m unittest tests.test_site tests.test_resources_page",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Provides patients with rare stop codons an intuitive visual simulator of genetic base editing, protospacer windows, and bystander safety.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 9.6,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.8,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.25,
+        "roi_ratio": 2.36
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0216.md."
+    },
+    {
+      "id": "T-0223",
+      "title": "Interactive Clinical Trial Eligibility, Washout & Endpoint Plain-Language Decoder on /cf/trials/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Patient-facing educational cards, timeline diagrams, and Spanish translation on /cf/trials/.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "ClinicalTrials.gov NCT05248230; NCT05668741; NCT06429176; cf-research/tools/trial_atlas/snapshot.json; tasks/specs/T-0217.md",
+      "spec_path": "tasks/specs/T-0223.md",
+      "acceptance": "python -m unittest tests.test_site tests.test_resources_page",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Empowers individuals with CF and families to understand trial eligibility, washout periods, and endpoints without intimidation.",
+        "categories": {
+          "curative_biophysics": 8.0,
+          "clinical_translation": 9.8,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.18,
+        "roi_ratio": 2.34
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0217.md."
+    },
+    {
+      "id": "T-0224",
+      "title": "Interactive Sweat Chloride vs. ppFEV1 Non-Linear Sigmoidal Concordance Explorer on /cf/registries/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Client-side non-linear trajectory visualizer and Spanish translation on /cf/registries/.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "DOI 10.1164/rccm.201909-1812OC; ClinicalTrials.gov NCT04043806; cf-research/sources/catalog.yaml; tasks/specs/T-0218.md",
+      "spec_path": "tasks/specs/T-0224.md",
+      "acceptance": "python -m unittest tests.test_site tests.test_resources_page",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Visualizes non-linear relationship between in vivo CFTR biomarker normalization and long-term lung function stabilization.",
+        "categories": {
+          "curative_biophysics": 8.2,
+          "clinical_translation": 9.5,
+          "scientific_integrity": 9.2,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.16,
+        "roi_ratio": 2.33
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0218.md."
+    },
+    {
+      "id": "T-0225",
+      "title": "Automated worktree harvest & duplicate-PR preflight guard (tasks/check_worktree_drift.py) integrated into pick_bold_task.py and security sentinel",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Workspace git worktree and task picker governance engine.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:15:00Z",
+      "completed_at": "2026-10-18",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": ".claude/skills/workspace-siblings/scripts/worktrees.py; tasks/pick_bold_task.py; tasks/specs/T-0219.md",
+      "spec_path": "tasks/specs/T-0225.md",
+      "acceptance": "python -m unittest tasks/test_check_worktree_drift.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": {
+          "actual_hours": 2.0,
+          "notes": "Implemented tasks/check_worktree_drift.py and test_check_worktree_drift.py, integrated existing_worktrees scanning into tasks/pick_bold_task.py."
+        },
+        "rationale": "Prevents redundant re-implementation and duplicate PR creation by detecting unmerged worktree commits.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 3.0,
+          "scientific_integrity": 9.5,
+          "operational_velocity": 9.8,
+          "security_compliance": 9.6
+        },
+        "composite_score": 7.95,
+        "roi_ratio": 2.89
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Implemented and verified in feat/lab-context-specs-and-skill-evolution."
+    },
+    {
+      "id": "T-0226",
+      "title": "Deterministic SVG/WebGL2 ?t=SECONDS visual visibility & mobile zero-overflow verifier (tasks/test_svg_freeze_contract.py)",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "ready",
+      "priority": "P2",
+      "complexity": "medium",
+      "review_tier": "routine",
+      "recommended_route": "local",
+      "route_rationale": "Automated test suite verifying SVG stroke offset contracts and mobile 375px zero-overflow.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": ".claude/skills/svg-animation/SKILL.md; .claude/skills/webgl-threejs-graphics/SKILL.md; tasks/specs/T-0220.md",
+      "spec_path": "tasks/specs/T-0226.md",
+      "acceptance": "python -m unittest tasks/test_svg_freeze_contract.py",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Guards against invisible paused SVG curves (stroke-dashoffset: 1) and broken mobile slider layouts.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 9.2,
+          "operational_velocity": 8.8,
+          "security_compliance": 9.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.81
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0220.md."
+    },
+    {
+      "id": "T-0227",
+      "title": "Spec dossier integrity checker (tasks/check_task_specs.py) verifying spec_path dossiers for primary citations and test commands",
+      "repo": "cf-lab",
+      "area": "tooling",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic task spec validation utility.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:15:00Z",
+      "completed_at": "2026-10-18",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 task board context architecture"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "source_evidence": "tasks/board.json; tasks/render-board.ps1; tasks/triage_board.py; tasks/specs/T-0221.md",
+      "spec_path": "tasks/specs/T-0227.md",
+      "acceptance": "python -m unittest tasks/test_check_task_specs.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": {
+          "actual_hours": 1.5,
+          "notes": "Implemented tasks/check_task_specs.py and test_check_task_specs.py, integrated verify_task_spec into triage_board.py."
+        },
+        "rationale": "Eliminates task context loss by deterministically verifying spec dossiers across board tasks.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 3.0,
+          "scientific_integrity": 9.8,
+          "operational_velocity": 9.5,
+          "security_compliance": 9.7
+        },
+        "composite_score": 7.92,
+        "roi_ratio": 3.96
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Implemented and verified in feat/lab-context-specs-and-skill-evolution."
     }
   ],
   "updated": "2026-10-17"

@@ -477,6 +477,24 @@ class PickerTests(unittest.TestCase):
         code, _ = self.run_picker(t, "security", "--check", "--now", "2026-10-17T12:00:00Z")
         self.assertEqual(code, 21)
 
+    def test_spec_path_and_existing_worktrees_in_bundle(self):
+        specs_dir = self.dir / "tasks" / "specs"
+        specs_dir.mkdir(parents=True)
+        spec_file = specs_dir / "T-0001.md"
+        spec_content = "# T-0001 Spec\n\nPrimary evidence: DOI 10.1038/s41587-020-0453-z\nVerification: python test.py\n"
+        spec_file.write_text(spec_content, encoding="utf-8")
+
+        t = [task("T-0001", spec_path="tasks/specs/T-0001.md")]
+        code, jout = self.run_picker(t, "security", "--json")
+        self.assertEqual(code, 0)
+        data = json.loads(jout)
+        self.assertIn("existing_worktrees", data)
+        self.assertIsInstance(data["existing_worktrees"], list)
+        self.assertEqual(len(data["bundle"]), 1)
+        entry = data["bundle"][0]
+        self.assertEqual(entry["spec_path"], "tasks/specs/T-0001.md")
+        self.assertEqual(entry["spec_markdown"], spec_content)
+
 
 class RealBoardTests(unittest.TestCase):
     def test_every_lane_runs_on_the_real_board_without_error(self):

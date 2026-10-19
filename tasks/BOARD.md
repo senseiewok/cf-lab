@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-212 tasks, 211 created by a model, 107 with a measured outcome. Estimated effort 552.35 to 1045.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+227 tasks, 226 created by a model, 111 with a measured outcome. Estimated effort 597.35 to 1124.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (17)
+## ready (28)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,21 +18,32 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
+| T-0222 | P1 | Interactive Base Editing (ABE8e) Protospacer Window & Bystander Edit Simulator panel on /cf/ptc/ and /cf/cftr/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0223 | P1 | Interactive Clinical Trial Eligibility, Washout & Endpoint Plain-Language Decoder on /cf/trials/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0224 | P1 | Interactive Sweat Chloride vs. ppFEV1 Non-Linear Sigmoidal Concordance Explorer on /cf/registries/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
+| T-0214 | P1 | Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0215 | P1 | Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
+| T-0220 | P1 | Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy | cf-research | 3.5-6.5 | 5 | 10 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
+| T-0219 | P1 | Base Editing (ABE8e / CBE) bystander deamination window & PAM accessibility model for CFTR nonsense and canonical splice alleles (W1282X, R553X, G542X, 2789+5G->A) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
+| T-0221 | P1 | CFTR potentiator + triple-corrector cooperative allosteric gating thermodynamic cycle (VX-445 / VX-661 / VX-121 / VX-561 open-channel stabilization) | cf-research | 4-7 | 5 | 9.1 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | frontier |  |  |
+| T-0218 | P1 | Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 4 | 8.4 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0216 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
+| T-0217 | P1 | Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py) | cf-research | 4-7 | 3 | 5.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | high | local | T-0216 |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
 | T-0110 | P2 | Rulesets on main for the public repos | cf-lab | 0.5-1 | 5 | 66.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low | local |  |  |
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
+| T-0226 | P2 | Deterministic SVG/WebGL2 ?t=SECONDS visual visibility & mobile zero-overflow verifier (tasks/test_svg_freeze_contract.py) | cf-lab | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (181)
+## done (185)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -51,6 +62,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0072 | P1 | Decision: cloud-model use on reports with unread terms; permission requests to the CFF Registry and the CF Trust; the CC0 label on skills that carry quotations | cf-research | 1-2 | 4 | 26.7 | yes | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | cloud |  |  |
 | T-0115 | P1 | Record the agent's permission mode and deny GitHub settings commands | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low | local |  | work/frontier-lab-unbinding |
 | T-0109 | P1 | A rule for questions about one real person: generalise before any search | cf-lab | 1-3 | 5 | 25 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | low |  |  |  |
+| T-0227 | P1 | Spec dossier integrity checker (tasks/check_task_specs.py) verifying spec_path dossiers for primary citations and test commands | cf-lab | 1.5-2.5 | 5 | 25 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0191 | P1 | Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0192 | P1 | Aggressive sentinel cadence: reduce max_idle_hours from 8h/12h to 3h/4h in tasks/sentinels.json and replenish multi-lane ready backlog | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0067 | P1 | Decision: treat robots.txt groups that name AI agents as applying to our fetch sources | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -58,6 +70,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0094 | P1 | Decide, after the review memo, whether the AI-agent robots.txt rule from T-0067 ships, then merge it in both repos | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | full | medium | local | T-0067 |  |
 | T-0095 | P1 | Make the website's footer and credit wording agree with the README's 'Thanks to the tools' section | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
+| T-0225 | P1 | Automated worktree harvest & duplicate-PR preflight guard (tasks/check_worktree_drift.py) integrated into pick_bold_task.py and security sentinel | cf-lab | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0181 | P1 | Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py) | .ai | 1.5-3 | 4 | 17.8 | yes | model: claude-3-opus | 2026-10-17 | elevated | low | local | T-0180 |  |
 | T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | yes | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |  |
 | T-0167 | P1 | Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification | .ai | 2-4 | 5 | 16.7 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud |  |  |
@@ -77,6 +90,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0194 | P1 | Care-team & family plain-language question cards for each workbench (/cf/ptc/, /cf/delivery/, /cf/trials/, /cf/registries/) | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0200 | P1 | Epithelial sodium channel (ENaC / SCNN1A) RNAi & small-molecule knockdown dose-response model for ASL rehydration (tools/discovery/enac_knockdown_model.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0201 | P1 | Rare CFTR frameshift, large deletion & splicing allele theratyping decision matrix across global registry cohorts (tools/discovery/rare_allele_matrix.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0213 | P1 | Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0208, T-0210 |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
@@ -108,6 +122,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0160 | P1 | Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs) | .ai | 4-8 | 5 | 8.3 | no | model: gemini-3.8-flash | 2026-10-12 | full | medium | cloud | T-0148, T-0149 | site/showcase-curative-theratypes |
 | T-0207 | P1 | CFTR Delta-R domain minigene packaging and single-channel patch-clamp conductance simulator (tools/discovery/cftr_minigene_model.py) | cf-research | 3.5-6.5 | 4 | 8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0208 | P1 | Aerosolized AAV capsid lung tropism and neutralizing antibody neutralization titer calculator (tools/discovery/aav_tropism_model.py) | cf-research | 4.5-8 | 5 | 8 | yes | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
+| T-0216 | P1 | Engineered Suppressor tRNA & SMG1 NMD Inhibition Biophysical Synergy Model for CFTR PTCs (tools/discovery/suppressor_trna_model.py) | cf-research | 3.5-6.5 | 4 | 8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | high | local |  |  |
 | T-0066 | P1 | Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules | cf-skills | 3-5 | 3 | 7.5 | yes | model: claude-sonnet-5-5 | 2026-10-05 | full | medium | local |  |  |
 | T-0078 | P1 | Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice | cf-lab | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
 | T-0152 | P1 | Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid | cf-research | 4-8 | 4 | 6.7 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | medium | cloud |  |  |
@@ -378,6 +393,16 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides the wording and whether such questions are in scope. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. \| 2026-10-15: Completed T-0109. Added rule across security-browsing and cf-research-context requiring generalization to broad scientific terms before any search/cloud call; built deterministic scanner tasks/scan_person_generalization.py and test_scan_person_generalization.py with full positive/negative controls; registered in check-all.ps1.
 - **Measured:** 1.5 h; Added person generalization privacy rule to security-browsing and cf-research-context; implemented deterministic session-close scanner tasks/scan_person_generalization.py with self-test and unit test suite tasks/test_scan_person_generalization.py (4/4 passed); registered rows in check-all.ps1.
 
+### T-0227 Spec dossier integrity checker (tasks/check_task_specs.py) verifying spec_path dossiers for primary citations and test commands
+
+- **Why / ROI rationale:** Eliminates task context loss by deterministically verifying spec dossiers across board tasks. *(confidence: high)*
+- **Route:** local - Deterministic task spec validation utility.
+- **Acceptance:** python -m unittest tasks/test_check_task_specs.py
+- **Evidence:** tasks/board.json; tasks/render-board.ps1; tasks/triage_board.py; tasks/specs/T-0221.md
+- **Spec:** `tasks/specs/T-0227.md`
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Implemented and verified in feat/lab-context-specs-and-skill-evolution.
+- **Measured:** 1.5 h; Implemented tasks/check_task_specs.py and test_check_task_specs.py, integrated verify_task_spec into triage_board.py.
+
 ### T-0191 Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty
 
 - **Why / ROI rationale:** Prevents step execution permission errors on missing bundle files and ensures sentinels proactively replenish the board instead of idling. *(confidence: high)*
@@ -452,6 +477,16 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** The maintainer decides: count both files, or say plainly 'from the first session's ledger'. If both, the pin tool and the generator read both files, the lock records both hashes, and the page says '138 mistakes recorded as of <date>' from the data, not typed.
 - **Evidence:** 2026-10-10: the page counts mistakes from ledger/2026-10-04-first-session.md only (98 rows); cf-research/ledger/2026-10-07-second-session.md holds 40 more rows that the page has never counted (found by the evidence-pin builder).
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. A content decision first; the code is small. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17: Maintainer decided to count both mistake-ledger files (98 + 40 = 138 mistakes); updated tools/pin_evidence.py, tools/make_evidence.py, data/evidence.lock.json, data/evidence.snapshot.json, src/evidence/index.html, and es-MX translations with 37 unit tests in test_evidence_pin.py.
+
+### T-0225 Automated worktree harvest & duplicate-PR preflight guard (tasks/check_worktree_drift.py) integrated into pick_bold_task.py and security sentinel
+
+- **Why / ROI rationale:** Prevents redundant re-implementation and duplicate PR creation by detecting unmerged worktree commits. *(confidence: high)*
+- **Route:** local - Workspace git worktree and task picker governance engine.
+- **Acceptance:** python -m unittest tasks/test_check_worktree_drift.py
+- **Evidence:** .claude/skills/workspace-siblings/scripts/worktrees.py; tasks/pick_bold_task.py; tasks/specs/T-0219.md
+- **Spec:** `tasks/specs/T-0225.md`
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Implemented and verified in feat/lab-context-specs-and-skill-evolution.
+- **Measured:** 2 h; Implemented tasks/check_worktree_drift.py and test_check_worktree_drift.py, integrated existing_worktrees scanning into tasks/pick_bold_task.py.
 
 ### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
 
@@ -530,7 +565,34 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/cftr-biology-and-classes.md; cf-research/sources/catalog.yaml (cftr2, clinvar); src/cf/index.html
 - **Notes:** 2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor).
-- **Measured:**  h; 
+- **Measured:** 3.5 h; Implemented T-0212 CF Variant Classes I-VII primer cards & interactive animated cellular life-cycle schematic (#cftr-class-lifecycle-svg) on /cf/ plus site-wide SVG animation pass across /cf/registries/, /cf/delivery/, /evidence/, and /ai-loop/ (senseiewok/.ai PR #118).
+
+### T-0222 Interactive Base Editing (ABE8e) Protospacer Window & Bystander Edit Simulator panel on /cf/ptc/ and /cf/cftr/ with es-MX parity
+
+- **Why / ROI rationale:** Provides patients with rare stop codons an intuitive visual simulator of genetic base editing, protospacer windows, and bystander safety. *(confidence: high)*
+- **Route:** local - Zero-build interactive SVG visualization and bilingual copy on senseiewok.ai.
+- **Acceptance:** python -m unittest tests.test_site tests.test_resources_page
+- **Evidence:** DOI 10.1038/s41587-020-0453-z; ClinicalTrials.gov NCT06237335; src/cf/index.html; tasks/specs/T-0216.md
+- **Spec:** `tasks/specs/T-0222.md`
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0216.md.
+
+### T-0223 Interactive Clinical Trial Eligibility, Washout & Endpoint Plain-Language Decoder on /cf/trials/ with es-MX parity
+
+- **Why / ROI rationale:** Empowers individuals with CF and families to understand trial eligibility, washout periods, and endpoints without intimidation. *(confidence: high)*
+- **Route:** local - Patient-facing educational cards, timeline diagrams, and Spanish translation on /cf/trials/.
+- **Acceptance:** python -m unittest tests.test_site tests.test_resources_page
+- **Evidence:** ClinicalTrials.gov NCT05248230; NCT05668741; NCT06429176; cf-research/tools/trial_atlas/snapshot.json; tasks/specs/T-0217.md
+- **Spec:** `tasks/specs/T-0223.md`
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0217.md.
+
+### T-0224 Interactive Sweat Chloride vs. ppFEV1 Non-Linear Sigmoidal Concordance Explorer on /cf/registries/ with es-MX parity
+
+- **Why / ROI rationale:** Visualizes non-linear relationship between in vivo CFTR biomarker normalization and long-term lung function stabilization. *(confidence: high)*
+- **Route:** local - Client-side non-linear trajectory visualizer and Spanish translation on /cf/registries/.
+- **Acceptance:** python -m unittest tests.test_site tests.test_resources_page
+- **Evidence:** DOI 10.1164/rccm.201909-1812OC; ClinicalTrials.gov NCT04043806; cf-research/sources/catalog.yaml; tasks/specs/T-0218.md
+- **Spec:** `tasks/specs/T-0224.md`
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0218.md.
 
 ### T-0061 Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows)
 
@@ -626,7 +688,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_enac_knockdown_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** ClinicalTrials.gov NCT04375514 (ARO-ENaC inhaled RNAi); NCT02343445 (ENaC inhibition in CF); DOI 10.1152/ajplung.00350.2020; cf-research/landscape/alternative-conductance.md
 - **Notes:** 2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Grounded in NCT04375514, NCT02343445, DOI 10.1152/ajplung.00350.2020. Done in cf-research PR #95 (tools/discovery/enac_knockdown_model.py + test_enac_knockdown_model.py, 18/18 PASS).
-- **Measured:**  h; 
+- **Measured:** 0.5 h; 
 
 ### T-0201 Rare CFTR frameshift, large deletion & splicing allele theratyping decision matrix across global registry cohorts (tools/discovery/rare_allele_matrix.py)
 
@@ -635,7 +697,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_rare_allele_matrix.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/sources/catalog.yaml (cftr2, gnomad, ecfspr-adr-2024); ClinicalTrials.gov NCT06429176; NCT05668741; DOI 10.1016/j.jcf.2023.09.006
 - **Notes:** 2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Grounded in catalog.yaml, NCT06429176, NCT05668741. Done in cf-research PR #95 (tools/discovery/rare_allele_matrix.py + test_rare_allele_matrix.py, 19/19 PASS).
-- **Measured:**  h; 
+- **Measured:** 0.5 h; 
+
+### T-0213 Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity
+
+- **Why / ROI rationale:** Exposes directed evolution capsid tropism (4D-A101 vs wild-type serotypes), mucin adhesion kinetics, and mucosal NAb evasion to the public research community. *(confidence: high)*
+- **Route:** local - Zero-build ES6 interactive panel and bilingual localization on /cf/delivery/.
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests tests.test_delivery_page
+- **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; cf-research/tools/discovery/aav_tropism_model.py; ClinicalTrials.gov NCT05248230; Hill et al. Sci Adv 2019 (DOI 10.1126/sciadv.aaw3507)
+- **Notes:** Completed in senseiewok/.ai#119: Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified.
+- **Measured:** 3.5 h; Implemented T-0213 aerosolized AAV capsid tropism & NAb neutralization calculator on /cf/delivery/ with full Mexican Spanish parity (senseiewok/.ai PR #119).
+
+### T-0214 Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity
+
+- **Why / ROI rationale:** Empowers people with CF producing zero functional CFTR (Class I/VII) with an interactive biophysical explorer of mutation-agnostic bypass rehydration via ENaC blockade and TMEM16A/SLC26A9 activation. *(confidence: high)*
+- **Route:** local - Mutation-agnostic alternative conductance biophysical simulation and bilingual cards on /cf/.
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
+- **Evidence:** cf-research/landscape/alternative-conductance.md; Enterprise Therapeutics PubMed 33177112, 34588145; Nature 2017 PubMed 28959951; JCI 2012 PubMed 22446184; src/cf/index.html
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor).
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
@@ -705,7 +784,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_vector_redosing_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** ClinicalTrials.gov NCT05248230 (4D-710 aerosolized AAV); NCT06515002 (BI 3720931 lentiviral vector); NCT05504837 (KB407 HSV-1); NCT05668741 (VX-522 mRNA LNP); NCT06237335 (RCT2100 mRNA)
 - **Notes:** 2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Grounded in NCT05248230, NCT06515002, NCT05504837, NCT05668741. Done in cf-research PR #95 (tools/discovery/vector_redosing_kinetics.py + test_vector_redosing_kinetics.py, 29/29 PASS) and surfaced on senseiewok.ai /cf/delivery/ (#vector-redosing-explorer + #redosing-durability-svg).
-- **Measured:**  h; 
+- **Measured:** 0.6 h; 
 
 ### T-0199 CFTR NBD1 thermal unfolding (dTm) & allosteric domain-interface free energy landscape model across rare missense variants (tools/discovery/nbd1_thermodynamics.py)
 
@@ -714,7 +793,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_nbd1_thermodynamics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** RCSB PDB 6MSM; PDB 8EIQ; ClinicalTrials.gov NCT04043806 (ETI); NCT06468527; DOI 10.1056/NEJMoa1908639; cf-research/sources/catalog.yaml
 - **Notes:** 2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Grounded in PDB 6MSM, PDB 8EIQ, NCT04043806, NCT06468527. Done in cf-research PR #95 (tools/discovery/nbd1_thermodynamics.py + test_nbd1_thermodynamics.py, 21/21 PASS) and surfaced on senseiewok.ai /cf/cftr/ (#nbd1-thermodynamics-explorer + #nbd1-thermodynamics-svg).
-- **Measured:**  h; 
+- **Measured:** 0.6 h; 
 
 ### T-0202 Interactive Mucociliary Clearance & Airway Surface Liquid (ASL) Rheology Workbench panel on /cf/delivery/ with es-MX parity
 
@@ -756,6 +835,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/sources/catalog.yaml (cftr2, ecfspr-adr-2024); ClinicalTrials.gov NCT04043806; NCT06429176; NCT05668741; src/cf/registries/index.html
 - **Notes:** 2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor). Completed in senseiewok/.ai#112: Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified.
+
+### T-0215 Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity
+
+- **Why / ROI rationale:** Visualizes the post-VX-522 biophysical delivery frontier: aerodynamic size restriction (MMAD 2.8-3.2 um), zwitterionic polysarcosine shielding, and selective organ targeting for genetic CFTR inhalation. *(confidence: high)*
+- **Route:** local - Aerosol LNP biophysical parameters and delivery matrix explorer on /cf/delivery/.
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
+- **Evidence:** cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; ClinicalTrials.gov NCT05668741; DOI 10.1038/s41565-021-00870-x; DOI 10.1073/pnas.1916113117; src/cf/delivery/index.html
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor).
 
 ### T-0011 External review round: registry scientist on comparability, person with CF/caregiver on wording
 
@@ -811,6 +898,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Decomposed from T-0130 (Sub-Task 2). Maps primary outcomes to 8 classes with verbatim span tuples. \| 2026-10-16 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #83 (python -m unittest tools/trial_atlas/test_lexicon.py tools/trial_atlas/test_propose_tags.py: 153 passed; full trial_atlas suite: 464 passed).
 - **Measured:** 4 h; Delivered 8-class primary outcome mapping (CANONICAL_8_CLASSES, CANONICAL_8_MAP), verbatim character span tuples [start, end], and 100% exact substring match invariant. Verified via 153 passing tests across test_lexicon.py and test_propose_tags.py, and 464 passing tests across tools/trial_atlas in senseiewok/cf-research PR #83.
 
+### T-0220 Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy
+
+- **Why / ROI rationale:** Establishes quantitative criteria for curative durability, determining redosing intervals for aerosolized mRNA vs lifelong persistence of basal stem gene editing. *(confidence: high)*
+- **Route:** frontier - Dynamical systems modeling of stem cell kinetics and vector persistence across clinical multi-year horizons.
+- **Acceptance:** pytest tools/discovery/test_basal_stem_persistence.py
+- **Evidence:** DOI 10.1038/s41586-018-0394-6; ClinicalTrials.gov NCT06515002; NCT05248230; tasks/specs/T-0214.md
+- **Spec:** `tasks/specs/T-0220.md`
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0214.md.
+
 ### T-0185 Airway mucociliary clearance viscoelastic shear rheology & mucin mesh hindrance model (tools/discovery/mucus_rheology.py)
 
 - **Why / ROI rationale:** Quantifies the dehydrated CF airway mucus barrier across solids concentrations to guide aerosolized LNP (NCT05668741) and AAV (NCT05248230, NCT06526923) vector engineering. *(confidence: high)*
@@ -843,7 +939,25 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_dual_aav_intein_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; DOI 10.1038/s41467-019-11246-8; DOI 10.1016/j.omtm.2020.10.007; ClinicalTrials.gov NCT05248230
 - **Notes:** 2026-10-18 Track A Curative Biophysics milestone (cf-research#91). Done in cf-research PR #95 (tools/discovery/dual_aav_intein_model.py + test_dual_aav_intein_model.py, 14/14 PASS).
-- **Measured:**  h; 
+- **Measured:** 0.5 h; 
+
+### T-0219 Base Editing (ABE8e / CBE) bystander deamination window & PAM accessibility model for CFTR nonsense and canonical splice alleles (W1282X, R553X, G542X, 2789+5G->A)
+
+- **Why / ROI rationale:** Enables precise in silico screening of base editor gRNAs and bystander mutation risk for refractory nonsense mutations (W1282X, R553X) and splice variants. *(confidence: high)*
+- **Route:** frontier - High-stakes biophysical deaminase window and structural perturbation modeling requiring frontier verification.
+- **Acceptance:** pytest tools/discovery/test_base_editing_cftr.py
+- **Evidence:** DOI 10.1038/s41587-020-0453-z; ClinicalTrials.gov NCT06237335; PDB 6MSM; tasks/specs/T-0213.md
+- **Spec:** `tasks/specs/T-0219.md`
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0213.md.
+
+### T-0221 CFTR potentiator + triple-corrector cooperative allosteric gating thermodynamic cycle (VX-445 / VX-661 / VX-121 / VX-561 open-channel stabilization)
+
+- **Why / ROI rationale:** Models multi-ligand thermodynamic synergy between TMD1, TMD2, and gating hinge pockets to explain next-generation vanzacaftor regimen superiority. *(confidence: high)*
+- **Route:** frontier - Thermodynamic cycle and multi-state linkage biophysics requiring Cryo-EM coordinate integration.
+- **Acceptance:** pytest tools/discovery/test_allosteric_potentiator_model.py
+- **Evidence:** DOI 10.1126/science.ade2216; PDB 8EIQ; PDB 6MSM; ClinicalTrials.gov NCT04043806; NCT06468527; tasks/specs/T-0215.md
+- **Spec:** `tasks/specs/T-0221.md`
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0215.md.
 
 ### T-0184 Prime editing pegRNA & nicking sgRNA biophysical feasibility scorer for CFTR F508del and W1282X (tools/discovery/prime_editing_cftr.py)
 
@@ -861,6 +975,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_modifier_interactome.py -v verifies apical chloride/bicarbonate flux compensation equations and airway surface liquid height restoration bounds.
 - **Evidence:** DOI 10.1038/s41467-020-19255-2; DOI 10.1152/ajplung.00350.2020; cf-research/landscape/alternative-conductance.md; cf-research/sources/catalog.yaml
 - **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Grounded in DOI 10.1038/s41467-020-19255-2. Merged in senseiewok/cf-research#90 (commit 989554e): tools/discovery/modifier_interactome.py + 15 unit tests in test_modifier_interactome.py passing.
+
+### T-0218 Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity
+
+- **Why / ROI rationale:** Translates suppressor tRNA decoding competition, SMG1 NMD suppression, and supra-additive electrophysiology for W1282X and G542X into a bilingual interactive explorer on /cf/cftr/. *(confidence: high)*
+- **Route:** local - Zero-build ES6 interactive simulation panel and bilingual localization on /cf/cftr/.
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests
+- **Evidence:** cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; cf-research/tools/discovery/suppressor_trna_model.py; DOI 10.1038/s41467-023-41392-8; src/cf/cftr/index.html
+- **Notes:** Wave 8 Discovery Council Replenishment. Interactive companion workbench empowering families and researchers to visualize nonsense mutation rescue mechanics.
 
 ### T-0147 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 
@@ -907,7 +1029,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_cftr_minigene_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; DOI 10.1073/pnas.1901174116; RCSB PDB 6MSM; PDB 5UAK
 - **Notes:** 2026-10-18 Track A Curative Biophysics milestone (cf-research#91). Done in cf-research PR #95 (tools/discovery/cftr_minigene_model.py + test_cftr_minigene_model.py, 21/21 PASS).
-- **Measured:**  h; 
+- **Measured:** 0.5 h; 
 
 ### T-0208 Aerosolized AAV capsid lung tropism and neutralizing antibody neutralization titer calculator (tools/discovery/aav_tropism_model.py)
 
@@ -916,7 +1038,16 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_aav_tropism_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; ClinicalTrials.gov NCT05248230; DOI 10.1126/sciadv.aaw3507
 - **Notes:** 2026-10-18 Track A Curative Biophysics milestone (cf-research#91). Done in cf-research PR #94 (tools/discovery/aav_tropism_model.py + test_aav_tropism_model.py, 24/24 PASS).
-- **Measured:**  h; 
+- **Measured:** 0.5 h; 
+
+### T-0216 Engineered Suppressor tRNA & SMG1 NMD Inhibition Biophysical Synergy Model for CFTR PTCs (tools/discovery/suppressor_trna_model.py)
+
+- **Why / ROI rationale:** Models ribosomal A-site competition, tetranucleotide context hierarchy (+4 base), SMG1 NMD suppression, and patch-clamp Delta Isc restoration for G542X and W1282X. *(confidence: high)*
+- **Route:** local - Track A biophysical decoding competition, NMD mRNA turnover, and electrophysiological simulation.
+- **Acceptance:** pytest tools/discovery/test_suppressor_trna_model.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; DOI 10.1038/s41467-023-41392-8; DOI 10.1073/pnas.1908401116; DOI 10.1016/j.jcf.2023.04.012; PDB 6MSM; PDB 8EIQ; ClinicalTrials.gov NCT04135495
+- **Notes:** Wave 8 Discovery Council Replenishment. Delivered and verified in cf-research#96 (9/9 pytest passed, 100% anti-hallucination guardrails passed).
+- **Measured:** 4.5 h; 
 
 ### T-0066 Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules
 
@@ -995,6 +1126,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: Rare CF genotypes have cohorts too small for phase 3 FEV1 trials; European theratyping centers have validated rectal organoid swelling (FIS) as an accurate predictor of in vivo modulator response. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in published rectal organoid FIS swelling assay correlations; links Track A theratyping to Track B Trial Endpoint Atlas. Tier full. Recommended ready. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-14: Marked done. Open-access adaptive N-of-1 trial framework and organoid FIS surrogate endpoint models published in proposals/2026-10-adaptive-n-of-1-organoid-framework.md (PR cf-research#63).
 - **Measured:** 6 h; Adaptive N-of-1 trial protocol framework, mathematical FIS-to-FEV1/SwCl transfer functions (r = -0.71, P < 0.0001), and JSON Schema calculator specs published in proposals/2026-10-adaptive-n-of-1-organoid-framework.md (PR cf-research#63).
+
+### T-0217 Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py)
+
+- **Why / ROI rationale:** Quantifies the atomistic vacuum cavity (~120 A^3) and NBD2 destabilization resulting from near-cognate Cys/Arg substitution vs cognate Trp1282 insertion in Cryo-EM coordinates. *(confidence: high)*
+- **Route:** local - Atomistic Cryo-EM coordinate analysis of NBD2 core packing and thermal stability.
+- **Acceptance:** pytest tools/discovery/test_ptc_cryoem_allostery.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; PDB 6MSM; PDB 8EIQ; DOI 10.1038/s41467-023-41392-8; DOI 10.1021/acs.biochem.5c00590
+- **Notes:** Wave 8 Discovery Council Replenishment. Analyzes why engineered suppressor tRNA inserting authentic cognate amino acids is required to preserve channel gating and avoid ERAD.
 
 ### T-0090 Re-measure the local reviewer with the thinking profile and more runs per arm
 
@@ -1277,6 +1416,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A person starts Antigravity in cf-lab and records (a listing or screenshot kept in cf-lab-files, no private paths in a repo) which skills and rule files it reports loading, with the Antigravity version and date. Then one of: (a) AGENTS.md and docs/instruction-loading.md state exactly what was observed and nothing more; or (b) a .agents/skills/ mirror is added as a declared mirror (junction, symlink, or a generated copy with a manifest naming the source commit), check-workspace.py's duplicate-name guard passes only when the trees are byte-identical, and a test fails on a one-byte difference. No skills.json claim remains unless the docs or the observation show it.
 - **Evidence:** 2026-10-12 (session record): Antigravity's official docs describe skills at <workspace-root>/.agents/skills/<folder>/ (also .agent/skills/), global folders under ~/.gemini/, and rules from AGENTS.md or GEMINI.md; they describe no skills.json. cf-lab keeps skills in .claude/skills/ only. Nobody has listed the skills an Antigravity session actually loads; the skills.json claim was removed from cf-lab PR 50 before it merged.
 - **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. Human step: the Antigravity session itself. Related: T-0140 (the standalone-clone decision) and T-0143 (PR check). \| 2026-10-13 CRO Grounding Audit: Audit pass. Agent runtime verification; ensures Antigravity sessions operate under verified security and grounding skills rather than unverified path assumptions; tier elevated. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+
+### T-0226 Deterministic SVG/WebGL2 ?t=SECONDS visual visibility & mobile zero-overflow verifier (tasks/test_svg_freeze_contract.py)
+
+- **Why / ROI rationale:** Guards against invisible paused SVG curves (stroke-dashoffset: 1) and broken mobile slider layouts. *(confidence: high)*
+- **Route:** local - Automated test suite verifying SVG stroke offset contracts and mobile 375px zero-overflow.
+- **Acceptance:** python -m unittest tasks/test_svg_freeze_contract.py
+- **Evidence:** .claude/skills/svg-animation/SKILL.md; .claude/skills/webgl-threejs-graphics/SKILL.md; tasks/specs/T-0220.md
+- **Spec:** `tasks/specs/T-0226.md`
+- **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0220.md.
 
 ### T-0081 Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public
 
@@ -1715,7 +1863,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A script (for example delegate-cloud-gemini.ps1 or .py) that takes a handoff packet and its detached approval exactly as new-cloud-handoff.ps1 defines them, refuses without a matching approval hash, calls Google's Python SDK (google-genai) for one bounded plan or review with no tools, reads the key only from the environment through run-with-env.ps1 (agents never read .env), enforces and records the call budget and the output cap, writes a usage row that holds counts and hashes only, and returns the reply as data. Tests run against a stub transport with no network: no approval, a stale hash, an over-size packet, a missing key, an over-budget call, and a reply that tries to carry an instruction. The new dependency and the outside network call are named in the pull request, the SDK is pinned, and the maintainer confirms first that their licence covers API use (an AI Studio key is separate from an IDE licence, not verified here). A Full-tier review applies: credentials and an external service.
 - **Evidence:** 2026-10-07: the maintainer asked whether Gemini can be used by adding it to Ollama or by calling it through an SDK, and has Google's Antigravity IDE installed with a Pro licence. Checked on the machine: Gemini is not an open-weight model, so Ollama cannot run it (Gemma, its open relative, can); the IDE's command line only opens files and manages extensions and MCP servers and has no way to give its agent a prompt; no Gemini command-line tool is installed. ai-loop-council has a manual cloud handoff (new-cloud-handoff.ps1) and a routing helper but no live provider adapter.
 - **Notes:** Proposed by a model; only a human moves it to ready. Not started. Open questions for the maintainer: does the Pro licence include API access or is a separate key needed; which data may ever go (the lab's rule: only reviewed shareable packets, never secrets, patient data or private site details); and whether the manual handoff is enough. Antigravity itself can be used by hand on a worktree that has no .env and no private folders. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Listed in tasks/HUMAN-TASKS.md). Prioritized by multi-category ROI. Done: implemented .claude/skills/ai-loop-council/scripts/delegate-cloud-gemini.py + test_delegate_cloud_gemini.py (7/7 PASS) enforcing detached packet_sha256 approval, packet/token/call budgets, tools=[], prompt-injection quarantine, and FileShare.None hash-only JSONL logging.
-- **Measured:**  h; 
+- **Measured:** 0.6 h; 
 
 ### T-0060 Refresh the private .ai website for the first release: new repo names, evidence loop, setup, claim fixes
 

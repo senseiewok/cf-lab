@@ -100,13 +100,19 @@ When orchestrating on Gemini Flash, **delegate the first-pass mechanical triage 
    - Mines all session transcripts under `<appDataDir>/brain/` and task logs for Non-Zero Exit Codes, PowerShell Syntax/ScriptBlock errors, Python Tracebacks, path resolution failures, and lock contention.
    - Saves structured audit ledger to `.loop-logs/session-error-digest.json`.
    - Converts recurring failure patterns into concrete script hardening, skill guideline updates, and auto-fix pull requests.
+7. **Worktree Drift Harvest & Duplicate-PR Preflight Guard**:
+   - Run `python tasks/check_worktree_drift.py --check` across `.worktrees/*/*`.
+   - Inspect unharvested commits on stale branches to prevent duplicate re-implementation or colliding PRs.
+   - When building security lane tasks from `.loop-logs/bold-bundle-security.json`, inspect `existing_worktrees` and read `spec_markdown` directly.
+8. **Task Spec Dossier Integrity Audit**:
+   - Run `python tasks/check_task_specs.py --check` to verify that every `spec_path` declared on `tasks/board.json` resolves to a valid markdown specification with primary-source citations and test commands.
 
 ### 3. Automated Remediation & PR Pipeline
 
 When a fixable hygiene or security defect is detected (e.g. missing `.gitignore` pattern, unescaped catalog URL, lint regression, or stale hash):
 
 1. **Check Active Worktrees & Board Branches**:
-   - Inspect `tasks/board.json` (`status: "in_progress"` and `"branch"`) and `git -C <repo> worktree list` before touching any repository. If an active branch/worktree is already modifying the affected files, log the finding to `memory/handoff.md` rather than racing on the same target.
+   - Inspect `tasks/board.json` (`status: "in_progress"` and `"branch"`), `tasks/check_worktree_drift.py`, and `git -C <repo> worktree list` before touching any repository. If an active branch/worktree is already modifying the affected files, harvest its commits or log the finding to `memory/handoff.md` rather than racing on the same target.
 2. **Spawn Isolated Git Worktree & Record Branch**:
    ```powershell
    python .claude/skills/workspace-siblings/scripts/worktrees.py new <repo> sec-fix-<topic>

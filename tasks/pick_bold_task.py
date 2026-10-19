@@ -33,6 +33,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import triage_board  # noqa: E402  (reuses the human-gate rules and the ROI scoring)
+from check_worktree_drift import scan_existing_worktrees  # noqa: E402
 
 REPO_ROOT = HERE.parent
 DEFAULT_BOARD = REPO_ROOT / "tasks" / "board.json"
@@ -405,13 +406,42 @@ def summarize_pr_repair(pr: dict, issues: list[str]) -> dict:
     }
 
 
-def summarize(t: dict) -> dict:
-    return {
+def summarize(t: dict, repo_root: Path = REPO_ROOT) -> dict:
+    entry = {
         "id": t["id"], "title": t.get("title"), "repo": t.get("repo"), "area": t.get("area"),
         "priority": t.get("priority"), "complexity": t.get("complexity"),
         "review_tier": t.get("review_tier"), "recommended_route": t.get("recommended_route"),
         "effort_hours": t.get("effort_hours"), "acceptance": t.get("acceptance"),
     }
+    spec_path_str = t.get("spec_path")
+    candidate_path = None
+    if spec_path_str:
+        p = triage_board.resolve_repo_file(repo_root, spec_path_str)
+        if p and p.is_file():
+            candidate_path = p
+        elif (repo_root / spec_path_str).is_file():
+            candidate_path = (repo_root / spec_path_str).resolve()
+    else:
+        default_spec = f"tasks/specs/{t['id']}.md"
+        p = triage_board.resolve_repo_file(repo_root, default_spec)
+        if p and p.is_file():
+            candidate_path = p
+            spec_path_str = default_spec
+        elif (repo_root / default_spec).is_file():
+            candidate_path = (repo_root / default_spec).resolve()
+            spec_path_str = default_spec
+
+    if candidate_path and candidate_path.is_file():
+        entry["spec_path"] = spec_path_str.replace("\\", "/")
+        try:
+            entry["spec_markdown"] = candidate_path.read_text(encoding="utf-8")
+        except Exception:
+            entry["spec_markdown"] = None
+    elif spec_path_str:
+        entry["spec_path"] = spec_path_str.replace("\\", "/")
+        entry["spec_markdown"] = None
+
+    return entry
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -438,7 +468,9 @@ def main(argv: list[str] | None = None) -> int:
     if now.tzinfo is None:
         now = now.replace(tzinfo=timezone.utc)
 
-    board = json.loads(Path(args.board).read_text(encoding="utf-8"))
+    board_path = Path(args.board)
+    board_repo_root = board_path.resolve().parent.parent if board_path.resolve().parent.name == "tasks" else board_path.resolve().parent
+    board = json.loads(board_path.read_text(encoding="utf-8"))
     tasks = board["tasks"] if isinstance(board, dict) else board
     tasks_by_id = {t["id"]: t for t in tasks if isinstance(t, dict) and "id" in t}
     done_ids = {t["id"] for t in tasks if isinstance(t, dict) and t.get("status") == "done" and "id" in t}
@@ -475,6 +507,7 @@ def main(argv: list[str] | None = None) -> int:
     if repairs:
         top_repair = repairs[0]
         top_key = repair_keys[0]
+        existing_wts = scan_existing_worktrees(repo_root=board_repo_root, task_ids=top_repair.get("task_ids", []), lane=args.lane)
         repair_result = {
             "mode": "pr_repair",
             "lane": args.lane,
@@ -484,6 +517,7 @@ def main(argv: list[str] | None = None) -> int:
             "total_mean_effort_hours": 1.5,
             "pr_repairs": [top_repair],
             "queued_pr_repairs_count": len(repairs),
+            "existing_worktrees": existing_wts,
             "bundle": [],
             "why": "open pull request in this lane has failing checks, merge conflicts, review blockers, or is superseded by main",
             "too_big_to_hand_out": [],
@@ -538,6 +572,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"no eligible ready task in lane {args.lane}{extra}")
         return 20
 
+    picked_task_ids = [t["id"] for t in bundle]
+    existing_wts = scan_existing_worktrees(repo_root=board_repo_root, task_ids=picked_task_ids, lane=args.lane)
     result = {
         "mode": "build",
         "lane": args.lane,
@@ -545,7 +581,8 @@ def main(argv: list[str] | None = None) -> int:
         "repo": bundle[0].get("repo"),
         "total_mean_effort_hours": round(sum(mean_effort(t) for t in bundle), 2),
         "pr_repairs": [],
-        "bundle": [summarize(t) for t in bundle],
+        "existing_worktrees": existing_wts,
+        "bundle": [summarize(t, board_repo_root) for t in bundle],
         "why": "ranked by impact x priority x scope (complexity, effort), not by impact per hour",
         "too_big_to_hand_out": oversize,
     }
@@ -560,6 +597,7 @@ def main(argv: list[str] | None = None) -> int:
         attempts_path.write_text(json.dumps(attempts, indent=2), encoding="utf-8")
     print(json.dumps(result, indent=2))
     return 0
+
 
 
 if __name__ == "__main__":
