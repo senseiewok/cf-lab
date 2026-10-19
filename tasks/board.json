@@ -6510,11 +6510,11 @@
           "curative_biophysics": 2.0,
           "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
-          "operational_velocity": 8.5,
+          "operational_velocity": 3.0,
           "security_compliance": 9.0
         },
-        "composite_score": 6.32,
-        "roi_ratio": 2.11
+        "composite_score": 5.5,
+        "roi_ratio": 1.83
       },
       "acceptance": "A short document in the private lab files (never in a public repo, and with no secret in it) lists where each thing lives and who may do it: the deploy path and how to stop it, how to take the site down, how to rotate the deploy credential, which accounts matter, and what to tell visitors. A person other than the maintainer has read it and says whether it is enough. No credentials, no host details in any public file.",
       "review_tier": "full",
@@ -10826,6 +10826,149 @@
       },
       "notes": "2026-10-18 Council of Councils Wave 4: Approved to ready (autonomous agent executor).",
       "completed_at": "2026-10-18"
+    },
+    {
+      "id": "T-0213",
+      "title": "Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive panel and bilingual localization on /cf/delivery/.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 showcase sentinel proactive round"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0208",
+        "T-0210"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-dual-aav-intein-packaging.md; cf-research/tools/discovery/aav_tropism_model.py; ClinicalTrials.gov NCT05248230; Hill et al. Sci Adv 2019 (DOI 10.1126/sciadv.aaw3507)",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests tests.test_delivery_page",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": {
+          "actual_hours": 3.5,
+          "notes": "Implemented T-0213 aerosolized AAV capsid tropism & NAb neutralization calculator on /cf/delivery/ with full Mexican Spanish parity (senseiewok/.ai PR #119)."
+        },
+        "rationale": "Exposes directed evolution capsid tropism (4D-A101 vs wild-type serotypes), mucin adhesion kinetics, and mucosal NAb evasion to the public research community.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.42,
+        "roi_ratio": 1.85
+      },
+      "notes": "Completed in senseiewok/.ai#119: Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified.",
+      "completed_at": "2026-10-18",
+      "actual_hours": 3.5
+    },
+    {
+      "id": "T-0214",
+      "title": "Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Mutation-agnostic alternative conductance biophysical simulation and bilingual cards on /cf/.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 showcase sentinel proactive round"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/landscape/alternative-conductance.md; Enterprise Therapeutics PubMed 33177112, 34588145; Nature 2017 PubMed 28959951; JCI 2012 PubMed 22446184; src/cf/index.html",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Empowers people with CF producing zero functional CFTR (Class I/VII) with an interactive biophysical explorer of mutation-agnostic bypass rehydration via ENaC blockade and TMEM16A/SLC26A9 activation.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.93
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor)."
+    },
+    {
+      "id": "T-0215",
+      "title": "Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Aerosol LNP biophysical parameters and delivery matrix explorer on /cf/delivery/.",
+      "created_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-18T19:00:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Council of Councils (Argon + Claude Opus + Qwen)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-18 showcase sentinel proactive round"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; ClinicalTrials.gov NCT05668741; DOI 10.1038/s41565-021-00870-x; DOI 10.1073/pnas.1916113117; src/cf/delivery/index.html",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "measured": false,
+        "rationale": "Visualizes the post-VX-522 biophysical delivery frontier: aerodynamic size restriction (MMAD 2.8-3.2 um), zwitterionic polysarcosine shielding, and selective organ targeting for genetic CFTR inhalation.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.63
+      },
+      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor)."
     },
     {
       "id": "T-0216",
