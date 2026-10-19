@@ -16,6 +16,7 @@ Implements verification requirements for Track C (Task T-0226):
 
 from __future__ import annotations
 
+import os
 import re
 import unittest
 from pathlib import Path
@@ -25,11 +26,16 @@ LAB_ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = LAB_ROOT / ".claude" / "skills"
 
 # Sibling .ai repository discovery
-CANDIDATE_AI_DIRS = [
+CANDIDATE_AI_DIRS = []
+env_root = os.environ.get("AI_ROOT")
+if env_root:
+    CANDIDATE_AI_DIRS.append(Path(env_root))
+
+CANDIDATE_AI_DIRS.extend([
     LAB_ROOT.parent / ".ai",
     LAB_ROOT.parents[1] / ".ai",
     Path("C:/senseiewok/repos/.ai"),
-]
+])
 
 AI_ROOT = None
 for cand in CANDIDATE_AI_DIRS:
@@ -37,10 +43,7 @@ for cand in CANDIDATE_AI_DIRS:
         AI_ROOT = cand
         break
 
-if AI_ROOT is None:
-    raise RuntimeError("Could not locate .ai repository with src/ directory")
-
-AI_SRC = AI_ROOT / "src"
+AI_SRC = (AI_ROOT / "src") if AI_ROOT else None
 
 
 def strip_comments(text: str) -> str:
@@ -117,13 +120,20 @@ class TestSvgFreezeContract(unittest.TestCase):
         self.assertIn("queueMicrotask", es_mod_skill)
         self.assertIn("Float32Array", es_mod_skill)
 
+    def _require_ai_src(self) -> Path:
+        """Skip test cleanly in standalone clone or CI when sibling .ai repository is not present."""
+        if AI_SRC is None or not AI_SRC.is_dir():
+            self.skipTest(".ai repository sibling not present in this environment")
+        return AI_SRC
+
     # -------------------------------------------------------------------------
     # 2. CSS Freeze & Reduced Motion Rules Verification
     # -------------------------------------------------------------------------
     def test_svg_frozen_time_and_reduced_motion_css(self):
         """Verifies .is-svg-frozen-time and prefers-reduced-motion overrides in stylesheets."""
-        styles_lib = (AI_SRC / "styles-library.css").read_text(encoding="utf-8")
-        styles_cf = (AI_SRC / "styles-cf.css").read_text(encoding="utf-8")
+        ai_src = self._require_ai_src()
+        styles_lib = (ai_src / "styles-library.css").read_text(encoding="utf-8")
+        styles_cf = (ai_src / "styles-cf.css").read_text(encoding="utf-8")
 
         # styles-library.css must enforce the .is-svg-frozen-time stroke-dashoffset: 0 !important rule
         self.assertTrue(
@@ -168,6 +178,7 @@ class TestSvgFreezeContract(unittest.TestCase):
     # -------------------------------------------------------------------------
     def test_animated_svgs_have_wcag_pause_controls_and_a11y(self):
         """Scans key animated schematics across .ai/src/ for viewBox, accessible naming, and pause buttons."""
+        ai_src = self._require_ai_src()
         targets = [
             ("cftr-class-lifecycle-svg", "scripts/cf-variant-classes.js", True),
             ("nbd1-thermodynamics-svg", "cf/cftr/index.html", False),
@@ -184,7 +195,7 @@ class TestSvgFreezeContract(unittest.TestCase):
 
         for target_id, rel_path, is_dynamic_js in targets:
             with self.subTest(target_id=target_id, file=rel_path):
-                file_path = AI_SRC / rel_path
+                file_path = ai_src / rel_path
                 self.assertTrue(file_path.is_file(), f"Target file must exist: {file_path}")
                 content = file_path.read_text(encoding="utf-8")
 
@@ -224,8 +235,9 @@ class TestSvgFreezeContract(unittest.TestCase):
     # -------------------------------------------------------------------------
     def test_webgl2_context_loss_and_deterministic_time_freeze(self):
         """Verifies WebGL2 scripts attach context loss listeners (calling preventDefault()), read ?t=, and provide fallbacks."""
+        ai_src = self._require_ai_src()
         # 1. Mucus Rheology Explorer
-        mucus_js = (AI_SRC / "scripts" / "mucus-rheology-explorer.js").read_text(encoding="utf-8")
+        mucus_js = (ai_src / "scripts" / "mucus-rheology-explorer.js").read_text(encoding="utf-8")
         self.assertIn("webglcontextlost", mucus_js)
         self.assertIn("webglcontextrestored", mucus_js)
         self.assertTrue(
@@ -237,9 +249,9 @@ class TestSvgFreezeContract(unittest.TestCase):
         self.assertIn("getContext('2d')", mucus_js)
 
         # 2. CFTR 3D Viewer / Hero Script
-        cftr_script = AI_SRC / "scripts" / "cftr-hero.js"
+        cftr_script = ai_src / "scripts" / "cftr-hero.js"
         if not cftr_script.exists():
-            cftr_script = AI_SRC / "scripts" / "cftr-viewer.js"
+            cftr_script = ai_src / "scripts" / "cftr-viewer.js"
 
         self.assertTrue(cftr_script.is_file(), f"CFTR script must exist at {cftr_script}")
         cftr_js = cftr_script.read_text(encoding="utf-8")
@@ -256,7 +268,7 @@ class TestSvgFreezeContract(unittest.TestCase):
         )
 
         # Universal site-wide ?t= parameter coordinator in site.js
-        site_js = (AI_SRC / "scripts" / "site.js").read_text(encoding="utf-8")
+        site_js = (ai_src / "scripts" / "site.js").read_text(encoding="utf-8")
         self.assertIn("URLSearchParams", site_js)
         self.assertIn("params.get('t')", site_js)
         self.assertIn("is-svg-frozen-time", site_js)
@@ -283,9 +295,10 @@ class TestSvgFreezeContract(unittest.TestCase):
     # -------------------------------------------------------------------------
     def test_mobile_375px_zero_overflow_grid_contract(self):
         """Verifies responsive stylesheets enforce single-column layouts (grid-template-columns: 1fr) and min-width: 0."""
-        styles_delivery = (AI_SRC / "styles-delivery.css").read_text(encoding="utf-8")
-        styles_cf = (AI_SRC / "styles-cf.css").read_text(encoding="utf-8")
-        styles_prime = (AI_SRC / "styles-cftr-prime.css").read_text(encoding="utf-8")
+        ai_src = self._require_ai_src()
+        styles_delivery = (ai_src / "styles-delivery.css").read_text(encoding="utf-8")
+        styles_cf = (ai_src / "styles-cf.css").read_text(encoding="utf-8")
+        styles_prime = (ai_src / "styles-cftr-prime.css").read_text(encoding="utf-8")
 
         # styles-delivery.css
         self.assertTrue(
@@ -315,6 +328,7 @@ class TestSvgFreezeContract(unittest.TestCase):
     # -------------------------------------------------------------------------
     def test_es_modules_zero_innerhtml_and_strict_csp(self):
         """Verifies that interactive biophysical ES modules contain zero .innerHTML and zero eval() / new Function()."""
+        ai_src = self._require_ai_src()
         modules = [
             "prime-editing-explorer.js",
             "aav-packaging-calculator.js",
@@ -326,7 +340,7 @@ class TestSvgFreezeContract(unittest.TestCase):
 
         for mod_name in modules:
             with self.subTest(module=mod_name):
-                mod_path = AI_SRC / "scripts" / mod_name
+                mod_path = ai_src / "scripts" / mod_name
                 self.assertTrue(mod_path.is_file(), f"Module must exist: {mod_path}")
                 content = mod_path.read_text(encoding="utf-8")
 
@@ -366,6 +380,15 @@ class TestSvgFreezeContract(unittest.TestCase):
         has_eval = "eval(" in violating_code
         self.assertTrue(has_inner_html, "Scanner must detect .innerHTML")
         self.assertTrue(has_eval, "Scanner must detect eval(")
+
+    # -------------------------------------------------------------------------
+    # 10. Standalone CI / Missing .ai Graceful Skip Verification
+    # -------------------------------------------------------------------------
+    def test_standalone_mode_handles_absent_ai(self):
+        """Verifies that in standalone clone without .ai, _require_ai_src cleanly raises SkipTest."""
+        if AI_SRC is None:
+            with self.assertRaises(unittest.SkipTest):
+                self._require_ai_src()
 
 
 if __name__ == "__main__":
