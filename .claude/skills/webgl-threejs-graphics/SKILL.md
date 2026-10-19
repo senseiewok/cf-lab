@@ -77,7 +77,104 @@ When implementing molecular, particle, or mesh shaders (e.g. ion channel pore co
     }
   }
   ```
-- **Automated Verification**: Enforced via `tasks/test_svg_freeze_contract.py`, asserting `URLSearchParams` parameterization for `t`, `webglcontextlost`/`webglcontextrestored` recovery, and headless 2D fallback across canvas visual assets.
+
+## GPU instancing & analytical SDF fragment shaders for biophysical fields
+
+When visualizing hundreds of diffusing nanoparticles (e.g. PEG-brush vs cationic LNPs across mucin networks) or viscoelastic pore grids, issuing individual `drawArrays` calls kills frame rate through CPU driver overhead.
+
+### 1. GPU Instanced Rendering with `drawArraysInstanced`
+
+In WebGL2, pass per-instance transformations and physics attributes (positions, radii, charge colors) via instanced vertex attributes using `gl.vertexAttribDivisor(loc, 1)`:
+
+```javascript
+// Base geometry: single quad (2 triangles, 6 vertices)
+const quadVertices = new Float32Array([-1, -1,  1, -1, -1,  1, -1,  1,  1, -1,  1,  1]);
+gl.bindBuffer(gl.ARRAY_BUFFER, quadVbo);
+gl.bufferData(gl.ARRAY_BUFFER, quadVertices, gl.STATIC_DRAW);
+gl.enableVertexAttribArray(0);
+gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+
+// Instance data: 500 particle offsets (x, y)
+gl.bindBuffer(gl.ARRAY_BUFFER, instanceVbo);
+gl.bufferData(gl.ARRAY_BUFFER, particleOffsets, gl.DYNAMIC_DRAW);
+gl.enableVertexAttribArray(1);
+gl.vertexAttribPointer(1, 2, gl.FLOAT, false, 0, 0);
+gl.vertexAttribDivisor(1, 1); // 1 = advance per instance, not per vertex
+
+// Render all 500 particles in a single draw call
+gl.drawArraysInstanced(gl.TRIANGLES, 0, 6, 500);
+```
+
+### 2. Analytical Signed Distance Fields (SDF) in GLSL ES 3.00 Shaders
+
+Rather than pushing complex 3D polygon meshes for mucin fiber networks or membrane barriers, evaluate mathematical Signed Distance Fields (SDF) directly inside `#version 300 es` fragment shaders:
+
+```glsl
+#version 300 es
+precision highp float;
+in vec2 v_uv;
+out vec4 fragColor;
+uniform vec2 u_resolution;
+uniform float u_time;
+uniform float u_pore_size;
+
+// Analytical mucin fiber SDF
+float mucinMeshSDF(vec2 uv, float time, float poreSize) {
+  float freq = clamp(800.0 / max(poreSize, 25.0), 12.0, 48.0);
+  vec2 p = uv * freq;
+  float waveX = sin(p.x + sin(p.y * 0.4 + time * 0.8) * 1.5);
+  float waveY = cos(p.y + cos(p.x * 0.4 + time * 0.8) * 1.5);
+  float fiberX = smoothstep(0.08, 0.0, abs(fract(p.x + waveY * 0.15) - 0.5));
+  float fiberY = smoothstep(0.08, 0.0, abs(fract(p.y + waveX * 0.15) - 0.5));
+  return clamp(fiberX + fiberY, 0.0, 1.0);
+}
+
+void main() {
+  float mesh = mucinMeshSDF(v_uv, u_time, u_pore_size);
+  vec3 fiberColor = vec3(0.0, 0.8, 0.95);
+  fragColor = vec4(fiberColor * mesh * 0.25, 1.0);
+}
+```
+
+## `ResizeObserver` + `min-width: 0` grid container hygiene
+
+When a WebGL2 `<canvas>` is embedded within a CSS Grid or Flexbox container (e.g. `.prime-sim-grid` or `.tool-grid`):
+
+1. **The Runaway Resize Loop Bug**:
+   By default, grid items have `min-width: auto`, which resolves to the intrinsic width of the canvas. If canvas dimensions are updated to match the container without `min-width: 0`, the canvas expands the grid track, which in turn triggers `ResizeObserver` with a larger size, creating an infinite expanding layout feedback loop.
+   Always ensure:
+   ```css
+   /* Grid item holding canvas must have min-width: 0 */
+   .canvas-grid-item {
+     min-width: 0;
+     min-height: 0;
+     overflow: hidden;
+   }
+   ```
+
+2. **DPR Capping & Thermal Throttling Prevention**:
+   High-DPI displays (Retina, mobile 3x screens) force full-screen fragment shaders to evaluate millions of unnecessary pixels, rapidly causing mobile GPU thermal throttling. Always clamp pixel ratio to at most 2:
+   ```javascript
+   const resizeObserver = new ResizeObserver((entries) => {
+     for (const entry of entries) {
+       const { width, height } = entry.contentRect;
+       if (width === 0 || height === 0) return;
+
+       // Hard cap DPR at 2.0
+       const dpr = Math.min(window.devicePixelRatio || 1, 2);
+       const displayWidth = Math.round(width * dpr);
+       const displayHeight = Math.round(height * dpr);
+
+       if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
+         canvas.width = displayWidth;
+         canvas.height = displayHeight;
+         gl.viewport(0, 0, displayWidth, displayHeight);
+         requestDraw();
+       }
+     }
+   });
+   resizeObserver.observe(canvas.parentElement || canvas);
+   ```
 
 ## three.js
 
