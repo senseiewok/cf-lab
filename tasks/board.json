@@ -11874,14 +11874,14 @@
       "title": "Nonviral Minimal DNA Vector (minidnacftr) CpG Depletion & TLR9 Evasion Simulation for Suppressor ACE-tRNAs (tools/discovery/minidna_evasion_model.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
       "route_rationale": "Quantitative biophysical ODE modeling of CpG depletion, endosomal TLR9 activation, and chromatinized episomal nuclear persistence.",
       "created_at": "2026-10-18T22:50:00Z",
-      "updated_at": "2026-10-18T22:50:00Z",
+      "updated_at": "2026-10-18",
       "created_by": {
         "kind": "model",
         "name": "Argon (Chief Researcher Officer Strategist)",
@@ -11901,7 +11901,11 @@
       "roi": {
         "benefit": 4,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 1.0,
+          "completed_at": "2026-10-18",
+          "outcome": "Delivered in senseiewok/cf-research#101 (tools/discovery/minidna_evasion_model.py + test_minidna_evasion_model.py): models CpG dinucleotide density (rho_CpG), endosomal TLR9 flux (J_TLR9), cytokine reactogenicity (R_cytokine), and 90-day episomal Pol III ACE-tRNA retention across pDNA, minicircle, nanoplasmid, minidnacftr, and zero-CpG dbDNA."
+        },
         "rationale": "Overcomes the TLR9 inflammation bottleneck that halted VX-522, modeling minimal nonviral DNA vectors for persistent ACE-tRNA delivery.",
         "categories": {
           "curative_biophysics": 9.5,
@@ -11920,14 +11924,14 @@
       "title": "Extracellular Vesicle (EV) Basal Stem Cell Tropism & Trans-Tight-Junction Permeation Model (tools/discovery/ev_basal_tropism.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
       "route_rationale": "Compartmental transport and cellular uptake modeling across pseudostratified airway epithelial junctions.",
       "created_at": "2026-10-18T22:50:00Z",
-      "updated_at": "2026-10-18T22:50:00Z",
+      "updated_at": "2026-10-18",
       "created_by": {
         "kind": "model",
         "name": "Argon (Chief Researcher Officer Strategist)",
@@ -11947,7 +11951,11 @@
       "roi": {
         "benefit": 4,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 1.0,
+          "completed_at": "2026-10-18",
+          "outcome": "Delivered in senseiewok/cf-research#101 (tools/discovery/ev_basal_tropism.py + test_ev_basal_tropism.py): models transient tight-junction permeation P_TJ(t), TEER recovery, and integrin alpha6-beta4 + CD63 engineered EV uptake into KRT5+/TP63+ airway basal stem cells."
+        },
         "rationale": "Quantifies non-immunogenic EV delivery across airway tight junctions to reach KRT5+/TP63+ basal progenitors for lifelong curative persistence.",
         "categories": {
           "curative_biophysics": 7.5,
@@ -11960,6 +11968,52 @@
         "roi_ratio": 1.26
       },
       "notes": "Wave 9 Research Council Replenishment. Trans-junctional permeation and basal stem cell chimerism modeling."
+    },
+    {
+      "id": "T-0235",
+      "title": "Interactive Nonviral Minimal DNA (minidnacftr) TLR9 Evasion & Engineered EV Basal Stem Cell Tropism Explorer on /cf/ptc/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "priority": "P1",
+      "complexity": "medium",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "status": "done",
+      "depends_on": [
+        "T-0233",
+        "T-0234"
+      ],
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic zero-build ES module and es-MX translation workbench grounded in T-0233 and T-0234.",
+      "created_at": "2026-10-18",
+      "updated_at": "2026-10-18",
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "source_evidence": [
+        "DOI:10.1093/nar/gkag082 (Porter et al., Nucleic Acids Res 2026, PMID 41641696: nonviral minimal DNA ACE-tRNA vectors)",
+        "DOI:10.3389/fbioe.2026.1855907 (Ivleva et al., Front Bioeng Biotechnol 2026, PMID 42529376: EV delivery to airway basal cells)",
+        "DOI:10.1172/jci.insight.206375 (Vijaykumar et al., JCI Insight 2026, PMID 42611556: basal cell multilineage CFTR restoration)",
+        "ClinicalTrials.gov:NCT05668741, NCT05248230"
+      ],
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_minidna_ev_explorer tests.test_site.StaticTests",
+      "notes": "Exposes T-0233 and T-0234 interactively on /cf/ptc/ (#minidna-ev-explorer) with full Mexican Spanish (es-MX) parity.",
+      "roi": {
+        "benefit": 5,
+        "estimated_hours": 2.0,
+        "score_per_hour": 2.5,
+        "composite_score": 7.65,
+        "rationale": "Translates nonviral minimal DNA TLR9 evasion and engineered EV basal stem cell tropism into an interactive bilingual public workbench.",
+        "measured": {
+          "actual_hours": 1.0,
+          "completed_at": "2026-10-18",
+          "outcome": "Delivered src/scripts/minidna-ev-explorer.js, #minidna-ev-explorer on src/cf/ptc/index.html, es-MX parity in data/i18n/es-MX.json & src/scripts/i18n-resources.js, and tests/test_minidna_ev_explorer.py (55/55 unit tests passing)."
+        }
+      }
     }
   ],
   "updated": "2026-10-18"
