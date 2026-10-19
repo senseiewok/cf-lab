@@ -11232,14 +11232,14 @@
       "title": "CFTR potentiator + triple-corrector cooperative allosteric gating thermodynamic cycle (VX-445 / VX-661 / VX-121 / VX-561 open-channel stabilization)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "high",
       "review_tier": "elevated",
       "recommended_route": "frontier",
       "route_rationale": "Thermodynamic cycle and multi-state linkage biophysics requiring Cryo-EM coordinate integration.",
       "created_at": "2026-10-18T19:00:00Z",
-      "updated_at": "2026-10-18T19:00:00Z",
+      "updated_at": "2026-10-19T03:25:00Z",
       "created_by": {
         "kind": "model",
         "name": "Council of Councils (Argon + Claude Opus + Qwen)",
@@ -11259,7 +11259,10 @@
       "roi": {
         "benefit": 5,
         "confidence": "high",
-        "measured": false,
+        "measured": {
+          "actual_hours": 5.5,
+          "notes": "Implemented AllostericModulatorCycle parameterizing VX-445, VX-661, VX-121, VX-561, and VX-770 with MWC 2^N state grand partition functions, pairwise cooperativity, detailed balance closed-loop verification, and clinical sweat chloride concordance in senseiewok/cf-research#98."
+        },
         "rationale": "Models multi-ligand thermodynamic synergy between TMD1, TMD2, and gating hinge pockets to explain next-generation vanzacaftor regimen superiority.",
         "categories": {
           "curative_biophysics": 7.5,
@@ -11271,7 +11274,7 @@
         "composite_score": 6.62,
         "roi_ratio": 1.2
       },
-      "notes": "2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Spec dossier defined in tasks/specs/T-0215.md."
+      "notes": "Delivered in senseiewok/cf-research#98 with tools/discovery/allosteric_potentiator_model.py and test_allosteric_potentiator_model.py (13/13 passing)."
     },
     {
       "id": "T-0222",
@@ -11685,6 +11688,144 @@
         "roi_ratio": 2.49
       },
       "notes": "Delivered in frontier discovery round with strict CSP compliance, zero innerHTML/inline styles, and full Mexican Spanish (es-MX) parity."
+    },
+    {
+      "id": "T-0230",
+      "title": "Interactive Adenine Base Editing (ABE8e) & Splice Rescue Multi-Allele Explorer on /cf/ptc/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive simulation panel and bilingual localization on /cf/ptc/ connecting base editing and splice rescue.",
+      "created_at": "2026-10-18T21:10:00Z",
+      "updated_at": "2026-10-18T21:10:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-flash",
+        "session_ref": "2026-10-18 showcase sentinel proactive replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0219"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/tools/discovery/base_editing_cftr.py; cf-research/tools/discovery/base_editing_cftr_designs.json; DOI 10.1038/s41587-020-0453-z; RCSB PDB 6MSM; NCT06237335",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_website_wave9_ptc_tree",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Translates base editing deamination profile, bystander missense risk, and SpRY/SpCas9 PAM accessibility into an interactive public explorer on /cf/ptc/.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.93
+      },
+      "notes": "Showcase Sentinel Proactive Replenishment. Expands curative gene editing visualization to span both nonsense and splice donor mutations."
+    },
+    {
+      "id": "T-0231",
+      "title": "Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer on /cf/cftr/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive MWC allosteric gating cycle simulation and bilingual localization on /cf/cftr/.",
+      "created_at": "2026-10-18T21:10:00Z",
+      "updated_at": "2026-10-18T21:10:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-flash",
+        "session_ref": "2026-10-18 showcase sentinel proactive replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0214"
+      ],
+      "effort_hours": {
+        "low": 3.5,
+        "high": 6.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-cryoem-3d-truncation-model.md; cf-research/landscape/cftr-structures.md; RCSB PDB 8EIQ; RCSB PDB 6MSM; DOI 10.1126/science.ade2216; NCT04043806",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Translates Cryo-EM 8EIQ multi-ligand allosteric stabilization across TMD1, TMD2, and TM4/5/8 hinge into an interactive MWC gating cycle explorer on /cf/cftr/.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.63
+      },
+      "notes": "Showcase Sentinel Proactive Replenishment. Bridges structural biology of Trikafta / Next-Gen triple correctors to live interactive allosteric curves."
+    },
+    {
+      "id": "T-0232",
+      "title": "Interactive SORT-LNP Mucin Penetration & Airway Basal Cell Tropism Matrix Explorer on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "site",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build ES6 interactive aerosol delivery simulation and bilingual localization on /cf/delivery/.",
+      "created_at": "2026-10-18T21:10:00Z",
+      "updated_at": "2026-10-18T21:10:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-flash",
+        "session_ref": "2026-10-18 showcase sentinel proactive replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0215"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; cf-research/landscape/delivery-biophysics.md; DOI 10.1038/s41565-021-00870-1; DOI 10.1073/pnas.2001532117",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Translates aerosol SORT-LNP biophysical parameters, crosslinked mucin pore mesh penetration, and basal stem cell tropism into an interactive explorer on /cf/delivery/.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.93
+      },
+      "notes": "Showcase Sentinel Proactive Replenishment. Interactive delivery explorer connecting formulation chemistry with airway mucus biophysical penetration barriers."
     }
   ],
   "updated": "2026-10-18"
