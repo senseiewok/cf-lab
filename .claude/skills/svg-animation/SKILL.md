@@ -129,11 +129,19 @@ When rendering biophysical charts and models (such as NBD1 thermal melting curve
 
 When SVG paths with line-drawing animations (`.svg-draw-line`, `pathLength="1"`) are dynamically created or injected by JavaScript, or when automated visual review harnesses freeze time via `?t=SECONDS` or `html.is-svg-frozen-time`:
 - An animation paused before completion leaves paths at `stroke-dashoffset: 1`, rendering curves and trajectory lines completely invisible on visual captures.
-- Always include an explicit stylesheet override ensuring drawn state is visible:
+- Always include an explicit stylesheet override ensuring drawn state is visible, AND transition `stroke-dasharray` to `none` at `100%` (and when paused or frozen). In Chromium/Blink, combining `vector-effect="non-scaling-stroke"`, `pathLength="1"`, and `stroke-dasharray: 1` evaluates the dash in screen space rather than user space when an SVG is scaled wider than its `viewBox` (`scaleX > 1`), truncating the rendered stroke at `1 / scaleX` unless `stroke-dasharray: none` is applied at completion:
   ```css
+  @keyframes svg-line-draw {
+    0% { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    99% { stroke-dasharray: 1; stroke-dashoffset: 0; }
+    100% { stroke-dasharray: none; stroke-dashoffset: 0; }
+  }
+
   .is-svg-frozen-time .svg-draw-line,
+  .is-anim-paused .svg-draw-line,
   @media (prefers-reduced-motion: reduce) {
     .svg-draw-line {
+      stroke-dasharray: none !important;
       stroke-dashoffset: 0 !important;
       animation: none !important;
     }
