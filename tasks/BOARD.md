@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-212 tasks, 211 created by a model, 97 with a measured outcome. Estimated effort 552.35 to 1045.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+212 tasks, 211 created by a model, 98 with a measured outcome. Estimated effort 552.35 to 1045.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -22,7 +22,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0200 | P1 | Epithelial sodium channel (ENaC / SCNN1A) RNAi & small-molecule knockdown dose-response model for ASL rehydration (tools/discovery/enac_knockdown_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0201 | P1 | Rare CFTR frameshift, large deletion & splicing allele theratyping decision matrix across global registry cohorts (tools/discovery/rare_allele_matrix.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
-| T-0197 | P1 | Bacteriophage-antibiotic synergy & biofilm penetration kinetics model for chronic CF Pseudomonas aeruginosa (tools/discovery/phage_biofilm_kinetics.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0198 | P1 | Inhaled viral vs non-viral vector repeat-dosing neutralizing antibody & epithelial turnover decay model (tools/discovery/vector_redosing_kinetics.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0199 | P1 | CFTR NBD1 thermal unfolding (dTm) & allosteric domain-interface free energy landscape model across rare missense variants (tools/discovery/nbd1_thermodynamics.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
@@ -90,6 +89,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0187 | P1 | Interactive Splice-Switching ASO & Class V Pseudoexon Explorer panel on /cf/ptc/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0183 |  |
 | T-0195 | P1 | Expand verified international CF community resources intake (Latin America & Southern Europe official organizations) in cf-research/sources/catalog.yaml and /resources/ | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0197 | P1 | Bacteriophage-antibiotic synergy & biofilm penetration kinetics model for chronic CF Pseudomonas aeruginosa (tools/discovery/phage_biofilm_kinetics.py) | cf-research | 3.5-6 | 5 | 10.5 | yes | model: gemini-4-argon | 2026-10-18 | full | high | local |  |  |
 | T-0202 | P1 | Interactive Mucociliary Clearance & Airway Surface Liquid (ASL) Rheology Workbench panel on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0185 |  |
 | T-0203 | P1 | Interactive Alternative Ion Channel & Modifier Epistasis (SLC26A9 / TMEM16A / ENaC) Explorer on /cf/tree/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0186 |  |
 | T-0209 | P1 | Interactive Prime Editing (F508del & W1282X pegRNA/nicking-sgRNA) Feasibility Explorer panel on /cf/cftr/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0184 |  |
@@ -692,7 +692,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic differential reaction-diffusion and sub-MIC synergy modeling with unit test verification.
 - **Acceptance:** pytest tools/discovery/test_phage_biofilm_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** ClinicalTrials.gov NCT04684641 (CYPHY Yale bacteriophage study); NCT05453578 (BX004-A inhaled phage cocktail); NCT05616221 (AP-PA02); DOI 10.1038/s41591-021-01659-5; cf-research/sources/catalog.yaml
-- **Notes:** 2026-10-18 Council of Councils Wave 3: Approved to ready (autonomous agent executor). Grounded in NCT04684641, NCT05453578, NCT05616221.
+- **Notes:** 2026-10-18 Sentinel Research Build Round: Delivered tools/discovery/phage_biofilm_kinetics.py and test suite (17/17 tests passing, AH-1 to AH-4 satisfied). Frontier review completed by Argon (PR senseiewok/cf-research#93).
+- **Measured:**  h; Delivered tools/discovery/phage_biofilm_kinetics.py and test suite (17/17 passing tests, AH-1 to AH-4 satisfied), modeling lytic replication delay, alginate lyase penetration, MexAB-OprM efflux collapse, and PAS synergy in senseiewok/cf-research#93.
 
 ### T-0198 Inhaled viral vs non-viral vector repeat-dosing neutralizing antibody & epithelial turnover decay model (tools/discovery/vector_redosing_kinetics.py)
 
