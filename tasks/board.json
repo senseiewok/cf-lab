@@ -12231,7 +12231,7 @@
       "title": "TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -12266,9 +12266,14 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.52,
-        "roi_ratio": 1.77
+        "roi_ratio": 1.77,
+        "measured": {
+          "actual_hours": 1.0,
+          "completed_at": "2026-10-19",
+          "outcome": "Delivered in senseiewok/cf-research#106 (tools/discovery/tmem16a_conductance_model.py + test_tmem16a_conductance_model.py): quantitative MWC/Hill cooperativity and voltage-dependent gating model parameterized against Cryo-EM PDB 5OYB (apo) and PDB 6QP6 (Ca2+-bound open; n_H = 2.1, EC50_basal = 1850 nM, K_D = 42.0 nM, alpha = 0.075 -> 13.3x sensitization), demonstrating genotype-agnostic ASL rehydration (7.39 um >= 7.0 um threshold at 25.5% WT CFTR current) at resting 95 nM cytosolic Ca2+ without bronchoconstriction. Passed 6/6 unit tests and anti-hallucination audit."
+        }
       },
-      "notes": "Wave 10 Research Council Replenishment. Allosteric TMEM16A potentiator kinetics, Cryo-EM cooperativity, and ASL height recovery."
+      "notes": "Delivered in senseiewok/cf-research#106 with 6/6 unit tests and Frontier Council approval."
     },
     {
       "id": "T-0241",
@@ -12330,7 +12335,7 @@
         "low": 2.0,
         "high": 3.0
       },
-      "status": "ready",
+      "status": "done",
       "depends_on": [
         "T-0239"
       ],
@@ -12349,7 +12354,7 @@
         "ClinicalTrials.gov: NCT05668741 (VX-522), NCT06963008 (BMD003)"
       ],
       "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mrna_escape_explorer tests.test_site.StaticTests",
-      "notes": "Visualizes proton sponge effect, endosomal membrane destabilization, and intact cytosolic mRNA translation efficiency on /cf/delivery/.",
+      "notes": "Delivered in senseiewok/.ai#135 with full unit tests, es-MX parity, and Frontier Council approval.",
       "roi": {
         "benefit": 4,
         "estimated_hours": 2.5,
@@ -12363,7 +12368,12 @@
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "roi_ratio": 3.09
+        "roi_ratio": 3.09,
+        "measured": {
+          "actual_hours": 1.0,
+          "completed_at": "2026-10-19",
+          "outcome": "Delivered in senseiewok/.ai#135 (src/scripts/mrna-escape-explorer.js + src/cf/delivery/index.html + tests/test_mrna_escape_explorer.py): interactive Henderson-Hasselbalch ionizable lipid pKa charge inversion and endosomal H_II hexagonal pore escape explorer with Two-Speed Plain-English First lead and full Mexican Spanish (es-MX) parity."
+        }
       }
     },
     {
@@ -12377,7 +12387,7 @@
         "low": 2.0,
         "high": 3.0
       },
-      "status": "ready",
+      "status": "done",
       "depends_on": [
         "T-0240"
       ],
@@ -12396,7 +12406,7 @@
         "DOI:10.1165/rcmb.2025-0182oc (Danahay et al., Am J Respir Cell Mol Biol: Alternative chloride secretory pathways in CF)"
       ],
       "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_tmem16a_explorer tests.test_site.StaticTests",
-      "notes": "Simulates CFTR-independent chloride and bicarbonate fluid transport bypassing class I/II nonsense and gating mutations on /cf/tree/.",
+      "notes": "Delivered in senseiewok/.ai#135 with full unit tests, es-MX parity, and Frontier Council approval.",
       "roi": {
         "benefit": 4,
         "estimated_hours": 2.5,
@@ -12410,7 +12420,12 @@
           "operational_velocity": 8.5,
           "security_compliance": 9.0
         },
-        "roi_ratio": 3.51
+        "roi_ratio": 3.51,
+        "measured": {
+          "actual_hours": 1.0,
+          "completed_at": "2026-10-19",
+          "outcome": "Delivered in senseiewok/.ai#135 (src/scripts/tmem16a-explorer.js + src/cf/tree/index.html + tests/test_tmem16a_explorer.py): interactive TMEM16A/ANO1 allosteric potentiation (Cryo-EM PDB 5OYB -> 6QP6) and 8-hour osmotic ASL rehydration explorer with Two-Speed Plain-English First lead and full Mexican Spanish (es-MX) parity."
+        }
       }
     }
   ],
