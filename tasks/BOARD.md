@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-243 tasks, 242 created by a model, 138 with a measured outcome. Estimated effort 640.85 to 1196.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+245 tasks, 244 created by a model, 138 with a measured outcome. Estimated effort 644.85 to 1202.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (17)
+## ready (19)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,6 +18,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
+| T-0244 | P1 | Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local | T-0241 |  |
+| T-0245 | P1 | Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -583,6 +585,22 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** PDB:5OYB, PDB:6QP6 (Cryo-EM structures of TMEM16A calcium-activated chloride channel) DOI:10.1038/s41586-019-1400-5 (Dang et al., Nature 2019: Structure and activation mechanism of TMEM16A) DOI:10.1165/rcmb.2025-0182oc (Danahay et al., Am J Respir Cell Mol Biol: Alternative chloride secretory pathways in CF)
 - **Notes:** Delivered in senseiewok/.ai#135 with full unit tests, es-MX parity, and Frontier Council approval.
 - **Measured:** 1 h; 
+
+### T-0244 Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity
+
+- **Why / ROI rationale:** Models NMD escape thresholds and tRNA synergy for Class I nonsense mutations. *(confidence: )*
+- **Route:** local - Deterministic zero-build ES module and SVG schematic grounded in tools/discovery/nmd_ptc_kinetics.py (T-0241).
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_nmd_explorer tests.test_site.StaticTests
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; tools/discovery/nmd_ptc_kinetics.py; DOI:10.1038/s41586-020-2444-5; DOI:10.1016/j.molcel.2024.08.019; ClinicalTrials.gov:NCT04135495
+- **Notes:** Visualizes SURF complex assembly at premature stop codon, UPF1 phosphorylation by SMG1, branching into SMG6 endonuclease vs SMG5/7 deadenylation decay pathways, and competitive suppressor tRNA readthrough synergy.
+
+### T-0245 Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity
+
+- **Why / ROI rationale:** Optimizes timing window for aerosol genetic vector inhalation post-airway clearance. *(confidence: )*
+- **Route:** local - Interactive rheology simulator modeling non-Newtonian yield stress, shear-thinning thixotropic recovery, and macromolecular mesh pore widening.
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mucus_thixotropy tests.test_site.StaticTests
+- **Evidence:** DOI:10.1126/sciadv.aaw3507; DOI:10.1038/s41598-025-16178-z; ClinicalTrials.gov:NCT07175012
+- **Notes:** Simulates transient acoustic thixotropic window widening CF mucin pores from 60 nm to >120 nm during airway clearance.
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
