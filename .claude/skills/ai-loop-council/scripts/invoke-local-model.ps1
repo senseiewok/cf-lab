@@ -17,6 +17,7 @@
 [CmdletBinding(DefaultParameterSetName='Invoke')]
 param(
     [Parameter(Mandatory,ParameterSetName='Invoke')] [string] $PromptFile,
+    [Parameter(Mandatory,ParameterSetName='InvokePrompt')] [string] $Prompt,
     [Parameter(Mandatory,ParameterSetName='SelfTest')] [switch] $SelfTest,
     [string] $SystemFile,
     # JSON schema file; when set, Ollama constrains the reply to that schema.
@@ -244,7 +245,7 @@ foreach ($f in @($PromptFile, $SystemFile) | Where-Object { $_ }) {
 
 $messages = @()
 if ($SystemFile) { $messages += @{ role = 'system'; content = (Get-Content -Raw $SystemFile) } }
-$prompt = Get-Content -Raw $PromptFile
+if ($PromptFile) { $prompt = Get-Content -Raw $PromptFile }
 
 $format = $null
 $schemaText = $null
