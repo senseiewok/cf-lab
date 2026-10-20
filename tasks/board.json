@@ -12182,7 +12182,7 @@
       "title": "Inhaled CFTR mRNA Lipid Nanoparticle (LNP) Endosomal Escape Kinetics, Ionizable Lipid pKa Inversion & Nebulization Shear Stability Model (tools/discovery/mrna_lnp_escape_model.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -12217,9 +12217,14 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.52,
-        "roi_ratio": 1.58
+        "roi_ratio": 1.58,
+        "measured": {
+          "actual_hours": 1.0,
+          "completed_at": "2026-10-19",
+          "outcome": "Delivered in senseiewok/cf-research#103 (tools/discovery/mrna_lnp_escape_model.py + test_mrna_lnp_escape_model.py): quantitative ODE modeling of pH-dependent ionizable lipid protonation, surface zeta potential inversion ([-5, +5] mV to +21.3 mV), H_II non-bilayer hexagonal phase escape kinetics (DOPE 7.4% vs DSPC 2.2%), and vibrating mesh nebulizer shear retention (91.2% EE post-neb). Passed 9/9 unit tests and anti-hallucination audit."
+        }
       },
-      "notes": "Wave 10 Research Council Replenishment. Inhaled CFTR mRNA-LNP endosomal escape, pKa inversion, and aerosol shear stability modeling."
+      "notes": "Delivered in senseiewok/cf-research#103 with full unit tests and elevated review."
     },
     {
       "id": "T-0240",

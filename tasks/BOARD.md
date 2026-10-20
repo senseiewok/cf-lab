@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-243 tasks, 242 created by a model, 133 with a measured outcome. Estimated effort 640.85 to 1196.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+243 tasks, 242 created by a model, 134 with a measured outcome. Estimated effort 640.85 to 1196.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (22)
+## ready (21)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -22,7 +22,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0243 | P1 | Interactive TMEM16A/ANO1 Alternative Conductance Potentiation & Calcium-Activated Chloride Channel (CaCC) Synergistic Secretion Explorer on /cf/tree/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0240 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0240 | P1 | TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
-| T-0239 | P1 | Inhaled CFTR mRNA Lipid Nanoparticle (LNP) Endosomal Escape Kinetics, Ionizable Lipid pKa Inversion & Nebulization Shear Stability Model (tools/discovery/mrna_lnp_escape_model.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0241 | P1 | Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Premature Termination Codon (PTC) Escape Matrix (tools/discovery/nmd_ptc_kinetics.py) | cf-research | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -37,7 +36,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (207)
+## done (208)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -110,6 +109,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0210 | P1 | Interactive Dual-AAV Split-Intein & Delta-R Minigene Packaging Explorer panel on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0211 | P1 | Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0215 | P1 | Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0239 | P1 | Inhaled CFTR mRNA Lipid Nanoparticle (LNP) Endosomal Escape Kinetics, Ionizable Lipid pKa Inversion & Nebulization Shear Stability Model (tools/discovery/mrna_lnp_escape_model.py) | cf-research | 3.5-6 | 5 | 10.5 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0042 | P1 | Admission review of BioMCP as a discovery tool alongside cf-evidence-loop | cf-lab | 3-5 | 4 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local |  |  |
 | T-0102 | P1 | Bring the lab's sources together: one question, one cross-checked record, then the variant layer [T2] | cf-research | 3-5 | 4 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-08 | full | high | local |  |  |
 | T-0141 | P1 | Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main | .ai | 2-4 | 3 | 10 | yes | model: claude-sonnet-5-5 | 2026-10-13 | elevated | medium | local |  |  |
@@ -949,7 +949,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Quantitative biophysical ODE modeling of pH-dependent ionizable lipid protonation, inverted hexagonal H_II phase membrane fusion, and vibrating mesh nebulizer shear stability.
 - **Acceptance:** pytest tools/discovery/test_mrna_lnp_escape_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; ClinicalTrials.gov:NCT05668741; DOI:10.1038/s41467-019-12503-4; DOI:10.1038/s41565-021-01040-4; DOI:10.1021/acs.nanolett.0c03387
-- **Notes:** Wave 10 Research Council Replenishment. Inhaled CFTR mRNA-LNP endosomal escape, pKa inversion, and aerosol shear stability modeling.
+- **Notes:** Delivered in senseiewok/cf-research#103 with full unit tests and elevated review.
+- **Measured:** 1 h; 
 
 ### T-0241 Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Premature Termination Codon (PTC) Escape Matrix (tools/discovery/nmd_ptc_kinetics.py)
 
