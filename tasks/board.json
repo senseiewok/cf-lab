@@ -12477,7 +12477,7 @@
       "title": "Epithelial Sodium Channel (ENaC) Proteolytic Activation Kinetics & Dual-Target ASL Homeostasis (tools/discovery/enac_proteolysis_model.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -12512,9 +12512,14 @@
           "security_compliance": 2.0
         },
         "composite_score": 8.03,
-        "roi_ratio": 1.89
+        "roi_ratio": 1.89,
+        "measured": {
+          "actual_hours": 1.0,
+          "completed_at": "2026-10-20",
+          "outcome": "Delivered in senseiewok/cf-research#108 (tools/discovery/enac_proteolysis_model.py + test_enac_proteolysis_model.py): quantitative multi-site proteolytic cleavage kinetics (Furin k1, NE & PRSS8 k2) across 3 functional states (E0 Po=0.03, E_alpha Po=0.20, E_alphagamma Po=0.85), coupled with transepithelial Na+ and Cl- electrophysiology and airway surface liquid (ASL) depth recovery. Demonstrates hyperactivation to Po=0.74 in untreated CF sputum collapsing ASL to 2.8 um, and full recovery (h_ASL >= 7.0 um) via dual-target ENaC knockdown (IONIS-ENaCRx NCT03647228 / ARO-ENaC NCT04375514) and CFTR/CaCC activation. Passed 8/8 unit tests and anti-hallucination audit."
+        }
       },
-      "notes": "Wave 11 Research Discovery Replenishment. Multi-site ENaC alpha/gamma proteolysis, Cryo-EM states (PDB:6BQN, 6WTH), open probability dynamics, and coupled ASL rehydration."
+      "notes": "Delivered in senseiewok/cf-research#108 with 8/8 unit tests and elevated review."
     },
     {
       "id": "T-0246",
