@@ -48,6 +48,10 @@ try {
     Check '-Seed 7 is sent as options.seed' ($d.Body.options.seed -eq 7) $d.Out
     $d = Dump @('-Model', 'test-local:small', '-Seed', '0')
     Check '-Seed 0 is sent too (zero is a seed, not "unset")' ($d.Body.options.PSObject.Properties.Name -contains 'seed' -and $d.Body.options.seed -eq 0) $d.Out
+    $fInline = Join-Path $tmp 'req-inline.json'; $lfInline = Join-Path $tmp 'log-inline.jsonl'
+    $oInline = & pwsh -NoProfile -File $Script -Prompt 'inline ping text' -Model 'test-local:small' -DumpRequest $fInline -LogFile $lfInline 2>&1 | Out-String
+    $bInline = if (Test-Path $fInline) { Get-Content -Raw $fInline | ConvertFrom-Json } else { $null }
+    Check '-Prompt accepts inline text without binding to -PromptFile' ($LASTEXITCODE -eq 0 -and $bInline.messages[-1].content -ceq 'inline ping text') $oInline
     # the four 64K profiles: the model-card sampling sets, one thinking setting each, and the context the alias is built with
     $profDir = Join-Path $PSScriptRoot '../../model-qwen3-8-27b'
     $think = @{ temperature = 1.0; top_p = 0.95; top_k = 20; min_p = 0.0; presence_penalty = 0.0 }
