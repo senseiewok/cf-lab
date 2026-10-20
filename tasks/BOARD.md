@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-243 tasks, 242 created by a model, 135 with a measured outcome. Estimated effort 640.85 to 1196.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+243 tasks, 242 created by a model, 138 with a measured outcome. Estimated effort 640.85 to 1196.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (20)
+## ready (17)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,10 +18,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0242 | P1 | Interactive Inhaled CFTR mRNA Lipid Nanoparticle (LNP) Endosomal Escape Kinetics & Ionizable Lipid pKa Inversion Explorer on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0239 |  |
-| T-0243 | P1 | Interactive TMEM16A/ANO1 Alternative Conductance Potentiation & Calcium-Activated Chloride Channel (CaCC) Synergistic Secretion Explorer on /cf/tree/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0240 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0240 | P1 | TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -35,7 +32,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (209)
+## done (212)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -70,6 +67,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0167 | P1 | Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification | .ai | 2-4 | 5 | 16.7 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud |  |  |
 | T-0237 | P1 | Interactive Airway Epithelial Basal Stem Cell (KRT5+/TP63+) Clonal Lineage Plasticity & Long-Term Engraftment Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0220 |  |
 | T-0238 | P1 | Interactive CFTR Truncation 3D Backbone Trace & Cryptic Domain Stability Explorer on /cf/cftr/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0217 |  |
+| T-0242 | P1 | Interactive Inhaled CFTR mRNA Lipid Nanoparticle (LNP) Endosomal Escape Kinetics & Ionizable Lipid pKa Inversion Explorer on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0239 |  |
+| T-0243 | P1 | Interactive TMEM16A/ANO1 Alternative Conductance Potentiation & Calcium-Activated Chloride Channel (CaCC) Synergistic Secretion Explorer on /cf/tree/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0240 |  |
 | T-0193 | P1 | Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0205 | P1 | Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py) | cf-lab | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0188 | P1 | Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -95,6 +94,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0228 | P1 | Mechano-acoustic mucus conditioning, PIEZO1/TMEM16A ASL hydration, and EV/nanoparticle delivery flux model (tools/discovery/mechano_acoustic_delivery.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-19 | elevated | high | frontier | T-0220 |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
+| T-0240 | P1 | TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0187 | P1 | Interactive Splice-Switching ASO & Class V Pseudoexon Explorer panel on /cf/ptc/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0183 |  |
@@ -572,7 +572,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic zero-build ES module and SVG endosomal acidification schematic grounded in tools/discovery/mrna_lnp_escape_model.py (T-0239).
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mrna_escape_explorer tests.test_site.StaticTests
 - **Evidence:** DOI:10.1038/s41587-023-01809-5 (Sago et al., Nat Biotechnol: In-vivo LNP barcoding & organotropism) DOI:10.1016/j.jconrel.2025.10.042 (Ionizable lipid pKa inversion in airway mucus) ClinicalTrials.gov: NCT05668741 (VX-522), NCT06963008 (BMD003)
-- **Notes:** Visualizes proton sponge effect, endosomal membrane destabilization, and intact cytosolic mRNA translation efficiency on /cf/delivery/.
+- **Notes:** Delivered in senseiewok/.ai#135 with full unit tests, es-MX parity, and Frontier Council approval.
+- **Measured:** 1 h; 
 
 ### T-0243 Interactive TMEM16A/ANO1 Alternative Conductance Potentiation & Calcium-Activated Chloride Channel (CaCC) Synergistic Secretion Explorer on /cf/tree/ with es-MX parity
 
@@ -580,7 +581,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic WebGL2/SVG alternative conductance schematic grounded in tools/discovery/tmem16a_conductance_model.py (T-0240) and PDB 5OYB.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_tmem16a_explorer tests.test_site.StaticTests
 - **Evidence:** PDB:5OYB, PDB:6QP6 (Cryo-EM structures of TMEM16A calcium-activated chloride channel) DOI:10.1038/s41586-019-1400-5 (Dang et al., Nature 2019: Structure and activation mechanism of TMEM16A) DOI:10.1165/rcmb.2025-0182oc (Danahay et al., Am J Respir Cell Mol Biol: Alternative chloride secretory pathways in CF)
-- **Notes:** Simulates CFTR-independent chloride and bicarbonate fluid transport bypassing class I/II nonsense and gating mutations on /cf/tree/.
+- **Notes:** Delivered in senseiewok/.ai#135 with full unit tests, es-MX parity, and Frontier Council approval.
+- **Measured:** 1 h; 
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
@@ -830,7 +832,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Biophysical MWC/Hill cooperativity and voltage-dependent gating simulation parameterized against Cryo-EM structures PDB:5OYB and PDB:6QP6.
 - **Acceptance:** pytest tools/discovery/test_tmem16a_conductance_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; ClinicalTrials.gov:NCT06478706; PDB:5OYB; PDB:6QP6; DOI:10.1038/nature24652; DOI:10.1038/s41598-020-73905-2; DOI:10.1016/j.jcf.2019.06.004
-- **Notes:** Wave 10 Research Council Replenishment. Allosteric TMEM16A potentiator kinetics, Cryo-EM cooperativity, and ASL height recovery.
+- **Notes:** Delivered in senseiewok/cf-research#106 with 6/6 unit tests and Frontier Council approval.
+- **Measured:** 1 h; 
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
