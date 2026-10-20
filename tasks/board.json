@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -12559,6 +12559,92 @@
         "roi_ratio": 1.77
       },
       "notes": "Wave 11 Research Discovery Replenishment. Models phage OMKO1 lytic predation on MexAB-OprM, mutational resensitization, and dual phage-antibiotic synergy (PAS)."
+    },
+    {
+      "id": "T-0247",
+      "title": "Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.0
+      },
+      "depends_on": [
+        "T-0241"
+      ],
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic zero-build ES module and SVG schematic grounded in tools/discovery/nmd_ptc_kinetics.py (T-0241).",
+      "created_at": "2026-10-19",
+      "updated_at": "2026-10-19",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon"
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-19.md; tools/discovery/nmd_ptc_kinetics.py; DOI:10.1038/s41586-020-2444-5; DOI:10.1016/j.molcel.2024.08.019; ClinicalTrials.gov:NCT04135495",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_nmd_explorer tests.test_site.StaticTests",
+      "notes": "Visualizes SURF complex assembly at premature stop codon, UPF1 phosphorylation by SMG1, branching into SMG6 endonuclease vs SMG5/7 deadenylation decay pathways, and competitive suppressor tRNA readthrough synergy.",
+      "roi": {
+        "benefit": 4,
+        "estimated_hours": 2.5,
+        "score_per_hour": 1.6,
+        "composite_score": 8.03,
+        "rationale": "Models NMD escape thresholds and tRNA synergy for Class I nonsense mutations.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "roi_ratio": 3.21
+      }
+    },
+    {
+      "id": "T-0248",
+      "title": "Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.0
+      },
+      "depends_on": [],
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Interactive rheology simulator modeling non-Newtonian yield stress, shear-thinning thixotropic recovery, and macromolecular mesh pore widening.",
+      "created_at": "2026-10-19",
+      "updated_at": "2026-10-19",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon"
+      },
+      "source_evidence": "DOI:10.1126/sciadv.aaw3507; DOI:10.1038/s41598-025-16178-z; ClinicalTrials.gov:NCT07175012",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mucus_thixotropy tests.test_site.StaticTests",
+      "notes": "Simulates transient acoustic thixotropic window widening CF mucin pores from 60 nm to >120 nm during airway clearance.",
+      "roi": {
+        "benefit": 4,
+        "estimated_hours": 2.5,
+        "score_per_hour": 1.6,
+        "composite_score": 7.72,
+        "rationale": "Optimizes timing window for aerosol genetic vector inhalation post-airway clearance.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "roi_ratio": 3.09
+      }
     }
   ],
   "updated": "2026-10-19"
