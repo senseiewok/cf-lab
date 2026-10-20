@@ -12372,7 +12372,7 @@
         "measured": {
           "actual_hours": 1.0,
           "completed_at": "2026-10-19",
-          "outcome": "Delivered in senseiewok/.ai#136 (src/scripts/mrna-escape-explorer.js + src/cf/delivery/index.html + tests/test_mrna_escape_explorer.py): interactive Henderson-Hasselbalch ionizable lipid pKa charge inversion and endosomal H_II hexagonal pore escape explorer with 0-DOM-thrash animation, WCAG 2.2.2 pause toggle, and full Mexican Spanish (es-MX) parity. Passed 56/56 unit tests, anti-hallucination audit, and Argon frontier review."
+          "outcome": "Delivered in senseiewok/.ai#135 (src/scripts/mrna-escape-explorer.js + src/cf/delivery/index.html + tests/test_mrna_escape_explorer.py): interactive Henderson-Hasselbalch ionizable lipid pKa charge inversion and endosomal H_II hexagonal pore escape explorer with Two-Speed Plain-English First lead and full Mexican Spanish (es-MX) parity."
         }
       }
     },
@@ -12430,6 +12430,138 @@
     },
     {
       "id": "T-0244",
+      "title": "Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling (tools/discovery/mpp_obstruction_scaling.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P3",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Quantitative biophysical modeling of dense PEG brush shielding (Flory radius, mushroom-to-brush transition), mucin MUC5AC/MUC5B mesh steric filtering, and eDNA viscoelastic hindrance scaling.",
+      "created_at": "2026-10-20T10:00:00Z",
+      "updated_at": "2026-10-20",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-20 research queue replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-20.md; DOI:10.1016/j.addr.2008.09.009; DOI:10.1073/pnas.0811566106; DOI:10.1016/j.addr.2015.09.006",
+      "acceptance": "pytest tools/discovery/test_mpp_obstruction_scaling.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models dense PEG brush coating and steric pore scaling to overcome the mucosal hydrogel obstacle for inhaled genetic vectors, predicting effective diffusion ratios D_eff / D_0 across normal vs CF purulent sputum.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 4.03,
+        "roi_ratio": 0.95
+      },
+      "notes": "Wave 11 Research Discovery Replenishment. Parameterizes steric mesh exclusion and dense PEG brush adhesive shielding to predict nanoparticle transport in CF mucus."
+    },
+    {
+      "id": "T-0245",
+      "title": "Epithelial Sodium Channel (ENaC) Proteolytic Activation Kinetics & Dual-Target ASL Homeostasis (tools/discovery/enac_proteolysis_model.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Biophysical modeling of multi-site proteolytic cleavage (neutrophil elastase, furin, prostasin/PRSS8) of ENaC alpha/gamma inhibitory tracts, open probability gating, and coupled ASL volume recovery.",
+      "created_at": "2026-10-20T10:00:00Z",
+      "updated_at": "2026-10-20",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-20 research queue replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-20.md; ClinicalTrials.gov:NCT03647228; ClinicalTrials.gov:NCT04375514; PDB:6BQN; PDB:6WTH; DOI:10.1085/jgp.201711910; DOI:10.1074/jbc.M111.233817; DOI:10.1016/j.jcf.2020.08.008",
+      "acceptance": "pytest tools/discovery/test_enac_proteolysis_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies the hyperactivation of ENaC driven by excessive airway proteases in CF sputum and evaluates dual-targeting (protease inhibition/antisense ENaC block combined with CFTR/CaCC activation) to rescue collapsed ASL depth above 7.0 um.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.03,
+        "roi_ratio": 1.89
+      },
+      "notes": "Wave 11 Research Discovery Replenishment. Multi-site ENaC alpha/gamma proteolysis, Cryo-EM states (PDB:6BQN, 6WTH), open probability dynamics, and coupled ASL rehydration."
+    },
+    {
+      "id": "T-0246",
+      "title": "Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics (tools/discovery/phage_omko1_tradeoff.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "ODE modeling of lytic bacteriophage OMKO1 receptor binding (OprM), phage-host Lotka-Volterra population dynamics, fitness trade-off selection, and antibiotic (ciprofloxacin) resensitization.",
+      "created_at": "2026-10-20T10:00:00Z",
+      "updated_at": "2026-10-20",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-20 research queue replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-20.md; ClinicalTrials.gov:NCT04684641; ClinicalTrials.gov:NCT05010577; DOI:10.1038/s41598-018-24541-1; DOI:10.1016/j.jcf.2021.03.013",
+      "acceptance": "pytest tools/discovery/test_phage_omko1_tradeoff.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models the evolutionary trade-off where phage selection forces loss or alteration of OprM, resensitizing multi-drug resistant Pseudomonas aeruginosa to standard antibiotics and preventing treatment escape.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.52,
+        "roi_ratio": 1.77
+      },
+      "notes": "Wave 11 Research Discovery Replenishment. Models phage OMKO1 lytic predation on MexAB-OprM, mutational resensitization, and dual phage-antibiotic synergy (PAS)."
+    },
+    {
+      "id": "T-0247",
       "title": "Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
@@ -12473,7 +12605,7 @@
       }
     },
     {
-      "id": "T-0245",
+      "id": "T-0248",
       "title": "Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity",
       "repo": ".ai",
       "area": "content",

@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-245 tasks, 244 created by a model, 138 with a measured outcome. Estimated effort 644.85 to 1202.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+248 tasks, 247 created by a model, 138 with a measured outcome. Estimated effort 653.85 to 1219.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (19)
+## ready (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,9 +18,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0244 | P1 | Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local | T-0241 |  |
-| T-0245 | P1 | Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
+| T-0247 | P1 | Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local | T-0241 |  |
+| T-0248 | P1 | Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
+| T-0245 | P1 | Epithelial Sodium Channel (ENaC) Proteolytic Activation Kinetics & Dual-Target ASL Homeostasis (tools/discovery/enac_proteolysis_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
+| T-0246 | P1 | Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics (tools/discovery/phage_omko1_tradeoff.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -31,6 +33,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
+| T-0244 | P3 | Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling (tools/discovery/mpp_obstruction_scaling.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
@@ -586,7 +589,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Delivered in senseiewok/.ai#135 with full unit tests, es-MX parity, and Frontier Council approval.
 - **Measured:** 1 h; 
 
-### T-0244 Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity
+### T-0247 Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity
 
 - **Why / ROI rationale:** Models NMD escape thresholds and tRNA synergy for Class I nonsense mutations. *(confidence: )*
 - **Route:** local - Deterministic zero-build ES module and SVG schematic grounded in tools/discovery/nmd_ptc_kinetics.py (T-0241).
@@ -594,7 +597,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; tools/discovery/nmd_ptc_kinetics.py; DOI:10.1038/s41586-020-2444-5; DOI:10.1016/j.molcel.2024.08.019; ClinicalTrials.gov:NCT04135495
 - **Notes:** Visualizes SURF complex assembly at premature stop codon, UPF1 phosphorylation by SMG1, branching into SMG6 endonuclease vs SMG5/7 deadenylation decay pathways, and competitive suppressor tRNA readthrough synergy.
 
-### T-0245 Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity
+### T-0248 Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Optimizes timing window for aerosol genetic vector inhalation post-airway clearance. *(confidence: )*
 - **Route:** local - Interactive rheology simulator modeling non-Newtonian yield stress, shear-thinning thixotropic recovery, and macromolecular mesh pore widening.
@@ -852,6 +855,22 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; ClinicalTrials.gov:NCT06478706; PDB:5OYB; PDB:6QP6; DOI:10.1038/nature24652; DOI:10.1038/s41598-020-73905-2; DOI:10.1016/j.jcf.2019.06.004
 - **Notes:** Delivered in senseiewok/cf-research#106 with 6/6 unit tests and Frontier Council approval.
 - **Measured:** 1 h; 
+
+### T-0245 Epithelial Sodium Channel (ENaC) Proteolytic Activation Kinetics & Dual-Target ASL Homeostasis (tools/discovery/enac_proteolysis_model.py)
+
+- **Why / ROI rationale:** Quantifies the hyperactivation of ENaC driven by excessive airway proteases in CF sputum and evaluates dual-targeting (protease inhibition/antisense ENaC block combined with CFTR/CaCC activation) to rescue collapsed ASL depth above 7.0 um. *(confidence: high)*
+- **Route:** local - Biophysical modeling of multi-site proteolytic cleavage (neutrophil elastase, furin, prostasin/PRSS8) of ENaC alpha/gamma inhibitory tracts, open probability gating, and coupled ASL volume recovery.
+- **Acceptance:** pytest tools/discovery/test_enac_proteolysis_model.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-20.md; ClinicalTrials.gov:NCT03647228; ClinicalTrials.gov:NCT04375514; PDB:6BQN; PDB:6WTH; DOI:10.1085/jgp.201711910; DOI:10.1074/jbc.M111.233817; DOI:10.1016/j.jcf.2020.08.008
+- **Notes:** Wave 11 Research Discovery Replenishment. Multi-site ENaC alpha/gamma proteolysis, Cryo-EM states (PDB:6BQN, 6WTH), open probability dynamics, and coupled ASL rehydration.
+
+### T-0246 Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics (tools/discovery/phage_omko1_tradeoff.py)
+
+- **Why / ROI rationale:** Models the evolutionary trade-off where phage selection forces loss or alteration of OprM, resensitizing multi-drug resistant Pseudomonas aeruginosa to standard antibiotics and preventing treatment escape. *(confidence: high)*
+- **Route:** local - ODE modeling of lytic bacteriophage OMKO1 receptor binding (OprM), phage-host Lotka-Volterra population dynamics, fitness trade-off selection, and antibiotic (ciprofloxacin) resensitization.
+- **Acceptance:** pytest tools/discovery/test_phage_omko1_tradeoff.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-20.md; ClinicalTrials.gov:NCT04684641; ClinicalTrials.gov:NCT05010577; DOI:10.1038/s41598-018-24541-1; DOI:10.1016/j.jcf.2021.03.013
+- **Notes:** Wave 11 Research Discovery Replenishment. Models phage OMKO1 lytic predation on MexAB-OprM, mutational resensitization, and dual phage-antibiotic synergy (PAS).
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
@@ -2264,6 +2283,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/audit_github_hygiene.py; tasks/pick_bold_task.py; .loop-logs/sentinel-runs.jsonl
 - **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). Security/Infrastructure lane. \| 2026-10-18 Daily Security Sentinel: Implemented audit_sentinel_backlog_depth in tasks/audit_github_hygiene.py with automated sentinel lane starvation detection (<2 ready tasks). Verified acceptance with 17 passed unit tests and clean CLI execution.
 - **Measured:** 2 h; Implemented audit_sentinel_backlog_depth in tasks/audit_github_hygiene.py with sentinel lane classification, ready vs automated depth tracking, starvation threshold detection (<2), handoff sync, and 5 dedicated unit tests.
+
+### T-0244 Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling (tools/discovery/mpp_obstruction_scaling.py)
+
+- **Why / ROI rationale:** Models dense PEG brush coating and steric pore scaling to overcome the mucosal hydrogel obstacle for inhaled genetic vectors, predicting effective diffusion ratios D_eff / D_0 across normal vs CF purulent sputum. *(confidence: high)*
+- **Route:** local - Quantitative biophysical modeling of dense PEG brush shielding (Flory radius, mushroom-to-brush transition), mucin MUC5AC/MUC5B mesh steric filtering, and eDNA viscoelastic hindrance scaling.
+- **Acceptance:** pytest tools/discovery/test_mpp_obstruction_scaling.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-20.md; DOI:10.1016/j.addr.2008.09.009; DOI:10.1073/pnas.0811566106; DOI:10.1016/j.addr.2015.09.006
+- **Notes:** Wave 11 Research Discovery Replenishment. Parameterizes steric mesh exclusion and dense PEG brush adhesive shielding to predict nanoparticle transport in CF mucus.
 
 ### T-0163 Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n
 
