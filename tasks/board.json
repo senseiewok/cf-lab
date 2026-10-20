@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -10965,12 +10965,12 @@
         "categories": {
           "curative_biophysics": 9.5,
           "clinical_translation": 9.0,
-          "scientific_integrity": 7.0,
+          "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.72,
-        "roi_ratio": 1.63
+        "composite_score": 8.03,
+        "roi_ratio": 1.69
       },
       "notes": "Completed in senseiewok/.ai#122: Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity; all unit, anti-hallucination, receipt and StaticTests verified with Argon frontier review (ACCEPT).",
       "completed_at": "2026-10-18T19:48:00Z",
@@ -11687,14 +11687,14 @@
         },
         "rationale": "Translates cross-domain acoustic mucus shear-thinning, PIEZO1 ASL hydration, and 10-year KRT5+/TP63+ basal stem cell vs episomal persistence kinetics into an interactive bilingual workbench on /cf/delivery/.",
         "categories": {
-          "curative_biophysics": 9.5,
+          "curative_biophysics": 7.5,
           "clinical_translation": 9.0,
-          "scientific_integrity": 9.0,
+          "scientific_integrity": 3.0,
           "operational_velocity": 8.5,
-          "security_compliance": 6.5
+          "security_compliance": 2.0
         },
-        "composite_score": 8.7,
-        "roi_ratio": 2.49
+        "composite_score": 6.52,
+        "roi_ratio": 1.86
       },
       "notes": "Delivered in frontier discovery round with strict CSP compliance, zero innerHTML/inline styles, and full Mexican Spanish (es-MX) parity."
     },
@@ -12006,13 +12006,169 @@
         "benefit": 5,
         "estimated_hours": 2.0,
         "score_per_hour": 2.5,
-        "composite_score": 7.65,
+        "composite_score": 7.72,
         "rationale": "Translates nonviral minimal DNA TLR9 evasion and engineered EV basal stem cell tropism into an interactive bilingual public workbench.",
         "measured": {
           "actual_hours": 1.0,
           "completed_at": "2026-10-18",
           "outcome": "Delivered src/scripts/minidna-ev-explorer.js, #minidna-ev-explorer on src/cf/ptc/index.html, es-MX parity in data/i18n/es-MX.json & src/scripts/i18n-resources.js, and tests/test_minidna_ev_explorer.py (55/55 unit tests passing)."
-        }
+        },
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "roi_ratio": 3.86
+      }
+    },
+    {
+      "id": "T-0236",
+      "title": "Interactive Inhaled Bacteriophage-Antibiotic Synergy (PAS) & Biofilm Depolymerization Explorer on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "priority": "P1",
+      "complexity": "medium",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "status": "done",
+      "depends_on": [
+        "T-0154"
+      ],
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic zero-build ES module and es-MX translation workbench grounded in T-0154 (phage_biofilm_kinetics.py and landscape/phage-coevolution-dynamics.md).",
+      "created_at": "2026-10-19",
+      "updated_at": "2026-10-19",
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "source_evidence": [
+        "DOI:10.1038/s41591-021-01659-5 (Dedrick et al., Nat Med 2022: Phage therapy in CF)",
+        "DOI:10.1093/emph/eow012 (Chan et al., Evol Med Public Health 2016: Phage OMKO1 OprM trade-off)",
+        "DOI:10.1016/j.chom.2019.01.014 (Kortright et al., Cell Host Microbe 2019: Phage-antibiotic synergy)",
+        "DOI:10.3389/fmicb.2019.02087 (Cafora et al., Front Microbiol 2019: Alginate lyase biofilm dispersal)",
+        "ClinicalTrials.gov:NCT04684641, NCT05453578, NCT05616221"
+      ],
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_phage_biofilm_explorer tests.test_site.StaticTests",
+      "notes": "Exposes T-0154 interactively on /cf/delivery/ (#phage-biofilm-explorer) with full Mexican Spanish (es-MX) parity.",
+      "roi": {
+        "benefit": 5,
+        "estimated_hours": 2.0,
+        "score_per_hour": 2.5,
+        "composite_score": 7.72,
+        "rationale": "Translates anti-resistance bacteriophage cocktail co-evolution dynamics, alginate lyase biofilm depolymerization, and MexAB-OprM efflux collapse into an interactive bilingual public workbench.",
+        "measured": {
+          "actual_hours": 1.0,
+          "completed_at": "2026-10-19",
+          "outcome": "Delivered src/scripts/phage-biofilm-explorer.js, #phage-biofilm-explorer on src/cf/delivery/index.html, es-MX parity in data/i18n/es-MX.json & src/scripts/i18n-resources.js, and tests/test_phage_biofilm_explorer.py (all unit and static tests passing)."
+        },
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "roi_ratio": 3.86
+      }
+    },
+    {
+      "id": "T-0237",
+      "title": "Interactive Airway Epithelial Basal Stem Cell (KRT5+/TP63+) Clonal Lineage Plasticity & Long-Term Engraftment Simulator on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "priority": "P1",
+      "complexity": "medium",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.0
+      },
+      "status": "ready",
+      "depends_on": [
+        "T-0220"
+      ],
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic zero-build ES module and SVG lineage diagram grounded in tools/discovery/basal_stem_persistence.py (T-0220).",
+      "created_at": "2026-10-19",
+      "updated_at": "2026-10-19",
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "source_evidence": [
+        "DOI:10.1038/s41586-018-0394-6 (Montoro et al., Nature 2018: Airway basal cells and ionocytes)",
+        "DOI:10.1172/jci.insight.206375 (Vijaykumar et al., JCI Insight 2026: Basal cell transplantation in CF airways)",
+        "DOI:10.1164/rccm.202505-1242oc (Yuan et al., Am J Respir Crit Care Med 2025: Ionocyte CFTR coordination)"
+      ],
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_basal_stem_explorer tests.test_site.StaticTests",
+      "notes": "Simulates KRT5+/TP63+ asymmetric self-renewal and 10-year homeostatic CFTR restoration floor on /cf/delivery/.",
+      "roi": {
+        "benefit": 4,
+        "estimated_hours": 2.5,
+        "score_per_hour": 1.6,
+        "composite_score": 7.12,
+        "rationale": "Models basal stem cell engraftment and ionocyte replenishment dynamics for curative gene addition.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "roi_ratio": 2.85
+      }
+    },
+    {
+      "id": "T-0238",
+      "title": "Interactive CFTR Truncation 3D Backbone Trace & Cryptic Domain Stability Explorer on /cf/cftr/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "priority": "P1",
+      "complexity": "medium",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.0
+      },
+      "status": "ready",
+      "depends_on": [
+        "T-0217"
+      ],
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "WebGL2 and SVG 3D residue backbone trace grounded in tools/discovery/cftr_truncation_3d_trace.json and ptc_cryoem_allostery.py (T-0217).",
+      "created_at": "2026-10-19",
+      "updated_at": "2026-10-19",
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "source_evidence": [
+        "PDB:6MSM, PDB:5UAK, PDB:7SVR",
+        "DOI:10.1126/science.aaw4942 (Zhang & Chen, Science 2019: Human CFTR Cryo-EM structure)",
+        "DOI:10.1016/j.jcf.2026.01.012 (Cryo-EM mapping of premature termination codons)"
+      ],
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_truncation_explorer tests.test_site.StaticTests",
+      "notes": "Visualizes 3D backbone truncation, steric residue loss, and thermal unfolding profiles for W1282X, G542X, and R1162X on /cf/cftr/.",
+      "roi": {
+        "benefit": 4,
+        "estimated_hours": 2.5,
+        "score_per_hour": 1.6,
+        "composite_score": 7.72,
+        "rationale": "Connects Cryo-EM atomic coordinates with nonsense truncation stability for community understanding.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "roi_ratio": 3.09
       }
     }
   ],
