@@ -12269,7 +12269,7 @@
       "title": "Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Premature Termination Codon (PTC) Escape Matrix (tools/discovery/nmd_ptc_kinetics.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -12304,9 +12304,14 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.52,
-        "roi_ratio": 1.58
+        "roi_ratio": 1.58,
+        "measured": {
+          "actual_hours": 1.0,
+          "completed_at": "2026-10-19",
+          "outcome": "Delivered in senseiewok/cf-research#104 (tools/discovery/nmd_ptc_kinetics.py + test_nmd_ptc_kinetics.py): quantitative ODE modeling of ribosome stall dwell times governed by +4 flanking context (UGA-G vs UGA-A vs UAA-U), SMG1 kinase competitive inhibition (Ki = 25.0 nM), dual-branch NMD degradation (SMG6 ~75% vs SMG5/7 ~25%), and tri-modal functional rescue (250 nM SMG1i + Readthrough + Corrector delivering Delta I_sc = 10.22% WT >= 10.0% WT curative threshold). Passed 10/10 unit tests and anti-hallucination audit."
+        }
       },
-      "notes": "Wave 10 Research Council Replenishment. UPF1-SMG1 phosphorylation branching, SMG6 vs SMG5/7 degradation, and CFTR PTC escape kinetics."
+      "notes": "Delivered in senseiewok/cf-research#104 with full unit tests and elevated review."
     }
   ],
   "updated": "2026-10-19"
