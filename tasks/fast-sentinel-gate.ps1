@@ -219,6 +219,18 @@ if (Test-Path $FullLockPath) {
                 exit 10
             }
         } else {
+            $BrainDir = if ($env:ANTIGRAVITY_BRAIN_DIR) { $env:ANTIGRAVITY_BRAIN_DIR } else { Join-Path $HOME ".gemini\antigravity\brain" }
+            $HasRecentBrainActivity = $false
+            if (-not $Force -and $LockContent.host -eq $env:COMPUTERNAME -and $AgeMinutes -lt 55 -and (Test-Path $BrainDir)) {
+                $RecentCutoff = (Get-Date).AddMinutes(-5)
+                $ActiveLogs = Get-ChildItem -Path $BrainDir -Filter "transcript.jsonl" -Recurse -ErrorAction SilentlyContinue |
+                    Where-Object { $_.LastWriteTime -gt $RecentCutoff }
+                if ($ActiveLogs) { $HasRecentBrainActivity = $true }
+            }
+            if ($HasRecentBrainActivity) {
+                Write-Host "FAST-GATE: Lock held by '$($LockContent.held_by)' is $([math]::Round($AgeMinutes, 1)) min old (>= $LockTimeoutMinutes min), but active brain session transcript modified within 5 min on $($env:COMPUTERNAME). Backing off."
+                exit 10
+            }
             Write-Host "FAST-GATE: Lock held by '$($LockContent.held_by)' is stale ($([math]::Round($AgeMinutes, 1)) min old >= $LockTimeoutMinutes min). Removing stale lock."
             $IsStale = $true
         }

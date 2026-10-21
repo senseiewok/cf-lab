@@ -74,6 +74,19 @@ def scan_transcript(transcript_path: Path) -> List[Dict[str, Any]]:
                 content = str(step.get("content", ""))
                 step_type = step.get("type", "")
 
+                # Ignore user/system prompt steps, read-only file views, and successful (exit 0) self-audit/test runs
+                # unless the step itself explicitly failed with status == "ERROR".
+                if step_status != "ERROR":
+                    if step_type in ("USER_INPUT", "SYSTEM_MESSAGE", "USER_MESSAGE"):
+                        continue
+                    stripped = content.lstrip()
+                    if stripped.startswith(("File Path:", "Showing lines ")):
+                        continue
+                    if "Sensei Ewok CF Lab - Session Error & Improvement Audit" in content:
+                        continue
+                    if "Command exited with code 0" in content or "The command exited with code 0." in content:
+                        continue
+
                 matched_categories = []
                 for pattern, cat in ERROR_PATTERNS:
                     if pattern.search(content):
@@ -105,12 +118,16 @@ def scan_task_logs(session_dir: Path) -> List[Dict[str, Any]]:
     for log_file in tasks_dir.glob("*.log"):
         try:
             content = log_file.read_text(encoding="utf-8", errors="replace")
+            if "Sensei Ewok CF Lab - Session Error & Improvement Audit" in content and (
+                "Command exited with code 0" in content or "The command exited with code 0." in content
+            ):
+                continue
             matched_categories = []
             for pattern, cat in ERROR_PATTERNS:
                 if pattern.search(content):
                     matched_categories.append(cat)
 
-            if matched_categories or "exit code" in content.lower():
+            if matched_categories:
                 lines = [line.strip() for line in content.splitlines() if line.strip()]
                 error_lines = [l for l in lines if any(p.search(l) for p, _ in ERROR_PATTERNS)]
                 raw_summary = error_lines[:3] if error_lines else lines[-3:]

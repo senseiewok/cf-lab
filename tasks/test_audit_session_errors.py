@@ -44,6 +44,32 @@ class TestAuditSessionErrors(unittest.TestCase):
             self.assertIn("Python SyntaxError", findings[1]["categories"])
             self.assertIn("Python Traceback", findings[1]["categories"])
 
+    def test_scan_transcript_ignores_self_audit_and_readonly_views(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            transcript = Path(tmpdir) / "transcript.jsonl"
+            lines = [
+                json.dumps({
+                    "step_index": 1,
+                    "type": "TOOL_RESPONSE",
+                    "status": "DONE",
+                    "content": "Sensei Ewok CF Lab - Session Error & Improvement Audit\nCategory Breakdown:\n  - Python SyntaxError: 18\n  - PowerShell ParserError: 12\nCommand exited with code 0.",
+                }),
+                json.dumps({
+                    "step_index": 2,
+                    "type": "TOOL_RESPONSE",
+                    "status": "DONE",
+                    "content": "Showing lines 1-50 of 100\n45: (re.compile(r'SyntaxError:', re.I), 'Python SyntaxError')",
+                }),
+                json.dumps({
+                    "step_index": 3,
+                    "type": "USER_INPUT",
+                    "status": "DONE",
+                    "content": "Check why SyntaxError: and ParserError: appeared in the digest.",
+                }),
+            ]
+            transcript.write_text("\n".join(lines), encoding="utf-8")
+            self.assertEqual(ase.scan_transcript(transcript), [])
+
     def test_scan_task_logs(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             session_dir = Path(tmpdir)

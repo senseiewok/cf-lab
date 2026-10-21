@@ -212,6 +212,7 @@ try {
     # the prompt files use repo-relative paths, so anchor the launch to this repo.
     Push-Location $repoRoot
     try {
+        $env:LOCAL_WORKER_TAG = $SentinelName
         & $AgentCommand new-conversation "--title=$title" $prompt
         $agentExit = $LASTEXITCODE
     } finally {
