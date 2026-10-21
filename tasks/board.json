@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -13108,12 +13108,12 @@
         "categories": {
           "curative_biophysics": 9.5,
           "clinical_translation": 9.0,
-          "scientific_integrity": 7.0,
+          "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.72,
-        "roi_ratio": 2.81
+        "composite_score": 8.03,
+        "roi_ratio": 2.92
       },
       "notes": "Completed in senseiewok/.ai#142: enriched #aso-splice-explorer on /cf/ptc/ with U1/U2 spliceosome PDB 7ABI / 6FF4 grounding, published 15-country attested resources directory (45 rows), and added tests/test_aso_splice_explorer.py."
     },
@@ -13166,7 +13166,7 @@
       "title": "Interactive Pseudomonas Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Antibiotic Resensitization Explorer on /cf/delivery/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13203,9 +13203,12 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.72,
-        "roi_ratio": 2.81
+        "roi_ratio": 2.81,
+        "measured": 2.75
       },
-      "notes": "Wave 13 Track B Public Showcase Translation. Connects completed T-0246 OMKO1 trade-off dynamics to /cf/delivery/."
+      "notes": "Wave 13 Track B Public Showcase Translation. Interactive OMKO1 evolutionary trade-off & MexAB-OprM resensitization explorer deployed to /cf/delivery/ with full Mexican Spanish (es-MX) parity, strict CSP compliance, and unit tests passing. Verified in senseiewok/.ai#143.",
+      "actual_hours": 2.75,
+      "completed_at": "2026-10-21T09:16:00Z"
     },
     {
       "id": "T-0261",
@@ -13252,6 +13255,52 @@
         "roi_ratio": 2.59
       },
       "notes": "Wave 13 Track B Public Showcase Translation. Connects T-0244 mucus-penetrating nanoparticle transport scaling to /cf/delivery/."
+    },
+    {
+      "id": "T-0262",
+      "title": "Interactive Alveolar Macrophage Efferocytosis & Neutrophil Extracellular Trap (NET) Degradation Kinetics Simulator on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG visualizer modeling alveolar macrophage efferocytosis of apoptotic neutrophils, NET degradation by rhDNase/dornase alfa, and ROS suppression grounded in tools/discovery/macrophage_efferocytosis_model.py (T-0251) and NCT00843817.",
+      "created_at": "2026-10-21T09:16:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel wave 14 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0251"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "cf-research/tools/discovery/macrophage_efferocytosis_model.py; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT02088216; ClinicalTrials.gov:NCT00506688; PDB:1HNE; PDB:2P0C; DOI:10.1172/JCI13554; DOI:10.3389/fimmu.2021.734608",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_macrophage_efferocytosis_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Exposes chronic airway inflammation, efferocytosis failure, and NET degradation dynamics on /cf/delivery/ in English and Mexican Spanish.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 8.17,
+        "roi_ratio": 2.97
+      },
+      "notes": "Wave 14 Track B Public Showcase Translation. Connects completed T-0251 macrophage efferocytosis model to /cf/delivery/."
     }
   ],
   "updated": "2026-10-21"
