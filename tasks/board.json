@@ -12663,7 +12663,7 @@
       "title": "Interactive Epithelial Sodium Channel (ENaC) Proteolytic Cleavage (Alpha/Gamma Tract Release) & Dual-Target ASL Rehydration Explorer on /cf/tree/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "effort_hours": {
@@ -12677,7 +12677,7 @@
       "recommended_route": "local",
       "route_rationale": "Deterministic zero-build ES module and SVG schematic grounded in tools/discovery/enac_proteolysis_model.py (T-0245).",
       "created_at": "2026-10-20",
-      "updated_at": "2026-10-20",
+      "updated_at": "2026-10-21",
       "created_by": {
         "kind": "model",
         "name": "Argon (Chief Researcher Officer Strategist)",
@@ -12685,29 +12685,32 @@
       },
       "source_evidence": "cf-research/tools/discovery/enac_proteolysis_model.py; DOI:10.1085/jgp.201711910; DOI:10.1074/jbc.M111.233817; DOI:10.1016/j.jcf.2020.08.008; ClinicalTrials.gov:NCT03647228; ClinicalTrials.gov:NCT04375514",
       "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_enac_explorer tests.test_site.StaticTests",
-      "notes": "Visualizes ENaC furin and neutrophil elastase cleavage states (E_0, E_alpha, E_alphagamma) releasing alpha/gamma inhibitory tracts and dynamic ASL height restoration.",
+      "notes": "Delivered in senseiewok/.ai#139: interactive Epithelial Sodium Channel (ENaC) proteolytic cleavage (alpha/gamma tract release) & dual-target ASL rehydration explorer (#enac-proteolysis-explorer) on /cf/tree/ with full es-MX parity.",
       "roi": {
         "benefit": 4,
         "estimated_hours": 2.5,
         "score_per_hour": 1.6,
-        "composite_score": 8.77,
+        "composite_score": 7.72,
         "rationale": "Models ENaC protease inhibition and dual-target ASL hydration across Class I/Class II severe CF phenotypes.",
         "categories": {
           "curative_biophysics": 9.5,
           "clinical_translation": 9.0,
           "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
-          "security_compliance": 9.0
+          "security_compliance": 2.0
         },
-        "roi_ratio": 3.51
-      }
+        "roi_ratio": 3.09,
+        "measured": 2.5
+      },
+      "completed_at": "2026-10-21",
+      "actual_hours": 2.5
     },
     {
       "id": "T-0250",
       "title": "Interactive CFTR NBD1 Thermal Denaturation Landscape (Delta Tm) & ICL4 Allosteric Coupling Explorer on /cf/cftr/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "effort_hours": {
@@ -12719,7 +12722,7 @@
       "recommended_route": "local",
       "route_rationale": "Interactive Gibbs-Helmholtz thermodynamic stability visualizer modeling NBD1 melting Delta Tm and corrector rescue.",
       "created_at": "2026-10-20",
-      "updated_at": "2026-10-20",
+      "updated_at": "2026-10-21",
       "created_by": {
         "kind": "model",
         "name": "Argon (Chief Researcher Officer Strategist)",
@@ -12727,7 +12730,7 @@
       },
       "source_evidence": "cf-research/tools/discovery/nbd1_thermodynamics.py; PDB:8EIQ; PDB:6MSM; DOI:10.1016/j.cell.2019.01.033; DOI:10.1073/pnas.1903722116",
       "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_nbd1_thermo tests.test_site.StaticTests",
-      "notes": "Simulates Delta G_unfold(T) curves and Delta Tm shifts across WT, F508del, R560T, and N1303K with Type I/III corrector stabilization.",
+      "notes": "Delivered in senseiewok/.ai#139: interactive CFTR NBD1 thermal denaturation landscape (Delta Tm) & ICL4 allosteric coupling explorer (#nbd1-thermo-explorer) on /cf/cftr/ with full es-MX parity.",
       "roi": {
         "benefit": 4,
         "estimated_hours": 2.5,
@@ -12741,8 +12744,11 @@
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "roi_ratio": 2.85
-      }
+        "roi_ratio": 2.85,
+        "measured": 2.5
+      },
+      "completed_at": "2026-10-21",
+      "actual_hours": 2.5
     },
     {
       "id": "T-0251",
@@ -12875,7 +12881,277 @@
         "roi_ratio": 1.24
       },
       "notes": "Wave 12 Research Discovery Replenishment. Models eDNA degradation, mucin disulfide cleavage, affine rubber elasticity shear modulus G*(omega), and mucociliary clearability index (MCI)."
+    },
+    {
+      "id": "T-0254",
+      "title": "Splice-Switching Antisense Oligonucleotide (ASO) Steric-Blocking Kinetics & Cryptic Pseudoexon Competition Model (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) (tools/discovery/aso_splice_kinetics.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Biophysical thermodynamic competition modeling of 2'-MOE/PMO splice-switching ASO hybridization against U1/U2AF spliceosomal recognition at cryptic donor/acceptor sites, coupled to NMD escape and apical chloride conductance recovery.",
+      "created_at": "2026-10-21T04:15:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Wave 13 Frontier Council curative roadmap"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT05014728; ClinicalTrials.gov:NCT04072887; PDB:6FF4; PDB:7ABI; DOI:10.1164/rccm.202105-1155OC; DOI:10.1038/s41467-022-30495-1; DOI:10.1016/j.ymthe.2020.09.017",
+      "acceptance": "pytest tools/discovery/test_aso_splice_kinetics.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies steric-blocking ASO dose-response (SPL84, NCT05014728) across Class V/I splicing mutations (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G), predicting canonical exon inclusion f_canon, NMD escape, and functional CFTR current restoration.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.52,
+        "roi_ratio": 1.88
+      },
+      "notes": "Wave 13 Track A Curative Biophysics. Models Boltzmann spliceosome-ASO competition at intronic cryptic exons and consensus splice junctions."
+    },
+    {
+      "id": "T-0255",
+      "title": "Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) Adenine Base Editing (ABE8e) & Prime Editing (PE3) PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Quantitative sequence-window accessibility, bystander A-to-G deamination probability, pegRNA PBS/RTT folding free energy, and KRT5+/TP63+ airway basal stem cell LNP/RNP transduction modeling.",
+      "created_at": "2026-10-21T04:15:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Wave 13 Frontier Council curative roadmap"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT05228836; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT06237335; PDB:6VPC; PDB:7Z4L; DOI:10.1038/s41587-020-0453-z; DOI:10.1038/s41586-019-1711-4; DOI:10.1038/s41551-024-01233-z",
+      "acceptance": "pytest tools/discovery/test_class1_prime_base_editing.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Directly targets durable genetic correction for the remaining 10% of people with CF carrying Class I premature stop codons (G542X, W1282X, R553X, R1162X), comparing SpCas9-NG/SpRY ABE8e editing windows, silent/missense bystander rates, PE3 pegRNA efficiency, and basal progenitor expansion.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.52,
+        "roi_ratio": 1.77
+      },
+      "notes": "Wave 13 Track A Curative Biophysics. Models ABE8e activity window (positions 4-8) vs PE3 reverse-transcriptase extension across canonical Class I CFTR stop alleles."
+    },
+    {
+      "id": "T-0256",
+      "title": "Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Coupled electrochemical and Henderson-Hasselbalch ASL pH buffering model comparing transient Ca2+-activated TMEM16A (ANO1) secretion with constitutive SLC26A9 basal Cl-/HCO3- transport in CFTR-null epithelia.",
+      "created_at": "2026-10-21T04:15:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Wave 13 Frontier Council curative roadmap"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0252"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00846781; ClinicalTrials.gov:NCT04375514; PDB:7CH1; PDB:5OYB; DOI:10.1038/s41467-019-11866-7; DOI:10.1172/JCI38662; DOI:10.1183/13993003.02116-2019",
+      "acceptance": "pytest tools/discovery/test_slc26a9_tmem16a_bypass.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Explains why transient purinergic TMEM16A agonists (Denufosol, NCT00846781) desensitize and quantifies how pairing constitutive SLC26A9 apical trafficking rescue with sustained TMEM16A potentiation restores basal ASL height (>= 7 um) and pH (>= 7.1) in genotype-agnostic CFTR-null airways.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.52,
+        "roi_ratio": 1.88
+      },
+      "notes": "Wave 13 Track A Curative Biophysics. Extends T-0252 by incorporating cryo-EM structure-grounded SLC26A9 (PDB: 7CH1) constitutive conductance and PDZ/STAS domain trafficking."
+    },
+    {
+      "id": "T-0257",
+      "title": "Interactive Global Registry Variant Theratyping & Diagnostic Sweat Chloride / Nasal Potential Difference (NPD) Disparity Explorer on /cf/registries/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG visual explorer grounded in cf-research/landscape/multi-registry-eligibility-2026.md and sources/catalog.yaml with strict non-pooling invariants.",
+      "created_at": "2026-10-21T04:15:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Wave 13 Frontier Council curative roadmap"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0168"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "cf-research/landscape/multi-registry-eligibility-2026.md; cf-research/sources/catalog.yaml; ClinicalTrials.gov:NCT02392234; DOI:10.1016/j.jcf.2022.06.002; DOI:10.1164/rccm.202001-0105OC",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_registry_equity_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Brings our non-pooled multi-registry eligibility and diagnostic equity analysis (CFFPR, ECFSPR, UKCFR, CCFR, ACFDR) to /cf/registries/, helping families and clinicians compare newborn screening panel sensitivity, sweat chloride thresholds, and FIS organoid theratyping pathways across underrepresented ancestries in English and Mexican Spanish.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.42,
+        "roi_ratio": 2.7
+      },
+      "notes": "Wave 13 Track B Clinical Equity & Public Translation. Enforces non-pooled registry comparison and Two-Speed Plain-English First + es-MX parity."
+    },
+    {
+      "id": "T-0258",
+      "title": "Interactive Splice-Switching ASO Steric-Blocking & Cryptic Pseudoexon Rescue Explorer (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) on /cf/ptc/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG pre-mRNA splicing schematic grounded in tools/discovery/aso_splice_kinetics.py (T-0254) and ClinicalTrials.gov NCT05014728.",
+      "created_at": "2026-10-21T04:15:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Wave 13 Frontier Council curative roadmap"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0254"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "cf-research/tools/discovery/aso_splice_kinetics.py; ClinicalTrials.gov:NCT05014728; PDB:6FF4; PDB:7ABI; DOI:10.1164/rccm.202105-1155OC; DOI:10.1038/s41467-022-30495-1",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_aso_splice_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Translates splice-switching oligonucleotide biophysics into an accessible interactive visual explainer on /cf/ptc/ with real-time ASO concentration sliders, canonical vs cryptic splice branching diagrams, and Mexican Spanish localization.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.81
+      },
+      "notes": "Wave 13 Track B Public Showcase Translation. Connects T-0254 splice-switching ASO kinetics to /cf/ptc/."
+    },
+    {
+      "id": "T-0259",
+      "title": "Multi-Family Discovery Council Dynamic Module Registry (discovery_council.py) & AH-5 Unregistered Model Guardrail in check_anti_hallucination.py",
+      "repo": "cf-research",
+      "area": "tooling",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Upgrades tools/discovery/discovery_council.py and tools/claims/check_anti_hallucination.py to automatically discover and cross-verify every biophysical model in tools/discovery/ across multi-family verifiers.",
+      "created_at": "2026-10-21T04:15:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Wave 13 Frontier Council curative roadmap"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "source_evidence": "cf-research/tools/discovery/discovery_council.py; cf-research/tools/claims/check_anti_hallucination.py; ClinicalTrials.gov:NCT04684641; PDB:8EIQ; DOI:10.1056/NEJMoa1908639",
+      "acceptance": "pytest tools/discovery/test_discovery_council.py tools/claims/test_check_anti_hallucination.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Eliminates the gap where newly added biophysical models in tools/discovery/ could bypass discovery_council.py by enforcing dynamic module discovery, physical bounds invariants, and an automated AH-5 check in check_anti_hallucination.py.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.12,
+        "roi_ratio": 2.19
+      },
+      "notes": "Wave 13 Track C Scientific Integrity & Multi-Family Verification. Ensures 100% of discovery models in cf-research/tools/discovery/ are registered and invariant-checked."
     }
   ],
-  "updated": "2026-10-19"
+  "updated": "2026-10-21"
 }
