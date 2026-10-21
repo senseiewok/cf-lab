@@ -103,17 +103,21 @@ try {
             try {
                 $text = Get-StagedText $file
                 $tmpjs = Join-Path ([IO.Path]::GetTempPath()) ('chk-' + [guid]::NewGuid().ToString('N') + $ext)
+                $checkerRan = $false
                 try {
                     [IO.File]::WriteAllText($tmpjs, $text, [Text.UTF8Encoding]::new($false))
                     if ($nodeExe) {
+                        $checkerRan = $true
                         & $nodeExe --check $tmpjs 2>&1 | Out-Null
                     } else {
                         $cqlCand = Join-Path $PSScriptRoot '../../../../tasks/check_codeql_patterns.py'
                         if (Test-Path -LiteralPath $cqlCand -PathType Leaf) {
+                            $checkerRan = $true
                             & $pyExe $cqlCand --label $file $tmpjs 2>&1 | Out-Null
                         }
                     }
                 } finally { Remove-Item -LiteralPath $tmpjs -ErrorAction SilentlyContinue }
+                if (-not $checkerRan) { Write-Host "SKIP ${file}: no JS checker available"; continue }
                 if ($LASTEXITCODE -ne 0) { Write-Host "FAIL ${file}: syntax or security error"; $failures++ }
                 else { Write-Host "PASS $file" }
             } catch { Write-Host "FAIL ${file}: $_"; $failures++ }
