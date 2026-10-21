@@ -12888,7 +12888,7 @@
       "title": "Splice-Switching Antisense Oligonucleotide (ASO) Steric-Blocking Kinetics & Cryptic Pseudoexon Competition Model (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) (tools/discovery/aso_splice_kinetics.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -12925,7 +12925,7 @@
         "composite_score": 7.52,
         "roi_ratio": 1.88
       },
-      "notes": "Wave 13 Track A Curative Biophysics. Models Boltzmann spliceosome-ASO competition at intronic cryptic exons and consensus splice junctions."
+      "notes": "Completed in senseiewok/cf-research#112: implemented tools/discovery/aso_splice_kinetics.py and test_aso_splice_kinetics.py modeling Boltzmann competitive spliceosome-ASO partitioning across 3849+10kbC->T, 2789+5G->A, and 1811+1.6kbA->G (NCT06429176, NCT04684641, PDB 6FF4, PDB 7ABI, PDB 6MSM)."
     },
     {
       "id": "T-0255",
@@ -13076,7 +13076,7 @@
       "title": "Interactive Splice-Switching ASO Steric-Blocking & Cryptic Pseudoexon Rescue Explorer (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) on /cf/ptc/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13115,14 +13115,14 @@
         "composite_score": 7.72,
         "roi_ratio": 2.81
       },
-      "notes": "Wave 13 Track B Public Showcase Translation. Connects T-0254 splice-switching ASO kinetics to /cf/ptc/."
+      "notes": "Completed in senseiewok/.ai#142: enriched #aso-splice-explorer on /cf/ptc/ with U1/U2 spliceosome PDB 7ABI / 6FF4 grounding, published 15-country attested resources directory (45 rows), and added tests/test_aso_splice_explorer.py."
     },
     {
       "id": "T-0259",
       "title": "Multi-Family Discovery Council Dynamic Module Registry (discovery_council.py) & AH-5 Unregistered Model Guardrail in check_anti_hallucination.py",
       "repo": "cf-research",
       "area": "tooling",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13159,7 +13159,7 @@
         "composite_score": 7.12,
         "roi_ratio": 2.19
       },
-      "notes": "Wave 13 Track C Scientific Integrity & Multi-Family Verification. Ensures 100% of discovery models in cf-research/tools/discovery/ are registered and invariant-checked."
+      "notes": "Completed in senseiewok/cf-research#112: implemented dynamic DISCOVERY_MODULE_REGISTRY and audit_discovery_module_registry() in tools/discovery/discovery_council.py and enforced Rule AH-5 [discovery-module-registration] in tools/claims/check_anti_hallucination.py."
     },
     {
       "id": "T-0260",

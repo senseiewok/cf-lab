@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (27)
+## ready (24)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,11 +18,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0259 | P1 | Multi-Family Discovery Council Dynamic Module Registry (discovery_council.py) & AH-5 Unregistered Model Guardrail in check_anti_hallucination.py | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
-| T-0258 | P1 | Interactive Splice-Switching ASO Steric-Blocking & Cryptic Pseudoexon Rescue Explorer (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) on /cf/ptc/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0254 |  |
 | T-0260 | P1 | Interactive Pseudomonas Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Antibiotic Resensitization Explorer on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0246 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0254 | P1 | Splice-Switching Antisense Oligonucleotide (ASO) Steric-Blocking Kinetics & Cryptic Pseudoexon Competition Model (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) (tools/discovery/aso_splice_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0256 | P1 | Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
 | T-0252 | P1 | Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Purinergic (P2Y2R-Ca2+) Fluid Homeostasis Model (tools/discovery/enac_tmem16a_equilibrium.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0255 | P1 | Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) Adenine Base Editing (ABE8e) & Prime Editing (PE3) PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
@@ -42,7 +39,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (220)
+## done (223)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -84,8 +81,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0248 | P1 | Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0249 | P1 | Interactive Epithelial Sodium Channel (ENaC) Proteolytic Cleavage (Alpha/Gamma Tract Release) & Dual-Target ASL Rehydration Explorer on /cf/tree/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-4-argon | 2026-10-20 | elevated | medium | local | T-0245 |  |
 | T-0250 | P1 | Interactive CFTR NBD1 Thermal Denaturation Landscape (Delta Tm) & ICL4 Allosteric Coupling Explorer on /cf/cftr/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
+| T-0259 | P1 | Multi-Family Discovery Council Dynamic Module Registry (discovery_council.py) & AH-5 Unregistered Model Guardrail in check_anti_hallucination.py | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0193 | P1 | Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0205 | P1 | Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py) | cf-lab | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
+| T-0258 | P1 | Interactive Splice-Switching ASO Steric-Blocking & Cryptic Pseudoexon Rescue Explorer (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) on /cf/ptc/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0254 |  |
 | T-0188 | P1 | Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0189 | P1 | Unify /atlas/ and /atlas/classes/*/ with 4-Pillar Navigation, Library Drawer (Alt+L), Command Palette, and nav-rail.js (tools/make_trial_atlas.py) | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0204 | P1 | Clinical Trial Endpoint Plain-Language Decoder (ppFEV1, Sweat Chloride, LCI2.5, CFQ-R) on /cf/trials/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -107,6 +106,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0213 | P1 | Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0208, T-0210 |  |
 | T-0214 | P1 | Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0228 | P1 | Mechano-acoustic mucus conditioning, PIEZO1/TMEM16A ASL hydration, and EV/nanoparticle delivery flux model (tools/discovery/mechano_acoustic_delivery.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-19 | elevated | high | frontier | T-0220 |  |
+| T-0254 | P1 | Splice-Switching Antisense Oligonucleotide (ASO) Steric-Blocking Kinetics & Cryptic Pseudoexon Competition Model (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) (tools/discovery/aso_splice_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0240 | P1 | TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
@@ -654,7 +654,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Upgrades tools/discovery/discovery_council.py and tools/claims/check_anti_hallucination.py to automatically discover and cross-verify every biophysical model in tools/discovery/ across multi-family verifiers.
 - **Acceptance:** pytest tools/discovery/test_discovery_council.py tools/claims/test_check_anti_hallucination.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/discovery_council.py; cf-research/tools/claims/check_anti_hallucination.py; ClinicalTrials.gov:NCT04684641; PDB:8EIQ; DOI:10.1056/NEJMoa1908639
-- **Notes:** Wave 13 Track C Scientific Integrity & Multi-Family Verification. Ensures 100% of discovery models in cf-research/tools/discovery/ are registered and invariant-checked.
+- **Notes:** Completed in senseiewok/cf-research#112: implemented dynamic DISCOVERY_MODULE_REGISTRY and audit_discovery_module_registry() in tools/discovery/discovery_council.py and enforced Rule AH-5 [discovery-module-registration] in tools/claims/check_anti_hallucination.py.
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
@@ -680,7 +680,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Zero-build native ES module and SVG pre-mRNA splicing schematic grounded in tools/discovery/aso_splice_kinetics.py (T-0254) and ClinicalTrials.gov NCT05014728.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_aso_splice_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/aso_splice_kinetics.py; ClinicalTrials.gov:NCT05014728; PDB:6FF4; PDB:7ABI; DOI:10.1164/rccm.202105-1155OC; DOI:10.1038/s41467-022-30495-1
-- **Notes:** Wave 13 Track B Public Showcase Translation. Connects T-0254 splice-switching ASO kinetics to /cf/ptc/.
+- **Notes:** Completed in senseiewok/.ai#142: enriched #aso-splice-explorer on /cf/ptc/ with U1/U2 spliceosome PDB 7ABI / 6FF4 grounding, published 15-country attested resources directory (45 rows), and added tests/test_aso_splice_explorer.py.
 
 ### T-0260 Interactive Pseudomonas Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Antibiotic Resensitization Explorer on /cf/delivery/ with es-MX parity
 
@@ -902,7 +902,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Biophysical thermodynamic competition modeling of 2'-MOE/PMO splice-switching ASO hybridization against U1/U2AF spliceosomal recognition at cryptic donor/acceptor sites, coupled to NMD escape and apical chloride conductance recovery.
 - **Acceptance:** pytest tools/discovery/test_aso_splice_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT05014728; ClinicalTrials.gov:NCT04072887; PDB:6FF4; PDB:7ABI; DOI:10.1164/rccm.202105-1155OC; DOI:10.1038/s41467-022-30495-1; DOI:10.1016/j.ymthe.2020.09.017
-- **Notes:** Wave 13 Track A Curative Biophysics. Models Boltzmann spliceosome-ASO competition at intronic cryptic exons and consensus splice junctions.
+- **Notes:** Completed in senseiewok/cf-research#112: implemented tools/discovery/aso_splice_kinetics.py and test_aso_splice_kinetics.py modeling Boltzmann competitive spliceosome-ASO partitioning across 3849+10kbC->T, 2789+5G->A, and 1811+1.6kbA->G (NCT06429176, NCT04684641, PDB 6FF4, PDB 7ABI, PDB 6MSM).
 
 ### T-0256 Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py)
 
