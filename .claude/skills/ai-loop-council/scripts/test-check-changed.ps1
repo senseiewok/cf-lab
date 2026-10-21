@@ -138,6 +138,19 @@ try {
         Stage $r @('sources/catalog.snapshot.yaml')
         Case 'T-0140: staging an intact sources/catalog.snapshot.yaml passes sync_catalog_snapshot.py --check' 0 $r 'OK'
     }
+    # JS syntax and CodeQL static pattern checks + .ai pre-PR gate owning checker
+    $r = NewRepo 'badjs'; W $r 'app.js' 'const x = ( ;'; Stage $r @('app.js'); Case 'staged js with syntax error -> 1' 1 $r 'FAIL app.js'
+    $r = NewRepo 'goodjs'; W $r 'app.js' 'const x = 1 + 2;'; Stage $r @('app.js'); Case 'staged valid js -> 0' 0 $r 'PASS app.js'
+    $r = NewRepo 'cql-tag'; W $r 'parse.py' "import re`nRX = re.compile(r'<script\b([^>]*)>(.*?)</script>')`n"; Stage $r @('parse.py')
+    Case 'CodeQL py/bad-tag-filter caught on staged python file -> 1' 1 $r 'FAIL owning checker check_codeql_patterns.py'
+    $r = NewRepo 'cql-url'; W $r 'url.py' "def f(target_url):`n    return 'https://example.org' in target_url`n"; Stage $r @('url.py')
+    Case 'CodeQL py/incomplete-url-substring-sanitization caught on staged python file -> 1' 1 $r 'FAIL owning checker check_codeql_patterns.py'
+    $r = NewRepo 'cql-js-eval'; W $r 'bad.js' "const y = eval('1+1');`n"; Stage $r @('bad.js')
+    Case 'CodeQL js/dangerous-code-sink caught on staged js file -> 1' 1 $r 'FAIL owning checker check_codeql_patterns.py'
+    $r = NewRepo 'ai-gate-fail'; W $r 'tools/check_pr_gate.py' "import sys`nsys.exit(1)`n"; W $r 'src/index.html' '<p>hi</p>'; Stage $r @('tools/check_pr_gate.py', 'src/index.html')
+    Case '.ai owning checker check_pr_gate.py --fast fails when gate exits 1' 1 $r 'FAIL owning checker check_pr_gate.py --fast'
+    $r = NewRepo 'ai-gate-ok'; W $r 'tools/check_pr_gate.py' "import sys`nsys.exit(0)`n"; W $r 'src/index.html' '<p>hi</p>'; Stage $r @('tools/check_pr_gate.py', 'src/index.html')
+    Case '.ai owning checker check_pr_gate.py --fast passes when gate exits 0' 0 $r 'OK'
     # read-only
     $r = NewRepo 'ro'; W $r 'e.json' '{"a":1}'; Stage $r @('e.json'); $before = (& git -C $r status --porcelain) -join '|'
     $null = & pwsh -NoProfile -File $Script -RepoPath $r 2>&1; $after = (& git -C $r status --porcelain) -join '|'

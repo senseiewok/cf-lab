@@ -98,7 +98,11 @@ Before touching any `.ai` or skill files:
 
 Execute the mandatory 3-layer Grounded Review Loop:
 
-1. **Deterministic Mechanical Verification**:
+1. **Deterministic Mechanical Verification & Local Pre-PR Gate (`check_pr_gate.py`)**:
+   - Cloud GitHub Actions and CodeQL are disabled on the private `senseiewok/.ai` repository; run the unified local pre-PR gate before any PR:
+     ```powershell
+     python tools/check_pr_gate.py
+     ```
    - Verify all factual claims against primary sources:
      ```powershell
      python ../cf-research/tools/claims/check_claims.py

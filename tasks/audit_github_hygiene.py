@@ -28,6 +28,8 @@ WORKTREES_SCRIPT = REPO_ROOT / ".claude" / "skills" / "workspace-siblings" / "sc
 
 DEFAULT_OWNER = "senseiewok"
 DEFAULT_REPOS = ["cf-lab", "cf-skills", "cf-research", ".ai"]
+# Private repositories where cloud GitHub Actions are disabled and checks run locally before PR creation.
+LOCAL_GATE_ONLY_REPOS = {".ai"}
 
 # Redaction patterns for sensitive tokens per security-baseline
 REDACT_PATTERNS = [
@@ -70,6 +72,10 @@ def fetch_open_prs_gh(owner: str, repo: str) -> Tuple[Optional[List[Dict[str, An
         if res.returncode != 0:
             return None, f"gh pr list failed for {slug} (code {res.returncode}): {res.stderr.strip()}"
         data = json.loads(res.stdout or "[]")
+        if repo in LOCAL_GATE_ONLY_REPOS and isinstance(data, list):
+            for item in data:
+                if isinstance(item, dict):
+                    item["statusCheckRollup"] = []
         return data, None
     except FileNotFoundError:
         return None, "gh executable not found on PATH"
