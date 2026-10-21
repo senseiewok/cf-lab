@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-250 tasks, 249 created by a model, 141 with a measured outcome. Estimated effort 657.85 to 1225.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+253 tasks, 252 created by a model, 141 with a measured outcome. Estimated effort 666.85 to 1241.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (21)
+## ready (23)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -21,7 +21,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0249 | P1 | Interactive Epithelial Sodium Channel (ENaC) Proteolytic Cleavage (Alpha/Gamma Tract Release) & Dual-Target ASL Rehydration Explorer on /cf/tree/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local | T-0245 |  |
 | T-0250 | P1 | Interactive CFTR NBD1 Thermal Denaturation Landscape (Delta Tm) & ICL4 Allosteric Coupling Explorer on /cf/cftr/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0246 | P1 | Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics (tools/discovery/phage_omko1_tradeoff.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
+| T-0251 | P1 | Alveolar & Airway Macrophage Efferocytosis Impairment & Neutrophil Extracellular Trap (NET) Degradation Kinetics in CF Airways (tools/discovery/macrophage_efferocytosis_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
+| T-0252 | P1 | Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Purinergic (P2Y2R-Ca2+) Fluid Homeostasis Model (tools/discovery/enac_tmem16a_equilibrium.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -30,13 +31,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
+| T-0253 | P2 | CF Airway Mucus Micro-Rheology & Polymer Cross-Linking Cleavage Kinetics Under Dornase Alfa (rhDNase) and Thiol-Reducing Mucolytics (tools/discovery/mucus_cleavage_kinetics.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0244 | P3 | Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling (tools/discovery/mpp_obstruction_scaling.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (215)
+## done (216)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -102,6 +104,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0240 | P1 | TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0245 | P1 | Epithelial Sodium Channel (ENaC) Proteolytic Activation Kinetics & Dual-Target ASL Homeostasis (tools/discovery/enac_proteolysis_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
+| T-0246 | P1 | Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics (tools/discovery/phage_omko1_tradeoff.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0187 | P1 | Interactive Splice-Switching ASO & Class V Pseudoexon Explorer panel on /cf/ptc/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0183 |  |
@@ -891,7 +894,23 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - ODE modeling of lytic bacteriophage OMKO1 receptor binding (OprM), phage-host Lotka-Volterra population dynamics, fitness trade-off selection, and antibiotic (ciprofloxacin) resensitization.
 - **Acceptance:** pytest tools/discovery/test_phage_omko1_tradeoff.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-20.md; ClinicalTrials.gov:NCT04684641; ClinicalTrials.gov:NCT05010577; DOI:10.1038/s41598-018-24541-1; DOI:10.1016/j.jcf.2021.03.013
-- **Notes:** Wave 11 Research Discovery Replenishment. Models phage OMKO1 lytic predation on MexAB-OprM, mutational resensitization, and dual phage-antibiotic synergy (PAS).
+- **Notes:** Completed in senseiewok/cf-research#109. Implemented Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics Model (tools/discovery/phage_omko1_tradeoff.py) with 8/8 unit tests passing and check_anti_hallucination.py passing.
+
+### T-0251 Alveolar & Airway Macrophage Efferocytosis Impairment & Neutrophil Extracellular Trap (NET) Degradation Kinetics in CF Airways (tools/discovery/macrophage_efferocytosis_model.py)
+
+- **Why / ROI rationale:** Quantifies the inflammatory trap where NE-mediated efferocytosis shutdown forces PMN secondary necrosis, generating a dense NET hydrogel that physically impedes gene therapy vectors (LNPs, AAVs); models therapeutic reversal via elastase inhibition, rhDNase, and CFTR rescue. *(confidence: high)*
+- **Route:** local - Biophysical modeling of neutrophil elastase (NE) mediated cleavage of macrophage efferocytosis scavenger receptors (MerTK/CD36), phagolysosomal acidification failure (v-ATPase/CFTR counter-ion loss), and secondary necrotic NET debris accumulation.
+- **Acceptance:** pytest tools/discovery/test_macrophage_efferocytosis_model.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT02088216; ClinicalTrials.gov:NCT00506688; PDB:1HNE; PDB:2P0C; PDB:1AOI; DOI:10.1172/JCI13554; DOI:10.3389/fimmu.2021.734608; DOI:10.1038/ncb1490; DOI:10.1126/science.1092385
+- **Notes:** Wave 12 Research Discovery Replenishment. Mathematical modeling of macrophage MerTK receptor proteolysis, phagolysosomal acidification failure, and apoptotic PMN secondary necrosis.
+
+### T-0252 Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Purinergic (P2Y2R-Ca2+) Fluid Homeostasis Model (tools/discovery/enac_tmem16a_equilibrium.py)
+
+- **Why / ROI rationale:** Unifies apical electrophysiology into a self-consistent transepithelial circuit; directly grounds the clinical results of Phase 3 Denufosol trials (NCT00846781, NCT00425165, NCT00625612) and antisense/RNAi ENaC trials (NCT03647228, NCT04375514) to evaluate alternative ion transport strategies for Class I/premature termination mutations. *(confidence: high)*
+- **Route:** local - Unified transepithelial electrophysiological circuit modeling of apical TMEM16A calcium-activated chloride conductance, ENaC sodium hyperabsorption under protease cleavage, and purinergic P2Y2R-Ca2+ feedback regulation.
+- **Acceptance:** pytest tools/discovery/test_enac_tmem16a_equilibrium.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00846781; ClinicalTrials.gov:NCT00425165; ClinicalTrials.gov:NCT00625612; ClinicalTrials.gov:NCT03647228; ClinicalTrials.gov:NCT04375514; PDB:5OYB; PDB:6BQN; PDB:6WTH; PDB:7L1V; DOI:10.3389/fphar.2019.00517; DOI:10.1016/S1097-2765(01)00344-3; DOI:10.1016/j.jcf.2011.06.012; DOI:10.1007/s00424-021-02534-1; DOI:10.1085/jgp.201711910
+- **Notes:** Wave 12 Research Discovery Replenishment. Couples ENaC and TMEM16A channels with purinergic P2Y2R-Ca2+ signaling and apical Kirchhoff circuit conservation to predict ASL hydration recovery.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
@@ -1769,6 +1788,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** A .claude-plugin/marketplace.json (and the plugin layout it needs) makes `/plugin marketplace add` of the local folder list cf-evidence-loop; the README says GitHub Copilot still reads .claude/skills; no skill text changes; the format is checked against the Claude Code plugin documentation.
 - **Evidence:** 2026-10-05: cf-skills has no .claude/skills and no plugin manifest, so cf-evidence-loop does not load by being a workspace folder; the council ranked a marketplace.json for our own skills as a separate, useful task.
 - **Notes:** Proposed by a model. Serves Claude Code users only. Related: T-0051. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+
+### T-0253 CF Airway Mucus Micro-Rheology & Polymer Cross-Linking Cleavage Kinetics Under Dornase Alfa (rhDNase) and Thiol-Reducing Mucolytics (tools/discovery/mucus_cleavage_kinetics.py)
+
+- **Why / ROI rationale:** Couples eDNA enzymatic cleavage and mucin thiol reduction with polymer micro-rheology; provides mathematical grounding for the SIMPLIFY trial (NCT06350474) and inhaled NAC trials (NCT00996424), directly resolving the physical hydrogel obstruction that blocks genetic vector diffusion. *(confidence: high)*
+- **Route:** local - Biophysical modeling of the interpenetrating eDNA-mucin polymer network in CF sputum, combining rhDNase I endonucleolytic cleavage (with G-actin competitive inhibition) and N-acetylcysteine thiol-disulfide reduction.
+- **Acceptance:** pytest tools/discovery/test_mucus_cleavage_kinetics.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00996424; ClinicalTrials.gov:NCT06350474; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT00680316; ClinicalTrials.gov:NCT02088216; PDB:1DNK; PDB:4AWN; PDB:1ATN; DOI:10.1073/pnas.87.23.9188; DOI:10.1126/science.8108733; DOI:10.1126/scitranslmed.aaz1974; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1183/13993003.01358-2020
+- **Notes:** Wave 12 Research Discovery Replenishment. Models eDNA degradation, mucin disulfide cleavage, affine rubber elasticity shear modulus G*(omega), and mucociliary clearability index (MCI).
 
 ### T-0164 Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation)
 

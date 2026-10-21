@@ -12526,14 +12526,14 @@
       "title": "Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics (tools/discovery/phage_omko1_tradeoff.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
       "route_rationale": "ODE modeling of lytic bacteriophage OMKO1 receptor binding (OprM), phage-host Lotka-Volterra population dynamics, fitness trade-off selection, and antibiotic (ciprofloxacin) resensitization.",
       "created_at": "2026-10-20T10:00:00Z",
-      "updated_at": "2026-10-20",
+      "updated_at": "2026-10-21",
       "created_by": {
         "kind": "model",
         "name": "Argon (Chief Researcher Officer Strategist)",
@@ -12563,7 +12563,8 @@
         "composite_score": 7.52,
         "roi_ratio": 1.77
       },
-      "notes": "Wave 11 Research Discovery Replenishment. Models phage OMKO1 lytic predation on MexAB-OprM, mutational resensitization, and dual phage-antibiotic synergy (PAS)."
+      "notes": "Completed in senseiewok/cf-research#109. Implemented Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics Model (tools/discovery/phage_omko1_tradeoff.py) with 8/8 unit tests passing and check_anti_hallucination.py passing.",
+      "actual_hours": 4.25
     },
     {
       "id": "T-0247",
@@ -12742,6 +12743,138 @@
         },
         "roi_ratio": 2.85
       }
+    },
+    {
+      "id": "T-0251",
+      "title": "Alveolar & Airway Macrophage Efferocytosis Impairment & Neutrophil Extracellular Trap (NET) Degradation Kinetics in CF Airways (tools/discovery/macrophage_efferocytosis_model.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Biophysical modeling of neutrophil elastase (NE) mediated cleavage of macrophage efferocytosis scavenger receptors (MerTK/CD36), phagolysosomal acidification failure (v-ATPase/CFTR counter-ion loss), and secondary necrotic NET debris accumulation.",
+      "created_at": "2026-10-21T03:30:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Wave 12 research queue replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT02088216; ClinicalTrials.gov:NCT00506688; PDB:1HNE; PDB:2P0C; PDB:1AOI; DOI:10.1172/JCI13554; DOI:10.3389/fimmu.2021.734608; DOI:10.1038/ncb1490; DOI:10.1126/science.1092385",
+      "acceptance": "pytest tools/discovery/test_macrophage_efferocytosis_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies the inflammatory trap where NE-mediated efferocytosis shutdown forces PMN secondary necrosis, generating a dense NET hydrogel that physically impedes gene therapy vectors (LNPs, AAVs); models therapeutic reversal via elastase inhibition, rhDNase, and CFTR rescue.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 7.97,
+        "roi_ratio": 1.88
+      },
+      "notes": "Wave 12 Research Discovery Replenishment. Mathematical modeling of macrophage MerTK receptor proteolysis, phagolysosomal acidification failure, and apoptotic PMN secondary necrosis."
+    },
+    {
+      "id": "T-0252",
+      "title": "Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Purinergic (P2Y2R-Ca2+) Fluid Homeostasis Model (tools/discovery/enac_tmem16a_equilibrium.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Unified transepithelial electrophysiological circuit modeling of apical TMEM16A calcium-activated chloride conductance, ENaC sodium hyperabsorption under protease cleavage, and purinergic P2Y2R-Ca2+ feedback regulation.",
+      "created_at": "2026-10-21T03:30:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Wave 12 research queue replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00846781; ClinicalTrials.gov:NCT00425165; ClinicalTrials.gov:NCT00625612; ClinicalTrials.gov:NCT03647228; ClinicalTrials.gov:NCT04375514; PDB:5OYB; PDB:6BQN; PDB:6WTH; PDB:7L1V; DOI:10.3389/fphar.2019.00517; DOI:10.1016/S1097-2765(01)00344-3; DOI:10.1016/j.jcf.2011.06.012; DOI:10.1007/s00424-021-02534-1; DOI:10.1085/jgp.201711910",
+      "acceptance": "pytest tools/discovery/test_enac_tmem16a_equilibrium.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Unifies apical electrophysiology into a self-consistent transepithelial circuit; directly grounds the clinical results of Phase 3 Denufosol trials (NCT00846781, NCT00425165, NCT00625612) and antisense/RNAi ENaC trials (NCT03647228, NCT04375514) to evaluate alternative ion transport strategies for Class I/premature termination mutations.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.52,
+        "roi_ratio": 1.77
+      },
+      "notes": "Wave 12 Research Discovery Replenishment. Couples ENaC and TMEM16A channels with purinergic P2Y2R-Ca2+ signaling and apical Kirchhoff circuit conservation to predict ASL hydration recovery."
+    },
+    {
+      "id": "T-0253",
+      "title": "CF Airway Mucus Micro-Rheology & Polymer Cross-Linking Cleavage Kinetics Under Dornase Alfa (rhDNase) and Thiol-Reducing Mucolytics (tools/discovery/mucus_cleavage_kinetics.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P2",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Biophysical modeling of the interpenetrating eDNA-mucin polymer network in CF sputum, combining rhDNase I endonucleolytic cleavage (with G-actin competitive inhibition) and N-acetylcysteine thiol-disulfide reduction.",
+      "created_at": "2026-10-21T03:30:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Wave 12 research queue replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00996424; ClinicalTrials.gov:NCT06350474; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT00680316; ClinicalTrials.gov:NCT02088216; PDB:1DNK; PDB:4AWN; PDB:1ATN; DOI:10.1073/pnas.87.23.9188; DOI:10.1126/science.8108733; DOI:10.1126/scitranslmed.aaz1974; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1183/13993003.01358-2020",
+      "acceptance": "pytest tools/discovery/test_mucus_cleavage_kinetics.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Couples eDNA enzymatic cleavage and mucin thiol reduction with polymer micro-rheology; provides mathematical grounding for the SIMPLIFY trial (NCT06350474) and inhaled NAC trials (NCT00996424), directly resolving the physical hydrogel obstruction that blocks genetic vector diffusion.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 5.27,
+        "roi_ratio": 1.24
+      },
+      "notes": "Wave 12 Research Discovery Replenishment. Models eDNA degradation, mucin disulfide cleavage, affine rubber elasticity shear modulus G*(omega), and mucociliary clearability index (MCI)."
     }
   ],
   "updated": "2026-10-19"
