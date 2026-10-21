@@ -40,6 +40,8 @@ DEFAULT_BOARD = REPO_ROOT / "tasks" / "board.json"
 DEFAULT_ATTEMPTS = REPO_ROOT / ".loop-logs" / "bold-attempts.json"
 GITHUB_OWNER = "senseiewok"
 GITHUB_REPOS = ["cf-lab", "cf-research", "cf-skills", ".ai"]
+# Private repositories where cloud GitHub Actions are disabled and checks run locally before PR creation.
+LOCAL_GATE_ONLY_REPOS = {".ai"}
 
 LANES = ("security", "research", "showcase")
 SHOWCASE_AREAS = {"content", "web", "website", "site", "ai-in-care", "ui", "viewer", "frontend"}
@@ -284,7 +286,7 @@ def read_open_prs(path: str | None) -> list[dict] | None:
                     "mergeable": str(p.get("mergeable", "UNKNOWN")),
                     "mergeStateStatus": str(p.get("mergeStateStatus", "UNKNOWN")),
                     "reviewDecision": str(p.get("reviewDecision", "")),
-                    "statusCheckRollup": list(p.get("statusCheckRollup") or []),
+                    "statusCheckRollup": [] if repo in LOCAL_GATE_ONLY_REPOS else list(p.get("statusCheckRollup") or []),
                     "unresolved_threads": list(p.get("unresolved_threads") or []),
                 }
                 for p in json.loads(res.stdout)

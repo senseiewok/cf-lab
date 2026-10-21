@@ -118,6 +118,7 @@ $Checks = @(
     @{ name = 'test-check-pr-body';       exe = 'python';     args = @('tasks/test_check_pr_body.py');                                                     needs = @('python') }
     @{ name = 'check-ci-workflows';       exe = 'python';     args = @('tasks/check_ci_workflows.py');                                                     needs = @('python') }
     @{ name = 'test-check-ci-workflows';  exe = 'python';     args = @('tasks/test_check_ci_workflows.py');                                                needs = @('python') }
+    @{ name = 'test-check-codeql-patterns'; exe = 'python';   args = @('tasks/test_check_codeql_patterns.py');                                             needs = @('python') }
     @{ name = 'test-evidence-cli-launcher'; exe = 'python';   args = @('tasks/test_evidence_cli_launcher.py');                                             needs = @('python') }
     @{ name = 'check-i18n-parity';        exe = 'python';     args = @('tasks/check_i18n_parity.py', '--check');                                           needs = @('python') }
     @{ name = 'test-check-i18n-parity';   exe = 'python';     args = @('tasks/test_check_i18n_parity.py');                                                 needs = @('python') }

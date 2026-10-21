@@ -96,6 +96,32 @@ try {
                 } else { Write-Host "PASS $file" }
             } catch { Write-Host "FAIL ${file}: $_"; $failures++ }
         }
+        elseif ($ext -eq '.js' -or $ext -eq '.mjs') {
+            $nodeExe = if (Get-Command node -ErrorAction SilentlyContinue) { 'node' } else { $null }
+            $pyExe = Get-PythonExe
+            if (-not $nodeExe -and -not $pyExe) { Write-Host "SKIP ${file}: node and python not found"; continue }
+            try {
+                $text = Get-StagedText $file
+                $tmpjs = Join-Path ([IO.Path]::GetTempPath()) ('chk-' + [guid]::NewGuid().ToString('N') + $ext)
+                $checkerRan = $false
+                try {
+                    [IO.File]::WriteAllText($tmpjs, $text, [Text.UTF8Encoding]::new($false))
+                    if ($nodeExe) {
+                        $checkerRan = $true
+                        & $nodeExe --check $tmpjs 2>&1 | Out-Null
+                    } else {
+                        $cqlCand = Join-Path $PSScriptRoot '../../../../tasks/check_codeql_patterns.py'
+                        if (Test-Path -LiteralPath $cqlCand -PathType Leaf) {
+                            $checkerRan = $true
+                            & $pyExe $cqlCand --label $file $tmpjs 2>&1 | Out-Null
+                        }
+                    }
+                } finally { Remove-Item -LiteralPath $tmpjs -ErrorAction SilentlyContinue }
+                if (-not $checkerRan) { Write-Host "SKIP ${file}: no JS checker available"; continue }
+                if ($LASTEXITCODE -ne 0) { Write-Host "FAIL ${file}: syntax or security error"; $failures++ }
+                else { Write-Host "PASS $file" }
+            } catch { Write-Host "FAIL ${file}: $_"; $failures++ }
+        }
     }
 
     # Owning checkers
@@ -371,6 +397,60 @@ try {
             } finally {
                 Remove-Item -LiteralPath $stageMirror -Recurse -Force -ErrorAction SilentlyContinue
             }
+        }
+    }
+
+    # CodeQL static security & workflow hygiene checker across staged .py, .js/.mjs, and workflow .yml files
+    $cqlCandidates = @(
+        (Join-Path $root 'tasks/check_codeql_patterns.py'),
+        (Join-Path $PSScriptRoot '../../../../tasks/check_codeql_patterns.py')
+    )
+    $cqlScript = $null
+    foreach ($cand in $cqlCandidates) {
+        if (Test-Path -LiteralPath $cand -PathType Leaf) { $cqlScript = (Resolve-Path -LiteralPath $cand).Path; break }
+    }
+    $cqlFiles = @($files | Where-Object {
+        $_ -notmatch '(^|/)known-wrong/' -and (
+            ([IO.Path]::GetExtension($_).ToLowerInvariant() -in @('.py', '.js', '.mjs')) -or
+            (([IO.Path]::GetExtension($_).ToLowerInvariant() -in @('.yml', '.yaml')) -and $_ -match '(^|/)\.github/workflows/')
+        )
+    })
+    if ($cqlScript -and $cqlFiles.Count -gt 0) {
+        $pyExe = Get-PythonExe
+        if ($pyExe) {
+            foreach ($cf in $cqlFiles) {
+                $fExt = [IO.Path]::GetExtension($cf).ToLowerInvariant()
+                $tmpCql = Join-Path ([IO.Path]::GetTempPath()) ('cql-' + [guid]::NewGuid().ToString('N') + $fExt)
+                try {
+                    [IO.File]::WriteAllText($tmpCql, (Get-StagedText $cf), [Text.UTF8Encoding]::new($false))
+                    $cqlOut = (& $pyExe $cqlScript --label $cf $tmpCql 2>&1) -join "`n"
+                    if ($LASTEXITCODE -ne 0) {
+                        if ($cqlOut) { Write-Host $cqlOut }
+                        Write-Host "FAIL owning checker check_codeql_patterns.py ($cf)"
+                        $failures++
+                    }
+                } finally {
+                    Remove-Item -LiteralPath $tmpCql -ErrorAction SilentlyContinue
+                }
+            }
+        }
+    }
+
+    # .ai pre-PR gate owning checker when staging changes in .ai
+    $aiGate = Join-Path $root 'tools/check_pr_gate.py'
+    if (Test-Path -LiteralPath $aiGate -PathType Leaf) {
+        $pyExe = Get-PythonExe
+        if (-not $pyExe) { Write-Host "SKIP check_pr_gate.py: python not found" }
+        else {
+            Push-Location $root
+            try {
+                $gateOut = (& $pyExe tools/check_pr_gate.py --fast 2>&1) -join "`n"
+                if ($LASTEXITCODE -ne 0) {
+                    if ($gateOut) { Write-Host $gateOut }
+                    Write-Host "FAIL owning checker check_pr_gate.py --fast"
+                    $failures++
+                }
+            } finally { Pop-Location }
         }
     }
 
