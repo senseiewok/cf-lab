@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -13022,7 +13022,7 @@
       "title": "Interactive Global Registry Variant Theratyping & Diagnostic Sweat Chloride / Nasal Potential Difference (NPD) Disparity Explorer on /cf/registries/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13059,9 +13059,17 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.42,
-        "roi_ratio": 2.7
+        "roi_ratio": 2.7,
+        "measured": {
+          "actual_hours": 2.75,
+          "notes": "Shipped in senseiewok/.ai#141 with full Mexican Spanish (es-MX) parity, CSP compliance, and 57 unit tests PASS."
+        },
+        "actual_hours": 2.75,
+        "measured_outcome": "Shipped in senseiewok/.ai#141 with full Mexican Spanish (es-MX) parity, CSP compliance, and 57 unit tests PASS."
       },
-      "notes": "Wave 13 Track B Clinical Equity & Public Translation. Enforces non-pooled registry comparison and Two-Speed Plain-English First + es-MX parity."
+      "notes": "Shipped in senseiewok/.ai#141: Interactive Global Registry Variant Theratyping & Diagnostic Sweat Chloride / Nasal Potential Difference (NPD) Disparity Explorer on /cf/registries/ with full Mexican Spanish (es-MX) translation parity. Acceptance suite (sync_chrome, check_anti_hallucination, test_registry_equity_explorer, test_site.StaticTests) passed.",
+      "branch": "work/sentinel-showcase-t-0257",
+      "actual_hours": 2.75
     },
     {
       "id": "T-0258",
@@ -13152,6 +13160,98 @@
         "roi_ratio": 2.19
       },
       "notes": "Wave 13 Track C Scientific Integrity & Multi-Family Verification. Ensures 100% of discovery models in cf-research/tools/discovery/ are registered and invariant-checked."
+    },
+    {
+      "id": "T-0260",
+      "title": "Interactive Pseudomonas Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Antibiotic Resensitization Explorer on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG visualizer modeling OMKO1 phage adsorption to OprM, receptor mutations, and trade-off resensitization to ciprofloxacin/ceftazidime grounded in tools/discovery/phage_omko1_tradeoff.py (T-0246) and NCT04684641.",
+      "created_at": "2026-10-21T06:30:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel wave 13 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0246"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "cf-research/tools/discovery/phage_omko1_tradeoff.py; ClinicalTrials.gov:NCT04684641; PDB:6TA6; PDB:7B8J; DOI:10.1016/j.cell.2016.05.040; DOI:10.1128/aac.00454-20",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_phage_omko1_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Exposes phage-antibiotic synergy and efflux-pump evolutionary trade-offs against multi-drug resistant Pseudomonas aeruginosa biofilms on /cf/delivery/ in English and Mexican Spanish.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.81
+      },
+      "notes": "Wave 13 Track B Public Showcase Translation. Connects completed T-0246 OMKO1 trade-off dynamics to /cf/delivery/."
+    },
+    {
+      "id": "T-0261",
+      "title": "Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P3",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG nanoparticle diffusion simulator modeling pore-size obstruction vs PEG corona shielding grounded in tools/discovery/mpp_obstruction_scaling.py (T-0244).",
+      "created_at": "2026-10-21T06:30:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel wave 13 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0244"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "cf-research/tools/discovery/mpp_obstruction_scaling.py; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1073/pnas.0811598106; DOI:10.1002/anie.201407641; ClinicalTrials.gov:NCT00843817",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mpp_scaling_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Translates nanoparticle steric filtration and PEG density surface energy biophysics into an interactive airway delivery calculator on /cf/delivery/ with Mexican Spanish parity.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.12,
+        "roi_ratio": 2.59
+      },
+      "notes": "Wave 13 Track B Public Showcase Translation. Connects T-0244 mucus-penetrating nanoparticle transport scaling to /cf/delivery/."
     }
   ],
   "updated": "2026-10-21"
