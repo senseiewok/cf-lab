@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (21)
+## ready (19)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,8 +18,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0249 | P1 | Interactive Epithelial Sodium Channel (ENaC) Proteolytic Cleavage (Alpha/Gamma Tract Release) & Dual-Target ASL Rehydration Explorer on /cf/tree/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local | T-0245 |  |
-| T-0250 | P1 | Interactive CFTR NBD1 Thermal Denaturation Landscape (Delta Tm) & ICL4 Allosteric Coupling Explorer on /cf/cftr/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0246 | P1 | Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics (tools/discovery/phage_omko1_tradeoff.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
@@ -36,7 +34,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (215)
+## done (217)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -75,6 +73,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0243 | P1 | Interactive TMEM16A/ANO1 Alternative Conductance Potentiation & Calcium-Activated Chloride Channel (CaCC) Synergistic Secretion Explorer on /cf/tree/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0240 |  |
 | T-0247 | P1 | Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local | T-0241 |  |
 | T-0248 | P1 | Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
+| T-0249 | P1 | Interactive Epithelial Sodium Channel (ENaC) Proteolytic Cleavage (Alpha/Gamma Tract Release) & Dual-Target ASL Rehydration Explorer on /cf/tree/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local | T-0245 | work/sentinel-showcase-t-0249 |
+| T-0250 | P1 | Interactive CFTR NBD1 Thermal Denaturation Landscape (Delta Tm) & ICL4 Allosteric Coupling Explorer on /cf/cftr/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  | work/sentinel-showcase-t-0249 |
 | T-0193 | P1 | Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0205 | P1 | Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py) | cf-lab | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0188 | P1 | Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -613,17 +613,19 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 - **Why / ROI rationale:** Models ENaC protease inhibition and dual-target ASL hydration across Class I/Class II severe CF phenotypes. *(confidence: )*
 - **Route:** local - Deterministic zero-build ES module and SVG schematic grounded in tools/discovery/enac_proteolysis_model.py (T-0245).
+- **Branch:** work/sentinel-showcase-t-0249
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_enac_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/enac_proteolysis_model.py; DOI:10.1085/jgp.201711910; DOI:10.1074/jbc.M111.233817; DOI:10.1016/j.jcf.2020.08.008; ClinicalTrials.gov:NCT03647228; ClinicalTrials.gov:NCT04375514
-- **Notes:** Visualizes ENaC furin and neutrophil elastase cleavage states (E_0, E_alpha, E_alphagamma) releasing alpha/gamma inhibitory tracts and dynamic ASL height restoration.
+- **Notes:** Shipped in senseiewok/.ai PR: Interactive Epithelial Sodium Channel (ENaC) Proteolytic Cleavage (Alpha/Gamma Tract Release) & Dual-Target ASL Rehydration Explorer on /cf/tree/ with full Mexican Spanish (es-MX) translation parity. Acceptance suite (sync_chrome, check_anti_hallucination, test_enac_explorer, test_site.StaticTests) passed.
 
 ### T-0250 Interactive CFTR NBD1 Thermal Denaturation Landscape (Delta Tm) & ICL4 Allosteric Coupling Explorer on /cf/cftr/ with es-MX parity
 
 - **Why / ROI rationale:** Exposes core thermodynamic misfolding biophysics and pharmacological rescue to community understanding. *(confidence: )*
 - **Route:** local - Interactive Gibbs-Helmholtz thermodynamic stability visualizer modeling NBD1 melting Delta Tm and corrector rescue.
+- **Branch:** work/sentinel-showcase-t-0249
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_nbd1_thermo tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/nbd1_thermodynamics.py; PDB:8EIQ; PDB:6MSM; DOI:10.1016/j.cell.2019.01.033; DOI:10.1073/pnas.1903722116
-- **Notes:** Simulates Delta G_unfold(T) curves and Delta Tm shifts across WT, F508del, R560T, and N1303K with Type I/III corrector stabilization.
+- **Notes:** Shipped in senseiewok/.ai PR: Interactive CFTR NBD1 Thermal Denaturation Landscape (Delta Tm) & ICL4 Allosteric Coupling Explorer on /cf/cftr/ with full Mexican Spanish (es-MX) parity. Acceptance suite (sync_chrome, check_anti_hallucination, test_nbd1_thermo, test_site.StaticTests) passed.
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
