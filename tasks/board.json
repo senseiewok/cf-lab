@@ -12755,7 +12755,7 @@
       "title": "Alveolar & Airway Macrophage Efferocytosis Impairment & Neutrophil Extracellular Trap (NET) Degradation Kinetics in CF Airways (tools/discovery/macrophage_efferocytosis_model.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -12792,7 +12792,8 @@
         "composite_score": 7.97,
         "roi_ratio": 1.88
       },
-      "notes": "Wave 12 Research Discovery Replenishment. Mathematical modeling of macrophage MerTK receptor proteolysis, phagolysosomal acidification failure, and apoptotic PMN secondary necrosis."
+      "notes": "Completed in senseiewok/cf-research#111. Implemented Alveolar & Airway Macrophage Efferocytosis Impairment & NET Degradation Kinetics Model (tools/discovery/macrophage_efferocytosis_model.py) with 8/8 unit tests passing and check_anti_hallucination.py passing.",
+      "actual_hours": 4.25
     },
     {
       "id": "T-0252",
