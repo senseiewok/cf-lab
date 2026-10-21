@@ -313,6 +313,14 @@ def is_sentinel_branch(branch: str) -> bool:
     return low.startswith(("work/sentinel-", "site/showcase-", "sec-fix-", "agent-improve-"))
 
 
+def is_companion_board_pr(pr: dict) -> bool:
+    """True when a PR is a companion board-sync PR in cf-lab (e.g. work/sentinel-showcase-t-0249-board)."""
+    if str(pr.get("repo", "")) != "cf-lab":
+        return False
+    low = str(pr.get("headRefName", "")).lower()
+    return low.endswith("-board") or "-board-" in low
+
+
 def pr_lane_of(pr: dict, tasks_by_id: dict[str, dict]) -> str | None:
     """Assign an open sentinel PR to the lane responsible for checking and repairing it.
 
@@ -544,8 +552,11 @@ def main(argv: list[str] | None = None) -> int:
     prefix = f"work/sentinel-{args.lane}-"
     lane_prs = [
         p for p in prs
-        if str(p.get("headRefName", "")).startswith(prefix)
-        or (args.lane == "showcase" and str(p.get("headRefName", "")).lower().startswith("site/showcase-"))
+        if (
+            str(p.get("headRefName", "")).startswith(prefix)
+            or (args.lane == "showcase" and str(p.get("headRefName", "")).lower().startswith("site/showcase-"))
+        )
+        and not is_companion_board_pr(p)
     ]
     waiting = [p for p in lane_prs if not p.get("isDraft", False)]
     if waiting:

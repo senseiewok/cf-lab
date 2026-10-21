@@ -251,6 +251,21 @@ class PickerTests(unittest.TestCase):
             self.assertEqual(code, 21, f"{branch} did not block lane {lane}")
             self.prs.write_text("[]", encoding="utf-8")
 
+    def test_companion_board_pr_in_cf_lab_does_not_block_showcase_or_research_lane_capacity(self):
+        # When .ai#139 is merged, cf-lab#203 (work/sentinel-showcase-t-0249-board) remains open.
+        # It must skip T-0249 so it is not re-picked, while allowing T-0251 in showcase to proceed.
+        self.prs.write_text(
+            json.dumps([{"repo": "cf-lab", "number": 203, "headRefName": "work/sentinel-showcase-t-0249-board"}]),
+            encoding="utf-8",
+        )
+        tasks = [
+            task("T-0249", repo=".ai", area="content", composite=9),
+            task("T-0251", repo=".ai", area="content", composite=8),
+        ]
+        code, out = self.run_picker(tasks, "showcase", "--json")
+        self.assertEqual(code, 0, out)
+        self.assertEqual([t["id"] for t in json.loads(out)["bundle"]], ["T-0251"])
+
     # ---- output ------------------------------------------------------------------------------
     def test_check_prints_reason_when_nothing_is_eligible(self):
         code, out = self.run_picker([], "showcase", "--check")

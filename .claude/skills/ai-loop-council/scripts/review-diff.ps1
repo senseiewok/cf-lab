@@ -401,7 +401,7 @@ function Invoke-Review {
     $samples = if ($Think) { 1 } else { 2 }
     $iArgs = @('-NoProfile', '-File', $InvokeScript, "-PromptFile:$packet", "-SchemaFile:$schema", "-Model:$chosenModel", "-Samples:$samples", '-Tag:review-diff')
     if ($ProfileFile) { $iArgs += "-ProfileFile:$ProfileFile" }
-    if ($Think) { $iArgs += @('-ThinkMode:on', '-MaxOutputTokens:16384') } else { $iArgs += '-ThinkMode:off' }
+    if ($Think) { $iArgs += @('-ThinkMode:on', '-MaxOutputTokens:16384') } else { $iArgs += @('-ThinkMode:off', '-MaxOutputTokens:16384') }
     Write-Host ("model: {0}, {1} sample(s), thinking {2}, timeout {3} s" -f (Get-Printable $chosenModel), $samples, $(if ($Think) { 'on' } else { 'off' }), $ModelTimeoutSec)
     $call = Invoke-Proc $pwshExe $iArgs $ModelTimeoutSec
     [IO.File]::WriteAllText((Join-Path $OutDir 'model-stderr.txt'), $call.Err, [Text.UTF8Encoding]::new($false))
