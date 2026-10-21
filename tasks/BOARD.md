@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-248 tasks, 247 created by a model, 138 with a measured outcome. Estimated effort 653.85 to 1219.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+250 tasks, 249 created by a model, 141 with a measured outcome. Estimated effort 657.85 to 1225.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (22)
+## ready (21)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,10 +18,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0247 | P1 | Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local | T-0241 |  |
-| T-0248 | P1 | Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
+| T-0249 | P1 | Interactive Epithelial Sodium Channel (ENaC) Proteolytic Cleavage (Alpha/Gamma Tract Release) & Dual-Target ASL Rehydration Explorer on /cf/tree/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local | T-0245 |  |
+| T-0250 | P1 | Interactive CFTR NBD1 Thermal Denaturation Landscape (Delta Tm) & ICL4 Allosteric Coupling Explorer on /cf/cftr/ with es-MX parity | .ai | 2-3 | 4 | 16 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0245 | P1 | Epithelial Sodium Channel (ENaC) Proteolytic Activation Kinetics & Dual-Target ASL Homeostasis (tools/discovery/enac_proteolysis_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0246 | P1 | Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics (tools/discovery/phage_omko1_tradeoff.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -37,7 +36,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (212)
+## done (215)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -74,6 +73,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0238 | P1 | Interactive CFTR Truncation 3D Backbone Trace & Cryptic Domain Stability Explorer on /cf/cftr/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0217 |  |
 | T-0242 | P1 | Interactive Inhaled CFTR mRNA Lipid Nanoparticle (LNP) Endosomal Escape Kinetics & Ionizable Lipid pKa Inversion Explorer on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0239 |  |
 | T-0243 | P1 | Interactive TMEM16A/ANO1 Alternative Conductance Potentiation & Calcium-Activated Chloride Channel (CaCC) Synergistic Secretion Explorer on /cf/tree/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0240 |  |
+| T-0247 | P1 | Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local | T-0241 |  |
+| T-0248 | P1 | Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0193 | P1 | Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0205 | P1 | Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py) | cf-lab | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0188 | P1 | Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -100,6 +101,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0240 | P1 | TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
+| T-0245 | P1 | Epithelial Sodium Channel (ENaC) Proteolytic Activation Kinetics & Dual-Target ASL Homeostasis (tools/discovery/enac_proteolysis_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0187 | P1 | Interactive Splice-Switching ASO & Class V Pseudoexon Explorer panel on /cf/ptc/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0183 |  |
@@ -595,7 +597,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Deterministic zero-build ES module and SVG schematic grounded in tools/discovery/nmd_ptc_kinetics.py (T-0241).
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_nmd_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; tools/discovery/nmd_ptc_kinetics.py; DOI:10.1038/s41586-020-2444-5; DOI:10.1016/j.molcel.2024.08.019; ClinicalTrials.gov:NCT04135495
-- **Notes:** Visualizes SURF complex assembly at premature stop codon, UPF1 phosphorylation by SMG1, branching into SMG6 endonuclease vs SMG5/7 deadenylation decay pathways, and competitive suppressor tRNA readthrough synergy.
+- **Notes:** Delivered in senseiewok/.ai#137: interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 phosphorylation branch kinetics & ribosome stall (+4 context) explorer (#nmd-branch-explorer) on /cf/ptc/ with full es-MX parity.
+- **Measured:**  h; 
 
 ### T-0248 Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity
 
@@ -603,7 +606,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Interactive rheology simulator modeling non-Newtonian yield stress, shear-thinning thixotropic recovery, and macromolecular mesh pore widening.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mucus_thixotropy tests.test_site.StaticTests
 - **Evidence:** DOI:10.1126/sciadv.aaw3507; DOI:10.1038/s41598-025-16178-z; ClinicalTrials.gov:NCT07175012
-- **Notes:** Simulates transient acoustic thixotropic window widening CF mucin pores from 60 nm to >120 nm during airway clearance.
+- **Notes:** Delivered in senseiewok/.ai#137: interactive airway mucus viscoelastic relaxation & oscillatory acoustic shear (HFCWO) thixotropic permeability matrix (#mucus-thixotropy-matrix) on /cf/delivery/ with full es-MX parity.
+- **Measured:**  h; 
+
+### T-0249 Interactive Epithelial Sodium Channel (ENaC) Proteolytic Cleavage (Alpha/Gamma Tract Release) & Dual-Target ASL Rehydration Explorer on /cf/tree/ with es-MX parity
+
+- **Why / ROI rationale:** Models ENaC protease inhibition and dual-target ASL hydration across Class I/Class II severe CF phenotypes. *(confidence: )*
+- **Route:** local - Deterministic zero-build ES module and SVG schematic grounded in tools/discovery/enac_proteolysis_model.py (T-0245).
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_enac_explorer tests.test_site.StaticTests
+- **Evidence:** cf-research/tools/discovery/enac_proteolysis_model.py; DOI:10.1085/jgp.201711910; DOI:10.1074/jbc.M111.233817; DOI:10.1016/j.jcf.2020.08.008; ClinicalTrials.gov:NCT03647228; ClinicalTrials.gov:NCT04375514
+- **Notes:** Visualizes ENaC furin and neutrophil elastase cleavage states (E_0, E_alpha, E_alphagamma) releasing alpha/gamma inhibitory tracts and dynamic ASL height restoration.
+
+### T-0250 Interactive CFTR NBD1 Thermal Denaturation Landscape (Delta Tm) & ICL4 Allosteric Coupling Explorer on /cf/cftr/ with es-MX parity
+
+- **Why / ROI rationale:** Exposes core thermodynamic misfolding biophysics and pharmacological rescue to community understanding. *(confidence: )*
+- **Route:** local - Interactive Gibbs-Helmholtz thermodynamic stability visualizer modeling NBD1 melting Delta Tm and corrector rescue.
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_nbd1_thermo tests.test_site.StaticTests
+- **Evidence:** cf-research/tools/discovery/nbd1_thermodynamics.py; PDB:8EIQ; PDB:6MSM; DOI:10.1016/j.cell.2019.01.033; DOI:10.1073/pnas.1903722116
+- **Notes:** Simulates Delta G_unfold(T) curves and Delta Tm shifts across WT, F508del, R560T, and N1303K with Type I/III corrector stabilization.
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
@@ -862,7 +882,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Biophysical modeling of multi-site proteolytic cleavage (neutrophil elastase, furin, prostasin/PRSS8) of ENaC alpha/gamma inhibitory tracts, open probability gating, and coupled ASL volume recovery.
 - **Acceptance:** pytest tools/discovery/test_enac_proteolysis_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-20.md; ClinicalTrials.gov:NCT03647228; ClinicalTrials.gov:NCT04375514; PDB:6BQN; PDB:6WTH; DOI:10.1085/jgp.201711910; DOI:10.1074/jbc.M111.233817; DOI:10.1016/j.jcf.2020.08.008
-- **Notes:** Wave 11 Research Discovery Replenishment. Multi-site ENaC alpha/gamma proteolysis, Cryo-EM states (PDB:6BQN, 6WTH), open probability dynamics, and coupled ASL rehydration.
+- **Notes:** Delivered in senseiewok/cf-research#108 with 8/8 unit tests and elevated review.
+- **Measured:** 1 h; 
 
 ### T-0246 Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics (tools/discovery/phage_omko1_tradeoff.py)
 
