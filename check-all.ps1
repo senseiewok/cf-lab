@@ -146,6 +146,10 @@ $Checks = @(
     @{ name = 'test-ast-obfuscation';     exe = 'python';     args = @('tasks/test_check_ast_obfuscation_invariants.py');                                       needs = @('python') }
     @{ name = 'check-git-author';         exe = 'python';     args = @('tasks/check_git_author_integrity.py', '--check');                                        needs = @('python') }
     @{ name = 'test-git-author';          exe = 'python';     args = @('tasks/test_check_git_author_integrity.py');                                             needs = @('python') }
+    @{ name = 'check-prompt-injection';   exe = 'python';     args = @('tasks/check_prompt_injection_invariants.py', '--check');                                  needs = @('python') }
+    @{ name = 'test-prompt-injection';    exe = 'python';     args = @('tasks/test_check_prompt_injection_invariants.py');                                       needs = @('python') }
+    @{ name = 'check-workflow-permissions'; exe = 'python';   args = @('tasks/check_github_workflow_permissions.py', '--check');                                  needs = @('python') }
+    @{ name = 'test-workflow-permissions'; exe = 'python';    args = @('tasks/test_check_github_workflow_permissions.py');                                       needs = @('python') }
     # models (the guard only; nothing here talks to Ollama)
     @{ name = 'test-restart-ollama';      exe = 'pwsh';       args = @("$s/model-qwen3-8-27b/test-restart-ollama.ps1");                                    needs = @() }
     @{ name = 'test-score-claim-mapping'; exe = 'python';     args = @("$s/model-onboarding/scripts/test_score_claim_mapping.py");                         needs = @('python') }

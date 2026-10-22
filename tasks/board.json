@@ -16709,7 +16709,7 @@
       "title": "Automated Multi-Repo Agent Prompt Template Injection & Unescaped Format String Invariant Linter (tasks/check_prompt_injection_invariants.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -16744,14 +16744,17 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0337.md; .claude/skills/security-browsing/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo agent prompt template injection & unescaped format string invariant linter (tasks/check_prompt_injection_invariants.py) and test suite (tasks/test_check_prompt_injection_invariants.py) with 11 unit tests passing deterministically."
     },
     {
       "id": "T-0338",
       "title": "Automated Cross-Repo GitHub Actions Workflow Token Permission & Least Privilege Linter (tasks/check_github_workflow_permissions.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -16786,7 +16789,10 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0338.md; .claude/skills/security-baseline/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo GitHub Actions workflow token permission & least privilege linter (tasks/check_github_workflow_permissions.py) and test suite (tasks/test_check_github_workflow_permissions.py) with 10 unit tests passing deterministically."
     },
     {
       "id": "T-0339",
@@ -16869,6 +16875,262 @@
       "recommended_route": "local",
       "route_rationale": "Deterministic biophysical modeling tool and unit tests in cf-research.",
       "source_evidence": "tasks/specs/T-0340.md; DOI:10.1073/pnas.1523356113",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0341",
+      "title": "Interactive CFTR mRNA Secondary Structure & Stem-Loop Unfolding Dynamics Simulator on /cf/cftr/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0345"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 27 Showcase Lane Replenishment. Interactive canvas visualizing CFTR mRNA secondary structures (stem-loops in Exon 10-12), ribosome pausing at structured hairpins, and modulation by antisense oligonucleotides with full Spanish (es-MX) parity.",
+      "spec_path": "tasks/specs/T-0341.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Empowers researchers to explore CFTR mRNA secondary structure dynamics and co-translational folding bottlenecks.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.3,
+        "roi_ratio": 1.54
+      },
+      "recommended_route": "local",
+      "route_rationale": "High-fidelity interactive biophysical canvas simulator on .ai site with es-MX parity.",
+      "source_evidence": "tasks/specs/T-0341.md; DOI 10.1073/pnas.1908856116",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0342",
+      "title": "Interactive Airway Epithelial Ciliary Beat Frequency & Metachronal Wave Coordination Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "delivery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0346"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 27 Showcase Lane Replenishment. Interactive multi-cilia biomechanical simulator on /cf/delivery/ demonstrating ciliary beat frequency (CBF, 8-16 Hz), metachronal wave propagation velocity, and mucus viscous load damping with full Spanish (es-MX) parity.",
+      "spec_path": "tasks/specs/T-0342.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Provides intuitive exploration of mucociliary clearance mechanics under healthy vs CF dehydrated mucus loads.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.4,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "High-fidelity interactive biophysical canvas simulator on .ai site with es-MX parity.",
+      "source_evidence": "tasks/specs/T-0342.md; DOI 10.1152/physrev.00015.2015",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0343",
+      "title": "Automated Multi-Repo Agent Shell Command Redirection & Process Pipe Safety Linter (tasks/check_shell_pipe_safety.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_shell_pipe_safety; python tasks/check_shell_pipe_safety.py --check",
+      "notes": "Wave 27 Security Lane Replenishment. Audits subprocess, powershell, and bash command pipelines across all repositories to prevent shell pipe injection, unquoted file descriptor redirection, and raw command chaining.",
+      "spec_path": "tasks/specs/T-0343.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents command injection and arbitrary file write via unsafe shell piping in agent command wrappers.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0343.md; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0344",
+      "title": "Automated Cross-Repo Python Import Shadowing & Standard Library Masquerading Linter (tasks/check_import_shadowing.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_import_shadowing; python tasks/check_import_shadowing.py --check",
+      "notes": "Wave 27 Security Lane Replenishment. Audits Python file names and module imports across all repositories to prevent local file names from shadowing Python standard library modules (e.g. math.py, json.py, os.py, io.py, random.py) or external packages.",
+      "spec_path": "tasks/specs/T-0344.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees python standard library integrity and prevents namespace hijacking across multi-repo tools.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0344.md; .claude/skills/security-runtime/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0345",
+      "title": "CFTR mRNA Exon 10-12 Secondary Structure & Translation Elongation Kinetic Barrier Model (tools/discovery/mrna_secondary_structure_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/mrna_secondary_structure_model.py --check",
+      "notes": "Wave 27 Research Lane Replenishment. Computational thermodynamic model of CFTR mRNA stem-loop folding free energies (\u0394G) across Exons 10-12 (containing F508del and Class I mutations), quantifying ribosome pause duration and elongation kinetics.",
+      "spec_path": "tasks/specs/T-0345.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Provides thermodynamic quantification of CFTR mRNA secondary structures for targeted ASO and readthrough design.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.3,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic biophysical modeling tool in cf-research.",
+      "source_evidence": "tasks/specs/T-0345.md; DOI 10.1073/pnas.1908856116",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0346",
+      "title": "Mucociliary Clearance Metachronal Coordination & Viscoelastic Damping Model (tools/discovery/metachronal_wave_damping_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/metachronal_wave_damping_model.py --check",
+      "notes": "Wave 27 Research Lane Replenishment. Hydrodynamic and biophysical model of ciliary metachronal wave propagation under varying mucus viscosity (healthy ASL vs CF thickened mucus), calculating transport velocity and shear force generation.",
+      "spec_path": "tasks/specs/T-0346.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies hydrodynamic coupling and transport failure in dehydrated airway mucus, guiding mucolytic dose modeling.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.3,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic hydrodynamic modeling tool in cf-research.",
+      "source_evidence": "tasks/specs/T-0346.md; DOI 10.1152/physrev.00015.2015",
       "executor": "agent",
       "human_required": false
     }
