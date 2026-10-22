@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-272 tasks, 271 created by a model, 154 with a measured outcome. Estimated effort 713.35 to 1321.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+276 tasks, 275 created by a model, 154 with a measured outcome. Estimated effort 722.85 to 1337.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (21)
+## ready (24)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,8 +18,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
+| T-0275 | P1 | Interactive Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Airway Hydration Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0252 |  |
+| T-0261 | P1 | Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0244 |  |
+| T-0274 | P1 | Interactive Deep Intronic Splice Foundation Model & Pseudoexon Rescue Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0269 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
+| T-0271 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0244 |  |
+| T-0276 | P1 | Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0272 |  |
 | T-0270 | P1 | CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Model (tools/discovery/gating_potentiator_energy_coupling.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0272 | P1 | Inhaled CFTR Synthetic mRNA 3' UTR Polyadenylation & Ribosome Load Translation Velocity Model (tools/discovery/mrna_translation_velocity.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -28,15 +34,12 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
-| T-0271 | P2 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0244 |  |
-| T-0272 | P2 | Inhaled CFTR Synthetic mRNA 3' UTR Polyadenylation & Ribosome Load Translation Velocity Model (tools/discovery/mrna_translation_velocity.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
-| T-0261 | P3 | Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0244 |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (237)
+## done (238)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -262,6 +265,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0026 | P3 | Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals | cf-research | 0.5-1 | 2 | 26.7 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
 | T-0107 | P3 | Take the conference banner down after NACFC 2026 | .ai | 0.5-1 | 2 | 26.7 | yes | model: claude-sonnet-5-5 | 2026-10-09 | routine | low |  |  | site/nacfc-and-es-mx-2026-10-13 |
 | T-0068 | P3 | review-diff.ps1: the gate's local-worker review row as one command | cf-lab | 1-2 | 3 | 20 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated |  |  |  |  |
+| T-0273 | P3 | Interactive Airway Mucus Polymer Cross-Linking Cleavage & Sputum Liquefaction Simulator on /cf/delivery/ with es-MX Parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0253 |  |
 | T-0040 | P3 | Read terms and record access values for UK, Canadian, Australian, and Irish CF registry annual reports | cf-research | 1.5-3 | 3 | 13.3 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud | T-0008 |  |
 | T-0054 | P3 | fetch_sources.py: make --verify honour --only | cf-research | 0.5-1 | 1 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | routine | low | local |  |  |
 | T-0098 | P3 | cf-research: make the script-style tests in tools/sources collectable by python -m unittest | cf-research | 1-2 | 2 | 13.3 | yes | model: claude-sonnet-5-5 | 2026-10-07 | routine | low | local |  |  |
@@ -707,6 +711,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Wave 14 Track B Bilingual Web Showcase. Translates T-0264 & T-0265 into bilingual EN/ES interactive visualization cards on /cf/cftr/. Completed in senseiewok/.ai#148.
 - **Measured:**  h; 
 
+### T-0275 Interactive Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Airway Hydration Simulator on /cf/tree/ with es-MX Parity
+
+- **Why / ROI rationale:** Models apical chloride/sodium Goldman-Hodgkin-Katz flux, ASL volume regulation, and TMEM16A potentiator synergy on /cf/tree/ with Mexican Spanish parity. *(confidence: high)*
+- **Route:** local - Zero-build native ES module and SVG transepithelial electrophysiology simulator modeling Goldman-Hodgkin-Katz flux, ASL height, and TMEM16A potentiator synergy grounded in tools/discovery/enac_tmem16a_equilibrium.py (T-0252).
+- **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_enac_tmem16a_equilibrium_explorer tests.test_site.StaticTests
+- **Evidence:** cf-research/tools/discovery/enac_tmem16a_equilibrium.py; DOI:10.1073/pnas.96.12.6970; DOI:10.1085/jgp.200810152; DOI:10.1038/s41586-019-1284-1; ClinicalTrials.gov:NCT04488705; PDB:6B45
+- **Notes:** Wave 15 Track B Public Showcase Replenishment. Connects T-0252 coupled ENaC-TMEM16A ion equilibrium model to /cf/tree/.
+
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
 - **Why / ROI rationale:** Ensures scheduled security and showcase sentinels inspect every canonical route on desktop and mobile during visual audits. *(confidence: high)*
@@ -741,6 +753,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/tools/discovery/phage_omko1_tradeoff.py; ClinicalTrials.gov:NCT04684641; PDB:6TA6; PDB:7B8J; DOI:10.1016/j.cell.2016.05.040; DOI:10.1128/aac.00454-20
 - **Notes:** Wave 13 Track B Public Showcase Translation. Interactive OMKO1 evolutionary trade-off & MexAB-OprM resensitization explorer deployed to /cf/delivery/ with full Mexican Spanish (es-MX) parity, strict CSP compliance, and unit tests passing. Verified in senseiewok/.ai#143.
 - **Measured:**  h; 
+
+### T-0261 Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ with es-MX parity
+
+- **Why / ROI rationale:** Translates nanoparticle steric filtration and PEG density surface energy biophysics into an interactive airway delivery calculator on /cf/delivery/ with Mexican Spanish parity. *(confidence: high)*
+- **Route:** local - Zero-build native ES module and SVG nanoparticle diffusion simulator modeling pore-size obstruction vs PEG corona shielding grounded in tools/discovery/mpp_obstruction_scaling.py (T-0244).
+- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mpp_scaling_explorer tests.test_site.StaticTests
+- **Evidence:** cf-research/tools/discovery/mpp_obstruction_scaling.py; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1073/pnas.0811598106; DOI:10.1002/anie.201407641; ClinicalTrials.gov:NCT00843817
+- **Notes:** Wave 13 Track B Public Showcase Translation. Connects T-0244 mucus-penetrating nanoparticle transport scaling to /cf/delivery/.
 
 ### T-0262 Interactive Alveolar Macrophage Efferocytosis & Neutrophil Extracellular Trap (NET) Degradation Kinetics Simulator on /cf/delivery/ with es-MX parity
 
@@ -831,6 +851,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/landscape/frontier-discovery-2026-10-18.md; cf-research/tools/discovery/basal_stem_persistence.py; cf-research/tools/discovery/mechano_acoustic_delivery.py; src/cf/delivery/index.html
 - **Notes:** Delivered in frontier discovery round with strict CSP compliance, zero innerHTML/inline styles, and full Mexican Spanish (es-MX) parity.
 - **Measured:** 2.5 h; Implemented src/scripts/mechano-stem-explorer.js, wired #mechano-stem-explorer on /cf/delivery/, synchronized 34 es-MX keys, and verified with test_mechano_stem_explorer.py.
+
+### T-0274 Interactive Deep Intronic Splice Foundation Model & Pseudoexon Rescue Simulator on /cf/cftr/ with es-MX Parity
+
+- **Why / ROI rationale:** Visualizes SpliceAI and Evo-2 donor/acceptor delta scores, 84-nt pseudoexon inclusion in 3849+10kbC->T, and SPL84 ASO steric-blocking rescue on /cf/cftr/ with Mexican Spanish parity. *(confidence: high)*
+- **Route:** local - Zero-build native ES module and SVG interactive splice foundation simulator modeling SpliceAI/Evo-2 delta scores and ASO steric blocking across 3849+10kbC->T grounded in tools/discovery/intronic_splice_foundation.py (T-0269).
+- **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_intronic_splice_explorer tests.test_site.StaticTests
+- **Evidence:** cf-research/tools/discovery/intronic_splice_foundation.py; DOI:10.1016/j.cell.2018.12.015; DOI:10.1016/j.jcf.2021.08.014; DOI:10.1101/2025.02.18.638918; ClinicalTrials.gov:NCT06429176; PDB:6FF4
+- **Notes:** Wave 15 Track B Public Showcase Replenishment. Connects T-0269 intronic splice foundation benchmark to /cf/cftr/.
 
 ### T-0061 Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows)
 
@@ -981,6 +1009,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Completed in senseiewok/cf-research#116. Implemented Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) with 8/8 unit tests passing (test_slc26a9_tmem16a_bypass.py) and check_anti_hallucination.py passing (AH-1 to AH-5 100% pass).
 - **Measured:** 4 h; 
 
+### T-0271 Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py)
+
+- **Why / ROI rationale:** Models competitive uptake kinetics between alveolar macrophage phagocytosis and apical airway epithelial endocytosis post-mucus transit. *(confidence: high)*
+- **Route:** local - Biophysical modeling of biomimetic CD47 self-peptide display and dense PEG brush shielding to evade class A scavenger receptor (SR-A/CD204, MARCO) phagocytosis by resident airway macrophages.
+- **Acceptance:** pytest tools/discovery/test_macrophage_evasion_kinetics.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT05248230; DOI:10.1126/science.1234568; DOI:10.1016/j.addr.2015.09.006; DOI:10.3390/pharmaceutics12040347
+- **Notes:** Wave 15 Research Discovery Replenishment. Parameterizes CD47 peptide surface density threshold to suppress macrophage clearance by >80%.
+
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
 - **Why / ROI rationale:** Automated PR hygiene eliminates merge conflict friction, identifies unresolved review comments across the multi-repo workspace, protects human-gated boundaries, audits stale worktrees, and prevents maintainer cognitive overload. *(confidence: high)*
@@ -989,6 +1025,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/sentinels.json, tasks/HUMAN-TASKS.md, .claude/skills/workspace-siblings/scripts/worktrees.py, and multi-repo PR state
 - **Notes:** Multi-repo GitHub hygiene engine inspecting cf-lab, cf-skills, cf-research. Emits .loop-logs/github-hygiene-digest.json and syncs memory/handoff.md when maintainer action is required. Integrated into daily-security-sentinel audit suite. \| 2026-10-16: verified acceptance check (tasks/audit_github_hygiene.py --check, test_audit_github_hygiene, test-run-sentinel.ps1, render-sentinel-sidecars.ps1 -Check; 96 tests passed). Merged via PR #136.
 - **Measured:** 3 h; Delivered multi-repo GitHub hygiene engine in tasks/audit_github_hygiene.py with unit tests in tasks/test_audit_github_hygiene.py, pre-gate tests passing in tasks/test-run-sentinel.ps1, and sentinel sidecar verification. Merged via PR #136 and validated in daily-security-sentinel execution.
+
+### T-0276 Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Models TASEP ribosome dynamics, poly(A) tail length 100-120 nt, and codon elongation balancing co-translational CFTR folding on /cf/delivery/ with Mexican Spanish parity. *(confidence: high)*
+- **Route:** local - Zero-build native ES module and SVG ribosome translation velocity simulator modeling TASEP dynamics and poly(A) tail length 100-120 nt grounded in tools/discovery/mrna_translation_velocity.py (T-0272).
+- **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_mrna_velocity_explorer tests.test_site.StaticTests
+- **Evidence:** cf-research/tools/discovery/mrna_translation_velocity.py; DOI:10.1038/mt.2008.200; DOI:10.1016/j.cell.2015.02.029; DOI:10.1038/nature13007; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047
+- **Notes:** Wave 15 Track B Public Showcase Replenishment. Connects T-0272 inhaled mRNA translation velocity model to /cf/delivery/.
 
 ### T-0190 Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches
 
@@ -1056,6 +1100,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_gating_potentiator_energy_coupling.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT00909532; ClinicalTrials.gov:NCT02858843; PDB:6O2P; PDB:7SVD; PDB:8EIQ; PDB:8EJ1; DOI:10.1126/science.aaw7611; DOI:10.1085/jgp.202012676; DOI:10.1016/j.cell.2021.02.012
 - **Notes:** Wave 15 Research Discovery Replenishment. Parameterizes two-state MWC allosteric gating and energetic coupling of single vs dual potentiators.
+
+### T-0272 Inhaled CFTR Synthetic mRNA 3' UTR Polyadenylation & Ribosome Load Translation Velocity Model (tools/discovery/mrna_translation_velocity.py)
+
+- **Why / ROI rationale:** Maximizes full-length functional CFTR channel translation efficiency from synthetic inhaled mRNA while preventing no-go decay (NGD). *(confidence: high)*
+- **Route:** local - TASEP ribosome elongation modeling and poly(A) deadenylation kinetics across full-length 4,443 nt CFTR mRNA to maximize protein translation without ribosome collisions.
+- **Acceptance:** pytest tools/discovery/test_mrna_translation_velocity.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047; DOI:10.1038/mt.2008.200; DOI:10.1016/j.cell.2015.02.029; DOI:10.1038/nature13007
+- **Notes:** Wave 15 Research Discovery Replenishment. TASEP ribosome dynamics, poly(A) tail length 100-120 nt, and codon elongation balancing co-translational domain folding.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
@@ -1910,14 +1962,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Exposes allosteric pocket stabilizing interactions and ERAD escape curves alongside the 3D channel visualization. \| 2026-10-16 daily-site-showcase-sentinel: Completed and verified acceptance criteria in senseiewok/.ai PR #94 (python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py; sync_chrome.py --check; sync_cftr_model.py --check). \| 2026-10-16: Delivered in bold bundle work/sentinel-showcase-t-0175 and merged in .ai PR #94. Tests pass 206/206.
 - **Measured:** 3.8 h; Delivered interactive allosteric rescue and nonsense readthrough kinetics simulator on senseiewok.ai/cf/cftr/ with real-time bidirectional 3D coupling. Grounded in Manfredi et al. 2025; merged in .ai PR #94.
 
-### T-0271 Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py)
-
-- **Why / ROI rationale:** Models competitive uptake kinetics between alveolar macrophage phagocytosis and apical airway epithelial endocytosis post-mucus transit. *(confidence: high)*
-- **Route:** local - Biophysical modeling of biomimetic CD47 self-peptide display and dense PEG brush shielding to evade class A scavenger receptor (SR-A/CD204, MARCO) phagocytosis by resident airway macrophages.
-- **Acceptance:** pytest tools/discovery/test_macrophage_evasion_kinetics.py -v; python tools/claims/check_anti_hallucination.py
-- **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT05248230; DOI:10.1126/science.1234568; DOI:10.1016/j.addr.2015.09.006; DOI:10.3390/pharmaceutics12040347
-- **Notes:** Wave 15 Research Discovery Replenishment. Parameterizes CD47 peptide surface density threshold to suppress macrophage clearance by >80%.
-
 ### T-0007 Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md
 
 - **Why / ROI rationale:** README requires labels on every checkable claim; three of five notes have zero labels. The convention is only credible if applied. *(confidence: medium)*
@@ -1970,14 +2014,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00996424; ClinicalTrials.gov:NCT06350474; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT00680316; ClinicalTrials.gov:NCT02088216; PDB:1DNK; PDB:4AWN; PDB:1ATN; DOI:10.1073/pnas.87.23.9188; DOI:10.1126/science.8108733; DOI:10.1126/scitranslmed.aaz1974; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1183/13993003.01358-2020
 - **Notes:** Completed in senseiewok/cf-research#118. Implemented tools/discovery/mucus_cleavage_kinetics.py & test_mucus_cleavage_kinetics.py (7/7 unit tests passing, AH-1..AH-5 PASS): models CF sputum interpenetrating eDNA-mucin hydrogel network, rhDNase I endonucleolytic cleavage with G-actin competitive inhibition (PDB 1ATN/1DNK), NAC disulfide reduction, affine rubber elasticity shear modulus G*(omega), King MCI clearability, and AAV/LNP Ogston pore diffusivity.
 - **Measured:**  h; 
-
-### T-0272 Inhaled CFTR Synthetic mRNA 3' UTR Polyadenylation & Ribosome Load Translation Velocity Model (tools/discovery/mrna_translation_velocity.py)
-
-- **Why / ROI rationale:** Maximizes full-length functional CFTR channel translation efficiency from synthetic inhaled mRNA while preventing no-go decay (NGD). *(confidence: high)*
-- **Route:** local - TASEP ribosome elongation modeling and poly(A) deadenylation kinetics across full-length 4,443 nt CFTR mRNA to maximize protein translation without ribosome collisions.
-- **Acceptance:** pytest tools/discovery/test_mrna_translation_velocity.py -v; python tools/claims/check_anti_hallucination.py
-- **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047; DOI:10.1038/mt.2008.200; DOI:10.1016/j.cell.2015.02.029; DOI:10.1038/nature13007
-- **Notes:** Wave 15 Research Discovery Replenishment. TASEP ribosome dynamics, poly(A) tail length 100-120 nt, and codon elongation balancing co-translational domain folding.
 
 ### T-0164 Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation)
 
@@ -2464,13 +2500,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Proposed by a model after the maintainer interrupted an attempt to add it; only a human moves it to ready. 2026-10-14: Marked done. review-diff.ps1 active and operational.
 - **Measured:** 1 h; review-diff.ps1 implemented in ai-loop-council and integrated into gate.
 
-### T-0261 Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ with es-MX parity
+### T-0273 Interactive Airway Mucus Polymer Cross-Linking Cleavage & Sputum Liquefaction Simulator on /cf/delivery/ with es-MX Parity
 
-- **Why / ROI rationale:** Translates nanoparticle steric filtration and PEG density surface energy biophysics into an interactive airway delivery calculator on /cf/delivery/ with Mexican Spanish parity. *(confidence: high)*
-- **Route:** local - Zero-build native ES module and SVG nanoparticle diffusion simulator modeling pore-size obstruction vs PEG corona shielding grounded in tools/discovery/mpp_obstruction_scaling.py (T-0244).
-- **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mpp_scaling_explorer tests.test_site.StaticTests
-- **Evidence:** cf-research/tools/discovery/mpp_obstruction_scaling.py; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1073/pnas.0811598106; DOI:10.1002/anie.201407641; ClinicalTrials.gov:NCT00843817
-- **Notes:** Wave 13 Track B Public Showcase Translation. Connects T-0244 mucus-penetrating nanoparticle transport scaling to /cf/delivery/.
+- **Why / ROI rationale:** Translates coupled enzymatic eDNA scission and mucin disulfide reduction biophysics into an interactive airway delivery calculator on /cf/delivery/ with Mexican Spanish parity. *(confidence: high)*
+- **Route:** local - Zero-build native ES module and SVG mucus liquefaction simulator modeling coupled rhDNase I eDNA scission and NAC thiol reduction grounded in tools/discovery/mucus_cleavage_kinetics.py (T-0253).
+- **Acceptance:** python tools/check_pr_gate.py --fast; python -m unittest tests.test_mucus_cleavage_explorer tests.test_workbench_i18n
+- **Evidence:** cf-research/tools/discovery/mucus_cleavage_kinetics.py; DOI:10.1073/pnas.87.23.9188; DOI:10.1126/science.8108733; DOI:10.1126/scitranslmed.aaz1974; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1183/13993003.01358-2020; PDB:1DNK; PDB:4AWN; PDB:1ATN; ClinicalTrials.gov:NCT06350474; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT00996424
+- **Notes:** Wave 15 Track B Public Showcase Translation. Connects T-0253 mucus cleavage kinetics to /cf/delivery/. Completed in senseiewok/.ai#150.
 
 ### T-0031 Docs tier 4: move the idea inventory to research, make the first commit in skills, decide the private-repo naming boundary
 

@@ -12875,14 +12875,14 @@
         "confidence": "high",
         "rationale": "Couples eDNA enzymatic cleavage and mucin thiol reduction with polymer micro-rheology; provides mathematical grounding for the SIMPLIFY trial (NCT06350474) and inhaled NAC trials (NCT00996424), directly resolving the physical hydrogel obstruction that blocks genetic vector diffusion.",
         "categories": {
-          "curative_biophysics": 2.0,
+          "curative_biophysics": 9.5,
           "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 5.27,
-        "roi_ratio": 1.24,
+        "composite_score": 7.52,
+        "roi_ratio": 1.77,
         "measured": 3.5
       },
       "notes": "Completed in senseiewok/cf-research#118. Implemented tools/discovery/mucus_cleavage_kinetics.py & test_mucus_cleavage_kinetics.py (7/7 unit tests passing, AH-1..AH-5 PASS): models CF sputum interpenetrating eDNA-mucin hydrogel network, rhDNase I endonucleolytic cleavage with G-actin competitive inhibition (PDB 1ATN/1DNK), NAC disulfide reduction, affine rubber elasticity shear modulus G*(omega), King MCI clearability, and AAV/LNP Ogston pore diffusivity.",
@@ -13226,7 +13226,7 @@
       "repo": ".ai",
       "area": "content",
       "status": "ready",
-      "priority": "P3",
+      "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -13643,14 +13643,14 @@
         "ratio_estimate": 2.0,
         "measured": 3.0,
         "categories": {
-          "curative_biophysics": 7.5,
+          "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
           "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 5.37,
-        "roi_ratio": 1.65
+        "composite_score": 3.73,
+        "roi_ratio": 1.15
       },
       "notes": "Completed in senseiewok/cf-research#118. Implemented tools/discovery/intronic_splice_foundation.py & test_intronic_splice_foundation.py (7/7 unit tests passing, AH-1..AH-5 PASS): models Class V intronic/splice alleles (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G, 3272-26A>G) with SpliceAI/Evo-2 zero-shot delta scores, 2'-MOE/PMO ASO SantaLucia nearest-neighbor thermodynamics, and dose-response canonical transcript rescue crossing 10-15% wild-type curative thresholds.",
       "actual_hours": 3.0,
@@ -13689,14 +13689,14 @@
         "confidence": "high",
         "rationale": "Establishes allosteric energetic coupling DeltaDeltaG between ivacaftor/deutivacaftor binding and pore opening across severe gating alleles (G551D, G1244E, S549N).",
         "categories": {
-          "curative_biophysics": 9.5,
-          "clinical_translation": 8.0,
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.75,
-        "roi_ratio": 1.82
+        "composite_score": 6.92,
+        "roi_ratio": 1.63
       },
       "notes": "Wave 15 Research Discovery Replenishment. Parameterizes two-state MWC allosteric gating and energetic coupling of single vs dual potentiators."
     },
@@ -13706,7 +13706,7 @@
       "repo": "cf-research",
       "area": "science",
       "status": "ready",
-      "priority": "P2",
+      "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -13735,14 +13735,14 @@
         "confidence": "high",
         "rationale": "Models competitive uptake kinetics between alveolar macrophage phagocytosis and apical airway epithelial endocytosis post-mucus transit.",
         "categories": {
-          "curative_biophysics": 9.0,
-          "clinical_translation": 8.0,
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.42,
-        "roi_ratio": 1.85
+        "composite_score": 6.92,
+        "roi_ratio": 1.73
       },
       "notes": "Wave 15 Research Discovery Replenishment. Parameterizes CD47 peptide surface density threshold to suppress macrophage clearance by >80%."
     },
@@ -13752,7 +13752,7 @@
       "repo": "cf-research",
       "area": "science",
       "status": "ready",
-      "priority": "P2",
+      "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -13780,16 +13780,203 @@
         "rationale": "Maximizes full-length functional CFTR channel translation efficiency from synthetic inhaled mRNA while preventing no-go decay (NGD).",
         "categories": {
           "curative_biophysics": 9.5,
-          "clinical_translation": 8.0,
+          "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.75,
-        "roi_ratio": 1.82
+        "composite_score": 7.52,
+        "roi_ratio": 1.77
       },
       "notes": "Wave 15 Research Discovery Replenishment. TASEP ribosome dynamics, poly(A) tail length 100-120 nt, and codon elongation balancing co-translational domain folding."
+    },
+    {
+      "id": "T-0273",
+      "title": "Interactive Airway Mucus Polymer Cross-Linking Cleavage & Sputum Liquefaction Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "done",
+      "priority": "P3",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG mucus liquefaction simulator modeling coupled rhDNase I eDNA scission and NAC thiol reduction grounded in tools/discovery/mucus_cleavage_kinetics.py (T-0253).",
+      "created_at": "2026-10-22T00:00:00Z",
+      "updated_at": "2026-10-22",
+      "completed_at": "2026-10-22T07:10:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel proactive showcase wave 15"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0253"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "actual_hours": 2.5,
+      "outcome": "Completed in senseiewok/.ai#150. Implements #mucus-cleavage-explorer on /cf/delivery/ with live affine elasticity shear moduli (G', G''), loss tangent tan(delta), mucociliary clearability, and Ogston mesh pore expansion for AAV and LNP with full es-MX translation parity.",
+      "source_evidence": "cf-research/tools/discovery/mucus_cleavage_kinetics.py; DOI:10.1073/pnas.87.23.9188; DOI:10.1126/science.8108733; DOI:10.1126/scitranslmed.aaz1974; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1183/13993003.01358-2020; PDB:1DNK; PDB:4AWN; PDB:1ATN; ClinicalTrials.gov:NCT06350474; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT00996424",
+      "acceptance": "python tools/check_pr_gate.py --fast; python -m unittest tests.test_mucus_cleavage_explorer tests.test_workbench_i18n",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Translates coupled enzymatic eDNA scission and mucin disulfide reduction biophysics into an interactive airway delivery calculator on /cf/delivery/ with Mexican Spanish parity.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 8.17,
+        "roi_ratio": 2.97
+      },
+      "notes": "Wave 15 Track B Public Showcase Translation. Connects T-0253 mucus cleavage kinetics to /cf/delivery/. Completed in senseiewok/.ai#150."
+    },
+    {
+      "id": "T-0274",
+      "title": "Interactive Deep Intronic Splice Foundation Model & Pseudoexon Rescue Simulator on /cf/cftr/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG interactive splice foundation simulator modeling SpliceAI/Evo-2 delta scores and ASO steric blocking across 3849+10kbC->T grounded in tools/discovery/intronic_splice_foundation.py (T-0269).",
+      "created_at": "2026-10-22T07:15:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel wave 15 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0269"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "cf-research/tools/discovery/intronic_splice_foundation.py; DOI:10.1016/j.cell.2018.12.015; DOI:10.1016/j.jcf.2021.08.014; DOI:10.1101/2025.02.18.638918; ClinicalTrials.gov:NCT06429176; PDB:6FF4",
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_intronic_splice_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes SpliceAI and Evo-2 donor/acceptor delta scores, 84-nt pseudoexon inclusion in 3849+10kbC->T, and SPL84 ASO steric-blocking rescue on /cf/cftr/ with Mexican Spanish parity.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.12,
+        "roi_ratio": 2.03
+      },
+      "notes": "Wave 15 Track B Public Showcase Replenishment. Connects T-0269 intronic splice foundation benchmark to /cf/cftr/."
+    },
+    {
+      "id": "T-0275",
+      "title": "Interactive Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Airway Hydration Simulator on /cf/tree/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG transepithelial electrophysiology simulator modeling Goldman-Hodgkin-Katz flux, ASL height, and TMEM16A potentiator synergy grounded in tools/discovery/enac_tmem16a_equilibrium.py (T-0252).",
+      "created_at": "2026-10-22T07:15:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel wave 15 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0252"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "source_evidence": "cf-research/tools/discovery/enac_tmem16a_equilibrium.py; DOI:10.1073/pnas.96.12.6970; DOI:10.1085/jgp.200810152; DOI:10.1038/s41586-019-1284-1; ClinicalTrials.gov:NCT04488705; PDB:6B45",
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_enac_tmem16a_equilibrium_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models apical chloride/sodium Goldman-Hodgkin-Katz flux, ASL volume regulation, and TMEM16A potentiator synergy on /cf/tree/ with Mexican Spanish parity.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.38
+      },
+      "notes": "Wave 15 Track B Public Showcase Replenishment. Connects T-0252 coupled ENaC-TMEM16A ion equilibrium model to /cf/tree/."
+    },
+    {
+      "id": "T-0276",
+      "title": "Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG ribosome translation velocity simulator modeling TASEP dynamics and poly(A) tail length 100-120 nt grounded in tools/discovery/mrna_translation_velocity.py (T-0272).",
+      "created_at": "2026-10-22T07:15:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel wave 15 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0272"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "source_evidence": "cf-research/tools/discovery/mrna_translation_velocity.py; DOI:10.1038/mt.2008.200; DOI:10.1016/j.cell.2015.02.029; DOI:10.1038/nature13007; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047",
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_mrna_velocity_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Models TASEP ribosome dynamics, poly(A) tail length 100-120 nt, and codon elongation balancing co-translational CFTR folding on /cf/delivery/ with Mexican Spanish parity.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.38
+      },
+      "notes": "Wave 15 Track B Public Showcase Replenishment. Connects T-0272 inhaled mRNA translation velocity model to /cf/delivery/."
     }
   ],
-  "updated": "2026-10-21"
+  "updated": "2026-10-22"
 }
