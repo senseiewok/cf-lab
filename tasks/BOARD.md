@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-283 tasks, 282 created by a model, 160 with a measured outcome. Estimated effort 738.35 to 1364.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+283 tasks, 282 created by a model, 161 with a measured outcome. Estimated effort 738.35 to 1364.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (24)
+## ready (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -23,7 +23,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0271 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0244 |  |
 | T-0283 | P1 | Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0261 |  |
-| T-0270 | P1 | CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Model (tools/discovery/gating_potentiator_energy_coupling.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0281 | P1 | CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Remodeling Model (tools/discovery/pdi_redox_remodeling.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -32,14 +31,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
-| T-0279 | P2 | Automated Sentinel PR Repair & Superseded Branch Cleaner Daemon (tasks/repair_sentinel_prs.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (245)
+## done (247)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -128,6 +126,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0251 | P1 | Alveolar & Airway Macrophage Efferocytosis Impairment & Neutrophil Extracellular Trap (NET) Degradation Kinetics in CF Airways (tools/discovery/macrophage_efferocytosis_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0252 | P1 | Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Purinergic (P2Y2R-Ca2+) Fluid Homeostasis Model (tools/discovery/enac_tmem16a_equilibrium.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0255 | P1 | Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) Adenine Base Editing (ABE8e) & Prime Editing (PE3) PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
+| T-0270 | P1 | CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Model (tools/discovery/gating_potentiator_energy_coupling.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0272 | P1 | Inhaled CFTR Synthetic mRNA 3' UTR Polyadenylation & Ribosome Load Translation Velocity Model (tools/discovery/mrna_translation_velocity.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
@@ -201,6 +200,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0139 | P2 | Server steps only a person can do: X-Robots-Tag for the atlas and a 301 for /letter/ | .ai | 1-2 | 3 | 20 | yes | model: claude-sonnet-5-5 | 2026-10-12 | full | low |  |  |  |
 | T-0267 | P2 | Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py | cf-skills | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0278 | P2 | Stale Sentinel Worktree Harvest & Automated Branch Hygiene Daemon (tasks/harvest_sentinel_worktrees.py) | cf-lab | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0279 | P2 | Automated Sentinel PR Repair & Superseded Branch Cleaner Daemon (tasks/repair_sentinel_prs.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0008 | P2 | Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256) | cf-research | 2-3 | 4 | 16 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | cloud | T-0005 |  |
 | T-0112 | P2 | A merge check: catch commits a squash merge dropped | cf-lab | 2-3 | 4 | 16 | yes | model: claude-opus-5-5 | 2026-10-09 | routine | low | local |  | work/frontier-lab-unbinding |
 | T-0269 | P2 | Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py) | cf-research | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
@@ -1146,7 +1146,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Quantitative thermodynamic mutant cycle and energetic coupling analysis between CFTR TM8 potentiator binding, TM4/5 hinge, and NBD dimerization across gating mutations (PDB:6O2P, 7SVD, 8EIQ).
 - **Acceptance:** pytest tools/discovery/test_gating_potentiator_energy_coupling.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT00909532; ClinicalTrials.gov:NCT02858843; PDB:6O2P; PDB:7SVD; PDB:8EIQ; PDB:8EJ1; DOI:10.1126/science.aaw7611; DOI:10.1085/jgp.202012676; DOI:10.1016/j.cell.2021.02.012
-- **Notes:** Wave 15 Research Discovery Replenishment. Parameterizes two-state MWC allosteric gating and energetic coupling of single vs dual potentiators.
+- **Spec:** `tasks/specs/T-0270.md`
+- **Notes:** Completed in senseiewok/cf-research#121. Implemented tools/discovery/gating_potentiator_energy_coupling.py & test_gating_potentiator_energy_coupling.py (20/20 unit tests passing, AH-1..AH-5 PASS): models two-state MWC gating equilibrium, state-dependent free-energy coupling DeltaDeltaG, dual-potentiator cooperativity, and thermodynamic double-mutant cycle analysis across G551D, G1244E, and S549N.
+- **Measured:**  h; 
 
 ### T-0272 Inhaled CFTR Synthetic mRNA 3' UTR Polyadenylation & Ribosome Load Translation Velocity Model (tools/discovery/mrna_translation_velocity.py)
 
@@ -1860,7 +1862,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tasks.test_repair_sentinel_prs; python tasks/repair_sentinel_prs.py --dry-run
 - **Evidence:** tasks/audit_github_hygiene.py; tasks/pick_bold_task.py; AGENTS.md
 - **Spec:** `tasks/specs/T-0279.md`
-- **Notes:** Wave 15 Security Lane Replenishment. Delivers automated daemon to execute remediation actions prescribed by audit_github_hygiene.py.
+- **Notes:** Wave 15 Security Lane. Automated sentinel PR repair daemon implemented in tasks/repair_sentinel_prs.py with unit tests in tasks/test_repair_sentinel_prs.py. Verified acceptance: 12 tests passed, successfully closed superseded PR #222 on cf-lab.
 
 ### T-0008 Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256)
 
