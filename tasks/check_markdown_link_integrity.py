@@ -141,7 +141,7 @@ def is_ignored_target(target: str) -> bool:
     # Ignore template placeholders like <path>, <conversation-id>, {id}, $VAR, or example paths
     if re.search(r"<[A-Za-z0-9_-]+>|\{[A-Za-z0-9_-]+\}|\$[A-Za-z0-9_]+", t):
         return True
-    if t.startswith("path/to/") or t.startswith("relative/file") or "example.com" in t or "example.org" in t:
+    if t.startswith("path/to/") or t.startswith("relative/file"):
         return True
     # Ignore standalone # or javascript:void(0)
     if t in ("#", "##"):
