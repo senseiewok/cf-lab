@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-288 tasks, 287 created by a model, 162 with a measured outcome. Estimated effort 750.35 to 1384.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+288 tasks, 287 created by a model, 164 with a measured outcome. Estimated effort 750.35 to 1384.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (26)
+## ready (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -23,8 +23,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0287 | P1 | Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
 | T-0288 | P1 | Interactive Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0285 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0271 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0244 |  |
-| T-0285 | P1 | Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0239 |  |
 | T-0281 | P1 | CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Remodeling Model (tools/discovery/pdi_redox_remodeling.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -33,15 +31,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
-| T-0284 | P2 | Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0278 |  |
-| T-0286 | P2 | Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (248)
+## done (252)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -74,6 +70,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0225 | P1 | Automated worktree harvest & duplicate-PR preflight guard (tasks/check_worktree_drift.py) integrated into pick_bold_task.py and security sentinel | cf-lab | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0257 | P1 | Interactive Global Registry Variant Theratyping & Diagnostic Sweat Chloride / Nasal Potential Difference (NPD) Disparity Explorer on /cf/registries/ with es-MX parity | .ai | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0168 | work/sentinel-showcase-t-0257 |
 | T-0266 | P1 | Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding | cf-lab | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
+| T-0284 | P1 | Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0278 |  |
+| T-0286 | P1 | Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0181 | P1 | Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py) | .ai | 1.5-3 | 4 | 17.8 | yes | model: claude-3-opus | 2026-10-17 | elevated | low | local | T-0180 |  |
 | T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | yes | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |  |
 | T-0167 | P1 | Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification | .ai | 2-4 | 5 | 16.7 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud |  |  |
@@ -122,6 +120,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0228 | P1 | Mechano-acoustic mucus conditioning, PIEZO1/TMEM16A ASL hydration, and EV/nanoparticle delivery flux model (tools/discovery/mechano_acoustic_delivery.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-19 | elevated | high | frontier | T-0220 |  |
 | T-0254 | P1 | Splice-Switching Antisense Oligonucleotide (ASO) Steric-Blocking Kinetics & Cryptic Pseudoexon Competition Model (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) (tools/discovery/aso_splice_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0256 | P1 | Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
+| T-0271 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0244 |  |
+| T-0285 | P1 | Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0239 |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0276 | P1 | Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0272 |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -604,6 +604,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/tools/discovery/mechano_acoustic_delivery.py; DOI:10.1016/B978-012256971-5/50004-9; DOI:10.1016/0021-8502(88)90212-0; PMID:2204543; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047
 - **Spec:** `tasks/specs/T-0282.md`
 - **Notes:** Wave 17 Track B Public Showcase Replenishment. Connects T-0228 micro-aerosol biophysics to /cf/delivery/.
+
+### T-0284 Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py)
+
+- **Why / ROI rationale:** Prevents disk bloat and worktree collision across multi-repo sentinel automation with zero data-loss guarantees. *(confidence: high)*
+- **Route:** local - Automated CLI daemon extending harvest_sentinel_worktrees.py to prune fully merged, clean worktrees across workspace repositories under --yes confirmation with strict invariant guards.
+- **Acceptance:** python -m unittest tasks.test_prune_stale_worktrees; python tasks/prune_stale_worktrees.py --dry-run
+- **Evidence:** tasks/harvest_sentinel_worktrees.py; .claude/skills/workspace-siblings/scripts/worktrees.py; AGENTS.md
+- **Spec:** `tasks/specs/T-0284.md`
+- **Notes:** 2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0286. tasks/prune_stale_worktrees.py implements multi-repo clean merged worktree pruning with zero data-loss invariants and telemetry logging. Acceptance checks passed: python -m unittest tasks.test_prune_stale_worktrees; python tasks/prune_stale_worktrees.py --dry-run
+
+### T-0286 Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py)
+
+- **Why / ROI rationale:** Ensures external medical evidence catalog schema validity, robots.txt compliance, and license integrity across sibling repos with zero drift. *(confidence: high)*
+- **Route:** local - Deterministic linter verifying evidence catalog YAML schemas, license compatibility, terms-of-use flags, and cryptographic pin integrity across cf-research and cf-skills.
+- **Acceptance:** python -m unittest tasks.test_check_catalog_schema_lock; python tasks/check_catalog_schema_lock.py --check
+- **Evidence:** cf-research/sources/catalog.yaml; cf-skills/.claude/skills/cf-evidence-loop/catalog.yaml; .claude/skills/security-browsing/SKILL.md; .claude/skills/security-baseline/SKILL.md
+- **Spec:** `tasks/specs/T-0286.md`
+- **Notes:** 2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0286. tasks/check_catalog_schema_lock.py validates canonical and skills catalogs, license boundaries, and cryptographic pins. Acceptance checks passed: python -m unittest tasks.test_check_catalog_schema_lock; python tasks/check_catalog_schema_lock.py --check
 
 ### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
 
@@ -1089,7 +1107,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_macrophage_evasion_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT05248230; DOI:10.1126/science.1234568; DOI:10.1016/j.addr.2015.09.006; DOI:10.3390/pharmaceutics12040347
 - **Spec:** `tasks/specs/T-0271.md`
-- **Notes:** Wave 15 Research Discovery Replenishment. Parameterizes CD47 peptide surface density threshold to suppress macrophage clearance by >80%.
+- **Notes:** Completed in senseiewok/cf-research#122. Implemented tools/discovery/macrophage_evasion_kinetics.py & test_macrophage_evasion_kinetics.py (10/10 unit tests passing, AH-1..AH-5 PASS): models competitive opsonin adsorption (SP-A/D, C3b) with de Gennes PEG brush shielding, CD47 'Self' peptide SIRP-alpha ligation with Hill kinetics, scavenger receptor uptake velocity (SR-A1, CD36), and mucosal basal stem cell retention.
+- **Measured:**  h; 
 
 ### T-0285 Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py)
 
@@ -1098,7 +1117,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_lnp_escape_dynamics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/mrna_lnp_escape_model.py; DOI:10.1038/nbt.3298; DOI:10.1038/nbt.2612; DOI:10.1016/j.ymthe.2017.05.013; ClinicalTrials.gov:NCT05668741
 - **Spec:** `tasks/specs/T-0285.md`
-- **Notes:** Wave 17 Research Lane Replenishment. Connects T-0239 endosomal escape kinetics to basal stem cell uncoating dynamics.
+- **Notes:** Completed in senseiewok/cf-research#122. Implemented tools/discovery/lnp_escape_dynamics.py & test_lnp_escape_dynamics.py (11/11 unit tests passing, AH-1..AH-5 PASS): models endosomal acidification, Henderson-Hasselbalch ionizable lipid pKa inversion, H_II phase transition membrane destabilization, galectin-3 (LGALS3) rupture puncta, cytosolic bioavailability (phi_escape = 1-5%), and translation onset half-life.
+- **Measured:**  h; 
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
@@ -1901,24 +1921,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/audit_github_hygiene.py; tasks/pick_bold_task.py; AGENTS.md
 - **Spec:** `tasks/specs/T-0279.md`
 - **Notes:** Wave 15 Security Lane. Automated sentinel PR repair daemon implemented in tasks/repair_sentinel_prs.py with unit tests in tasks/test_repair_sentinel_prs.py. Verified acceptance: 12 tests passed, successfully closed superseded PR #222 on cf-lab.
-
-### T-0284 Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py)
-
-- **Why / ROI rationale:** Prevents disk bloat and worktree collision across multi-repo sentinel automation with zero data-loss guarantees. *(confidence: high)*
-- **Route:** local - Automated CLI daemon extending harvest_sentinel_worktrees.py to prune fully merged, clean worktrees across workspace repositories under --yes confirmation with strict invariant guards.
-- **Acceptance:** python -m unittest tasks.test_prune_stale_worktrees; python tasks/prune_stale_worktrees.py --dry-run
-- **Evidence:** tasks/harvest_sentinel_worktrees.py; .claude/skills/workspace-siblings/scripts/worktrees.py; AGENTS.md
-- **Spec:** `tasks/specs/T-0284.md`
-- **Notes:** Wave 17 Security Lane Replenishment. Builds on T-0278 worktree harvesting.
-
-### T-0286 Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py)
-
-- **Why / ROI rationale:** Ensures external medical evidence catalog schema validity, robots.txt compliance, and license integrity across sibling repos with zero drift. *(confidence: high)*
-- **Route:** local - Deterministic linter verifying evidence catalog YAML schemas, license compatibility, terms-of-use flags, and cryptographic pin integrity across cf-research and cf-skills.
-- **Acceptance:** python -m unittest tasks.test_check_catalog_schema_lock; python tasks/check_catalog_schema_lock.py --check
-- **Evidence:** cf-research/sources/catalog.yaml; cf-skills/.claude/skills/cf-evidence-loop/catalog.yaml; .claude/skills/security-browsing/SKILL.md; .claude/skills/security-baseline/SKILL.md
-- **Spec:** `tasks/specs/T-0286.md`
-- **Notes:** Wave 17 Security Lane Replenishment. Enforces external source catalog schema lock and license boundaries.
 
 ### T-0008 Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256)
 

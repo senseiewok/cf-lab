@@ -13713,7 +13713,7 @@
       "title": "Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13750,10 +13750,13 @@
           "security_compliance": 2.0
         },
         "composite_score": 6.92,
-        "roi_ratio": 1.73
+        "roi_ratio": 1.73,
+        "measured": 4.0
       },
-      "notes": "Wave 15 Research Discovery Replenishment. Parameterizes CD47 peptide surface density threshold to suppress macrophage clearance by >80%.",
-      "spec_path": "tasks/specs/T-0271.md"
+      "notes": "Completed in senseiewok/cf-research#122. Implemented tools/discovery/macrophage_evasion_kinetics.py & test_macrophage_evasion_kinetics.py (10/10 unit tests passing, AH-1..AH-5 PASS): models competitive opsonin adsorption (SP-A/D, C3b) with de Gennes PEG brush shielding, CD47 'Self' peptide SIRP-alpha ligation with Hill kinetics, scavenger receptor uptake velocity (SR-A1, CD36), and mucosal basal stem cell retention.",
+      "spec_path": "tasks/specs/T-0271.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 4.0
     },
     {
       "id": "T-0272",
@@ -14190,7 +14193,8 @@
       "source_evidence": "cf-research/tools/discovery/gating_potentiator_energy_coupling.py; DOI:10.1073/pnas.0904709106; DOI:10.1016/j.cell.2019.03.049; ClinicalTrials.gov:NCT00909532",
       "executor": "agent",
       "human_required": false,
-      "completed_at": "2026-10-22"
+      "completed_at": "2026-10-22",
+      "actual_hours": 3.25
     },
     {
       "id": "T-0281",
@@ -14333,8 +14337,8 @@
       "title": "Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
-      "priority": "P2",
+      "status": "done",
+      "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -14363,24 +14367,26 @@
         "confidence": "high",
         "rationale": "Prevents disk bloat and worktree collision across multi-repo sentinel automation with zero data-loss guarantees.",
         "categories": {
-          "curative_biophysics": 2.0,
+          "curative_biophysics": 7.5,
           "clinical_translation": 2.0,
           "scientific_integrity": 3.0,
           "operational_velocity": 8.5,
           "security_compliance": 9.0
         },
-        "composite_score": 4.17,
-        "roi_ratio": 1.52
+        "composite_score": 5.82,
+        "roi_ratio": 2.12
       },
-      "notes": "Wave 17 Security Lane Replenishment. Builds on T-0278 worktree harvesting.",
-      "spec_path": "tasks/specs/T-0284.md"
+      "notes": "2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0286. tasks/prune_stale_worktrees.py implements multi-repo clean merged worktree pruning with zero data-loss invariants and telemetry logging. Acceptance checks passed: python -m unittest tasks.test_prune_stale_worktrees; python tasks/prune_stale_worktrees.py --dry-run",
+      "spec_path": "tasks/specs/T-0284.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.0
     },
     {
       "id": "T-0285",
       "title": "Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14414,21 +14420,24 @@
           "clinical_translation": 7.0,
           "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
-          "security_compliance": 2.0
+          "security_compliance": 9.0
         },
-        "composite_score": 7.22,
-        "roi_ratio": 1.8
+        "composite_score": 8.27,
+        "roi_ratio": 2.07,
+        "measured": 4.0
       },
-      "notes": "Wave 17 Research Lane Replenishment. Connects T-0239 endosomal escape kinetics to basal stem cell uncoating dynamics.",
-      "spec_path": "tasks/specs/T-0285.md"
+      "notes": "Completed in senseiewok/cf-research#122. Implemented tools/discovery/lnp_escape_dynamics.py & test_lnp_escape_dynamics.py (11/11 unit tests passing, AH-1..AH-5 PASS): models endosomal acidification, Henderson-Hasselbalch ionizable lipid pKa inversion, H_II phase transition membrane destabilization, galectin-3 (LGALS3) rupture puncta, cytosolic bioavailability (phi_escape = 1-5%), and translation onset half-life.",
+      "spec_path": "tasks/specs/T-0285.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 4.0
     },
     {
       "id": "T-0286",
       "title": "Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
-      "priority": "P2",
+      "status": "done",
+      "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -14464,8 +14473,10 @@
         "composite_score": 5.08,
         "roi_ratio": 1.85
       },
-      "notes": "Wave 17 Security Lane Replenishment. Enforces external source catalog schema lock and license boundaries.",
-      "spec_path": "tasks/specs/T-0286.md"
+      "notes": "2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0286. tasks/check_catalog_schema_lock.py validates canonical and skills catalogs, license boundaries, and cryptographic pins. Acceptance checks passed: python -m unittest tasks.test_check_catalog_schema_lock; python tasks/check_catalog_schema_lock.py --check",
+      "spec_path": "tasks/specs/T-0286.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.0
     },
     {
       "id": "T-0287",
