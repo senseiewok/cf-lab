@@ -13225,7 +13225,7 @@
       "title": "Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13259,12 +13259,14 @@
           "clinical_translation": 9.0,
           "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
-          "security_compliance": 2.0
+          "security_compliance": 9.0
         },
-        "composite_score": 7.12,
-        "roi_ratio": 2.59
+        "composite_score": 8.17,
+        "roi_ratio": 2.97,
+        "measured": 2.75
       },
-      "notes": "Wave 13 Track B Public Showcase Translation. Connects T-0244 mucus-penetrating nanoparticle transport scaling to /cf/delivery/."
+      "notes": "Delivered and verified via senseiewok/.ai#152 with zero-build native ES module mpp-scaling-explorer.js, tests/test_mpp_scaling_explorer.py, full Mexican Spanish (es-MX) parity, and passing all gate checks.",
+      "completed_at": "2026-10-22"
     },
     {
       "id": "T-0262",
@@ -13948,7 +13950,7 @@
       "title": "Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13982,12 +13984,14 @@
           "clinical_translation": 9.0,
           "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
-          "security_compliance": 2.0
+          "security_compliance": 9.0
         },
-        "composite_score": 7.72,
-        "roi_ratio": 2.38
+        "composite_score": 8.77,
+        "roi_ratio": 2.7,
+        "measured": 3.25
       },
-      "notes": "Wave 15 Track B Public Showcase Replenishment. Connects T-0272 inhaled mRNA translation velocity model to /cf/delivery/."
+      "notes": "Delivered and verified via senseiewok/.ai#152 with zero-build native ES module mrna-velocity-explorer.js, tests/test_mrna_velocity_explorer.py, full Mexican Spanish (es-MX) parity, and passing all gate checks.",
+      "completed_at": "2026-10-22"
     },
     {
       "id": "T-0277",
@@ -14214,6 +14218,98 @@
       "source_evidence": "DOI:10.1073/pnas.241383898; DOI:10.3389/fphar.2012.00201; PDB:6MSM; PDB:5W81; ClinicalTrials.gov:NCT00057278",
       "executor": "agent",
       "human_required": false
+    },
+    {
+      "id": "T-0282",
+      "title": "Interactive Inhaled Micro-Aerosol Droplet Evaporation & Hygroscopic Growth Dynamics Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Models aerodynamic diameter MMAD (2.8-3.2 um) hygroscopic equilibration in 99.5% relative humidity human conducting airways on /cf/delivery/ with es-MX parity.",
+      "created_at": "2026-10-22T08:30:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel wave 16 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0182"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-22.md; DOI:10.1089/jamp.2018.1508; DOI:10.1016/j.jaerosci.2020.105655; ClinicalTrials.gov:NCT05248230",
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_droplet_hygroscopy_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Simulates inhaled aerosol droplet hygroscopic Kelvin-K\u00f6hler dynamics and extrathoracic filtering vs deep lung deposition on /cf/delivery/ with Mexican Spanish parity.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.03,
+        "roi_ratio": 2.92
+      },
+      "notes": "Wave 16 Track B Showcase Replenishment. Connects inhaled aerosol droplet size distribution and humidity growth to /cf/delivery/."
+    },
+    {
+      "id": "T-0283",
+      "title": "Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Models tight junction paracellular impedance and peptide-enhanced macromolecular delivery on /cf/delivery/ with es-MX parity.",
+      "created_at": "2026-10-22T08:30:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel wave 16 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0261"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-22.md; DOI:10.1016/j.addr.2012.06.009; DOI:10.1152/ajplung.00287.2016; ClinicalTrials.gov:NCT05668741",
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_tight_junction_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Quantifies paracellular resistance and transient tight junction opening for macromolecular gene vectors in healthy vs inflamed CF airway epithelia.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.42,
+        "roi_ratio": 2.28
+      },
+      "notes": "Wave 16 Track B Showcase Replenishment. Connects tight junction barrier resistance to /cf/delivery/."
     }
   ],
   "updated": "2026-10-22"
