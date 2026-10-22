@@ -14329,7 +14329,7 @@
       "title": "Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14368,8 +14368,10 @@
         "composite_score": 7.15,
         "roi_ratio": 2.7
       },
-      "notes": "Wave 17 Security Lane Replenishment. Builds on T-0278 worktree harvesting.",
-      "spec_path": "tasks/specs/T-0284.md"
+      "notes": "2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0286. tasks/prune_stale_worktrees.py implements multi-repo clean merged worktree pruning with zero data-loss invariants and telemetry logging. Acceptance checks passed: python -m unittest tasks.test_prune_stale_worktrees; python tasks/prune_stale_worktrees.py --dry-run",
+      "spec_path": "tasks/specs/T-0284.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.0
     },
     {
       "id": "T-0285",
@@ -14423,7 +14425,7 @@
       "title": "Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14460,8 +14462,10 @@
         "composite_score": 7.35,
         "roi_ratio": 2.7
       },
-      "notes": "Wave 17 Security Lane Replenishment. Enforces external source catalog schema lock and license boundaries.",
-      "spec_path": "tasks/specs/T-0286.md"
+      "notes": "2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0286. tasks/check_catalog_schema_lock.py validates canonical and skills catalogs, license boundaries, and cryptographic pins. Acceptance checks passed: python -m unittest tasks.test_check_catalog_schema_lock; python tasks/check_catalog_schema_lock.py --check",
+      "spec_path": "tasks/specs/T-0286.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.0
     }
   ],
   "updated": "2026-10-22"
