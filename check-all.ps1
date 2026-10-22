@@ -134,6 +134,10 @@ $Checks = @(
     @{ name = 'test-git-hooks';           exe = 'python';     args = @('tasks/test_check_git_hooks_invariants.py');                                            needs = @('python') }
     @{ name = 'check-playwright-hygiene'; exe = 'python';     args = @('tasks/check_playwright_test_hygiene.py', '--check');                                     needs = @('python') }
     @{ name = 'test-playwright-hygiene';  exe = 'python';     args = @('tasks/test_check_playwright_test_hygiene.py');                                           needs = @('python') }
+    @{ name = 'check-supply-chain';       exe = 'python';     args = @('tasks/check_git_supply_chain_integrity.py', '--check');                                  needs = @('python') }
+    @{ name = 'test-supply-chain';        exe = 'python';     args = @('tasks/test_check_git_supply_chain_integrity.py');                                       needs = @('python') }
+    @{ name = 'check-unicode-homoglyphs'; exe = 'python';     args = @('tasks/check_unicode_homoglyphs.py', '--check');                                          needs = @('python') }
+    @{ name = 'test-unicode-homoglyphs';  exe = 'python';     args = @('tasks/test_check_unicode_homoglyphs.py');                                               needs = @('python') }
     # models (the guard only; nothing here talks to Ollama)
     @{ name = 'test-restart-ollama';      exe = 'pwsh';       args = @("$s/model-qwen3-8-27b/test-restart-ollama.ps1");                                    needs = @() }
     @{ name = 'test-score-claim-mapping'; exe = 'python';     args = @("$s/model-onboarding/scripts/test_score_claim_mapping.py");                         needs = @('python') }
