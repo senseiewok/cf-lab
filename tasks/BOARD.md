@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (24)
+## ready (23)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -32,14 +32,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
-| T-0279 | P2 | Automated Sentinel PR Repair & Superseded Branch Cleaner Daemon (tasks/repair_sentinel_prs.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (243)
+## done (244)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -199,6 +198,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0139 | P2 | Server steps only a person can do: X-Robots-Tag for the atlas and a 301 for /letter/ | .ai | 1-2 | 3 | 20 | yes | model: claude-sonnet-5-5 | 2026-10-12 | full | low |  |  |  |
 | T-0267 | P2 | Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py | cf-skills | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0278 | P2 | Stale Sentinel Worktree Harvest & Automated Branch Hygiene Daemon (tasks/harvest_sentinel_worktrees.py) | cf-lab | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0279 | P2 | Automated Sentinel PR Repair & Superseded Branch Cleaner Daemon (tasks/repair_sentinel_prs.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0008 | P2 | Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256) | cf-research | 2-3 | 4 | 16 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | cloud | T-0005 |  |
 | T-0112 | P2 | A merge check: catch commits a squash merge dropped | cf-lab | 2-3 | 4 | 16 | yes | model: claude-opus-5-5 | 2026-10-09 | routine | low | local |  | work/frontier-lab-unbinding |
 | T-0269 | P2 | Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py) | cf-research | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
@@ -1840,7 +1840,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tasks.test_repair_sentinel_prs; python tasks/repair_sentinel_prs.py --dry-run
 - **Evidence:** tasks/audit_github_hygiene.py; tasks/pick_bold_task.py; AGENTS.md
 - **Spec:** `tasks/specs/T-0279.md`
-- **Notes:** Wave 15 Security Lane Replenishment. Delivers automated daemon to execute remediation actions prescribed by audit_github_hygiene.py.
+- **Notes:** Wave 15 Security Lane. Automated sentinel PR repair daemon implemented in tasks/repair_sentinel_prs.py with unit tests in tasks/test_repair_sentinel_prs.py. Verified acceptance: 12 tests passed, successfully closed superseded PR #222 on cf-lab.
 
 ### T-0008 Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256)
 
