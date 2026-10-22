@@ -12933,7 +12933,7 @@
       "title": "Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) Adenine Base Editing (ABE8e) & Prime Editing (PE3) PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -12970,7 +12970,8 @@
         "composite_score": 7.52,
         "roi_ratio": 1.77
       },
-      "notes": "Wave 13 Track A Curative Biophysics. Models ABE8e activity window (positions 4-8) vs PE3 reverse-transcriptase extension across canonical Class I CFTR stop alleles."
+      "notes": "Completed in senseiewok/cf-research#114. Implemented Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) ABE8e & PE3 PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py) with 10/10 unit tests passing (test_class1_prime_base_editing.py) and check_anti_hallucination.py passing (AH-1 to AH-5 100% pass).",
+      "actual_hours": 4.25
     },
     {
       "id": "T-0256",
@@ -13262,7 +13263,7 @@
       "title": "Interactive Alveolar Macrophage Efferocytosis & Neutrophil Extracellular Trap (NET) Degradation Kinetics Simulator on /cf/delivery/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13301,10 +13302,58 @@
         "composite_score": 8.17,
         "roi_ratio": 2.97
       },
-      "notes": "Wave 14 Track B Public Showcase Translation. Connects completed T-0251 macrophage efferocytosis model to /cf/delivery/."
+      "notes": "Wave 14 Track B Public Showcase Translation. Connects completed T-0251 macrophage efferocytosis model to /cf/delivery/. Completed in senseiewok/.ai#144.",
+      "actual_hours": 2.75,
+      "completed_at": "2026-10-21"
     },
     {
       "id": "T-0263",
+      "title": "Interactive Apical Purinergic P2Y2R-Ca2+ Signal Transduction & Dual ENaC-TMEM16A Ion Equilibrium Simulator on /cf/tree/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG visualizer modeling apical P2Y2R Gq signaling, IP3-mediated endoplasmic reticulum Ca2+ release, dual TMEM16A/ANO1 chloride secretagogue activation, and coupled ENaC sodium hyperabsorption inhibition grounded in tools/discovery/enac_tmem16a_equilibrium.py (T-0252), PDB:7L1V, PDB:6UJJ, and NCT00055276.",
+      "created_at": "2026-10-21T18:45:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel wave 14 replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0252"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "cf-research/tools/discovery/enac_tmem16a_equilibrium.py; ClinicalTrials.gov:NCT00055276; ClinicalTrials.gov:NCT00049023; PDB:7L1V; PDB:6UJJ; PDB:6B4E; DOI:10.1165/rcmb.2007-0097OC; DOI:10.1172/JCI118742",
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_enac_tmem16a_equilibrium_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Exposes alternative chloride conductance via TMEM16A and coupled ENaC inhibition through purinergic P2Y2R agonists (Denufosol/ATP) on /cf/tree/ in English and Mexican Spanish.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.81
+      },
+      "notes": "Wave 14 Track A Public Showcase Translation. Connects completed T-0252 ENaC-TMEM16A equilibrium model to /cf/tree/."
+    },
+    {
+      "id": "T-0264",
       "title": "CFTR RefSeq (NM_000492.4) Full Coding Sequence & Intronic Splice-Flank Verifier + Arbitrary-Allele gRNA/pegRNA/ASO/CpG Scanner (tools/discovery/cftr_sequence_scanner.py)",
       "repo": "cf-research",
       "area": "research",
@@ -13329,7 +13378,7 @@
         "low": 2.5,
         "high": 4.0
       },
-      "spec_path": "tasks/specs/T-0263.md",
+      "spec_path": "tasks/specs/T-0264.md",
       "source_evidence": "cf-research/tools/discovery/base_editing_cftr.py; cf-research/tools/discovery/prime_editing_cftr.py; cf-research/tools/discovery/aso_splice_kinetics.py; ClinicalTrials.gov:NCT05248230; ClinicalTrials.gov:NCT05668741; PDB:5UAK; PDB:6MSM; PDB:8EIQ; DOI:10.1038/s41586-020-2477-4; DOI:10.1038/s41587-020-0458-4",
       "acceptance": "pytest tools/discovery/test_cftr_sequence_scanner.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py",
       "roi": {
@@ -13349,7 +13398,7 @@
       "notes": "Track A DNA/RNA Discovery Engine. Generalizes base editing, prime editing, ASO splice-switching, and CpG-depleted minicircle analysis to arbitrary CFTR alleles."
     },
     {
-      "id": "T-0264",
+      "id": "T-0265",
       "title": "Open-Source Protein & Genomic Science Model Benchmark & Zero-Shot CFTR Mutational Landscape Evaluator (ESM-2 / ThermoMPNN / Evo-2 vs Mechanistic Models in tools/discovery/science_model_benchmark.py)",
       "repo": "cf-research",
       "area": "research",
@@ -13374,7 +13423,7 @@
         "low": 2.5,
         "high": 4.0
       },
-      "spec_path": "tasks/specs/T-0264.md",
+      "spec_path": "tasks/specs/T-0265.md",
       "source_evidence": "cf-research/tools/discovery/nbd1_thermodynamics.py; cf-research/tools/discovery/ptc_cryoem_allostery.py; ClinicalTrials.gov:NCT04684641; PDB:5UAK; PDB:6MSM; PDB:8EIQ; DOI:10.1126/science.ade2574; DOI:10.1126/science.add2187",
       "acceptance": "pytest tools/discovery/test_science_model_benchmark.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py",
       "roi": {
@@ -13394,7 +13443,7 @@
       "notes": "Track A Science Foundation Model Integration. Benchmarks zero-shot protein/DNA language model scores on canonical CFTR variants and base/tRNA editing substitutions."
     },
     {
-      "id": "T-0265",
+      "id": "T-0266",
       "title": "Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding",
       "repo": "cf-lab",
       "area": "security",
@@ -13419,7 +13468,7 @@
         "low": 2.0,
         "high": 3.5
       },
-      "spec_path": "tasks/specs/T-0265.md",
+      "spec_path": "tasks/specs/T-0266.md",
       "source_evidence": ".claude/skills/ai-loop-council/scripts/review-diff.ps1; .claude/skills/model-gemma4-31b/SKILL.md; .claude/skills/model-onboarding/SKILL.md; ClinicalTrials.gov:NCT05668741; PDB:8EIQ; DOI:10.1056/NEJMoa1908639",
       "acceptance": "pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/test-review-diff.ps1; python tasks/check-skill-frontmatter.py",
       "roi": {
@@ -13439,7 +13488,7 @@
       "notes": "Security & AI Loop Council technology upgrade. Adds optional second-family local challenger to review-diff.ps1 and TxGemma scientific grounding benchmark fixtures."
     },
     {
-      "id": "T-0266",
+      "id": "T-0267",
       "title": "Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py",
       "repo": "cf-skills",
       "area": "tooling",
@@ -13464,7 +13513,7 @@
         "low": 2.0,
         "high": 3.5
       },
-      "spec_path": "tasks/specs/T-0266.md",
+      "spec_path": "tasks/specs/T-0267.md",
       "source_evidence": "cf-research/sources/catalog.yaml; ClinicalTrials.gov:NCT05248230; PDB:6MSM; PDB:8EIQ; DOI:10.1056/NEJMoa1908639",
       "acceptance": "python scripts/check_repo.py; python scripts/pin_catalog.py --check; python -m unittest discover tests",
       "roi": {
