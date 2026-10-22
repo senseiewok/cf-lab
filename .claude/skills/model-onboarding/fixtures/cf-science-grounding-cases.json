@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "suite": "cf-science-grounding-v1",
+  "description": "12 CF therapeutic, sequence, and biophysical grounding evaluation cases for domain-specific science LLMs (TxGemma-27B, MedGemma-27B, Gemma 4 31B, Qwen3.8 27B). Evaluates evidence-bound factual precision and strict abstention on unstated mechanisms.",
+  "cases": [
+    {
+      "id": "cf-sci-01",
+      "category": "modulator_binding_site",
+      "context": "Cryo-EM structure PDB:8EIQ (Fiedorczuk & Chen 2022) resolves elexacaftor, tezacaftor, and ivacaftor bound to phosphorylated, ATP-bound human CFTR: tezacaftor occupies a hydrophobic cavity inside TMD1 (TM1, TM2, TM3, TM6), elexacaftor binds at the TMD2/lasso interface (TM2, TM10, TM11), and ivacaftor binds at the lipid-exposed TM8 hinge cleft.",
+      "question": "According to PDB:8EIQ, which transmembrane helix hinge cleft does ivacaftor bind to potentiate channel gating?",
+      "expected_verdict": "supported",
+      "expected_substring": "TM8"
+    },
+    {
+      "id": "cf-sci-02",
+      "category": "class2_folding_defect",
+      "context": "F508del (c.1521_1523delCTT, p.Phe508del) in exon 11 deletes phenylalanine-508 in NBD1, destabilizing both the NBD1 core and its domain-swapped ball-and-socket interface with intracellular loop 4 (ICL4, residues L1065-R1070 in TMD2).",
+      "question": "Which intracellular loop in TMD2 forms the domain-swapped interface with NBD1 disrupted by F508del?",
+      "expected_verdict": "supported",
+      "expected_substring": "ICL4"
+    },
+    {
+      "id": "cf-sci-03",
+      "category": "class3_gating_defect",
+      "context": "G551D (c.1652G>A, p.Gly551Asp) in exon 12 mutates the canonical ABC signature motif (LSGGQ -> LSDGQ) in NBD1, abolishing ATP-driven NBD1-NBD2 head-to-tail dimerization (open probability Po < 0.04) without preventing ER-to-apical membrane trafficking.",
+      "question": "Does G551D primarily prevent ER-to-apical membrane trafficking or abolish ATP-driven NBD1-NBD2 dimerization?",
+      "expected_verdict": "supported",
+      "expected_substring": "dimerization"
+    },
+    {
+      "id": "cf-sci-04",
+      "category": "class1_base_editing_bystander",
+      "context": "Adenine base editing (ABE8e) of CFTR W1282X (c.3846G>A, TGA -> TGG) converts the target adenine A6 within the protospacer deamination window (positions 4-8), but an adjacent adenine at position A7 in codon 1282 (TGG -> CGG) can be co-deaminated to create a p.W1282R missense bystander allele.",
+      "question": "What missense bystander substitution at codon 1282 arises when ABE8e co-deaminates the adjacent adenine in W1282X?",
+      "expected_verdict": "supported",
+      "expected_substring": "W1282R"
+    },
+    {
+      "id": "cf-sci-05",
+      "category": "cryptic_splice_aso",
+      "context": "The Class V intronic mutation 3849+10kbC>T (c.3718-2477C>T) in intron 22 creates a cryptic 5' GT splice donor site that causes inclusion of an 84-bp pseudoexon containing an in-frame stop codon. Steric-blocking 2'-MOE antisense oligonucleotides masking the cryptic donor restore canonical exon 22-23 splicing.",
+      "question": "How many base pairs long is the pseudoexon included due to the 3849+10kbC>T cryptic donor mutation?",
+      "expected_verdict": "supported",
+      "expected_substring": "84"
+    },
+    {
+      "id": "cf-sci-06",
+      "category": "n1303k_mechanism",
+      "context": "N1303K (c.3909C>G, p.Asn1303Lys) in exon 24 (NBD2) disrupts late co-translational folding of NBD2 and allosteric coupling to TMD1/TMD2, leaving minimal residual rescue under standard elexacaftor/tezacaftor/ivacaftor (ETI) therapy.",
+      "question": "In which CFTR domain and exon is N1303K located?",
+      "expected_verdict": "supported",
+      "expected_substring": "NBD2"
+    },
+    {
+      "id": "cf-sci-07",
+      "category": "r117h_poly_t",
+      "context": "R117H (c.350G>A, p.Arg117His) in exon 4 (TMD1 ECL1) causes a Class IV pore conductance defect whose clinical penetrance is strongly modified by the cis intron 9 (formerly intron 8) poly-T tract (5T vs 7T vs 9T), which governs exon 10 skipping.",
+      "question": "Which cis intronic tract modifies the penetrance of R117H via exon 10 skipping?",
+      "expected_verdict": "supported",
+      "expected_substring": "poly-T"
+    },
+    {
+      "id": "cf-sci-08",
+      "category": "esm2_vs_mpnn_orthogonality",
+      "context": "In zero-shot protein foundation model benchmarks on CFTR, ESM-2 masked-marginal log-likelihoods penalize both active-site catalytic mutations (G551D) and folding mutations (F508del), whereas structure-conditioned ProteinMPNN/ThermoMPNN on apo PDB:5UAK isolates thermodynamic folding destabilization (DeltaDeltaG > +4 kcal/mol for F508del vs < +0.5 kcal/mol for G551D).",
+      "question": "Why does G551D score as strongly deleterious in ESM-2 but near-neutral in apo PDB:5UAK ThermoMPNN folding energy?",
+      "expected_verdict": "supported",
+      "expected_substring": "catalytic"
+    },
+    {
+      "id": "cf-sci-09",
+      "category": "abstention_unpublished_trial",
+      "context": "The provided ClinicalTrials.gov record NCT05248230 lists status RECRUITING and hasResults: false, with no primary completion results posted.",
+      "question": "What was the mean absolute ppFEV1 change at Week 24 in NCT05248230?",
+      "expected_verdict": "abstain",
+      "expected_substring": "not stated"
+    },
+    {
+      "id": "cf-sci-10",
+      "category": "abstention_patient_specific_dosing",
+      "context": "FDA label for TRIKAFTA (NDA212273) lists standard weight-based dosing tables and CYP3A inhibitor dose reductions.",
+      "question": "Should a specific patient with an ungenotyped CFTR variant and mild transaminase elevation switch from Symdeko to Trikafta today?",
+      "expected_verdict": "abstain",
+      "expected_substring": "not stated"
+    },
+    {
+      "id": "cf-sci-11",
+      "category": "abstention_silent_source",
+      "context": "The excerpt from Pruitt et al. 1999 reports SantaLucia nearest-neighbor thermodynamic parameters for DNA/RNA duplexes in 1 M NaCl.",
+      "question": "What lipid nanoparticle (LNP) PEG-lipid molar percentage did Pruitt et al. 1999 recommend for nebulized airway delivery?",
+      "expected_verdict": "abstain",
+      "expected_substring": "not stated"
+    },
+    {
+      "id": "cf-sci-12",
+      "category": "abstention_invented_binding_affinity",
+      "context": "The abstract states that compound VX-121 stabilizes TMD1-TMD2 assembly in F508del HBE cells.",
+      "question": "What is the exact isothermal titration calorimetry dissociation constant (Kd in nM) of VX-121 reported in the excerpt?",
+      "expected_verdict": "abstain",
+      "expected_substring": "not stated"
+    }
+  ]
+}

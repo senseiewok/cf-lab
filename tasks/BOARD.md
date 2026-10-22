@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-267 tasks, 266 created by a model, 145 with a measured outcome. Estimated effort 699.35 to 1297.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+269 tasks, 268 created by a model, 150 with a measured outcome. Estimated effort 704.35 to 1305.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (26)
+## ready (23)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,12 +18,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0264 | P1 | CFTR RefSeq (NM_000492.4) Full Coding Sequence & Intronic Splice-Flank Verifier + Arbitrary-Allele gRNA/pegRNA/ASO/CpG Scanner (tools/discovery/cftr_sequence_scanner.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
-| T-0265 | P1 | Open-Source Protein & Genomic Science Model Benchmark & Zero-Shot CFTR Mutational Landscape Evaluator (ESM-2 / ThermoMPNN / Evo-2 vs Mechanistic Models in tools/discovery/science_model_benchmark.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
+| T-0268 | P1 | Interactive CFTR Sequence-Window & Open-Source Foundation Model Explorer Showcase on senseiewok.ai | cf-lab | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
+| T-0269 | P1 | Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0263 | P1 | Interactive Apical Purinergic P2Y2R-Ca2+ Signal Transduction & Dual ENaC-TMEM16A Ion Equilibrium Simulator on /cf/tree/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
-| T-0266 | P1 | Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding | cf-lab | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0256 | P1 | Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -31,7 +29,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
-| T-0267 | P2 | Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py | cf-skills | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0253 | P2 | CF Airway Mucus Micro-Rheology & Polymer Cross-Linking Cleavage Kinetics Under Dornase Alfa (rhDNase) and Thiol-Reducing Mucolytics (tools/discovery/mucus_cleavage_kinetics.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
@@ -41,7 +38,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (227)
+## done (232)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -72,6 +69,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0122 | P1 | Decide whether the Evidence page's mistake count includes the second ledger file | .ai | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-10 | routine | low | local |  |  |
 | T-0225 | P1 | Automated worktree harvest & duplicate-PR preflight guard (tasks/check_worktree_drift.py) integrated into pick_bold_task.py and security sentinel | cf-lab | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0257 | P1 | Interactive Global Registry Variant Theratyping & Diagnostic Sweat Chloride / Nasal Potential Difference (NPD) Disparity Explorer on /cf/registries/ with es-MX parity | .ai | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0168 | work/sentinel-showcase-t-0257 |
+| T-0266 | P1 | Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding | cf-lab | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0181 | P1 | Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py) | .ai | 1.5-3 | 4 | 17.8 | yes | model: claude-3-opus | 2026-10-17 | elevated | low | local | T-0180 |  |
 | T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | yes | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |  |
 | T-0167 | P1 | Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification | .ai | 2-4 | 5 | 16.7 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud |  |  |
@@ -84,6 +82,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0249 | P1 | Interactive Epithelial Sodium Channel (ENaC) Proteolytic Cleavage (Alpha/Gamma Tract Release) & Dual-Target ASL Rehydration Explorer on /cf/tree/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-4-argon | 2026-10-20 | elevated | medium | local | T-0245 |  |
 | T-0250 | P1 | Interactive CFTR NBD1 Thermal Denaturation Landscape (Delta Tm) & ICL4 Allosteric Coupling Explorer on /cf/cftr/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0259 | P1 | Multi-Family Discovery Council Dynamic Module Registry (discovery_council.py) & AH-5 Unregistered Model Guardrail in check_anti_hallucination.py | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
+| T-0264 | P1 | CFTR RefSeq (NM_000492.4) Full Coding Sequence & Intronic Splice-Flank Verifier + Arbitrary-Allele gRNA/pegRNA/ASO/CpG Scanner (tools/discovery/cftr_sequence_scanner.py) | cf-research | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
+| T-0265 | P1 | Open-Source Protein & Genomic Science Model Benchmark & Zero-Shot CFTR Mutational Landscape Evaluator (ESM-2 / ThermoMPNN / Evo-2 vs Mechanistic Models in tools/discovery/science_model_benchmark.py) | cf-research | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0193 | P1 | Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0205 | P1 | Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py) | cf-lab | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0258 | P1 | Interactive Splice-Switching ASO Steric-Blocking & Cryptic Pseudoexon Rescue Explorer (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) on /cf/ptc/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0254 |  |
@@ -111,6 +111,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0214 | P1 | Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0228 | P1 | Mechano-acoustic mucus conditioning, PIEZO1/TMEM16A ASL hydration, and EV/nanoparticle delivery flux model (tools/discovery/mechano_acoustic_delivery.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-19 | elevated | high | frontier | T-0220 |  |
 | T-0254 | P1 | Splice-Switching Antisense Oligonucleotide (ASO) Steric-Blocking Kinetics & Cryptic Pseudoexon Competition Model (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) (tools/discovery/aso_splice_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
+| T-0256 | P1 | Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0240 | P1 | TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
@@ -189,6 +190,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0104 | P2 | Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US | cf-skills | 1-3 | 4 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | local |  |  |
 | T-0116 | P2 | Pin the third-party skills by hash | cf-lab | 1-2 | 3 | 20 | no | model: claude-opus-5-5 | 2026-10-09 | elevated | low | local |  |  |
 | T-0139 | P2 | Server steps only a person can do: X-Robots-Tag for the atlas and a 301 for /letter/ | .ai | 1-2 | 3 | 20 | yes | model: claude-sonnet-5-5 | 2026-10-12 | full | low |  |  |  |
+| T-0267 | P2 | Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py | cf-skills | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0008 | P2 | Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256) | cf-research | 2-3 | 4 | 16 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | cloud | T-0005 |  |
 | T-0112 | P2 | A merge check: catch commits a squash merge dropped | cf-lab | 2-3 | 4 | 16 | yes | model: claude-opus-5-5 | 2026-10-09 | routine | low | local |  | work/frontier-lab-unbinding |
 | T-0012 | P2 | Unit tests for tools/sources/fetch_sources.py | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
@@ -556,6 +558,16 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Shipped in senseiewok/.ai#141: Interactive Global Registry Variant Theratyping & Diagnostic Sweat Chloride / Nasal Potential Difference (NPD) Disparity Explorer on /cf/registries/ with full Mexican Spanish (es-MX) translation parity. Acceptance suite (sync_chrome, check_anti_hallucination, test_registry_equity_explorer, test_site.StaticTests) passed.
 - **Measured:** 2.75 h; Shipped in senseiewok/.ai#141 with full Mexican Spanish (es-MX) parity, CSP compliance, and 57 unit tests PASS.
 
+### T-0266 Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding
+
+- **Why / ROI rationale:**  *(confidence: )*
+- **Route:** local - PowerShell review-diff.ps1 enhancement, unit tests in test-review-diff.ps1, and biomedical model-onboarding benchmark fixtures.
+- **Acceptance:** pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/test-review-diff.ps1; python tasks/check-skill-frontmatter.py
+- **Evidence:** .claude/skills/ai-loop-council/scripts/review-diff.ps1; .claude/skills/model-gemma4-31b/SKILL.md; .claude/skills/model-onboarding/SKILL.md; ClinicalTrials.gov:NCT05668741; PDB:8EIQ; DOI:10.1056/NEJMoa1908639
+- **Spec:** `tasks/specs/T-0266.md`
+- **Notes:** Completed in senseiewok/cf-lab#213. Added optional second-family local challenger (-ChallengerModel / -ChallengerProfileFile) to .claude/skills/ai-loop-council/scripts/review-diff.ps1 with unit test in test-review-diff.ps1 (64/64 passed), plus 12-case CF science grounding benchmark (.claude/skills/model-onboarding/fixtures/cf-science-grounding-cases.json) and TxGemma/ESM-2/ProteinMPNN onboarding notes.
+- **Measured:**  h; 
+
 ### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
 
 - **Why / ROI rationale:** Guarantees that public website visualizations never display unverified, modified, or out-of-sync simulation datasets by enforcing SHA-256 cryptographic parity against cf-research canonical outputs. *(confidence: high)*
@@ -664,21 +676,41 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 ### T-0264 CFTR RefSeq (NM_000492.4) Full Coding Sequence & Intronic Splice-Flank Verifier + Arbitrary-Allele gRNA/pegRNA/ASO/CpG Scanner (tools/discovery/cftr_sequence_scanner.py)
 
-- **Why / ROI rationale:** Equips the lab for arbitrary-allele DNA/RNA therapeutic design across the 4,443-bp CFTR coding sequence and intronic splice junctions (PAM/bystander scanning, ASO walk Tm/hairpin scoring, and CpG/codon-harmony auditing). *(confidence: high)*
+- **Why / ROI rationale:**  *(confidence: )*
 - **Route:** local - Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.
 - **Acceptance:** pytest tools/discovery/test_cftr_sequence_scanner.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/base_editing_cftr.py; cf-research/tools/discovery/prime_editing_cftr.py; cf-research/tools/discovery/aso_splice_kinetics.py; ClinicalTrials.gov:NCT05248230; ClinicalTrials.gov:NCT05668741; PDB:5UAK; PDB:6MSM; PDB:8EIQ; DOI:10.1038/s41586-020-2477-4; DOI:10.1038/s41587-020-0458-4
 - **Spec:** `tasks/specs/T-0264.md`
-- **Notes:** Track A DNA/RNA Discovery Engine. Generalizes base editing, prime editing, ASO splice-switching, and CpG-depleted minicircle analysis to arbitrary CFTR alleles.
+- **Notes:** Completed in senseiewok/cf-research#117. Implemented tools/discovery/cftr_sequence_scanner.py & test_cftr_sequence_scanner.py (12/12 unit tests passing, AH-1..AH-5 PASS): scans arbitrary CFTR RefSeq (NM_000492.4) alleles for SpCas9/SpG/SpRY PAMs, ABE8e bystander risks, SantaLucia 1998 nearest-neighbor Tm intronic ASO walks (3849+10kbC>T), and TLR9 CpG/codon-harmony.
+- **Measured:**  h; 
 
 ### T-0265 Open-Source Protein & Genomic Science Model Benchmark & Zero-Shot CFTR Mutational Landscape Evaluator (ESM-2 / ThermoMPNN / Evo-2 vs Mechanistic Models in tools/discovery/science_model_benchmark.py)
 
-- **Why / ROI rationale:** Cross-verifies open-weights biological foundation models (ESM-2 masked marginals, ProteinMPNN/ThermoMPNN ddG, Evo-2 intronic splice scores) against our mechanistic CFTR gating and ERAD thermodynamic models. *(confidence: high)*
+- **Why / ROI rationale:**  *(confidence: )*
 - **Route:** local - Deterministic zero-shot log-likelihood and structure-conditioned ddG calibration benchmark with offline unit tests.
 - **Acceptance:** pytest tools/discovery/test_science_model_benchmark.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/nbd1_thermodynamics.py; cf-research/tools/discovery/ptc_cryoem_allostery.py; ClinicalTrials.gov:NCT04684641; PDB:5UAK; PDB:6MSM; PDB:8EIQ; DOI:10.1126/science.ade2574; DOI:10.1126/science.add2187
 - **Spec:** `tasks/specs/T-0265.md`
-- **Notes:** Track A Science Foundation Model Integration. Benchmarks zero-shot protein/DNA language model scores on canonical CFTR variants and base/tRNA editing substitutions.
+- **Notes:** Completed in senseiewok/cf-research#117. Implemented tools/discovery/science_model_benchmark.py & test_science_model_benchmark.py (9/9 unit tests passing, AH-1..AH-5 PASS): benchmarks zero-shot ESM-2 (esm2_t33_650M_UR50D) vs ProteinMPNN/ThermoMPNN on PDB:5UAK/6MSM/8EIQ and Evo-2 splice scoring, disentangling G551D gating arrest from F508del/N1303K folding destabilization (Spearman rho >= 0.95).
+- **Measured:**  h; 
+
+### T-0268 Interactive CFTR Sequence-Window & Open-Source Foundation Model Explorer Showcase on senseiewok.ai
+
+- **Why / ROI rationale:**  *(confidence: )*
+- **Route:** local - Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.
+- **Acceptance:** python -m unittest tests.test_site tests.test_resources_page
+- **Evidence:** T-0264 (tools/discovery/cftr_sequence_scanner.py) and T-0265 (tools/discovery/science_model_benchmark.py) in senseiewok/cf-research#117 Pruitt KD et al. (2014) RefSeq NM_000492.4 (PMID:24259432) Lin Z et al. (2023) ESM-2 protein language model (PMID:36927031) Dauparas J et al. (2022) ProteinMPNN structure-conditioned design (PMID:36108050) Fiedorczuk K & Chen J (2022) Cryo-EM structure of ETI-bound CFTR PDB:8EIQ (PMID:36227992)
+- **Spec:** `tasks/specs/T-0268.md`
+- **Notes:** Wave 14 Track B Bilingual Web Showcase. Translates T-0264 & T-0265 into bilingual EN/ES interactive visualization cards on senseiewok.ai.
+
+### T-0269 Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py)
+
+- **Why / ROI rationale:**  *(confidence: )*
+- **Route:** local - Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.
+- **Acceptance:** python -m pytest tools/discovery/test_intronic_splice_foundation.py -v
+- **Evidence:** Jaganathan K et al. (2019) Predicting Splicing from Primary Sequence with Deep Learning (SpliceAI, PMID:30661751) Oren YS et al. (2022) Antisense oligonucleotide splicing modulation for 3849+10kb C->T (PMID:34972643) Brixi G et al. (2025) Genome modeling and design across all domains of life with Evo 2 (DOI:10.1101/2025.02.18.638918)
+- **Spec:** `tasks/specs/T-0269.md`
+- **Notes:** Wave 14 Track A Curative Biophysics & DNA/RNA Splice Discovery. Extends T-0264 and T-0265 across high-frequency Class V deep-intronic CFTR mutations.
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
@@ -730,15 +762,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_enac_tmem16a_equilibrium_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/enac_tmem16a_equilibrium.py; ClinicalTrials.gov:NCT00055276; ClinicalTrials.gov:NCT00049023; PDB:7L1V; PDB:6UJJ; PDB:6B4E; DOI:10.1165/rcmb.2007-0097OC; DOI:10.1172/JCI118742
 - **Notes:** Wave 14 Track A Public Showcase Translation. Connects completed T-0252 ENaC-TMEM16A equilibrium model to /cf/tree/.
-
-### T-0266 Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding
-
-- **Why / ROI rationale:** Replenishes the security/tooling lane while enabling orthogonal local dual-family diff review (Qwen 3.8 + Gemma 4 31B) and standardized onboarding benchmarks for open-source biomedical LLMs (TxGemma). *(confidence: high)*
-- **Route:** local - PowerShell review-diff.ps1 enhancement, unit tests in test-review-diff.ps1, and biomedical model-onboarding benchmark fixtures.
-- **Acceptance:** pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/test-review-diff.ps1; python tasks/check-skill-frontmatter.py
-- **Evidence:** .claude/skills/ai-loop-council/scripts/review-diff.ps1; .claude/skills/model-gemma4-31b/SKILL.md; .claude/skills/model-onboarding/SKILL.md; ClinicalTrials.gov:NCT05668741; PDB:8EIQ; DOI:10.1056/NEJMoa1908639
-- **Spec:** `tasks/specs/T-0266.md`
-- **Notes:** Security & AI Loop Council technology upgrade. Adds optional second-family local challenger to review-diff.ps1 and TxGemma scientific grounding benchmark fixtures.
 
 ### T-0188 Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure
 
@@ -960,7 +983,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Coupled electrochemical and Henderson-Hasselbalch ASL pH buffering model comparing transient Ca2+-activated TMEM16A (ANO1) secretion with constitutive SLC26A9 basal Cl-/HCO3- transport in CFTR-null epithelia.
 - **Acceptance:** pytest tools/discovery/test_slc26a9_tmem16a_bypass.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00846781; ClinicalTrials.gov:NCT04375514; PDB:7CH1; PDB:5OYB; DOI:10.1038/s41467-019-11866-7; DOI:10.1172/JCI38662; DOI:10.1183/13993003.02116-2019
-- **Notes:** Wave 13 Track A Curative Biophysics. Extends T-0252 by incorporating cryo-EM structure-grounded SLC26A9 (PDB: 7CH1) constitutive conductance and PDZ/STAS domain trafficking.
+- **Notes:** Completed in senseiewok/cf-research#116. Implemented Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) with 8/8 unit tests passing (test_slc26a9_tmem16a_bypass.py) and check_anti_hallucination.py passing (AH-1 to AH-5 100% pass).
+- **Measured:** 4 h; 
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
@@ -1696,6 +1720,16 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. Human-only: the maintainer hand-places this file; an agent must not. 2026-10-14: Marked done. Verified live on production server.
 - **Measured:** 1 h; Server rules deployed on production senseiewok.ai: 301 redirects and strict CSP active.
 
+### T-0267 Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py
+
+- **Why / ROI rationale:**  *(confidence: )*
+- **Route:** local - Self-contained Python CLI enhancement and unit tests in cf-skills.
+- **Acceptance:** python scripts/check_repo.py; python scripts/pin_catalog.py --check; python -m unittest discover tests
+- **Evidence:** cf-research/sources/catalog.yaml; ClinicalTrials.gov:NCT05248230; PDB:6MSM; PDB:8EIQ; DOI:10.1056/NEJMoa1908639
+- **Spec:** `tasks/specs/T-0267.md`
+- **Notes:** Completed in senseiewok/cf-skills#38. Added _check_catalog_lock() to scripts/check_repo.py (with unit test in tests/test_check_repo.py, 195/195 passed) and portable CFTR RefSeq (NM_000492.4) exon & UniProt (P13569) structural domain lookup (.claude/skills/cf-evidence-loop/scripts/evidence/cftr_context.py) wired into brief variant (21/21 pytest passed).
+- **Measured:**  h; 
+
 ### T-0008 Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256)
 
 - **Why / ROI rationale:** Everything downstream (extraction, harness, fixture) encodes the schema; changing it later multiplies cost. *(confidence: medium)*
@@ -1783,15 +1817,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0226.md`
 - **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). 2026-10-18 daily-security-sentinel: Completed. Implemented tasks/test_svg_freeze_contract.py, updated skills and check-all.ps1. Acceptance passed (13 tests in 0.04s).
 - **Measured:** 2 h; Implemented tasks/test_svg_freeze_contract.py, updated svg-animation, webgl-threejs-graphics, modern-web-standards skills and check-all.ps1.
-
-### T-0267 Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py
-
-- **Why / ROI rationale:** Enriches cf-evidence-loop brief variant output with verified UniProt P13569 structural domain and RefSeq NM_000492.4 exon metadata while enforcing catalog.lock.json verification inside check_repo.py. *(confidence: high)*
-- **Route:** local - Self-contained Python CLI enhancement and unit tests in cf-skills.
-- **Acceptance:** python scripts/check_repo.py; python scripts/pin_catalog.py --check; python -m unittest discover tests
-- **Evidence:** cf-research/sources/catalog.yaml; ClinicalTrials.gov:NCT05248230; PDB:6MSM; PDB:8EIQ; DOI:10.1056/NEJMoa1908639
-- **Spec:** `tasks/specs/T-0267.md`
-- **Notes:** Public cf-skills improvement. Integrates pin_catalog.check() into check_repo.py and adds deterministic CFTR exon/domain context to cf-evidence-loop.
 
 ### T-0081 Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public
 
