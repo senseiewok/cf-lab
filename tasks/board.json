@@ -12933,7 +12933,7 @@
       "title": "Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) Adenine Base Editing (ABE8e) & Prime Editing (PE3) PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -12970,7 +12970,8 @@
         "composite_score": 7.52,
         "roi_ratio": 1.77
       },
-      "notes": "Wave 13 Track A Curative Biophysics. Models ABE8e activity window (positions 4-8) vs PE3 reverse-transcriptase extension across canonical Class I CFTR stop alleles."
+      "notes": "Completed in senseiewok/cf-research#114. Implemented Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) ABE8e & PE3 PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py) with 10/10 unit tests passing (test_class1_prime_base_editing.py) and check_anti_hallucination.py passing (AH-1 to AH-5 100% pass).",
+      "actual_hours": 4.25
     },
     {
       "id": "T-0256",

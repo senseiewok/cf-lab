@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (23)
+## ready (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -21,7 +21,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0262 | P1 | Interactive Alveolar Macrophage Efferocytosis & Neutrophil Extracellular Trap (NET) Degradation Kinetics Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0251 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0256 | P1 | Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
-| T-0255 | P1 | Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) Adenine Base Editing (ABE8e) & Prime Editing (PE3) PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -38,7 +37,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (224)
+## done (226)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -114,6 +113,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0246 | P1 | Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics (tools/discovery/phage_omko1_tradeoff.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
 | T-0251 | P1 | Alveolar & Airway Macrophage Efferocytosis Impairment & Neutrophil Extracellular Trap (NET) Degradation Kinetics in CF Airways (tools/discovery/macrophage_efferocytosis_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0252 | P1 | Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Purinergic (P2Y2R-Ca2+) Fluid Homeostasis Model (tools/discovery/enac_tmem16a_equilibrium.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
+| T-0255 | P1 | Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) Adenine Base Editing (ABE8e) & Prime Editing (PE3) PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0187 | P1 | Interactive Splice-Switching ASO & Class V Pseudoexon Explorer panel on /cf/ptc/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0183 |  |
@@ -988,7 +988,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Quantitative sequence-window accessibility, bystander A-to-G deamination probability, pegRNA PBS/RTT folding free energy, and KRT5+/TP63+ airway basal stem cell LNP/RNP transduction modeling.
 - **Acceptance:** pytest tools/discovery/test_class1_prime_base_editing.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT05228836; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT06237335; PDB:6VPC; PDB:7Z4L; DOI:10.1038/s41587-020-0453-z; DOI:10.1038/s41586-019-1711-4; DOI:10.1038/s41551-024-01233-z
-- **Notes:** Wave 13 Track A Curative Biophysics. Models ABE8e activity window (positions 4-8) vs PE3 reverse-transcriptase extension across canonical Class I CFTR stop alleles.
+- **Notes:** Completed in senseiewok/cf-research#114. Implemented Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) ABE8e & PE3 PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py) with 10/10 unit tests passing (test_class1_prime_base_editing.py) and check_anti_hallucination.py passing (AH-1 to AH-5 100% pass).
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
