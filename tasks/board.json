@@ -14152,7 +14152,7 @@
       "title": "Interactive CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Simulator on /cf/cftr/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14169,7 +14169,7 @@
         "high": 4.5
       },
       "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_gating_potentiator_explorer tests.test_site.StaticTests",
-      "notes": "Wave 16 Showcase Replenishment. Interactive allosteric cooperativity and energetic coupling between dual potentiator sites on /cf/cftr/ with es-MX parity.",
+      "notes": "Delivered and verified in senseiewok/.ai#153. Mounts #gating-potentiator-explorer on /cf/cftr/ with full es-MX parity, biophysical allosteric cooperativity and free-energy coupling formulas, accessible SVG, strict CSP, and comprehensive unit tests.",
       "spec_path": "tasks/specs/T-0280.md",
       "roi": {
         "benefit": 5,
@@ -14183,13 +14183,16 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.12,
-        "roi_ratio": 2.03
+        "roi_ratio": 2.03,
+        "measured": 3.25
       },
       "recommended_route": "local",
       "route_rationale": "Interactive allosteric cooperativity and free-energy coupling simulator on /cf/cftr/ with es-MX parity.",
       "source_evidence": "cf-research/tools/discovery/gating_potentiator_energy_coupling.py; DOI:10.1073/pnas.0904709106; DOI:10.1016/j.cell.2019.03.049; ClinicalTrials.gov:NCT00909532",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 3.25
     },
     {
       "id": "T-0281",
@@ -14472,6 +14475,262 @@
       "spec_path": "tasks/specs/T-0286.md",
       "completed_at": "2026-10-22",
       "actual_hours": 2.0
+    },
+    {
+      "id": "T-0287",
+      "title": "Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0281"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_pdi_redox_explorer tests.test_site.StaticTests",
+      "notes": "Wave 17 Showcase Replenishment. Interactive redox remodeling simulation of CFTR transmembrane S-nitrosylation and PDI chaperone activity on /cf/cftr/ with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0287.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Simulates redox-dependent CFTR conformational stability and allosteric potentiator synergy.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.12,
+        "roi_ratio": 2.19
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive biophysical redox explorer on /cf/cftr/ with es-MX parity.",
+      "source_evidence": "cf-research/tools/discovery/pdi_redox_remodeling.py; PDB 8EIQ; DOI:10.1016/j.cell.2021.02.012; DOI:10.1074/jbc.M113.456897",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0288",
+      "title": "Interactive Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0285"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_lnp_escape_dynamics_explorer tests.test_site.StaticTests",
+      "notes": "Wave 17 Showcase Replenishment. Interactive multi-stage simulation of ionizable lipid protonation, endosomal membrane pore rupture, and cytosolic mRNA release dynamics on /cf/delivery/ with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0288.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models the multi-barrier bottleneck of LNP endosomal escape and cytosolic mRNA uncoating in human airway basal stem cells.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.21
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive biophysical delivery simulator on /cf/delivery/ with es-MX parity.",
+      "source_evidence": "cf-research/tools/discovery/lnp_escape_dynamics.py; DOI:10.1038/nbt.3298; DOI:10.1038/nbt.1602; ClinicalTrials.gov:NCT05668741",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0289",
+      "title": "Automated Cross-Repo Agent Subprocess Argument Injection Guard & Shell Invariant Linter (tasks/check_subprocess_injection_guard.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_subprocess_injection_guard; python tasks/check_subprocess_injection_guard.py --check",
+      "notes": "Wave 18 Security Lane Replenishment. Enforces subprocess argument safety, list format, shell=False, finite timeouts, and parameter regex validation across all repos.",
+      "spec_path": "tasks/specs/T-0289.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Hardens autonomous agent scripting against command and argument injection across all multi-repo tool invocations.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 7.35,
+        "roi_ratio": 2.7
+      },
+      "recommended_route": "local",
+      "route_rationale": "Security automation tool in cf-lab with high integrity standards.",
+      "source_evidence": "CWE-78; CWE-88; OWASP Top 10:2025 A03; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0290",
+      "title": "Automated Multi-Repo Git Tag Cryptographic Integrity & Release Artifact Linter (tasks/check_git_release_integrity.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_release_integrity; python tasks/check_git_release_integrity.py --check",
+      "notes": "Wave 18 Security Lane Replenishment. Audits multi-repo git release tags, semantic versioning parity against VERSION files, and release manifest secrets exclusion.",
+      "spec_path": "tasks/specs/T-0290.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees release artifact cleanliness and tag integrity across all four public/private repositories.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 7.35,
+        "roi_ratio": 2.7
+      },
+      "recommended_route": "local",
+      "route_rationale": "Release security verification tool in cf-lab.",
+      "source_evidence": "cf-lab/VERSION; .claude/skills/lab-versioning/SKILL.md; .claude/skills/security-git/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0291",
+      "title": "Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Enzymatic Sialidase Permeabilization Model (tools/discovery/glycocalyx_permeabilization_model.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "pytest tools/discovery/test_glycocalyx_permeabilization_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "notes": "Wave 18 Research Lane Replenishment. Simulates periciliary glycocalyx polymer brush steric exclusion of nanoparticles and enzymatic sialidase/heparinase permeabilization kinetics.",
+      "spec_path": "tasks/specs/T-0291.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models the periciliary brush barrier to inhaled vector transfection in primary human CF airway epithelia.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.5,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.62,
+        "roi_ratio": 1.9
+      },
+      "recommended_route": "local",
+      "route_rationale": "Biophysical discovery simulation in cf-research.",
+      "source_evidence": "DOI:10.1126/science.1223012; DOI:10.1073/pnas.2003349117; DOI:10.1165/rcmb.2012-0296OC; ClinicalTrials.gov:NCT05668741",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0292",
+      "title": "CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Binding Kinetics & Cryptic Exon Exclusion Model (tools/discovery/u1_snrnp_decoy_kinetics.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "pytest tools/discovery/test_u1_snrnp_decoy_kinetics.py -v; python tools/claims/check_anti_hallucination.py",
+      "notes": "Wave 18 Research Lane Replenishment. Simulates competitive spliceosome thermodynamics and SSO-mediated exclusion of deep-intronic pseudoexons (3849+10kb C->T, 1811+1.6kb A->G).",
+      "spec_path": "tasks/specs/T-0292.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Calculates dose-dependent restoration of full-length functional CFTR mRNA for deep-intronic splicing mutations.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.5,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.62,
+        "roi_ratio": 1.9
+      },
+      "recommended_route": "local",
+      "route_rationale": "Biophysical discovery simulation in cf-research.",
+      "source_evidence": "DOI:10.1093/hmg/ddh247; DOI:10.1016/j.omtn.2020.08.017; DOI:10.1056/NEJM199410133311503; ClinicalTrials.gov:NCT04802876",
+      "executor": "agent",
+      "human_required": false
     }
   ],
   "updated": "2026-10-22"
