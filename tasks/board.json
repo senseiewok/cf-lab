@@ -13661,7 +13661,7 @@
       "title": "CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Model (tools/discovery/gating_potentiator_energy_coupling.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13696,9 +13696,13 @@
           "security_compliance": 2.0
         },
         "composite_score": 6.92,
-        "roi_ratio": 1.63
+        "roi_ratio": 1.63,
+        "measured": 4.25
       },
-      "notes": "Wave 15 Research Discovery Replenishment. Parameterizes two-state MWC allosteric gating and energetic coupling of single vs dual potentiators."
+      "notes": "Completed in senseiewok/cf-research#121. Implemented tools/discovery/gating_potentiator_energy_coupling.py & test_gating_potentiator_energy_coupling.py (20/20 unit tests passing, AH-1..AH-5 PASS): models two-state MWC gating equilibrium, state-dependent free-energy coupling DeltaDeltaG, dual-potentiator cooperativity, and thermodynamic double-mutant cycle analysis across G551D, G1244E, and S549N.",
+      "completed_at": "2026-10-22",
+      "actual_hours": 4.25,
+      "spec_path": "tasks/specs/T-0270.md"
     },
     {
       "id": "T-0271",
