@@ -13976,6 +13976,143 @@
         "roi_ratio": 2.38
       },
       "notes": "Wave 15 Track B Public Showcase Replenishment. Connects T-0272 inhaled mRNA translation velocity model to /cf/delivery/."
+    },
+    {
+      "id": "T-0277",
+      "title": "Automated Multi-Repo Agent Command Quoting Safety & Path Linter (tasks/check_agent_command_safety.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "recommended_route": "local",
+      "route_rationale": "Static regex analysis of PowerShell and Python inline strings, user home paths, and brittle traversal across workspace scripts and skills.",
+      "created_at": "2026-10-22T00:20:00Z",
+      "updated_at": "2026-10-22",
+      "completed_at": "2026-10-22T00:25:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 15 stewardship and safety hardening"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "spec_path": "tasks/specs/T-0277.md",
+      "depends_on": [],
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "actual_hours": 2.0,
+      "source_evidence": ".loop-logs/session-error-digest.json; tasks/audit_session_errors.py; AGENTS.md",
+      "acceptance": "python -m unittest tasks.test_check_agent_command_safety; python tasks/check_agent_command_safety.py --check",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Eliminates syntax quoting hazards and fragile directory navigation traps across agent session prompts and CI scripts.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 4.17,
+        "roi_ratio": 2.08
+      },
+      "notes": "Delivered tasks/check_agent_command_safety.py and tasks/test_check_agent_command_safety.py with 5 passing unit tests."
+    },
+    {
+      "id": "T-0278",
+      "title": "Stale Sentinel Worktree Harvest & Automated Branch Hygiene Daemon (tasks/harvest_sentinel_worktrees.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P2",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Autonomous harvest and cleanup of merged or closed sentinel worktrees across all 4 repos, preventing branch drift and git lock contention.",
+      "created_at": "2026-10-22T00:25:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 15 security lane replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "spec_path": "tasks/specs/T-0278.md",
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "tasks/check_worktree_drift.py; .claude/skills/workspace-siblings/scripts/worktrees.py; tasks/audit_github_hygiene.py; AGENTS.md",
+      "acceptance": "python tasks/harvest_sentinel_worktrees.py --dry-run; python -m unittest tasks.test_harvest_sentinel_worktrees",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Automates cleanup of merged/closed worktrees with zero uncommitted changes, preserving machine disk space and preventing branch sprawl.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 4.17,
+        "roi_ratio": 1.52
+      },
+      "notes": "Wave 15 Security Lane Replenishment. Implements safe dry-run and clean modes with structured logging to .loop-logs/worktree-harvest.jsonl."
+    },
+    {
+      "id": "T-0279",
+      "title": "Automated Sentinel PR Repair & Superseded Branch Cleaner Daemon (tasks/repair_sentinel_prs.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P2",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Automates remediation of repair_queue items from audit_github_hygiene.py, safely closing superseded sentinel PRs and resolving title task mismatches.",
+      "created_at": "2026-10-22T00:25:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 15 security lane replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "spec_path": "tasks/specs/T-0279.md",
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "tasks/audit_github_hygiene.py; tasks/pick_bold_task.py; AGENTS.md",
+      "acceptance": "python -m unittest tasks.test_repair_sentinel_prs; python tasks/repair_sentinel_prs.py --dry-run",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents sentinel lane starvation caused by dirty or conflicting PRs in sentinel watch lanes by automatically remediating the repair queue.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 4.17,
+        "roi_ratio": 1.52
+      },
+      "notes": "Wave 15 Security Lane Replenishment. Delivers automated daemon to execute remediation actions prescribed by audit_github_hygiene.py."
     }
   ],
   "updated": "2026-10-22"
