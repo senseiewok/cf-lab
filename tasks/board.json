@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -12884,7 +12884,8 @@
         "measured": 3.5
       },
       "notes": "Completed in senseiewok/cf-research#118. Implemented tools/discovery/mucus_cleavage_kinetics.py & test_mucus_cleavage_kinetics.py (7/7 unit tests passing, AH-1..AH-5 PASS): models CF sputum interpenetrating eDNA-mucin hydrogel network, rhDNase I endonucleolytic cleavage with G-actin competitive inhibition (PDB 1ATN/1DNK), NAC disulfide reduction, affine rubber elasticity shear modulus G*(omega), King MCI clearability, and AAV/LNP Ogston pore diffusivity.",
-      "actual_hours": 3.5
+      "actual_hours": 3.5,
+      "completed_at": "2026-10-21"
     },
     {
       "id": "T-0254",
@@ -13316,7 +13317,7 @@
       "title": "Interactive Apical Purinergic P2Y2R-Ca2+ Signal Transduction & Dual ENaC-TMEM16A Ion Equilibrium Simulator on /cf/tree/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13350,12 +13351,14 @@
           "clinical_translation": 9.0,
           "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
-          "security_compliance": 2.0
+          "security_compliance": 9.0
         },
-        "composite_score": 7.72,
-        "roi_ratio": 2.81
+        "composite_score": 8.77,
+        "roi_ratio": 3.19
       },
-      "notes": "Wave 14 Track A Public Showcase Translation. Connects completed T-0252 ENaC-TMEM16A equilibrium model to /cf/tree/."
+      "notes": "Wave 14 Track A Public Showcase Translation. Connects completed T-0252 ENaC-TMEM16A equilibrium model to /cf/tree/. Shipped via senseiewok/.ai#145 (verified through elevated gate, 64 unit tests, and Frontier Review Council).",
+      "completed_at": "2026-10-21T19:40:00Z",
+      "actual_hours": 2.75
     },
     {
       "id": "T-0264",
@@ -13390,7 +13393,16 @@
         "benefit": 5,
         "cost_hours_estimate": 2.0,
         "ratio_estimate": 2.5,
-        "measured": 1.5
+        "measured": 1.5,
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 6.62,
+        "roi_ratio": 2.04
       },
       "notes": "Completed in senseiewok/cf-research#117. Implemented tools/discovery/cftr_sequence_scanner.py & test_cftr_sequence_scanner.py (12/12 unit tests passing, AH-1..AH-5 PASS): scans arbitrary CFTR RefSeq (NM_000492.4) alleles for SpCas9/SpG/SpRY PAMs, ABE8e bystander risks, SantaLucia 1998 nearest-neighbor Tm intronic ASO walks (3849+10kbC>T), and TLR9 CpG/codon-harmony.",
       "actual_hours": 1.5
@@ -13428,7 +13440,16 @@
         "benefit": 5,
         "cost_hours_estimate": 2.0,
         "ratio_estimate": 2.5,
-        "measured": 1.5
+        "measured": 1.5,
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.22,
+        "roi_ratio": 2.22
       },
       "notes": "Completed in senseiewok/cf-research#117. Implemented tools/discovery/science_model_benchmark.py & test_science_model_benchmark.py (9/9 unit tests passing, AH-1..AH-5 PASS): benchmarks zero-shot ESM-2 (esm2_t33_650M_UR50D) vs ProteinMPNN/ThermoMPNN on PDB:5UAK/6MSM/8EIQ and Evo-2 splice scoring, disentangling G551D gating arrest from F508del/N1303K folding destabilization (Spearman rho >= 0.95).",
       "actual_hours": 1.5
@@ -13466,7 +13487,16 @@
         "benefit": 5,
         "cost_hours_estimate": 2.0,
         "ratio_estimate": 2.5,
-        "measured": 1.0
+        "measured": 1.0,
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 6.32,
+        "roi_ratio": 2.3
       },
       "notes": "Completed in senseiewok/cf-lab#213. Added optional second-family local challenger (-ChallengerModel / -ChallengerProfileFile) to .claude/skills/ai-loop-council/scripts/review-diff.ps1 with unit test in test-review-diff.ps1 (64/64 passed), plus 12-case CF science grounding benchmark (.claude/skills/model-onboarding/fixtures/cf-science-grounding-cases.json) and TxGemma/ESM-2/ProteinMPNN onboarding notes.",
       "actual_hours": 1.0
@@ -13504,7 +13534,16 @@
         "benefit": 5,
         "cost_hours_estimate": 2.0,
         "ratio_estimate": 2.5,
-        "measured": 1.0
+        "measured": 1.0,
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 6.92,
+        "roi_ratio": 2.52
       },
       "notes": "Completed in senseiewok/cf-skills#38. Added _check_catalog_lock() to scripts/check_repo.py (with unit test in tests/test_check_repo.py, 195/195 passed) and portable CFTR RefSeq (NM_000492.4) exon & UniProt (P13569) structural domain lookup (.claude/skills/cf-evidence-loop/scripts/evidence/cftr_context.py) wired into brief variant (21/21 pytest passed).",
       "actual_hours": 1.0
@@ -13548,7 +13587,16 @@
         "benefit": 5,
         "cost_hours_estimate": 2.0,
         "ratio_estimate": 2.5,
-        "measured": null
+        "measured": null,
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 6.62,
+        "roi_ratio": 2.04
       },
       "notes": "Wave 14 Track B Bilingual Web Showcase. Translates T-0264 & T-0265 into bilingual EN/ES interactive visualization cards on senseiewok.ai."
     },
@@ -13558,7 +13606,7 @@
       "repo": "cf-research",
       "area": "science",
       "status": "done",
-      "priority": "P1",
+      "priority": "P2",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -13589,10 +13637,20 @@
         "benefit": 5,
         "cost_hours_estimate": 2.5,
         "ratio_estimate": 2.0,
-        "measured": 3.0
+        "measured": 3.0,
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 5.37,
+        "roi_ratio": 1.65
       },
       "notes": "Completed in senseiewok/cf-research#118. Implemented tools/discovery/intronic_splice_foundation.py & test_intronic_splice_foundation.py (7/7 unit tests passing, AH-1..AH-5 PASS): models Class V intronic/splice alleles (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G, 3272-26A>G) with SpliceAI/Evo-2 zero-shot delta scores, 2'-MOE/PMO ASO SantaLucia nearest-neighbor thermodynamics, and dose-response canonical transcript rescue crossing 10-15% wild-type curative thresholds.",
-      "actual_hours": 3.0
+      "actual_hours": 3.0,
+      "completed_at": "2026-10-21"
     }
   ],
   "updated": "2026-10-21"
