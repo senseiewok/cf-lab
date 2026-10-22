@@ -21,6 +21,9 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+TASKS_DIR = REPO_ROOT / "tasks"
+if str(TASKS_DIR) not in sys.path:
+    sys.path.insert(0, str(TASKS_DIR))
 LOGS_DIR = REPO_ROOT / ".loop-logs"
 HUMAN_TASKS_PATH = REPO_ROOT / "tasks" / "HUMAN-TASKS.md"
 BOARD_PATH = REPO_ROOT / "tasks" / "board.json"
@@ -475,7 +478,7 @@ def audit_sentinel_backlog_depth(
         tasks = board.get("tasks", []) if isinstance(board, dict) else board
         done_ids = {t.get("id") for t in tasks if isinstance(t, dict) and t.get("status") == "done"}
         human_md = board_path.parent / "HUMAN-TASKS.md"
-        human_ids = triage_board.load_human_task_ids(human_md) if human_md.is_file() else set()
+        human_ids = triage_board.load_human_gated_ids(human_md) if human_md.is_file() else set()
         for t in tasks:
             if not isinstance(t, dict):
                 continue

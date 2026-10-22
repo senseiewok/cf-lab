@@ -381,17 +381,20 @@ SUMMARY 2 worktree(s): 1 removable, 1 kept
     def test_audit_sentinel_backlog_depth_human_exclusion(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             board_file = Path(tmpdir) / "board.json"
+            human_file = Path(tmpdir) / "HUMAN-TASKS.md"
+            human_file.write_text("# Human tasks\n## Active\n- [ ] Task for human (T-0004)\n", encoding="utf-8")
             board_data = {
                 "tasks": [
                     {"id": "T-0001", "status": "ready", "repo": "cf-lab", "area": "security", "executor": "human"},
                     {"id": "T-0002", "status": "ready", "repo": "cf-lab", "area": "security", "human_required": True},
                     {"id": "T-0003", "status": "ready", "repo": "cf-lab", "area": "security", "executor": "model"},
+                    {"id": "T-0004", "status": "ready", "repo": "cf-lab", "area": "security"},
                 ]
             }
             board_file.write_text(json.dumps(board_data), encoding="utf-8")
 
             res = agh.audit_sentinel_backlog_depth(board_file, starvation_threshold=2)
-            self.assertEqual(res["lanes"]["security"]["ready_count"], 3)
+            self.assertEqual(res["lanes"]["security"]["ready_count"], 4)
             self.assertEqual(res["lanes"]["security"]["automated_ready_count"], 1)
             self.assertTrue(res["lanes"]["security"]["starved"])
             self.assertIn("security", res["starved_lanes"])

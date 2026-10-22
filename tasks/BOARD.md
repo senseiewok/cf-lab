@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-281 tasks, 280 created by a model, 159 with a measured outcome. Estimated effort 733.85 to 1356.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+286 tasks, 285 created by a model, 161 with a measured outcome. Estimated effort 745.35 to 1376.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (23)
+## ready (25)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,11 +18,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0261 | P1 | Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0244 |  |
+| T-0282 | P1 | Interactive Inhaled Micro-Aerosol Droplet Evaporation & Hygroscopic Growth Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0228 |  |
+| T-0284 | P1 | Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0278 |  |
+| T-0286 | P1 | Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0283 | P1 | Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0177 |  |
 | T-0280 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0270 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0271 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0244 |  |
-| T-0276 | P1 | Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0272 |  |
+| T-0285 | P1 | Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0239 |  |
 | T-0281 | P1 | CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Remodeling Model (tools/discovery/pdi_redox_remodeling.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -37,7 +40,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (244)
+## done (247)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -90,6 +93,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0205 | P1 | Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py) | cf-lab | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0258 | P1 | Interactive Splice-Switching ASO Steric-Blocking & Cryptic Pseudoexon Rescue Explorer (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) on /cf/ptc/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0254 |  |
 | T-0260 | P1 | Interactive Pseudomonas Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Antibiotic Resensitization Explorer on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0246 |  |
+| T-0261 | P1 | Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0244 |  |
 | T-0262 | P1 | Interactive Alveolar Macrophage Efferocytosis & Neutrophil Extracellular Trap (NET) Degradation Kinetics Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0251 |  |
 | T-0263 | P1 | Interactive Apical Purinergic P2Y2R-Ca2+ Signal Transduction & Dual ENaC-TMEM16A Ion Equilibrium Simulator on /cf/tree/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
 | T-0188 | P1 | Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -117,6 +121,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0254 | P1 | Splice-Switching Antisense Oligonucleotide (ASO) Steric-Blocking Kinetics & Cryptic Pseudoexon Competition Model (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) (tools/discovery/aso_splice_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0256 | P1 | Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
+| T-0276 | P1 | Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0272 |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0240 | P1 | TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local |  |  |
 | T-0245 | P1 | Epithelial Sodium Channel (ENaC) Proteolytic Activation Kinetics & Dual-Target ASL Homeostasis (tools/discovery/enac_proteolysis_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-20 | elevated | medium | local |  |  |
@@ -589,6 +594,33 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Completed in senseiewok/cf-lab#213. Added optional second-family local challenger (-ChallengerModel / -ChallengerProfileFile) to .claude/skills/ai-loop-council/scripts/review-diff.ps1 with unit test in test-review-diff.ps1 (64/64 passed), plus 12-case CF science grounding benchmark (.claude/skills/model-onboarding/fixtures/cf-science-grounding-cases.json) and TxGemma/ESM-2/ProteinMPNN onboarding notes.
 - **Measured:**  h; 
 
+### T-0282 Interactive Inhaled Micro-Aerosol Droplet Evaporation & Hygroscopic Growth Dynamics Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Models droplet evaporation and hygroscopic growth dynamics in humidified CF airways dictating tracheobronchial deposition on /cf/delivery/ with Mexican Spanish parity. *(confidence: high)*
+- **Route:** local - Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).
+- **Acceptance:** python -m unittest tests.test_aerosol_hygroscopic_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py
+- **Evidence:** cf-research/tools/discovery/mechano_acoustic_delivery.py; DOI:10.1016/B978-012256971-5/50004-9; DOI:10.1016/0021-8502(88)90212-0; PMID:2204543; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047
+- **Spec:** `tasks/specs/T-0282.md`
+- **Notes:** Wave 17 Track B Public Showcase Replenishment. Connects T-0228 micro-aerosol biophysics to /cf/delivery/.
+
+### T-0284 Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py)
+
+- **Why / ROI rationale:** Prevents disk bloat and worktree collision across multi-repo sentinel automation with zero data-loss guarantees. *(confidence: high)*
+- **Route:** local - Automated CLI daemon extending harvest_sentinel_worktrees.py to prune fully merged, clean worktrees across workspace repositories under --yes confirmation with strict invariant guards.
+- **Acceptance:** python -m unittest tasks.test_prune_stale_worktrees; python tasks/prune_stale_worktrees.py --dry-run
+- **Evidence:** tasks/harvest_sentinel_worktrees.py; .claude/skills/workspace-siblings/scripts/worktrees.py; AGENTS.md
+- **Spec:** `tasks/specs/T-0284.md`
+- **Notes:** Wave 17 Security Lane Replenishment. Builds on T-0278 worktree harvesting.
+
+### T-0286 Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py)
+
+- **Why / ROI rationale:** Ensures external medical evidence catalog schema validity, robots.txt compliance, and license integrity across sibling repos with zero drift. *(confidence: high)*
+- **Route:** local - Deterministic linter verifying evidence catalog YAML schemas, license compatibility, terms-of-use flags, and cryptographic pin integrity across cf-research and cf-skills.
+- **Acceptance:** python -m unittest tasks.test_check_catalog_schema_lock; python tasks/check_catalog_schema_lock.py --check
+- **Evidence:** cf-research/sources/catalog.yaml; cf-skills/.claude/skills/cf-evidence-loop/catalog.yaml; .claude/skills/security-browsing/SKILL.md; .claude/skills/security-baseline/SKILL.md
+- **Spec:** `tasks/specs/T-0286.md`
+- **Notes:** Wave 17 Security Lane Replenishment. Enforces external source catalog schema lock and license boundaries.
+
 ### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
 
 - **Why / ROI rationale:** Guarantees that public website visualizations never display unverified, modified, or out-of-sync simulation datasets by enforcing SHA-256 cryptographic parity against cf-research canonical outputs. *(confidence: high)*
@@ -735,6 +767,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Completed in senseiewok/.ai#144 and senseiewok/.ai#151. Mounted #enac-tmem16a-explorer on /cf/tree/, validated coupled transepithelial ion transport, Ussing chamber short-circuit current curves, and es-MX parity (4 unit tests passing, AH-1..AH-5 PASS).
 - **Measured:**  h; 
 
+### T-0283 Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Simulates paracellular macromolecule transit and tight junction transient modulation for basal stem cell delivery on /cf/delivery/ with Mexican Spanish parity. *(confidence: high)*
+- **Route:** local - Zero-build native ES module simulating paracellular macromolecule transit and Claudin-1 pore-pathway modeling grounded in tools/discovery/transcytosis_model.py (T-0177).
+- **Acceptance:** python -m unittest tests.test_tight_junction_permeability_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py
+- **Evidence:** cf-research/tools/discovery/transcytosis_model.py; DOI:10.1165/ajrcmb.23.5.4216; DOI:10.1146/annurev.physiol.68.040104.131404; DOI:10.1146/annurev-physiol-012110-142150; ClinicalTrials.gov:NCT00004494
+- **Spec:** `tasks/specs/T-0283.md`
+- **Notes:** Wave 17 Track B Public Showcase Replenishment. Connects T-0177 paracellular epithelial permeability to /cf/delivery/.
+
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
 - **Why / ROI rationale:** Ensures scheduled security and showcase sentinels inspect every canonical route on desktop and mobile during visual audits. *(confidence: high)*
@@ -776,7 +817,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Zero-build native ES module and SVG nanoparticle diffusion simulator modeling pore-size obstruction vs PEG corona shielding grounded in tools/discovery/mpp_obstruction_scaling.py (T-0244).
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mpp_scaling_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/mpp_obstruction_scaling.py; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1073/pnas.0811598106; DOI:10.1002/anie.201407641; ClinicalTrials.gov:NCT00843817
-- **Notes:** Wave 13 Track B Public Showcase Translation. Connects T-0244 mucus-penetrating nanoparticle transport scaling to /cf/delivery/.
+- **Spec:** `tasks/specs/T-0261.md`
+- **Notes:** Completed in senseiewok/.ai#152. Mounted Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ modeling Ogston steric hydrogel mesh filtering, dense PEG brush corona shielding (Gamma/Gamma* >= 2.0), and rhDNase I dornase alfa mucolysis with full es-MX translation parity and unit test suite tests/test_mpp_scaling_explorer.py.
+- **Measured:**  h; 
 
 ### T-0262 Interactive Alveolar Macrophage Efferocytosis & Neutrophil Extracellular Trap (NET) Degradation Kinetics Simulator on /cf/delivery/ with es-MX parity
 
@@ -1042,7 +1085,17 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Biophysical modeling of biomimetic CD47 self-peptide display and dense PEG brush shielding to evade class A scavenger receptor (SR-A/CD204, MARCO) phagocytosis by resident airway macrophages.
 - **Acceptance:** pytest tools/discovery/test_macrophage_evasion_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT05248230; DOI:10.1126/science.1234568; DOI:10.1016/j.addr.2015.09.006; DOI:10.3390/pharmaceutics12040347
+- **Spec:** `tasks/specs/T-0271.md`
 - **Notes:** Wave 15 Research Discovery Replenishment. Parameterizes CD47 peptide surface density threshold to suppress macrophage clearance by >80%.
+
+### T-0285 Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py)
+
+- **Why / ROI rationale:** Quantifies cytosolic intact mRNA bioavailability and uncoating kinetics in airway basal stem cells for long-term genetic persistence. *(confidence: high)*
+- **Route:** local - Quantitative ordinary differential equation model simulating proton sponge buffering, ionizable lipid pKa inversion, and galectin-3 rupture kinetics in primary basal stem cells (KRT5+/TP63+).
+- **Acceptance:** pytest tools/discovery/test_lnp_escape_dynamics.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/tools/discovery/mrna_lnp_escape_model.py; DOI:10.1038/nbt.3298; DOI:10.1038/nbt.2612; DOI:10.1016/j.ymthe.2017.05.013; ClinicalTrials.gov:NCT05668741
+- **Spec:** `tasks/specs/T-0285.md`
+- **Notes:** Wave 17 Research Lane Replenishment. Connects T-0239 endosomal escape kinetics to basal stem cell uncoating dynamics.
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
@@ -1059,7 +1112,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Zero-build native ES module and SVG ribosome translation velocity simulator modeling TASEP dynamics and poly(A) tail length 100-120 nt grounded in tools/discovery/mrna_translation_velocity.py (T-0272).
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_mrna_velocity_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/mrna_translation_velocity.py; DOI:10.1038/mt.2008.200; DOI:10.1016/j.cell.2015.02.029; DOI:10.1038/nature13007; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047
-- **Notes:** Wave 15 Track B Public Showcase Replenishment. Connects T-0272 inhaled mRNA translation velocity model to /cf/delivery/.
+- **Spec:** `tasks/specs/T-0276.md`
+- **Notes:** Completed in senseiewok/.ai#152. Mounted Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ modeling TASEP elongation across 1,480 CFTR codons, 3' poly(A) tail (100-120 nt) deadenylation kinetics, m1Psi stability, and collision-induced NGD prevention with full es-MX translation parity and unit test suite tests/test_mrna_velocity_explorer.py.
+- **Measured:**  h; 
 
 ### T-0190 Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches
 
