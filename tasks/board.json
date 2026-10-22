@@ -13713,7 +13713,7 @@
       "title": "Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13750,10 +13750,13 @@
           "security_compliance": 2.0
         },
         "composite_score": 6.92,
-        "roi_ratio": 1.73
+        "roi_ratio": 1.73,
+        "measured": 4.0
       },
-      "notes": "Wave 15 Research Discovery Replenishment. Parameterizes CD47 peptide surface density threshold to suppress macrophage clearance by >80%.",
-      "spec_path": "tasks/specs/T-0271.md"
+      "notes": "Completed in senseiewok/cf-research#122. Implemented tools/discovery/macrophage_evasion_kinetics.py & test_macrophage_evasion_kinetics.py (10/10 unit tests passing, AH-1..AH-5 PASS): models competitive opsonin adsorption (SP-A/D, C3b) with de Gennes PEG brush shielding, CD47 'Self' peptide SIRP-alpha ligation with Hill kinetics, scavenger receptor uptake velocity (SR-A1, CD36), and mucosal basal stem cell retention.",
+      "spec_path": "tasks/specs/T-0271.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 4.0
     },
     {
       "id": "T-0272",
@@ -14378,7 +14381,7 @@
       "title": "Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14415,10 +14418,13 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.85,
-        "roi_ratio": 1.96
+        "roi_ratio": 1.96,
+        "measured": 4.0
       },
-      "notes": "Wave 17 Research Lane Replenishment. Connects T-0239 endosomal escape kinetics to basal stem cell uncoating dynamics.",
-      "spec_path": "tasks/specs/T-0285.md"
+      "notes": "Completed in senseiewok/cf-research#122. Implemented tools/discovery/lnp_escape_dynamics.py & test_lnp_escape_dynamics.py (11/11 unit tests passing, AH-1..AH-5 PASS): models endosomal acidification, Henderson-Hasselbalch ionizable lipid pKa inversion, H_II phase transition membrane destabilization, galectin-3 (LGALS3) rupture puncta, cytosolic bioavailability (phi_escape = 1-5%), and translation onset half-life.",
+      "spec_path": "tasks/specs/T-0285.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 4.0
     },
     {
       "id": "T-0286",
