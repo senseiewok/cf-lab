@@ -959,7 +959,7 @@
       "repo": "cf-lab",
       "area": "governance",
       "status": "ready",
-      "priority": "P2",
+      "priority": "P3",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
         "kind": "model",
@@ -1881,7 +1881,7 @@
       "repo": "cf-research",
       "area": "governance",
       "status": "in_progress",
-      "priority": "P2",
+      "priority": "P1",
       "created_at": "2026-10-04T21:10:00Z",
       "created_by": {
         "kind": "model",
@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -2281,7 +2281,7 @@
       "repo": "cf-skills",
       "area": "research",
       "status": "ready",
-      "priority": "P2",
+      "priority": "P1",
       "created_at": "2026-10-04T21:55:00Z",
       "created_by": {
         "kind": "model",
@@ -2850,7 +2850,7 @@
       "repo": "cf-lab",
       "area": "tooling",
       "status": "ready",
-      "priority": "P1",
+      "priority": "P3",
       "created_at": "2026-10-04T23:55:00Z",
       "created_by": {
         "kind": "model",
@@ -3967,7 +3967,7 @@
       "repo": "cf-lab",
       "area": "web",
       "status": "ready",
-      "priority": "P1",
+      "priority": "P3",
       "created_at": "2026-10-05T05:09:00Z",
       "created_by": {
         "kind": "model",
@@ -4014,7 +4014,7 @@
       "repo": ".ai",
       "area": "science",
       "status": "ready",
-      "priority": "P2",
+      "priority": "P3",
       "created_at": "2026-10-05T20:55:00Z",
       "created_by": {
         "kind": "model",
@@ -4475,7 +4475,7 @@
       "repo": "cf-lab",
       "area": "delegation",
       "status": "ready",
-      "priority": "P1",
+      "priority": "P3",
       "created_at": "2026-10-06T07:40:00Z",
       "created_by": {
         "kind": "model",
@@ -4781,7 +4781,7 @@
       "repo": "cf-lab",
       "area": "tooling",
       "status": "ready",
-      "priority": "P2",
+      "priority": "P3",
       "created_at": "2026-10-06T21:40:00Z",
       "created_by": {
         "kind": "model",
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -12434,7 +12434,7 @@
       "repo": "cf-research",
       "area": "science",
       "status": "ready",
-      "priority": "P3",
+      "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -12873,14 +12873,14 @@
         "confidence": "high",
         "rationale": "Couples eDNA enzymatic cleavage and mucin thiol reduction with polymer micro-rheology; provides mathematical grounding for the SIMPLIFY trial (NCT06350474) and inhaled NAC trials (NCT00996424), directly resolving the physical hydrogel obstruction that blocks genetic vector diffusion.",
         "categories": {
-          "curative_biophysics": 2.0,
+          "curative_biophysics": 9.5,
           "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 5.27,
-        "roi_ratio": 1.24,
+        "composite_score": 7.52,
+        "roi_ratio": 1.77,
         "measured": 3.5
       },
       "notes": "Completed in senseiewok/cf-research#118. Implemented tools/discovery/mucus_cleavage_kinetics.py & test_mucus_cleavage_kinetics.py (7/7 unit tests passing, AH-1..AH-5 PASS): models CF sputum interpenetrating eDNA-mucin hydrogel network, rhDNase I endonucleolytic cleavage with G-actin competitive inhibition (PDB 1ATN/1DNK), NAC disulfide reduction, affine rubber elasticity shear modulus G*(omega), King MCI clearability, and AAV/LNP Ogston pore diffusivity.",
@@ -13224,7 +13224,7 @@
       "repo": ".ai",
       "area": "content",
       "status": "ready",
-      "priority": "P3",
+      "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -13641,18 +13641,231 @@
         "ratio_estimate": 2.0,
         "measured": 3.0,
         "categories": {
-          "curative_biophysics": 7.5,
+          "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
           "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 5.37,
-        "roi_ratio": 1.65
+        "composite_score": 3.73,
+        "roi_ratio": 1.15
       },
       "notes": "Completed in senseiewok/cf-research#118. Implemented tools/discovery/intronic_splice_foundation.py & test_intronic_splice_foundation.py (7/7 unit tests passing, AH-1..AH-5 PASS): models Class V intronic/splice alleles (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G, 3272-26A>G) with SpliceAI/Evo-2 zero-shot delta scores, 2'-MOE/PMO ASO SantaLucia nearest-neighbor thermodynamics, and dose-response canonical transcript rescue crossing 10-15% wild-type curative thresholds.",
       "actual_hours": 3.0,
       "completed_at": "2026-10-21"
+    },
+    {
+      "id": "T-0270",
+      "title": "Interactive Deep-Intronic Splice-Switching & SpliceAI / Evo-2 Cryptic Pseudoexon Rescue Explorer on /cf/ptc/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG splice-switching explorer modeling cryptic pseudoexon exclusion, SpliceAI/Evo-2 delta scores, and 2'-MOE/PMO dose-response curves grounded in intronic_splice_foundation.py (T-0269).",
+      "created_at": "2026-10-22T00:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon Pro & Opus Frontier Review Council",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Wave 15 Task Board & Showcase Replenishment 2026-10-22"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0269"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "spec_path": "tasks/specs/T-0270.md",
+      "source_evidence": [
+        "cf-research/tools/discovery/intronic_splice_foundation.py",
+        "Jaganathan K et al. (2019) SpliceAI PMID:30661751",
+        "Oren YS et al. (2022) 3849+10kbC->T ASO PMID:34972643",
+        "Brixi G et al. (2025) Evo 2 DOI:10.1101/2025.02.18.638918",
+        "Ramalho AS et al. (2002) 5% normal CFTR mRNA threshold PMID:12217949"
+      ],
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site tests.test_resources_page",
+      "roi": {
+        "benefit": 5,
+        "cost_hours_estimate": 2.0,
+        "ratio_estimate": 2.5,
+        "measured": null,
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.38
+      },
+      "notes": "Wave 15 Track B Public Showcase Translation. Connects T-0269 deep-intronic cryptic exon benchmark to /cf/ptc/ with Mexican Spanish parity."
+    },
+    {
+      "id": "T-0271",
+      "title": "Interactive Airway Mucus Hydrogel Cleavage & Gene Therapy Vector (AAV/LNP) Permeability Simulator on /cf/delivery/ with es-MX parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG mucus hydrogel cleavage simulator modeling rhDNase endonucleolytic cleavage, actin inhibition, thiol-reducing kinetics, and De Gennes vector pore permeation grounded in mucus_cleavage_kinetics.py (T-0253).",
+      "created_at": "2026-10-22T00:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon Pro & Opus Frontier Review Council",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Wave 15 Task Board & Showcase Replenishment 2026-10-22"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0253"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "spec_path": "tasks/specs/T-0271.md",
+      "source_evidence": [
+        "cf-research/tools/discovery/mucus_cleavage_kinetics.py",
+        "Ulmer JS et al. (1993) PNAS 90(24):11508 PMID:8265584",
+        "King M et al. (1997) Am J Respir Crit Care Med 156(1):173 PMID:9230744",
+        "Dawson M et al. (2003) J Biol Chem 278(50):50393 PMID:14514681",
+        "Suk JS et al. (2016) Adv Drug Deliv Rev 99:28 PMID:26070446",
+        "PDB:1ATN",
+        "PDB:1DNK",
+        "PDB:4AWN"
+      ],
+      "acceptance": "python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site tests.test_resources_page",
+      "roi": {
+        "benefit": 5,
+        "cost_hours_estimate": 2.0,
+        "ratio_estimate": 2.5,
+        "measured": null,
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.12,
+        "roi_ratio": 2.19
+      },
+      "notes": "Wave 15 Track B Public Showcase Translation. Connects T-0253 mucus cleavage and polymer micro-rheology biophysics to /cf/delivery/ with Mexican Spanish parity."
+    },
+    {
+      "id": "T-0272",
+      "title": "Automated Multi-Repo Agent Command Quoting Safety & Path Linter (tasks/check_agent_command_safety.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic static analysis tool and test suite validating that agent tool invocation scripts, run_command wrappers, and PowerShell scriptblocks avoid fragile nested quoting and dynamically resolve workspace sibling paths.",
+      "created_at": "2026-10-22T00:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Forensic error mitigation and security steward session 2026-10-22"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 1.5,
+        "high": 3.0
+      },
+      "spec_path": "tasks/specs/T-0272.md",
+      "source_evidence": [
+        "tasks/audit_session_errors.py",
+        ".loop-logs/session-error-digest.json",
+        "AGENTS.md"
+      ],
+      "acceptance": "python tasks/check_agent_command_safety.py --check; python -m unittest tasks.test_check_agent_command_safety",
+      "roi": {
+        "benefit": 5,
+        "cost_hours_estimate": 1.5,
+        "ratio_estimate": 3.3,
+        "measured": 2.0,
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 4.17,
+        "roi_ratio": 1.85
+      },
+      "notes": "Operational security and agent execution reliability improvement addressing the 4 actionable findings in session-error-digest.json. Implemented in tasks/check_agent_command_safety.py with 5 passing unit tests.",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.0
+    },
+    {
+      "id": "T-0273",
+      "title": "Stale Sentinel Worktree Harvest & Automated Branch Hygiene Daemon (tasks/harvest_sentinel_worktrees.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P2",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Automated safe worktree pruning daemon detecting and harvesting completed sentinel worktrees with zero uncommitted or untracked changes across all 4 sibling repos.",
+      "created_at": "2026-10-22T00:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Sentinel lane replenishment & worktree hygiene 2026-10-22"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "spec_path": "tasks/specs/T-0273.md",
+      "source_evidence": [
+        "tasks/check_worktree_drift.py",
+        ".claude/skills/workspace-siblings/scripts/worktrees.py",
+        "tasks/audit_github_hygiene.py"
+      ],
+      "acceptance": "python tasks/harvest_sentinel_worktrees.py --dry-run; python -m unittest tasks.test_harvest_sentinel_worktrees",
+      "roi": {
+        "benefit": 4,
+        "cost_hours_estimate": 2.0,
+        "ratio_estimate": 2.0,
+        "measured": null,
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 4.17,
+        "roi_ratio": 1.52
+      },
+      "notes": "Operational security and disk hygiene: automatically inspects, prunes, and safely deletes merged sentinel worktrees with zero untracked data loss."
     }
   ],
   "updated": "2026-10-21"
