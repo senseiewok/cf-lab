@@ -21,7 +21,10 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
-import yaml
+try:
+    import yaml
+except ImportError:
+    yaml = None
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 LOGS_DIR = REPO_ROOT / ".loop-logs"
@@ -114,6 +117,10 @@ def validate_catalog_schema(
     """
     violations: List[str] = []
     warnings: List[str] = []
+
+    if yaml is None:
+        violations.append(f"[{label}] PyYAML (yaml) is required to parse catalog.yaml. Install via pip install pyyaml.")
+        return violations, warnings, {}
 
     if not catalog_path.is_file():
         violations.append(f"[{label}] Catalog file does not exist: {catalog_path}")

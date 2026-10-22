@@ -120,9 +120,9 @@ def prune_single_worktree(
             timeout=30,
         )
         if p.returncode != 0:
-            # Fallback if git worktree remove failed
-            if wt_path.exists():
-                shutil.rmtree(wt_path, ignore_errors=True)
+            record["status"] = "error"
+            record["error"] = f"git worktree remove failed (code {p.returncode}): {p.stderr.strip()}"
+            return record
 
         # 2. git worktree prune
         subprocess.run(
