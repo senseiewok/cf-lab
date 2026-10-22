@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -12845,7 +12845,7 @@
       "title": "CF Airway Mucus Micro-Rheology & Polymer Cross-Linking Cleavage Kinetics Under Dornase Alfa (rhDNase) and Thiol-Reducing Mucolytics (tools/discovery/mucus_cleavage_kinetics.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -12880,9 +12880,12 @@
           "security_compliance": 2.0
         },
         "composite_score": 5.27,
-        "roi_ratio": 1.24
+        "roi_ratio": 1.24,
+        "measured": 3.5
       },
-      "notes": "Wave 12 Research Discovery Replenishment. Models eDNA degradation, mucin disulfide cleavage, affine rubber elasticity shear modulus G*(omega), and mucociliary clearability index (MCI)."
+      "notes": "Completed in senseiewok/cf-research#118. Implemented tools/discovery/mucus_cleavage_kinetics.py & test_mucus_cleavage_kinetics.py (7/7 unit tests passing, AH-1..AH-5 PASS): models CF sputum interpenetrating eDNA-mucin hydrogel network, rhDNase I endonucleolytic cleavage with G-actin competitive inhibition (PDB 1ATN/1DNK), NAC disulfide reduction, affine rubber elasticity shear modulus G*(omega), King MCI clearability, and AAV/LNP Ogston pore diffusivity.",
+      "actual_hours": 3.5,
+      "completed_at": "2026-10-21"
     },
     {
       "id": "T-0254",
@@ -13602,7 +13605,7 @@
       "title": "Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13634,7 +13637,7 @@
         "benefit": 5,
         "cost_hours_estimate": 2.5,
         "ratio_estimate": 2.0,
-        "measured": null,
+        "measured": 3.0,
         "categories": {
           "curative_biophysics": 7.5,
           "clinical_translation": 2.0,
@@ -13645,7 +13648,9 @@
         "composite_score": 5.37,
         "roi_ratio": 1.65
       },
-      "notes": "Wave 14 Track A Curative Biophysics & DNA/RNA Splice Discovery. Extends T-0264 and T-0265 across high-frequency Class V deep-intronic CFTR mutations."
+      "notes": "Completed in senseiewok/cf-research#118. Implemented tools/discovery/intronic_splice_foundation.py & test_intronic_splice_foundation.py (7/7 unit tests passing, AH-1..AH-5 PASS): models Class V intronic/splice alleles (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G, 3272-26A>G) with SpliceAI/Evo-2 zero-shot delta scores, 2'-MOE/PMO ASO SantaLucia nearest-neighbor thermodynamics, and dose-response canonical transcript rescue crossing 10-15% wild-type curative thresholds.",
+      "actual_hours": 3.0,
+      "completed_at": "2026-10-21"
     }
   ],
   "updated": "2026-10-21"
