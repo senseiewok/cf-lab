@@ -14093,7 +14093,7 @@
       "title": "Automated Sentinel PR Repair & Superseded Branch Cleaner Daemon (tasks/repair_sentinel_prs.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14131,7 +14131,9 @@
         "composite_score": 4.17,
         "roi_ratio": 1.52
       },
-      "notes": "Wave 15 Security Lane Replenishment. Delivers automated daemon to execute remediation actions prescribed by audit_github_hygiene.py."
+      "notes": "Wave 15 Security Lane. Automated sentinel PR repair daemon implemented in tasks/repair_sentinel_prs.py with unit tests in tasks/test_repair_sentinel_prs.py. Verified acceptance: 12 tests passed, successfully closed superseded PR #222 on cf-lab.",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.5
     },
     {
       "id": "T-0280",
