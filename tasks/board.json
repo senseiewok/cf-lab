@@ -13848,7 +13848,7 @@
       "title": "Interactive Deep Intronic Splice Foundation Model & Pseudoexon Rescue Simulator on /cf/cftr/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13887,14 +13887,16 @@
         "composite_score": 7.12,
         "roi_ratio": 2.03
       },
-      "notes": "Wave 15 Track B Public Showcase Replenishment. Connects T-0269 intronic splice foundation benchmark to /cf/cftr/."
+      "notes": "Wave 15 Track B Public Showcase. Delivered interactive SpliceAI and Evo-2 intronic splice foundation & pseudoexon rescue simulator on /cf/cftr/ with Mexican Spanish parity via senseiewok/.ai#151.",
+      "actual_hours": 3.5,
+      "completed_at": "2026-10-22"
     },
     {
       "id": "T-0275",
       "title": "Interactive Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Airway Hydration Simulator on /cf/tree/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13933,7 +13935,9 @@
         "composite_score": 7.72,
         "roi_ratio": 2.38
       },
-      "notes": "Wave 15 Track B Public Showcase Replenishment. Connects T-0252 coupled ENaC-TMEM16A ion equilibrium model to /cf/tree/."
+      "notes": "Wave 15 Track B Public Showcase. Delivered interactive apical purinergic P2Y2R-Ca2+ signal transduction & dual ENaC-TMEM16A ion equilibrium simulator on /cf/tree/ with Mexican Spanish parity (verified in senseiewok/.ai#151 / senseiewok/.ai#147).",
+      "actual_hours": 3.0,
+      "completed_at": "2026-10-22"
     },
     {
       "id": "T-0276",
@@ -14117,6 +14121,94 @@
         "roi_ratio": 1.52
       },
       "notes": "Wave 15 Security Lane Replenishment. Delivers automated daemon to execute remediation actions prescribed by audit_github_hygiene.py."
+    },
+    {
+      "id": "T-0280",
+      "title": "Interactive Pseudomonas Phage Cocktail & Biofilm Lysis Dynamics Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG biofilm lysis dynamics simulator modeling phage adsorption, burst size, and biofilm depolymerization grounded in tools/discovery/phage_biofilm_kinetics.py.",
+      "created_at": "2026-10-22T08:15:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel wave 16 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "cf-research/tools/discovery/phage_biofilm_kinetics.py; DOI:10.1038/s41564-019-0627-6; DOI:10.1128/AAC.01594-19; ClinicalTrials.gov:NCT04596319; PDB:6G63",
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models multi-phage synergy, biofilm EPS degradation, and antibiotic resensitization on /cf/delivery/ with Mexican Spanish parity.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.21
+      },
+      "notes": "Wave 16 Track B Public Showcase Replenishment."
+    },
+    {
+      "id": "T-0281",
+      "title": "Interactive CFTR Minigene Splicing & Exon Junction Complex (EJC) Architecture Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG minigene splicing simulator modeling EJC deposition, intron retention, and nonsense-mediated decay triggering grounded in tools/discovery/cftr_minigene_model.py.",
+      "created_at": "2026-10-22T08:15:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "daily-site-showcase-sentinel wave 16 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "cf-research/tools/discovery/cftr_minigene_model.py; DOI:10.1016/j.cell.2018.12.015; DOI:10.1016/j.jcf.2021.08.014; PDB:6FF4",
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes minigene construct splicing, pseudoexon inclusion, and EJC boundary distance rules on /cf/ptc/ with Mexican Spanish parity.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.21
+      },
+      "notes": "Wave 16 Track B Public Showcase Replenishment."
     }
   ],
   "updated": "2026-10-22"
