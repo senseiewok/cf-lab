@@ -36,7 +36,8 @@
       "watch_paths": [
         "../cf-research/proposals",
         "../cf-research/landscape",
-        "../cf-research/sources/catalog.yaml"
+        "../cf-research/sources/catalog.yaml",
+        "../cf-skills/.claude/skills/cf-evidence-loop/catalog.lock.json"
       ],
       "max_idle_hours": 3,
       "lock_timeout_minutes": 25,

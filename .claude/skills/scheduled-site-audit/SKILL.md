@@ -11,7 +11,7 @@ Maintains unbroken operational quality, security posture, and dignity for the pu
 
 ## Cadence & Trigger
 
-- **Cadence**: Every 30 minutes at :00 and :30 PT (`CRON_TZ=America/Los_Angeles 0,30 * * * *`), set in `tasks/sentinels.json`; the agent starts only when a watched tree changed or the 8-hour heartbeat is due. Run by the wrapper `tasks/run-sentinel.ps1` as part of `daily-security-sentinel`.
+- **Cadence**: Every 30 minutes at :00 and :30 PT (`CRON_TZ=America/Los_Angeles 0,30 * * * *`), set in `tasks/sentinels.json`; the agent starts only when a watched tree changed or the 3-hour heartbeat is due. Run by the wrapper `tasks/run-sentinel.ps1` as part of `daily-security-sentinel`.
 - **Antigravity Sidecar ID**: `daily-site-security-sentinel`
 - **Review Tier**: `routine`
 - **Anti-Churn Invariant**: If zero defects or regressions are detected, log health status to `.loop-logs/` only. It is strictly forbidden to open a pull request or edit `tasks/board.json` notes just to record that a clean audit occurred.

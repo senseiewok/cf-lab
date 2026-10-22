@@ -44,6 +44,9 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+$env:PYTHONIOENCODING = "utf-8"
+$env:PYTHONUTF8 = "1"
+[Console]::OutputEncoding = [Text.UTF8Encoding]::new($false)
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $gate = Join-Path $PSScriptRoot "fast-sentinel-gate.ps1"

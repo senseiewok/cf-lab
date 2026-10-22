@@ -231,6 +231,8 @@ def _check_runtime_and_gh_deny(root: Path, full_lab_deny: list[str] | None) -> l
 def run_checks(root: Path, home: Path | None = None, stop: Path | None = None) -> list[tuple[bool, str]]:
     results: list[tuple[bool, str]] = []
     parent = root.parent
+    if not (parent / "cf-skills").exists() and len(root.parents) >= 3 and root.parents[1].name == ".worktrees":
+        parent = root.parents[2]
     if home is None:
         home = Path(os.environ.get("CF_LAB_CHECK_HOME") or Path.home())
     if stop is None and os.environ.get("CF_LAB_CHECK_STOP"):

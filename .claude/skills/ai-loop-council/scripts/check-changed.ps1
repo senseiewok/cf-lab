@@ -238,10 +238,19 @@ try {
         }
     }
 
-    $catStaged = @($files | Where-Object { $_ -eq 'sources/catalog.yaml' -or $_ -eq '.claude/skills/cf-evidence-loop/catalog.yaml' })
+    $catStaged = @($files | Where-Object { $_ -eq 'sources/catalog.yaml' -or $_ -eq '.claude/skills/cf-evidence-loop/catalog.yaml' -or $_ -eq '.claude/skills/cf-evidence-loop/catalog.lock.json' })
     if ($catStaged.Count -gt 0) {
         $pyExe = Get-PythonExe
+        $pinScript = Join-Path $root 'scripts/pin_catalog.py'
         if (-not $pyExe) { Write-Host "SKIP sync_skill_catalog.py: python not found" }
+        elseif (Test-Path -LiteralPath $pinScript -PathType Leaf) {
+            $pinOut = (& $pyExe $pinScript --check 2>&1) -join "`n"
+            if ($LASTEXITCODE -ne 0) {
+                if ($pinOut) { Write-Host $pinOut }
+                Write-Host "FAIL owning checker pin_catalog.py --check"
+                $failures++
+            }
+        }
         else {
             $syncScript = $null
             foreach ($cand in @(
