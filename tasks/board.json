@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -14246,7 +14246,7 @@
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
-      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
       "created_at": "2026-10-22T08:30:00Z",
       "updated_at": "2026-10-22",
       "created_by": {
@@ -14288,7 +14288,7 @@
       "title": "Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14327,8 +14327,10 @@
         "composite_score": 7.52,
         "roi_ratio": 2.31
       },
-      "notes": "Wave 17 Track B Public Showcase Replenishment. Connects T-0177 paracellular epithelial permeability to /cf/delivery/.",
-      "spec_path": "tasks/specs/T-0283.md"
+      "notes": "Wave 16 Showcase Deliverable. Delivered in senseiewok/.ai#154 with full es-MX translation parity, 60/60 unit tests passing, and 100% PASS on AH-1..AH-5 anti-hallucination checks.",
+      "spec_path": "tasks/specs/T-0283.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 3.25
     },
     {
       "id": "T-0284",
@@ -14525,7 +14527,7 @@
       "title": "Interactive Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14542,7 +14544,7 @@
         "high": 4.5
       },
       "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_lnp_escape_dynamics_explorer tests.test_site.StaticTests",
-      "notes": "Wave 17 Showcase Replenishment. Interactive multi-stage simulation of ionizable lipid protonation, endosomal membrane pore rupture, and cytosolic mRNA release dynamics on /cf/delivery/ with full es-MX parity.",
+      "notes": "Wave 16 Showcase Deliverable. Delivered in senseiewok/.ai#154 with full es-MX translation parity, 60/60 unit tests passing, and 100% PASS on AH-1..AH-5 anti-hallucination checks.",
       "spec_path": "tasks/specs/T-0288.md",
       "roi": {
         "benefit": 5,
@@ -14562,7 +14564,9 @@
       "route_rationale": "Interactive biophysical delivery simulator on /cf/delivery/ with es-MX parity.",
       "source_evidence": "cf-research/tools/discovery/lnp_escape_dynamics.py; DOI:10.1038/nbt.3298; DOI:10.1038/nbt.1602; ClinicalTrials.gov:NCT05668741",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 3.25
     },
     {
       "id": "T-0289",
@@ -14743,6 +14747,290 @@
       "human_required": false,
       "completed_at": "2026-10-22",
       "actual_hours": 4.0
+    },
+    {
+      "id": "T-0293",
+      "title": "Interactive Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module simulating pulmonary macrophage phagocytosis evasion and scavenger receptor kinetics grounded in tools/discovery/macrophage_evasion_kinetics.py (T-0271).",
+      "created_at": "2026-10-22T11:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 18 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0271"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "cf-research/tools/discovery/macrophage_evasion_kinetics.py; DOI:10.1016/j.biomaterials.2015.08.053; DOI:10.1126/science.1229568; ClinicalTrials.gov:NCT05668741",
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_macrophage_evasion_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Simulates macrophage phagocytic evasion and CD47 stealth passivation for inhaled genetic delivery on /cf/delivery/.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 7.5,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.55,
+        "roi_ratio": 2.16
+      },
+      "notes": "Wave 18 Track B Public Showcase Replenishment. Connects T-0271 macrophage evasion biophysics to /cf/delivery/.",
+      "spec_path": "tasks/specs/T-0293.md"
+    },
+    {
+      "id": "T-0294",
+      "title": "Interactive Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Sialidase Permeabilization Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module simulating periciliary brush glycocalyx meshwork steric exclusion and sialidase enzymatic permeabilization grounded in tools/discovery/glycocalyx_permeabilization_model.py (T-0291).",
+      "created_at": "2026-10-22T11:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 18 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0291"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "source_evidence": "cf-research/tools/discovery/glycocalyx_permeabilization_model.py; DOI:10.1126/science.1223012; DOI:10.1038/s41565-021-00918-7; ClinicalTrials.gov:NCT05668741",
+      "acceptance": "python -m unittest tests.test_glycocalyx_permeabilization_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models apical periciliary glycocalyx meshwork and sialidase digestion for viral and non-viral genetic vector penetration.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.65,
+        "roi_ratio": 2.35
+      },
+      "notes": "Wave 18 Track B Public Showcase Replenishment. Connects T-0291 glycocalyx barrier model to /cf/delivery/.",
+      "spec_path": "tasks/specs/T-0294.md"
+    },
+    {
+      "id": "T-0295",
+      "title": "Automated Multi-Repo Worktree Lock & Concurrent Sentinel Collision Guard (tasks/check_sentinel_concurrency_guard.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic AST and lock-file audit script verifying atomic sentinel concurrency leases, timeout expiration, and worktree isolation across all workspace repos.",
+      "created_at": "2026-10-22T11:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 19 security replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0284",
+        "T-0289"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "tasks/sentinels.json; tasks/run-sentinel.ps1; tasks/prune_stale_worktrees.py; CWE-362; OWASP-A01",
+      "acceptance": "python -m unittest tasks.test_check_sentinel_concurrency_guard; python tasks/check_sentinel_concurrency_guard.py --check",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees race-free scheduled sentinel concurrency and prevents stale lock collisions during automated PR cycles.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 9.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 7.4,
+        "roi_ratio": 2.45
+      },
+      "notes": "Wave 19 Security & Architecture Replenishment. Implements tasks/check_sentinel_concurrency_guard.py.",
+      "spec_path": "tasks/specs/T-0295.md"
+    },
+    {
+      "id": "T-0296",
+      "title": "Automated Cross-Repo Agent API Key & Token Entropy Linter (tasks/check_secret_entropy_linter.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic Shannon entropy scanner detecting high-entropy credentials across commits, working trees, and agent transcripts while allowing hashes and UUIDs.",
+      "created_at": "2026-10-22T11:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 19 security replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0289",
+        "T-0290"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": ".claude/skills/security-git/SKILL.md; .claude/skills/security-baseline/SKILL.md; DOI:10.1002/j.1538-7305.1948.tb01338.x; OWASP-A07",
+      "acceptance": "python -m unittest tasks.test_check_secret_entropy_linter; python tasks/check_secret_entropy_linter.py --check",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents secret and token leakage across agent workflows through mathematical Shannon entropy scanning.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 9.0,
+          "security_compliance": 10.0
+        },
+        "composite_score": 7.45,
+        "roi_ratio": 2.48
+      },
+      "notes": "Wave 19 Security & Architecture Replenishment. Implements tasks/check_secret_entropy_linter.py.",
+      "spec_path": "tasks/specs/T-0296.md"
+    },
+    {
+      "id": "T-0297",
+      "title": "Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Scavenger Receptor Kinetics Model (tools/discovery/macrophage_scavenger_kinetics.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Mathematical and biophysical model of competitive macrophage scavenger receptor uptake and nanoparticle stealth passivation.",
+      "created_at": "2026-10-22T11:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 19 research replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0271"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "DOI:10.1126/science.1229568; DOI:10.1016/j.biomaterials.2015.08.053; DOI:10.1038/nri978; ClinicalTrials.gov:NCT05668741",
+      "acceptance": "pytest tools/discovery/test_macrophage_scavenger_kinetics.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models scavenger receptor clearance kinetics and stealth peptide engineering to prolong airway retention of inhaled therapies.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.7,
+        "roi_ratio": 2.22
+      },
+      "notes": "Wave 19 Research Replenishment. Implements tools/discovery/macrophage_scavenger_kinetics.py.",
+      "spec_path": "tasks/specs/T-0297.md"
+    },
+    {
+      "id": "T-0298",
+      "title": "CFTR DeltaF508 / NBD1-TMD Coupling Allosteric Rescuing Pharmacophore Model (tools/discovery/nbd1_tmd_pharmacophore.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Biophysical and structural pharmacophore model evaluating allosteric rescue of the DeltaF508 folding defect at the NBD1-TMD interface and Band C maturation.",
+      "created_at": "2026-10-22T11:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 19 research replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0281"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "source_evidence": "DOI:10.1042/BJ20130541; DOI:10.1016/j.cell.2011.11.024; DOI:10.1016/j.cell.2011.11.023; ClinicalTrials.gov:NCT03525444",
+      "acceptance": "pytest tools/discovery/test_nbd1_tmd_pharmacophore.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Simulates multi-corrector pharmacological chaperone cooperativity and thermodynamic rescue of DeltaF508 CFTR.",
+        "categories": {
+          "curative_biophysics": 10.0,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.05,
+        "roi_ratio": 2.37
+      },
+      "notes": "Wave 19 Research Replenishment. Implements tools/discovery/nbd1_tmd_pharmacophore.py.",
+      "spec_path": "tasks/specs/T-0298.md"
     }
   ],
   "updated": "2026-10-22"
