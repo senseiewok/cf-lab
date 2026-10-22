@@ -15031,6 +15031,282 @@
       },
       "notes": "Wave 19 Research Replenishment. Implements tools/discovery/nbd1_tmd_pharmacophore.py.",
       "spec_path": "tasks/specs/T-0298.md"
+    },
+    {
+      "id": "T-0299",
+      "title": "Interactive Deep-Intronic Splice-Switching ASO (SPL84) & U1 snRNP Thermodynamic Competition Explorer on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Interactive biophysical explorer simulating competitive displacement of U1 snRNP by splice-switching oligonucleotides (SPL84) and full-length CFTR mRNA recovery.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0292"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "source_evidence": "DOI:10.1093/hmg/ddh247; DOI:10.1016/j.omtn.2020.08.017; ClinicalTrials.gov:NCT06429176",
+      "acceptance": "python -m unittest tests.test_u1_decoy_splice_explorer tests.test_site; python tools/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Exposes breakthrough pre-mRNA spliceosome competition biophysics and SPL84 trial data on senseiewok.ai in EN and es-MX.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.95,
+        "roi_ratio": 2.45
+      },
+      "notes": "Wave 20 Showcase Replenishment. Mounts #u1-decoy-splice-explorer on /cf/ptc/.",
+      "spec_path": "tasks/specs/T-0299.md"
+    },
+    {
+      "id": "T-0300",
+      "title": "Interactive Sialidase-Mediated Apical Glycocalyx Permeabilization & Inhaled Vector Flux Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Interactive biophysical delivery simulator modeling enzymatic cleavage of apical mucin brushes (MUC1/4/16) and enhanced LNP/AAV flux.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0291"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "source_evidence": "DOI:10.1126/science.1224376; DOI:10.1038/s41467-024-45302-1; ClinicalTrials.gov:NCT05668741",
+      "acceptance": "python -m unittest tests.test_glycocalyx_permeabilization_explorer tests.test_site; python tools/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Translates glycocalyx permeabilization biophysics to public interactive visualizer with full es-MX localization.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.95,
+        "roi_ratio": 2.45
+      },
+      "notes": "Wave 20 Showcase Replenishment. Mounts #glycocalyx-permeabilization-explorer on /cf/delivery/.",
+      "spec_path": "tasks/specs/T-0300.md"
+    },
+    {
+      "id": "T-0301",
+      "title": "Automated Cross-Repo Markdown Link & Internal Anchor Integrity Linter (tasks/check_markdown_link_integrity.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Automated cross-repo linter validating relative markdown links and GFM heading anchors to prevent documentation link rot.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 security replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "actual_hours": 2.0,
+      "measured": true,
+      "source_evidence": "CommonMark Specification 0.31.2 & GitHub Flavored Markdown (GFM) Spec section 4.5 (Links); .claude/skills/security-baseline/SKILL.md",
+      "acceptance": "python -m unittest tasks.test_check_markdown_link_integrity; python tasks/check_markdown_link_integrity.py --check",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents broken documentation paths and missing anchor references across all workspace markdown files deterministically.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 9.5,
+          "operational_velocity": 9.0,
+          "security_compliance": 9.5
+        },
+        "composite_score": 7.45,
+        "roi_ratio": 2.5
+      },
+      "notes": "Wave 20 Security Delivery. Implemented tasks/check_markdown_link_integrity.py and test_check_markdown_link_integrity.py.",
+      "spec_path": "tasks/specs/T-0301.md"
+    },
+    {
+      "id": "T-0302",
+      "title": "Automated Cross-Repo Sentinel Watermark & Telemetry Cadence Linter (tasks/check_sentinel_telemetry_linter.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Automated linter validating sentinel watermark commit hashes, lock durations, and cadence intervals to prevent lock contention.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 security replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "tasks/sentinels.json; .claude/skills/scheduled-security-sentinel/SKILL.md; tasks/fast-sentinel-gate.ps1",
+      "acceptance": "python -m unittest tasks.test_check_sentinel_telemetry_linter; python tasks/check_sentinel_telemetry_linter.py --check",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces deterministic sentinel lifecycle invariants and eliminates deadlocks across scheduled runs.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 9.0,
+          "security_compliance": 9.5
+        },
+        "composite_score": 7.3,
+        "roi_ratio": 1.82
+      },
+      "notes": "Wave 20 Security Replenishment. Implements tasks/check_sentinel_telemetry_linter.py.",
+      "spec_path": "tasks/specs/T-0302.md"
+    },
+    {
+      "id": "T-0303",
+      "title": "Airway Epithelial Club Cell Secretoglobin (SCGB1A1) Secretory Vesicle Trafficking & Apical Exosome Packaging Model (tools/discovery/club_cell_exosome_trafficking.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Biophysical model simulating club cell secretoglobin (SCGB1A1) vesicle dynamics and therapeutic exosome packaging for airway anti-inflammation.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 research replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "DOI:10.1016/j.biocel.2009.09.002; DOI:10.1016/j.stem.2009.04.002; ClinicalTrials.gov:NCT04207983",
+      "acceptance": "pytest tools/discovery/test_club_cell_exosome_trafficking.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models club cell secretory vesicle biogenesis and exosome packaging kinetics for inhaled CF therapy.",
+        "categories": {
+          "curative_biophysics": 10.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.95,
+        "roi_ratio": 1.99
+      },
+      "notes": "Wave 20 Research Replenishment. Implements tools/discovery/club_cell_exosome_trafficking.py.",
+      "spec_path": "tasks/specs/T-0303.md"
+    },
+    {
+      "id": "T-0304",
+      "title": "CFTR NBD2 / NBD1 ATP Hydrolysis Gating Cycle & Catalytic Water Coordination Energy Model (tools/discovery/atp_catalytic_water_model.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Biophysical and structural model of asymmetric NBD1/NBD2 ATP hydrolysis gating, catalytic water coordination, and pore opening kinetics.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 research replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "DOI:10.1016/j.cell.2016.11.014; DOI:10.1016/j.cell.2017.02.024; PDB:6MSM; ClinicalTrials.gov:NCT00909532",
+      "acceptance": "pytest tools/discovery/test_atp_catalytic_water_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Simulates catalytic water dipole activation and allosteric channel open probability across rare gating mutations.",
+        "categories": {
+          "curative_biophysics": 10.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.95,
+        "roi_ratio": 1.99
+      },
+      "notes": "Wave 20 Research Replenishment. Implements tools/discovery/atp_catalytic_water_model.py.",
+      "spec_path": "tasks/specs/T-0304.md"
     }
   ],
   "updated": "2026-10-22"
