@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -14246,7 +14246,7 @@
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
-      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
       "created_at": "2026-10-22T08:30:00Z",
       "updated_at": "2026-10-22",
       "created_by": {
@@ -14569,7 +14569,7 @@
       "title": "Automated Cross-Repo Agent Subprocess Argument Injection Guard & Shell Invariant Linter (tasks/check_subprocess_injection_guard.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14584,7 +14584,7 @@
         "high": 3.5
       },
       "acceptance": "python -m unittest tasks.test_check_subprocess_injection_guard; python tasks/check_subprocess_injection_guard.py --check",
-      "notes": "Wave 18 Security Lane Replenishment. Enforces subprocess argument safety, list format, shell=False, finite timeouts, and parameter regex validation across all repos.",
+      "notes": "2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0289. Implemented tasks/check_subprocess_injection_guard.py and unit test suite tasks/test_check_subprocess_injection_guard.py to enforce shell=False, argument array enforcement, parameter regex validation, DoS timeouts, and credential redaction across all workspace repos. Acceptance checks passed: python -m unittest tasks.test_check_subprocess_injection_guard; python tasks/check_subprocess_injection_guard.py --check",
       "spec_path": "tasks/specs/T-0289.md",
       "roi": {
         "benefit": 5,
@@ -14604,14 +14604,17 @@
       "route_rationale": "Security automation tool in cf-lab with high integrity standards.",
       "source_evidence": "CWE-78; CWE-88; OWASP Top 10:2025 A03; .claude/skills/security-baseline/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "updated_at": "2026-10-22",
+      "actual_hours": 2.5
     },
     {
       "id": "T-0290",
       "title": "Automated Multi-Repo Git Tag Cryptographic Integrity & Release Artifact Linter (tasks/check_git_release_integrity.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14626,7 +14629,7 @@
         "high": 3.5
       },
       "acceptance": "python -m unittest tasks.test_check_git_release_integrity; python tasks/check_git_release_integrity.py --check",
-      "notes": "Wave 18 Security Lane Replenishment. Audits multi-repo git release tags, semantic versioning parity against VERSION files, and release manifest secrets exclusion.",
+      "notes": "2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0289. Implemented tasks/check_git_release_integrity.py and unit test suite tasks/test_check_git_release_integrity.py to enforce semantic release tag hygiene, VERSION alignment, commit reachability from main, and release artifact cleanliness. Acceptance checks passed: python -m unittest tasks.test_check_git_release_integrity; python tasks/check_git_release_integrity.py --check",
       "spec_path": "tasks/specs/T-0290.md",
       "roi": {
         "benefit": 5,
@@ -14646,7 +14649,10 @@
       "route_rationale": "Release security verification tool in cf-lab.",
       "source_evidence": "cf-lab/VERSION; .claude/skills/lab-versioning/SKILL.md; .claude/skills/security-git/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "updated_at": "2026-10-22",
+      "actual_hours": 2.5
     },
     {
       "id": "T-0291",

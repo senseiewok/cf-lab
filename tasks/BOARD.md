@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (26)
+## ready (24)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -19,8 +19,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0282 | P1 | Interactive Inhaled Micro-Aerosol Droplet Evaporation & Hygroscopic Growth Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0228 |  |
-| T-0289 | P1 | Automated Cross-Repo Agent Subprocess Argument Injection Guard & Shell Invariant Linter (tasks/check_subprocess_injection_guard.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0290 | P1 | Automated Multi-Repo Git Tag Cryptographic Integrity & Release Artifact Linter (tasks/check_git_release_integrity.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0283 | P1 | Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0177 |  |
 | T-0287 | P1 | Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
 | T-0288 | P1 | Interactive Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0285 |  |
@@ -41,7 +39,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (252)
+## done (254)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -76,6 +74,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0266 | P1 | Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding | cf-lab | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0284 | P1 | Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0278 |  |
 | T-0286 | P1 | Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0289 | P1 | Automated Cross-Repo Agent Subprocess Argument Injection Guard & Shell Invariant Linter (tasks/check_subprocess_injection_guard.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0290 | P1 | Automated Multi-Repo Git Tag Cryptographic Integrity & Release Artifact Linter (tasks/check_git_release_integrity.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0181 | P1 | Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py) | .ai | 1.5-3 | 4 | 17.8 | yes | model: claude-3-opus | 2026-10-17 | elevated | low | local | T-0180 |  |
 | T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | yes | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |  |
 | T-0167 | P1 | Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification | .ai | 2-4 | 5 | 16.7 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud |  |  |
@@ -634,7 +634,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tasks.test_check_subprocess_injection_guard; python tasks/check_subprocess_injection_guard.py --check
 - **Evidence:** CWE-78; CWE-88; OWASP Top 10:2025 A03; .claude/skills/security-baseline/SKILL.md
 - **Spec:** `tasks/specs/T-0289.md`
-- **Notes:** Wave 18 Security Lane Replenishment. Enforces subprocess argument safety, list format, shell=False, finite timeouts, and parameter regex validation across all repos.
+- **Notes:** 2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0289. Implemented tasks/check_subprocess_injection_guard.py and unit test suite tasks/test_check_subprocess_injection_guard.py to enforce shell=False, argument array enforcement, parameter regex validation, DoS timeouts, and credential redaction across all workspace repos. Acceptance checks passed: python -m unittest tasks.test_check_subprocess_injection_guard; python tasks/check_subprocess_injection_guard.py --check
 
 ### T-0290 Automated Multi-Repo Git Tag Cryptographic Integrity & Release Artifact Linter (tasks/check_git_release_integrity.py)
 
@@ -643,7 +643,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tasks.test_check_git_release_integrity; python tasks/check_git_release_integrity.py --check
 - **Evidence:** cf-lab/VERSION; .claude/skills/lab-versioning/SKILL.md; .claude/skills/security-git/SKILL.md
 - **Spec:** `tasks/specs/T-0290.md`
-- **Notes:** Wave 18 Security Lane Replenishment. Audits multi-repo git release tags, semantic versioning parity against VERSION files, and release manifest secrets exclusion.
+- **Notes:** 2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0289. Implemented tasks/check_git_release_integrity.py and unit test suite tasks/test_check_git_release_integrity.py to enforce semantic release tag hygiene, VERSION alignment, commit reachability from main, and release artifact cleanliness. Acceptance checks passed: python -m unittest tasks.test_check_git_release_integrity; python tasks/check_git_release_integrity.py --check
 
 ### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
 
