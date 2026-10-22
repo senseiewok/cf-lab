@@ -86,6 +86,8 @@ param(
     [string] $TreeId,
     [string] $Model,
     [string] $ProfileFile = $env:LOCAL_WORKER_PROFILE,
+    [string] $ChallengerModel = $env:LOCAL_CHALLENGER_MODEL,
+    [string] $ChallengerProfileFile = $env:LOCAL_CHALLENGER_PROFILE,
     [switch] $Think,
     [ValidateRange(4000, 500000)] [int] $MaxChars = 60000,
     # A reviewed diff at least this long (characters of numbered lines) with no survivors gets the weak-evidence warning.
@@ -238,7 +240,7 @@ function Write-Result($Result) {
 
 function Invoke-Review {
     # ---------------------------------------------------------------------------------------------- arguments
-    foreach ($pair in @(@('RepoPath', $RepoPath), @('Base', $Base), @('DiffFile', $DiffFile), @('OutDir', $OutDir), @('ProfileFile', $ProfileFile), @('InvokeScript', $InvokeScript), @('RunId', $RunId), @('TreeId', $TreeId))) {
+    foreach ($pair in @(@('RepoPath', $RepoPath), @('Base', $Base), @('DiffFile', $DiffFile), @('OutDir', $OutDir), @('ProfileFile', $ProfileFile), @('ChallengerModel', $ChallengerModel), @('ChallengerProfileFile', $ChallengerProfileFile), @('InvokeScript', $InvokeScript), @('RunId', $RunId), @('TreeId', $TreeId))) {
         if ($pair[1] -and $pair[1].StartsWith('-')) { Write-Host "usage: -$($pair[0]) must not start with '-'"; return 2 }
     }
     $sources = @(@($Staged.IsPresent, [bool]$Base, [bool]$DiffFile) | Where-Object { $_ })
@@ -307,6 +309,16 @@ function Invoke-Review {
         Write-Host "error: refusing model '$(Get-Printable $chosenModel)': its name marks a cloud-routed model, and Ollama would forward the diff to a remote service"
         return 2
     }
+    $chosenChallenger = $null
+    if ($ChallengerModel) { $chosenChallenger = $ChallengerModel }
+    elseif ($ChallengerProfileFile) {
+        if (-not (Test-Path -LiteralPath $ChallengerProfileFile -PathType Leaf)) { Write-Host "error: challenger profile not found: $(Get-Printable $ChallengerProfileFile)"; return 2 }
+        $chosenChallenger = (Get-Content -Raw -LiteralPath $ChallengerProfileFile | ConvertFrom-Json).model
+    }
+    if ($chosenChallenger -and $chosenChallenger -match '(?i)-cloud$|:cloud|-cloud:|://') {
+        Write-Host "error: refusing challenger model '$(Get-Printable $chosenChallenger)': its name marks a cloud-routed model"
+        return 2
+    }
     if ($env:OLLAMA_HOST -and -not (Test-LoopbackHost $env:OLLAMA_HOST)) {
         Write-Host "error: refusing to run: OLLAMA_HOST is '$(Get-Printable $env:OLLAMA_HOST)', not a loopback address (127.0.0.1, ::1 or localhost)"
         return 2
@@ -365,7 +377,7 @@ function Invoke-Review {
         hidden_chars_total = [int]$manifest.hidden_chars_total; boundary_lookalikes_total = [int]$manifest.boundary_lookalikes_total
         masking = $(if ($script:MaskingOk) { 'on' } else { 'unavailable' }); model_note = $null; model_note_code = $null; tree_id = $stagedTree
         packet_chars = $manifest.packet_chars; evidence_chars = $manifest.evidence_chars
-        samples = @(); survivors = @(); survivors_count = 0; challenger_handoff = $null; exit_code = $null }
+        challenger_model = $chosenChallenger; samples = @(); survivors = @(); survivors_count = 0; challenger_handoff = $null; exit_code = $null }
 
     Write-Host "== local diff review ($(Out-Safe $manifest.source)) =="
     Write-Host ("coverage: {0}: reviewed {1} of {2} files, {3} not reviewed; packet {4} characters, reviewed lines {5} characters (cap {6})" -f `
@@ -437,6 +449,23 @@ function Invoke-Review {
             $from = $seps[$k] + 1
             $to = if ($k + 1 -lt $samples) { $seps[$k + 1] - 1 } else { $raw.Count - 1 }
             $parts += , $(if ($to -ge $from) { $raw[$from..$to] -join "`n" } else { '' })
+        }
+    }
+
+    # Optional second-family local challenger sample (T-0266)
+    if ($chosenChallenger) {
+        $cArgs = @('-NoProfile', '-File', $InvokeScript, "-PromptFile:$packet", "-SchemaFile:$schema", "-Model:$chosenChallenger", '-Samples:1', '-Tag:review-diff-challenger', '-ThinkMode:off', '-MaxOutputTokens:16384')
+        if ($ChallengerProfileFile) { $cArgs += "-ProfileFile:$ChallengerProfileFile" }
+        Write-Host ("challenger model: {0}, 1 sample, thinking off, timeout {1} s" -f (Get-Printable $chosenChallenger), $ModelTimeoutSec)
+        $cCall = Invoke-Proc $pwshExe $cArgs $ModelTimeoutSec
+        [IO.File]::WriteAllText((Join-Path $OutDir 'challenger-stderr.txt'), $cCall.Err, [Text.UTF8Encoding]::new($false))
+        if (-not $cCall.TimedOut -and $cCall.Code -eq 0) {
+            $cRaw = @(($cCall.Out -split "`r?`n"))
+            $cSeps = @(for ($k = 0; $k -lt $cRaw.Count; $k++) { if ($cRaw[$k] -match $sepRe) { $k } })
+            if ($cSeps.Count -eq 0) {
+                $parts += , ($cRaw -join "`n")
+                $samples += 1
+            }
         }
     }
 
