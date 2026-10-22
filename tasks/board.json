@@ -13751,7 +13751,7 @@
       "title": "Inhaled CFTR Synthetic mRNA 3' UTR Polyadenylation & Ribosome Load Translation Velocity Model (tools/discovery/mrna_translation_velocity.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13786,9 +13786,13 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.52,
-        "roi_ratio": 1.77
+        "roi_ratio": 1.77,
+        "measured": 4.25
       },
-      "notes": "Wave 15 Research Discovery Replenishment. TASEP ribosome dynamics, poly(A) tail length 100-120 nt, and codon elongation balancing co-translational domain folding."
+      "notes": "Completed in senseiewok/cf-research#120. Implemented tools/discovery/mrna_translation_velocity.py & test_mrna_translation_velocity.py (10/10 unit tests passing, AH-1..AH-5 PASS): models full-length human CFTR mRNA TASEP ribosome dynamics, poly(A) deadenylation kinetics, PABP loop synergy, and domain-boundary pause folding coordination.",
+      "completed_at": "2026-10-22",
+      "actual_hours": 4.25,
+      "spec_path": "tasks/specs/T-0272.md"
     },
     {
       "id": "T-0273",
