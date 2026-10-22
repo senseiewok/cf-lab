@@ -111,7 +111,7 @@ def validate_catalog_schema(
     label: str = "canonical",
 ) -> Tuple[List[str], List[str], Dict[str, Any]]:
     """Validate a catalog YAML file against the evidence catalog schema.
-    
+
     Returns:
         (violations, warnings, parsed_data)
     """
