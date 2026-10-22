@@ -16447,7 +16447,7 @@
       "title": "Automated Multi-Repo Agent AST Import Obfuscation & Dynamic Code Execution Linter (tasks/check_ast_obfuscation_invariants.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -16482,14 +16482,17 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0331.md; .claude/skills/security-baseline/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo agent AST import obfuscation & dynamic code execution linter (tasks/check_ast_obfuscation_invariants.py) and test suite (tasks/test_check_ast_obfuscation_invariants.py) with 11 unit tests passing deterministically."
     },
     {
       "id": "T-0332",
       "title": "Automated Cross-Repo Git Commit Author Signature & Identity Spoofing Linter (tasks/check_git_author_integrity.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -16524,7 +16527,10 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0332.md; .claude/skills/security-git/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo git commit author signature & identity spoofing linter (tasks/check_git_author_integrity.py) and test suite (tasks/test_check_git_author_integrity.py) with 6 unit tests passing deterministically."
     },
     {
       "id": "T-0333",
@@ -16607,6 +16613,262 @@
       "recommended_route": "local",
       "route_rationale": "Deterministic mathematical biophysics model in cf-research.",
       "source_evidence": "tasks/specs/T-0334.md; Roy et al. (2016) DOI:10.1146/annurev-genom-090314-050032",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0335",
+      "title": "Interactive CFTR Apical Microvillar Dense Brush Barrier & MUC1/MUC4 Glycocalyx Diffusion Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0291"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_microvillar_simulator tests.test_site.StaticTests",
+      "notes": "Wave 26 Showcase Lane Replenishment. Interactive apical microvillar brush and membrane-tethered mucin glycocalyx diffusion simulator on /cf/delivery/ with full Mexican Spanish parity.",
+      "spec_path": "tasks/specs/T-0335.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Directly educates CF researchers on apical microvillar diffusion barriers for inhaled genetic therapies.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 1.54
+      },
+      "recommended_route": "local",
+      "route_rationale": "Zero-build modern web simulator on .ai.",
+      "source_evidence": "tasks/specs/T-0335.md; DOI:10.1126/science.1223012",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0336",
+      "title": "Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer Decoy Kinetics Simulator on /cf/cftr/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0292"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_u1_snrnp_simulator tests.test_site.StaticTests",
+      "notes": "Wave 26 Showcase Lane Replenishment. Pre-mRNA splicing regulatory kinetics simulator on /cf/cftr/ modeling U1 snRNP competition with deep intronic decoys with es-MX parity.",
+      "spec_path": "tasks/specs/T-0336.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models deep intronic splice-switching decoy mechanisms on /cf/cftr/ for class V mutations.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 1.54
+      },
+      "recommended_route": "local",
+      "route_rationale": "Zero-build modern web simulator on .ai.",
+      "source_evidence": "tasks/specs/T-0336.md; DOI:10.1128/MCB.06001-11",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0337",
+      "title": "Automated Multi-Repo Agent Prompt Template Injection & Unescaped Format String Invariant Linter (tasks/check_prompt_injection_invariants.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_prompt_injection_invariants; python tasks/check_prompt_injection_invariants.py --check",
+      "notes": "Wave 26 Security Lane Replenishment. Audits agent prompt formatting across all repositories to enforce boundary encapsulation and prevent injection.",
+      "spec_path": "tasks/specs/T-0337.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents prompt injection attacks and ensures structural delimiter encapsulation across agent prompt pipelines.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0337.md; .claude/skills/security-browsing/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0338",
+      "title": "Automated Cross-Repo GitHub Actions Workflow Token Permission & Least Privilege Linter (tasks/check_github_workflow_permissions.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_github_workflow_permissions; python tasks/check_github_workflow_permissions.py --check",
+      "notes": "Wave 26 Security Lane Replenishment. Audits GitHub Actions workflow files across all repositories to enforce explicit permissions and full SHA action pinning.",
+      "spec_path": "tasks/specs/T-0338.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces least privilege CI tokens and immutable SHA pinning across GitHub Actions workflows.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0338.md; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0339",
+      "title": "CFTR Apical Microvillar Surface Density & MUC1/MUC4 Glycocalyx Diffusion Barrier Model (tools/discovery/microvillar_glycocalyx_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_microvillar_glycocalyx_model; python tools/discovery/microvillar_glycocalyx_model.py --check",
+      "notes": "Wave 26 Research Lane Replenishment. Biophysical model quantifying apical epithelial microvillar steric hindrance and transmembrane mucin polymer brush resistance.",
+      "spec_path": "tasks/specs/T-0339.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Calculates transport resistance through the apical glycocalyx to guide inhaled therapeutic nanoparticle design.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 1.25
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic biophysical modeling tool and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0339.md; DOI:10.1126/science.1223012",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0340",
+      "title": "Class I Nonsense Allele (G542X, W1282X) Ribosome Profiling & A-Site Codon Decoding Speed Model (tools/discovery/ribosome_profiling_decoding_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_ribosome_profiling_decoding_model; python tools/discovery/ribosome_profiling_decoding_model.py --check",
+      "notes": "Wave 26 Research Lane Replenishment. Biophysical model simulating ribo-seq ribosome stall dynamics and translational elongation velocities across CFTR PTC stop codons.",
+      "spec_path": "tasks/specs/T-0340.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models translational stall and decoding kinetics at CFTR nonsense codons to guide small-molecule readthrough strategies.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 1.25
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic biophysical modeling tool and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0340.md; DOI:10.1073/pnas.1523356113",
       "executor": "agent",
       "human_required": false
     }
