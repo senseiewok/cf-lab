@@ -12978,7 +12978,7 @@
       "title": "Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13017,7 +13017,8 @@
         "composite_score": 7.52,
         "roi_ratio": 1.88
       },
-      "notes": "Wave 13 Track A Curative Biophysics. Extends T-0252 by incorporating cryo-EM structure-grounded SLC26A9 (PDB: 7CH1) constitutive conductance and PDZ/STAS domain trafficking."
+      "notes": "Completed in senseiewok/cf-research#116. Implemented Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) with 8/8 unit tests passing (test_slc26a9_tmem16a_bypass.py) and check_anti_hallucination.py passing (AH-1 to AH-5 100% pass).",
+      "actual_hours": 4.0
     },
     {
       "id": "T-0257",
