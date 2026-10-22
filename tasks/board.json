@@ -14241,7 +14241,7 @@
       "title": "Interactive Inhaled Micro-Aerosol Droplet Evaporation & Hygroscopic Growth Dynamics Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14278,10 +14278,12 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.42,
-        "roi_ratio": 2.7
+        "roi_ratio": 2.7,
+        "measured": 2.75
       },
-      "notes": "Wave 17 Track B Public Showcase Replenishment. Connects T-0228 micro-aerosol biophysics to /cf/delivery/.",
-      "spec_path": "tasks/specs/T-0282.md"
+      "notes": "Wave 17 Track B Public Showcase Replenishment. Connects T-0228 micro-aerosol biophysics to /cf/delivery/. Delivered in senseiewok/.ai#155 with full Mexican Spanish parity and zero-build strict CSP.",
+      "spec_path": "tasks/specs/T-0282.md",
+      "actual_hours": 2.75
     },
     {
       "id": "T-0283",
