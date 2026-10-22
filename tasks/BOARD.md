@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-286 tasks, 285 created by a model, 161 with a measured outcome. Estimated effort 745.35 to 1376.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+286 tasks, 285 created by a model, 163 with a measured outcome. Estimated effort 745.35 to 1376.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (25)
+## ready (23)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -24,8 +24,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0283 | P1 | Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0177 |  |
 | T-0280 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0270 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0271 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0244 |  |
-| T-0285 | P1 | Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0239 |  |
 | T-0281 | P1 | CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Remodeling Model (tools/discovery/pdi_redox_remodeling.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -40,7 +38,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (247)
+## done (249)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -120,6 +118,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0228 | P1 | Mechano-acoustic mucus conditioning, PIEZO1/TMEM16A ASL hydration, and EV/nanoparticle delivery flux model (tools/discovery/mechano_acoustic_delivery.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-19 | elevated | high | frontier | T-0220 |  |
 | T-0254 | P1 | Splice-Switching Antisense Oligonucleotide (ASO) Steric-Blocking Kinetics & Cryptic Pseudoexon Competition Model (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) (tools/discovery/aso_splice_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0256 | P1 | Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
+| T-0271 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0244 |  |
+| T-0285 | P1 | Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0239 |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0276 | P1 | Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0272 |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -1086,7 +1086,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_macrophage_evasion_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT05248230; DOI:10.1126/science.1234568; DOI:10.1016/j.addr.2015.09.006; DOI:10.3390/pharmaceutics12040347
 - **Spec:** `tasks/specs/T-0271.md`
-- **Notes:** Wave 15 Research Discovery Replenishment. Parameterizes CD47 peptide surface density threshold to suppress macrophage clearance by >80%.
+- **Notes:** Completed in senseiewok/cf-research#122. Implemented tools/discovery/macrophage_evasion_kinetics.py & test_macrophage_evasion_kinetics.py (10/10 unit tests passing, AH-1..AH-5 PASS): models competitive opsonin adsorption (SP-A/D, C3b) with de Gennes PEG brush shielding, CD47 'Self' peptide SIRP-alpha ligation with Hill kinetics, scavenger receptor uptake velocity (SR-A1, CD36), and mucosal basal stem cell retention.
+- **Measured:**  h; 
 
 ### T-0285 Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py)
 
@@ -1095,7 +1096,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_lnp_escape_dynamics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/mrna_lnp_escape_model.py; DOI:10.1038/nbt.3298; DOI:10.1038/nbt.2612; DOI:10.1016/j.ymthe.2017.05.013; ClinicalTrials.gov:NCT05668741
 - **Spec:** `tasks/specs/T-0285.md`
-- **Notes:** Wave 17 Research Lane Replenishment. Connects T-0239 endosomal escape kinetics to basal stem cell uncoating dynamics.
+- **Notes:** Completed in senseiewok/cf-research#122. Implemented tools/discovery/lnp_escape_dynamics.py & test_lnp_escape_dynamics.py (11/11 unit tests passing, AH-1..AH-5 PASS): models endosomal acidification, Henderson-Hasselbalch ionizable lipid pKa inversion, H_II phase transition membrane destabilization, galectin-3 (LGALS3) rupture puncta, cytosolic bioavailability (phi_escape = 1-5%), and translation onset half-life.
+- **Measured:**  h; 
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
