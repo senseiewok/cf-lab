@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-292 tasks, 291 created by a model, 166 with a measured outcome. Estimated effort 760.35 to 1401.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+294 tasks, 293 created by a model, 166 with a measured outcome. Estimated effort 764.35 to 1408.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (24)
+## ready (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -37,7 +37,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (254)
+## done (258)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -74,6 +74,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0286 | P1 | Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0289 | P1 | Automated Cross-Repo Agent Subprocess Argument Injection Guard & Shell Invariant Linter (tasks/check_subprocess_injection_guard.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0290 | P1 | Automated Multi-Repo Git Tag Cryptographic Integrity & Release Artifact Linter (tasks/check_git_release_integrity.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0295 | P1 | Automated Multi-Repo Worktree Lock & Concurrent Sentinel Collision Guard (tasks/check_sentinel_concurrency_guard.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0284, T-0289 |  |
+| T-0296 | P1 | Automated Cross-Repo Agent API Key & Token Entropy Linter (tasks/check_secret_entropy_linter.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0289, T-0290 |  |
 | T-0181 | P1 | Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py) | .ai | 1.5-3 | 4 | 17.8 | yes | model: claude-3-opus | 2026-10-17 | elevated | low | local | T-0180 |  |
 | T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | yes | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |  |
 | T-0167 | P1 | Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification | .ai | 2-4 | 5 | 16.7 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud |  |  |
@@ -644,6 +646,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-lab/VERSION; .claude/skills/lab-versioning/SKILL.md; .claude/skills/security-git/SKILL.md
 - **Spec:** `tasks/specs/T-0290.md`
 - **Notes:** 2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0289. Implemented tasks/check_git_release_integrity.py and unit test suite tasks/test_check_git_release_integrity.py to enforce semantic release tag hygiene, VERSION alignment, commit reachability from main, and release artifact cleanliness. Acceptance checks passed: python -m unittest tasks.test_check_git_release_integrity; python tasks/check_git_release_integrity.py --check
+
+### T-0295 Automated Multi-Repo Worktree Lock & Concurrent Sentinel Collision Guard (tasks/check_sentinel_concurrency_guard.py)
+
+- **Why / ROI rationale:** Guarantees race-free scheduled sentinel concurrency and prevents stale lock collisions during automated PR cycles. *(confidence: high)*
+- **Route:** local - Deterministic AST and lock-file audit script verifying atomic sentinel concurrency leases, timeout expiration, and worktree isolation across all workspace repos.
+- **Acceptance:** python -m unittest tasks.test_check_sentinel_concurrency_guard; python tasks/check_sentinel_concurrency_guard.py --check
+- **Evidence:** tasks/sentinels.json; tasks/run-sentinel.ps1; tasks/prune_stale_worktrees.py; CWE-362; OWASP-A01
+- **Spec:** `tasks/specs/T-0295.md`
+- **Notes:** 2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0295. Implemented tasks/check_sentinel_concurrency_guard.py and unit test suite tasks/test_check_sentinel_concurrency_guard.py to validate active lock leases, timeout expiration against tasks/sentinels.json, atomic PID verification, and overlapping dirty worktree detection. Acceptance checks passed: python -m unittest tasks.test_check_sentinel_concurrency_guard; python tasks/check_sentinel_concurrency_guard.py --check
+
+### T-0296 Automated Cross-Repo Agent API Key & Token Entropy Linter (tasks/check_secret_entropy_linter.py)
+
+- **Why / ROI rationale:** Prevents secret and token leakage across agent workflows through mathematical Shannon entropy scanning. *(confidence: high)*
+- **Route:** local - Deterministic Shannon entropy scanner detecting high-entropy credentials across commits, working trees, and agent transcripts while allowing hashes and UUIDs.
+- **Acceptance:** python -m unittest tasks.test_check_secret_entropy_linter; python tasks/check_secret_entropy_linter.py --check
+- **Evidence:** .claude/skills/security-git/SKILL.md; .claude/skills/security-baseline/SKILL.md; DOI:10.1002/j.1538-7305.1948.tb01338.x; OWASP-A07
+- **Spec:** `tasks/specs/T-0296.md`
+- **Notes:** 2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0295. Implemented tasks/check_secret_entropy_linter.py and unit test suite tasks/test_check_secret_entropy_linter.py with Shannon entropy analysis (H > 4.5), credential prefix scanners, and false positive suppression. Acceptance checks passed: python -m unittest tasks.test_check_secret_entropy_linter; python tasks/check_secret_entropy_linter.py --check
 
 ### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
 
