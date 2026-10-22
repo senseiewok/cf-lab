@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -14248,7 +14248,7 @@
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
-      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
       "created_at": "2026-10-22T08:30:00Z",
       "updated_at": "2026-10-22",
       "created_by": {
@@ -16185,7 +16185,7 @@
       "title": "Automated Multi-Repo Agent Environment Variable Leak & Process Memory Sanitization Linter (tasks/check_env_sanitization_invariants.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -16220,14 +16220,17 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0325.md; .claude/skills/security-baseline/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo agent environment variable leak and process memory sanitization linter (tasks/check_env_sanitization_invariants.py) and test suite (tasks/test_check_env_sanitization_invariants.py) with 10 unit tests passing deterministically."
     },
     {
       "id": "T-0326",
       "title": "Automated Cross-Repo File Permission & Executable Bit Invariant Linter (tasks/check_file_permission_invariants.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -16262,7 +16265,10 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0326.md; .claude/skills/security-git/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo file permission and executable bit invariant linter (tasks/check_file_permission_invariants.py) and test suite (tasks/test_check_file_permission_invariants.py) with 6 unit tests passing deterministically."
     },
     {
       "id": "T-0327",
@@ -16345,6 +16351,262 @@
       "recommended_route": "local",
       "route_rationale": "Computational biophysics script and unit tests in cf-research.",
       "source_evidence": "tasks/specs/T-0328.md; Nat Commun 12:4358; Nucleic Acids Res 44(8):3740-3755",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0329",
+      "title": "Interactive Airway Surface Liquid (ASL) Osmotic Collapse & Hypertonic Saline Rehydration Dynamics Simulator on /cf/tree/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0275"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_osmotic_simulator tests.test_site.StaticTests",
+      "notes": "Wave 25 Showcase Lane Replenishment. Interactive ASL depth and hypertonic saline (7% NaCl) rehydration biophysical simulator on /cf/tree/ with reciprocal Mexican Spanish localization.",
+      "spec_path": "tasks/specs/T-0329.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Translates hypertonic airway rehydration biophysics into clinical understanding with full Spanish parity.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 1.82
+      },
+      "recommended_route": "local",
+      "route_rationale": "High-yield interactive educational module with verified Mexican Spanish parity.",
+      "source_evidence": "tasks/specs/T-0329.md; Donaldson et al. (2006) DOI:10.1056/NEJMoa043891",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0330",
+      "title": "Interactive CFTR Premature Termination Codon (PTC) Ribosome Proofreading & Eukaryotic Release Factor (eRF1/eRF3) Termination Kinetics Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0324"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_ribosome_simulator tests.test_site.StaticTests",
+      "notes": "Wave 25 Showcase Lane Replenishment. Interactive ribosome decoding competition (eRF1-eRF3 vs aa-tRNA) and pharmacological readthrough simulator on /cf/ptc/ with Mexican Spanish parity.",
+      "spec_path": "tasks/specs/T-0330.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes the thermodynamic basis of nonsense readthrough modulators across stop codon contexts.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.7,
+        "roi_ratio": 1.82
+      },
+      "recommended_route": "local",
+      "route_rationale": "Core nonsense mutation theratyping showcase with verified Spanish localization.",
+      "source_evidence": "tasks/specs/T-0330.md; Floquet et al. (2012) DOI:10.1371/journal.pgen.1002608",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0331",
+      "title": "Automated Multi-Repo Agent AST Import Obfuscation & Dynamic Code Execution Linter (tasks/check_ast_obfuscation_invariants.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_ast_obfuscation_invariants; python tasks/check_ast_obfuscation_invariants.py --check",
+      "notes": "Wave 25 Security Lane Replenishment. Audits ASTs across all repositories to prohibit dynamic eval/exec and obfuscated payload execution.",
+      "spec_path": "tasks/specs/T-0331.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents arbitrary code execution and sandbox escapes across multi-agent workflows.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0331.md; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0332",
+      "title": "Automated Cross-Repo Git Commit Author Signature & Identity Spoofing Linter (tasks/check_git_author_integrity.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_author_integrity; python tasks/check_git_author_integrity.py --check",
+      "notes": "Wave 25 Security Lane Replenishment. Audits git commit authorship and identity integrity to enforce SLSA Level 3 provenance across repositories.",
+      "spec_path": "tasks/specs/T-0332.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees commit authorship integrity and enforces provenance across multi-agent committers.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0332.md; .claude/skills/security-git/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0333",
+      "title": "Airway Surface Liquid (ASL) Osmotic Depth & Transepithelial Water Flux Biophysical Model (tools/discovery/asl_osmotic_flux_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "python tools/discovery/test_asl_osmotic_flux_model.py; python tools/check_anti_hallucination.py",
+      "notes": "Wave 25 Research Lane Replenishment. Mechanistic ODE modeling of transepithelial water transport and ASL osmotic restoration following hypertonic saline challenge.",
+      "spec_path": "tasks/specs/T-0333.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Provides rigorous mathematical grounding for airway hydration and mucociliary transport restoration.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.8,
+        "roi_ratio": 1.25
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic mathematical biophysics model in cf-research.",
+      "source_evidence": "tasks/specs/T-0333.md; Goralski et al. (2010) DOI:10.1016/j.coph.2010.04.004",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0334",
+      "title": "CFTR Premature Termination Codon (PTC) Release Factor eRF1-eRF3 Termination vs Readthrough Thermodynamic Model (tools/discovery/ptc_termination_flux_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "python tools/discovery/test_ptc_termination_flux_model.py; python tools/check_anti_hallucination.py",
+      "notes": "Wave 25 Research Lane Replenishment. Master equation simulation of ribosome stop codon decoding and readthrough efficiency across nonsense mutations.",
+      "spec_path": "tasks/specs/T-0334.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantitative prediction of functional CFTR recovery across genetic stop codon contexts.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.8,
+        "roi_ratio": 1.25
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic mathematical biophysics model in cf-research.",
+      "source_evidence": "tasks/specs/T-0334.md; Roy et al. (2016) DOI:10.1146/annurev-genom-090314-050032",
       "executor": "agent",
       "human_required": false
     }
