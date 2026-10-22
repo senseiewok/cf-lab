@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-292 tasks, 291 created by a model, 164 with a measured outcome. Estimated effort 760.35 to 1401.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+292 tasks, 291 created by a model, 166 with a measured outcome. Estimated effort 760.35 to 1401.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (26)
+## ready (24)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -25,8 +25,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0287 | P1 | Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
 | T-0288 | P1 | Interactive Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0285 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0291 | P1 | Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Enzymatic Sialidase Permeabilization Model (tools/discovery/glycocalyx_permeabilization_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0292 | P1 | CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Binding Kinetics & Cryptic Exon Exclusion Model (tools/discovery/u1_snrnp_decoy_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0281 | P1 | CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Remodeling Model (tools/discovery/pdi_redox_remodeling.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -41,7 +39,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (252)
+## done (254)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -126,6 +124,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0256 | P1 | Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
 | T-0271 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0244 |  |
 | T-0285 | P1 | Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0239 |  |
+| T-0291 | P1 | Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Enzymatic Sialidase Permeabilization Model (tools/discovery/glycocalyx_permeabilization_model.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0292 | P1 | CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Binding Kinetics & Cryptic Exon Exclusion Model (tools/discovery/u1_snrnp_decoy_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0276 | P1 | Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0272 |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -1149,7 +1149,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_glycocalyx_permeabilization_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1126/science.1223012; DOI:10.1073/pnas.2003349117; DOI:10.1165/rcmb.2012-0296OC; ClinicalTrials.gov:NCT05668741
 - **Spec:** `tasks/specs/T-0291.md`
-- **Notes:** Wave 18 Research Lane Replenishment. Simulates periciliary glycocalyx polymer brush steric exclusion of nanoparticles and enzymatic sialidase/heparinase permeabilization kinetics.
+- **Notes:** Completed in senseiewok/cf-research#123. Implemented tools/discovery/glycocalyx_permeabilization_model.py & test_glycocalyx_permeabilization_model.py (14/14 unit tests passing, AH-1..AH-5 PASS): models periciliary glycocalyx meshwork (tethered mucins MUC1/4/16, GAGs), Ogston steric sieving, Boltzmann electrostatic exclusion for LNPs vs AAV, Michaelis-Menten sialidase/heparinase cleavage kinetics, de Gennes mesh dilation, brush height collapse, and apical collision frequency fold-enhancement.
+- **Measured:**  h; 
 
 ### T-0292 CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Binding Kinetics & Cryptic Exon Exclusion Model (tools/discovery/u1_snrnp_decoy_kinetics.py)
 
@@ -1158,7 +1159,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_u1_snrnp_decoy_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1093/hmg/ddh247; DOI:10.1016/j.omtn.2020.08.017; DOI:10.1056/NEJM199410133311503; ClinicalTrials.gov:NCT04802876
 - **Spec:** `tasks/specs/T-0292.md`
-- **Notes:** Wave 18 Research Lane Replenishment. Simulates competitive spliceosome thermodynamics and SSO-mediated exclusion of deep-intronic pseudoexons (3849+10kb C->T, 1811+1.6kb A->G).
+- **Notes:** Completed in senseiewok/cf-research#123. Implemented tools/discovery/u1_snrnp_decoy_kinetics.py & test_u1_snrnp_decoy_kinetics.py (11/11 unit tests passing, AH-1..AH-5 PASS): models spliceosome competitive thermodynamics (Delta G of U1 snRNA with cryptic donor vs SSOs), mass-action competitive displacement, pre-mRNA pseudoexon skipping for 3849+10kb C->T and 1811+1.6kb A->G, dose-dependent restoration of full-length CFTR mRNA (EC50 ~ 20-80 nM), and transepithelial chloride current rescue.
+- **Measured:**  h; 
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 

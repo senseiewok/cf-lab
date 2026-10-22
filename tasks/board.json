@@ -14653,7 +14653,7 @@
       "title": "Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Enzymatic Sialidase Permeabilization Model (tools/discovery/glycocalyx_permeabilization_model.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14668,7 +14668,7 @@
         "high": 5.0
       },
       "acceptance": "pytest tools/discovery/test_glycocalyx_permeabilization_model.py -v; python tools/claims/check_anti_hallucination.py",
-      "notes": "Wave 18 Research Lane Replenishment. Simulates periciliary glycocalyx polymer brush steric exclusion of nanoparticles and enzymatic sialidase/heparinase permeabilization kinetics.",
+      "notes": "Completed in senseiewok/cf-research#123. Implemented tools/discovery/glycocalyx_permeabilization_model.py & test_glycocalyx_permeabilization_model.py (14/14 unit tests passing, AH-1..AH-5 PASS): models periciliary glycocalyx meshwork (tethered mucins MUC1/4/16, GAGs), Ogston steric sieving, Boltzmann electrostatic exclusion for LNPs vs AAV, Michaelis-Menten sialidase/heparinase cleavage kinetics, de Gennes mesh dilation, brush height collapse, and apical collision frequency fold-enhancement.",
       "spec_path": "tasks/specs/T-0291.md",
       "roi": {
         "benefit": 5,
@@ -14682,20 +14682,23 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.62,
-        "roi_ratio": 1.9
+        "roi_ratio": 1.9,
+        "measured": 4.0
       },
       "recommended_route": "local",
       "route_rationale": "Biophysical discovery simulation in cf-research.",
       "source_evidence": "DOI:10.1126/science.1223012; DOI:10.1073/pnas.2003349117; DOI:10.1165/rcmb.2012-0296OC; ClinicalTrials.gov:NCT05668741",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 4.0
     },
     {
       "id": "T-0292",
       "title": "CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Binding Kinetics & Cryptic Exon Exclusion Model (tools/discovery/u1_snrnp_decoy_kinetics.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14710,7 +14713,7 @@
         "high": 5.0
       },
       "acceptance": "pytest tools/discovery/test_u1_snrnp_decoy_kinetics.py -v; python tools/claims/check_anti_hallucination.py",
-      "notes": "Wave 18 Research Lane Replenishment. Simulates competitive spliceosome thermodynamics and SSO-mediated exclusion of deep-intronic pseudoexons (3849+10kb C->T, 1811+1.6kb A->G).",
+      "notes": "Completed in senseiewok/cf-research#123. Implemented tools/discovery/u1_snrnp_decoy_kinetics.py & test_u1_snrnp_decoy_kinetics.py (11/11 unit tests passing, AH-1..AH-5 PASS): models spliceosome competitive thermodynamics (Delta G of U1 snRNA with cryptic donor vs SSOs), mass-action competitive displacement, pre-mRNA pseudoexon skipping for 3849+10kb C->T and 1811+1.6kb A->G, dose-dependent restoration of full-length CFTR mRNA (EC50 ~ 20-80 nM), and transepithelial chloride current rescue.",
       "spec_path": "tasks/specs/T-0292.md",
       "roi": {
         "benefit": 5,
@@ -14724,13 +14727,16 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.62,
-        "roi_ratio": 1.9
+        "roi_ratio": 1.9,
+        "measured": 4.0
       },
       "recommended_route": "local",
       "route_rationale": "Biophysical discovery simulation in cf-research.",
       "source_evidence": "DOI:10.1093/hmg/ddh247; DOI:10.1016/j.omtn.2020.08.017; DOI:10.1056/NEJM199410133311503; ClinicalTrials.gov:NCT04802876",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 4.0
     }
   ],
   "updated": "2026-10-22"
