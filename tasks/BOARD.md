@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-286 tasks, 285 created by a model, 161 with a measured outcome. Estimated effort 745.35 to 1376.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+288 tasks, 287 created by a model, 162 with a measured outcome. Estimated effort 750.35 to 1384.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (25)
+## ready (26)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -19,10 +19,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0282 | P1 | Interactive Inhaled Micro-Aerosol Droplet Evaporation & Hygroscopic Growth Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0228 |  |
-| T-0284 | P1 | Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0278 |  |
-| T-0286 | P1 | Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0283 | P1 | Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0177 |  |
-| T-0280 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0270 |  |
+| T-0287 | P1 | Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
+| T-0288 | P1 | Interactive Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0285 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0271 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0244 |  |
 | T-0285 | P1 | Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0239 |  |
@@ -34,13 +33,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
+| T-0284 | P2 | Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0278 |  |
+| T-0286 | P2 | Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (247)
+## done (248)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -105,6 +106,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0224 | P1 | Interactive Sweat Chloride vs. ppFEV1 Non-Linear Sigmoidal Concordance Explorer on /cf/registries/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0229 | P1 | Interactive Mechano-Acoustic Mucus Conditioning & 10-Year Basal Stem Cell Persistence Explorer (#mechano-stem-explorer) on /cf/delivery/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local | T-0220, T-0228 |  |
 | T-0274 | P1 | Interactive Deep Intronic Splice Foundation Model & Pseudoexon Rescue Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0269 |  |
+| T-0280 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0270 |  |
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
 | T-0180 | P1 | Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py) | cf-research | 2-4 | 4 | 13.3 | yes | model: gpt-5-frontier | 2026-10-17 | elevated | medium | local | T-0177, T-0178, T-0179 |  |
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
@@ -603,24 +605,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0282.md`
 - **Notes:** Wave 17 Track B Public Showcase Replenishment. Connects T-0228 micro-aerosol biophysics to /cf/delivery/.
 
-### T-0284 Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py)
-
-- **Why / ROI rationale:** Prevents disk bloat and worktree collision across multi-repo sentinel automation with zero data-loss guarantees. *(confidence: high)*
-- **Route:** local - Automated CLI daemon extending harvest_sentinel_worktrees.py to prune fully merged, clean worktrees across workspace repositories under --yes confirmation with strict invariant guards.
-- **Acceptance:** python -m unittest tasks.test_prune_stale_worktrees; python tasks/prune_stale_worktrees.py --dry-run
-- **Evidence:** tasks/harvest_sentinel_worktrees.py; .claude/skills/workspace-siblings/scripts/worktrees.py; AGENTS.md
-- **Spec:** `tasks/specs/T-0284.md`
-- **Notes:** Wave 17 Security Lane Replenishment. Builds on T-0278 worktree harvesting.
-
-### T-0286 Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py)
-
-- **Why / ROI rationale:** Ensures external medical evidence catalog schema validity, robots.txt compliance, and license integrity across sibling repos with zero drift. *(confidence: high)*
-- **Route:** local - Deterministic linter verifying evidence catalog YAML schemas, license compatibility, terms-of-use flags, and cryptographic pin integrity across cf-research and cf-skills.
-- **Acceptance:** python -m unittest tasks.test_check_catalog_schema_lock; python tasks/check_catalog_schema_lock.py --check
-- **Evidence:** cf-research/sources/catalog.yaml; cf-skills/.claude/skills/cf-evidence-loop/catalog.yaml; .claude/skills/security-browsing/SKILL.md; .claude/skills/security-baseline/SKILL.md
-- **Spec:** `tasks/specs/T-0286.md`
-- **Notes:** Wave 17 Security Lane Replenishment. Enforces external source catalog schema lock and license boundaries.
-
 ### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
 
 - **Why / ROI rationale:** Guarantees that public website visualizations never display unverified, modified, or out-of-sync simulation datasets by enforcing SHA-256 cryptographic parity against cf-research canonical outputs. *(confidence: high)*
@@ -776,6 +760,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0283.md`
 - **Notes:** Wave 17 Track B Public Showcase Replenishment. Connects T-0177 paracellular epithelial permeability to /cf/delivery/.
 
+### T-0287 Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity
+
+- **Why / ROI rationale:** Simulates redox-dependent CFTR conformational stability and allosteric potentiator synergy. *(confidence: high)*
+- **Route:** local - Interactive biophysical redox explorer on /cf/cftr/ with es-MX parity.
+- **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_pdi_redox_explorer tests.test_site.StaticTests
+- **Evidence:** cf-research/tools/discovery/pdi_redox_remodeling.py; PDB 8EIQ; DOI:10.1016/j.cell.2021.02.012; DOI:10.1074/jbc.M113.456897
+- **Spec:** `tasks/specs/T-0287.md`
+- **Notes:** Wave 17 Showcase Replenishment. Interactive redox remodeling simulation of CFTR transmembrane S-nitrosylation and PDI chaperone activity on /cf/cftr/ with full es-MX parity.
+
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
 - **Why / ROI rationale:** Ensures scheduled security and showcase sentinels inspect every canonical route on desktop and mobile during visual audits. *(confidence: high)*
@@ -928,7 +921,17 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_gating_potentiator_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/gating_potentiator_energy_coupling.py; DOI:10.1073/pnas.0904709106; DOI:10.1016/j.cell.2019.03.049; ClinicalTrials.gov:NCT00909532
 - **Spec:** `tasks/specs/T-0280.md`
-- **Notes:** Wave 16 Showcase Replenishment. Interactive allosteric cooperativity and energetic coupling between dual potentiator sites on /cf/cftr/ with es-MX parity.
+- **Notes:** Delivered and verified in senseiewok/.ai#153. Mounts #gating-potentiator-explorer on /cf/cftr/ with full es-MX parity, biophysical allosteric cooperativity and free-energy coupling formulas, accessible SVG, strict CSP, and comprehensive unit tests.
+- **Measured:** 3.25 h; 
+
+### T-0288 Interactive Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Models the multi-barrier bottleneck of LNP endosomal escape and cytosolic mRNA uncoating in human airway basal stem cells. *(confidence: high)*
+- **Route:** local - Interactive biophysical delivery simulator on /cf/delivery/ with es-MX parity.
+- **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_lnp_escape_dynamics_explorer tests.test_site.StaticTests
+- **Evidence:** cf-research/tools/discovery/lnp_escape_dynamics.py; DOI:10.1038/nbt.3298; DOI:10.1038/nbt.1602; ClinicalTrials.gov:NCT05668741
+- **Spec:** `tasks/specs/T-0288.md`
+- **Notes:** Wave 17 Showcase Replenishment. Interactive multi-stage simulation of ionizable lipid protonation, endosomal membrane pore rupture, and cytosolic mRNA release dynamics on /cf/delivery/ with full es-MX parity.
 
 ### T-0061 Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows)
 
@@ -1898,6 +1901,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/audit_github_hygiene.py; tasks/pick_bold_task.py; AGENTS.md
 - **Spec:** `tasks/specs/T-0279.md`
 - **Notes:** Wave 15 Security Lane. Automated sentinel PR repair daemon implemented in tasks/repair_sentinel_prs.py with unit tests in tasks/test_repair_sentinel_prs.py. Verified acceptance: 12 tests passed, successfully closed superseded PR #222 on cf-lab.
+
+### T-0284 Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py)
+
+- **Why / ROI rationale:** Prevents disk bloat and worktree collision across multi-repo sentinel automation with zero data-loss guarantees. *(confidence: high)*
+- **Route:** local - Automated CLI daemon extending harvest_sentinel_worktrees.py to prune fully merged, clean worktrees across workspace repositories under --yes confirmation with strict invariant guards.
+- **Acceptance:** python -m unittest tasks.test_prune_stale_worktrees; python tasks/prune_stale_worktrees.py --dry-run
+- **Evidence:** tasks/harvest_sentinel_worktrees.py; .claude/skills/workspace-siblings/scripts/worktrees.py; AGENTS.md
+- **Spec:** `tasks/specs/T-0284.md`
+- **Notes:** Wave 17 Security Lane Replenishment. Builds on T-0278 worktree harvesting.
+
+### T-0286 Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py)
+
+- **Why / ROI rationale:** Ensures external medical evidence catalog schema validity, robots.txt compliance, and license integrity across sibling repos with zero drift. *(confidence: high)*
+- **Route:** local - Deterministic linter verifying evidence catalog YAML schemas, license compatibility, terms-of-use flags, and cryptographic pin integrity across cf-research and cf-skills.
+- **Acceptance:** python -m unittest tasks.test_check_catalog_schema_lock; python tasks/check_catalog_schema_lock.py --check
+- **Evidence:** cf-research/sources/catalog.yaml; cf-skills/.claude/skills/cf-evidence-loop/catalog.yaml; .claude/skills/security-browsing/SKILL.md; .claude/skills/security-baseline/SKILL.md
+- **Spec:** `tasks/specs/T-0286.md`
+- **Notes:** Wave 17 Security Lane Replenishment. Enforces external source catalog schema lock and license boundaries.
 
 ### T-0008 Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256)
 
