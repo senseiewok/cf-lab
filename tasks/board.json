@@ -13311,7 +13311,7 @@
       "title": "Interactive Apical Purinergic P2Y2R-Ca2+ Signal Transduction & Dual ENaC-TMEM16A Ion Equilibrium Simulator on /cf/tree/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13345,12 +13345,14 @@
           "clinical_translation": 9.0,
           "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
-          "security_compliance": 2.0
+          "security_compliance": 9.0
         },
-        "composite_score": 7.72,
-        "roi_ratio": 2.81
+        "composite_score": 8.77,
+        "roi_ratio": 3.19
       },
-      "notes": "Wave 14 Track A Public Showcase Translation. Connects completed T-0252 ENaC-TMEM16A equilibrium model to /cf/tree/."
+      "notes": "Wave 14 Track A Public Showcase Translation. Connects completed T-0252 ENaC-TMEM16A equilibrium model to /cf/tree/. Shipped via senseiewok/.ai#145 (verified through elevated gate, 64 unit tests, and Frontier Review Council).",
+      "completed_at": "2026-10-21T19:40:00Z",
+      "actual_hours": 2.75
     },
     {
       "id": "T-0264",
@@ -13386,14 +13388,14 @@
         "confidence": "high",
         "rationale": "Equips the lab for arbitrary-allele DNA/RNA therapeutic design across the 4,443-bp CFTR coding sequence and intronic splice junctions (PAM/bystander scanning, ASO walk Tm/hairpin scoring, and CpG/codon-harmony auditing).",
         "categories": {
-          "curative_biophysics": 9.5,
-          "clinical_translation": 9.0,
-          "scientific_integrity": 9.0,
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 8.43,
-        "roi_ratio": 2.59
+        "composite_score": 6.62,
+        "roi_ratio": 2.04
       },
       "notes": "Track A DNA/RNA Discovery Engine. Generalizes base editing, prime editing, ASO splice-switching, and CpG-depleted minicircle analysis to arbitrary CFTR alleles."
     },
@@ -13431,14 +13433,14 @@
         "confidence": "high",
         "rationale": "Cross-verifies open-weights biological foundation models (ESM-2 masked marginals, ProteinMPNN/ThermoMPNN ddG, Evo-2 intronic splice scores) against our mechanistic CFTR gating and ERAD thermodynamic models.",
         "categories": {
-          "curative_biophysics": 9.5,
-          "clinical_translation": 9.0,
-          "scientific_integrity": 9.0,
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 8.43,
-        "roi_ratio": 2.59
+        "composite_score": 6.62,
+        "roi_ratio": 2.04
       },
       "notes": "Track A Science Foundation Model Integration. Benchmarks zero-shot protein/DNA language model scores on canonical CFTR variants and base/tRNA editing substitutions."
     },
@@ -13448,7 +13450,7 @@
       "repo": "cf-lab",
       "area": "security",
       "status": "ready",
-      "priority": "P1",
+      "priority": "P2",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -13476,14 +13478,14 @@
         "confidence": "high",
         "rationale": "Replenishes the security/tooling lane while enabling orthogonal local dual-family diff review (Qwen 3.8 + Gemma 4 31B) and standardized onboarding benchmarks for open-source biomedical LLMs (TxGemma).",
         "categories": {
-          "curative_biophysics": 5.0,
-          "clinical_translation": 6.0,
+          "curative_biophysics": 2.0,
+          "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 9.0
         },
-        "composite_score": 7.05,
-        "roi_ratio": 2.56
+        "composite_score": 6.32,
+        "roi_ratio": 2.3
       },
       "notes": "Security & AI Loop Council technology upgrade. Adds optional second-family local challenger to review-diff.ps1 and TxGemma scientific grounding benchmark fixtures."
     },
@@ -13493,7 +13495,7 @@
       "repo": "cf-skills",
       "area": "tooling",
       "status": "ready",
-      "priority": "P2",
+      "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -13525,10 +13527,10 @@
           "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
-          "security_compliance": 8.0
+          "security_compliance": 2.0
         },
-        "composite_score": 7.9,
-        "roi_ratio": 2.87
+        "composite_score": 6.92,
+        "roi_ratio": 2.52
       },
       "notes": "Public cf-skills improvement. Integrates pin_catalog.check() into check_repo.py and adds deterministic CFTR exon/domain context to cf-evidence-loop."
     }
