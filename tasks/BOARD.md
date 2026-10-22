@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-269 tasks, 268 created by a model, 150 with a measured outcome. Estimated effort 704.35 to 1305.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+269 tasks, 268 created by a model, 151 with a measured outcome. Estimated effort 704.35 to 1305.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (23)
+## ready (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,7 +18,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0268 | P1 | Interactive CFTR Sequence-Window & Open-Source Foundation Model Explorer Showcase on senseiewok.ai | cf-lab | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0269 | P1 | Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0263 | P1 | Interactive Apical Purinergic P2Y2R-Ca2+ Signal Transduction & Dual ENaC-TMEM16A Ion Equilibrium Simulator on /cf/tree/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
@@ -38,7 +37,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (232)
+## done (233)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -84,6 +83,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0259 | P1 | Multi-Family Discovery Council Dynamic Module Registry (discovery_council.py) & AH-5 Unregistered Model Guardrail in check_anti_hallucination.py | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0264 | P1 | CFTR RefSeq (NM_000492.4) Full Coding Sequence & Intronic Splice-Flank Verifier + Arbitrary-Allele gRNA/pegRNA/ASO/CpG Scanner (tools/discovery/cftr_sequence_scanner.py) | cf-research | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0265 | P1 | Open-Source Protein & Genomic Science Model Benchmark & Zero-Shot CFTR Mutational Landscape Evaluator (ESM-2 / ThermoMPNN / Evo-2 vs Mechanistic Models in tools/discovery/science_model_benchmark.py) | cf-research | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
+| T-0268 | P1 | Interactive CFTR Sequence-Window & Open-Source Foundation Model Explorer Showcase on senseiewok.ai | .ai | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0193 | P1 | Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0205 | P1 | Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py) | cf-lab | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0258 | P1 | Interactive Splice-Switching ASO Steric-Blocking & Cryptic Pseudoexon Rescue Explorer (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) on /cf/ptc/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0254 |  |
@@ -701,7 +701,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site tests.test_resources_page
 - **Evidence:** T-0264 (tools/discovery/cftr_sequence_scanner.py) and T-0265 (tools/discovery/science_model_benchmark.py) in senseiewok/cf-research#117 Pruitt KD et al. (2014) RefSeq NM_000492.4 (PMID:24259432) Lin Z et al. (2023) ESM-2 protein language model (PMID:36927031) Dauparas J et al. (2022) ProteinMPNN structure-conditioned design (PMID:36108050) Fiedorczuk K & Chen J (2022) Cryo-EM structure of ETI-bound CFTR PDB:8EIQ (PMID:36227992)
 - **Spec:** `tasks/specs/T-0268.md`
-- **Notes:** Wave 14 Track B Bilingual Web Showcase. Translates T-0264 & T-0265 into bilingual EN/ES interactive visualization cards on senseiewok.ai.
+- **Notes:** Wave 14 Track B Bilingual Web Showcase. Translates T-0264 & T-0265 into bilingual EN/ES interactive visualization cards on /cf/cftr/. Completed in senseiewok/.ai#148.
+- **Measured:**  h; 
 
 ### T-0269 Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py)
 
