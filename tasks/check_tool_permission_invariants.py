@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional, Set, Tuple
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REPORT_PATH = REPO_ROOT / ".loop-logs" / "tool-permission-audit.json"
 
-REQUIRED_CORE_SECRET_DENIES = frozenset({
+REQUIRED_CORE_PROTECTED_PATH_RULES = frozenset({
     "Read(.env)",
     "Read(.env.local)",
     "Read(**/*.pem)",
@@ -103,10 +103,10 @@ def audit_control_settings_denials(lab_root: Path) -> Tuple[List[str], List[str]
     deny_rules = set(permissions.get("deny", []))
     metadata["deny_rule_count"] = len(deny_rules)
 
-    # Check required secret denies
-    for req in REQUIRED_CORE_SECRET_DENIES:
+    # Check required protected path denies
+    for req in REQUIRED_CORE_PROTECTED_PATH_RULES:
         if req not in deny_rules:
-            errors.append(f"Missing required core secret deny rule: '{req}'")
+            errors.append(f"Missing required protected path deny rule: '{req}'")
 
     # Check force-push denies
     for req in REQUIRED_FORCE_PUSH_DENIES:
@@ -117,7 +117,7 @@ def audit_control_settings_denials(lab_root: Path) -> Tuple[List[str], List[str]
 
 
 def audit_denial_rule_symmetry(lab_root: Path) -> Tuple[List[str], List[str]]:
-    """Assert core secret denies are consistently mirrored across all repo settings."""
+    """Assert core protected path denies are consistently mirrored across all repo settings."""
     errors: List[str] = []
     warnings: List[str] = []
     repos = get_sibling_repo_roots(lab_root)
@@ -129,10 +129,10 @@ def audit_denial_rule_symmetry(lab_root: Path) -> Tuple[List[str], List[str]]:
         try:
             data = json.loads(settings_file.read_text(encoding="utf-8"))
             rules = set(data.get("permissions", {}).get("deny", []))
-            for req in REQUIRED_CORE_SECRET_DENIES:
+            for req in REQUIRED_CORE_PROTECTED_PATH_RULES:
                 if req not in rules:
                     errors.append(
-                        f"[{repo_name}] Settings symmetry violation: missing core rule '{req}'"
+                        f"[{repo_name}] Settings symmetry violation: missing core protected rule '{req}'"
                     )
         except Exception as e:
             errors.append(f"[{repo_name}] Failed parsing .claude/settings.json: {e}")

@@ -19,7 +19,7 @@ from check_tool_permission_invariants import (  # noqa: E402
     audit_reviewer_scope_enforcement,
     run_full_tool_permission_linter,
     REPO_ROOT,
-    REQUIRED_CORE_SECRET_DENIES,
+    REQUIRED_CORE_PROTECTED_PATH_RULES,
     REQUIRED_FORCE_PUSH_DENIES,
 )
 
@@ -53,7 +53,7 @@ class TestCheckToolPermissionInvariants(unittest.TestCase):
         errors, _, _ = audit_control_settings_denials(self.root)
         self.assertTrue(any("disableBypassPermissionsMode must be explicitly set" in e for e in errors))
 
-    def test_missing_secret_deny_rule(self) -> None:
+    def test_missing_protected_rule(self) -> None:
         claude_dir = self.root / ".claude"
         claude_dir.mkdir(parents=True)
         settings_path = claude_dir / "settings.json"
@@ -67,7 +67,7 @@ class TestCheckToolPermissionInvariants(unittest.TestCase):
             encoding="utf-8",
         )
         errors, _, _ = audit_control_settings_denials(self.root)
-        self.assertTrue(any("Missing required core secret deny rule: 'Read(.env)'" in e for e in errors))
+        self.assertTrue(any("Missing required protected path deny rule: 'Read(.env)'" in e for e in errors))
 
     def test_missing_force_push_deny_rule(self) -> None:
         claude_dir = self.root / ".claude"
@@ -77,7 +77,7 @@ class TestCheckToolPermissionInvariants(unittest.TestCase):
             json.dumps({
                 "permissions": {
                     "disableBypassPermissionsMode": "disable",
-                    "deny": list(REQUIRED_CORE_SECRET_DENIES),
+                    "deny": list(REQUIRED_CORE_PROTECTED_PATH_RULES),
                 }
             }),
             encoding="utf-8",
