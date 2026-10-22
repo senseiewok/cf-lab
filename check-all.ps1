@@ -124,6 +124,8 @@ $Checks = @(
     @{ name = 'test-check-i18n-parity';   exe = 'python';     args = @('tasks/test_check_i18n_parity.py');                                                 needs = @('python') }
     @{ name = 'check-markdown-links';     exe = 'python';     args = @('tasks/check_markdown_link_integrity.py', '--check');                               needs = @('python') }
     @{ name = 'test-check-markdown-links'; exe = 'python';    args = @('tasks/test_check_markdown_link_integrity.py');                                     needs = @('python') }
+    @{ name = 'check-sentinel-telemetry'; exe = 'python';     args = @('tasks/check_sentinel_telemetry_linter.py', '--check');                             needs = @('python') }
+    @{ name = 'test-sentinel-telemetry';  exe = 'python';     args = @('tasks/test_check_sentinel_telemetry_linter.py');                                   needs = @('python') }
     # models (the guard only; nothing here talks to Ollama)
     @{ name = 'test-restart-ollama';      exe = 'pwsh';       args = @("$s/model-qwen3-8-27b/test-restart-ollama.ps1");                                    needs = @() }
     @{ name = 'test-score-claim-mapping'; exe = 'python';     args = @("$s/model-onboarding/scripts/test_score_claim_mapping.py");                         needs = @('python') }

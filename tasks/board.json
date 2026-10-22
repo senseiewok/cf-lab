@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -14199,7 +14199,7 @@
       "title": "CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Remodeling Model (tools/discovery/pdi_redox_remodeling.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14214,7 +14214,7 @@
         "high": 5.5
       },
       "acceptance": "pytest tools/discovery/test_pdi_redox_remodeling.py -v; python tools/claims/check_anti_hallucination.py",
-      "notes": "Wave 16 Research Replenishment. ERAD escape kinetics via S-nitrosylation of cryptic cysteines and PDI oxidoreductase chaperoning across misfolded CFTR alleles.",
+      "notes": "Delivered in research sentinel PR senseiewok/cf-research#124 (and companion board PR cf-lab#237). Implemented CFTR cryptic S-nitrosylation & PDI redox remodeling model in tools/discovery/pdi_redox_remodeling.py.",
       "spec_path": "tasks/specs/T-0281.md",
       "roi": {
         "benefit": 5,
@@ -14234,19 +14234,21 @@
       "route_rationale": "Biophysical ERAD escape kinetics via S-nitrosylation and PDI chaperoning across misfolded CFTR alleles.",
       "source_evidence": "DOI:10.1073/pnas.241383898; DOI:10.3389/fphar.2012.00201; PDB:6MSM; PDB:5W81; ClinicalTrials.gov:NCT00057278",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 3.5
     },
     {
       "id": "T-0282",
       "title": "Interactive Inhaled Micro-Aerosol Droplet Evaporation & Hygroscopic Growth Dynamics Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
-      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
       "created_at": "2026-10-22T08:30:00Z",
       "updated_at": "2026-10-22",
       "created_by": {
@@ -14280,8 +14282,10 @@
         "composite_score": 7.42,
         "roi_ratio": 2.7
       },
-      "notes": "Wave 17 Track B Public Showcase Replenishment. Connects T-0228 micro-aerosol biophysics to /cf/delivery/.",
-      "spec_path": "tasks/specs/T-0282.md"
+      "notes": "Delivered in showcase sentinel PR senseiewok/.ai#155 (and companion board PR cf-lab#236). Interactive micro-aerosol droplet evaporation and hygroscopic growth simulator on /cf/delivery/ with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0282.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.75
     },
     {
       "id": "T-0283",
@@ -14847,7 +14851,7 @@
       "title": "Automated Multi-Repo Worktree Lock & Concurrent Sentinel Collision Guard (tasks/check_sentinel_concurrency_guard.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14887,15 +14891,17 @@
         "composite_score": 7.4,
         "roi_ratio": 2.45
       },
-      "notes": "Wave 19 Security & Architecture Replenishment. Implements tasks/check_sentinel_concurrency_guard.py.",
-      "spec_path": "tasks/specs/T-0295.md"
+      "notes": "Delivered in security sentinel PR senseiewok/cf-lab#238. Automated multi-repo worktree lock & concurrent sentinel collision guard in tasks/check_sentinel_concurrency_guard.py.",
+      "spec_path": "tasks/specs/T-0295.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.0
     },
     {
       "id": "T-0296",
       "title": "Automated Cross-Repo Agent API Key & Token Entropy Linter (tasks/check_secret_entropy_linter.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14935,8 +14941,10 @@
         "composite_score": 7.45,
         "roi_ratio": 2.48
       },
-      "notes": "Wave 19 Security & Architecture Replenishment. Implements tasks/check_secret_entropy_linter.py.",
-      "spec_path": "tasks/specs/T-0296.md"
+      "notes": "Delivered in security sentinel PR senseiewok/cf-lab#238. Automated cross-repo agent API key & token entropy linter in tasks/check_secret_entropy_linter.py.",
+      "spec_path": "tasks/specs/T-0296.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.0
     },
     {
       "id": "T-0297",
@@ -15178,7 +15186,7 @@
       "title": "Automated Cross-Repo Sentinel Watermark & Telemetry Cadence Linter (tasks/check_sentinel_telemetry_linter.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -15215,8 +15223,10 @@
         "composite_score": 7.3,
         "roi_ratio": 1.82
       },
-      "notes": "Wave 20 Security Replenishment. Implements tasks/check_sentinel_telemetry_linter.py.",
-      "spec_path": "tasks/specs/T-0302.md"
+      "notes": "Delivered in hourly steward wave 21 (senseiewok/cf-lab#240). Implemented tasks/check_sentinel_telemetry_linter.py and unit test suite tasks/test_check_sentinel_telemetry_linter.py with 12/12 passing tests and registered check rows in check-all.ps1.",
+      "spec_path": "tasks/specs/T-0302.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 1.5
     },
     {
       "id": "T-0303",
@@ -15307,6 +15317,262 @@
       },
       "notes": "Wave 20 Research Replenishment. Implements tools/discovery/atp_catalytic_water_model.py.",
       "spec_path": "tasks/specs/T-0304.md"
+    },
+    {
+      "id": "T-0305",
+      "title": "Interactive Airway Surface Liquid (ASL) Osmotic Gradient & Hypertonic Saline Hydration Dynamics Simulator on /cf/tree/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0275"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_osmotic_hydration_explorer tests.test_site.StaticTests",
+      "notes": "Wave 21 Showcase Backlog Replenishment. Models Starling apical osmotic water flux J_v = L_p (Delta P - sigma Delta Pi), PCL height recovery, and ciliary beat restoration on /cf/tree/ with full Mexican Spanish parity.",
+      "spec_path": "tasks/specs/T-0305.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Direct mechanistic simulation of hypertonic saline transepithelial water restoration and mucociliary clearance recovery.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.65,
+        "roi_ratio": 2.19
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive biophysical ASL hydration simulation on /cf/tree/ with es-MX parity.",
+      "source_evidence": "DOI:10.1016/S0092-8674(00)81635-4; DOI:10.1056/NEJMoa043891; DOI:10.1085/jgp.118.4.385",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0306",
+      "title": "Interactive CFTR Premature Termination Codon (PTC) Readthrough Ribosome Structural Kinetics & Aminoglycoside Toxicity Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0247"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_readthrough_kinetics_explorer tests.test_site.StaticTests",
+      "notes": "Wave 21 Showcase Backlog Replenishment. Interactive ribosomal A-site decoding simulation comparing stop-codon mispairing kinetics against renal and ototoxicity curves with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0306.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes the critical balance between nonsense suppression efficacy and aminoglycoside safety thresholds for Class I CF.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.8,
+        "roi_ratio": 2.23
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive PTC readthrough simulation on /cf/ptc/ with es-MX parity.",
+      "source_evidence": "DOI:10.1038/nature05756; DOI:10.1186/2043-9113-4-24; DOI:10.1073/pnas.1517595113",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0307",
+      "title": "Automated Multi-Repo Agent Environment Variable (.env) & Canary Isolation Linter (tasks/check_env_canary_isolation.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 3.0
+      },
+      "acceptance": "python -m unittest tasks.test_check_env_canary_isolation; python tasks/check_env_canary_isolation.py --check",
+      "notes": "Wave 21 Security Backlog Replenishment. Audits .env, .env.example, and test fixtures across all repos to assert zero-leakage canary isolation and credential entropy bounds.",
+      "spec_path": "tasks/specs/T-0307.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Eliminates credential leakage risk and ensures test canary tokens never cross into live production configurations.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 6.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 10.0
+        },
+        "composite_score": 6.0,
+        "roi_ratio": 2.67
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": ".claude/skills/security-baseline/SKILL.md; .claude/skills/security-git/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0308",
+      "title": "Automated Cross-Repo Agent Tool Permission & Denial Rule Invariant Linter (tasks/check_tool_permission_invariants.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 3.0
+      },
+      "acceptance": "python -m unittest tasks.test_check_tool_permission_invariants; python tasks/check_tool_permission_invariants.py --check",
+      "notes": "Wave 21 Security Backlog Replenishment. Audits .claude/settings.json, copilot instructions, and agent runtime settings to verify command denial invariants and sandbox boundaries.",
+      "spec_path": "tasks/specs/T-0308.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees that autonomous agents across all workspace tools adhere to strict execution denial rules and scope containment.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 6.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 10.0
+        },
+        "composite_score": 6.0,
+        "roi_ratio": 2.67
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": ".claude/skills/security-runtime/SKILL.md; docs/instruction-loading.md; AGENTS.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0309",
+      "title": "Airway Epithelial Hypertonic Saline Osmotic Mucus Dehydration & ASL Volume Restoration Model (tools/discovery/asl_osmotic_restoration_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tools.discovery.test_asl_osmotic_restoration_model",
+      "notes": "Wave 21 Research Backlog Replenishment. Biophysical mechanistic Python simulation of apical osmotic gradients, PCL height recovery, and ENaC clearance kinetics over 8 hours.",
+      "spec_path": "tasks/specs/T-0309.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Provides primary biophysical equations and parameterization of aerosolized osmotic hydration dynamics for the research pipeline.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 2.26
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical modeling tool in cf-research.",
+      "source_evidence": "DOI:10.1085/jgp.118.4.385; DOI:10.1146/annurev.med.58.071905.105316; DOI:10.1056/NEJMoa043891",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0310",
+      "title": "CFTR W1282X & G542X Ribosome Footprint Profiling & Aminoglycoside-Mediated Termination Suppression Model (tools/discovery/ptc_ribosome_profiling_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tools.discovery.test_ptc_ribosome_profiling_model",
+      "notes": "Wave 21 Research Backlog Replenishment. Codon-resolution translation kinetics comparing suppression efficiencies and eRF1/near-cognate competition across W1282X, G542X, and R553X.",
+      "spec_path": "tasks/specs/T-0310.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Establishes quantitative allele-specific readthrough rankings and compound synergy kinetics for curative Class I therapeutics.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 2.26
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical modeling tool in cf-research.",
+      "source_evidence": "DOI:10.1016/j.bbrc.2004.08.136; DOI:10.1073/pnas.1517595113; DOI:10.1186/2043-9113-4-24",
+      "executor": "agent",
+      "human_required": false
     }
   ],
   "updated": "2026-10-22"
