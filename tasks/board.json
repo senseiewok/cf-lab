@@ -959,7 +959,7 @@
       "repo": "cf-lab",
       "area": "governance",
       "status": "ready",
-      "priority": "P3",
+      "priority": "P2",
       "created_at": "2026-10-04T15:40:00Z",
       "created_by": {
         "kind": "model",
@@ -1881,7 +1881,7 @@
       "repo": "cf-research",
       "area": "governance",
       "status": "in_progress",
-      "priority": "P1",
+      "priority": "P2",
       "created_at": "2026-10-04T21:10:00Z",
       "created_by": {
         "kind": "model",
@@ -2281,7 +2281,7 @@
       "repo": "cf-skills",
       "area": "research",
       "status": "ready",
-      "priority": "P1",
+      "priority": "P2",
       "created_at": "2026-10-04T21:55:00Z",
       "created_by": {
         "kind": "model",
@@ -2850,7 +2850,7 @@
       "repo": "cf-lab",
       "area": "tooling",
       "status": "ready",
-      "priority": "P3",
+      "priority": "P1",
       "created_at": "2026-10-04T23:55:00Z",
       "created_by": {
         "kind": "model",
@@ -3967,7 +3967,7 @@
       "repo": "cf-lab",
       "area": "web",
       "status": "ready",
-      "priority": "P3",
+      "priority": "P1",
       "created_at": "2026-10-05T05:09:00Z",
       "created_by": {
         "kind": "model",
@@ -4014,7 +4014,7 @@
       "repo": ".ai",
       "area": "science",
       "status": "ready",
-      "priority": "P3",
+      "priority": "P2",
       "created_at": "2026-10-05T20:55:00Z",
       "created_by": {
         "kind": "model",
@@ -4475,7 +4475,7 @@
       "repo": "cf-lab",
       "area": "delegation",
       "status": "ready",
-      "priority": "P3",
+      "priority": "P1",
       "created_at": "2026-10-06T07:40:00Z",
       "created_by": {
         "kind": "model",
@@ -4781,7 +4781,7 @@
       "repo": "cf-lab",
       "area": "tooling",
       "status": "ready",
-      "priority": "P3",
+      "priority": "P2",
       "created_at": "2026-10-06T21:40:00Z",
       "created_by": {
         "kind": "model",
@@ -12433,8 +12433,8 @@
       "title": "Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling (tools/discovery/mpp_obstruction_scaling.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
-      "priority": "P1",
+      "status": "done",
+      "priority": "P3",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -12468,9 +12468,11 @@
           "security_compliance": 2.0
         },
         "composite_score": 4.03,
-        "roi_ratio": 0.95
+        "roi_ratio": 0.95,
+        "measured": 4.25
       },
-      "notes": "Wave 11 Research Discovery Replenishment. Parameterizes steric mesh exclusion and dense PEG brush adhesive shielding to predict nanoparticle transport in CF mucus."
+      "notes": "Wave 11 Research Discovery. Airway mucus-penetrating particle (MPP) steric and dense PEG brush shielding transport model delivered and verified with 16/16 tests passing in tools/discovery/mpp_obstruction_scaling.py via senseiewok/cf-research#119.",
+      "completed_at": "2026-10-22"
     },
     {
       "id": "T-0245",
@@ -12873,14 +12875,14 @@
         "confidence": "high",
         "rationale": "Couples eDNA enzymatic cleavage and mucin thiol reduction with polymer micro-rheology; provides mathematical grounding for the SIMPLIFY trial (NCT06350474) and inhaled NAC trials (NCT00996424), directly resolving the physical hydrogel obstruction that blocks genetic vector diffusion.",
         "categories": {
-          "curative_biophysics": 9.5,
+          "curative_biophysics": 2.0,
           "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.52,
-        "roi_ratio": 1.77,
+        "composite_score": 5.27,
+        "roi_ratio": 1.24,
         "measured": 3.5
       },
       "notes": "Completed in senseiewok/cf-research#118. Implemented tools/discovery/mucus_cleavage_kinetics.py & test_mucus_cleavage_kinetics.py (7/7 unit tests passing, AH-1..AH-5 PASS): models CF sputum interpenetrating eDNA-mucin hydrogel network, rhDNase I endonucleolytic cleavage with G-actin competitive inhibition (PDB 1ATN/1DNK), NAC disulfide reduction, affine rubber elasticity shear modulus G*(omega), King MCI clearability, and AAV/LNP Ogston pore diffusivity.",
@@ -13224,7 +13226,7 @@
       "repo": ".ai",
       "area": "content",
       "status": "ready",
-      "priority": "P1",
+      "priority": "P3",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -13641,14 +13643,14 @@
         "ratio_estimate": 2.0,
         "measured": 3.0,
         "categories": {
-          "curative_biophysics": 2.0,
+          "curative_biophysics": 7.5,
           "clinical_translation": 2.0,
           "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 3.73,
-        "roi_ratio": 1.15
+        "composite_score": 5.37,
+        "roi_ratio": 1.65
       },
       "notes": "Completed in senseiewok/cf-research#118. Implemented tools/discovery/intronic_splice_foundation.py & test_intronic_splice_foundation.py (7/7 unit tests passing, AH-1..AH-5 PASS): models Class V intronic/splice alleles (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G, 3272-26A>G) with SpliceAI/Evo-2 zero-shot delta scores, 2'-MOE/PMO ASO SantaLucia nearest-neighbor thermodynamics, and dose-response canonical transcript rescue crossing 10-15% wild-type curative thresholds.",
       "actual_hours": 3.0,
@@ -13656,6 +13658,192 @@
     },
     {
       "id": "T-0270",
+      "title": "CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Model (tools/discovery/gating_potentiator_energy_coupling.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Quantitative thermodynamic mutant cycle and energetic coupling analysis between CFTR TM8 potentiator binding, TM4/5 hinge, and NBD dimerization across gating mutations (PDB:6O2P, 7SVD, 8EIQ).",
+      "created_at": "2026-10-22T00:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 15 research queue replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT00909532; ClinicalTrials.gov:NCT02858843; PDB:6O2P; PDB:7SVD; PDB:8EIQ; PDB:8EJ1; DOI:10.1126/science.aaw7611; DOI:10.1085/jgp.202012676; DOI:10.1016/j.cell.2021.02.012",
+      "acceptance": "pytest tools/discovery/test_gating_potentiator_energy_coupling.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Establishes allosteric energetic coupling DeltaDeltaG between ivacaftor/deutivacaftor binding and pore opening across severe gating alleles (G551D, G1244E, S549N).",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.75,
+        "roi_ratio": 1.82
+      },
+      "notes": "Wave 15 Research Discovery Replenishment. Parameterizes two-state MWC allosteric gating and energetic coupling of single vs dual potentiators."
+    },
+    {
+      "id": "T-0271",
+      "title": "Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P2",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Biophysical modeling of biomimetic CD47 self-peptide display and dense PEG brush shielding to evade class A scavenger receptor (SR-A/CD204, MARCO) phagocytosis by resident airway macrophages.",
+      "created_at": "2026-10-22T00:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 15 research queue replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0244"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT05248230; DOI:10.1126/science.1234568; DOI:10.1016/j.addr.2015.09.006; DOI:10.3390/pharmaceutics12040347",
+      "acceptance": "pytest tools/discovery/test_macrophage_evasion_kinetics.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models competitive uptake kinetics between alveolar macrophage phagocytosis and apical airway epithelial endocytosis post-mucus transit.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.42,
+        "roi_ratio": 1.85
+      },
+      "notes": "Wave 15 Research Discovery Replenishment. Parameterizes CD47 peptide surface density threshold to suppress macrophage clearance by >80%."
+    },
+    {
+      "id": "T-0272",
+      "title": "Inhaled CFTR Synthetic mRNA 3' UTR Polyadenylation & Ribosome Load Translation Velocity Model (tools/discovery/mrna_translation_velocity.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P2",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "TASEP ribosome elongation modeling and poly(A) deadenylation kinetics across full-length 4,443 nt CFTR mRNA to maximize protein translation without ribosome collisions.",
+      "created_at": "2026-10-22T00:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 15 research queue replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047; DOI:10.1038/mt.2008.200; DOI:10.1016/j.cell.2015.02.029; DOI:10.1038/nature13007",
+      "acceptance": "pytest tools/discovery/test_mrna_translation_velocity.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Maximizes full-length functional CFTR channel translation efficiency from synthetic inhaled mRNA while preventing no-go decay (NGD).",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.75,
+        "roi_ratio": 1.82
+      },
+      "notes": "Wave 15 Research Discovery Replenishment. TASEP ribosome dynamics, poly(A) tail length 100-120 nt, and codon elongation balancing co-translational domain folding."
+    },
+    {
+      "id": "T-0273",
+      "title": "Automated Multi-Repo Agent Command Quoting Safety & Path Linter (tasks/check_agent_command_safety.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic static analysis tool and test suite validating that agent tool invocation scripts, run_command wrappers, and PowerShell scriptblocks avoid fragile nested quoting and dynamically resolve workspace sibling paths.",
+      "created_at": "2026-10-22T00:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "Forensic error mitigation and security steward session 2026-10-22"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 1.5,
+        "high": 3.0
+      },
+      "spec_path": "tasks/specs/T-0273.md",
+      "source_evidence": [
+        "tasks/audit_session_errors.py",
+        ".loop-logs/session-error-digest.json",
+        "AGENTS.md"
+      ],
+      "acceptance": "python tasks/check_agent_command_safety.py --check; python -m unittest tasks.test_check_agent_command_safety",
+      "roi": {
+        "benefit": 5,
+        "cost_hours_estimate": 1.5,
+        "ratio_estimate": 3.3,
+        "measured": 2.0,
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 4.17,
+        "roi_ratio": 1.85
+      },
+      "notes": "Operational security and agent execution reliability improvement addressing the 4 actionable findings in session-error-digest.json. Implemented in tasks/check_agent_command_safety.py with 5 passing unit tests.",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.0
+    },
+    {
+      "id": "T-0274",
       "title": "Interactive Deep-Intronic Splice-Switching & SpliceAI / Evo-2 Cryptic Pseudoexon Rescue Explorer on /cf/ptc/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
@@ -13682,7 +13870,7 @@
         "low": 2.5,
         "high": 4.0
       },
-      "spec_path": "tasks/specs/T-0270.md",
+      "spec_path": "tasks/specs/T-0274.md",
       "source_evidence": [
         "cf-research/tools/discovery/intronic_splice_foundation.py",
         "Jaganathan K et al. (2019) SpliceAI PMID:30661751",
@@ -13709,7 +13897,7 @@
       "notes": "Wave 15 Track B Public Showcase Translation. Connects T-0269 deep-intronic cryptic exon benchmark to /cf/ptc/ with Mexican Spanish parity."
     },
     {
-      "id": "T-0271",
+      "id": "T-0275",
       "title": "Interactive Airway Mucus Hydrogel Cleavage & Gene Therapy Vector (AAV/LNP) Permeability Simulator on /cf/delivery/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
@@ -13736,7 +13924,7 @@
         "low": 2.5,
         "high": 4.0
       },
-      "spec_path": "tasks/specs/T-0271.md",
+      "spec_path": "tasks/specs/T-0275.md",
       "source_evidence": [
         "cf-research/tools/discovery/mucus_cleavage_kinetics.py",
         "Ulmer JS et al. (1993) PNAS 90(24):11508 PMID:8265584",
@@ -13766,59 +13954,7 @@
       "notes": "Wave 15 Track B Public Showcase Translation. Connects T-0253 mucus cleavage and polymer micro-rheology biophysics to /cf/delivery/ with Mexican Spanish parity."
     },
     {
-      "id": "T-0272",
-      "title": "Automated Multi-Repo Agent Command Quoting Safety & Path Linter (tasks/check_agent_command_safety.py)",
-      "repo": "cf-lab",
-      "area": "security",
-      "status": "done",
-      "priority": "P1",
-      "complexity": "medium",
-      "review_tier": "elevated",
-      "recommended_route": "local",
-      "route_rationale": "Deterministic static analysis tool and test suite validating that agent tool invocation scripts, run_command wrappers, and PowerShell scriptblocks avoid fragile nested quoting and dynamically resolve workspace sibling paths.",
-      "created_at": "2026-10-22T00:00:00Z",
-      "updated_at": "2026-10-22",
-      "created_by": {
-        "kind": "model",
-        "name": "Hourly Security & Open-Source Architecture Steward",
-        "model_id": "gemini-4-argon",
-        "session_ref": "Forensic error mitigation and security steward session 2026-10-22"
-      },
-      "executor": "agent",
-      "human_required": false,
-      "depends_on": [],
-      "effort_hours": {
-        "low": 1.5,
-        "high": 3.0
-      },
-      "spec_path": "tasks/specs/T-0272.md",
-      "source_evidence": [
-        "tasks/audit_session_errors.py",
-        ".loop-logs/session-error-digest.json",
-        "AGENTS.md"
-      ],
-      "acceptance": "python tasks/check_agent_command_safety.py --check; python -m unittest tasks.test_check_agent_command_safety",
-      "roi": {
-        "benefit": 5,
-        "cost_hours_estimate": 1.5,
-        "ratio_estimate": 3.3,
-        "measured": 2.0,
-        "categories": {
-          "curative_biophysics": 2.0,
-          "clinical_translation": 2.0,
-          "scientific_integrity": 3.0,
-          "operational_velocity": 8.5,
-          "security_compliance": 9.0
-        },
-        "composite_score": 4.17,
-        "roi_ratio": 1.85
-      },
-      "notes": "Operational security and agent execution reliability improvement addressing the 4 actionable findings in session-error-digest.json. Implemented in tasks/check_agent_command_safety.py with 5 passing unit tests.",
-      "completed_at": "2026-10-22",
-      "actual_hours": 2.0
-    },
-    {
-      "id": "T-0273",
+      "id": "T-0276",
       "title": "Stale Sentinel Worktree Harvest & Automated Branch Hygiene Daemon (tasks/harvest_sentinel_worktrees.py)",
       "repo": "cf-lab",
       "area": "security",
@@ -13843,7 +13979,7 @@
         "low": 2.0,
         "high": 3.5
       },
-      "spec_path": "tasks/specs/T-0273.md",
+      "spec_path": "tasks/specs/T-0276.md",
       "source_evidence": [
         "tasks/check_worktree_drift.py",
         ".claude/skills/workspace-siblings/scripts/worktrees.py",
