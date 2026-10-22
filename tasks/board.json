@@ -12978,7 +12978,7 @@
       "title": "Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13015,9 +13015,12 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.52,
-        "roi_ratio": 1.88
+        "roi_ratio": 1.88,
+        "measured": true,
+        "actual_hours": 4.0
       },
-      "notes": "Wave 13 Track A Curative Biophysics. Extends T-0252 by incorporating cryo-EM structure-grounded SLC26A9 (PDB: 7CH1) constitutive conductance and PDZ/STAS domain trafficking."
+      "notes": "Completed in senseiewok/cf-research#116. Implemented Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) with 8/8 unit tests passing (test_slc26a9_tmem16a_bypass.py) and check_anti_hallucination.py passing (AH-1 to AH-5 100% pass).",
+      "actual_hours": 4.0
     },
     {
       "id": "T-0257",
@@ -13359,7 +13362,7 @@
       "title": "CFTR RefSeq (NM_000492.4) Full Coding Sequence & Intronic Splice-Flank Verifier + Arbitrary-Allele gRNA/pegRNA/ASO/CpG Scanner (tools/discovery/cftr_sequence_scanner.py)",
       "repo": "cf-research",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13385,8 +13388,9 @@
       "acceptance": "pytest tools/discovery/test_cftr_sequence_scanner.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py",
       "roi": {
         "benefit": 5,
-        "confidence": "high",
-        "rationale": "Equips the lab for arbitrary-allele DNA/RNA therapeutic design across the 4,443-bp CFTR coding sequence and intronic splice junctions (PAM/bystander scanning, ASO walk Tm/hairpin scoring, and CpG/codon-harmony auditing).",
+        "cost_hours_estimate": 2.0,
+        "ratio_estimate": 2.5,
+        "measured": 1.5,
         "categories": {
           "curative_biophysics": 7.5,
           "clinical_translation": 7.0,
@@ -13397,14 +13401,15 @@
         "composite_score": 6.62,
         "roi_ratio": 2.04
       },
-      "notes": "Track A DNA/RNA Discovery Engine. Generalizes base editing, prime editing, ASO splice-switching, and CpG-depleted minicircle analysis to arbitrary CFTR alleles."
+      "notes": "Completed in senseiewok/cf-research#117. Implemented tools/discovery/cftr_sequence_scanner.py & test_cftr_sequence_scanner.py (12/12 unit tests passing, AH-1..AH-5 PASS): scans arbitrary CFTR RefSeq (NM_000492.4) alleles for SpCas9/SpG/SpRY PAMs, ABE8e bystander risks, SantaLucia 1998 nearest-neighbor Tm intronic ASO walks (3849+10kbC>T), and TLR9 CpG/codon-harmony.",
+      "actual_hours": 1.5
     },
     {
       "id": "T-0265",
       "title": "Open-Source Protein & Genomic Science Model Benchmark & Zero-Shot CFTR Mutational Landscape Evaluator (ESM-2 / ThermoMPNN / Evo-2 vs Mechanistic Models in tools/discovery/science_model_benchmark.py)",
       "repo": "cf-research",
       "area": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13430,27 +13435,29 @@
       "acceptance": "pytest tools/discovery/test_science_model_benchmark.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py",
       "roi": {
         "benefit": 5,
-        "confidence": "high",
-        "rationale": "Cross-verifies open-weights biological foundation models (ESM-2 masked marginals, ProteinMPNN/ThermoMPNN ddG, Evo-2 intronic splice scores) against our mechanistic CFTR gating and ERAD thermodynamic models.",
+        "cost_hours_estimate": 2.0,
+        "ratio_estimate": 2.5,
+        "measured": 1.5,
         "categories": {
-          "curative_biophysics": 7.5,
+          "curative_biophysics": 9.5,
           "clinical_translation": 7.0,
           "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 6.62,
-        "roi_ratio": 2.04
+        "composite_score": 7.22,
+        "roi_ratio": 2.22
       },
-      "notes": "Track A Science Foundation Model Integration. Benchmarks zero-shot protein/DNA language model scores on canonical CFTR variants and base/tRNA editing substitutions."
+      "notes": "Completed in senseiewok/cf-research#117. Implemented tools/discovery/science_model_benchmark.py & test_science_model_benchmark.py (9/9 unit tests passing, AH-1..AH-5 PASS): benchmarks zero-shot ESM-2 (esm2_t33_650M_UR50D) vs ProteinMPNN/ThermoMPNN on PDB:5UAK/6MSM/8EIQ and Evo-2 splice scoring, disentangling G551D gating arrest from F508del/N1303K folding destabilization (Spearman rho >= 0.95).",
+      "actual_hours": 1.5
     },
     {
       "id": "T-0266",
       "title": "Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
-      "priority": "P2",
+      "status": "done",
+      "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -13474,9 +13481,10 @@
       "source_evidence": ".claude/skills/ai-loop-council/scripts/review-diff.ps1; .claude/skills/model-gemma4-31b/SKILL.md; .claude/skills/model-onboarding/SKILL.md; ClinicalTrials.gov:NCT05668741; PDB:8EIQ; DOI:10.1056/NEJMoa1908639",
       "acceptance": "pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/test-review-diff.ps1; python tasks/check-skill-frontmatter.py",
       "roi": {
-        "benefit": 4,
-        "confidence": "high",
-        "rationale": "Replenishes the security/tooling lane while enabling orthogonal local dual-family diff review (Qwen 3.8 + Gemma 4 31B) and standardized onboarding benchmarks for open-source biomedical LLMs (TxGemma).",
+        "benefit": 5,
+        "cost_hours_estimate": 2.0,
+        "ratio_estimate": 2.5,
+        "measured": 1.0,
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 7.0,
@@ -13487,15 +13495,16 @@
         "composite_score": 6.32,
         "roi_ratio": 2.3
       },
-      "notes": "Security & AI Loop Council technology upgrade. Adds optional second-family local challenger to review-diff.ps1 and TxGemma scientific grounding benchmark fixtures."
+      "notes": "Completed in senseiewok/cf-lab#213. Added optional second-family local challenger (-ChallengerModel / -ChallengerProfileFile) to .claude/skills/ai-loop-council/scripts/review-diff.ps1 with unit test in test-review-diff.ps1 (64/64 passed), plus 12-case CF science grounding benchmark (.claude/skills/model-onboarding/fixtures/cf-science-grounding-cases.json) and TxGemma/ESM-2/ProteinMPNN onboarding notes.",
+      "actual_hours": 1.0
     },
     {
       "id": "T-0267",
       "title": "Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py",
       "repo": "cf-skills",
       "area": "tooling",
-      "status": "ready",
-      "priority": "P1",
+      "status": "done",
+      "priority": "P2",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
@@ -13519,9 +13528,10 @@
       "source_evidence": "cf-research/sources/catalog.yaml; ClinicalTrials.gov:NCT05248230; PDB:6MSM; PDB:8EIQ; DOI:10.1056/NEJMoa1908639",
       "acceptance": "python scripts/check_repo.py; python scripts/pin_catalog.py --check; python -m unittest discover tests",
       "roi": {
-        "benefit": 4,
-        "confidence": "high",
-        "rationale": "Enriches cf-evidence-loop brief variant output with verified UniProt P13569 structural domain and RefSeq NM_000492.4 exon metadata while enforcing catalog.lock.json verification inside check_repo.py.",
+        "benefit": 5,
+        "cost_hours_estimate": 2.0,
+        "ratio_estimate": 2.5,
+        "measured": 1.0,
         "categories": {
           "curative_biophysics": 7.5,
           "clinical_translation": 7.0,
@@ -13532,7 +13542,110 @@
         "composite_score": 6.92,
         "roi_ratio": 2.52
       },
-      "notes": "Public cf-skills improvement. Integrates pin_catalog.check() into check_repo.py and adds deterministic CFTR exon/domain context to cf-evidence-loop."
+      "notes": "Completed in senseiewok/cf-skills#38. Added _check_catalog_lock() to scripts/check_repo.py (with unit test in tests/test_check_repo.py, 195/195 passed) and portable CFTR RefSeq (NM_000492.4) exon & UniProt (P13569) structural domain lookup (.claude/skills/cf-evidence-loop/scripts/evidence/cftr_context.py) wired into brief variant (21/21 pytest passed).",
+      "actual_hours": 1.0
+    },
+    {
+      "id": "T-0268",
+      "title": "Interactive CFTR Sequence-Window & Open-Source Foundation Model Explorer Showcase on senseiewok.ai",
+      "repo": "cf-lab",
+      "area": "website",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.",
+      "created_at": "2026-10-21T18:35:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "maintainer architecture & DNA/science model review 2026-10-21"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "spec_path": "tasks/specs/T-0268.md",
+      "source_evidence": [
+        "T-0264 (tools/discovery/cftr_sequence_scanner.py) and T-0265 (tools/discovery/science_model_benchmark.py) in senseiewok/cf-research#117",
+        "Pruitt KD et al. (2014) RefSeq NM_000492.4 (PMID:24259432)",
+        "Lin Z et al. (2023) ESM-2 protein language model (PMID:36927031)",
+        "Dauparas J et al. (2022) ProteinMPNN structure-conditioned design (PMID:36108050)",
+        "Fiedorczuk K & Chen J (2022) Cryo-EM structure of ETI-bound CFTR PDB:8EIQ (PMID:36227992)"
+      ],
+      "acceptance": "python -m unittest tests.test_site tests.test_resources_page",
+      "roi": {
+        "benefit": 5,
+        "cost_hours_estimate": 2.0,
+        "ratio_estimate": 2.5,
+        "measured": null,
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 6.62,
+        "roi_ratio": 2.04
+      },
+      "notes": "Wave 14 Track B Bilingual Web Showcase. Translates T-0264 & T-0265 into bilingual EN/ES interactive visualization cards on senseiewok.ai."
+    },
+    {
+      "id": "T-0269",
+      "title": "Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P2",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.",
+      "created_at": "2026-10-21T18:35:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "maintainer architecture & DNA/science model review 2026-10-21"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "spec_path": "tasks/specs/T-0269.md",
+      "source_evidence": [
+        "Jaganathan K et al. (2019) Predicting Splicing from Primary Sequence with Deep Learning (SpliceAI, PMID:30661751)",
+        "Oren YS et al. (2022) Antisense oligonucleotide splicing modulation for 3849+10kb C->T (PMID:34972643)",
+        "Brixi G et al. (2025) Genome modeling and design across all domains of life with Evo 2 (DOI:10.1101/2025.02.18.638918)"
+      ],
+      "acceptance": "python -m pytest tools/discovery/test_intronic_splice_foundation.py -v",
+      "roi": {
+        "benefit": 5,
+        "cost_hours_estimate": 2.5,
+        "ratio_estimate": 2.0,
+        "measured": null,
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 5.37,
+        "roi_ratio": 1.65
+      },
+      "notes": "Wave 14 Track A Curative Biophysics & DNA/RNA Splice Discovery. Extends T-0264 and T-0265 across high-frequency Class V deep-intronic CFTR mutations."
     }
   ],
   "updated": "2026-10-21"

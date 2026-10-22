@@ -35,7 +35,7 @@ function Run([string[]] $a) {
 function Get-RepoState { (& git -C $repo status --porcelain=v1 --untracked-files=all --ignored 2>$null) -join "`n" }
 $saved = @{ m = $env:LOCAL_WORKER_MODEL; p = $env:LOCAL_WORKER_PROFILE; h = $env:OLLAMA_HOST }
 try {
-    Remove-Item Env:LOCAL_WORKER_MODEL, Env:LOCAL_WORKER_PROFILE, Env:OLLAMA_HOST -ErrorAction SilentlyContinue
+    Remove-Item Env:LOCAL_WORKER_MODEL, Env:LOCAL_WORKER_PROFILE, Env:LOCAL_CHALLENGER_MODEL, Env:LOCAL_CHALLENGER_PROFILE, Env:OLLAMA_HOST -ErrorAction SilentlyContinue
     $env:GIT_AUTHOR_NAME = 't'; $env:GIT_AUTHOR_EMAIL = 't@example.invalid'; $env:GIT_COMMITTER_NAME = 't'; $env:GIT_COMMITTER_EMAIL = 't@example.invalid'
     & git -C $repo init -q 2>&1 | Out-Null
     Set-Content (Join-Path $repo 'base.txt') 'base' -Encoding utf8
@@ -307,6 +307,12 @@ try {
     $r = Run @("-RepoPath:$repo2", '-Staged', '-Model:stub-model', "-InvokeScript:$(New-Stub 'notecode' @('x') 1)", "-OutDir:$o8", '-KeepOutDir')
     $rj8 = Get-Content -Raw (Join-Path $o8 'review.json') | ConvertFrom-Json
     Check 'G7: an unusable reply is recorded as a fixed note code' ($r.Code -eq 4 -and $rj8.model_note_code -ceq 'model_call_failed') $r.Out
+
+    # T-0266: optional second-family local challenger (-ChallengerModel) runs 1 extra sample after worker samples
+    $o9 = Join-Path $tmp 'o9'
+    $r = Run @("-RepoPath:$repo2", '-Staged', '-Model:stub-qwen', '-ChallengerModel:stub-gemma4', '-Think', "-InvokeScript:$(New-Stub 'dual' @($real))", "-OutDir:$o9", '-KeepOutDir')
+    $rj9 = Get-Content -Raw (Join-Path $o9 'review.json') | ConvertFrom-Json
+    Check 'T-0266: -ChallengerModel runs a second-family local challenger pass and records challenger_model in review.json' ($r.Code -eq 10 -and $rj9.challenger_model -ceq 'stub-gemma4' -and @($rj9.samples).Count -eq 2) $r.Out
 } finally {
     Remove-Item -Recurse -Force $tmp -ErrorAction SilentlyContinue
     Remove-Item Env:GIT_AUTHOR_NAME, Env:GIT_AUTHOR_EMAIL, Env:GIT_COMMITTER_NAME, Env:GIT_COMMITTER_EMAIL -ErrorAction SilentlyContinue
