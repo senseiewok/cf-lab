@@ -15667,7 +15667,7 @@
       "title": "Automated Multi-Repo Git Hook & Pre-Commit Shell Invariant Linter (tasks/check_git_hooks_invariants.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -15682,7 +15682,7 @@
         "high": 2.5
       },
       "acceptance": "python -m unittest tasks.test_check_git_hooks_invariants; python tasks/check_git_hooks_invariants.py --check",
-      "notes": "Wave 22 Security Backlog Replenishment. Audits git hooks and pre-commit scripts across all repositories to enforce interpreter portability and halt unvetted binary execution.",
+      "notes": "Delivered in hourly steward wave 23. Implemented tasks/check_git_hooks_invariants.py and tasks/test_check_git_hooks_invariants.py (9/9 passing tests) and registered check rows in check-all.ps1.",
       "spec_path": "tasks/specs/T-0313.md",
       "roi": {
         "benefit": 5,
@@ -15702,14 +15702,16 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0313.md; .claude/skills/security-git/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 1.5
     },
     {
       "id": "T-0314",
       "title": "Automated Cross-Repo Playwright Test Artifact & Server Port Hygiene Linter (tasks/check_playwright_test_hygiene.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -15724,7 +15726,7 @@
         "high": 2.5
       },
       "acceptance": "python -m unittest tasks.test_check_playwright_test_hygiene; python tasks/check_playwright_test_hygiene.py --check",
-      "notes": "Wave 22 Security Backlog Replenishment. Audits test artifacts, detects dangling background server processes, and enforces browser binary provenance.",
+      "notes": "Delivered in hourly steward wave 23. Implemented tasks/check_playwright_test_hygiene.py and tasks/test_check_playwright_test_hygiene.py (7/7 passing tests) and registered check rows in check-all.ps1.",
       "spec_path": "tasks/specs/T-0314.md",
       "roi": {
         "benefit": 5,
@@ -15744,7 +15746,9 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0314.md; .claude/skills/playwright-browser-testing/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 1.5
     },
     {
       "id": "T-0315",
@@ -15827,6 +15831,262 @@
       "recommended_route": "local",
       "route_rationale": "Biophysical Python discovery tool and unit tests in cf-research.",
       "source_evidence": "tasks/specs/T-0316.md; sources/catalog.yaml",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0317",
+      "title": "Interactive Airway Surface Liquid (ASL) Acidification & ATP12A/V-ATPase Proton Pump Inhibition Simulator on /cf/tree/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0321"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_ph_simulator tests.test_site.StaticTests",
+      "notes": "Wave 23 Showcase Lane Replenishment. Interactive ASL pH regulation and ATP12A/V-ATPase proton pump inhibitor simulator on /cf/tree/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0317.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes biophysical host defense restoration via ASL re-alkalization for CF patients and researchers.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.1,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Frontend visualization and Spanish parity in .ai repo.",
+      "source_evidence": "tasks/specs/T-0317.md; Nature 487:109-113; Science 351:503-507",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0318",
+      "title": "Interactive CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Synergy & Ribosome Translation Fidelity Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0322"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_readthrough_synergy_explorer tests.test_site.StaticTests",
+      "notes": "Wave 23 Showcase Lane Replenishment. Interactive PTC readthrough synergy and translation fidelity explorer on /cf/ptc/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0318.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Directly supports Class I nonsense mutation curative research and patient education.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Frontend visualization and Spanish parity in .ai repo.",
+      "source_evidence": "tasks/specs/T-0318.md; AJRCCM 203:1254-1264",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0319",
+      "title": "Automated Multi-Repo Git Submodule & External Dependency Supply Chain Linter (tasks/check_git_supply_chain_integrity.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_supply_chain_integrity; python tasks/check_git_supply_chain_integrity.py --check",
+      "notes": "Wave 23 Security Lane Replenishment. Audits submodule commit pins, third-party skill exclusions, and external script references across all repositories.",
+      "spec_path": "tasks/specs/T-0319.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces zero-CDN architecture and protects against supply-chain compromises in third-party tooling.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0319.md; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0320",
+      "title": "Automated Cross-Repo Unicode Homoglyph & Invisible Character Injection Linter (tasks/check_unicode_homoglyphs.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_unicode_homoglyphs; python tasks/check_unicode_homoglyphs.py --check",
+      "notes": "Wave 23 Security Lane Replenishment. Audits source files for Trojan Source bidirectional overrides and invisible character injections.",
+      "spec_path": "tasks/specs/T-0320.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Protects against CVE-2021-42574 Trojan Source attacks and invisible prompt injection artifacts.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0320.md; arXiv:2111.00169; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0321",
+      "title": "Airway Surface Liquid pH Regulation, ATP12A/V-ATPase Proton Flux & Bicarbonate Secretion Biophysical Model (tools/discovery/asl_ph_regulation_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_asl_ph_regulation_model; python tools/discovery/asl_ph_regulation_model.py --check",
+      "notes": "Wave 23 Research Lane Replenishment. Biophysical flux model of ASL proton-bicarbonate homeostasis and ATP12A inhibitor rescue.",
+      "spec_path": "tasks/specs/T-0321.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Grounds host defense antimicrobial activity in quantitative ion transport biophysics.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 6.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Pure Python biophysical model and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0321.md; Nature 487:109-113; JCI Insight 3:e123616",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0322",
+      "title": "CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Cooperativity & Ribosome Translation Fidelity Model (tools/discovery/ptc_readthrough_cooperativity_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_ptc_readthrough_cooperativity_model; python tools/discovery/ptc_readthrough_cooperativity_model.py --check",
+      "notes": "Wave 23 Research Lane Replenishment. Four-state Markov chain translation fidelity model of dual-agent nonsense readthrough cooperativity.",
+      "spec_path": "tasks/specs/T-0322.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Direct biophysical modeling for non-modulator eligible Class I CFTR nonsense alleles.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 6.0
+        },
+        "composite_score": 8.1,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Pure Python biophysical model and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0322.md; AJRCCM 203:1254-1264",
       "executor": "agent",
       "human_required": false
     }
