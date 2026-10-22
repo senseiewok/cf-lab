@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-269 tasks, 268 created by a model, 151 with a measured outcome. Estimated effort 704.35 to 1305.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+269 tasks, 268 created by a model, 153 with a measured outcome. Estimated effort 704.35 to 1305.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (22)
+## ready (19)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,8 +18,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0269 | P1 | Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
-| T-0263 | P1 | Interactive Apical Purinergic P2Y2R-Ca2+ Signal Transduction & Dual ENaC-TMEM16A Ion Equilibrium Simulator on /cf/tree/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -29,7 +27,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
-| T-0253 | P2 | CF Airway Mucus Micro-Rheology & Polymer Cross-Linking Cleavage Kinetics Under Dornase Alfa (rhDNase) and Thiol-Reducing Mucolytics (tools/discovery/mucus_cleavage_kinetics.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0261 | P3 | Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0244 |  |
@@ -37,7 +34,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (233)
+## done (236)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -89,6 +86,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0258 | P1 | Interactive Splice-Switching ASO Steric-Blocking & Cryptic Pseudoexon Rescue Explorer (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) on /cf/ptc/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0254 |  |
 | T-0260 | P1 | Interactive Pseudomonas Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Antibiotic Resensitization Explorer on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0246 |  |
 | T-0262 | P1 | Interactive Alveolar Macrophage Efferocytosis & Neutrophil Extracellular Trap (NET) Degradation Kinetics Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0251 |  |
+| T-0263 | P1 | Interactive Apical Purinergic P2Y2R-Ca2+ Signal Transduction & Dual ENaC-TMEM16A Ion Equilibrium Simulator on /cf/tree/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
 | T-0188 | P1 | Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0189 | P1 | Unify /atlas/ and /atlas/classes/*/ with 4-Pillar Navigation, Library Drawer (Alt+L), Command Palette, and nav-rail.js (tools/make_trial_atlas.py) | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
 | T-0204 | P1 | Clinical Trial Endpoint Plain-Language Decoder (ppFEV1, Sweat Chloride, LCI2.5, CFQ-R) on /cf/trials/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -193,6 +191,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0267 | P2 | Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py | cf-skills | 2-3.5 | 5 | 18.2 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0008 | P2 | Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256) | cf-research | 2-3 | 4 | 16 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | medium | cloud | T-0005 |  |
 | T-0112 | P2 | A merge check: catch commits a squash merge dropped | cf-lab | 2-3 | 4 | 16 | yes | model: claude-opus-5-5 | 2026-10-09 | routine | low | local |  | work/frontier-lab-unbinding |
+| T-0269 | P2 | Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py) | cf-research | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0012 | P2 | Unit tests for tools/sources/fetch_sources.py | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0088 | P2 | Keep everything a verifier reads inside its temp copy | cf-lab | 1-3 | 3 | 15 | yes | model: claude-sonnet-5-5 | 2026-10-06 | routine | low | local |  |  |
 | T-0117 | P2 | Identity in public files: one role address, one way to sign | cf-lab | 1-3 | 3 | 15 | yes | model: claude-opus-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
@@ -212,6 +211,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0050 | P2 | Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow | cf-lab | 2-3 | 3 | 12 | yes | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
 | T-0069 | P2 | Provider for the UKRI Gateway to Research API in cf-evidence-loop | cf-skills | 2-3 | 3 | 12 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  | work/frontier-skills-t0055-t0069 |
 | T-0076 | P2 | Make the skills repo installable as a Claude Code plugin marketplace | cf-skills | 2-3 | 3 | 12 | no | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local | T-0051 |  |
+| T-0253 | P2 | CF Airway Mucus Micro-Rheology & Polymer Cross-Linking Cleavage Kinetics Under Dornase Alfa (rhDNase) and Thiol-Reducing Mucolytics (tools/discovery/mucus_cleavage_kinetics.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0164 | P2 | Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation) | cf-lab | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-14 | full | medium | local | T-0159 |  |
 | T-0171 | P2 | Trial Endpoint Atlas: dual-agent consensus audit against 50-study ground truth census | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | full | medium | cloud | T-0170 | work/frontier-trial-atlas-t0171-t0172 |
 | T-0027 | P2 | Design an opt-in setting that lets the controlling agent delegate bounded drafts to a usable local worker automatically | cf-lab | 2-4 | 3 | 10 | yes | human: Sensei Ewok | 2026-10-04 | elevated | medium | cloud |  |  |
@@ -704,15 +704,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Wave 14 Track B Bilingual Web Showcase. Translates T-0264 & T-0265 into bilingual EN/ES interactive visualization cards on /cf/cftr/. Completed in senseiewok/.ai#148.
 - **Measured:**  h; 
 
-### T-0269 Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py)
-
-- **Why / ROI rationale:**  *(confidence: )*
-- **Route:** local - Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.
-- **Acceptance:** python -m pytest tools/discovery/test_intronic_splice_foundation.py -v
-- **Evidence:** Jaganathan K et al. (2019) Predicting Splicing from Primary Sequence with Deep Learning (SpliceAI, PMID:30661751) Oren YS et al. (2022) Antisense oligonucleotide splicing modulation for 3849+10kb C->T (PMID:34972643) Brixi G et al. (2025) Genome modeling and design across all domains of life with Evo 2 (DOI:10.1101/2025.02.18.638918)
-- **Spec:** `tasks/specs/T-0269.md`
-- **Notes:** Wave 14 Track A Curative Biophysics & DNA/RNA Splice Discovery. Extends T-0264 and T-0265 across high-frequency Class V deep-intronic CFTR mutations.
-
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
 - **Why / ROI rationale:** Ensures scheduled security and showcase sentinels inspect every canonical route on desktop and mobile during visual audits. *(confidence: high)*
@@ -762,7 +753,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Zero-build native ES module and SVG visualizer modeling apical P2Y2R Gq signaling, IP3-mediated endoplasmic reticulum Ca2+ release, dual TMEM16A/ANO1 chloride secretagogue activation, and coupled ENaC sodium hyperabsorption inhibition grounded in tools/discovery/enac_tmem16a_equilibrium.py (T-0252), PDB:7L1V, PDB:6UJJ, and NCT00055276.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_enac_tmem16a_equilibrium_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/enac_tmem16a_equilibrium.py; ClinicalTrials.gov:NCT00055276; ClinicalTrials.gov:NCT00049023; PDB:7L1V; PDB:6UJJ; PDB:6B4E; DOI:10.1165/rcmb.2007-0097OC; DOI:10.1172/JCI118742
-- **Notes:** Wave 14 Track A Public Showcase Translation. Connects completed T-0252 ENaC-TMEM16A equilibrium model to /cf/tree/.
+- **Notes:** Wave 14 Track A Public Showcase Translation. Connects completed T-0252 ENaC-TMEM16A equilibrium model to /cf/tree/. Shipped via senseiewok/.ai#145 (verified through elevated gate, 64 unit tests, and Frontier Review Council).
 
 ### T-0188 Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure
 
@@ -1757,6 +1748,16 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| Done 2026-10-17: added -CheckBeforePush -Branch to check-merged.ps1 with self-tests, documented pre-push merged-PR check in workspace-siblings/SKILL.md, and removed O-16 from observations.md.
 - **Measured:**  h; 
 
+### T-0269 Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py)
+
+- **Why / ROI rationale:**  *(confidence: )*
+- **Route:** local - Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.
+- **Acceptance:** python -m pytest tools/discovery/test_intronic_splice_foundation.py -v
+- **Evidence:** Jaganathan K et al. (2019) Predicting Splicing from Primary Sequence with Deep Learning (SpliceAI, PMID:30661751) Oren YS et al. (2022) Antisense oligonucleotide splicing modulation for 3849+10kb C->T (PMID:34972643) Brixi G et al. (2025) Genome modeling and design across all domains of life with Evo 2 (DOI:10.1101/2025.02.18.638918)
+- **Spec:** `tasks/specs/T-0269.md`
+- **Notes:** Completed in senseiewok/cf-research#118. Implemented tools/discovery/intronic_splice_foundation.py & test_intronic_splice_foundation.py (7/7 unit tests passing, AH-1..AH-5 PASS): models Class V intronic/splice alleles (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G, 3272-26A>G) with SpliceAI/Evo-2 zero-shot delta scores, 2'-MOE/PMO ASO SantaLucia nearest-neighbor thermodynamics, and dose-response canonical transcript rescue crossing 10-15% wild-type curative thresholds.
+- **Measured:**  h; 
+
 ### T-0012 Unit tests for tools/sources/fetch_sources.py
 
 - **Why / ROI rationale:** The fetcher is the enforcement point for access policy; the 'forbidden is never fetched' property should be a test, not a reading. *(confidence: medium)*
@@ -1948,7 +1949,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Route:** local - Biophysical modeling of the interpenetrating eDNA-mucin polymer network in CF sputum, combining rhDNase I endonucleolytic cleavage (with G-actin competitive inhibition) and N-acetylcysteine thiol-disulfide reduction.
 - **Acceptance:** pytest tools/discovery/test_mucus_cleavage_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00996424; ClinicalTrials.gov:NCT06350474; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT00680316; ClinicalTrials.gov:NCT02088216; PDB:1DNK; PDB:4AWN; PDB:1ATN; DOI:10.1073/pnas.87.23.9188; DOI:10.1126/science.8108733; DOI:10.1126/scitranslmed.aaz1974; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1183/13993003.01358-2020
-- **Notes:** Wave 12 Research Discovery Replenishment. Models eDNA degradation, mucin disulfide cleavage, affine rubber elasticity shear modulus G*(omega), and mucociliary clearability index (MCI).
+- **Notes:** Completed in senseiewok/cf-research#118. Implemented tools/discovery/mucus_cleavage_kinetics.py & test_mucus_cleavage_kinetics.py (7/7 unit tests passing, AH-1..AH-5 PASS): models CF sputum interpenetrating eDNA-mucin hydrogel network, rhDNase I endonucleolytic cleavage with G-actin competitive inhibition (PDB 1ATN/1DNK), NAC disulfide reduction, affine rubber elasticity shear modulus G*(omega), King MCI clearability, and AAV/LNP Ogston pore diffusivity.
+- **Measured:**  h; 
 
 ### T-0164 Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation)
 
