@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-276 tasks, 275 created by a model, 154 with a measured outcome. Estimated effort 722.85 to 1337.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+279 tasks, 278 created by a model, 154 with a measured outcome. Estimated effort 728.35 to 1346.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (24)
+## ready (26)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -33,13 +33,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
+| T-0278 | P2 | Stale Sentinel Worktree Harvest & Automated Branch Hygiene Daemon (tasks/harvest_sentinel_worktrees.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0279 | P2 | Automated Sentinel PR Repair & Superseded Branch Cleaner Daemon (tasks/repair_sentinel_prs.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (238)
+## done (239)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -61,6 +63,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0227 | P1 | Spec dossier integrity checker (tasks/check_task_specs.py) verifying spec_path dossiers for primary citations and test commands | cf-lab | 1.5-2.5 | 5 | 25 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0235 | P1 | Interactive Nonviral Minimal DNA (minidnacftr) TLR9 Evasion & Engineered EV Basal Stem Cell Tropism Explorer on /cf/ptc/ with es-MX parity | .ai | 1.5-2.5 | 5 | 25 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0233, T-0234 |  |
 | T-0236 | P1 | Interactive Inhaled Bacteriophage-Antibiotic Synergy (PAS) & Biofilm Depolymerization Explorer on /cf/delivery/ with es-MX parity | .ai | 1.5-2.5 | 5 | 25 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0154 |  |
+| T-0277 | P1 | Automated Multi-Repo Agent Command Quoting Safety & Path Linter (tasks/check_agent_command_safety.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
 | T-0191 | P1 | Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0192 | P1 | Aggressive sentinel cadence: reduce max_idle_hours from 8h/12h to 3h/4h in tasks/sentinels.json and replenish multi-lane ready backlog | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0067 | P1 | Decision: treat robots.txt groups that name AI agents as applying to our fetch sources | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
@@ -469,6 +472,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** DOI:10.1038/s41591-021-01659-5 (Dedrick et al., Nat Med 2022: Phage therapy in CF) DOI:10.1093/emph/eow012 (Chan et al., Evol Med Public Health 2016: Phage OMKO1 OprM trade-off) DOI:10.1016/j.chom.2019.01.014 (Kortright et al., Cell Host Microbe 2019: Phage-antibiotic synergy) DOI:10.3389/fmicb.2019.02087 (Cafora et al., Front Microbiol 2019: Alginate lyase biofilm dispersal) ClinicalTrials.gov:NCT04684641, NCT05453578, NCT05616221
 - **Notes:** Exposes T-0154 interactively on /cf/delivery/ (#phage-biofilm-explorer) with full Mexican Spanish (es-MX) parity.
 - **Measured:** 1 h; 
+
+### T-0277 Automated Multi-Repo Agent Command Quoting Safety & Path Linter (tasks/check_agent_command_safety.py)
+
+- **Why / ROI rationale:** Eliminates syntax quoting hazards and fragile directory navigation traps across agent session prompts and CI scripts. *(confidence: high)*
+- **Route:** local - Static regex analysis of PowerShell and Python inline strings, user home paths, and brittle traversal across workspace scripts and skills.
+- **Acceptance:** python -m unittest tasks.test_check_agent_command_safety; python tasks/check_agent_command_safety.py --check
+- **Evidence:** .loop-logs/session-error-digest.json; tasks/audit_session_errors.py; AGENTS.md
+- **Spec:** `tasks/specs/T-0277.md`
+- **Notes:** Delivered tasks/check_agent_command_safety.py and tasks/test_check_agent_command_safety.py with 5 passing unit tests.
 
 ### T-0191 Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty
 
@@ -1784,6 +1796,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0267.md`
 - **Notes:** Completed in senseiewok/cf-skills#38. Added _check_catalog_lock() to scripts/check_repo.py (with unit test in tests/test_check_repo.py, 195/195 passed) and portable CFTR RefSeq (NM_000492.4) exon & UniProt (P13569) structural domain lookup (.claude/skills/cf-evidence-loop/scripts/evidence/cftr_context.py) wired into brief variant (21/21 pytest passed).
 - **Measured:**  h; 
+
+### T-0278 Stale Sentinel Worktree Harvest & Automated Branch Hygiene Daemon (tasks/harvest_sentinel_worktrees.py)
+
+- **Why / ROI rationale:** Automates cleanup of merged/closed worktrees with zero uncommitted changes, preserving machine disk space and preventing branch sprawl. *(confidence: high)*
+- **Route:** local - Autonomous harvest and cleanup of merged or closed sentinel worktrees across all 4 repos, preventing branch drift and git lock contention.
+- **Acceptance:** python tasks/harvest_sentinel_worktrees.py --dry-run; python -m unittest tasks.test_harvest_sentinel_worktrees
+- **Evidence:** tasks/check_worktree_drift.py; .claude/skills/workspace-siblings/scripts/worktrees.py; tasks/audit_github_hygiene.py; AGENTS.md
+- **Spec:** `tasks/specs/T-0278.md`
+- **Notes:** Wave 15 Security Lane Replenishment. Implements safe dry-run and clean modes with structured logging to .loop-logs/worktree-harvest.jsonl.
+
+### T-0279 Automated Sentinel PR Repair & Superseded Branch Cleaner Daemon (tasks/repair_sentinel_prs.py)
+
+- **Why / ROI rationale:** Prevents sentinel lane starvation caused by dirty or conflicting PRs in sentinel watch lanes by automatically remediating the repair queue. *(confidence: high)*
+- **Route:** local - Automates remediation of repair_queue items from audit_github_hygiene.py, safely closing superseded sentinel PRs and resolving title task mismatches.
+- **Acceptance:** python -m unittest tasks.test_repair_sentinel_prs; python tasks/repair_sentinel_prs.py --dry-run
+- **Evidence:** tasks/audit_github_hygiene.py; tasks/pick_bold_task.py; AGENTS.md
+- **Spec:** `tasks/specs/T-0279.md`
+- **Notes:** Wave 15 Security Lane Replenishment. Delivers automated daemon to execute remediation actions prescribed by audit_github_hygiene.py.
 
 ### T-0008 Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256)
 
