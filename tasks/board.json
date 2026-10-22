@@ -13225,14 +13225,14 @@
       "title": "Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ with es-MX parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
       "route_rationale": "Zero-build native ES module and SVG nanoparticle diffusion simulator modeling pore-size obstruction vs PEG corona shielding grounded in tools/discovery/mpp_obstruction_scaling.py (T-0244).",
       "created_at": "2026-10-21T06:30:00Z",
-      "updated_at": "2026-10-21",
+      "updated_at": "2026-10-22",
       "created_by": {
         "kind": "model",
         "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
@@ -13262,9 +13262,13 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.12,
-        "roi_ratio": 2.59
+        "roi_ratio": 2.59,
+        "measured": 2.75
       },
-      "notes": "Wave 13 Track B Public Showcase Translation. Connects T-0244 mucus-penetrating nanoparticle transport scaling to /cf/delivery/."
+      "notes": "Completed in senseiewok/.ai#152. Mounted Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ modeling Ogston steric hydrogel mesh filtering, dense PEG brush corona shielding (Gamma/Gamma* >= 2.0), and rhDNase I dornase alfa mucolysis with full es-MX translation parity and unit test suite tests/test_mpp_scaling_explorer.py.",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.75,
+      "spec_path": "tasks/specs/T-0261.md"
     },
     {
       "id": "T-0262",
@@ -13748,7 +13752,8 @@
         "composite_score": 6.92,
         "roi_ratio": 1.73
       },
-      "notes": "Wave 15 Research Discovery Replenishment. Parameterizes CD47 peptide surface density threshold to suppress macrophage clearance by >80%."
+      "notes": "Wave 15 Research Discovery Replenishment. Parameterizes CD47 peptide surface density threshold to suppress macrophage clearance by >80%.",
+      "spec_path": "tasks/specs/T-0271.md"
     },
     {
       "id": "T-0272",
@@ -13952,7 +13957,7 @@
       "title": "Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13989,9 +13994,13 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.72,
-        "roi_ratio": 2.38
+        "roi_ratio": 2.38,
+        "measured": 3.25
       },
-      "notes": "Wave 15 Track B Public Showcase Replenishment. Connects T-0272 inhaled mRNA translation velocity model to /cf/delivery/."
+      "notes": "Completed in senseiewok/.ai#152. Mounted Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ modeling TASEP elongation across 1,480 CFTR codons, 3' poly(A) tail (100-120 nt) deadenylation kinetics, m1Psi stability, and collision-induced NGD prevention with full es-MX translation parity and unit test suite tests/test_mrna_velocity_explorer.py.",
+      "completed_at": "2026-10-22",
+      "actual_hours": 3.25,
+      "spec_path": "tasks/specs/T-0276.md"
     },
     {
       "id": "T-0277",
@@ -14220,6 +14229,239 @@
       "source_evidence": "DOI:10.1073/pnas.241383898; DOI:10.3389/fphar.2012.00201; PDB:6MSM; PDB:5W81; ClinicalTrials.gov:NCT00057278",
       "executor": "agent",
       "human_required": false
+    },
+    {
+      "id": "T-0282",
+      "title": "Interactive Inhaled Micro-Aerosol Droplet Evaporation & Hygroscopic Growth Dynamics Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "created_at": "2026-10-22T08:30:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 17 showcase replenishment & architecture stewardship"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0228"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "cf-research/tools/discovery/mechano_acoustic_delivery.py; DOI:10.1016/B978-012256971-5/50004-9; DOI:10.1016/0021-8502(88)90212-0; PMID:2204543; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047",
+      "acceptance": "python -m unittest tests.test_aerosol_hygroscopic_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models droplet evaporation and hygroscopic growth dynamics in humidified CF airways dictating tracheobronchial deposition on /cf/delivery/ with Mexican Spanish parity.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 7.5,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.42,
+        "roi_ratio": 2.7
+      },
+      "notes": "Wave 17 Track B Public Showcase Replenishment. Connects T-0228 micro-aerosol biophysics to /cf/delivery/.",
+      "spec_path": "tasks/specs/T-0282.md"
+    },
+    {
+      "id": "T-0283",
+      "title": "Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module simulating paracellular macromolecule transit and Claudin-1 pore-pathway modeling grounded in tools/discovery/transcytosis_model.py (T-0177).",
+      "created_at": "2026-10-22T08:30:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 17 showcase replenishment & architecture stewardship"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0177"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "source_evidence": "cf-research/tools/discovery/transcytosis_model.py; DOI:10.1165/ajrcmb.23.5.4216; DOI:10.1146/annurev.physiol.68.040104.131404; DOI:10.1146/annurev-physiol-012110-142150; ClinicalTrials.gov:NCT00004494",
+      "acceptance": "python -m unittest tests.test_tight_junction_permeability_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Simulates paracellular macromolecule transit and tight junction transient modulation for basal stem cell delivery on /cf/delivery/ with Mexican Spanish parity.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 7.5,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.52,
+        "roi_ratio": 2.31
+      },
+      "notes": "Wave 17 Track B Public Showcase Replenishment. Connects T-0177 paracellular epithelial permeability to /cf/delivery/.",
+      "spec_path": "tasks/specs/T-0283.md"
+    },
+    {
+      "id": "T-0284",
+      "title": "Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Automated CLI daemon extending harvest_sentinel_worktrees.py to prune fully merged, clean worktrees across workspace repositories under --yes confirmation with strict invariant guards.",
+      "created_at": "2026-10-22T08:30:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 17 security replenishment & architecture stewardship"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0278"
+      ],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "tasks/harvest_sentinel_worktrees.py; .claude/skills/workspace-siblings/scripts/worktrees.py; AGENTS.md",
+      "acceptance": "python -m unittest tasks.test_prune_stale_worktrees; python tasks/prune_stale_worktrees.py --dry-run",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents disk bloat and worktree collision across multi-repo sentinel automation with zero data-loss guarantees.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 9.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 7.15,
+        "roi_ratio": 2.7
+      },
+      "notes": "Wave 17 Security Lane Replenishment. Builds on T-0278 worktree harvesting.",
+      "spec_path": "tasks/specs/T-0284.md"
+    },
+    {
+      "id": "T-0285",
+      "title": "Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Quantitative ordinary differential equation model simulating proton sponge buffering, ionizable lipid pKa inversion, and galectin-3 rupture kinetics in primary basal stem cells (KRT5+/TP63+).",
+      "created_at": "2026-10-22T08:30:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 17 research replenishment & architecture stewardship"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0239"
+      ],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "cf-research/tools/discovery/mrna_lnp_escape_model.py; DOI:10.1038/nbt.3298; DOI:10.1038/nbt.2612; DOI:10.1016/j.ymthe.2017.05.013; ClinicalTrials.gov:NCT05668741",
+      "acceptance": "pytest tools/discovery/test_lnp_escape_dynamics.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies cytosolic intact mRNA bioavailability and uncoating kinetics in airway basal stem cells for long-term genetic persistence.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.85,
+        "roi_ratio": 1.96
+      },
+      "notes": "Wave 17 Research Lane Replenishment. Connects T-0239 endosomal escape kinetics to basal stem cell uncoating dynamics.",
+      "spec_path": "tasks/specs/T-0285.md"
+    },
+    {
+      "id": "T-0286",
+      "title": "Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic linter verifying evidence catalog YAML schemas, license compatibility, terms-of-use flags, and cryptographic pin integrity across cf-research and cf-skills.",
+      "created_at": "2026-10-22T08:30:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 17 security replenishment & architecture stewardship"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "cf-research/sources/catalog.yaml; cf-skills/.claude/skills/cf-evidence-loop/catalog.yaml; .claude/skills/security-browsing/SKILL.md; .claude/skills/security-baseline/SKILL.md",
+      "acceptance": "python -m unittest tasks.test_check_catalog_schema_lock; python tasks/check_catalog_schema_lock.py --check",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Ensures external medical evidence catalog schema validity, robots.txt compliance, and license integrity across sibling repos with zero drift.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 9.5,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 7.35,
+        "roi_ratio": 2.7
+      },
+      "notes": "Wave 17 Security Lane Replenishment. Enforces external source catalog schema lock and license boundaries.",
+      "spec_path": "tasks/specs/T-0286.md"
     }
   ],
   "updated": "2026-10-22"
