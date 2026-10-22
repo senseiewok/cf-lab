@@ -13848,7 +13848,7 @@
       "title": "Interactive Deep Intronic Splice Foundation Model & Pseudoexon Rescue Simulator on /cf/cftr/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13885,16 +13885,20 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.12,
-        "roi_ratio": 2.03
+        "roi_ratio": 2.03,
+        "measured": 3.5
       },
-      "notes": "Wave 15 Track B Public Showcase Replenishment. Connects T-0269 intronic splice foundation benchmark to /cf/cftr/."
+      "notes": "Completed in senseiewok/.ai#151. Implemented interactive deep intronic splice foundation model (SpliceAI + Evo-2) and ASO pseudoexon rescue simulator on /cf/cftr/ with full es-MX translation parity (57 tests passing, AH-1..AH-5 PASS).",
+      "completed_at": "2026-10-22",
+      "actual_hours": 3.5,
+      "spec_path": "tasks/specs/T-0274.md"
     },
     {
       "id": "T-0275",
       "title": "Interactive Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Airway Hydration Simulator on /cf/tree/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -13931,9 +13935,13 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.72,
-        "roi_ratio": 2.38
+        "roi_ratio": 2.38,
+        "measured": 3.0
       },
-      "notes": "Wave 15 Track B Public Showcase Replenishment. Connects T-0252 coupled ENaC-TMEM16A ion equilibrium model to /cf/tree/."
+      "notes": "Completed in senseiewok/.ai#144 and senseiewok/.ai#151. Mounted #enac-tmem16a-explorer on /cf/tree/, validated coupled transepithelial ion transport, Ussing chamber short-circuit current curves, and es-MX parity (4 unit tests passing, AH-1..AH-5 PASS).",
+      "completed_at": "2026-10-22",
+      "actual_hours": 3.0,
+      "spec_path": "tasks/specs/T-0275.md"
     },
     {
       "id": "T-0276",
@@ -14033,7 +14041,7 @@
       "title": "Stale Sentinel Worktree Harvest & Automated Branch Hygiene Daemon (tasks/harvest_sentinel_worktrees.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P2",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14069,9 +14077,12 @@
           "security_compliance": 9.0
         },
         "composite_score": 4.17,
-        "roi_ratio": 1.52
+        "roi_ratio": 1.52,
+        "measured": 2.5
       },
-      "notes": "Wave 15 Security Lane Replenishment. Implements safe dry-run and clean modes with structured logging to .loop-logs/worktree-harvest.jsonl."
+      "notes": "Delivered tasks/harvest_sentinel_worktrees.py and test_harvest_sentinel_worktrees.py (7/7 PASS). Safely harvests completed and merged sentinel worktrees across all 4 sibling repositories with zero unpushed/untracked data loss.",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.5
     },
     {
       "id": "T-0279",
@@ -14117,6 +14128,92 @@
         "roi_ratio": 1.52
       },
       "notes": "Wave 15 Security Lane Replenishment. Delivers automated daemon to execute remediation actions prescribed by audit_github_hygiene.py."
+    },
+    {
+      "id": "T-0280",
+      "title": "Interactive CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Simulator on /cf/cftr/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0270"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_gating_potentiator_explorer tests.test_site.StaticTests",
+      "notes": "Wave 16 Showcase Replenishment. Interactive allosteric cooperativity and energetic coupling between dual potentiator sites on /cf/cftr/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0280.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Expands public educational simulation of dual-site CFTR potentiator energetic coupling for Class III/IV alleles.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.12,
+        "roi_ratio": 2.03
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive allosteric cooperativity and free-energy coupling simulator on /cf/cftr/ with es-MX parity.",
+      "source_evidence": "cf-research/tools/discovery/gating_potentiator_energy_coupling.py; DOI:10.1073/pnas.0904709106; DOI:10.1016/j.cell.2019.03.049; ClinicalTrials.gov:NCT00909532",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0281",
+      "title": "CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Remodeling Model (tools/discovery/pdi_redox_remodeling.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "pytest tools/discovery/test_pdi_redox_remodeling.py -v; python tools/claims/check_anti_hallucination.py",
+      "notes": "Wave 16 Research Replenishment. ERAD escape kinetics via S-nitrosylation of cryptic cysteines and PDI oxidoreductase chaperoning across misfolded CFTR alleles.",
+      "spec_path": "tasks/specs/T-0281.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies ERAD escape kinetics for misfolded CFTR alleles regulated by PDI redox remodeling and S-nitrosylation.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 6.62,
+        "roi_ratio": 1.56
+      },
+      "recommended_route": "local",
+      "route_rationale": "Biophysical ERAD escape kinetics via S-nitrosylation and PDI chaperoning across misfolded CFTR alleles.",
+      "source_evidence": "DOI:10.1073/pnas.241383898; DOI:10.3389/fphar.2012.00201; PDB:6MSM; PDB:5W81; ClinicalTrials.gov:NCT00057278",
+      "executor": "agent",
+      "human_required": false
     }
   ],
   "updated": "2026-10-22"
