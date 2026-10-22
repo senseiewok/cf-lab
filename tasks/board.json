@@ -13302,6 +13302,186 @@
         "roi_ratio": 2.97
       },
       "notes": "Wave 14 Track B Public Showcase Translation. Connects completed T-0251 macrophage efferocytosis model to /cf/delivery/."
+    },
+    {
+      "id": "T-0263",
+      "title": "CFTR RefSeq (NM_000492.4) Full Coding Sequence & Intronic Splice-Flank Verifier + Arbitrary-Allele gRNA/pegRNA/ASO/CpG Scanner (tools/discovery/cftr_sequence_scanner.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.",
+      "created_at": "2026-10-21T18:35:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "maintainer architecture & DNA/science model review 2026-10-21"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "spec_path": "tasks/specs/T-0263.md",
+      "source_evidence": "cf-research/tools/discovery/base_editing_cftr.py; cf-research/tools/discovery/prime_editing_cftr.py; cf-research/tools/discovery/aso_splice_kinetics.py; ClinicalTrials.gov:NCT05248230; ClinicalTrials.gov:NCT05668741; PDB:5UAK; PDB:6MSM; PDB:8EIQ; DOI:10.1038/s41586-020-2477-4; DOI:10.1038/s41587-020-0458-4",
+      "acceptance": "pytest tools/discovery/test_cftr_sequence_scanner.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Equips the lab for arbitrary-allele DNA/RNA therapeutic design across the 4,443-bp CFTR coding sequence and intronic splice junctions (PAM/bystander scanning, ASO walk Tm/hairpin scoring, and CpG/codon-harmony auditing).",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.43,
+        "roi_ratio": 2.59
+      },
+      "notes": "Track A DNA/RNA Discovery Engine. Generalizes base editing, prime editing, ASO splice-switching, and CpG-depleted minicircle analysis to arbitrary CFTR alleles."
+    },
+    {
+      "id": "T-0264",
+      "title": "Open-Source Protein & Genomic Science Model Benchmark & Zero-Shot CFTR Mutational Landscape Evaluator (ESM-2 / ThermoMPNN / Evo-2 vs Mechanistic Models in tools/discovery/science_model_benchmark.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Deterministic zero-shot log-likelihood and structure-conditioned ddG calibration benchmark with offline unit tests.",
+      "created_at": "2026-10-21T18:35:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "maintainer architecture & DNA/science model review 2026-10-21"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "spec_path": "tasks/specs/T-0264.md",
+      "source_evidence": "cf-research/tools/discovery/nbd1_thermodynamics.py; cf-research/tools/discovery/ptc_cryoem_allostery.py; ClinicalTrials.gov:NCT04684641; PDB:5UAK; PDB:6MSM; PDB:8EIQ; DOI:10.1126/science.ade2574; DOI:10.1126/science.add2187",
+      "acceptance": "pytest tools/discovery/test_science_model_benchmark.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Cross-verifies open-weights biological foundation models (ESM-2 masked marginals, ProteinMPNN/ThermoMPNN ddG, Evo-2 intronic splice scores) against our mechanistic CFTR gating and ERAD thermodynamic models.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 8.43,
+        "roi_ratio": 2.59
+      },
+      "notes": "Track A Science Foundation Model Integration. Benchmarks zero-shot protein/DNA language model scores on canonical CFTR variants and base/tRNA editing substitutions."
+    },
+    {
+      "id": "T-0265",
+      "title": "Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "PowerShell review-diff.ps1 enhancement, unit tests in test-review-diff.ps1, and biomedical model-onboarding benchmark fixtures.",
+      "created_at": "2026-10-21T18:35:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "maintainer architecture & DNA/science model review 2026-10-21"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "spec_path": "tasks/specs/T-0265.md",
+      "source_evidence": ".claude/skills/ai-loop-council/scripts/review-diff.ps1; .claude/skills/model-gemma4-31b/SKILL.md; .claude/skills/model-onboarding/SKILL.md; ClinicalTrials.gov:NCT05668741; PDB:8EIQ; DOI:10.1056/NEJMoa1908639",
+      "acceptance": "pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/test-review-diff.ps1; python tasks/check-skill-frontmatter.py",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Replenishes the security/tooling lane while enabling orthogonal local dual-family diff review (Qwen 3.8 + Gemma 4 31B) and standardized onboarding benchmarks for open-source biomedical LLMs (TxGemma).",
+        "categories": {
+          "curative_biophysics": 5.0,
+          "clinical_translation": 6.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
+        },
+        "composite_score": 7.05,
+        "roi_ratio": 2.56
+      },
+      "notes": "Security & AI Loop Council technology upgrade. Adds optional second-family local challenger to review-diff.ps1 and TxGemma scientific grounding benchmark fixtures."
+    },
+    {
+      "id": "T-0266",
+      "title": "Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py",
+      "repo": "cf-skills",
+      "area": "tooling",
+      "status": "ready",
+      "priority": "P2",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Self-contained Python CLI enhancement and unit tests in cf-skills.",
+      "created_at": "2026-10-21T18:35:00Z",
+      "updated_at": "2026-10-21",
+      "created_by": {
+        "kind": "model",
+        "name": "Frontier Council (Argon Pro + Opus + Nemotron)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "maintainer architecture & DNA/science model review 2026-10-21"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "spec_path": "tasks/specs/T-0266.md",
+      "source_evidence": "cf-research/sources/catalog.yaml; ClinicalTrials.gov:NCT05248230; PDB:6MSM; PDB:8EIQ; DOI:10.1056/NEJMoa1908639",
+      "acceptance": "python scripts/check_repo.py; python scripts/pin_catalog.py --check; python -m unittest discover tests",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Enriches cf-evidence-loop brief variant output with verified UniProt P13569 structural domain and RefSeq NM_000492.4 exon metadata while enforcing catalog.lock.json verification inside check_repo.py.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 8.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 2.87
+      },
+      "notes": "Public cf-skills improvement. Integrates pin_catalog.check() into check_repo.py and adds deterministic CFTR exon/domain context to cf-evidence-loop."
     }
   ],
   "updated": "2026-10-21"

@@ -11,7 +11,7 @@ Continuously protects the lab's scientific credibility by monitoring primary lit
 
 ## Cadence & Trigger
 
-- **Cadence**: Every 30 minutes at :10 and :40 PT (`CRON_TZ=America/Los_Angeles 10,40 * * * *`), set in `tasks/sentinels.json`; the agent starts only when proposals, landscape or the catalog changed, or the 24-hour heartbeat is due. Run by the wrapper `tasks/run-sentinel.ps1` as part of `daily-research-sentinel`.
+- **Cadence**: Every 30 minutes at :10 and :40 PT (`CRON_TZ=America/Los_Angeles 10,40 * * * *`), set in `tasks/sentinels.json`; the agent starts only when proposals, landscape or the catalog changed, or the 3-hour heartbeat is due. Run by the wrapper `tasks/run-sentinel.ps1` as part of `daily-research-sentinel`.
 - **Antigravity Sidecar ID**: `daily-research-sentinel`
 - **Review Tier**: `routine`
 - **Anti-Churn Invariant**: When no retractions or indication revisions are detected, log clean audit results to `.loop-logs/` only. It is strictly forbidden to open pull requests or edit board notes for clean passes.

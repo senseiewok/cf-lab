@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-262 tasks, 261 created by a model, 145 with a measured outcome. Estimated effort 688.35 to 1278.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+266 tasks, 265 created by a model, 145 with a measured outcome. Estimated effort 697.35 to 1293.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (23)
+## ready (27)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,7 +18,10 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
+| T-0263 | P1 | CFTR RefSeq (NM_000492.4) Full Coding Sequence & Intronic Splice-Flank Verifier + Arbitrary-Allele gRNA/pegRNA/ASO/CpG Scanner (tools/discovery/cftr_sequence_scanner.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
+| T-0264 | P1 | Open-Source Protein & Genomic Science Model Benchmark & Zero-Shot CFTR Mutational Landscape Evaluator (ESM-2 / ThermoMPNN / Evo-2 vs Mechanistic Models in tools/discovery/science_model_benchmark.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0262 | P1 | Interactive Alveolar Macrophage Efferocytosis & Neutrophil Extracellular Trap (NET) Degradation Kinetics Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0251 |  |
+| T-0265 | P1 | Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding | cf-lab | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0256 | P1 | Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0252 |  |
 | T-0255 | P1 | Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) Adenine Base Editing (ABE8e) & Prime Editing (PE3) PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
@@ -29,6 +32,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
+| T-0266 | P2 | Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py | cf-skills | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0253 | P2 | CF Airway Mucus Micro-Rheology & Polymer Cross-Linking Cleavage Kinetics Under Dornase Alfa (rhDNase) and Thiol-Reducing Mucolytics (tools/discovery/mucus_cleavage_kinetics.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
@@ -38,7 +42,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (224)
+## done (225)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -657,6 +661,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/tools/discovery/discovery_council.py; cf-research/tools/claims/check_anti_hallucination.py; ClinicalTrials.gov:NCT04684641; PDB:8EIQ; DOI:10.1056/NEJMoa1908639
 - **Notes:** Completed in senseiewok/cf-research#112: implemented dynamic DISCOVERY_MODULE_REGISTRY and audit_discovery_module_registry() in tools/discovery/discovery_council.py and enforced Rule AH-5 [discovery-module-registration] in tools/claims/check_anti_hallucination.py.
 
+### T-0263 CFTR RefSeq (NM_000492.4) Full Coding Sequence & Intronic Splice-Flank Verifier + Arbitrary-Allele gRNA/pegRNA/ASO/CpG Scanner (tools/discovery/cftr_sequence_scanner.py)
+
+- **Why / ROI rationale:** Equips the lab for arbitrary-allele DNA/RNA therapeutic design across the 4,443-bp CFTR coding sequence and intronic splice junctions (PAM/bystander scanning, ASO walk Tm/hairpin scoring, and CpG/codon-harmony auditing). *(confidence: high)*
+- **Route:** local - Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.
+- **Acceptance:** pytest tools/discovery/test_cftr_sequence_scanner.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/tools/discovery/base_editing_cftr.py; cf-research/tools/discovery/prime_editing_cftr.py; cf-research/tools/discovery/aso_splice_kinetics.py; ClinicalTrials.gov:NCT05248230; ClinicalTrials.gov:NCT05668741; PDB:5UAK; PDB:6MSM; PDB:8EIQ; DOI:10.1038/s41586-020-2477-4; DOI:10.1038/s41587-020-0458-4
+- **Spec:** `tasks/specs/T-0263.md`
+- **Notes:** Track A DNA/RNA Discovery Engine. Generalizes base editing, prime editing, ASO splice-switching, and CpG-depleted minicircle analysis to arbitrary CFTR alleles.
+
+### T-0264 Open-Source Protein & Genomic Science Model Benchmark & Zero-Shot CFTR Mutational Landscape Evaluator (ESM-2 / ThermoMPNN / Evo-2 vs Mechanistic Models in tools/discovery/science_model_benchmark.py)
+
+- **Why / ROI rationale:** Cross-verifies open-weights biological foundation models (ESM-2 masked marginals, ProteinMPNN/ThermoMPNN ddG, Evo-2 intronic splice scores) against our mechanistic CFTR gating and ERAD thermodynamic models. *(confidence: high)*
+- **Route:** local - Deterministic zero-shot log-likelihood and structure-conditioned ddG calibration benchmark with offline unit tests.
+- **Acceptance:** pytest tools/discovery/test_science_model_benchmark.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/tools/discovery/nbd1_thermodynamics.py; cf-research/tools/discovery/ptc_cryoem_allostery.py; ClinicalTrials.gov:NCT04684641; PDB:5UAK; PDB:6MSM; PDB:8EIQ; DOI:10.1126/science.ade2574; DOI:10.1126/science.add2187
+- **Spec:** `tasks/specs/T-0264.md`
+- **Notes:** Track A Science Foundation Model Integration. Benchmarks zero-shot protein/DNA language model scores on canonical CFTR variants and base/tRNA editing substitutions.
+
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
 - **Why / ROI rationale:** Ensures scheduled security and showcase sentinels inspect every canonical route on desktop and mobile during visual audits. *(confidence: high)*
@@ -699,6 +721,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_macrophage_efferocytosis_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/macrophage_efferocytosis_model.py; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT02088216; ClinicalTrials.gov:NCT00506688; PDB:1HNE; PDB:2P0C; DOI:10.1172/JCI13554; DOI:10.3389/fimmu.2021.734608
 - **Notes:** Wave 14 Track B Public Showcase Translation. Connects completed T-0251 macrophage efferocytosis model to /cf/delivery/.
+
+### T-0265 Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding
+
+- **Why / ROI rationale:** Replenishes the security/tooling lane while enabling orthogonal local dual-family diff review (Qwen 3.8 + Gemma 4 31B) and standardized onboarding benchmarks for open-source biomedical LLMs (TxGemma). *(confidence: high)*
+- **Route:** local - PowerShell review-diff.ps1 enhancement, unit tests in test-review-diff.ps1, and biomedical model-onboarding benchmark fixtures.
+- **Acceptance:** pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/test-review-diff.ps1; python tasks/check-skill-frontmatter.py
+- **Evidence:** .claude/skills/ai-loop-council/scripts/review-diff.ps1; .claude/skills/model-gemma4-31b/SKILL.md; .claude/skills/model-onboarding/SKILL.md; ClinicalTrials.gov:NCT05668741; PDB:8EIQ; DOI:10.1056/NEJMoa1908639
+- **Spec:** `tasks/specs/T-0265.md`
+- **Notes:** Security & AI Loop Council technology upgrade. Adds optional second-family local challenger to review-diff.ps1 and TxGemma scientific grounding benchmark fixtures.
 
 ### T-0188 Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure
 
@@ -1743,6 +1774,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0226.md`
 - **Notes:** 2026-10-18 Council of Councils: Approved to ready (autonomous agent executor). 2026-10-18 daily-security-sentinel: Completed. Implemented tasks/test_svg_freeze_contract.py, updated skills and check-all.ps1. Acceptance passed (13 tests in 0.04s).
 - **Measured:** 2 h; Implemented tasks/test_svg_freeze_contract.py, updated svg-animation, webgl-threejs-graphics, modern-web-standards skills and check-all.ps1.
+
+### T-0266 Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py
+
+- **Why / ROI rationale:** Enriches cf-evidence-loop brief variant output with verified UniProt P13569 structural domain and RefSeq NM_000492.4 exon metadata while enforcing catalog.lock.json verification inside check_repo.py. *(confidence: high)*
+- **Route:** local - Self-contained Python CLI enhancement and unit tests in cf-skills.
+- **Acceptance:** python scripts/check_repo.py; python scripts/pin_catalog.py --check; python -m unittest discover tests
+- **Evidence:** cf-research/sources/catalog.yaml; ClinicalTrials.gov:NCT05248230; PDB:6MSM; PDB:8EIQ; DOI:10.1056/NEJMoa1908639
+- **Spec:** `tasks/specs/T-0266.md`
+- **Notes:** Public cf-skills improvement. Integrates pin_catalog.check() into check_repo.py and adds deterministic CFTR exon/domain context to cf-evidence-loop.
 
 ### T-0081 Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public
 

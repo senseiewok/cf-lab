@@ -469,8 +469,13 @@ def audit_sentinel_backlog_depth(
         return results
 
     try:
+        import pick_bold_task  # noqa: E402
+        import triage_board    # noqa: E402
         board = json.loads(board_path.read_text(encoding="utf-8"))
         tasks = board.get("tasks", []) if isinstance(board, dict) else board
+        done_ids = {t.get("id") for t in tasks if isinstance(t, dict) and t.get("status") == "done"}
+        human_md = board_path.parent / "HUMAN-TASKS.md"
+        human_ids = triage_board.load_human_task_ids(human_md) if human_md.is_file() else set()
         for t in tasks:
             if not isinstance(t, dict):
                 continue
@@ -488,8 +493,9 @@ def audit_sentinel_backlog_depth(
                 results["lanes"][lane]["ready_count"] += 1
                 results["lanes"][lane]["task_ids"].append(tid)
 
-                is_human = (t.get("executor") == "human" or t.get("human_required") is True)
-                if not is_human:
+                is_human = pick_bold_task.needs_a_person(t, human_ids)
+                has_unmet_dep = any(dep not in done_ids for dep in (t.get("depends_on") or []))
+                if not is_human and not has_unmet_dep:
                     results["lanes"][lane]["automated_ready_count"] += 1
                     results["lanes"][lane]["automated_task_ids"].append(tid)
 

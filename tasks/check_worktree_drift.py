@@ -137,6 +137,27 @@ def inspect_worktree(wt_dir: Path, repo_name: str) -> dict[str, Any] | None:
     }
 
 
+_WT_INSPECT_CACHE: dict[str, tuple[float, dict[str, Any] | None]] = {}
+
+
+def _worktree_signature_mtime(wt_dir: Path) -> float:
+    """Return a cheap composite mtime for a worktree directory and its git state."""
+    mtimes: list[float] = []
+    try:
+        mtimes.append(wt_dir.stat().st_mtime)
+        git_entry = wt_dir / ".git"
+        if git_entry.exists():
+            mtimes.append(git_entry.stat().st_mtime)
+            if git_entry.is_dir():
+                for sub in ("HEAD", "index"):
+                    p = git_entry / sub
+                    if p.exists():
+                        mtimes.append(p.stat().st_mtime)
+    except Exception:
+        pass
+    return max(mtimes) if mtimes else 0.0
+
+
 def scan_existing_worktrees(
     repo_root: Path | None = None,
     task_ids: list[str] | set[str] | None = None,
@@ -168,7 +189,14 @@ def scan_existing_worktrees(
             continue
 
         for wt_dir in wt_dirs:
-            info = inspect_worktree(wt_dir, repo_name)
+            cache_key = str(wt_dir.resolve())
+            sig_mtime = _worktree_signature_mtime(wt_dir)
+            cached = _WT_INSPECT_CACHE.get(cache_key)
+            if cached is not None and cached[0] == sig_mtime:
+                info = cached[1]
+            else:
+                info = inspect_worktree(wt_dir, repo_name)
+                _WT_INSPECT_CACHE[cache_key] = (sig_mtime, info)
             if info is None:
                 continue
 
