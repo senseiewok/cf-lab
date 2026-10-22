@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-310 tasks, 309 created by a model, 166 with a measured outcome. Estimated effort 802.85 to 1475.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+316 tasks, 315 created by a model, 166 with a measured outcome. Estimated effort 815.35 to 1496.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,20 +10,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (32)
+## ready (36)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0006 | P1 | Send permissions emails to CFF registry contact and ECFSPR | cf-research | 0.5-0.5 | 4 | 80 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
-| T-0307 | P1 | Automated Multi-Repo Agent Environment Variable (.env) & Canary Isolation Linter (tasks/check_env_canary_isolation.py) | cf-lab | 1.5-3 | 5 | 22.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | low | local |  |  |
-| T-0308 | P1 | Automated Cross-Repo Agent Tool Permission & Denial Rule Invariant Linter (tasks/check_tool_permission_invariants.py) | cf-lab | 1.5-3 | 5 | 22.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | low | local |  |  |
+| T-0313 | P1 | Automated Multi-Repo Git Hook & Pre-Commit Shell Invariant Linter (tasks/check_git_hooks_invariants.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-flash | 2026-10-22 | routine | low | local |  |  |
+| T-0314 | P1 | Automated Cross-Repo Playwright Test Artifact & Server Port Hygiene Linter (tasks/check_playwright_test_hygiene.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-flash | 2026-10-22 | routine | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
+| T-0311 | P1 | Interactive CFTR mRNA Secondary Structure & G-Quadruplex / Hairpin Ribosome Profiling Explorer on /cf/cftr/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
 | T-0287 | P1 | Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
 | T-0294 | P1 | Interactive Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Sialidase Permeabilization Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0291 |  |
 | T-0299 | P1 | Interactive Deep-Intronic Splice-Switching ASO (SPL84) & U1 snRNP Thermodynamic Competition Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0292 |  |
 | T-0300 | P1 | Interactive Sialidase-Mediated Apical Glycocalyx Permeabilization & Inhaled Vector Flux Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0291 |  |
+| T-0312 | P1 | Interactive Airway Epithelial Ciliary Beat Frequency (CBF) & Metachronal Wave Synchronization Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
+| T-0315 | P1 | Airway Epithelial Ciliary Metachronal Wave Dynamics & Mucociliary Clearance Velocity Model (tools/discovery/ciliary_wave_clearance_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
+| T-0316 | P1 | CFTR mRNA Coding Sequence G-Quadruplex Thermodynamic Stability & Ribosome Stalling Model (tools/discovery/cftr_gquadruplex_stability_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
 | T-0293 | P1 | Interactive Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0271 |  |
 | T-0305 | P1 | Interactive Airway Surface Liquid (ASL) Osmotic Gradient & Hypertonic Saline Hydration Dynamics Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0275 |  |
 | T-0306 | P1 | Interactive CFTR Premature Termination Codon (PTC) Readthrough Ribosome Structural Kinetics & Aminoglycoside Toxicity Simulator on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0247 |  |
@@ -47,7 +51,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (264)
+## done (266)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -73,6 +77,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0301 | P1 | Automated Cross-Repo Markdown Link & Internal Anchor Integrity Linter (tasks/check_markdown_link_integrity.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | elevated | low | local |  |  |
 | T-0191 | P1 | Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0192 | P1 | Aggressive sentinel cadence: reduce max_idle_hours from 8h/12h to 3h/4h in tasks/sentinels.json and replenish multi-lane ready backlog | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
+| T-0307 | P1 | Automated Multi-Repo Agent Environment Variable (.env) & Canary Isolation Linter (tasks/check_env_canary_isolation.py) | cf-lab | 1.5-3 | 5 | 22.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | low | local |  |  |
+| T-0308 | P1 | Automated Cross-Repo Agent Tool Permission & Denial Rule Invariant Linter (tasks/check_tool_permission_invariants.py) | cf-lab | 1.5-3 | 5 | 22.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | low | local |  |  |
 | T-0067 | P1 | Decision: treat robots.txt groups that name AI agents as applying to our fetch sources | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0073 | P1 | A tool-limited agent definition for read-only reviewers | cf-lab | 1-2 | 3 | 20 | yes | model: claude-sonnet-5-5 | 2026-10-05 | elevated | low | local |  |  |
 | T-0094 | P1 | Decide, after the review memo, whether the AI-agent robots.txt rule from T-0067 ships, then merge it in both repos | cf-skills | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | full | medium | local | T-0067 |  |
@@ -522,6 +528,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0301.md`
 - **Notes:** Wave 20 Security Delivery. Implemented tasks/check_markdown_link_integrity.py and test_check_markdown_link_integrity.py.
 
+### T-0313 Automated Multi-Repo Git Hook & Pre-Commit Shell Invariant Linter (tasks/check_git_hooks_invariants.py)
+
+- **Why / ROI rationale:** Prevents unauthorized hook execution and validates pre-commit privacy scanning invariants. *(confidence: high)*
+- **Route:** local - Deterministic security linter and unit tests in cf-lab.
+- **Acceptance:** python -m unittest tasks.test_check_git_hooks_invariants; python tasks/check_git_hooks_invariants.py --check
+- **Evidence:** tasks/specs/T-0313.md; .claude/skills/security-git/SKILL.md
+- **Spec:** `tasks/specs/T-0313.md`
+- **Notes:** Wave 22 Security Backlog Replenishment. Audits git hooks and pre-commit scripts across all repositories to enforce interpreter portability and halt unvetted binary execution.
+
+### T-0314 Automated Cross-Repo Playwright Test Artifact & Server Port Hygiene Linter (tasks/check_playwright_test_hygiene.py)
+
+- **Why / ROI rationale:** Guarantees test server hygiene and prevents browser test binary bloat in git. *(confidence: high)*
+- **Route:** local - Deterministic security linter and unit tests in cf-lab.
+- **Acceptance:** python -m unittest tasks.test_check_playwright_test_hygiene; python tasks/check_playwright_test_hygiene.py --check
+- **Evidence:** tasks/specs/T-0314.md; .claude/skills/playwright-browser-testing/SKILL.md
+- **Spec:** `tasks/specs/T-0314.md`
+- **Notes:** Wave 22 Security Backlog Replenishment. Audits test artifacts, detects dangling background server processes, and enforces browser binary provenance.
+
 ### T-0191 Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty
 
 - **Why / ROI rationale:** Prevents step execution permission errors on missing bundle files and ensures sentinels proactively replenish the board instead of idling. *(confidence: high)*
@@ -547,7 +571,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tasks.test_check_env_canary_isolation; python tasks/check_env_canary_isolation.py --check
 - **Evidence:** .claude/skills/security-baseline/SKILL.md; .claude/skills/security-git/SKILL.md
 - **Spec:** `tasks/specs/T-0307.md`
-- **Notes:** Wave 21 Security Backlog Replenishment. Audits .env, .env.example, and test fixtures across all repos to assert zero-leakage canary isolation and credential entropy bounds.
+- **Notes:** Delivered in hourly steward wave 22. Implemented tasks/check_env_canary_isolation.py and tasks/test_check_env_canary_isolation.py (13/13 passing tests) and registered check rows in check-all.ps1.
 
 ### T-0308 Automated Cross-Repo Agent Tool Permission & Denial Rule Invariant Linter (tasks/check_tool_permission_invariants.py)
 
@@ -556,7 +580,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tasks.test_check_tool_permission_invariants; python tasks/check_tool_permission_invariants.py --check
 - **Evidence:** .claude/skills/security-runtime/SKILL.md; docs/instruction-loading.md; AGENTS.md
 - **Spec:** `tasks/specs/T-0308.md`
-- **Notes:** Wave 21 Security Backlog Replenishment. Audits .claude/settings.json, copilot instructions, and agent runtime settings to verify command denial invariants and sandbox boundaries.
+- **Notes:** Delivered in hourly steward wave 22. Implemented tasks/check_tool_permission_invariants.py and tasks/test_check_tool_permission_invariants.py (11/11 passing tests) and registered check rows in check-all.ps1.
 
 ### T-0067 Decision: treat robots.txt groups that name AI agents as applying to our fetch sources
 
@@ -716,6 +740,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/sentinels.json; .claude/skills/scheduled-security-sentinel/SKILL.md; tasks/fast-sentinel-gate.ps1
 - **Spec:** `tasks/specs/T-0302.md`
 - **Notes:** Delivered in hourly steward wave 21 (senseiewok/cf-lab#240). Implemented tasks/check_sentinel_telemetry_linter.py and unit test suite tasks/test_check_sentinel_telemetry_linter.py with 12/12 passing tests and registered check rows in check-all.ps1.
+
+### T-0311 Interactive CFTR mRNA Secondary Structure & G-Quadruplex / Hairpin Ribosome Profiling Explorer on /cf/cftr/ with es-MX Parity
+
+- **Why / ROI rationale:** Exposes mRNA co-translational folding physics and synonymous mutation kinetics on CFTR translation. *(confidence: high)*
+- **Route:** local - Interactive HTML/Canvas/SVG site showcase component with Mexican Spanish parity.
+- **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_mrna_folding_explorer tests.test_site.StaticTests
+- **Evidence:** tasks/specs/T-0311.md; cf-research/landscape/ptc-readthrough.md
+- **Spec:** `tasks/specs/T-0311.md`
+- **Notes:** Wave 22 Showcase Backlog Replenishment. Interactive biophysical mRNA secondary structure visualizer exploring thermodynamic minimum free energy folding landscapes and translation elongation velocity.
 
 ### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
 
@@ -907,6 +940,33 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** DOI:10.1126/science.1224376; DOI:10.1038/s41467-024-45302-1; ClinicalTrials.gov:NCT05668741
 - **Spec:** `tasks/specs/T-0300.md`
 - **Notes:** Wave 20 Showcase Replenishment. Mounts #glycocalyx-permeabilization-explorer on /cf/delivery/.
+
+### T-0312 Interactive Airway Epithelial Ciliary Beat Frequency (CBF) & Metachronal Wave Synchronization Simulator on /cf/tree/ with es-MX Parity
+
+- **Why / ROI rationale:** Simulates mucociliary clearance biophysics and phase-locked ciliary wave mechanics on the public website. *(confidence: high)*
+- **Route:** local - Interactive HTML/Canvas/SVG site showcase component with Mexican Spanish parity.
+- **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ciliary_metachronal_wave_explorer tests.test_site.StaticTests
+- **Evidence:** tasks/specs/T-0312.md; cf-research/landscape/mucociliary-clearance.md
+- **Spec:** `tasks/specs/T-0312.md`
+- **Notes:** Wave 22 Showcase Backlog Replenishment. Interactive biophysical ciliary metachronal wave visualizer modeling Kuramoto hydrodynamic synchronization and mucus viscoelastic load dampening.
+
+### T-0315 Airway Epithelial Ciliary Metachronal Wave Dynamics & Mucociliary Clearance Velocity Model (tools/discovery/ciliary_wave_clearance_model.py)
+
+- **Why / ROI rationale:** Quantifies mucociliary clearance transport velocities and stasis thresholds under CF mucus dehydration. *(confidence: high)*
+- **Route:** local - Biophysical Python discovery tool and unit tests in cf-research.
+- **Acceptance:** python -m unittest tools.discovery.test_ciliary_wave_clearance_model; python tools/discovery/ciliary_wave_clearance_model.py --check
+- **Evidence:** tasks/specs/T-0315.md; sources/catalog.yaml
+- **Spec:** `tasks/specs/T-0315.md`
+- **Notes:** Wave 22 Research Backlog Replenishment. Mathematical modeling tool simulating Stokes flow and two-phase PCL-mucus momentum transfer during ciliary metachronal wave transport.
+
+### T-0316 CFTR mRNA Coding Sequence G-Quadruplex Thermodynamic Stability & Ribosome Stalling Model (tools/discovery/cftr_gquadruplex_stability_model.py)
+
+- **Why / ROI rationale:** Identifies RNA structural bottlenecks regulating CFTR co-translational folding efficiency and elongation pause sites. *(confidence: high)*
+- **Route:** local - Biophysical Python discovery tool and unit tests in cf-research.
+- **Acceptance:** python -m unittest tools.discovery.test_cftr_gquadruplex_stability_model; python tools/discovery/cftr_gquadruplex_stability_model.py --check
+- **Evidence:** tasks/specs/T-0316.md; sources/catalog.yaml
+- **Spec:** `tasks/specs/T-0316.md`
+- **Notes:** Wave 22 Research Backlog Replenishment. Computational scanner for RNA G-quadruplex motifs and folding energy profiles across the CFTR coding sequence.
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
