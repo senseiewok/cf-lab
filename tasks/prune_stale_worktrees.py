@@ -98,20 +98,21 @@ def prune_single_worktree(
     if dry_run:
         return record
 
-    # Guard: never prune current active working directory
+    # Guard: never prune current active working directory or any path in its hierarchy
     try:
         cwd = Path.cwd().resolve()
-        if wt_path.resolve() == cwd or wt_path.resolve() in cwd.parents:
+        wt_resolved = wt_path.resolve()
+        if wt_resolved == cwd or wt_resolved in cwd.parents or cwd in wt_resolved.parents:
             record["status"] = "skipped"
-            record["error"] = "Cannot prune current working directory or its parent"
+            record["error"] = "Cannot prune active working directory or containing hierarchy"
             return record
     except Exception:
         pass
 
     try:
-        # 1. git worktree remove
+        # 1. git worktree remove (safe remove, no --force)
         p = subprocess.run(
-            ["git", "worktree", "remove", "--force", str(wt_path)],
+            ["git", "worktree", "remove", str(wt_path)],
             cwd=repo_dir,
             capture_output=True,
             text=True,
@@ -133,10 +134,10 @@ def prune_single_worktree(
         )
         record["worktree_pruned"] = True
 
-        # 3. Delete associated branch if verified merged
+        # 3. Delete associated branch safely with -d (never forced -D)
         if branch and branch != "main":
             b_del = subprocess.run(
-                ["git", "branch", "-D", branch],
+                ["git", "branch", "-d", branch],
                 cwd=repo_dir,
                 capture_output=True,
                 text=True,

@@ -57,6 +57,9 @@ class TestPruneStaleWorktrees(unittest.TestCase):
         self.assertEqual(res["status"], "pruned")
         self.assertTrue(res["branch_deleted"])
         self.assertTrue(res["worktree_pruned"])
+        # Verify git branch -d was invoked (not -D)
+        branch_calls = [call for call in mock_run.call_args_list if "branch" in call[0][0]]
+        self.assertTrue(any("-d" in call[0][0] and "-D" not in call[0][0] for call in branch_calls))
 
     @patch("subprocess.run")
     def test_is_branch_ancestor_of_main(self, mock_run):
