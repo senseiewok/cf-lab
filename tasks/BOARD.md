@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-292 tasks, 291 created by a model, 164 with a measured outcome. Estimated effort 760.35 to 1401.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+294 tasks, 293 created by a model, 166 with a measured outcome. Estimated effort 765.35 to 1410.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -21,9 +21,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0282 | P1 | Interactive Inhaled Micro-Aerosol Droplet Evaporation & Hygroscopic Growth Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0228 |  |
 | T-0289 | P1 | Automated Cross-Repo Agent Subprocess Argument Injection Guard & Shell Invariant Linter (tasks/check_subprocess_injection_guard.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0290 | P1 | Automated Multi-Repo Git Tag Cryptographic Integrity & Release Artifact Linter (tasks/check_git_release_integrity.py) | cf-lab | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0283 | P1 | Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0177 |  |
 | T-0287 | P1 | Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
-| T-0288 | P1 | Interactive Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0285 |  |
+| T-0294 | P1 | Interactive Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Sialidase Permeabilization Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0291 |  |
+| T-0293 | P1 | Interactive Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0271 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0291 | P1 | Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Enzymatic Sialidase Permeabilization Model (tools/discovery/glycocalyx_permeabilization_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0292 | P1 | CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Binding Kinetics & Cryptic Exon Exclusion Model (tools/discovery/u1_snrnp_decoy_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
@@ -41,7 +41,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (252)
+## done (254)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -92,6 +92,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0265 | P1 | Open-Source Protein & Genomic Science Model Benchmark & Zero-Shot CFTR Mutational Landscape Evaluator (ESM-2 / ThermoMPNN / Evo-2 vs Mechanistic Models in tools/discovery/science_model_benchmark.py) | cf-research | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0268 | P1 | Interactive CFTR Sequence-Window & Open-Source Foundation Model Explorer Showcase on senseiewok.ai | .ai | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-21 | elevated | medium | local |  |  |
 | T-0275 | P1 | Interactive Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Airway Hydration Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0252 |  |
+| T-0283 | P1 | Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0177 |  |
 | T-0193 | P1 | Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0205 | P1 | Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py) | cf-lab | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0258 | P1 | Interactive Splice-Switching ASO Steric-Blocking & Cryptic Pseudoexon Rescue Explorer (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) on /cf/ptc/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0254 |  |
@@ -109,6 +110,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0229 | P1 | Interactive Mechano-Acoustic Mucus Conditioning & 10-Year Basal Stem Cell Persistence Explorer (#mechano-stem-explorer) on /cf/delivery/ with es-MX parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-19 | elevated | medium | local | T-0220, T-0228 |  |
 | T-0274 | P1 | Interactive Deep Intronic Splice Foundation Model & Pseudoexon Rescue Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0269 |  |
 | T-0280 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0270 |  |
+| T-0288 | P1 | Interactive Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0285 |  |
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
 | T-0180 | P1 | Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py) | cf-research | 2-4 | 4 | 13.3 | yes | model: gpt-5-frontier | 2026-10-17 | elevated | medium | local | T-0177, T-0178, T-0179 |  |
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
@@ -798,7 +800,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_tight_junction_permeability_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/transcytosis_model.py; DOI:10.1165/ajrcmb.23.5.4216; DOI:10.1146/annurev.physiol.68.040104.131404; DOI:10.1146/annurev-physiol-012110-142150; ClinicalTrials.gov:NCT00004494
 - **Spec:** `tasks/specs/T-0283.md`
-- **Notes:** Wave 17 Track B Public Showcase Replenishment. Connects T-0177 paracellular epithelial permeability to /cf/delivery/.
+- **Notes:** Delivered and verified in senseiewok/.ai#154. Mounts #tight-junction-permeability-explorer on /cf/delivery/ with full es-MX parity, paracellular Renkin steric hindrance F(lambda) formulas, dynamic TEER regulation, Claudin-1 peptidomimetic vs EDTA chelation, accessible dual-panel SVG visualizer, strict CSP, and comprehensive unit tests.
+- **Measured:**  h; 
 
 ### T-0287 Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity
 
@@ -808,6 +811,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/tools/discovery/pdi_redox_remodeling.py; PDB 8EIQ; DOI:10.1016/j.cell.2021.02.012; DOI:10.1074/jbc.M113.456897
 - **Spec:** `tasks/specs/T-0287.md`
 - **Notes:** Wave 17 Showcase Replenishment. Interactive redox remodeling simulation of CFTR transmembrane S-nitrosylation and PDI chaperone activity on /cf/cftr/ with full es-MX parity.
+
+### T-0294 Interactive Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Sialidase Permeabilization Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Models apical periciliary glycocalyx meshwork and sialidase digestion for viral and non-viral genetic vector penetration. *(confidence: high)*
+- **Route:** local - Zero-build native ES module simulating periciliary brush glycocalyx meshwork steric exclusion and sialidase enzymatic permeabilization grounded in tools/discovery/glycocalyx_permeabilization_model.py (T-0291).
+- **Acceptance:** python -m unittest tests.test_glycocalyx_permeabilization_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py
+- **Evidence:** cf-research/tools/discovery/glycocalyx_permeabilization_model.py; DOI:10.1126/science.1223012; DOI:10.1038/s41565-021-00918-7; ClinicalTrials.gov:NCT05668741
+- **Spec:** `tasks/specs/T-0294.md`
+- **Notes:** Wave 18 Track B Public Showcase Replenishment. Connects T-0291 glycocalyx barrier model to /cf/delivery/.
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
@@ -971,7 +983,17 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_lnp_escape_dynamics_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/lnp_escape_dynamics.py; DOI:10.1038/nbt.3298; DOI:10.1038/nbt.1602; ClinicalTrials.gov:NCT05668741
 - **Spec:** `tasks/specs/T-0288.md`
-- **Notes:** Wave 17 Showcase Replenishment. Interactive multi-stage simulation of ionizable lipid protonation, endosomal membrane pore rupture, and cytosolic mRNA release dynamics on /cf/delivery/ with full es-MX parity.
+- **Notes:** Delivered and verified in senseiewok/.ai#154. Mounts #lnp-escape-dynamics-explorer on /cf/delivery/ with full es-MX parity, biophysical endosomal acidification, Henderson-Hasselbalch lipid protonation, H_II phase transition kinetics, Galectin-3 (LGALS3) rupture tracking, accessible dual-panel SVG visualizer, strict CSP, and comprehensive unit tests.
+- **Measured:**  h; 
+
+### T-0293 Interactive Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Simulates macrophage phagocytic evasion and CD47 stealth passivation for inhaled genetic delivery on /cf/delivery/. *(confidence: high)*
+- **Route:** local - Zero-build native ES module simulating pulmonary macrophage phagocytosis evasion and scavenger receptor kinetics grounded in tools/discovery/macrophage_evasion_kinetics.py (T-0271).
+- **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_macrophage_evasion_explorer tests.test_site.StaticTests
+- **Evidence:** cf-research/tools/discovery/macrophage_evasion_kinetics.py; DOI:10.1016/j.biomaterials.2015.08.053; DOI:10.1126/science.1229568; ClinicalTrials.gov:NCT05668741
+- **Spec:** `tasks/specs/T-0293.md`
+- **Notes:** Wave 18 Track B Public Showcase Replenishment. Connects T-0271 macrophage evasion biophysics to /cf/delivery/.
 
 ### T-0061 Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows)
 
