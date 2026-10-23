@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-346 tasks, 345 created by a model, 166 with a measured outcome. Estimated effort 882.35 to 1610.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+352 tasks, 351 created by a model, 166 with a measured outcome. Estimated effort 896.35 to 1634.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,14 +10,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (56)
+## ready (60)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0006 | P1 | Send permissions emails to CFF registry contact and ECFSPR | cf-research | 0.5-0.5 | 4 | 80 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
-| T-0343 | P1 | Automated Multi-Repo Agent Shell Command Redirection & Process Pipe Safety Linter (tasks/check_shell_pipe_safety.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
-| T-0344 | P1 | Automated Cross-Repo Python Import Shadowing & Standard Library Masquerading Linter (tasks/check_import_shadowing.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
+| T-0349 | P1 | Automated Multi-Repo Agent Temporary File Lifecycle & Insecure Mkdir/Mktemp Linter (tasks/check_tempfile_security.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
+| T-0350 | P1 | Automated Cross-Repo Git Config & Remote URL Protocol Whitelist Linter (tasks/check_git_remote_invariants.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0311 | P1 | Interactive CFTR mRNA Secondary Structure & G-Quadruplex / Hairpin Ribosome Profiling Explorer on /cf/cftr/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
@@ -37,6 +37,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0335 | P1 | Interactive CFTR Apical Microvillar Dense Brush Barrier & MUC1/MUC4 Glycocalyx Diffusion Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0291 |  |
 | T-0336 | P1 | Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer Decoy Kinetics Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0292 |  |
 | T-0341 | P1 | Interactive CFTR mRNA Secondary Structure & Stem-Loop Unfolding Dynamics Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0345 |  |
+| T-0347 | P1 | Interactive Airway Epithelial Glycocalyx Sialylation & Mucus Mesh Steric Exclusion Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0348 | P1 | Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Competition Simulator on /cf/ptc/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0293 | P1 | Interactive Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0271 |  |
 | T-0305 | P1 | Interactive Airway Surface Liquid (ASL) Osmotic Gradient & Hypertonic Saline Hydration Dynamics Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0275 |  |
 | T-0306 | P1 | Interactive CFTR Premature Termination Codon (PTC) Readthrough Ribosome Structural Kinetics & Aminoglycoside Toxicity Simulator on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0247 |  |
@@ -58,6 +60,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0322 | P1 | CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Cooperativity & Ribosome Translation Fidelity Model (tools/discovery/ptc_readthrough_cooperativity_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
 | T-0345 | P1 | CFTR mRNA Exon 10-12 Secondary Structure & Translation Elongation Kinetic Barrier Model (tools/discovery/mrna_secondary_structure_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0346 | P1 | Mucociliary Clearance Metachronal Coordination & Viscoelastic Damping Model (tools/discovery/metachronal_wave_damping_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0351 | P1 | Airway Epithelial Glycocalyx Barrier Sialic Acid Charge Density & Enzymatic Permeabilization Model (tools/discovery/glycocalyx_charge_barrier_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0352 | P1 | CFTR Cryptic Splice Site Pseudoexon U1 snRNP Steric Decoy Thermodynamics Model (tools/discovery/u1_snrnp_decoy_thermodynamics.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -71,7 +75,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (276)
+## done (278)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -105,6 +109,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0332 | P1 | Automated Cross-Repo Git Commit Author Signature & Identity Spoofing Linter (tasks/check_git_author_integrity.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
 | T-0337 | P1 | Automated Multi-Repo Agent Prompt Template Injection & Unescaped Format String Invariant Linter (tasks/check_prompt_injection_invariants.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
 | T-0338 | P1 | Automated Cross-Repo GitHub Actions Workflow Token Permission & Least Privilege Linter (tasks/check_github_workflow_permissions.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
+| T-0343 | P1 | Automated Multi-Repo Agent Shell Command Redirection & Process Pipe Safety Linter (tasks/check_shell_pipe_safety.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
+| T-0344 | P1 | Automated Cross-Repo Python Import Shadowing & Standard Library Masquerading Linter (tasks/check_import_shadowing.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
 | T-0191 | P1 | Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0192 | P1 | Aggressive sentinel cadence: reduce max_idle_hours from 8h/12h to 3h/4h in tasks/sentinels.json and replenish multi-lane ready backlog | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0307 | P1 | Automated Multi-Repo Agent Environment Variable (.env) & Canary Isolation Linter (tasks/check_env_canary_isolation.py) | cf-lab | 1.5-3 | 5 | 22.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | low | local |  |  |
@@ -666,6 +672,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0344.md`
 - **Notes:** Wave 27 Security Lane Replenishment. Audits Python file names and module imports across all repositories to prevent local file names from shadowing Python standard library modules (e.g. math.py, json.py, os.py, io.py, random.py) or external packages.
 
+### T-0349 Automated Multi-Repo Agent Temporary File Lifecycle & Insecure Mkdir/Mktemp Linter (tasks/check_tempfile_security.py)
+
+- **Why / ROI rationale:** Prevents symlink hijacking, predictable temp file vulnerabilities, and disk leaks in automated tasks. *(confidence: high)*
+- **Route:** local - Deterministic security linter and unit tests in cf-lab.
+- **Acceptance:** python -m unittest tasks.test_check_tempfile_security; python tasks/check_tempfile_security.py --check
+- **Evidence:** tasks/specs/T-0349.md; CWE-377 / CWE-379
+- **Spec:** `tasks/specs/T-0349.md`
+- **Notes:** Wave 28 Security Lane Replenishment. Audits temp file creation, mode bit restrictions, context managers, and cleanup lifecycle across all 4 repos.
+
+### T-0350 Automated Cross-Repo Git Config & Remote URL Protocol Whitelist Linter (tasks/check_git_remote_invariants.py)
+
+- **Why / ROI rationale:** Guarantees transport security, token leak protection in remotes, and official repository origin integrity. *(confidence: high)*
+- **Route:** local - Deterministic security linter and unit tests in cf-lab.
+- **Acceptance:** python -m unittest tasks.test_check_git_remote_invariants; python tasks/check_git_remote_invariants.py --check
+- **Evidence:** tasks/specs/T-0350.md; NIST SP 800-218
+- **Spec:** `tasks/specs/T-0350.md`
+- **Notes:** Wave 28 Security Lane Replenishment. Enforces HTTPS/SSH remotes, prohibits embedded tokens, and asserts official namespace alignment.
+
 ### T-0191 Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty
 
 - **Why / ROI rationale:** Prevents step execution permission errors on missing bundle files and ensures sentinels proactively replenish the board instead of idling. *(confidence: high)*
@@ -1168,6 +1192,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/specs/T-0341.md; DOI 10.1073/pnas.1908856116
 - **Spec:** `tasks/specs/T-0341.md`
 - **Notes:** Wave 27 Showcase Lane Replenishment. Interactive canvas visualizing CFTR mRNA secondary structures (stem-loops in Exon 10-12), ribosome pausing at structured hairpins, and modulation by antisense oligonucleotides with full Spanish (es-MX) parity.
+
+### T-0347 Interactive Airway Epithelial Glycocalyx Sialylation & Mucus Mesh Steric Exclusion Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Illustrates periciliary brush and glycocalyx steric barrier to airway gene delivery and therapeutic desialylation on senseiewok.ai. *(confidence: high)*
+- **Route:** local - Interactive web component and bilingual copy on senseiewok.ai.
+- **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
+- **Evidence:** tasks/specs/T-0347.md; DOI: 10.1038/s41467-022-31127-2
+- **Spec:** `tasks/specs/T-0347.md`
+- **Notes:** Wave 28 Showcase Lane Replenishment. Builds an interactive simulation of apical glycocalyx barrier exclusion and enzymatic sialidase permeabilization with full es-MX parity.
+
+### T-0348 Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Competition Simulator on /cf/ptc/ with es-MX Parity
+
+- **Why / ROI rationale:** Visualizes splice-site decoy competition and full-length mature CFTR recovery for deep intronic mutations. *(confidence: high)*
+- **Route:** local - Interactive web component and bilingual copy on senseiewok.ai.
+- **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
+- **Evidence:** tasks/specs/T-0348.md; DOI: 10.1016/j.ajhg.2019.09.008
+- **Spec:** `tasks/specs/T-0348.md`
+- **Notes:** Wave 28 Showcase Lane Replenishment. Builds an interactive simulation of U1 snRNP decoy competitive displacement and pseudoexon exclusion with full es-MX parity.
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
@@ -1808,6 +1850,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/specs/T-0346.md; DOI 10.1152/physrev.00015.2015
 - **Spec:** `tasks/specs/T-0346.md`
 - **Notes:** Wave 27 Research Lane Replenishment. Hydrodynamic and biophysical model of ciliary metachronal wave propagation under varying mucus viscosity (healthy ASL vs CF thickened mucus), calculating transport velocity and shear force generation.
+
+### T-0351 Airway Epithelial Glycocalyx Barrier Sialic Acid Charge Density & Enzymatic Permeabilization Model (tools/discovery/glycocalyx_charge_barrier_model.py)
+
+- **Why / ROI rationale:** Provides rigorous mathematical framework for overcoming the dense glycocalyx steric barrier to aerosol delivery. *(confidence: high)*
+- **Route:** local - Mathematical model and validation tests in cf-research.
+- **Acceptance:** python tools/discovery/glycocalyx_charge_barrier_model.py --check
+- **Evidence:** tasks/specs/T-0351.md; DOI: 10.1038/s41467-022-31127-2
+- **Spec:** `tasks/specs/T-0351.md`
+- **Notes:** Wave 28 Research Lane Replenishment. Biophysical model of Debye length, steric partitioning, and desialylation kinetics across the apical glycocalyx.
+
+### T-0352 CFTR Cryptic Splice Site Pseudoexon U1 snRNP Steric Decoy Thermodynamics Model (tools/discovery/u1_snrnp_decoy_thermodynamics.py)
+
+- **Why / ROI rationale:** Quantifies binding free energies and Hill cooperativity for steric-blocking ASOs and engineered U1 snRNAs in deep intronic CFTR alleles. *(confidence: high)*
+- **Route:** local - Mathematical model and validation tests in cf-research.
+- **Acceptance:** python tools/discovery/u1_snrnp_decoy_thermodynamics.py --check
+- **Evidence:** tasks/specs/T-0352.md; DOI: 10.1016/j.ajhg.2019.09.008
+- **Spec:** `tasks/specs/T-0352.md`
+- **Notes:** Wave 28 Research Lane Replenishment. Thermodynamic model of cryptic splice site hybridization and U1 snRNP decoy competition for pseudoexon exclusion.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 

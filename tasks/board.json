@@ -16971,7 +16971,7 @@
       "title": "Automated Multi-Repo Agent Shell Command Redirection & Process Pipe Safety Linter (tasks/check_shell_pipe_safety.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -17006,14 +17006,17 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0343.md; .claude/skills/security-baseline/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo agent shell command redirection & process pipe safety linter (tasks/check_shell_pipe_safety.py) and test suite (tasks/test_check_shell_pipe_safety.py) with 13 unit tests passing deterministically."
     },
     {
       "id": "T-0344",
       "title": "Automated Cross-Repo Python Import Shadowing & Standard Library Masquerading Linter (tasks/check_import_shadowing.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -17048,7 +17051,10 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0344.md; .claude/skills/security-runtime/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo Python import shadowing & standard library masquerading linter (tasks/check_import_shadowing.py) and test suite (tasks/test_check_import_shadowing.py) with 8 unit tests passing deterministically."
     },
     {
       "id": "T-0345",
@@ -17131,6 +17137,258 @@
       "recommended_route": "local",
       "route_rationale": "Deterministic hydrodynamic modeling tool in cf-research.",
       "source_evidence": "tasks/specs/T-0346.md; DOI 10.1152/physrev.00015.2015",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0347",
+      "title": "Interactive Airway Epithelial Glycocalyx Sialylation & Mucus Mesh Steric Exclusion Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 28 Showcase Lane Replenishment. Builds an interactive simulation of apical glycocalyx barrier exclusion and enzymatic sialidase permeabilization with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0347.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Illustrates periciliary brush and glycocalyx steric barrier to airway gene delivery and therapeutic desialylation on senseiewok.ai.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.6
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive web component and bilingual copy on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0347.md; DOI: 10.1038/s41467-022-31127-2",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0348",
+      "title": "Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Competition Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 28 Showcase Lane Replenishment. Builds an interactive simulation of U1 snRNP decoy competitive displacement and pseudoexon exclusion with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0348.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes splice-site decoy competition and full-length mature CFTR recovery for deep intronic mutations.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.6
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive web component and bilingual copy on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0348.md; DOI: 10.1016/j.ajhg.2019.09.008",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0349",
+      "title": "Automated Multi-Repo Agent Temporary File Lifecycle & Insecure Mkdir/Mktemp Linter (tasks/check_tempfile_security.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_tempfile_security; python tasks/check_tempfile_security.py --check",
+      "notes": "Wave 28 Security Lane Replenishment. Audits temp file creation, mode bit restrictions, context managers, and cleanup lifecycle across all 4 repos.",
+      "spec_path": "tasks/specs/T-0349.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents symlink hijacking, predictable temp file vulnerabilities, and disk leaks in automated tasks.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0349.md; CWE-377 / CWE-379",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0350",
+      "title": "Automated Cross-Repo Git Config & Remote URL Protocol Whitelist Linter (tasks/check_git_remote_invariants.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_remote_invariants; python tasks/check_git_remote_invariants.py --check",
+      "notes": "Wave 28 Security Lane Replenishment. Enforces HTTPS/SSH remotes, prohibits embedded tokens, and asserts official namespace alignment.",
+      "spec_path": "tasks/specs/T-0350.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees transport security, token leak protection in remotes, and official repository origin integrity.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0350.md; NIST SP 800-218",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0351",
+      "title": "Airway Epithelial Glycocalyx Barrier Sialic Acid Charge Density & Enzymatic Permeabilization Model (tools/discovery/glycocalyx_charge_barrier_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/glycocalyx_charge_barrier_model.py --check",
+      "notes": "Wave 28 Research Lane Replenishment. Biophysical model of Debye length, steric partitioning, and desialylation kinetics across the apical glycocalyx.",
+      "spec_path": "tasks/specs/T-0351.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Provides rigorous mathematical framework for overcoming the dense glycocalyx steric barrier to aerosol delivery.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.4
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mathematical model and validation tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0351.md; DOI: 10.1038/s41467-022-31127-2",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0352",
+      "title": "CFTR Cryptic Splice Site Pseudoexon U1 snRNP Steric Decoy Thermodynamics Model (tools/discovery/u1_snrnp_decoy_thermodynamics.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/u1_snrnp_decoy_thermodynamics.py --check",
+      "notes": "Wave 28 Research Lane Replenishment. Thermodynamic model of cryptic splice site hybridization and U1 snRNP decoy competition for pseudoexon exclusion.",
+      "spec_path": "tasks/specs/T-0352.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies binding free energies and Hill cooperativity for steric-blocking ASOs and engineered U1 snRNAs in deep intronic CFTR alleles.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.4
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mathematical model and validation tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0352.md; DOI: 10.1016/j.ajhg.2019.09.008",
       "executor": "agent",
       "human_required": false
     }
