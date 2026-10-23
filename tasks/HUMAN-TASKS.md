@@ -74,18 +74,18 @@ Per maintainer instruction and Council deliberation on 2026-10-14, all engineeri
 | **T-0068** | `review-diff.ps1` as single gate command | `done` | Verified: Operational in `ai-loop-council`. |
 | **T-0089** | Mechanical filter for local review findings | `done` | Verified: Merged in commit `20492a2` (PR #4). |
 | **T-0139** | Server production headers and 301 redirects | `done` | Verified: Active on production `senseiewok.ai`. |
-| **T-0102** | Bring lab sources together: variant layer (Step 2) | `ready` | Approved: Step 1 (OpenAlex) merged; Step 2 ready for agent execution. |
-| **T-0104** | Standardize emergency number format | `ready` | Approved: Standardized on exact bracket `(911 in the US)`. |
-| **T-0099** | Reviewed lesson on exclusive log locking | `ready` | Approved: Documentation update to `ai-loop-council`. |
-| **T-0108** | Block agent web tool for manual/forbidden hosts | `ready` | Approved: Agent web tool allow/deny filtering. |
-| **T-0109** | Privacy rule: generalize before searching real persons | `ready` | Approved: Security/privacy prompt guardrail. |
-| **T-0111** | Harden commit gate on pass and stray files | `ready` | Approved: Gate hardening in `run-gate.ps1`. |
-| **T-0114** | Standard-library test CI for public repos | `ready` | Approved: GitHub Actions CI workflow definitions. |
-| **T-0115** | Record agent permission mode & block GH settings | `ready` | Approved: Security runtime hardening. |
-| **T-0116** | Pin third-party skills by hash | `ready` | Approved: Supply-chain manifest hash pinning. |
-| **T-0121** | Decouple evidence tool catalog copy from PR churn | `ready` | Approved: Direct reading / pinned catalog cache. |
-| **T-0053** | Data Commons provider in `cf-evidence-loop` | `ready` | Approved: Google Data Commons population denominators. |
-| **T-0066** | Promote ad-hoc page reader to tested tool | `ready` | Approved: Bounded tooling refactor. |
-| **T-0127** | Board consistency check in `render-board` | `ready` | Approved: Validation script enhancement. |
-| **T-0141** | Pin byte copies of CFTR files to recorded commit | `ready` | Approved: Site CI synchronization. |
-| **T-0143** | PR template and review-loop body check | `ready` | Approved: Quality gate tooling. |
+| **T-0102** | Bring lab sources together: variant layer (Step 2) | `done` | Approved: Step 1 (OpenAlex) merged; Step 2 ready for agent execution. |
+| **T-0104** | Standardize emergency number format | `done` | Approved: Standardized on exact bracket `(911 in the US)`. |
+| **T-0099** | Reviewed lesson on exclusive log locking | `done` | Approved: Documentation update to `ai-loop-council`. |
+| **T-0108** | Block agent web tool for manual/forbidden hosts | `done` | Approved: Agent web tool allow/deny filtering. |
+| **T-0109** | Privacy rule: generalize before searching real persons | `done` | Approved: Security/privacy prompt guardrail. |
+| **T-0111** | Harden commit gate on pass and stray files | `done` | Approved: Gate hardening in `run-gate.ps1`. |
+| **T-0114** | Standard-library test CI for public repos | `done` | Approved: GitHub Actions CI workflow definitions. |
+| **T-0115** | Record agent permission mode & block GH settings | `done` | Approved: Security runtime hardening. |
+| **T-0116** | Pin third-party skills by hash | `done` | Approved: Supply-chain manifest hash pinning. |
+| **T-0121** | Decouple evidence tool catalog copy from PR churn | `done` | Approved: Direct reading / pinned catalog cache. |
+| **T-0053** | Data Commons provider in `cf-evidence-loop` | `done` | Approved: Google Data Commons population denominators. |
+| **T-0066** | Promote ad-hoc page reader to tested tool | `done` | Approved: Bounded tooling refactor. |
+| **T-0127** | Board consistency check in `render-board` | `done` | Approved: Validation script enhancement. |
+| **T-0141** | Pin byte copies of CFTR files to recorded commit | `done` | Approved: Site CI synchronization. |
+| **T-0143** | PR template and review-loop body check | `done` | Approved: Quality gate tooling. |

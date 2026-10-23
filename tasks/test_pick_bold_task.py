@@ -527,6 +527,16 @@ class PickerTests(unittest.TestCase):
         self.assertEqual(self.bundle_ids(tasks, "showcase"), ["T-0232"])
 
 
+    def test_steward_wave_pr_stack_cap_blocks_when_two_open(self):
+        self.prs.write_text(json.dumps([
+            {"repo": "cf-lab", "number": 248, "headRefName": "feat/hourly-steward-wave29", "isDraft": False},
+            {"repo": "cf-lab", "number": 249, "headRefName": "feat/hourly-steward-wave30", "isDraft": False},
+        ]), encoding="utf-8")
+        code, out = self.run_picker([task("T-0001", repo="cf-lab", area="security")], "security", "--check")
+        self.assertEqual(code, 21)
+        self.assertIn("steward wave backlog already has 2 open pull requests", out)
+
+
 class RealBoardTests(unittest.TestCase):
     def test_every_lane_runs_on_the_real_board_without_error(self):
         with tempfile.TemporaryDirectory() as d:
@@ -542,6 +552,7 @@ class RealBoardTests(unittest.TestCase):
                     bundle = json.loads(out.getvalue())["bundle"]
                     self.assertTrue(bundle)
                     self.assertTrue(all(t["id"].startswith("T-") for t in bundle))
+
 
 
 if __name__ == "__main__":

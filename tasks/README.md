@@ -88,3 +88,15 @@ For research-heavy, biophysical, or patient-facing tasks, summarizing evidence i
 ## What this is not
 
 Not a replacement for the AI loop's task packets, which are per-attempt and disposable. A board task is the durable intent; a packet is one attempt at it. Not a public roadmap either; it is a working document, and the honest state of it (mostly proposed, little measured) is what it should look like early on.
+
+## Single Branch & Single PR Strategy for Board Changes (`feat/board-sync`)
+
+All task board state transitions (`tasks/board.json`, `tasks/BOARD.md`, and `tasks/specs/T-*.md`) across all sentinels, stewards, and interactive sessions use the **single canonical branch `feat/board-sync`** (in worktree `../.worktrees/cf-lab/board-sync`) and **reuse a single open pull request** on `senseiewok/cf-lab`:
+
+```powershell
+# 1. Prepare and sync ../worktrees/cf-lab/board-sync with origin/main and origin/feat/board-sync
+python tasks/sync_board_pr.py --prepare
+
+# 2. Edit tasks/board.json or tasks/specs/T-*.md in ../worktrees/cf-lab/board-sync, then publish/reuse the single PR
+python tasks/sync_board_pr.py --publish --title "chore(board): sync task board state" --summary "Marked T-XXXX done and replenished backlog"
+```
