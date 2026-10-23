@@ -17229,7 +17229,7 @@
       "title": "Automated Multi-Repo Agent Temporary File Lifecycle & Insecure Mkdir/Mktemp Linter (tasks/check_tempfile_security.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -17264,14 +17264,17 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0349.md; CWE-377 / CWE-379",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo agent temporary file lifecycle & insecure mkdir/mktemp linter (tasks/check_tempfile_security.py) and test suite (tasks/test_check_tempfile_security.py) with 9 unit tests passing deterministically."
     },
     {
       "id": "T-0350",
       "title": "Automated Cross-Repo Git Config & Remote URL Protocol Whitelist Linter (tasks/check_git_remote_invariants.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -17306,7 +17309,10 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0350.md; NIST SP 800-218",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo git config & remote URL protocol whitelist linter (tasks/check_git_remote_invariants.py) and test suite (tasks/test_check_git_remote_invariants.py) with 9 unit tests passing deterministically."
     },
     {
       "id": "T-0351",
@@ -17389,6 +17395,258 @@
       "recommended_route": "local",
       "route_rationale": "Mathematical model and validation tests in cf-research.",
       "source_evidence": "tasks/specs/T-0352.md; DOI: 10.1016/j.ajhg.2019.09.008",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0353",
+      "title": "Interactive Airway Epithelial Ciliated vs Goblet Cell Density & Mucociliary Escalator Clearance Velocity Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 29 Showcase Lane Replenishment. Interactive model of ciliary beat frequency (CBF), goblet cell hyperplasia, and mucociliary transport velocity on /cf/delivery/ with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0353.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes biophysical clearance thresholds and goblet-to-ciliated phenotypic ratio recovery for inhaled CF therapeutics on senseiewok.ai.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.6
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive web component and bilingual copy on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0353.md; DOI: 10.1165/rcmb.2021-0309OC",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0354",
+      "title": "Interactive CFTR Truncation Readthrough (ELX-02 / G418 / Ataluren) Concentration-Response & Toxic Off-Target Window Explorer on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 29 Showcase Lane Replenishment. Interactive pharmacodynamic concentration-response and ototoxicity/nephrotoxicity therapeutic window explorer on /cf/ptc/ with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0354.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Explains the narrow therapeutic window between premature termination codon readthrough and global translation termination impairment on senseiewok.ai.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.6
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive web component and bilingual copy on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0354.md; DOI: 10.1038/s41467-020-18495-2",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0355",
+      "title": "Automated Cross-Repo Agent Path Traversal & Canonical Path Resolution Linter (tasks/check_path_traversal.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_path_traversal; python tasks/check_path_traversal.py --check",
+      "notes": "Wave 29 Security Lane Replenishment. Audits multi-repo path manipulation, os.path.join, and file read/write constructs to prevent directory traversal and symlink escaping (CWE-22 / CWE-59).",
+      "spec_path": "tasks/specs/T-0355.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prohibits arbitrary file read/write vulnerabilities escaping workspace bounds in agent tools and sidecars.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0355.md; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0356",
+      "title": "Automated Multi-Repo Git Commit GPG / SSH Signature Verification & Identity Invariant Linter (tasks/check_git_commit_signatures.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_commit_signatures; python tasks/check_git_commit_signatures.py --check",
+      "notes": "Wave 29 Security Lane Replenishment. Audits git commit metadata, commit signing configuration, and author identity consistency across workspace repositories.",
+      "spec_path": "tasks/specs/T-0356.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces non-repudiation, trusted committer attribution, and cryptographic provenance on lab repositories.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0356.md; .claude/skills/security-git/SKILL.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0357",
+      "title": "Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretion Stoichiometry Model (tools/discovery/goblet_cell_mucus_stoichiometry.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/goblet_cell_mucus_stoichiometry.py --check",
+      "notes": "Wave 29 Research Lane Replenishment. Mathematical modeling of IL-13-driven goblet cell metaplasia, pathological MUC5AC hypersecretion, and protective MUC5B stoichiometric ratios in CF airways.",
+      "spec_path": "tasks/specs/T-0357.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies mucus plug formation thresholds and anti-IL-13 / anti-mucolytic therapeutic intervention points.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.4
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mathematical model and validation tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0357.md; DOI: 10.1172/JCI127771",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0358",
+      "title": "CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Model (tools/discovery/ptc_readthrough_fidelity_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/ptc_readthrough_fidelity_model.py --check",
+      "notes": "Wave 29 Research Lane Replenishment. Quantitative model of near-cognate aminoacyl-tRNA misincorporation probabilities and CFTR functional channel rescue vs nonsense-mediated decay escape.",
+      "spec_path": "tasks/specs/T-0358.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models amino acid substitution distributions at W1282X and G542X premature stop codons and resulting channel gating kinetics.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.4
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mathematical model and validation tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0358.md; DOI: 10.1073/pnas.2001407117",
       "executor": "agent",
       "human_required": false
     }
