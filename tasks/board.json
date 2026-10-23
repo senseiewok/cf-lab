@@ -15758,7 +15758,7 @@
       "title": "Airway Epithelial Ciliary Metachronal Wave Dynamics & Mucociliary Clearance Velocity Model (tools/discovery/ciliary_wave_clearance_model.py)",
       "repo": "cf-research",
       "area": "discovery",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -15773,7 +15773,7 @@
         "high": 4.0
       },
       "acceptance": "python -m unittest tools.discovery.test_ciliary_wave_clearance_model; python tools/discovery/ciliary_wave_clearance_model.py --check",
-      "notes": "Wave 22 Research Backlog Replenishment. Mathematical modeling tool simulating Stokes flow and two-phase PCL-mucus momentum transfer during ciliary metachronal wave transport.",
+      "notes": "Delivered in research sentinel PR senseiewok/cf-research#126. Implemented Airway Epithelial Ciliary Metachronal Wave Dynamics & Mucociliary Clearance Velocity Model in tools/discovery/ciliary_wave_clearance_model.py with 10/10 unit tests passing and --check verified.",
       "spec_path": "tasks/specs/T-0315.md",
       "roi": {
         "benefit": 5,
@@ -15787,13 +15787,17 @@
           "security_compliance": 8.0
         },
         "composite_score": 8.9,
-        "roi_ratio": 1.54
+        "roi_ratio": 1.54,
+        "measured": true,
+        "actual_hours": 3.25
       },
       "recommended_route": "local",
       "route_rationale": "Biophysical Python discovery tool and unit tests in cf-research.",
       "source_evidence": "tasks/specs/T-0315.md; sources/catalog.yaml",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 3.25
     },
     {
       "id": "T-0316",
@@ -17322,7 +17326,7 @@
       "title": "Airway Epithelial Glycocalyx Barrier Sialic Acid Charge Density & Enzymatic Permeabilization Model (tools/discovery/glycocalyx_charge_barrier_model.py)",
       "repo": "cf-research",
       "area": "discovery",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -17337,7 +17341,7 @@
         "high": 5.5
       },
       "acceptance": "python tools/discovery/glycocalyx_charge_barrier_model.py --check",
-      "notes": "Wave 28 Research Lane Replenishment. Biophysical model of Debye length, steric partitioning, and desialylation kinetics across the apical glycocalyx.",
+      "notes": "Delivered in research sentinel PR senseiewok/cf-research#126. Implemented Airway Epithelial Glycocalyx Barrier Sialic Acid Charge Density & Enzymatic Permeabilization Model in tools/discovery/glycocalyx_charge_barrier_model.py with 10/10 unit tests passing and --check verified.",
       "spec_path": "tasks/specs/T-0351.md",
       "roi": {
         "benefit": 5,
@@ -17351,13 +17355,17 @@
           "security_compliance": 7.0
         },
         "composite_score": 8.6,
-        "roi_ratio": 2.4
+        "roi_ratio": 2.4,
+        "measured": true,
+        "actual_hours": 4.25
       },
       "recommended_route": "local",
       "route_rationale": "Mathematical model and validation tests in cf-research.",
       "source_evidence": "tasks/specs/T-0351.md; DOI: 10.1038/s41467-022-31127-2",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 4.25
     },
     {
       "id": "T-0352",
