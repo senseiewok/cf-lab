@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-382 tasks, 381 created by a model, 171 with a measured outcome. Estimated effort 965.35 to 1754.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+382 tasks, 381 created by a model, 173 with a measured outcome. Estimated effort 965.35 to 1754.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (77)
+## ready (75)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -28,11 +28,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0287 | P1 | Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
 | T-0299 | P1 | Interactive Deep-Intronic Splice-Switching ASO (SPL84) & U1 snRNP Thermodynamic Competition Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0292 |  |
 | T-0300 | P1 | Interactive Sialidase-Mediated Apical Glycocalyx Permeabilization & Inhaled Vector Flux Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0291 |  |
-| T-0312 | P1 | Interactive Airway Epithelial Ciliary Beat Frequency (CBF) & Metachronal Wave Synchronization Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
 | T-0316 | P1 | CFTR mRNA Coding Sequence G-Quadruplex Thermodynamic Stability & Ribosome Stalling Model (tools/discovery/cftr_gquadruplex_stability_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
 | T-0327 | P1 | Airway Calu-3 Epithelial Air-Liquid Interface (ALI) Biophysical Transmembrane Flux & TEER Transport Model (tools/discovery/ali_permeability_flux_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
 | T-0328 | P1 | CFTR Premature Termination Codon (PTC) Translational Readthrough & Ribosome Release Factor Kinetic Model (tools/discovery/ptc_ribosome_readthrough_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
-| T-0335 | P1 | Interactive CFTR Apical Microvillar Dense Brush Barrier & MUC1/MUC4 Glycocalyx Diffusion Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0291 |  |
 | T-0336 | P1 | Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer Decoy Kinetics Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0292 |  |
 | T-0341 | P1 | Interactive CFTR mRNA Secondary Structure & Stem-Loop Unfolding Dynamics Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0345 |  |
 | T-0347 | P1 | Interactive Airway Epithelial Glycocalyx Sialylation & Mucus Mesh Steric Exclusion Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
@@ -92,7 +90,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (291)
+## done (293)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -176,7 +174,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0275 | P1 | Interactive Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Airway Hydration Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0252 |  |
 | T-0283 | P1 | Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0177 |  |
 | T-0294 | P1 | Interactive Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Sialidase Permeabilization Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0291 |  |
+| T-0312 | P1 | Interactive Airway Epithelial Ciliary Beat Frequency (CBF) & Metachronal Wave Synchronization Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | yes | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
 | T-0315 | P1 | Airway Epithelial Ciliary Metachronal Wave Dynamics & Mucociliary Clearance Velocity Model (tools/discovery/ciliary_wave_clearance_model.py) | cf-research | 2.5-4 | 5 | 15.4 | yes | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
+| T-0335 | P1 | Interactive CFTR Apical Microvillar Dense Brush Barrier & MUC1/MUC4 Glycocalyx Diffusion Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0291 |  |
 | T-0193 | P1 | Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal | .ai | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0205 | P1 | Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py) | cf-lab | 2-3.5 | 4 | 14.5 | yes | model: gemini-4-argon | 2026-10-18 | routine | medium | local |  |  |
 | T-0258 | P1 | Interactive Splice-Switching ASO Steric-Blocking & Cryptic Pseudoexon Rescue Explorer (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) on /cf/ptc/ with es-MX parity | .ai | 2-3.5 | 4 | 14.5 | no | model: gemini-4-argon | 2026-10-21 | elevated | medium | local | T-0254 |  |
@@ -1251,7 +1251,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ciliary_metachronal_wave_explorer tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0312.md; cf-research/landscape/mucociliary-clearance.md
 - **Spec:** `tasks/specs/T-0312.md`
-- **Notes:** Wave 22 Showcase Backlog Replenishment. Interactive biophysical ciliary metachronal wave visualizer modeling Kuramoto hydrodynamic synchronization and mucus viscoelastic load dampening.
+- **Notes:** Delivered in senseiewok/.ai#157. Mounts #ciliary-metachronal-wave-explorer on /cf/tree/ modeling Kuramoto hydrodynamic synchronization, Sears et al. (2015) viscoelastic CBF dampening, and Gheber & Priel (1989) metachronal wavelength with es-MX translation parity.
+- **Measured:**  h; 
 
 ### T-0315 Airway Epithelial Ciliary Metachronal Wave Dynamics & Mucociliary Clearance Velocity Model (tools/discovery/ciliary_wave_clearance_model.py)
 
@@ -1297,7 +1298,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_microvillar_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0335.md; DOI:10.1126/science.1223012
 - **Spec:** `tasks/specs/T-0335.md`
-- **Notes:** Wave 26 Showcase Lane Replenishment. Interactive apical microvillar brush and membrane-tethered mucin glycocalyx diffusion simulator on /cf/delivery/ with full Mexican Spanish parity.
+- **Notes:** Delivered in senseiewok/.ai#157. Mounts #microvillar-dense-brush-explorer on /cf/delivery/ modeling microvillar packing density, inter-villar spacing, and Ogston MUC1/MUC4 glycocalyx diffusion with es-MX translation parity.
+- **Measured:**  h; 
 
 ### T-0336 Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer Decoy Kinetics Simulator on /cf/cftr/ with es-MX Parity
 

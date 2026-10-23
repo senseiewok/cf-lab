@@ -15628,7 +15628,7 @@
       "title": "Interactive Airway Epithelial Ciliary Beat Frequency (CBF) & Metachronal Wave Synchronization Simulator on /cf/tree/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -15643,7 +15643,7 @@
         "high": 4.0
       },
       "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_ciliary_metachronal_wave_explorer tests.test_site.StaticTests",
-      "notes": "Wave 22 Showcase Backlog Replenishment. Interactive biophysical ciliary metachronal wave visualizer modeling Kuramoto hydrodynamic synchronization and mucus viscoelastic load dampening.",
+      "notes": "Delivered in senseiewok/.ai#157. Mounts #ciliary-metachronal-wave-explorer on /cf/tree/ modeling Kuramoto hydrodynamic synchronization, Sears et al. (2015) viscoelastic CBF dampening, and Gheber & Priel (1989) metachronal wavelength with es-MX translation parity.",
       "spec_path": "tasks/specs/T-0312.md",
       "roi": {
         "benefit": 5,
@@ -15657,13 +15657,17 @@
           "security_compliance": 8.0
         },
         "composite_score": 8.8,
-        "roi_ratio": 1.54
+        "roi_ratio": 1.54,
+        "measured": 3.0
       },
       "recommended_route": "local",
       "route_rationale": "Interactive HTML/Canvas/SVG site showcase component with Mexican Spanish parity.",
       "source_evidence": "tasks/specs/T-0312.md; cf-research/landscape/mucociliary-clearance.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "updated_at": "2026-10-22",
+      "completed_at": "2026-10-22T23:07:00Z",
+      "actual_hours": 3.0
     },
     {
       "id": "T-0313",
@@ -16628,7 +16632,7 @@
       "title": "Interactive CFTR Apical Microvillar Dense Brush Barrier & MUC1/MUC4 Glycocalyx Diffusion Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -16645,7 +16649,7 @@
         "high": 4.0
       },
       "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_microvillar_simulator tests.test_site.StaticTests",
-      "notes": "Wave 26 Showcase Lane Replenishment. Interactive apical microvillar brush and membrane-tethered mucin glycocalyx diffusion simulator on /cf/delivery/ with full Mexican Spanish parity.",
+      "notes": "Delivered in senseiewok/.ai#157. Mounts #microvillar-dense-brush-explorer on /cf/delivery/ modeling microvillar packing density, inter-villar spacing, and Ogston MUC1/MUC4 glycocalyx diffusion with es-MX translation parity.",
       "spec_path": "tasks/specs/T-0335.md",
       "roi": {
         "benefit": 5,
@@ -16659,13 +16663,17 @@
           "security_compliance": 5.0
         },
         "composite_score": 8.2,
-        "roi_ratio": 1.54
+        "roi_ratio": 1.54,
+        "measured": 3.0
       },
       "recommended_route": "local",
       "route_rationale": "Zero-build modern web simulator on .ai.",
       "source_evidence": "tasks/specs/T-0335.md; DOI:10.1126/science.1223012",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "updated_at": "2026-10-22",
+      "completed_at": "2026-10-22T23:07:00Z",
+      "actual_hours": 3.0
     },
     {
       "id": "T-0336",
