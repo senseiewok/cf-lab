@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -14246,7 +14246,7 @@
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
-      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
       "created_at": "2026-10-22T08:30:00Z",
       "updated_at": "2026-10-22",
       "created_by": {
@@ -14271,14 +14271,14 @@
         "confidence": "high",
         "rationale": "Models droplet evaporation and hygroscopic growth dynamics in humidified CF airways dictating tracheobronchial deposition on /cf/delivery/ with Mexican Spanish parity.",
         "categories": {
-          "curative_biophysics": 8.5,
-          "clinical_translation": 8.0,
-          "scientific_integrity": 7.5,
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.42,
-        "roi_ratio": 2.7
+        "composite_score": 7.72,
+        "roi_ratio": 2.81
       },
       "notes": "Wave 17 Track B Public Showcase Replenishment. Connects T-0228 micro-aerosol biophysics to /cf/delivery/.",
       "spec_path": "tasks/specs/T-0282.md"
@@ -14318,14 +14318,14 @@
         "confidence": "high",
         "rationale": "Simulates paracellular macromolecule transit and tight junction transient modulation for basal stem cell delivery on /cf/delivery/ with Mexican Spanish parity.",
         "categories": {
-          "curative_biophysics": 8.5,
-          "clinical_translation": 8.5,
-          "scientific_integrity": 7.5,
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.52,
-        "roi_ratio": 2.31
+        "composite_score": 7.12,
+        "roi_ratio": 2.19
       },
       "notes": "Wave 17 Track B Public Showcase Replenishment. Connects T-0177 paracellular epithelial permeability to /cf/delivery/.",
       "spec_path": "tasks/specs/T-0283.md"
@@ -14365,14 +14365,14 @@
         "confidence": "high",
         "rationale": "Prevents disk bloat and worktree collision across multi-repo sentinel automation with zero data-loss guarantees.",
         "categories": {
-          "curative_biophysics": 2.0,
+          "curative_biophysics": 7.5,
           "clinical_translation": 2.0,
-          "scientific_integrity": 8.0,
-          "operational_velocity": 9.5,
-          "security_compliance": 9.5
+          "scientific_integrity": 3.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
         },
-        "composite_score": 7.15,
-        "roi_ratio": 2.7
+        "composite_score": 5.82,
+        "roi_ratio": 2.12
       },
       "notes": "2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0286. tasks/prune_stale_worktrees.py implements multi-repo clean merged worktree pruning with zero data-loss invariants and telemetry logging. Acceptance checks passed: python -m unittest tasks.test_prune_stale_worktrees; python tasks/prune_stale_worktrees.py --dry-run",
       "spec_path": "tasks/specs/T-0284.md",
@@ -14415,13 +14415,13 @@
         "rationale": "Quantifies cytosolic intact mRNA bioavailability and uncoating kinetics in airway basal stem cells for long-term genetic persistence.",
         "categories": {
           "curative_biophysics": 9.5,
-          "clinical_translation": 8.5,
-          "scientific_integrity": 9.0,
-          "operational_velocity": 8.0,
-          "security_compliance": 2.0
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.0
         },
-        "composite_score": 7.85,
-        "roi_ratio": 1.96,
+        "composite_score": 8.27,
+        "roi_ratio": 2.07,
         "measured": 4.0
       },
       "notes": "Completed in senseiewok/cf-research#122. Implemented tools/discovery/lnp_escape_dynamics.py & test_lnp_escape_dynamics.py (11/11 unit tests passing, AH-1..AH-5 PASS): models endosomal acidification, Henderson-Hasselbalch ionizable lipid pKa inversion, H_II phase transition membrane destabilization, galectin-3 (LGALS3) rupture puncta, cytosolic bioavailability (phi_escape = 1-5%), and translation onset half-life.",
@@ -14464,12 +14464,12 @@
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
-          "scientific_integrity": 9.5,
+          "scientific_integrity": 9.0,
           "operational_velocity": 8.5,
-          "security_compliance": 9.5
+          "security_compliance": 9.0
         },
-        "composite_score": 7.35,
-        "roi_ratio": 2.7
+        "composite_score": 5.08,
+        "roi_ratio": 1.85
       },
       "notes": "2026-10-22: Completed by daily-security-sentinel in worktree sentinel-security-t-0286. tasks/check_catalog_schema_lock.py validates canonical and skills catalogs, license boundaries, and cryptographic pins. Acceptance checks passed: python -m unittest tasks.test_check_catalog_schema_lock; python tasks/check_catalog_schema_lock.py --check",
       "spec_path": "tasks/specs/T-0286.md",
@@ -14591,14 +14591,14 @@
         "confidence": "high",
         "rationale": "Hardens autonomous agent scripting against command and argument injection across all multi-repo tool invocations.",
         "categories": {
-          "curative_biophysics": 2.0,
+          "curative_biophysics": 7.5,
           "clinical_translation": 2.0,
-          "scientific_integrity": 9.0,
+          "scientific_integrity": 3.0,
           "operational_velocity": 8.5,
-          "security_compliance": 9.5
+          "security_compliance": 9.0
         },
-        "composite_score": 7.35,
-        "roi_ratio": 2.7
+        "composite_score": 5.82,
+        "roi_ratio": 2.12
       },
       "recommended_route": "local",
       "route_rationale": "Security automation tool in cf-lab with high integrity standards.",
@@ -14638,12 +14638,12 @@
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 2.0,
-          "scientific_integrity": 9.0,
+          "scientific_integrity": 3.0,
           "operational_velocity": 8.5,
-          "security_compliance": 9.5
+          "security_compliance": 9.0
         },
-        "composite_score": 7.35,
-        "roi_ratio": 2.7
+        "composite_score": 4.17,
+        "roi_ratio": 1.52
       },
       "recommended_route": "local",
       "route_rationale": "Release security verification tool in cf-lab.",
@@ -14681,14 +14681,14 @@
         "confidence": "high",
         "rationale": "Models the periciliary brush barrier to inhaled vector transfection in primary human CF airway epithelia.",
         "categories": {
-          "curative_biophysics": 9.5,
-          "clinical_translation": 9.0,
-          "scientific_integrity": 7.5,
+          "curative_biophysics": 2.0,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.62,
-        "roi_ratio": 1.9,
+        "composite_score": 4.98,
+        "roi_ratio": 1.25,
         "measured": 4.0
       },
       "recommended_route": "local",
@@ -14726,14 +14726,14 @@
         "confidence": "high",
         "rationale": "Calculates dose-dependent restoration of full-length functional CFTR mRNA for deep-intronic splicing mutations.",
         "categories": {
-          "curative_biophysics": 9.5,
-          "clinical_translation": 9.0,
-          "scientific_integrity": 7.5,
+          "curative_biophysics": 7.5,
+          "clinical_translation": 7.0,
+          "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.62,
-        "roi_ratio": 1.9,
+        "composite_score": 6.62,
+        "roi_ratio": 1.66,
         "measured": 4.0
       },
       "recommended_route": "local",
@@ -14743,6 +14743,150 @@
       "human_required": false,
       "completed_at": "2026-10-22",
       "actual_hours": 4.0
+    },
+    {
+      "id": "T-0293",
+      "title": "Interactive Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module simulating pulmonary macrophage phagocytosis evasion and scavenger receptor kinetics grounded in tools/discovery/macrophage_evasion_kinetics.py (T-0271).",
+      "created_at": "2026-10-22T11:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 18 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0271"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "cf-research/tools/discovery/macrophage_evasion_kinetics.py; DOI:10.1016/j.biomaterials.2015.08.053; DOI:10.1126/science.1229568; ClinicalTrials.gov:NCT05668741",
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_macrophage_evasion_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Simulates macrophage phagocytic evasion and CD47 stealth passivation for inhaled genetic delivery on /cf/delivery/.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.12,
+        "roi_ratio": 2.03
+      },
+      "notes": "Wave 18 Track B Public Showcase Replenishment. Connects T-0271 macrophage evasion biophysics to /cf/delivery/.",
+      "spec_path": "tasks/specs/T-0293.md"
+    },
+    {
+      "id": "T-0294",
+      "title": "Interactive Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Sialidase Permeabilization Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module simulating periciliary brush glycocalyx meshwork steric exclusion and sialidase enzymatic permeabilization grounded in tools/discovery/glycocalyx_permeabilization_model.py (T-0291).",
+      "created_at": "2026-10-22T11:00:00Z",
+      "updated_at": "2026-10-22",
+      "completed_at": "2026-10-22T20:05:00Z",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 18 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0291"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "actual_hours": 2.5,
+      "source_evidence": "cf-research/tools/discovery/glycocalyx_permeabilization_model.py; DOI:10.1126/science.1223012; DOI:10.1038/s41565-021-00918-7; ClinicalTrials.gov:NCT05668741",
+      "acceptance": "python -m unittest tests.test_glycocalyx_permeabilization_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models apical periciliary glycocalyx meshwork and sialidase digestion for viral and non-viral genetic vector penetration.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.12,
+        "roi_ratio": 2.19,
+        "measured": 2.5
+      },
+      "notes": "Delivered in senseiewok/.ai#156. Mounts #glycocalyx-permeabilization-explorer modeling Ogston sieving, Boltzmann charge exclusion, and sialidase/heparinase digestion with es-MX translation parity.",
+      "spec_path": "tasks/specs/T-0294.md"
+    },
+    {
+      "id": "T-0299",
+      "title": "Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Binding Kinetics & Cryptic Exon Exclusion Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Zero-build native ES module simulating base-pairing thermodynamics, U1 snRNP displacement, and full-length CFTR mRNA rescue for deep intronic splice variants 3849+10kb C->T and 1811+1.6kb A->G grounded in tools/discovery/u1_snrnp_decoy_kinetics.py (T-0292).",
+      "created_at": "2026-10-22T20:00:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "gemini-4-flash",
+        "session_ref": "2026-10-22 showcase proactive replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0292"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "source_evidence": "cf-research/tools/discovery/u1_snrnp_decoy_kinetics.py; DOI:10.1056/NEJM199410133311503; DOI:10.1002/humu.1380060408; PDB:6Q3Z; ClinicalTrials.gov:NCT05453578",
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_u1_snrnp_decoy_explorer tests.test_site.StaticTests",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Simulates steric-blocking ASO displacement of U1 snRNP at cryptic splice sites restoring normal CFTR mRNA reading frames on /cf/ptc/.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 2.21
+      },
+      "notes": "Showcase Replenishment. Connects T-0292 U1 snRNP decoy kinetics and cryptic splice rescue to /cf/ptc/.",
+      "spec_path": "tasks/specs/T-0299.md"
     }
   ],
   "updated": "2026-10-22"
