@@ -174,6 +174,10 @@ $Checks = @(
     @{ name = 'test-concurrency-deadlocks';  exe = 'python';   args = @('tasks/test_check_concurrency_deadlocks.py');                                               needs = @('python') }
     @{ name = 'check-git-tag-signatures';  exe = 'python';     args = @('tasks/check_git_tag_signatures.py', '--check');                                            needs = @('python', 'git') }
     @{ name = 'test-git-tag-signatures';   exe = 'python';     args = @('tasks/test_check_git_tag_signatures.py');                                                 needs = @('python', 'git') }
+    @{ name = 'check-async-task-leaks';    exe = 'python';     args = @('tasks/check_async_task_leaks.py', '--check');                                              needs = @('python') }
+    @{ name = 'test-async-task-leaks';     exe = 'python';     args = @('tasks/test_check_async_task_leaks.py');                                                   needs = @('python') }
+    @{ name = 'check-git-author-whitelist'; exe = 'python';   args = @('tasks/check_git_author_whitelist.py', '--check');                                          needs = @('python', 'git') }
+    @{ name = 'test-git-author-whitelist';  exe = 'python';   args = @('tasks/test_check_git_author_whitelist.py');                                               needs = @('python') }
     # models (the guard only; nothing here talks to Ollama)
     @{ name = 'test-restart-ollama';      exe = 'pwsh';       args = @("$s/model-qwen3-8-27b/test-restart-ollama.ps1");                                    needs = @() }
     @{ name = 'test-score-claim-mapping'; exe = 'python';     args = @("$s/model-onboarding/scripts/test_score_claim_mapping.py");                         needs = @('python') }
