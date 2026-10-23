@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-402 tasks, 401 created by a model, 182 with a measured outcome. Estimated effort 1020.35 to 1851.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+402 tasks, 401 created by a model, 184 with a measured outcome. Estimated effort 1020.35 to 1851.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,15 +10,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (24)
+## ready (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0397 | P1 | Interactive Global 22-Country CF Patient Resource Navigator & Healthcare Equity Map Expansion on /resources/ with Bilingual Support | .ai | 2-4 | 4 | 13.3 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0398 | P1 | Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
-| T-0399 | P1 | Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0400 | P1 | Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0401 | P1 | Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
@@ -39,7 +37,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
-## done (306)
+## done (308)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -172,6 +170,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0390 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Energy Coupling Explorer on /cf/cftr/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0391 | P1 | Interactive Inhaled Nanoparticle Macrophage Evasion & Biomimetic CD47 Brush Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  | work/sentinel-showcase-t-0391 |
 | T-0395 | P1 | Interactive Deep Intronic Splice U1 snRNP Decoy Oligonucleotide Competition & Pseudoexon Exclusion Explorer on /cf/cftr/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  | work/sentinel-security-t-0396 |
+| T-0398 | P1 | Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  | work/sentinel-security-t-0398 |
+| T-0399 | P1 | Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  | work/sentinel-security-t-0398 |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0276 | P1 | Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0272 |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -2039,19 +2039,23 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 - **Why / ROI rationale:** Visualizes alternative chloride conductance bypass kinetics for mutation-agnostic therapy across Class I/II null alleles. *(confidence: high)*
 - **Route:** local - Client-side interactive visualization on .ai.
+- **Branch:** work/sentinel-security-t-0398
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0398.md; cf-research/tools/discovery/tmem16a_calcium_conductance_model.py; RCSB PDB 5OYB; DOI 10.1038/nature23882; DOI 10.1073/pnas.1812832115
 - **Spec:** `tasks/specs/T-0398.md`
-- **Notes:** Showcase Lane Replenishment. Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with complete Mexican Spanish (es-MX) parity, dual Ca2+ binding Hill cooperativity, and purinergic P2Y2R signaling.
+- **Notes:** Delivered in senseiewok/.ai#166. Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with complete Mexican Spanish (es-MX) parity, dual Ca2+ binding Hill cooperativity (nH=2.1, EC50=420nM), and purinergic P2Y2R signaling. All acceptance tests passed (test_site 147/147, test_tmem16a_and_dual_aav_reconstitution 7/7, check_anti_hallucination 5/5).
+- **Measured:**  h; 
 
 ### T-0399 Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Simulates dual-AAV capsid size limitation bypass and split-intein traceless protein ligation for durable gene replacement. *(confidence: high)*
 - **Route:** local - Client-side interactive visualization on .ai.
+- **Branch:** work/sentinel-security-t-0398
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0399.md; cf-research/tools/discovery/dual_aav_intein_model.py; RCSB PDB 1ZDE; DOI 10.1038/s41591-019-0465-5; NCT05248022
 - **Spec:** `tasks/specs/T-0399.md`
-- **Notes:** Showcase Lane Replenishment. Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with complete Mexican Spanish (es-MX) parity, Npu DnaE trans-splicing kinetics, and Poisson co-transduction modeling.
+- **Notes:** Delivered in senseiewok/.ai#166. Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with complete Mexican Spanish (es-MX) parity, Npu DnaE trans-splicing kinetics (ksplice=0.011 s^-1), and Poisson co-transduction modeling. All acceptance tests passed (test_site 147/147, test_tmem16a_and_dual_aav_reconstitution 7/7, check_anti_hallucination 5/5).
+- **Measured:**  h; 
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
