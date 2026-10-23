@@ -18564,7 +18564,7 @@
       "title": "Automated Multi-Repo Agent Async Task Zombie & Background Worker Leak Guard (tasks/check_async_task_leaks.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -18595,20 +18595,25 @@
           "security_compliance": 9.5
         },
         "composite_score": 6.2,
-        "roi_ratio": 2.5
+        "roi_ratio": 2.5,
+        "actual_hours": 1.5,
+        "measured": true,
+        "measured_outcome": "Implemented Automated Multi-Repo Agent Async Task Zombie & Background Worker Leak Guard (tasks/check_async_task_leaks.py) and 11 unit tests (tasks/test_check_async_task_leaks.py); verified 120 Python files clean with 0 unawaited coroutine task leaks or non-daemon worker threads; registered in check-all.ps1."
       },
       "recommended_route": "local",
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0379.md; OWASP Top 10:2025 A08 / CWE-772",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_by": "sensei ewok (gemini-flash steward)",
+      "completed_at": "2026-10-23T06:22:00Z"
     },
     {
       "id": "T-0380",
       "title": "Automated Cross-Repo Git Commit Email & Author Signature Whitelist Linter (tasks/check_git_author_whitelist.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -18639,13 +18644,18 @@
           "security_compliance": 9.5
         },
         "composite_score": 6.2,
-        "roi_ratio": 2.5
+        "roi_ratio": 2.5,
+        "actual_hours": 1.5,
+        "measured": true,
+        "measured_outcome": "Implemented Automated Cross-Repo Git Commit Email & Author Signature Whitelist Linter (tasks/check_git_author_whitelist.py) and 6 unit tests (tasks/test_check_git_author_whitelist.py); verified 4 repositories and 200 commits clean with 0 unauthorized author emails or tampered signatures; registered in check-all.ps1."
       },
       "recommended_route": "local",
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0380.md; OWASP Top 10:2025 A07 / CWE-290",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_by": "sensei ewok (gemini-flash steward)",
+      "completed_at": "2026-10-23T06:22:00Z"
     },
     {
       "id": "T-0381",
@@ -18732,6 +18742,274 @@
       "recommended_route": "local",
       "route_rationale": "Mechanistic biophysical simulation in cf-research.",
       "source_evidence": "tasks/specs/T-0382.md; DOI: 10.1085/jgp.202012678",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0383",
+      "title": "Interactive Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0381"
+      ],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 34 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check",
+      "notes": "Wave 34 Showcase Lane Replenishment. Interactive delivery simulator on /cf/delivery/ with Mexican Spanish (es-MX) parity modeling nanoparticle mucociliary transit vs macrophage phagocytosis.",
+      "spec_path": "tasks/specs/T-0383.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes competitive vector clearance kinetics to maximize epithelial cell transfection before elimination.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Zero-build vanilla ES module and canvas component bounded by site test suite.",
+      "source_evidence": "tasks/specs/T-0383.md; DOI: 10.1016/j.addr.2021.113904",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0384",
+      "title": "Interactive CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape on /cf/cftr/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0382"
+      ],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 34 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check_i18n_parity.py --check",
+      "notes": "Wave 34 Showcase Lane Replenishment. Interactive thermodynamic free-energy landscape visualization on /cf/cftr/ with Mexican Spanish (es-MX) parity modeling NBD2 ATP hydrolysis and channel closing.",
+      "spec_path": "tasks/specs/T-0384.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models the chemical gating cycle terminating channel open bursts and evaluates allosteric potentiator coupling.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Zero-build vanilla ES module and canvas component bounded by site test suite.",
+      "source_evidence": "tasks/specs/T-0384.md; DOI: 10.1085/jgp.202012678",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0385",
+      "title": "Automated Multi-Repo Agent Subprocess Environment & Shell Argument Injection Guard (tasks/check_subprocess_argument_safety.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 34 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_subprocess_argument_safety; python tasks/check_subprocess_argument_safety.py --check",
+      "notes": "Wave 34 Security Lane Replenishment. Audits subprocess and os.system invocations across all workspace repositories for shell injection and environment sanitization (CWE-78 / CWE-88).",
+      "spec_path": "tasks/specs/T-0385.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents command injection and unconstrained process environment inheritance in multi-repo agent tooling.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0385.md; OWASP Top 10:2025 A03 / CWE-78",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0386",
+      "title": "Automated Cross-Repo Git Remote Refspec & Fetch/Push URL Tampering Guard (tasks/check_git_remote_refspecs.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 34 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_remote_refspecs; python tasks/check_git_remote_refspecs.py --check",
+      "notes": "Wave 34 Security Lane Replenishment. Audits git remote URLs and push refspecs across all workspace repositories for endpoint whitelisting and credential exposure (CWE-284 / CWE-522).",
+      "spec_path": "tasks/specs/T-0386.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces strict remote URL containment and eliminates destructive push refspecs across workspace repos.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0386.md; OWASP Top 10:2025 A01 / CWE-284",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0387",
+      "title": "Airway Calu-3 Epithelial Sialic Acid & MUC1/MUC4 Glycocalyx Electrostatic Charge Barrier Model (tools/discovery/glycocalyx_charge_barrier_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 34 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_glycocalyx_charge_barrier_model",
+      "notes": "Wave 34 Research Lane Replenishment. Biophysical model of Calu-3 apical glycocalyx sialic acid charge barrier and vector partition coefficients.",
+      "spec_path": "tasks/specs/T-0387.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies the negative electrostatic charge and steric exclusion barrier opposing inhaled CFTR delivery vectors.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 7.5
+        },
+        "composite_score": 8.5,
+        "roi_ratio": 1.25
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical simulation in cf-research.",
+      "source_evidence": "tasks/specs/T-0387.md; DOI: 10.1021/acs.biomac.1c00428",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0388",
+      "title": "CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Coupling Model (tools/discovery/cftr_snitrosylation_pdi_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 34 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_cftr_snitrosylation_pdi_model",
+      "notes": "Wave 34 Research Lane Replenishment. Mechanistic biochemical model of CFTR transmembrane cryptic cysteine S-nitrosylation and PDI-mediated reduction.",
+      "spec_path": "tasks/specs/T-0388.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models redox regulation of DeltaF508 misfolding and ERAD escape to identify novel pharmacological co-therapies.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 7.5
+        },
+        "composite_score": 8.5,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical simulation in cf-research.",
+      "source_evidence": "tasks/specs/T-0388.md; DOI: 10.1074/jbc.M111.235945",
       "executor": "agent",
       "human_required": false
     }

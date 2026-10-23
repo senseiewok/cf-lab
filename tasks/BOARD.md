@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-382 tasks, 381 created by a model, 173 with a measured outcome. Estimated effort 965.35 to 1754.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+388 tasks, 387 created by a model, 175 with a measured outcome. Estimated effort 979.35 to 1779.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,14 +10,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (73)
+## ready (77)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0006 | P1 | Send permissions emails to CFF registry contact and ECFSPR | cf-research | 0.5-0.5 | 4 | 80 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
-| T-0379 | P1 | Automated Multi-Repo Agent Async Task Zombie & Background Worker Leak Guard (tasks/check_async_task_leaks.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
-| T-0380 | P1 | Automated Cross-Repo Git Commit Email & Author Signature Whitelist Linter (tasks/check_git_author_whitelist.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
+| T-0385 | P1 | Automated Multi-Repo Agent Subprocess Environment & Shell Argument Injection Guard (tasks/check_subprocess_argument_safety.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
+| T-0386 | P1 | Automated Cross-Repo Git Remote Refspec & Fetch/Push URL Tampering Guard (tasks/check_git_remote_refspecs.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0311 | P1 | Interactive CFTR mRNA Secondary Structure & G-Quadruplex / Hairpin Ribosome Profiling Explorer on /cf/cftr/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
@@ -53,6 +53,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0360 | P1 | Interactive CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0358 |  |
 | T-0371 | P1 | Interactive Deep Airway Submucosal Gland Serous Acinar Fluid & Aquaporin-5 Conductance Explorer on /cf/tree/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0369 |  |
 | T-0372 | P1 | Interactive Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Deposition Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0370 |  |
+| T-0383 | P1 | Interactive Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0381 |  |
+| T-0384 | P1 | Interactive CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0382 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0297 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Scavenger Receptor Kinetics Model (tools/discovery/macrophage_scavenger_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0271 |  |
 | T-0303 | P1 | Airway Epithelial Club Cell Secretoglobin (SCGB1A1) Secretory Vesicle Trafficking & Apical Exosome Packaging Model (tools/discovery/club_cell_exosome_trafficking.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
@@ -61,6 +63,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0334 | P1 | CFTR Premature Termination Codon (PTC) Release Factor eRF1-eRF3 Termination vs Readthrough Thermodynamic Model (tools/discovery/ptc_termination_flux_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0339 | P1 | CFTR Apical Microvillar Surface Density & MUC1/MUC4 Glycocalyx Diffusion Barrier Model (tools/discovery/microvillar_glycocalyx_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0340 | P1 | Class I Nonsense Allele (G542X, W1282X) Ribosome Profiling & A-Site Codon Decoding Speed Model (tools/discovery/ribosome_profiling_decoding_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0387 | P1 | Airway Calu-3 Epithelial Sialic Acid & MUC1/MUC4 Glycocalyx Electrostatic Charge Barrier Model (tools/discovery/glycocalyx_charge_barrier_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0298 | P1 | CFTR DeltaF508 / NBD1-TMD Coupling Allosteric Rescuing Pharmacophore Model (tools/discovery/nbd1_tmd_pharmacophore.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
 | T-0321 | P1 | Airway Surface Liquid pH Regulation, ATP12A/V-ATPase Proton Flux & Bicarbonate Secretion Biophysical Model (tools/discovery/asl_ph_regulation_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
 | T-0322 | P1 | CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Cooperativity & Ribosome Translation Fidelity Model (tools/discovery/ptc_readthrough_cooperativity_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
@@ -75,6 +78,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0376 | P1 | CFTR Delta-F508 ER Quality Control Chaperone (Hsp70/Hsp90/CHIP) Ubiquitin Ligase Kinetic Partitioning Model (tools/discovery/cftr_chaperone_ubiquitin_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0381 | P1 | Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Model (tools/discovery/nanoparticle_partitioning_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0382 | P1 | CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape Model (tools/discovery/nbd2_atp_hydrolysis_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0388 | P1 | CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Coupling Model (tools/discovery/cftr_snitrosylation_pdi_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -88,7 +92,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (295)
+## done (297)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -134,6 +138,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0368 | P1 | Automated Multi-Repo Git Submodule & Unchecked External Git Dependency Linter (tasks/check_git_submodules.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
 | T-0373 | P1 | Automated Multi-Repo Agent Asyncio & Thread Concurrency Deadlock Guard (tasks/check_concurrency_deadlocks.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
 | T-0374 | P1 | Automated Cross-Repo Git Tag Annotation & Signing Invariant Linter (tasks/check_git_tag_signatures.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
+| T-0379 | P1 | Automated Multi-Repo Agent Async Task Zombie & Background Worker Leak Guard (tasks/check_async_task_leaks.py) | cf-lab | 1.5-2.5 | 5 | 25 | yes | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
+| T-0380 | P1 | Automated Cross-Repo Git Commit Email & Author Signature Whitelist Linter (tasks/check_git_author_whitelist.py) | cf-lab | 1.5-2.5 | 5 | 25 | yes | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
 | T-0191 | P1 | Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0192 | P1 | Aggressive sentinel cadence: reduce max_idle_hours from 8h/12h to 3h/4h in tasks/sentinels.json and replenish multi-lane ready backlog | cf-lab | 1.5-3 | 5 | 22.2 | yes | model: gemini-4-argon | 2026-10-18 | routine | low | local |  |  |
 | T-0307 | P1 | Automated Multi-Repo Agent Environment Variable (.env) & Canary Isolation Linter (tasks/check_env_canary_isolation.py) | cf-lab | 1.5-3 | 5 | 22.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | low | local |  |  |
@@ -802,6 +808,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/specs/T-0379.md; OWASP Top 10:2025 A08 / CWE-772
 - **Spec:** `tasks/specs/T-0379.md`
 - **Notes:** Wave 33 Security Lane Replenishment. Audits asyncio.create_task lifecycle retention and daemon thread invariants across agent tooling (CWE-404 / CWE-772).
+- **Measured:** 1.5 h; Implemented Automated Multi-Repo Agent Async Task Zombie & Background Worker Leak Guard (tasks/check_async_task_leaks.py) and 11 unit tests (tasks/test_check_async_task_leaks.py); verified 120 Python files clean with 0 unawaited coroutine task leaks or non-daemon worker threads; registered in check-all.ps1.
 
 ### T-0380 Automated Cross-Repo Git Commit Email & Author Signature Whitelist Linter (tasks/check_git_author_whitelist.py)
 
@@ -811,6 +818,25 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/specs/T-0380.md; OWASP Top 10:2025 A07 / CWE-290
 - **Spec:** `tasks/specs/T-0380.md`
 - **Notes:** Wave 33 Security Lane Replenishment. Audits commit author emails and git config identities across all sibling repositories (CWE-284 / CWE-290).
+- **Measured:** 1.5 h; Implemented Automated Cross-Repo Git Commit Email & Author Signature Whitelist Linter (tasks/check_git_author_whitelist.py) and 6 unit tests (tasks/test_check_git_author_whitelist.py); verified 4 repositories and 200 commits clean with 0 unauthorized author emails or tampered signatures; registered in check-all.ps1.
+
+### T-0385 Automated Multi-Repo Agent Subprocess Environment & Shell Argument Injection Guard (tasks/check_subprocess_argument_safety.py)
+
+- **Why / ROI rationale:** Prevents command injection and unconstrained process environment inheritance in multi-repo agent tooling. *(confidence: high)*
+- **Route:** local - Deterministic security linter and unit tests in cf-lab.
+- **Acceptance:** python -m unittest tasks.test_check_subprocess_argument_safety; python tasks/check_subprocess_argument_safety.py --check
+- **Evidence:** tasks/specs/T-0385.md; OWASP Top 10:2025 A03 / CWE-78
+- **Spec:** `tasks/specs/T-0385.md`
+- **Notes:** Wave 34 Security Lane Replenishment. Audits subprocess and os.system invocations across all workspace repositories for shell injection and environment sanitization (CWE-78 / CWE-88).
+
+### T-0386 Automated Cross-Repo Git Remote Refspec & Fetch/Push URL Tampering Guard (tasks/check_git_remote_refspecs.py)
+
+- **Why / ROI rationale:** Enforces strict remote URL containment and eliminates destructive push refspecs across workspace repos. *(confidence: high)*
+- **Route:** local - Deterministic security linter and unit tests in cf-lab.
+- **Acceptance:** python -m unittest tasks.test_check_git_remote_refspecs; python tasks/check_git_remote_refspecs.py --check
+- **Evidence:** tasks/specs/T-0386.md; OWASP Top 10:2025 A01 / CWE-284
+- **Spec:** `tasks/specs/T-0386.md`
+- **Notes:** Wave 34 Security Lane Replenishment. Audits git remote URLs and push refspecs across all workspace repositories for endpoint whitelisting and credential exposure (CWE-284 / CWE-522).
 
 ### T-0191 Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty
 
@@ -1681,6 +1707,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0378.md`
 - **Notes:** Wave 33 Showcase Lane Replenishment. Interactive airway goblet cell hyperplasia, MUC5AC/MUC5B crosslinking, and rheological yield stress simulator on /cf/delivery/ with es-MX parity. Completed 2026-10-23 by daily-security-sentinel in senseiewok/.ai#158. Delivered interactive airway goblet cell metaplasia & MUC5AC/MUC5B secretory hyperviscosity simulator on /cf/delivery/ with full es-MX parity. Verified by test_goblet_hyperviscosity_explorer, tests.test_site (147 tests), check_i18n_parity (1152 uses, 0 missing, 0 orphans), and run-gate.ps1 -Tier elevated.
 
+### T-0383 Interactive Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Visualizes competitive vector clearance kinetics to maximize epithelial cell transfection before elimination. *(confidence: high)*
+- **Route:** local - Zero-build vanilla ES module and canvas component bounded by site test suite.
+- **Acceptance:** python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check
+- **Evidence:** tasks/specs/T-0383.md; DOI: 10.1016/j.addr.2021.113904
+- **Spec:** `tasks/specs/T-0383.md`
+- **Notes:** Wave 34 Showcase Lane Replenishment. Interactive delivery simulator on /cf/delivery/ with Mexican Spanish (es-MX) parity modeling nanoparticle mucociliary transit vs macrophage phagocytosis.
+
+### T-0384 Interactive CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape on /cf/cftr/ with es-MX Parity
+
+- **Why / ROI rationale:** Models the chemical gating cycle terminating channel open bursts and evaluates allosteric potentiator coupling. *(confidence: high)*
+- **Route:** local - Zero-build vanilla ES module and canvas component bounded by site test suite.
+- **Acceptance:** python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check_i18n_parity.py --check
+- **Evidence:** tasks/specs/T-0384.md; DOI: 10.1085/jgp.202012678
+- **Spec:** `tasks/specs/T-0384.md`
+- **Notes:** Wave 34 Showcase Lane Replenishment. Interactive thermodynamic free-energy landscape visualization on /cf/cftr/ with Mexican Spanish (es-MX) parity modeling NBD2 ATP hydrolysis and channel closing.
+
 ### T-0061 Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows)
 
 - **Why / ROI rationale:** Estimate: a public repo that accepts pull requests should show whether its own tests pass; one matrix job also verifies setup.sh on macOS and Linux. *(confidence: medium)*
@@ -1933,6 +1977,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0340.md`
 - **Notes:** Wave 26 Research Lane Replenishment. Biophysical model simulating ribo-seq ribosome stall dynamics and translational elongation velocities across CFTR PTC stop codons.
 
+### T-0387 Airway Calu-3 Epithelial Sialic Acid & MUC1/MUC4 Glycocalyx Electrostatic Charge Barrier Model (tools/discovery/glycocalyx_charge_barrier_model.py)
+
+- **Why / ROI rationale:** Quantifies the negative electrostatic charge and steric exclusion barrier opposing inhaled CFTR delivery vectors. *(confidence: high)*
+- **Route:** local - Mechanistic biophysical simulation in cf-research.
+- **Acceptance:** python -m unittest tools.discovery.test_glycocalyx_charge_barrier_model
+- **Evidence:** tasks/specs/T-0387.md; DOI: 10.1021/acs.biomac.1c00428
+- **Spec:** `tasks/specs/T-0387.md`
+- **Notes:** Wave 34 Research Lane Replenishment. Biophysical model of Calu-3 apical glycocalyx sialic acid charge barrier and vector partition coefficients.
+
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
 - **Why / ROI rationale:** Automated PR hygiene eliminates merge conflict friction, identifies unresolved review comments across the multi-repo workspace, protects human-gated boundaries, audits stale worktrees, and prevents maintainer cognitive overload. *(confidence: high)*
@@ -2175,6 +2228,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/specs/T-0382.md; DOI: 10.1085/jgp.202012678
 - **Spec:** `tasks/specs/T-0382.md`
 - **Notes:** Wave 33 Research Lane Replenishment. Biophysical model of NBD2 ATP Site 2 catalytic hydrolysis, dimer dissociation, and potentiator stabilization.
+
+### T-0388 CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Coupling Model (tools/discovery/cftr_snitrosylation_pdi_model.py)
+
+- **Why / ROI rationale:** Models redox regulation of DeltaF508 misfolding and ERAD escape to identify novel pharmacological co-therapies. *(confidence: high)*
+- **Route:** local - Mechanistic biophysical simulation in cf-research.
+- **Acceptance:** python -m unittest tools.discovery.test_cftr_snitrosylation_pdi_model
+- **Evidence:** tasks/specs/T-0388.md; DOI: 10.1074/jbc.M111.235945
+- **Spec:** `tasks/specs/T-0388.md`
+- **Notes:** Wave 34 Research Lane Replenishment. Mechanistic biochemical model of CFTR transmembrane cryptic cysteine S-nitrosylation and PDI-mediated reduction.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
