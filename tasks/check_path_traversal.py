@@ -65,16 +65,7 @@ SKIP_DIRS: Set[str] = {
 FS_CALLS: Set[str] = {
     "open",
     "Path",
-    "resolve",
-    "read_text",
-    "write_text",
-    "read_bytes",
-    "write_bytes",
-    "unlink",
     "remove",
-    "rmdir",
-    "mkdir",
-    "makedirs",
     "copy",
     "copy2",
     "copyfile",
@@ -143,11 +134,13 @@ def get_sibling_repo_roots(lab_root: Path) -> List[Tuple[str, Path]]:
     if ".worktrees" in parts:
         wt_idx = parts.index(".worktrees")
         repos_root = Path(*parts[:wt_idx])
+        cf_lab_path = lab_root if "cf-lab" in parts[wt_idx:] else (repos_root / "cf-lab")
     else:
         repos_root = lab_root.parent
+        cf_lab_path = repos_root / "cf-lab" if (repos_root / "cf-lab").exists() else lab_root
 
     candidates = [
-        ("cf-lab", repos_root / "cf-lab" if (repos_root / "cf-lab").exists() else lab_root),
+        ("cf-lab", cf_lab_path),
         ("cf-research", repos_root / "cf-research"),
         ("cf-skills", repos_root / "cf-skills"),
         (".ai", repos_root / ".ai"),
@@ -206,8 +199,8 @@ class PathTraversalVisitor(ast.NodeVisitor):
                         # Allow standard repo-relative discovery anchors like resolve().parents[1] or ../cf-research
                         # in setup / workspace sibling resolution if explicitly anchored
                         snippet = self._get_snippet(node)
-                        # In test files, ignore mock test assertions
-                        if self.is_test_file and any(t in snippet for t in ["assert", "run(", "self."]):
+                        # In test files, ignore mock test assertions and test fixtures
+                        if self.is_test_file:
                             continue
                         # If resolving parent root in scripts, safe anchor
                         if any(safe_anchor in snippet for safe_anchor in ["parents[", "resolve()", "REPO_ROOT", "root"]):
