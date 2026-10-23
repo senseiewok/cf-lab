@@ -15808,7 +15808,7 @@
       "title": "CFTR mRNA Coding Sequence G-Quadruplex Thermodynamic Stability & Ribosome Stalling Model (tools/discovery/cftr_gquadruplex_stability_model.py)",
       "repo": "cf-research",
       "area": "discovery",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -15837,13 +15837,18 @@
           "security_compliance": 8.0
         },
         "composite_score": 8.8,
-        "roi_ratio": 1.54
+        "roi_ratio": 1.54,
+        "actual_hours": 3.0,
+        "measured": true,
+        "measured_outcome": "Implemented CFTR mRNA Coding Sequence G-Quadruplex Thermodynamic Stability & Ribosome Stalling Model (tools/discovery/cftr_gquadruplex_stability_model.py) and unit tests; validated rG4 G4Hunter and thermodynamic unfolding calculations, ribosome dwell time coupling, and small-molecule PDS / TMPyP4 / DHX36 helicase perturbations; registered in discovery council; submitted in senseiewok/cf-research#127."
       },
       "recommended_route": "local",
       "route_rationale": "Biophysical Python discovery tool and unit tests in cf-research.",
       "source_evidence": "tasks/specs/T-0316.md; sources/catalog.yaml",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_by": "daily-research-sentinel (gemini-flash)",
+      "completed_at": "2026-10-23T06:24:00Z"
     },
     {
       "id": "T-0317",
@@ -17380,7 +17385,7 @@
       "title": "CFTR Cryptic Splice Site Pseudoexon U1 snRNP Steric Decoy Thermodynamics Model (tools/discovery/u1_snrnp_decoy_thermodynamics.py)",
       "repo": "cf-research",
       "area": "discovery",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -17409,13 +17414,18 @@
           "security_compliance": 7.0
         },
         "composite_score": 8.6,
-        "roi_ratio": 2.4
+        "roi_ratio": 2.4,
+        "actual_hours": 4.0,
+        "measured": true,
+        "measured_outcome": "Implemented CFTR Cryptic Splice Site Pseudoexon U1 snRNP Steric Decoy Thermodynamics Model (tools/discovery/u1_snrnp_decoy_thermodynamics.py) and unit tests; validated SantaLucia nearest-neighbor duplex thermodynamics, competitive mass action, and pseudoexon exclusion dose-response curves; registered in discovery council; submitted in senseiewok/cf-research#127."
       },
       "recommended_route": "local",
       "route_rationale": "Mathematical model and validation tests in cf-research.",
       "source_evidence": "tasks/specs/T-0352.md; DOI: 10.1016/j.ajhg.2019.09.008",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_by": "daily-research-sentinel (gemini-flash)",
+      "completed_at": "2026-10-23T06:24:00Z"
     },
     {
       "id": "T-0353",
