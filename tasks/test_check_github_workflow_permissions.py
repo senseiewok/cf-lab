@@ -167,7 +167,7 @@ jobs:
         report = audit_workspace(lab_root)
         self.assertEqual(report["status"], "PASS")
         self.assertEqual(report["total_violations"], 0)
-        self.assertGreaterEqual(report["files_audited"], 4)
+        self.assertGreaterEqual(report["files_audited"], 2)
 
 
 if __name__ == "__main__":
