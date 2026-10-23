@@ -10,73 +10,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (75)
+## ready (17)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0006 | P1 | Send permissions emails to CFF registry contact and ECFSPR | cf-research | 0.5-0.5 | 4 | 80 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 | T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
-| T-0385 | P1 | Automated Multi-Repo Agent Subprocess Environment & Shell Argument Injection Guard (tasks/check_subprocess_argument_safety.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
-| T-0386 | P1 | Automated Cross-Repo Git Remote Refspec & Fetch/Push URL Tampering Guard (tasks/check_git_remote_refspecs.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
 | T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0311 | P1 | Interactive CFTR mRNA Secondary Structure & G-Quadruplex / Hairpin Ribosome Profiling Explorer on /cf/cftr/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
-| T-0323 | P1 | Interactive Airway Calu-3 Air-Liquid Interface (ALI) Transepithelial Resistance (TEER) & Drug Flux Simulator on /cf/delivery/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
-| T-0324 | P1 | Interactive CFTR Premature Termination Codon (PTC) Readthrough Aminoglycoside & Non-Aminoglycoside Synergy Landscape Explorer on /cf/ptc/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
-| T-0329 | P1 | Interactive Airway Surface Liquid (ASL) Osmotic Collapse & Hypertonic Saline Rehydration Dynamics Simulator on /cf/tree/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0275 |  |
-| T-0330 | P1 | Interactive CFTR Premature Termination Codon (PTC) Ribosome Proofreading & Eukaryotic Release Factor (eRF1/eRF3) Termination Kinetics Simulator on /cf/ptc/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0324 |  |
-| T-0287 | P1 | Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
-| T-0299 | P1 | Interactive Deep-Intronic Splice-Switching ASO (SPL84) & U1 snRNP Thermodynamic Competition Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0292 |  |
-| T-0300 | P1 | Interactive Sialidase-Mediated Apical Glycocalyx Permeabilization & Inhaled Vector Flux Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0291 |  |
-| T-0327 | P1 | Airway Calu-3 Epithelial Air-Liquid Interface (ALI) Biophysical Transmembrane Flux & TEER Transport Model (tools/discovery/ali_permeability_flux_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
-| T-0328 | P1 | CFTR Premature Termination Codon (PTC) Translational Readthrough & Ribosome Release Factor Kinetic Model (tools/discovery/ptc_ribosome_readthrough_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
-| T-0336 | P1 | Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer Decoy Kinetics Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0292 |  |
-| T-0341 | P1 | Interactive CFTR mRNA Secondary Structure & Stem-Loop Unfolding Dynamics Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0345 |  |
-| T-0347 | P1 | Interactive Airway Epithelial Glycocalyx Sialylation & Mucus Mesh Steric Exclusion Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0348 | P1 | Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Competition Simulator on /cf/ptc/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0353 | P1 | Interactive Airway Epithelial Ciliated vs Goblet Cell Density & Mucociliary Escalator Clearance Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0354 | P1 | Interactive CFTR Truncation Readthrough (ELX-02 / G418 / Ataluren) Concentration-Response & Toxic Off-Target Window Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0365 | P1 | Interactive Airway Epithelial CFTR Exon-Skipping (AON Antisense Oligonucleotide) In Silico Splice-Site Thermodynamic Optimization Simulator on /cf/ptc/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0366 | P1 | Interactive Inhaled Superparamagnetic Iron Oxide Nanoparticle (SPION) Magnetic Mucus Guidance & Magnetic Resonance Tracer Dynamics on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0369 | P1 | Deep Airway Submucosal Gland Serous Acinar Cell Fluid Hydrodynamics & Aquaporin-5 Conductance Model (tools/discovery/submucosal_gland_fluid_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0370 | P1 | Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Dispersion Kinetics Model (tools/discovery/dpi_carrier_detachment_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0293 | P1 | Interactive Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0271 |  |
-| T-0305 | P1 | Interactive Airway Surface Liquid (ASL) Osmotic Gradient & Hypertonic Saline Hydration Dynamics Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0275 |  |
-| T-0306 | P1 | Interactive CFTR Premature Termination Codon (PTC) Readthrough Ribosome Structural Kinetics & Aminoglycoside Toxicity Simulator on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0247 |  |
-| T-0309 | P1 | Airway Epithelial Hypertonic Saline Osmotic Mucus Dehydration & ASL Volume Restoration Model (tools/discovery/asl_osmotic_restoration_model.py) | cf-research | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0310 | P1 | CFTR W1282X & G542X Ribosome Footprint Profiling & Aminoglycoside-Mediated Termination Suppression Model (tools/discovery/ptc_ribosome_profiling_model.py) | cf-research | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0317 | P1 | Interactive Airway Surface Liquid (ASL) Acidification & ATP12A/V-ATPase Proton Pump Inhibition Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local | T-0321 |  |
-| T-0318 | P1 | Interactive CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Synergy & Ribosome Translation Fidelity Simulator on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local | T-0322 |  |
-| T-0342 | P1 | Interactive Airway Epithelial Ciliary Beat Frequency & Metachronal Wave Coordination Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0346 |  |
-| T-0359 | P1 | Interactive Airway Goblet Cell Metaplasia & Mucus Hypersecretion Stoichiometry Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0357 |  |
-| T-0360 | P1 | Interactive CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0358 |  |
-| T-0371 | P1 | Interactive Deep Airway Submucosal Gland Serous Acinar Fluid & Aquaporin-5 Conductance Explorer on /cf/tree/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0369 |  |
-| T-0372 | P1 | Interactive Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Deposition Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0370 |  |
-| T-0383 | P1 | Interactive Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0381 |  |
-| T-0384 | P1 | Interactive CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0382 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0297 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Scavenger Receptor Kinetics Model (tools/discovery/macrophage_scavenger_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0271 |  |
-| T-0303 | P1 | Airway Epithelial Club Cell Secretoglobin (SCGB1A1) Secretory Vesicle Trafficking & Apical Exosome Packaging Model (tools/discovery/club_cell_exosome_trafficking.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0304 | P1 | CFTR NBD2 / NBD1 ATP Hydrolysis Gating Cycle & Catalytic Water Coordination Energy Model (tools/discovery/atp_catalytic_water_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0333 | P1 | Airway Surface Liquid (ASL) Osmotic Depth & Transepithelial Water Flux Biophysical Model (tools/discovery/asl_osmotic_flux_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0334 | P1 | CFTR Premature Termination Codon (PTC) Release Factor eRF1-eRF3 Termination vs Readthrough Thermodynamic Model (tools/discovery/ptc_termination_flux_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0339 | P1 | CFTR Apical Microvillar Surface Density & MUC1/MUC4 Glycocalyx Diffusion Barrier Model (tools/discovery/microvillar_glycocalyx_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0340 | P1 | Class I Nonsense Allele (G542X, W1282X) Ribosome Profiling & A-Site Codon Decoding Speed Model (tools/discovery/ribosome_profiling_decoding_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0387 | P1 | Airway Calu-3 Epithelial Sialic Acid & MUC1/MUC4 Glycocalyx Electrostatic Charge Barrier Model (tools/discovery/glycocalyx_charge_barrier_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0298 | P1 | CFTR DeltaF508 / NBD1-TMD Coupling Allosteric Rescuing Pharmacophore Model (tools/discovery/nbd1_tmd_pharmacophore.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
-| T-0321 | P1 | Airway Surface Liquid pH Regulation, ATP12A/V-ATPase Proton Flux & Bicarbonate Secretion Biophysical Model (tools/discovery/asl_ph_regulation_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
-| T-0322 | P1 | CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Cooperativity & Ribosome Translation Fidelity Model (tools/discovery/ptc_readthrough_cooperativity_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
-| T-0345 | P1 | CFTR mRNA Exon 10-12 Secondary Structure & Translation Elongation Kinetic Barrier Model (tools/discovery/mrna_secondary_structure_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0346 | P1 | Mucociliary Clearance Metachronal Coordination & Viscoelastic Damping Model (tools/discovery/metachronal_wave_damping_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0357 | P1 | Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretion Stoichiometry Model (tools/discovery/goblet_cell_mucus_stoichiometry.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0358 | P1 | CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Model (tools/discovery/ptc_readthrough_fidelity_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0363 | P1 | Airway Epithelial Club Cell (SCGB1A1+) Secretoglobins & Anti-Inflammatory Surfactant Protein Secretion Model (tools/discovery/club_cell_secretoglobin_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0364 | P1 | CFTR Inhaled Lipid Nanoparticle (LNP) Nebulization Shear Stress & Poly(ethylene glycol) (PEG) Shielding Stability Model (tools/discovery/lnp_shear_stability_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0375 | P1 | Airway Surface Liquid (ASL) Sialic Acid & Sulfated Glycosaminoglycan (GAG) Electrostatic Binding Affinity Model (tools/discovery/asl_electrostatic_binding_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0376 | P1 | CFTR Delta-F508 ER Quality Control Chaperone (Hsp70/Hsp90/CHIP) Ubiquitin Ligase Kinetic Partitioning Model (tools/discovery/cftr_chaperone_ubiquitin_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0381 | P1 | Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Model (tools/discovery/nanoparticle_partitioning_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0382 | P1 | CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape Model (tools/discovery/nbd2_atp_hydrolysis_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0388 | P1 | CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Coupling Model (tools/discovery/cftr_snitrosylation_pdi_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
@@ -394,11 +336,69 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0044 | P3 | Paper-trail layer: Unpaywall and Semantic Scholar providers | cf-skills | 3-5 | 3 | 7.5 | no | model: claude-fable-5-1 | 2026-10-04 | elevated | low | local |  |  |
 | T-0052 | P3 | Close the findings a frontier-model review deferred in cf-evidence-loop v0.1 | cf-skills | 4-8 | 3 | 5 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | medium | local | T-0037 |  |
 
-## dropped (13)
+## dropped (71)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| T-0385 | P1 | Automated Multi-Repo Agent Subprocess Environment & Shell Argument Injection Guard (tasks/check_subprocess_argument_safety.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
+| T-0386 | P1 | Automated Cross-Repo Git Remote Refspec & Fetch/Push URL Tampering Guard (tasks/check_git_remote_refspecs.py) | cf-lab | 1.5-2.5 | 5 | 25 | no | model: gemini-4-argon | 2026-10-22 | routine | low | local |  |  |
+| T-0311 | P1 | Interactive CFTR mRNA Secondary Structure & G-Quadruplex / Hairpin Ribosome Profiling Explorer on /cf/cftr/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
+| T-0323 | P1 | Interactive Airway Calu-3 Air-Liquid Interface (ALI) Transepithelial Resistance (TEER) & Drug Flux Simulator on /cf/delivery/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
+| T-0324 | P1 | Interactive CFTR Premature Termination Codon (PTC) Readthrough Aminoglycoside & Non-Aminoglycoside Synergy Landscape Explorer on /cf/ptc/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
+| T-0329 | P1 | Interactive Airway Surface Liquid (ASL) Osmotic Collapse & Hypertonic Saline Rehydration Dynamics Simulator on /cf/tree/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0275 |  |
+| T-0330 | P1 | Interactive CFTR Premature Termination Codon (PTC) Ribosome Proofreading & Eukaryotic Release Factor (eRF1/eRF3) Termination Kinetics Simulator on /cf/ptc/ with es-MX Parity | .ai | 2-3.5 | 5 | 18.2 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0324 |  |
+| T-0287 | P1 | Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
+| T-0299 | P1 | Interactive Deep-Intronic Splice-Switching ASO (SPL84) & U1 snRNP Thermodynamic Competition Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0292 |  |
+| T-0300 | P1 | Interactive Sialidase-Mediated Apical Glycocalyx Permeabilization & Inhaled Vector Flux Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0291 |  |
+| T-0327 | P1 | Airway Calu-3 Epithelial Air-Liquid Interface (ALI) Biophysical Transmembrane Flux & TEER Transport Model (tools/discovery/ali_permeability_flux_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
+| T-0328 | P1 | CFTR Premature Termination Codon (PTC) Translational Readthrough & Ribosome Release Factor Kinetic Model (tools/discovery/ptc_ribosome_readthrough_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
+| T-0336 | P1 | Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer Decoy Kinetics Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0292 |  |
+| T-0341 | P1 | Interactive CFTR mRNA Secondary Structure & Stem-Loop Unfolding Dynamics Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0345 |  |
+| T-0347 | P1 | Interactive Airway Epithelial Glycocalyx Sialylation & Mucus Mesh Steric Exclusion Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0348 | P1 | Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Competition Simulator on /cf/ptc/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0353 | P1 | Interactive Airway Epithelial Ciliated vs Goblet Cell Density & Mucociliary Escalator Clearance Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0354 | P1 | Interactive CFTR Truncation Readthrough (ELX-02 / G418 / Ataluren) Concentration-Response & Toxic Off-Target Window Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0365 | P1 | Interactive Airway Epithelial CFTR Exon-Skipping (AON Antisense Oligonucleotide) In Silico Splice-Site Thermodynamic Optimization Simulator on /cf/ptc/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0366 | P1 | Interactive Inhaled Superparamagnetic Iron Oxide Nanoparticle (SPION) Magnetic Mucus Guidance & Magnetic Resonance Tracer Dynamics on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0369 | P1 | Deep Airway Submucosal Gland Serous Acinar Cell Fluid Hydrodynamics & Aquaporin-5 Conductance Model (tools/discovery/submucosal_gland_fluid_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0370 | P1 | Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Dispersion Kinetics Model (tools/discovery/dpi_carrier_detachment_model.py) | cf-research | 2.5-4 | 5 | 15.4 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0293 | P1 | Interactive Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0271 |  |
+| T-0305 | P1 | Interactive Airway Surface Liquid (ASL) Osmotic Gradient & Hypertonic Saline Hydration Dynamics Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0275 |  |
+| T-0306 | P1 | Interactive CFTR Premature Termination Codon (PTC) Readthrough Ribosome Structural Kinetics & Aminoglycoside Toxicity Simulator on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0247 |  |
+| T-0309 | P1 | Airway Epithelial Hypertonic Saline Osmotic Mucus Dehydration & ASL Volume Restoration Model (tools/discovery/asl_osmotic_restoration_model.py) | cf-research | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0310 | P1 | CFTR W1282X & G542X Ribosome Footprint Profiling & Aminoglycoside-Mediated Termination Suppression Model (tools/discovery/ptc_ribosome_profiling_model.py) | cf-research | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0317 | P1 | Interactive Airway Surface Liquid (ASL) Acidification & ATP12A/V-ATPase Proton Pump Inhibition Simulator on /cf/tree/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local | T-0321 |  |
+| T-0318 | P1 | Interactive CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Synergy & Ribosome Translation Fidelity Simulator on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local | T-0322 |  |
+| T-0342 | P1 | Interactive Airway Epithelial Ciliary Beat Frequency & Metachronal Wave Coordination Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0346 |  |
+| T-0359 | P1 | Interactive Airway Goblet Cell Metaplasia & Mucus Hypersecretion Stoichiometry Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0357 |  |
+| T-0360 | P1 | Interactive CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0358 |  |
+| T-0371 | P1 | Interactive Deep Airway Submucosal Gland Serous Acinar Fluid & Aquaporin-5 Conductance Explorer on /cf/tree/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0369 |  |
+| T-0372 | P1 | Interactive Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Deposition Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0370 |  |
+| T-0383 | P1 | Interactive Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0381 |  |
+| T-0384 | P1 | Interactive CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0382 |  |
 | T-0061 | P1 | Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows) | cf-lab | 2-4 | 4 | 13.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full |  |  | T-0057 |  |
+| T-0297 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Scavenger Receptor Kinetics Model (tools/discovery/macrophage_scavenger_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0271 |  |
+| T-0303 | P1 | Airway Epithelial Club Cell Secretoglobin (SCGB1A1) Secretory Vesicle Trafficking & Apical Exosome Packaging Model (tools/discovery/club_cell_exosome_trafficking.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0304 | P1 | CFTR NBD2 / NBD1 ATP Hydrolysis Gating Cycle & Catalytic Water Coordination Energy Model (tools/discovery/atp_catalytic_water_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0333 | P1 | Airway Surface Liquid (ASL) Osmotic Depth & Transepithelial Water Flux Biophysical Model (tools/discovery/asl_osmotic_flux_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0334 | P1 | CFTR Premature Termination Codon (PTC) Release Factor eRF1-eRF3 Termination vs Readthrough Thermodynamic Model (tools/discovery/ptc_termination_flux_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0339 | P1 | CFTR Apical Microvillar Surface Density & MUC1/MUC4 Glycocalyx Diffusion Barrier Model (tools/discovery/microvillar_glycocalyx_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0340 | P1 | Class I Nonsense Allele (G542X, W1282X) Ribosome Profiling & A-Site Codon Decoding Speed Model (tools/discovery/ribosome_profiling_decoding_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0387 | P1 | Airway Calu-3 Epithelial Sialic Acid & MUC1/MUC4 Glycocalyx Electrostatic Charge Barrier Model (tools/discovery/glycocalyx_charge_barrier_model.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0298 | P1 | CFTR DeltaF508 / NBD1-TMD Coupling Allosteric Rescuing Pharmacophore Model (tools/discovery/nbd1_tmd_pharmacophore.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0281 |  |
+| T-0321 | P1 | Airway Surface Liquid pH Regulation, ATP12A/V-ATPase Proton Flux & Bicarbonate Secretion Biophysical Model (tools/discovery/asl_ph_regulation_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
+| T-0322 | P1 | CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Cooperativity & Ribosome Translation Fidelity Model (tools/discovery/ptc_readthrough_cooperativity_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-flash | 2026-10-22 | elevated | medium | local |  |  |
+| T-0345 | P1 | CFTR mRNA Exon 10-12 Secondary Structure & Translation Elongation Kinetic Barrier Model (tools/discovery/mrna_secondary_structure_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0346 | P1 | Mucociliary Clearance Metachronal Coordination & Viscoelastic Damping Model (tools/discovery/metachronal_wave_damping_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0357 | P1 | Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretion Stoichiometry Model (tools/discovery/goblet_cell_mucus_stoichiometry.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0358 | P1 | CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Model (tools/discovery/ptc_readthrough_fidelity_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0363 | P1 | Airway Epithelial Club Cell (SCGB1A1+) Secretoglobins & Anti-Inflammatory Surfactant Protein Secretion Model (tools/discovery/club_cell_secretoglobin_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0364 | P1 | CFTR Inhaled Lipid Nanoparticle (LNP) Nebulization Shear Stress & Poly(ethylene glycol) (PEG) Shielding Stability Model (tools/discovery/lnp_shear_stability_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0375 | P1 | Airway Surface Liquid (ASL) Sialic Acid & Sulfated Glycosaminoglycan (GAG) Electrostatic Binding Affinity Model (tools/discovery/asl_electrostatic_binding_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0376 | P1 | CFTR Delta-F508 ER Quality Control Chaperone (Hsp70/Hsp90/CHIP) Ubiquitin Ligase Kinetic Partitioning Model (tools/discovery/cftr_chaperone_ubiquitin_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0381 | P1 | Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Model (tools/discovery/nanoparticle_partitioning_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0382 | P1 | CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape Model (tools/discovery/nbd2_atp_hydrolysis_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0388 | P1 | CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Coupling Model (tools/discovery/cftr_snitrosylation_pdi_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0045 | P2 | Decide and document the install/link mechanism for using skills/cf-evidence-loop from hq without copying it | cf-lab | 1-2 | 4 | 26.7 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  |  |  |
 | T-0046 | P2 | Sickle cell disease coverage: HBB variant checks, ASH guideline source terms, and an SCD worked example in SKILL.md | cf-skills | 2-3 | 4 | 16 | no | model: claude-fable-5-1 | 2026-10-04 | elevated |  |  | T-0043 |  |
 | T-0035 | P2 | Tier table and loop housekeeping: elevated challenger rule, slim ai-loop-council, retire the loop-orchestrator prototype | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-04 | full |  |  | T-0030 |  |
@@ -827,7 +827,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tasks.test_check_subprocess_argument_safety; python tasks/check_subprocess_argument_safety.py --check
 - **Evidence:** tasks/specs/T-0385.md; OWASP Top 10:2025 A03 / CWE-78
 - **Spec:** `tasks/specs/T-0385.md`
-- **Notes:** Wave 34 Security Lane Replenishment. Audits subprocess and os.system invocations across all workspace repositories for shell injection and environment sanitization (CWE-78 / CWE-88).
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0386 Automated Cross-Repo Git Remote Refspec & Fetch/Push URL Tampering Guard (tasks/check_git_remote_refspecs.py)
 
@@ -836,7 +836,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tasks.test_check_git_remote_refspecs; python tasks/check_git_remote_refspecs.py --check
 - **Evidence:** tasks/specs/T-0386.md; OWASP Top 10:2025 A01 / CWE-284
 - **Spec:** `tasks/specs/T-0386.md`
-- **Notes:** Wave 34 Security Lane Replenishment. Audits git remote URLs and push refspecs across all workspace repositories for endpoint whitelisting and credential exposure (CWE-284 / CWE-522).
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0191 Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty
 
@@ -1040,7 +1040,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_mrna_folding_explorer tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0311.md; cf-research/landscape/ptc-readthrough.md
 - **Spec:** `tasks/specs/T-0311.md`
-- **Notes:** Wave 22 Showcase Backlog Replenishment. Interactive biophysical mRNA secondary structure visualizer exploring thermodynamic minimum free energy folding landscapes and translation elongation velocity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0323 Interactive Airway Calu-3 Air-Liquid Interface (ALI) Transepithelial Resistance (TEER) & Drug Flux Simulator on /cf/delivery/ with es-MX Parity
 
@@ -1049,7 +1049,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ali_teer_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0323.md; Pharm Res 23(7):1482-1490
 - **Spec:** `tasks/specs/T-0323.md`
-- **Notes:** Wave 24 Showcase Lane Replenishment. Interactive Calu-3 ALI culture TEER and apical-to-basolateral drug flux simulator with Spanish parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0324 Interactive CFTR Premature Termination Codon (PTC) Readthrough Aminoglycoside & Non-Aminoglycoside Synergy Landscape Explorer on /cf/ptc/ with es-MX Parity
 
@@ -1058,7 +1058,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_synergy_explorer tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0324.md; Nat Commun 12:4358; J Cyst Fibros 19(6):1017-1024
 - **Spec:** `tasks/specs/T-0324.md`
-- **Notes:** Wave 24 Showcase Lane Replenishment. Interactive response surface mapping translational readthrough cooperativity and ototoxicity boundaries.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0329 Interactive Airway Surface Liquid (ASL) Osmotic Collapse & Hypertonic Saline Rehydration Dynamics Simulator on /cf/tree/ with es-MX Parity
 
@@ -1067,7 +1067,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_osmotic_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0329.md; Donaldson et al. (2006) DOI:10.1056/NEJMoa043891
 - **Spec:** `tasks/specs/T-0329.md`
-- **Notes:** Wave 25 Showcase Lane Replenishment. Interactive ASL depth and hypertonic saline (7% NaCl) rehydration biophysical simulator on /cf/tree/ with reciprocal Mexican Spanish localization.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0330 Interactive CFTR Premature Termination Codon (PTC) Ribosome Proofreading & Eukaryotic Release Factor (eRF1/eRF3) Termination Kinetics Simulator on /cf/ptc/ with es-MX Parity
 
@@ -1076,7 +1076,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_ribosome_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0330.md; Floquet et al. (2012) DOI:10.1371/journal.pgen.1002608
 - **Spec:** `tasks/specs/T-0330.md`
-- **Notes:** Wave 25 Showcase Lane Replenishment. Interactive ribosome decoding competition (eRF1-eRF3 vs aa-tRNA) and pharmacological readthrough simulator on /cf/ptc/ with Mexican Spanish parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
 
@@ -1240,7 +1240,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_pdi_redox_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/pdi_redox_remodeling.py; PDB 8EIQ; DOI:10.1016/j.cell.2021.02.012; DOI:10.1074/jbc.M113.456897
 - **Spec:** `tasks/specs/T-0287.md`
-- **Notes:** Wave 17 Showcase Replenishment. Interactive redox remodeling simulation of CFTR transmembrane S-nitrosylation and PDI chaperone activity on /cf/cftr/ with full es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0294 Interactive Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Sialidase Permeabilization Simulator on /cf/delivery/ with es-MX Parity
 
@@ -1259,7 +1259,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_u1_decoy_splice_explorer tests.test_site; python tools/check_anti_hallucination.py
 - **Evidence:** DOI:10.1093/hmg/ddh247; DOI:10.1016/j.omtn.2020.08.017; ClinicalTrials.gov:NCT06429176
 - **Spec:** `tasks/specs/T-0299.md`
-- **Notes:** Wave 20 Showcase Replenishment. Mounts #u1-decoy-splice-explorer on /cf/ptc/.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0300 Interactive Sialidase-Mediated Apical Glycocalyx Permeabilization & Inhaled Vector Flux Simulator on /cf/delivery/ with es-MX Parity
 
@@ -1268,7 +1268,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_glycocalyx_permeabilization_explorer tests.test_site; python tools/check_anti_hallucination.py
 - **Evidence:** DOI:10.1126/science.1224376; DOI:10.1038/s41467-024-45302-1; ClinicalTrials.gov:NCT05668741
 - **Spec:** `tasks/specs/T-0300.md`
-- **Notes:** Wave 20 Showcase Replenishment. Mounts #glycocalyx-permeabilization-explorer on /cf/delivery/.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0312 Interactive Airway Epithelial Ciliary Beat Frequency (CBF) & Metachronal Wave Synchronization Simulator on /cf/tree/ with es-MX Parity
 
@@ -1307,7 +1307,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_ali_permeability_flux_model
 - **Evidence:** tasks/specs/T-0327.md; Pharm Res 23(7):1482-1490; J Aerosol Med 15(2):173-181
 - **Spec:** `tasks/specs/T-0327.md`
-- **Notes:** Wave 24 Research Lane Replenishment. Biophysical transport model for apparent permeability coefficients and efflux ratios across ALI cell barriers.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0328 CFTR Premature Termination Codon (PTC) Translational Readthrough & Ribosome Release Factor Kinetic Model (tools/discovery/ptc_ribosome_readthrough_model.py)
 
@@ -1316,7 +1316,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_ptc_ribosome_readthrough_model
 - **Evidence:** tasks/specs/T-0328.md; Nat Commun 12:4358; Nucleic Acids Res 44(8):3740-3755
 - **Spec:** `tasks/specs/T-0328.md`
-- **Notes:** Wave 24 Research Lane Replenishment. Biophysical translation kinetic model evaluating stochastic decoding competition at CFTR premature stop codons.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0335 Interactive CFTR Apical Microvillar Dense Brush Barrier & MUC1/MUC4 Glycocalyx Diffusion Simulator on /cf/delivery/ with es-MX Parity
 
@@ -1335,7 +1335,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_u1_snrnp_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0336.md; DOI:10.1128/MCB.06001-11
 - **Spec:** `tasks/specs/T-0336.md`
-- **Notes:** Wave 26 Showcase Lane Replenishment. Pre-mRNA splicing regulatory kinetics simulator on /cf/cftr/ modeling U1 snRNP competition with deep intronic decoys with es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0341 Interactive CFTR mRNA Secondary Structure & Stem-Loop Unfolding Dynamics Simulator on /cf/cftr/ with es-MX Parity
 
@@ -1344,7 +1344,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0341.md; DOI 10.1073/pnas.1908856116
 - **Spec:** `tasks/specs/T-0341.md`
-- **Notes:** Wave 27 Showcase Lane Replenishment. Interactive canvas visualizing CFTR mRNA secondary structures (stem-loops in Exon 10-12), ribosome pausing at structured hairpins, and modulation by antisense oligonucleotides with full Spanish (es-MX) parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0347 Interactive Airway Epithelial Glycocalyx Sialylation & Mucus Mesh Steric Exclusion Simulator on /cf/delivery/ with es-MX Parity
 
@@ -1353,7 +1353,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0347.md; DOI: 10.1038/s41467-022-31127-2
 - **Spec:** `tasks/specs/T-0347.md`
-- **Notes:** Wave 28 Showcase Lane Replenishment. Builds an interactive simulation of apical glycocalyx barrier exclusion and enzymatic sialidase permeabilization with full es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0348 Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Competition Simulator on /cf/ptc/ with es-MX Parity
 
@@ -1362,7 +1362,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0348.md; DOI: 10.1016/j.ajhg.2019.09.008
 - **Spec:** `tasks/specs/T-0348.md`
-- **Notes:** Wave 28 Showcase Lane Replenishment. Builds an interactive simulation of U1 snRNP decoy competitive displacement and pseudoexon exclusion with full es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0353 Interactive Airway Epithelial Ciliated vs Goblet Cell Density & Mucociliary Escalator Clearance Velocity Simulator on /cf/delivery/ with es-MX Parity
 
@@ -1371,7 +1371,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0353.md; DOI: 10.1165/rcmb.2021-0309OC
 - **Spec:** `tasks/specs/T-0353.md`
-- **Notes:** Wave 29 Showcase Lane Replenishment. Interactive model of ciliary beat frequency (CBF), goblet cell hyperplasia, and mucociliary transport velocity on /cf/delivery/ with full es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0354 Interactive CFTR Truncation Readthrough (ELX-02 / G418 / Ataluren) Concentration-Response & Toxic Off-Target Window Explorer on /cf/ptc/ with es-MX Parity
 
@@ -1380,7 +1380,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0354.md; DOI: 10.1038/s41467-020-18495-2
 - **Spec:** `tasks/specs/T-0354.md`
-- **Notes:** Wave 29 Showcase Lane Replenishment. Interactive pharmacodynamic concentration-response and ototoxicity/nephrotoxicity therapeutic window explorer on /cf/ptc/ with full es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0365 Interactive Airway Epithelial CFTR Exon-Skipping (AON Antisense Oligonucleotide) In Silico Splice-Site Thermodynamic Optimization Simulator on /cf/ptc/ with es-MX Parity
 
@@ -1389,7 +1389,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check
 - **Evidence:** tasks/specs/T-0365.md; DOI: 10.1016/j.omtn.2020.08.012
 - **Spec:** `tasks/specs/T-0365.md`
-- **Notes:** Wave 31 Showcase Lane Replenishment. Interactive splice-switching AON/ASO thermodynamic modeling, cryptic pseudoexon steric occlusion, and chloride restoration on /cf/ptc/ with es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0366 Interactive Inhaled Superparamagnetic Iron Oxide Nanoparticle (SPION) Magnetic Mucus Guidance & Magnetic Resonance Tracer Dynamics on /cf/delivery/ with es-MX Parity
 
@@ -1398,7 +1398,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check
 - **Evidence:** tasks/specs/T-0366.md; DOI: 10.1016/j.jconrel.2018.11.018
 - **Spec:** `tasks/specs/T-0366.md`
-- **Notes:** Wave 31 Showcase Lane Replenishment. Interactive aerosolized SPION external magnetic guidance vs mucus drag force simulator on /cf/delivery/ with es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0369 Deep Airway Submucosal Gland Serous Acinar Cell Fluid Hydrodynamics & Aquaporin-5 Conductance Model (tools/discovery/submucosal_gland_fluid_model.py)
 
@@ -1407,7 +1407,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_submucosal_gland_fluid; python tools/discovery/submucosal_gland_fluid_model.py --check
 - **Evidence:** tasks/specs/T-0369.md; DOI: 10.1152/physrev.00037.2006
 - **Spec:** `tasks/specs/T-0369.md`
-- **Notes:** Wave 31 Research Lane Replenishment. Models submucosal gland serous acini fluid secretion, AQP5 osmotic water conductivity, and ductal plugging in CF.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0370 Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Dispersion Kinetics Model (tools/discovery/dpi_carrier_detachment_model.py)
 
@@ -1416,7 +1416,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_dpi_carrier_detachment; python tools/discovery/dpi_carrier_detachment_model.py --check
 - **Evidence:** tasks/specs/T-0370.md; DOI: 10.1016/j.ijpharm.2019.118679
 - **Spec:** `tasks/specs/T-0370.md`
-- **Notes:** Wave 31 Research Lane Replenishment. Models carrier-API adhesion forces, patient peak inspiratory flow shear detachment, and peripheral lung aerosol deposition.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
@@ -1589,7 +1589,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_macrophage_evasion_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/macrophage_evasion_kinetics.py; DOI:10.1016/j.biomaterials.2015.08.053; DOI:10.1126/science.1229568; ClinicalTrials.gov:NCT05668741
 - **Spec:** `tasks/specs/T-0293.md`
-- **Notes:** Wave 18 Track B Public Showcase Replenishment. Connects T-0271 macrophage evasion biophysics to /cf/delivery/.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0305 Interactive Airway Surface Liquid (ASL) Osmotic Gradient & Hypertonic Saline Hydration Dynamics Simulator on /cf/tree/ with es-MX Parity
 
@@ -1598,7 +1598,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_osmotic_hydration_explorer tests.test_site.StaticTests
 - **Evidence:** DOI:10.1016/S0092-8674(00)81635-4; DOI:10.1056/NEJMoa043891; DOI:10.1085/jgp.118.4.385
 - **Spec:** `tasks/specs/T-0305.md`
-- **Notes:** Wave 21 Showcase Backlog Replenishment. Models Starling apical osmotic water flux J_v = L_p (Delta P - sigma Delta Pi), PCL height recovery, and ciliary beat restoration on /cf/tree/ with full Mexican Spanish parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0306 Interactive CFTR Premature Termination Codon (PTC) Readthrough Ribosome Structural Kinetics & Aminoglycoside Toxicity Simulator on /cf/ptc/ with es-MX Parity
 
@@ -1607,7 +1607,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_readthrough_kinetics_explorer tests.test_site.StaticTests
 - **Evidence:** DOI:10.1038/nature05756; DOI:10.1186/2043-9113-4-24; DOI:10.1073/pnas.1517595113
 - **Spec:** `tasks/specs/T-0306.md`
-- **Notes:** Wave 21 Showcase Backlog Replenishment. Interactive ribosomal A-site decoding simulation comparing stop-codon mispairing kinetics against renal and ototoxicity curves with full es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0309 Airway Epithelial Hypertonic Saline Osmotic Mucus Dehydration & ASL Volume Restoration Model (tools/discovery/asl_osmotic_restoration_model.py)
 
@@ -1616,7 +1616,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tools.discovery.test_asl_osmotic_restoration_model
 - **Evidence:** DOI:10.1085/jgp.118.4.385; DOI:10.1146/annurev.med.58.071905.105316; DOI:10.1056/NEJMoa043891
 - **Spec:** `tasks/specs/T-0309.md`
-- **Notes:** Wave 21 Research Backlog Replenishment. Biophysical mechanistic Python simulation of apical osmotic gradients, PCL height recovery, and ENaC clearance kinetics over 8 hours.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0310 CFTR W1282X & G542X Ribosome Footprint Profiling & Aminoglycoside-Mediated Termination Suppression Model (tools/discovery/ptc_ribosome_profiling_model.py)
 
@@ -1625,7 +1625,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tools.discovery.test_ptc_ribosome_profiling_model
 - **Evidence:** DOI:10.1016/j.bbrc.2004.08.136; DOI:10.1073/pnas.1517595113; DOI:10.1186/2043-9113-4-24
 - **Spec:** `tasks/specs/T-0310.md`
-- **Notes:** Wave 21 Research Backlog Replenishment. Codon-resolution translation kinetics comparing suppression efficiencies and eRF1/near-cognate competition across W1282X, G542X, and R553X.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0317 Interactive Airway Surface Liquid (ASL) Acidification & ATP12A/V-ATPase Proton Pump Inhibition Simulator on /cf/tree/ with es-MX Parity
 
@@ -1634,7 +1634,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_ph_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0317.md; Nature 487:109-113; Science 351:503-507
 - **Spec:** `tasks/specs/T-0317.md`
-- **Notes:** Wave 23 Showcase Lane Replenishment. Interactive ASL pH regulation and ATP12A/V-ATPase proton pump inhibitor simulator on /cf/tree/ with es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0318 Interactive CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Synergy & Ribosome Translation Fidelity Simulator on /cf/ptc/ with es-MX Parity
 
@@ -1643,7 +1643,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_readthrough_synergy_explorer tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0318.md; AJRCCM 203:1254-1264
 - **Spec:** `tasks/specs/T-0318.md`
-- **Notes:** Wave 23 Showcase Lane Replenishment. Interactive PTC readthrough synergy and translation fidelity explorer on /cf/ptc/ with es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0342 Interactive Airway Epithelial Ciliary Beat Frequency & Metachronal Wave Coordination Simulator on /cf/delivery/ with es-MX Parity
 
@@ -1652,7 +1652,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0342.md; DOI 10.1152/physrev.00015.2015
 - **Spec:** `tasks/specs/T-0342.md`
-- **Notes:** Wave 27 Showcase Lane Replenishment. Interactive multi-cilia biomechanical simulator on /cf/delivery/ demonstrating ciliary beat frequency (CBF, 8-16 Hz), metachronal wave propagation velocity, and mucus viscous load damping with full Spanish (es-MX) parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0359 Interactive Airway Goblet Cell Metaplasia & Mucus Hypersecretion Stoichiometry Simulator on /cf/delivery/ with es-MX Parity
 
@@ -1661,7 +1661,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check
 - **Evidence:** tasks/specs/T-0359.md; DOI: 10.1164/rccm.201703-0574OC
 - **Spec:** `tasks/specs/T-0359.md`
-- **Notes:** Wave 30 Showcase Lane Replenishment. Interactive client-side simulator on /cf/delivery/ with es-MX parity for goblet cell metaplasia and MUC5AC/MUC5B stoichiometry.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0360 Interactive CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Explorer on /cf/ptc/ with es-MX Parity
 
@@ -1670,7 +1670,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check
 - **Evidence:** tasks/specs/T-0360.md; DOI: 10.1073/pnas.1909673116
 - **Spec:** `tasks/specs/T-0360.md`
-- **Notes:** Wave 30 Showcase Lane Replenishment. Interactive explorer on /cf/ptc/ with es-MX parity for Class I nonsense readthrough misincorporation and translational fidelity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0371 Interactive Deep Airway Submucosal Gland Serous Acinar Fluid & Aquaporin-5 Conductance Explorer on /cf/tree/ with es-MX Parity
 
@@ -1679,7 +1679,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0371.md; DOI: 10.1152/ajplung.00164.2020
 - **Spec:** `tasks/specs/T-0371.md`
-- **Notes:** Wave 32 Showcase Lane Replenishment. Interactive human airway submucosal gland serous acinar fluid secretion and AQP5 transcellular water permeability explorer on /cf/tree/ with es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0372 Interactive Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Deposition Simulator on /cf/delivery/ with es-MX Parity
 
@@ -1688,7 +1688,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0372.md; DOI: 10.1016/j.ijpharm.2018.04.032
 - **Spec:** `tasks/specs/T-0372.md`
-- **Notes:** Wave 32 Showcase Lane Replenishment. Interactive dry powder inhaler carrier-lactose detachment and aerodynamic pulmonary deposition simulator on /cf/delivery/ with es-MX parity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0377 Interactive CFTR mRNA Secondary Structure Minimum Free Energy (MFE) Folding & Ribosome Translocation Velocity Explorer on /cf/ptc/ with es-MX Parity
 
@@ -1715,7 +1715,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0383.md; DOI: 10.1016/j.addr.2021.113904
 - **Spec:** `tasks/specs/T-0383.md`
-- **Notes:** Wave 34 Showcase Lane Replenishment. Interactive delivery simulator on /cf/delivery/ with Mexican Spanish (es-MX) parity modeling nanoparticle mucociliary transit vs macrophage phagocytosis.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0384 Interactive CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape on /cf/cftr/ with es-MX Parity
 
@@ -1724,7 +1724,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0384.md; DOI: 10.1085/jgp.202012678
 - **Spec:** `tasks/specs/T-0384.md`
-- **Notes:** Wave 34 Showcase Lane Replenishment. Interactive thermodynamic free-energy landscape visualization on /cf/cftr/ with Mexican Spanish (es-MX) parity modeling NBD2 ATP hydrolysis and channel closing.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0061 Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows)
 
@@ -1922,7 +1922,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_macrophage_scavenger_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1126/science.1229568; DOI:10.1016/j.biomaterials.2015.08.053; DOI:10.1038/nri978; ClinicalTrials.gov:NCT05668741
 - **Spec:** `tasks/specs/T-0297.md`
-- **Notes:** Wave 19 Research Replenishment. Implements tools/discovery/macrophage_scavenger_kinetics.py.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0303 Airway Epithelial Club Cell Secretoglobin (SCGB1A1) Secretory Vesicle Trafficking & Apical Exosome Packaging Model (tools/discovery/club_cell_exosome_trafficking.py)
 
@@ -1931,7 +1931,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_club_cell_exosome_trafficking.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1016/j.biocel.2009.09.002; DOI:10.1016/j.stem.2009.04.002; ClinicalTrials.gov:NCT04207983
 - **Spec:** `tasks/specs/T-0303.md`
-- **Notes:** Wave 20 Research Replenishment. Implements tools/discovery/club_cell_exosome_trafficking.py.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0304 CFTR NBD2 / NBD1 ATP Hydrolysis Gating Cycle & Catalytic Water Coordination Energy Model (tools/discovery/atp_catalytic_water_model.py)
 
@@ -1940,7 +1940,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_atp_catalytic_water_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1016/j.cell.2016.11.014; DOI:10.1016/j.cell.2017.02.024; PDB:6MSM; ClinicalTrials.gov:NCT00909532
 - **Spec:** `tasks/specs/T-0304.md`
-- **Notes:** Wave 20 Research Replenishment. Implements tools/discovery/atp_catalytic_water_model.py.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0333 Airway Surface Liquid (ASL) Osmotic Depth & Transepithelial Water Flux Biophysical Model (tools/discovery/asl_osmotic_flux_model.py)
 
@@ -1949,7 +1949,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/discovery/test_asl_osmotic_flux_model.py; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0333.md; Goralski et al. (2010) DOI:10.1016/j.coph.2010.04.004
 - **Spec:** `tasks/specs/T-0333.md`
-- **Notes:** Wave 25 Research Lane Replenishment. Mechanistic ODE modeling of transepithelial water transport and ASL osmotic restoration following hypertonic saline challenge.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0334 CFTR Premature Termination Codon (PTC) Release Factor eRF1-eRF3 Termination vs Readthrough Thermodynamic Model (tools/discovery/ptc_termination_flux_model.py)
 
@@ -1958,7 +1958,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/discovery/test_ptc_termination_flux_model.py; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0334.md; Roy et al. (2016) DOI:10.1146/annurev-genom-090314-050032
 - **Spec:** `tasks/specs/T-0334.md`
-- **Notes:** Wave 25 Research Lane Replenishment. Master equation simulation of ribosome stop codon decoding and readthrough efficiency across nonsense mutations.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0339 CFTR Apical Microvillar Surface Density & MUC1/MUC4 Glycocalyx Diffusion Barrier Model (tools/discovery/microvillar_glycocalyx_model.py)
 
@@ -1967,7 +1967,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_microvillar_glycocalyx_model; python tools/discovery/microvillar_glycocalyx_model.py --check
 - **Evidence:** tasks/specs/T-0339.md; DOI:10.1126/science.1223012
 - **Spec:** `tasks/specs/T-0339.md`
-- **Notes:** Wave 26 Research Lane Replenishment. Biophysical model quantifying apical epithelial microvillar steric hindrance and transmembrane mucin polymer brush resistance.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0340 Class I Nonsense Allele (G542X, W1282X) Ribosome Profiling & A-Site Codon Decoding Speed Model (tools/discovery/ribosome_profiling_decoding_model.py)
 
@@ -1976,7 +1976,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_ribosome_profiling_decoding_model; python tools/discovery/ribosome_profiling_decoding_model.py --check
 - **Evidence:** tasks/specs/T-0340.md; DOI:10.1073/pnas.1523356113
 - **Spec:** `tasks/specs/T-0340.md`
-- **Notes:** Wave 26 Research Lane Replenishment. Biophysical model simulating ribo-seq ribosome stall dynamics and translational elongation velocities across CFTR PTC stop codons.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0387 Airway Calu-3 Epithelial Sialic Acid & MUC1/MUC4 Glycocalyx Electrostatic Charge Barrier Model (tools/discovery/glycocalyx_charge_barrier_model.py)
 
@@ -1985,7 +1985,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_glycocalyx_charge_barrier_model
 - **Evidence:** tasks/specs/T-0387.md; DOI: 10.1021/acs.biomac.1c00428
 - **Spec:** `tasks/specs/T-0387.md`
-- **Notes:** Wave 34 Research Lane Replenishment. Biophysical model of Calu-3 apical glycocalyx sialic acid charge barrier and vector partition coefficients.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
@@ -2101,7 +2101,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_nbd1_tmd_pharmacophore.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1042/BJ20130541; DOI:10.1016/j.cell.2011.11.024; DOI:10.1016/j.cell.2011.11.023; ClinicalTrials.gov:NCT03525444
 - **Spec:** `tasks/specs/T-0298.md`
-- **Notes:** Wave 19 Research Replenishment. Implements tools/discovery/nbd1_tmd_pharmacophore.py.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0321 Airway Surface Liquid pH Regulation, ATP12A/V-ATPase Proton Flux & Bicarbonate Secretion Biophysical Model (tools/discovery/asl_ph_regulation_model.py)
 
@@ -2110,7 +2110,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_asl_ph_regulation_model; python tools/discovery/asl_ph_regulation_model.py --check
 - **Evidence:** tasks/specs/T-0321.md; Nature 487:109-113; JCI Insight 3:e123616
 - **Spec:** `tasks/specs/T-0321.md`
-- **Notes:** Wave 23 Research Lane Replenishment. Biophysical flux model of ASL proton-bicarbonate homeostasis and ATP12A inhibitor rescue.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0322 CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Cooperativity & Ribosome Translation Fidelity Model (tools/discovery/ptc_readthrough_cooperativity_model.py)
 
@@ -2119,7 +2119,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_ptc_readthrough_cooperativity_model; python tools/discovery/ptc_readthrough_cooperativity_model.py --check
 - **Evidence:** tasks/specs/T-0322.md; AJRCCM 203:1254-1264
 - **Spec:** `tasks/specs/T-0322.md`
-- **Notes:** Wave 23 Research Lane Replenishment. Four-state Markov chain translation fidelity model of dual-agent nonsense readthrough cooperativity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0345 CFTR mRNA Exon 10-12 Secondary Structure & Translation Elongation Kinetic Barrier Model (tools/discovery/mrna_secondary_structure_model.py)
 
@@ -2128,7 +2128,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/discovery/mrna_secondary_structure_model.py --check
 - **Evidence:** tasks/specs/T-0345.md; DOI 10.1073/pnas.1908856116
 - **Spec:** `tasks/specs/T-0345.md`
-- **Notes:** Wave 27 Research Lane Replenishment. Computational thermodynamic model of CFTR mRNA stem-loop folding free energies (ΔG) across Exons 10-12 (containing F508del and Class I mutations), quantifying ribosome pause duration and elongation kinetics.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0346 Mucociliary Clearance Metachronal Coordination & Viscoelastic Damping Model (tools/discovery/metachronal_wave_damping_model.py)
 
@@ -2137,7 +2137,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/discovery/metachronal_wave_damping_model.py --check
 - **Evidence:** tasks/specs/T-0346.md; DOI 10.1152/physrev.00015.2015
 - **Spec:** `tasks/specs/T-0346.md`
-- **Notes:** Wave 27 Research Lane Replenishment. Hydrodynamic and biophysical model of ciliary metachronal wave propagation under varying mucus viscosity (healthy ASL vs CF thickened mucus), calculating transport velocity and shear force generation.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0351 Airway Epithelial Glycocalyx Barrier Sialic Acid Charge Density & Enzymatic Permeabilization Model (tools/discovery/glycocalyx_charge_barrier_model.py)
 
@@ -2166,7 +2166,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/discovery/goblet_cell_mucus_stoichiometry.py --check
 - **Evidence:** tasks/specs/T-0357.md; DOI: 10.1172/JCI127771
 - **Spec:** `tasks/specs/T-0357.md`
-- **Notes:** Wave 29 Research Lane Replenishment. Mathematical modeling of IL-13-driven goblet cell metaplasia, pathological MUC5AC hypersecretion, and protective MUC5B stoichiometric ratios in CF airways.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0358 CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Model (tools/discovery/ptc_readthrough_fidelity_model.py)
 
@@ -2175,7 +2175,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python tools/discovery/ptc_readthrough_fidelity_model.py --check
 - **Evidence:** tasks/specs/T-0358.md; DOI: 10.1073/pnas.2001407117
 - **Spec:** `tasks/specs/T-0358.md`
-- **Notes:** Wave 29 Research Lane Replenishment. Quantitative model of near-cognate aminoacyl-tRNA misincorporation probabilities and CFTR functional channel rescue vs nonsense-mediated decay escape.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0363 Airway Epithelial Club Cell (SCGB1A1+) Secretoglobins & Anti-Inflammatory Surfactant Protein Secretion Model (tools/discovery/club_cell_secretoglobin_model.py)
 
@@ -2184,7 +2184,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_club_cell_secretoglobin; python tools/discovery/club_cell_secretoglobin_model.py --check
 - **Evidence:** tasks/specs/T-0363.md; DOI: 10.1165/rcmb.2019-0139TR
 - **Spec:** `tasks/specs/T-0363.md`
-- **Notes:** Wave 30 Research Lane Replenishment. Models bronchiolar club cell CC16/surfactant secretion, anti-elastase defense, and regenerative plasticity.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0364 CFTR Inhaled Lipid Nanoparticle (LNP) Nebulization Shear Stress & Poly(ethylene glycol) (PEG) Shielding Stability Model (tools/discovery/lnp_shear_stability_model.py)
 
@@ -2193,7 +2193,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_lnp_shear_stability; python tools/discovery/lnp_shear_stability_model.py --check
 - **Evidence:** tasks/specs/T-0364.md; DOI: 10.1016/j.jconrel.2021.08.052
 - **Spec:** `tasks/specs/T-0364.md`
-- **Notes:** Wave 30 Research Lane Replenishment. Biophysical shear stress, acoustic droplet formation, and PEG shedding model for nebulized mRNA LNPs.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0375 Airway Surface Liquid (ASL) Sialic Acid & Sulfated Glycosaminoglycan (GAG) Electrostatic Binding Affinity Model (tools/discovery/asl_electrostatic_binding_model.py)
 
@@ -2202,7 +2202,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_asl_electrostatic_binding_model; python tools/discovery/asl_electrostatic_binding_model.py --check
 - **Evidence:** tasks/specs/T-0375.md; DOI: 10.1021/acs.biomac.1c00452
 - **Spec:** `tasks/specs/T-0375.md`
-- **Notes:** Wave 32 Research Lane Replenishment. Mathematical model of cationic nanoparticle electrostatic binding to mucin sialic acid and sulfated GAGs in CF ASL.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0376 CFTR Delta-F508 ER Quality Control Chaperone (Hsp70/Hsp90/CHIP) Ubiquitin Ligase Kinetic Partitioning Model (tools/discovery/cftr_chaperone_ubiquitin_model.py)
 
@@ -2211,7 +2211,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_cftr_chaperone_ubiquitin_model; python tools/discovery/cftr_chaperone_ubiquitin_model.py --check
 - **Evidence:** tasks/specs/T-0376.md; DOI: 10.1016/j.cell.2006.09.043; PDB: 5UAK
 - **Spec:** `tasks/specs/T-0376.md`
-- **Notes:** Wave 32 Research Lane Replenishment. Kinetic partitioning model of molecular chaperone triage vs CHIP E3 ligase ubiquitination and ERAD of Delta-F508 CFTR.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0381 Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Model (tools/discovery/nanoparticle_partitioning_model.py)
 
@@ -2220,7 +2220,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_nanoparticle_partitioning_model
 - **Evidence:** tasks/specs/T-0381.md; DOI: 10.1016/j.addr.2021.113904
 - **Spec:** `tasks/specs/T-0381.md`
-- **Notes:** Wave 33 Research Lane Replenishment. Mechanistic ODE model of aerosolized nanoparticle mucociliary transit vs macrophage phagocytosis in CF lungs.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0382 CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape Model (tools/discovery/nbd2_atp_hydrolysis_model.py)
 
@@ -2229,7 +2229,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_nbd2_atp_hydrolysis_model
 - **Evidence:** tasks/specs/T-0382.md; DOI: 10.1085/jgp.202012678
 - **Spec:** `tasks/specs/T-0382.md`
-- **Notes:** Wave 33 Research Lane Replenishment. Biophysical model of NBD2 ATP Site 2 catalytic hydrolysis, dimer dissociation, and potentiator stabilization.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0388 CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Coupling Model (tools/discovery/cftr_snitrosylation_pdi_model.py)
 
@@ -2238,7 +2238,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tools.discovery.test_cftr_snitrosylation_pdi_model
 - **Evidence:** tasks/specs/T-0388.md; DOI: 10.1074/jbc.M111.235945
 - **Spec:** `tasks/specs/T-0388.md`
-- **Notes:** Wave 34 Research Lane Replenishment. Mechanistic biochemical model of CFTR transmembrane cryptic cysteine S-nitrosylation and PDI-mediated reduction.
+- **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
