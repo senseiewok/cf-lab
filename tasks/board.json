@@ -17487,7 +17487,7 @@
       "title": "Automated Cross-Repo Agent Path Traversal & Canonical Path Resolution Linter (tasks/check_path_traversal.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -17522,14 +17522,17 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0355.md; .claude/skills/security-baseline/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo agent path traversal & canonical path resolution linter (tasks/check_path_traversal.py) and test suite (tasks/test_check_path_traversal.py) with 7 unit tests passing deterministically."
     },
     {
       "id": "T-0356",
       "title": "Automated Multi-Repo Git Commit GPG / SSH Signature Verification & Identity Invariant Linter (tasks/check_git_commit_signatures.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -17564,7 +17567,10 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0356.md; .claude/skills/security-git/SKILL.md",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo git commit GPG / SSH signature verification & identity invariant linter (tasks/check_git_commit_signatures.py) and test suite (tasks/test_check_git_commit_signatures.py) with 6 unit tests passing deterministically."
     },
     {
       "id": "T-0357",
@@ -17647,6 +17653,262 @@
       "recommended_route": "local",
       "route_rationale": "Mathematical model and validation tests in cf-research.",
       "source_evidence": "tasks/specs/T-0358.md; DOI: 10.1073/pnas.2001407117",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0359",
+      "title": "Interactive Airway Goblet Cell Metaplasia & Mucus Hypersecretion Stoichiometry Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0357"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check",
+      "notes": "Wave 30 Showcase Lane Replenishment. Interactive client-side simulator on /cf/delivery/ with es-MX parity for goblet cell metaplasia and MUC5AC/MUC5B stoichiometry.",
+      "spec_path": "tasks/specs/T-0359.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Empowers CF patients and clinicians to visualize mucus thickening and delivery barrier dynamics under airway inflammation.",
+        "categories": {
+          "curative_biophysics": 8.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 7.5,
+          "security_compliance": 6.0
+        },
+        "composite_score": 7.7,
+        "roi_ratio": 2.2
+      },
+      "recommended_route": "local",
+      "route_rationale": "Zero-build frontend component and unit test additions in .ai.",
+      "source_evidence": "tasks/specs/T-0359.md; DOI: 10.1164/rccm.201703-0574OC",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0360",
+      "title": "Interactive CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Explorer on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0358"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check",
+      "notes": "Wave 30 Showcase Lane Replenishment. Interactive explorer on /cf/ptc/ with es-MX parity for Class I nonsense readthrough misincorporation and translational fidelity.",
+      "spec_path": "tasks/specs/T-0360.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Explores therapeutic window between chloride channel rescue and proteome error toxicity for nonsense mutations.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.5,
+          "security_compliance": 6.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 2.3
+      },
+      "recommended_route": "local",
+      "route_rationale": "Zero-build frontend component and unit test additions in .ai.",
+      "source_evidence": "tasks/specs/T-0360.md; DOI: 10.1073/pnas.1909673116",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0361",
+      "title": "Automated Multi-Repo Agent Environment Variable Leakage & Canary Isolation Linter (tasks/check_env_canary_leakage.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_env_canary_leakage; python tasks/check_env_canary_leakage.py --check",
+      "notes": "Wave 30 Security Lane Replenishment. Audits child subprocess environment inheritance and canary isolation across all 4 workspace repos.",
+      "spec_path": "tasks/specs/T-0361.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents accidental secret and canary propagation to untrusted subshells and agent scripts.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0361.md; CWE-200 / CWE-214",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0362",
+      "title": "Automated Cross-Repo Git Branch Naming & Semantic Convention Linter (tasks/check_git_branch_conventions.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_branch_conventions; python tasks/check_git_branch_conventions.py --check",
+      "notes": "Wave 30 Security Lane Replenishment. Audits git branch naming taxonomy, task ID association, and refspec safety across workspace repos.",
+      "spec_path": "tasks/specs/T-0362.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents branch taxonomy drift, refspec collisions, and rogue branch sprawl across workspace clones.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0362.md; CWE-20",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0363",
+      "title": "Airway Epithelial Club Cell (SCGB1A1+) Secretoglobins & Anti-Inflammatory Surfactant Protein Secretion Model (tools/discovery/club_cell_secretoglobin_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_club_cell_secretoglobin; python tools/discovery/club_cell_secretoglobin_model.py --check",
+      "notes": "Wave 30 Research Lane Replenishment. Models bronchiolar club cell CC16/surfactant secretion, anti-elastase defense, and regenerative plasticity.",
+      "spec_path": "tasks/specs/T-0363.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Addresses distal airway mucosal defense, innate immune impairment, and mucosal repair in CF lungs.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 7.6,
+        "roi_ratio": 2.1
+      },
+      "recommended_route": "local",
+      "route_rationale": "In silico ODE kinetic model and test suite in cf-research.",
+      "source_evidence": "tasks/specs/T-0363.md; DOI: 10.1165/rcmb.2019-0139TR",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0364",
+      "title": "CFTR Inhaled Lipid Nanoparticle (LNP) Nebulization Shear Stress & Poly(ethylene glycol) (PEG) Shielding Stability Model (tools/discovery/lnp_shear_stability_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_lnp_shear_stability; python tools/discovery/lnp_shear_stability_model.py --check",
+      "notes": "Wave 30 Research Lane Replenishment. Biophysical shear stress, acoustic droplet formation, and PEG shedding model for nebulized mRNA LNPs.",
+      "spec_path": "tasks/specs/T-0364.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Critical formulation biophysics to prevent payload degradation during inhalation therapy delivery.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 7.8,
+        "roi_ratio": 2.2
+      },
+      "recommended_route": "local",
+      "route_rationale": "In silico biophysical shear stability model and test suite in cf-research.",
+      "source_evidence": "tasks/specs/T-0364.md; DOI: 10.1016/j.jconrel.2021.08.052",
       "executor": "agent",
       "human_required": false
     }

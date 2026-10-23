@@ -158,6 +158,10 @@ $Checks = @(
     @{ name = 'test-tempfile-security';    exe = 'python';     args = @('tasks/test_check_tempfile_security.py');                                                  needs = @('python') }
     @{ name = 'check-git-remote';          exe = 'python';     args = @('tasks/check_git_remote_invariants.py', '--check');                                         needs = @('python') }
     @{ name = 'test-git-remote';           exe = 'python';     args = @('tasks/test_check_git_remote_invariants.py');                                              needs = @('python') }
+    @{ name = 'check-path-traversal';      exe = 'python';     args = @('tasks/check_path_traversal.py', '--check');                                                 needs = @('python') }
+    @{ name = 'test-path-traversal';       exe = 'python';     args = @('tasks/test_check_path_traversal.py');                                                     needs = @('python') }
+    @{ name = 'check-git-signatures';      exe = 'python';     args = @('tasks/check_git_commit_signatures.py', '--check');                                         needs = @('python') }
+    @{ name = 'test-git-signatures';       exe = 'python';     args = @('tasks/test_check_git_commit_signatures.py');                                              needs = @('python') }
     # models (the guard only; nothing here talks to Ollama)
     @{ name = 'test-restart-ollama';      exe = 'pwsh';       args = @("$s/model-qwen3-8-27b/test-restart-ollama.ps1");                                    needs = @() }
     @{ name = 'test-score-claim-mapping'; exe = 'python';     args = @("$s/model-onboarding/scripts/test_score_claim_mapping.py");                         needs = @('python') }
