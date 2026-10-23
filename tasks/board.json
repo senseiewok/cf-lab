@@ -19074,7 +19074,7 @@
       "title": "Interactive CFTR Gating Potentiator Allosteric Cooperativity & Energy Coupling Explorer on /cf/cftr/ with es-MX Parity",
       "repo": ".ai",
       "area": "showcase",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -19091,7 +19091,7 @@
         "high": 5.0
       },
       "acceptance": "python -m unittest tests.test_site; python tools/check_anti_hallucination.py",
-      "notes": "Showcase Lane Replenishment. Interactive CFTR gating potentiator allosteric cooperativity, free-energy coupling (DeltaDeltaG), and open probability (Po) simulator on /cf/cftr/ across ivacaftor, deutivacaftor, and vanzacaftor with es-MX parity.",
+      "notes": "Delivered in senseiewok/.ai#162. Expanded interactive CFTR gating potentiator allosteric cooperativity explorer on /cf/cftr/ with vanzacaftor (VX-121) Site 1 binding and G178R Class III TM3 hinge mutant archetype, with full es-MX translation parity and unit tests.",
       "spec_path": "tasks/specs/T-0390.md",
       "roi": {
         "benefit": 5,
@@ -19105,20 +19105,23 @@
           "security_compliance": 2.0
         },
         "composite_score": 6.3,
-        "roi_ratio": 1.57
+        "roi_ratio": 1.57,
+        "measured": 4.0
       },
       "recommended_route": "local",
       "route_rationale": "Client-side interactive visualization on .ai.",
       "source_evidence": "tasks/specs/T-0390.md; cf-research/tools/discovery/gating_potentiator_energy_coupling.py; RCSB PDB 6O2P, 7SVD, 8EIQ; DOI 10.1038/s41586-019-1677-8",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-23",
+      "actual_hours": 4.0
     },
     {
       "id": "T-0391",
       "title": "Interactive Inhaled Nanoparticle Macrophage Evasion & Biomimetic CD47 Brush Dynamics Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "showcase",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -19135,7 +19138,7 @@
         "high": 5.0
       },
       "acceptance": "python -m unittest tests.test_site; python tools/check_anti_hallucination.py",
-      "notes": "Showcase Lane Replenishment. Interactive pulmonary macrophage evasion kinetics and biomimetic CD47 brush shielding simulator on /cf/delivery/ with es-MX parity, modeling avoidance of post-VX-522 tolerability bottlenecks.",
+      "notes": "Delivered in senseiewok/.ai#162. Interactive in-silico simulation of pulmonary macrophage clearance evasion kinetics, CD47 'Don't Eat Me' SIRP-alpha signaling, and stealth brush dynamics on /cf/delivery/ with full es-MX parity, strict CSP, and unit tests.",
       "spec_path": "tasks/specs/T-0391.md",
       "roi": {
         "benefit": 5,
@@ -19149,13 +19152,16 @@
           "security_compliance": 2.0
         },
         "composite_score": 6.9,
-        "roi_ratio": 1.73
+        "roi_ratio": 1.73,
+        "measured": 4.0
       },
       "recommended_route": "local",
       "route_rationale": "Client-side interactive visualization on .ai.",
       "source_evidence": "tasks/specs/T-0391.md; cf-research/tools/discovery/macrophage_evasion_kinetics.py; DOI 10.1038/s41565-021-00870-x; DOI 10.1126/science.1233768; NCT05668741",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-23",
+      "actual_hours": 4.0
     },
     {
       "id": "T-0392",

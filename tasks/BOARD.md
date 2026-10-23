@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-394 tasks, 393 created by a model, 178 with a measured outcome. Estimated effort 997.35 to 1810.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+394 tasks, 393 created by a model, 180 with a measured outcome. Estimated effort 997.35 to 1810.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,14 +10,12 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (21)
+## ready (19)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0390 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Energy Coupling Explorer on /cf/cftr/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
-| T-0391 | P1 | Interactive Inhaled Nanoparticle Macrophage Evasion & Biomimetic CD47 Brush Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0129 | P1 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
@@ -36,7 +34,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0394 | P2 | Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model (tools/discovery/suppressor_trna_orthogonality.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
-## done (301)
+## done (303)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -166,6 +164,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0291 | P1 | Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Enzymatic Sialidase Permeabilization Model (tools/discovery/glycocalyx_permeabilization_model.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0292 | P1 | CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Binding Kinetics & Cryptic Exon Exclusion Model (tools/discovery/u1_snrnp_decoy_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0389 | P1 | Interactive Recruiting Clinical Trials & Bilingual Care-Team Visit Prep Explorer on /cf/trials/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0390 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Energy Coupling Explorer on /cf/cftr/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0391 | P1 | Interactive Inhaled Nanoparticle Macrophage Evasion & Biomimetic CD47 Brush Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0276 | P1 | Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0272 |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -1993,7 +1993,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0390.md; cf-research/tools/discovery/gating_potentiator_energy_coupling.py; RCSB PDB 6O2P, 7SVD, 8EIQ; DOI 10.1038/s41586-019-1677-8
 - **Spec:** `tasks/specs/T-0390.md`
-- **Notes:** Showcase Lane Replenishment. Interactive CFTR gating potentiator allosteric cooperativity, free-energy coupling (DeltaDeltaG), and open probability (Po) simulator on /cf/cftr/ across ivacaftor, deutivacaftor, and vanzacaftor with es-MX parity.
+- **Notes:** Delivered in senseiewok/.ai#162. Expanded interactive CFTR gating potentiator allosteric cooperativity explorer on /cf/cftr/ with vanzacaftor (VX-121) Site 1 binding and G178R Class III TM3 hinge mutant archetype, with full es-MX translation parity and unit tests.
+- **Measured:**  h; 
 
 ### T-0391 Interactive Inhaled Nanoparticle Macrophage Evasion & Biomimetic CD47 Brush Dynamics Simulator on /cf/delivery/ with es-MX Parity
 
@@ -2002,7 +2003,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0391.md; cf-research/tools/discovery/macrophage_evasion_kinetics.py; DOI 10.1038/s41565-021-00870-x; DOI 10.1126/science.1233768; NCT05668741
 - **Spec:** `tasks/specs/T-0391.md`
-- **Notes:** Showcase Lane Replenishment. Interactive pulmonary macrophage evasion kinetics and biomimetic CD47 brush shielding simulator on /cf/delivery/ with es-MX parity, modeling avoidance of post-VX-522 tolerability bottlenecks.
+- **Notes:** Delivered in senseiewok/.ai#162. Interactive in-silico simulation of pulmonary macrophage clearance evasion kinetics, CD47 'Don't Eat Me' SIRP-alpha signaling, and stealth brush dynamics on /cf/delivery/ with full es-MX parity, strict CSP, and unit tests.
+- **Measured:**  h; 
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
