@@ -122,6 +122,58 @@ $Checks = @(
     @{ name = 'test-evidence-cli-launcher'; exe = 'python';   args = @('tasks/test_evidence_cli_launcher.py');                                             needs = @('python') }
     @{ name = 'check-i18n-parity';        exe = 'python';     args = @('tasks/check_i18n_parity.py', '--check');                                           needs = @('python') }
     @{ name = 'test-check-i18n-parity';   exe = 'python';     args = @('tasks/test_check_i18n_parity.py');                                                 needs = @('python') }
+    @{ name = 'check-markdown-links';     exe = 'python';     args = @('tasks/check_markdown_link_integrity.py', '--check');                               needs = @('python') }
+    @{ name = 'test-check-markdown-links'; exe = 'python';    args = @('tasks/test_check_markdown_link_integrity.py');                                     needs = @('python') }
+    @{ name = 'check-sentinel-telemetry'; exe = 'python';     args = @('tasks/check_sentinel_telemetry_linter.py', '--check');                             needs = @('python') }
+    @{ name = 'test-sentinel-telemetry';  exe = 'python';     args = @('tasks/test_check_sentinel_telemetry_linter.py');                                   needs = @('python') }
+    @{ name = 'check-env-canary';         exe = 'python';     args = @('tasks/check_env_canary_isolation.py', '--check');                                  needs = @('python') }
+    @{ name = 'test-env-canary';          exe = 'python';     args = @('tasks/test_check_env_canary_isolation.py');                                         needs = @('python') }
+    @{ name = 'check-tool-permissions';   exe = 'python';     args = @('tasks/check_tool_permission_invariants.py', '--check');                             needs = @('python') }
+    @{ name = 'test-tool-permissions';    exe = 'python';     args = @('tasks/test_check_tool_permission_invariants.py');                                    needs = @('python') }
+    @{ name = 'check-git-hooks';          exe = 'python';     args = @('tasks/check_git_hooks_invariants.py', '--check');                                       needs = @('python') }
+    @{ name = 'test-git-hooks';           exe = 'python';     args = @('tasks/test_check_git_hooks_invariants.py');                                            needs = @('python') }
+    @{ name = 'check-playwright-hygiene'; exe = 'python';     args = @('tasks/check_playwright_test_hygiene.py', '--check');                                     needs = @('python') }
+    @{ name = 'test-playwright-hygiene';  exe = 'python';     args = @('tasks/test_check_playwright_test_hygiene.py');                                           needs = @('python') }
+    @{ name = 'check-supply-chain';       exe = 'python';     args = @('tasks/check_git_supply_chain_integrity.py', '--check');                                  needs = @('python') }
+    @{ name = 'test-supply-chain';        exe = 'python';     args = @('tasks/test_check_git_supply_chain_integrity.py');                                       needs = @('python') }
+    @{ name = 'check-unicode-homoglyphs'; exe = 'python';     args = @('tasks/check_unicode_homoglyphs.py', '--check');                                          needs = @('python') }
+    @{ name = 'test-unicode-homoglyphs';  exe = 'python';     args = @('tasks/test_check_unicode_homoglyphs.py');                                               needs = @('python') }
+    @{ name = 'check-env-sanitization';   exe = 'python';     args = @('tasks/check_env_sanitization_invariants.py', '--check');                                  needs = @('python') }
+    @{ name = 'test-env-sanitization';    exe = 'python';     args = @('tasks/test_check_env_sanitization_invariants.py');                                       needs = @('python') }
+    @{ name = 'check-file-permissions';   exe = 'python';     args = @('tasks/check_file_permission_invariants.py', '--check');                                  needs = @('python') }
+    @{ name = 'test-file-permissions';    exe = 'python';     args = @('tasks/test_check_file_permission_invariants.py');                                       needs = @('python') }
+    @{ name = 'check-ast-obfuscation';    exe = 'python';     args = @('tasks/check_ast_obfuscation_invariants.py', '--check');                                  needs = @('python') }
+    @{ name = 'test-ast-obfuscation';     exe = 'python';     args = @('tasks/test_check_ast_obfuscation_invariants.py');                                       needs = @('python') }
+    @{ name = 'check-git-author';         exe = 'python';     args = @('tasks/check_git_author_integrity.py', '--check');                                        needs = @('python') }
+    @{ name = 'test-git-author';          exe = 'python';     args = @('tasks/test_check_git_author_integrity.py');                                             needs = @('python') }
+    @{ name = 'check-prompt-injection';   exe = 'python';     args = @('tasks/check_prompt_injection_invariants.py', '--check');                                  needs = @('python') }
+    @{ name = 'test-prompt-injection';    exe = 'python';     args = @('tasks/test_check_prompt_injection_invariants.py');                                       needs = @('python') }
+    @{ name = 'check-workflow-permissions'; exe = 'python';   args = @('tasks/check_github_workflow_permissions.py', '--check');                                  needs = @('python') }
+    @{ name = 'test-workflow-permissions'; exe = 'python';    args = @('tasks/test_check_github_workflow_permissions.py');                                       needs = @('python') }
+    @{ name = 'check-shell-pipe-safety';   exe = 'python';     args = @('tasks/check_shell_pipe_safety.py', '--check');                                             needs = @('python') }
+    @{ name = 'test-shell-pipe-safety';    exe = 'python';     args = @('tasks/test_check_shell_pipe_safety.py');                                                  needs = @('python') }
+    @{ name = 'check-import-shadowing';    exe = 'python';     args = @('tasks/check_import_shadowing.py', '--check');                                              needs = @('python') }
+    @{ name = 'test-import-shadowing';     exe = 'python';     args = @('tasks/test_check_import_shadowing.py');                                                   needs = @('python') }
+    @{ name = 'check-tempfile-security';   exe = 'python';     args = @('tasks/check_tempfile_security.py', '--check');                                             needs = @('python') }
+    @{ name = 'test-tempfile-security';    exe = 'python';     args = @('tasks/test_check_tempfile_security.py');                                                  needs = @('python') }
+    @{ name = 'check-git-remote';          exe = 'python';     args = @('tasks/check_git_remote_invariants.py', '--check');                                         needs = @('python') }
+    @{ name = 'test-git-remote';           exe = 'python';     args = @('tasks/test_check_git_remote_invariants.py');                                              needs = @('python') }
+    @{ name = 'check-path-traversal';      exe = 'python';     args = @('tasks/check_path_traversal.py', '--check');                                                 needs = @('python') }
+    @{ name = 'test-path-traversal';       exe = 'python';     args = @('tasks/test_check_path_traversal.py');                                                     needs = @('python') }
+    @{ name = 'check-git-signatures';      exe = 'python';     args = @('tasks/check_git_commit_signatures.py', '--check');                                         needs = @('python') }
+    @{ name = 'test-git-signatures';       exe = 'python';     args = @('tasks/test_check_git_commit_signatures.py');                                              needs = @('python') }
+    @{ name = 'check-canary-leakage';       exe = 'python';     args = @('tasks/check_env_canary_leakage.py', '--check');                                             needs = @('python') }
+    @{ name = 'test-canary-leakage';        exe = 'python';     args = @('tasks/test_check_env_canary_leakage.py');                                                  needs = @('python') }
+    @{ name = 'check-git-branches';        exe = 'python';     args = @('tasks/check_git_branch_conventions.py', '--check');                                         needs = @('python', 'git') }
+    @{ name = 'test-git-branches';         exe = 'python';     args = @('tasks/test_check_git_branch_conventions.py');                                              needs = @('python') }
+    @{ name = 'check-dynamic-imports';     exe = 'python';     args = @('tasks/check_dynamic_imports.py', '--check');                                                needs = @('python') }
+    @{ name = 'test-dynamic-imports';      exe = 'python';     args = @('tasks/test_check_dynamic_imports.py');                                                     needs = @('python') }
+    @{ name = 'check-git-submodules';      exe = 'python';     args = @('tasks/check_git_submodules.py', '--check');                                                 needs = @('python', 'git') }
+    @{ name = 'test-git-submodules';       exe = 'python';     args = @('tasks/test_check_git_submodules.py');                                                      needs = @('python') }
+    @{ name = 'check-concurrency-deadlocks'; exe = 'python';   args = @('tasks/check_concurrency_deadlocks.py', '--check');                                         needs = @('python') }
+    @{ name = 'test-concurrency-deadlocks';  exe = 'python';   args = @('tasks/test_check_concurrency_deadlocks.py');                                               needs = @('python') }
+    @{ name = 'check-git-tag-signatures';  exe = 'python';     args = @('tasks/check_git_tag_signatures.py', '--check');                                            needs = @('python', 'git') }
+    @{ name = 'test-git-tag-signatures';   exe = 'python';     args = @('tasks/test_check_git_tag_signatures.py');                                                 needs = @('python', 'git') }
     # models (the guard only; nothing here talks to Ollama)
     @{ name = 'test-restart-ollama';      exe = 'pwsh';       args = @("$s/model-qwen3-8-27b/test-restart-ollama.ps1");                                    needs = @() }
     @{ name = 'test-score-claim-mapping'; exe = 'python';     args = @("$s/model-onboarding/scripts/test_score_claim_mapping.py");                         needs = @('python') }

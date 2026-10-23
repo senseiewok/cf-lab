@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -14199,7 +14199,7 @@
       "title": "CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Remodeling Model (tools/discovery/pdi_redox_remodeling.py)",
       "repo": "cf-research",
       "area": "science",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14214,7 +14214,7 @@
         "high": 5.5
       },
       "acceptance": "pytest tools/discovery/test_pdi_redox_remodeling.py -v; python tools/claims/check_anti_hallucination.py",
-      "notes": "Wave 16 Research Replenishment. ERAD escape kinetics via S-nitrosylation of cryptic cysteines and PDI oxidoreductase chaperoning across misfolded CFTR alleles.",
+      "notes": "Delivered in research sentinel PR senseiewok/cf-research#124 (and companion board PR cf-lab#237). Implemented CFTR cryptic S-nitrosylation & PDI redox remodeling model in tools/discovery/pdi_redox_remodeling.py.",
       "spec_path": "tasks/specs/T-0281.md",
       "roi": {
         "benefit": 5,
@@ -14234,19 +14234,21 @@
       "route_rationale": "Biophysical ERAD escape kinetics via S-nitrosylation and PDI chaperoning across misfolded CFTR alleles.",
       "source_evidence": "DOI:10.1073/pnas.241383898; DOI:10.3389/fphar.2012.00201; PDB:6MSM; PDB:5W81; ClinicalTrials.gov:NCT00057278",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 3.5
     },
     {
       "id": "T-0282",
       "title": "Interactive Inhaled Micro-Aerosol Droplet Evaporation & Hygroscopic Growth Dynamics Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
-      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
       "created_at": "2026-10-22T08:30:00Z",
       "updated_at": "2026-10-22",
       "created_by": {
@@ -14280,8 +14282,10 @@
         "composite_score": 7.42,
         "roi_ratio": 2.7
       },
-      "notes": "Wave 17 Track B Public Showcase Replenishment. Connects T-0228 micro-aerosol biophysics to /cf/delivery/.",
-      "spec_path": "tasks/specs/T-0282.md"
+      "notes": "Delivered in showcase sentinel PR senseiewok/.ai#155 (and companion board PR cf-lab#236). Interactive micro-aerosol droplet evaporation and hygroscopic growth simulator on /cf/delivery/ with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0282.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.75
     },
     {
       "id": "T-0283",
@@ -14800,7 +14804,7 @@
       "title": "Interactive Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Sialidase Permeabilization Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14808,6 +14812,7 @@
       "route_rationale": "Zero-build native ES module simulating periciliary brush glycocalyx meshwork steric exclusion and sialidase enzymatic permeabilization grounded in tools/discovery/glycocalyx_permeabilization_model.py (T-0291).",
       "created_at": "2026-10-22T11:00:00Z",
       "updated_at": "2026-10-22",
+      "completed_at": "2026-10-22T20:05:00Z",
       "created_by": {
         "kind": "model",
         "name": "Argon (Chief Researcher Officer Strategist)",
@@ -14823,6 +14828,7 @@
         "low": 2.5,
         "high": 4.0
       },
+      "actual_hours": 2.5,
       "source_evidence": "cf-research/tools/discovery/glycocalyx_permeabilization_model.py; DOI:10.1126/science.1223012; DOI:10.1038/s41565-021-00918-7; ClinicalTrials.gov:NCT05668741",
       "acceptance": "python -m unittest tests.test_glycocalyx_permeabilization_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py",
       "roi": {
@@ -14830,16 +14836,17 @@
         "confidence": "high",
         "rationale": "Models apical periciliary glycocalyx meshwork and sialidase digestion for viral and non-viral genetic vector penetration.",
         "categories": {
-          "curative_biophysics": 9.5,
-          "clinical_translation": 8.0,
-          "scientific_integrity": 8.0,
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.65,
-        "roi_ratio": 2.35
+        "composite_score": 7.12,
+        "roi_ratio": 2.19,
+        "measured": 2.5
       },
-      "notes": "Wave 18 Track B Public Showcase Replenishment. Connects T-0291 glycocalyx barrier model to /cf/delivery/.",
+      "notes": "Delivered in senseiewok/.ai#156. Mounts #glycocalyx-permeabilization-explorer modeling Ogston sieving, Boltzmann charge exclusion, and sialidase/heparinase digestion with es-MX translation parity.",
       "spec_path": "tasks/specs/T-0294.md"
     },
     {
@@ -14847,7 +14854,7 @@
       "title": "Automated Multi-Repo Worktree Lock & Concurrent Sentinel Collision Guard (tasks/check_sentinel_concurrency_guard.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14887,15 +14894,17 @@
         "composite_score": 7.4,
         "roi_ratio": 2.45
       },
-      "notes": "Wave 19 Security & Architecture Replenishment. Implements tasks/check_sentinel_concurrency_guard.py.",
-      "spec_path": "tasks/specs/T-0295.md"
+      "notes": "Delivered in security sentinel PR senseiewok/cf-lab#238. Automated multi-repo worktree lock & concurrent sentinel collision guard in tasks/check_sentinel_concurrency_guard.py.",
+      "spec_path": "tasks/specs/T-0295.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.0
     },
     {
       "id": "T-0296",
       "title": "Automated Cross-Repo Agent API Key & Token Entropy Linter (tasks/check_secret_entropy_linter.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14935,8 +14944,10 @@
         "composite_score": 7.45,
         "roi_ratio": 2.48
       },
-      "notes": "Wave 19 Security & Architecture Replenishment. Implements tasks/check_secret_entropy_linter.py.",
-      "spec_path": "tasks/specs/T-0296.md"
+      "notes": "Delivered in security sentinel PR senseiewok/cf-lab#238. Automated cross-repo agent API key & token entropy linter in tasks/check_secret_entropy_linter.py.",
+      "spec_path": "tasks/specs/T-0296.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 2.0
     },
     {
       "id": "T-0297",
@@ -15031,6 +15042,3678 @@
       },
       "notes": "Wave 19 Research Replenishment. Implements tools/discovery/nbd1_tmd_pharmacophore.py.",
       "spec_path": "tasks/specs/T-0298.md"
+    },
+    {
+      "id": "T-0299",
+      "title": "Interactive Deep-Intronic Splice-Switching ASO (SPL84) & U1 snRNP Thermodynamic Competition Explorer on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Interactive biophysical explorer simulating competitive displacement of U1 snRNP by splice-switching oligonucleotides (SPL84) and full-length CFTR mRNA recovery.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0292"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "source_evidence": "DOI:10.1093/hmg/ddh247; DOI:10.1016/j.omtn.2020.08.017; ClinicalTrials.gov:NCT06429176",
+      "acceptance": "python -m unittest tests.test_u1_decoy_splice_explorer tests.test_site; python tools/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Exposes breakthrough pre-mRNA spliceosome competition biophysics and SPL84 trial data on senseiewok.ai in EN and es-MX.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.95,
+        "roi_ratio": 2.45
+      },
+      "notes": "Wave 20 Showcase Replenishment. Mounts #u1-decoy-splice-explorer on /cf/ptc/.",
+      "spec_path": "tasks/specs/T-0299.md"
+    },
+    {
+      "id": "T-0300",
+      "title": "Interactive Sialidase-Mediated Apical Glycocalyx Permeabilization & Inhaled Vector Flux Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Interactive biophysical delivery simulator modeling enzymatic cleavage of apical mucin brushes (MUC1/4/16) and enhanced LNP/AAV flux.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 showcase replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [
+        "T-0291"
+      ],
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "source_evidence": "DOI:10.1126/science.1224376; DOI:10.1038/s41467-024-45302-1; ClinicalTrials.gov:NCT05668741",
+      "acceptance": "python -m unittest tests.test_glycocalyx_permeabilization_explorer tests.test_site; python tools/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Translates glycocalyx permeabilization biophysics to public interactive visualizer with full es-MX localization.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.95,
+        "roi_ratio": 2.45
+      },
+      "notes": "Wave 20 Showcase Replenishment. Mounts #glycocalyx-permeabilization-explorer on /cf/delivery/.",
+      "spec_path": "tasks/specs/T-0300.md"
+    },
+    {
+      "id": "T-0301",
+      "title": "Automated Cross-Repo Markdown Link & Internal Anchor Integrity Linter (tasks/check_markdown_link_integrity.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Automated cross-repo linter validating relative markdown links and GFM heading anchors to prevent documentation link rot.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 security replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "actual_hours": 2.0,
+      "measured": true,
+      "source_evidence": "CommonMark Specification 0.31.2 & GitHub Flavored Markdown (GFM) Spec section 4.5 (Links); .claude/skills/security-baseline/SKILL.md",
+      "acceptance": "python -m unittest tasks.test_check_markdown_link_integrity; python tasks/check_markdown_link_integrity.py --check",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents broken documentation paths and missing anchor references across all workspace markdown files deterministically.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 9.5,
+          "operational_velocity": 9.0,
+          "security_compliance": 9.5
+        },
+        "composite_score": 7.45,
+        "roi_ratio": 2.5
+      },
+      "notes": "Wave 20 Security Delivery. Implemented tasks/check_markdown_link_integrity.py and test_check_markdown_link_integrity.py.",
+      "spec_path": "tasks/specs/T-0301.md"
+    },
+    {
+      "id": "T-0302",
+      "title": "Automated Cross-Repo Sentinel Watermark & Telemetry Cadence Linter (tasks/check_sentinel_telemetry_linter.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Automated linter validating sentinel watermark commit hashes, lock durations, and cadence intervals to prevent lock contention.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 security replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "source_evidence": "tasks/sentinels.json; .claude/skills/scheduled-security-sentinel/SKILL.md; tasks/fast-sentinel-gate.ps1",
+      "acceptance": "python -m unittest tasks.test_check_sentinel_telemetry_linter; python tasks/check_sentinel_telemetry_linter.py --check",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces deterministic sentinel lifecycle invariants and eliminates deadlocks across scheduled runs.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 9.0,
+          "security_compliance": 9.5
+        },
+        "composite_score": 7.3,
+        "roi_ratio": 1.82
+      },
+      "notes": "Delivered in hourly steward wave 21 (senseiewok/cf-lab#240). Implemented tasks/check_sentinel_telemetry_linter.py and unit test suite tasks/test_check_sentinel_telemetry_linter.py with 12/12 passing tests and registered check rows in check-all.ps1.",
+      "spec_path": "tasks/specs/T-0302.md",
+      "completed_at": "2026-10-22",
+      "actual_hours": 1.5
+    },
+    {
+      "id": "T-0303",
+      "title": "Airway Epithelial Club Cell Secretoglobin (SCGB1A1) Secretory Vesicle Trafficking & Apical Exosome Packaging Model (tools/discovery/club_cell_exosome_trafficking.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Biophysical model simulating club cell secretoglobin (SCGB1A1) vesicle dynamics and therapeutic exosome packaging for airway anti-inflammation.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 research replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "DOI:10.1016/j.biocel.2009.09.002; DOI:10.1016/j.stem.2009.04.002; ClinicalTrials.gov:NCT04207983",
+      "acceptance": "pytest tools/discovery/test_club_cell_exosome_trafficking.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models club cell secretory vesicle biogenesis and exosome packaging kinetics for inhaled CF therapy.",
+        "categories": {
+          "curative_biophysics": 10.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.95,
+        "roi_ratio": 1.99
+      },
+      "notes": "Wave 20 Research Replenishment. Implements tools/discovery/club_cell_exosome_trafficking.py.",
+      "spec_path": "tasks/specs/T-0303.md"
+    },
+    {
+      "id": "T-0304",
+      "title": "CFTR NBD2 / NBD1 ATP Hydrolysis Gating Cycle & Catalytic Water Coordination Energy Model (tools/discovery/atp_catalytic_water_model.py)",
+      "repo": "cf-research",
+      "area": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "recommended_route": "local",
+      "route_rationale": "Biophysical and structural model of asymmetric NBD1/NBD2 ATP hydrolysis gating, catalytic water coordination, and pore opening kinetics.",
+      "created_at": "2026-10-22T16:20:00Z",
+      "updated_at": "2026-10-22",
+      "created_by": {
+        "kind": "model",
+        "name": "Argon (Chief Researcher Officer Strategist)",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 20 research replenishment"
+      },
+      "executor": "agent",
+      "human_required": false,
+      "depends_on": [],
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "source_evidence": "DOI:10.1016/j.cell.2016.11.014; DOI:10.1016/j.cell.2017.02.024; PDB:6MSM; ClinicalTrials.gov:NCT00909532",
+      "acceptance": "pytest tools/discovery/test_atp_catalytic_water_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Simulates catalytic water dipole activation and allosteric channel open probability across rare gating mutations.",
+        "categories": {
+          "curative_biophysics": 10.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.95,
+        "roi_ratio": 1.99
+      },
+      "notes": "Wave 20 Research Replenishment. Implements tools/discovery/atp_catalytic_water_model.py.",
+      "spec_path": "tasks/specs/T-0304.md"
+    },
+    {
+      "id": "T-0305",
+      "title": "Interactive Airway Surface Liquid (ASL) Osmotic Gradient & Hypertonic Saline Hydration Dynamics Simulator on /cf/tree/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0275"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_osmotic_hydration_explorer tests.test_site.StaticTests",
+      "notes": "Wave 21 Showcase Backlog Replenishment. Models Starling apical osmotic water flux J_v = L_p (Delta P - sigma Delta Pi), PCL height recovery, and ciliary beat restoration on /cf/tree/ with full Mexican Spanish parity.",
+      "spec_path": "tasks/specs/T-0305.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Direct mechanistic simulation of hypertonic saline transepithelial water restoration and mucociliary clearance recovery.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.65,
+        "roi_ratio": 2.19
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive biophysical ASL hydration simulation on /cf/tree/ with es-MX parity.",
+      "source_evidence": "DOI:10.1016/S0092-8674(00)81635-4; DOI:10.1056/NEJMoa043891; DOI:10.1085/jgp.118.4.385",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0306",
+      "title": "Interactive CFTR Premature Termination Codon (PTC) Readthrough Ribosome Structural Kinetics & Aminoglycoside Toxicity Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0247"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_readthrough_kinetics_explorer tests.test_site.StaticTests",
+      "notes": "Wave 21 Showcase Backlog Replenishment. Interactive ribosomal A-site decoding simulation comparing stop-codon mispairing kinetics against renal and ototoxicity curves with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0306.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes the critical balance between nonsense suppression efficacy and aminoglycoside safety thresholds for Class I CF.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.8,
+        "roi_ratio": 2.23
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive PTC readthrough simulation on /cf/ptc/ with es-MX parity.",
+      "source_evidence": "DOI:10.1038/nature05756; DOI:10.1186/2043-9113-4-24; DOI:10.1073/pnas.1517595113",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0307",
+      "title": "Automated Multi-Repo Agent Environment Variable (.env) & Canary Isolation Linter (tasks/check_env_canary_isolation.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 3.0
+      },
+      "acceptance": "python -m unittest tasks.test_check_env_canary_isolation; python tasks/check_env_canary_isolation.py --check",
+      "notes": "Delivered in hourly steward wave 22. Implemented tasks/check_env_canary_isolation.py and tasks/test_check_env_canary_isolation.py (13/13 passing tests) and registered check rows in check-all.ps1.",
+      "spec_path": "tasks/specs/T-0307.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Eliminates credential leakage risk and ensures test canary tokens never cross into live production configurations.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 6.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 10.0
+        },
+        "composite_score": 6.0,
+        "roi_ratio": 2.67
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": ".claude/skills/security-baseline/SKILL.md; .claude/skills/security-git/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 1.5
+    },
+    {
+      "id": "T-0308",
+      "title": "Automated Cross-Repo Agent Tool Permission & Denial Rule Invariant Linter (tasks/check_tool_permission_invariants.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 3.0
+      },
+      "acceptance": "python -m unittest tasks.test_check_tool_permission_invariants; python tasks/check_tool_permission_invariants.py --check",
+      "notes": "Delivered in hourly steward wave 22. Implemented tasks/check_tool_permission_invariants.py and tasks/test_check_tool_permission_invariants.py (11/11 passing tests) and registered check rows in check-all.ps1.",
+      "spec_path": "tasks/specs/T-0308.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees that autonomous agents across all workspace tools adhere to strict execution denial rules and scope containment.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 6.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 10.0
+        },
+        "composite_score": 6.0,
+        "roi_ratio": 2.67
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": ".claude/skills/security-runtime/SKILL.md; docs/instruction-loading.md; AGENTS.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 1.5
+    },
+    {
+      "id": "T-0309",
+      "title": "Airway Epithelial Hypertonic Saline Osmotic Mucus Dehydration & ASL Volume Restoration Model (tools/discovery/asl_osmotic_restoration_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tools.discovery.test_asl_osmotic_restoration_model",
+      "notes": "Wave 21 Research Backlog Replenishment. Biophysical mechanistic Python simulation of apical osmotic gradients, PCL height recovery, and ENaC clearance kinetics over 8 hours.",
+      "spec_path": "tasks/specs/T-0309.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Provides primary biophysical equations and parameterization of aerosolized osmotic hydration dynamics for the research pipeline.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 2.26
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical modeling tool in cf-research.",
+      "source_evidence": "DOI:10.1085/jgp.118.4.385; DOI:10.1146/annurev.med.58.071905.105316; DOI:10.1056/NEJMoa043891",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0310",
+      "title": "CFTR W1282X & G542X Ribosome Footprint Profiling & Aminoglycoside-Mediated Termination Suppression Model (tools/discovery/ptc_ribosome_profiling_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tools.discovery.test_ptc_ribosome_profiling_model",
+      "notes": "Wave 21 Research Backlog Replenishment. Codon-resolution translation kinetics comparing suppression efficiencies and eRF1/near-cognate competition across W1282X, G542X, and R553X.",
+      "spec_path": "tasks/specs/T-0310.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Establishes quantitative allele-specific readthrough rankings and compound synergy kinetics for curative Class I therapeutics.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 2.26
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical modeling tool in cf-research.",
+      "source_evidence": "DOI:10.1016/j.bbrc.2004.08.136; DOI:10.1073/pnas.1517595113; DOI:10.1186/2043-9113-4-24",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0311",
+      "title": "Interactive CFTR mRNA Secondary Structure & G-Quadruplex / Hairpin Ribosome Profiling Explorer on /cf/cftr/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_mrna_folding_explorer tests.test_site.StaticTests",
+      "notes": "Wave 22 Showcase Backlog Replenishment. Interactive biophysical mRNA secondary structure visualizer exploring thermodynamic minimum free energy folding landscapes and translation elongation velocity.",
+      "spec_path": "tasks/specs/T-0311.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Exposes mRNA co-translational folding physics and synonymous mutation kinetics on CFTR translation.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.7,
+        "roi_ratio": 1.82
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive HTML/Canvas/SVG site showcase component with Mexican Spanish parity.",
+      "source_evidence": "tasks/specs/T-0311.md; cf-research/landscape/ptc-readthrough.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0312",
+      "title": "Interactive Airway Epithelial Ciliary Beat Frequency (CBF) & Metachronal Wave Synchronization Simulator on /cf/tree/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_ciliary_metachronal_wave_explorer tests.test_site.StaticTests",
+      "notes": "Wave 22 Showcase Backlog Replenishment. Interactive biophysical ciliary metachronal wave visualizer modeling Kuramoto hydrodynamic synchronization and mucus viscoelastic load dampening.",
+      "spec_path": "tasks/specs/T-0312.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Simulates mucociliary clearance biophysics and phase-locked ciliary wave mechanics on the public website.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.8,
+        "roi_ratio": 1.54
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive HTML/Canvas/SVG site showcase component with Mexican Spanish parity.",
+      "source_evidence": "tasks/specs/T-0312.md; cf-research/landscape/mucociliary-clearance.md",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0313",
+      "title": "Automated Multi-Repo Git Hook & Pre-Commit Shell Invariant Linter (tasks/check_git_hooks_invariants.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_hooks_invariants; python tasks/check_git_hooks_invariants.py --check",
+      "notes": "Delivered in hourly steward wave 23. Implemented tasks/check_git_hooks_invariants.py and tasks/test_check_git_hooks_invariants.py (9/9 passing tests) and registered check rows in check-all.ps1.",
+      "spec_path": "tasks/specs/T-0313.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents unauthorized hook execution and validates pre-commit privacy scanning invariants.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0313.md; .claude/skills/security-git/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 1.5
+    },
+    {
+      "id": "T-0314",
+      "title": "Automated Cross-Repo Playwright Test Artifact & Server Port Hygiene Linter (tasks/check_playwright_test_hygiene.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_playwright_test_hygiene; python tasks/check_playwright_test_hygiene.py --check",
+      "notes": "Delivered in hourly steward wave 23. Implemented tasks/check_playwright_test_hygiene.py and tasks/test_check_playwright_test_hygiene.py (7/7 passing tests) and registered check rows in check-all.ps1.",
+      "spec_path": "tasks/specs/T-0314.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees test server hygiene and prevents browser test binary bloat in git.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 9.0,
+          "security_compliance": 9.0
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0314.md; .claude/skills/playwright-browser-testing/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "actual_hours": 1.5
+    },
+    {
+      "id": "T-0315",
+      "title": "Airway Epithelial Ciliary Metachronal Wave Dynamics & Mucociliary Clearance Velocity Model (tools/discovery/ciliary_wave_clearance_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_ciliary_wave_clearance_model; python tools/discovery/ciliary_wave_clearance_model.py --check",
+      "notes": "Wave 22 Research Backlog Replenishment. Mathematical modeling tool simulating Stokes flow and two-phase PCL-mucus momentum transfer during ciliary metachronal wave transport.",
+      "spec_path": "tasks/specs/T-0315.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies mucociliary clearance transport velocities and stasis thresholds under CF mucus dehydration.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.5,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.9,
+        "roi_ratio": 1.54
+      },
+      "recommended_route": "local",
+      "route_rationale": "Biophysical Python discovery tool and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0315.md; sources/catalog.yaml",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0316",
+      "title": "CFTR mRNA Coding Sequence G-Quadruplex Thermodynamic Stability & Ribosome Stalling Model (tools/discovery/cftr_gquadruplex_stability_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_cftr_gquadruplex_stability_model; python tools/discovery/cftr_gquadruplex_stability_model.py --check",
+      "notes": "Wave 22 Research Backlog Replenishment. Computational scanner for RNA G-quadruplex motifs and folding energy profiles across the CFTR coding sequence.",
+      "spec_path": "tasks/specs/T-0316.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Identifies RNA structural bottlenecks regulating CFTR co-translational folding efficiency and elongation pause sites.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.5,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.8,
+        "roi_ratio": 1.54
+      },
+      "recommended_route": "local",
+      "route_rationale": "Biophysical Python discovery tool and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0316.md; sources/catalog.yaml",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0317",
+      "title": "Interactive Airway Surface Liquid (ASL) Acidification & ATP12A/V-ATPase Proton Pump Inhibition Simulator on /cf/tree/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0321"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_ph_simulator tests.test_site.StaticTests",
+      "notes": "Wave 23 Showcase Lane Replenishment. Interactive ASL pH regulation and ATP12A/V-ATPase proton pump inhibitor simulator on /cf/tree/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0317.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes biophysical host defense restoration via ASL re-alkalization for CF patients and researchers.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.1,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Frontend visualization and Spanish parity in .ai repo.",
+      "source_evidence": "tasks/specs/T-0317.md; Nature 487:109-113; Science 351:503-507",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0318",
+      "title": "Interactive CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Synergy & Ribosome Translation Fidelity Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0322"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_readthrough_synergy_explorer tests.test_site.StaticTests",
+      "notes": "Wave 23 Showcase Lane Replenishment. Interactive PTC readthrough synergy and translation fidelity explorer on /cf/ptc/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0318.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Directly supports Class I nonsense mutation curative research and patient education.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Frontend visualization and Spanish parity in .ai repo.",
+      "source_evidence": "tasks/specs/T-0318.md; AJRCCM 203:1254-1264",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0319",
+      "title": "Automated Multi-Repo Git Submodule & External Dependency Supply Chain Linter (tasks/check_git_supply_chain_integrity.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_supply_chain_integrity; python tasks/check_git_supply_chain_integrity.py --check",
+      "notes": "Wave 23 Security Lane Replenishment. Audits submodule commit pins, third-party skill exclusions, and external script references across all repositories.",
+      "spec_path": "tasks/specs/T-0319.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces zero-CDN architecture and protects against supply-chain compromises in third-party tooling.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0319.md; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo git submodule and external dependency supply chain linter (tasks/check_git_supply_chain_integrity.py) and test suite (tasks/test_check_git_supply_chain_integrity.py) with 10 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0320",
+      "title": "Automated Cross-Repo Unicode Homoglyph & Invisible Character Injection Linter (tasks/check_unicode_homoglyphs.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_unicode_homoglyphs; python tasks/check_unicode_homoglyphs.py --check",
+      "notes": "Wave 23 Security Lane Replenishment. Audits source files for Trojan Source bidirectional overrides and invisible character injections.",
+      "spec_path": "tasks/specs/T-0320.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Protects against CVE-2021-42574 Trojan Source attacks and invisible prompt injection artifacts.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0320.md; arXiv:2111.00169; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo Unicode homoglyph and invisible character injection linter (tasks/check_unicode_homoglyphs.py) and test suite (tasks/test_check_unicode_homoglyphs.py) with 8 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0321",
+      "title": "Airway Surface Liquid pH Regulation, ATP12A/V-ATPase Proton Flux & Bicarbonate Secretion Biophysical Model (tools/discovery/asl_ph_regulation_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_asl_ph_regulation_model; python tools/discovery/asl_ph_regulation_model.py --check",
+      "notes": "Wave 23 Research Lane Replenishment. Biophysical flux model of ASL proton-bicarbonate homeostasis and ATP12A inhibitor rescue.",
+      "spec_path": "tasks/specs/T-0321.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Grounds host defense antimicrobial activity in quantitative ion transport biophysics.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 6.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Pure Python biophysical model and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0321.md; Nature 487:109-113; JCI Insight 3:e123616",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0322",
+      "title": "CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Cooperativity & Ribosome Translation Fidelity Model (tools/discovery/ptc_readthrough_cooperativity_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_ptc_readthrough_cooperativity_model; python tools/discovery/ptc_readthrough_cooperativity_model.py --check",
+      "notes": "Wave 23 Research Lane Replenishment. Four-state Markov chain translation fidelity model of dual-agent nonsense readthrough cooperativity.",
+      "spec_path": "tasks/specs/T-0322.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Direct biophysical modeling for non-modulator eligible Class I CFTR nonsense alleles.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 6.0
+        },
+        "composite_score": 8.1,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Pure Python biophysical model and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0322.md; AJRCCM 203:1254-1264",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0323",
+      "title": "Interactive Airway Calu-3 Air-Liquid Interface (ALI) Transepithelial Resistance (TEER) & Drug Flux Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_ali_teer_simulator tests.test_site.StaticTests",
+      "notes": "Wave 24 Showcase Lane Replenishment. Interactive Calu-3 ALI culture TEER and apical-to-basolateral drug flux simulator with Spanish parity.",
+      "spec_path": "tasks/specs/T-0323.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Empowers CF patients and researchers to explore aerosolized drug barrier dynamics in cultured airway epithelium.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 2.9
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive UI showcase and unit test suite on .ai.",
+      "source_evidence": "tasks/specs/T-0323.md; Pharm Res 23(7):1482-1490",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0324",
+      "title": "Interactive CFTR Premature Termination Codon (PTC) Readthrough Aminoglycoside & Non-Aminoglycoside Synergy Landscape Explorer on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_synergy_explorer tests.test_site.StaticTests",
+      "notes": "Wave 24 Showcase Lane Replenishment. Interactive response surface mapping translational readthrough cooperativity and ototoxicity boundaries.",
+      "spec_path": "tasks/specs/T-0324.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes non-linear synergy between decoding-center mispairing agents and release factor antagonists for rare CF mutations.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.4,
+        "roi_ratio": 3.0
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive UI showcase and unit test suite on .ai.",
+      "source_evidence": "tasks/specs/T-0324.md; Nat Commun 12:4358; J Cyst Fibros 19(6):1017-1024",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0325",
+      "title": "Automated Multi-Repo Agent Environment Variable Leak & Process Memory Sanitization Linter (tasks/check_env_sanitization_invariants.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_env_sanitization_invariants; python tasks/check_env_sanitization_invariants.py --check",
+      "notes": "Wave 24 Security Lane Replenishment. Audits subprocess invocations across all repositories to prevent token leaks and parent environment inheritance.",
+      "spec_path": "tasks/specs/T-0325.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees process isolation and prevents credential leakage in automated child process execution.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0325.md; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo agent environment variable leak and process memory sanitization linter (tasks/check_env_sanitization_invariants.py) and test suite (tasks/test_check_env_sanitization_invariants.py) with 10 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0326",
+      "title": "Automated Cross-Repo File Permission & Executable Bit Invariant Linter (tasks/check_file_permission_invariants.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_file_permission_invariants; python tasks/check_file_permission_invariants.py --check",
+      "notes": "Wave 24 Security Lane Replenishment. Audits git tree mode bits (100644 vs 100755) across all repositories to prevent permission drift.",
+      "spec_path": "tasks/specs/T-0326.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents cross-platform file permission discrepancies and ensures data files are strictly non-executable in git trees.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0326.md; .claude/skills/security-git/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo file permission and executable bit invariant linter (tasks/check_file_permission_invariants.py) and test suite (tasks/test_check_file_permission_invariants.py) with 6 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0327",
+      "title": "Airway Calu-3 Epithelial Air-Liquid Interface (ALI) Biophysical Transmembrane Flux & TEER Transport Model (tools/discovery/ali_permeability_flux_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_ali_permeability_flux_model",
+      "notes": "Wave 24 Research Lane Replenishment. Biophysical transport model for apparent permeability coefficients and efflux ratios across ALI cell barriers.",
+      "spec_path": "tasks/specs/T-0327.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Provides computational grounding for airway drug permeability and tight junction modulation.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 7.5,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.1,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Computational biophysics script and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0327.md; Pharm Res 23(7):1482-1490; J Aerosol Med 15(2):173-181",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0328",
+      "title": "CFTR Premature Termination Codon (PTC) Translational Readthrough & Ribosome Release Factor Kinetic Model (tools/discovery/ptc_ribosome_readthrough_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-flash"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_ptc_ribosome_readthrough_model",
+      "notes": "Wave 24 Research Lane Replenishment. Biophysical translation kinetic model evaluating stochastic decoding competition at CFTR premature stop codons.",
+      "spec_path": "tasks/specs/T-0328.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models codon context and release factor kinetics to identify optimal synergistic readthrough combinations.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Computational biophysics script and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0328.md; Nat Commun 12:4358; Nucleic Acids Res 44(8):3740-3755",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0329",
+      "title": "Interactive Airway Surface Liquid (ASL) Osmotic Collapse & Hypertonic Saline Rehydration Dynamics Simulator on /cf/tree/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0275"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_osmotic_simulator tests.test_site.StaticTests",
+      "notes": "Wave 25 Showcase Lane Replenishment. Interactive ASL depth and hypertonic saline (7% NaCl) rehydration biophysical simulator on /cf/tree/ with reciprocal Mexican Spanish localization.",
+      "spec_path": "tasks/specs/T-0329.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Translates hypertonic airway rehydration biophysics into clinical understanding with full Spanish parity.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 1.82
+      },
+      "recommended_route": "local",
+      "route_rationale": "High-yield interactive educational module with verified Mexican Spanish parity.",
+      "source_evidence": "tasks/specs/T-0329.md; Donaldson et al. (2006) DOI:10.1056/NEJMoa043891",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0330",
+      "title": "Interactive CFTR Premature Termination Codon (PTC) Ribosome Proofreading & Eukaryotic Release Factor (eRF1/eRF3) Termination Kinetics Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0324"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 3.5
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_ribosome_simulator tests.test_site.StaticTests",
+      "notes": "Wave 25 Showcase Lane Replenishment. Interactive ribosome decoding competition (eRF1-eRF3 vs aa-tRNA) and pharmacological readthrough simulator on /cf/ptc/ with Mexican Spanish parity.",
+      "spec_path": "tasks/specs/T-0330.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes the thermodynamic basis of nonsense readthrough modulators across stop codon contexts.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.7,
+        "roi_ratio": 1.82
+      },
+      "recommended_route": "local",
+      "route_rationale": "Core nonsense mutation theratyping showcase with verified Spanish localization.",
+      "source_evidence": "tasks/specs/T-0330.md; Floquet et al. (2012) DOI:10.1371/journal.pgen.1002608",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0331",
+      "title": "Automated Multi-Repo Agent AST Import Obfuscation & Dynamic Code Execution Linter (tasks/check_ast_obfuscation_invariants.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_ast_obfuscation_invariants; python tasks/check_ast_obfuscation_invariants.py --check",
+      "notes": "Wave 25 Security Lane Replenishment. Audits ASTs across all repositories to prohibit dynamic eval/exec and obfuscated payload execution.",
+      "spec_path": "tasks/specs/T-0331.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents arbitrary code execution and sandbox escapes across multi-agent workflows.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0331.md; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo agent AST import obfuscation & dynamic code execution linter (tasks/check_ast_obfuscation_invariants.py) and test suite (tasks/test_check_ast_obfuscation_invariants.py) with 11 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0332",
+      "title": "Automated Cross-Repo Git Commit Author Signature & Identity Spoofing Linter (tasks/check_git_author_integrity.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_author_integrity; python tasks/check_git_author_integrity.py --check",
+      "notes": "Wave 25 Security Lane Replenishment. Audits git commit authorship and identity integrity to enforce SLSA Level 3 provenance across repositories.",
+      "spec_path": "tasks/specs/T-0332.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees commit authorship integrity and enforces provenance across multi-agent committers.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0332.md; .claude/skills/security-git/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo git commit author signature & identity spoofing linter (tasks/check_git_author_integrity.py) and test suite (tasks/test_check_git_author_integrity.py) with 6 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0333",
+      "title": "Airway Surface Liquid (ASL) Osmotic Depth & Transepithelial Water Flux Biophysical Model (tools/discovery/asl_osmotic_flux_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "python tools/discovery/test_asl_osmotic_flux_model.py; python tools/check_anti_hallucination.py",
+      "notes": "Wave 25 Research Lane Replenishment. Mechanistic ODE modeling of transepithelial water transport and ASL osmotic restoration following hypertonic saline challenge.",
+      "spec_path": "tasks/specs/T-0333.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Provides rigorous mathematical grounding for airway hydration and mucociliary transport restoration.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.8,
+        "roi_ratio": 1.25
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic mathematical biophysics model in cf-research.",
+      "source_evidence": "tasks/specs/T-0333.md; Goralski et al. (2010) DOI:10.1016/j.coph.2010.04.004",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0334",
+      "title": "CFTR Premature Termination Codon (PTC) Release Factor eRF1-eRF3 Termination vs Readthrough Thermodynamic Model (tools/discovery/ptc_termination_flux_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "python tools/discovery/test_ptc_termination_flux_model.py; python tools/check_anti_hallucination.py",
+      "notes": "Wave 25 Research Lane Replenishment. Master equation simulation of ribosome stop codon decoding and readthrough efficiency across nonsense mutations.",
+      "spec_path": "tasks/specs/T-0334.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantitative prediction of functional CFTR recovery across genetic stop codon contexts.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.8,
+        "roi_ratio": 1.25
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic mathematical biophysics model in cf-research.",
+      "source_evidence": "tasks/specs/T-0334.md; Roy et al. (2016) DOI:10.1146/annurev-genom-090314-050032",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0335",
+      "title": "Interactive CFTR Apical Microvillar Dense Brush Barrier & MUC1/MUC4 Glycocalyx Diffusion Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0291"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_microvillar_simulator tests.test_site.StaticTests",
+      "notes": "Wave 26 Showcase Lane Replenishment. Interactive apical microvillar brush and membrane-tethered mucin glycocalyx diffusion simulator on /cf/delivery/ with full Mexican Spanish parity.",
+      "spec_path": "tasks/specs/T-0335.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Directly educates CF researchers on apical microvillar diffusion barriers for inhaled genetic therapies.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 1.54
+      },
+      "recommended_route": "local",
+      "route_rationale": "Zero-build modern web simulator on .ai.",
+      "source_evidence": "tasks/specs/T-0335.md; DOI:10.1126/science.1223012",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0336",
+      "title": "Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer Decoy Kinetics Simulator on /cf/cftr/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "content",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0292"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python tools/check_anti_hallucination.py; python -m unittest tests.test_u1_snrnp_simulator tests.test_site.StaticTests",
+      "notes": "Wave 26 Showcase Lane Replenishment. Pre-mRNA splicing regulatory kinetics simulator on /cf/cftr/ modeling U1 snRNP competition with deep intronic decoys with es-MX parity.",
+      "spec_path": "tasks/specs/T-0336.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models deep intronic splice-switching decoy mechanisms on /cf/cftr/ for class V mutations.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 1.54
+      },
+      "recommended_route": "local",
+      "route_rationale": "Zero-build modern web simulator on .ai.",
+      "source_evidence": "tasks/specs/T-0336.md; DOI:10.1128/MCB.06001-11",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0337",
+      "title": "Automated Multi-Repo Agent Prompt Template Injection & Unescaped Format String Invariant Linter (tasks/check_prompt_injection_invariants.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_prompt_injection_invariants; python tasks/check_prompt_injection_invariants.py --check",
+      "notes": "Wave 26 Security Lane Replenishment. Audits agent prompt formatting across all repositories to enforce boundary encapsulation and prevent injection.",
+      "spec_path": "tasks/specs/T-0337.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents prompt injection attacks and ensures structural delimiter encapsulation across agent prompt pipelines.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0337.md; .claude/skills/security-browsing/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo agent prompt template injection & unescaped format string invariant linter (tasks/check_prompt_injection_invariants.py) and test suite (tasks/test_check_prompt_injection_invariants.py) with 11 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0338",
+      "title": "Automated Cross-Repo GitHub Actions Workflow Token Permission & Least Privilege Linter (tasks/check_github_workflow_permissions.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_github_workflow_permissions; python tasks/check_github_workflow_permissions.py --check",
+      "notes": "Wave 26 Security Lane Replenishment. Audits GitHub Actions workflow files across all repositories to enforce explicit permissions and full SHA action pinning.",
+      "spec_path": "tasks/specs/T-0338.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces least privilege CI tokens and immutable SHA pinning across GitHub Actions workflows.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0338.md; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo GitHub Actions workflow token permission & least privilege linter (tasks/check_github_workflow_permissions.py) and test suite (tasks/test_check_github_workflow_permissions.py) with 10 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0339",
+      "title": "CFTR Apical Microvillar Surface Density & MUC1/MUC4 Glycocalyx Diffusion Barrier Model (tools/discovery/microvillar_glycocalyx_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_microvillar_glycocalyx_model; python tools/discovery/microvillar_glycocalyx_model.py --check",
+      "notes": "Wave 26 Research Lane Replenishment. Biophysical model quantifying apical epithelial microvillar steric hindrance and transmembrane mucin polymer brush resistance.",
+      "spec_path": "tasks/specs/T-0339.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Calculates transport resistance through the apical glycocalyx to guide inhaled therapeutic nanoparticle design.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 1.25
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic biophysical modeling tool and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0339.md; DOI:10.1126/science.1223012",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0340",
+      "title": "Class I Nonsense Allele (G542X, W1282X) Ribosome Profiling & A-Site Codon Decoding Speed Model (tools/discovery/ribosome_profiling_decoding_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_ribosome_profiling_decoding_model; python tools/discovery/ribosome_profiling_decoding_model.py --check",
+      "notes": "Wave 26 Research Lane Replenishment. Biophysical model simulating ribo-seq ribosome stall dynamics and translational elongation velocities across CFTR PTC stop codons.",
+      "spec_path": "tasks/specs/T-0340.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models translational stall and decoding kinetics at CFTR nonsense codons to guide small-molecule readthrough strategies.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.2,
+        "roi_ratio": 1.25
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic biophysical modeling tool and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0340.md; DOI:10.1073/pnas.1523356113",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0341",
+      "title": "Interactive CFTR mRNA Secondary Structure & Stem-Loop Unfolding Dynamics Simulator on /cf/cftr/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0345"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 27 Showcase Lane Replenishment. Interactive canvas visualizing CFTR mRNA secondary structures (stem-loops in Exon 10-12), ribosome pausing at structured hairpins, and modulation by antisense oligonucleotides with full Spanish (es-MX) parity.",
+      "spec_path": "tasks/specs/T-0341.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Empowers researchers to explore CFTR mRNA secondary structure dynamics and co-translational folding bottlenecks.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.3,
+        "roi_ratio": 1.54
+      },
+      "recommended_route": "local",
+      "route_rationale": "High-fidelity interactive biophysical canvas simulator on .ai site with es-MX parity.",
+      "source_evidence": "tasks/specs/T-0341.md; DOI 10.1073/pnas.1908856116",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0342",
+      "title": "Interactive Airway Epithelial Ciliary Beat Frequency & Metachronal Wave Coordination Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "delivery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0346"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 27 Showcase Lane Replenishment. Interactive multi-cilia biomechanical simulator on /cf/delivery/ demonstrating ciliary beat frequency (CBF, 8-16 Hz), metachronal wave propagation velocity, and mucus viscous load damping with full Spanish (es-MX) parity.",
+      "spec_path": "tasks/specs/T-0342.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Provides intuitive exploration of mucociliary clearance mechanics under healthy vs CF dehydrated mucus loads.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.4,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "High-fidelity interactive biophysical canvas simulator on .ai site with es-MX parity.",
+      "source_evidence": "tasks/specs/T-0342.md; DOI 10.1152/physrev.00015.2015",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0343",
+      "title": "Automated Multi-Repo Agent Shell Command Redirection & Process Pipe Safety Linter (tasks/check_shell_pipe_safety.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_shell_pipe_safety; python tasks/check_shell_pipe_safety.py --check",
+      "notes": "Wave 27 Security Lane Replenishment. Audits subprocess, powershell, and bash command pipelines across all repositories to prevent shell pipe injection, unquoted file descriptor redirection, and raw command chaining.",
+      "spec_path": "tasks/specs/T-0343.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents command injection and arbitrary file write via unsafe shell piping in agent command wrappers.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0343.md; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo agent shell command redirection & process pipe safety linter (tasks/check_shell_pipe_safety.py) and test suite (tasks/test_check_shell_pipe_safety.py) with 13 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0344",
+      "title": "Automated Cross-Repo Python Import Shadowing & Standard Library Masquerading Linter (tasks/check_import_shadowing.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_import_shadowing; python tasks/check_import_shadowing.py --check",
+      "notes": "Wave 27 Security Lane Replenishment. Audits Python file names and module imports across all repositories to prevent local file names from shadowing Python standard library modules (e.g. math.py, json.py, os.py, io.py, random.py) or external packages.",
+      "spec_path": "tasks/specs/T-0344.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees python standard library integrity and prevents namespace hijacking across multi-repo tools.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0344.md; .claude/skills/security-runtime/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo Python import shadowing & standard library masquerading linter (tasks/check_import_shadowing.py) and test suite (tasks/test_check_import_shadowing.py) with 8 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0345",
+      "title": "CFTR mRNA Exon 10-12 Secondary Structure & Translation Elongation Kinetic Barrier Model (tools/discovery/mrna_secondary_structure_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/mrna_secondary_structure_model.py --check",
+      "notes": "Wave 27 Research Lane Replenishment. Computational thermodynamic model of CFTR mRNA stem-loop folding free energies (ΔG) across Exons 10-12 (containing F508del and Class I mutations), quantifying ribosome pause duration and elongation kinetics.",
+      "spec_path": "tasks/specs/T-0345.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Provides thermodynamic quantification of CFTR mRNA secondary structures for targeted ASO and readthrough design.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.3,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic biophysical modeling tool in cf-research.",
+      "source_evidence": "tasks/specs/T-0345.md; DOI 10.1073/pnas.1908856116",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0346",
+      "title": "Mucociliary Clearance Metachronal Coordination & Viscoelastic Damping Model (tools/discovery/metachronal_wave_damping_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/metachronal_wave_damping_model.py --check",
+      "notes": "Wave 27 Research Lane Replenishment. Hydrodynamic and biophysical model of ciliary metachronal wave propagation under varying mucus viscosity (healthy ASL vs CF thickened mucus), calculating transport velocity and shear force generation.",
+      "spec_path": "tasks/specs/T-0346.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies hydrodynamic coupling and transport failure in dehydrated airway mucus, guiding mucolytic dose modeling.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 8.3,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic hydrodynamic modeling tool in cf-research.",
+      "source_evidence": "tasks/specs/T-0346.md; DOI 10.1152/physrev.00015.2015",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0347",
+      "title": "Interactive Airway Epithelial Glycocalyx Sialylation & Mucus Mesh Steric Exclusion Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 28 Showcase Lane Replenishment. Builds an interactive simulation of apical glycocalyx barrier exclusion and enzymatic sialidase permeabilization with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0347.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Illustrates periciliary brush and glycocalyx steric barrier to airway gene delivery and therapeutic desialylation on senseiewok.ai.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.6
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive web component and bilingual copy on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0347.md; DOI: 10.1038/s41467-022-31127-2",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0348",
+      "title": "Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Competition Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 28 Showcase Lane Replenishment. Builds an interactive simulation of U1 snRNP decoy competitive displacement and pseudoexon exclusion with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0348.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes splice-site decoy competition and full-length mature CFTR recovery for deep intronic mutations.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.6
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive web component and bilingual copy on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0348.md; DOI: 10.1016/j.ajhg.2019.09.008",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0349",
+      "title": "Automated Multi-Repo Agent Temporary File Lifecycle & Insecure Mkdir/Mktemp Linter (tasks/check_tempfile_security.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_tempfile_security; python tasks/check_tempfile_security.py --check",
+      "notes": "Wave 28 Security Lane Replenishment. Audits temp file creation, mode bit restrictions, context managers, and cleanup lifecycle across all 4 repos.",
+      "spec_path": "tasks/specs/T-0349.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents symlink hijacking, predictable temp file vulnerabilities, and disk leaks in automated tasks.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0349.md; CWE-377 / CWE-379",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo agent temporary file lifecycle & insecure mkdir/mktemp linter (tasks/check_tempfile_security.py) and test suite (tasks/test_check_tempfile_security.py) with 9 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0350",
+      "title": "Automated Cross-Repo Git Config & Remote URL Protocol Whitelist Linter (tasks/check_git_remote_invariants.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_remote_invariants; python tasks/check_git_remote_invariants.py --check",
+      "notes": "Wave 28 Security Lane Replenishment. Enforces HTTPS/SSH remotes, prohibits embedded tokens, and asserts official namespace alignment.",
+      "spec_path": "tasks/specs/T-0350.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees transport security, token leak protection in remotes, and official repository origin integrity.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0350.md; NIST SP 800-218",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo git config & remote URL protocol whitelist linter (tasks/check_git_remote_invariants.py) and test suite (tasks/test_check_git_remote_invariants.py) with 9 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0351",
+      "title": "Airway Epithelial Glycocalyx Barrier Sialic Acid Charge Density & Enzymatic Permeabilization Model (tools/discovery/glycocalyx_charge_barrier_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/glycocalyx_charge_barrier_model.py --check",
+      "notes": "Wave 28 Research Lane Replenishment. Biophysical model of Debye length, steric partitioning, and desialylation kinetics across the apical glycocalyx.",
+      "spec_path": "tasks/specs/T-0351.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Provides rigorous mathematical framework for overcoming the dense glycocalyx steric barrier to aerosol delivery.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.4
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mathematical model and validation tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0351.md; DOI: 10.1038/s41467-022-31127-2",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0352",
+      "title": "CFTR Cryptic Splice Site Pseudoexon U1 snRNP Steric Decoy Thermodynamics Model (tools/discovery/u1_snrnp_decoy_thermodynamics.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/u1_snrnp_decoy_thermodynamics.py --check",
+      "notes": "Wave 28 Research Lane Replenishment. Thermodynamic model of cryptic splice site hybridization and U1 snRNP decoy competition for pseudoexon exclusion.",
+      "spec_path": "tasks/specs/T-0352.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies binding free energies and Hill cooperativity for steric-blocking ASOs and engineered U1 snRNAs in deep intronic CFTR alleles.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.4
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mathematical model and validation tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0352.md; DOI: 10.1016/j.ajhg.2019.09.008",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0353",
+      "title": "Interactive Airway Epithelial Ciliated vs Goblet Cell Density & Mucociliary Escalator Clearance Velocity Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 29 Showcase Lane Replenishment. Interactive model of ciliary beat frequency (CBF), goblet cell hyperplasia, and mucociliary transport velocity on /cf/delivery/ with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0353.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes biophysical clearance thresholds and goblet-to-ciliated phenotypic ratio recovery for inhaled CF therapeutics on senseiewok.ai.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.6
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive web component and bilingual copy on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0353.md; DOI: 10.1165/rcmb.2021-0309OC",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0354",
+      "title": "Interactive CFTR Truncation Readthrough (ELX-02 / G418 / Ataluren) Concentration-Response & Toxic Off-Target Window Explorer on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_task_specs.py --check",
+      "notes": "Wave 29 Showcase Lane Replenishment. Interactive pharmacodynamic concentration-response and ototoxicity/nephrotoxicity therapeutic window explorer on /cf/ptc/ with full es-MX parity.",
+      "spec_path": "tasks/specs/T-0354.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Explains the narrow therapeutic window between premature termination codon readthrough and global translation termination impairment on senseiewok.ai.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.6
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive web component and bilingual copy on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0354.md; DOI: 10.1038/s41467-020-18495-2",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0355",
+      "title": "Automated Cross-Repo Agent Path Traversal & Canonical Path Resolution Linter (tasks/check_path_traversal.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_path_traversal; python tasks/check_path_traversal.py --check",
+      "notes": "Wave 29 Security Lane Replenishment. Audits multi-repo path manipulation, os.path.join, and file read/write constructs to prevent directory traversal and symlink escaping (CWE-22 / CWE-59).",
+      "spec_path": "tasks/specs/T-0355.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prohibits arbitrary file read/write vulnerabilities escaping workspace bounds in agent tools and sidecars.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0355.md; .claude/skills/security-baseline/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated cross-repo agent path traversal & canonical path resolution linter (tasks/check_path_traversal.py) and test suite (tasks/test_check_path_traversal.py) with 7 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0356",
+      "title": "Automated Multi-Repo Git Commit GPG / SSH Signature Verification & Identity Invariant Linter (tasks/check_git_commit_signatures.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_commit_signatures; python tasks/check_git_commit_signatures.py --check",
+      "notes": "Wave 29 Security Lane Replenishment. Audits git commit metadata, commit signing configuration, and author identity consistency across workspace repositories.",
+      "spec_path": "tasks/specs/T-0356.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces non-repudiation, trusted committer attribution, and cryptographic provenance on lab repositories.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0356.md; .claude/skills/security-git/SKILL.md",
+      "executor": "agent",
+      "human_required": false,
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5,
+      "outcome": "Automated multi-repo git commit GPG / SSH signature verification & identity invariant linter (tasks/check_git_commit_signatures.py) and test suite (tasks/test_check_git_commit_signatures.py) with 6 unit tests passing deterministically."
+    },
+    {
+      "id": "T-0357",
+      "title": "Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretion Stoichiometry Model (tools/discovery/goblet_cell_mucus_stoichiometry.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/goblet_cell_mucus_stoichiometry.py --check",
+      "notes": "Wave 29 Research Lane Replenishment. Mathematical modeling of IL-13-driven goblet cell metaplasia, pathological MUC5AC hypersecretion, and protective MUC5B stoichiometric ratios in CF airways.",
+      "spec_path": "tasks/specs/T-0357.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies mucus plug formation thresholds and anti-IL-13 / anti-mucolytic therapeutic intervention points.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.4
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mathematical model and validation tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0357.md; DOI: 10.1172/JCI127771",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0358",
+      "title": "CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Model (tools/discovery/ptc_readthrough_fidelity_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python tools/discovery/ptc_readthrough_fidelity_model.py --check",
+      "notes": "Wave 29 Research Lane Replenishment. Quantitative model of near-cognate aminoacyl-tRNA misincorporation probabilities and CFTR functional channel rescue vs nonsense-mediated decay escape.",
+      "spec_path": "tasks/specs/T-0358.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models amino acid substitution distributions at W1282X and G542X premature stop codons and resulting channel gating kinetics.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 8.0,
+          "security_compliance": 7.0
+        },
+        "composite_score": 8.6,
+        "roi_ratio": 2.4
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mathematical model and validation tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0358.md; DOI: 10.1073/pnas.2001407117",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0359",
+      "title": "Interactive Airway Goblet Cell Metaplasia & Mucus Hypersecretion Stoichiometry Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0357"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check",
+      "notes": "Wave 30 Showcase Lane Replenishment. Interactive client-side simulator on /cf/delivery/ with es-MX parity for goblet cell metaplasia and MUC5AC/MUC5B stoichiometry.",
+      "spec_path": "tasks/specs/T-0359.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Empowers CF patients and clinicians to visualize mucus thickening and delivery barrier dynamics under airway inflammation.",
+        "categories": {
+          "curative_biophysics": 8.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 7.5,
+          "security_compliance": 6.0
+        },
+        "composite_score": 7.7,
+        "roi_ratio": 2.2
+      },
+      "recommended_route": "local",
+      "route_rationale": "Zero-build frontend component and unit test additions in .ai.",
+      "source_evidence": "tasks/specs/T-0359.md; DOI: 10.1164/rccm.201703-0574OC",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0360",
+      "title": "Interactive CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Explorer on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0358"
+      ],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check",
+      "notes": "Wave 30 Showcase Lane Replenishment. Interactive explorer on /cf/ptc/ with es-MX parity for Class I nonsense readthrough misincorporation and translational fidelity.",
+      "spec_path": "tasks/specs/T-0360.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Explores therapeutic window between chloride channel rescue and proteome error toxicity for nonsense mutations.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.5,
+          "security_compliance": 6.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 2.3
+      },
+      "recommended_route": "local",
+      "route_rationale": "Zero-build frontend component and unit test additions in .ai.",
+      "source_evidence": "tasks/specs/T-0360.md; DOI: 10.1073/pnas.1909673116",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0361",
+      "title": "Automated Multi-Repo Agent Environment Variable Leakage & Canary Isolation Linter (tasks/check_env_canary_leakage.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_env_canary_leakage; python tasks/check_env_canary_leakage.py --check",
+      "notes": "Wave 30 Security Lane Replenishment. Audits child subprocess environment inheritance and canary isolation across all 4 workspace repos.",
+      "spec_path": "tasks/specs/T-0361.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents accidental secret and canary propagation to untrusted subshells and agent scripts.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5,
+        "measured": 33.3
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0361.md; CWE-200 / CWE-214",
+      "executor": "agent",
+      "human_required": false,
+      "outcome": "Automated multi-repo agent environment variable leakage & canary isolation linter (tasks/check_env_canary_leakage.py) and test suite (tasks/test_check_env_canary_leakage.py) with 7 unit tests passing deterministically.",
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5
+    },
+    {
+      "id": "T-0362",
+      "title": "Automated Cross-Repo Git Branch Naming & Semantic Convention Linter (tasks/check_git_branch_conventions.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_branch_conventions; python tasks/check_git_branch_conventions.py --check",
+      "notes": "Wave 30 Security Lane Replenishment. Audits git branch naming taxonomy, task ID association, and refspec safety across workspace repos.",
+      "spec_path": "tasks/specs/T-0362.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents branch taxonomy drift, refspec collisions, and rogue branch sprawl across workspace clones.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5,
+        "measured": 33.3
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0362.md; CWE-20",
+      "executor": "agent",
+      "human_required": false,
+      "outcome": "Automated cross-repo git branch naming & semantic convention linter (tasks/check_git_branch_conventions.py) and test suite (tasks/test_check_git_branch_conventions.py) with 4 unit tests passing deterministically (518 branches scanned).",
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5
+    },
+    {
+      "id": "T-0363",
+      "title": "Airway Epithelial Club Cell (SCGB1A1+) Secretoglobins & Anti-Inflammatory Surfactant Protein Secretion Model (tools/discovery/club_cell_secretoglobin_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_club_cell_secretoglobin; python tools/discovery/club_cell_secretoglobin_model.py --check",
+      "notes": "Wave 30 Research Lane Replenishment. Models bronchiolar club cell CC16/surfactant secretion, anti-elastase defense, and regenerative plasticity.",
+      "spec_path": "tasks/specs/T-0363.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Addresses distal airway mucosal defense, innate immune impairment, and mucosal repair in CF lungs.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 7.6,
+        "roi_ratio": 2.1
+      },
+      "recommended_route": "local",
+      "route_rationale": "In silico ODE kinetic model and test suite in cf-research.",
+      "source_evidence": "tasks/specs/T-0363.md; DOI: 10.1165/rcmb.2019-0139TR",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0364",
+      "title": "CFTR Inhaled Lipid Nanoparticle (LNP) Nebulization Shear Stress & Poly(ethylene glycol) (PEG) Shielding Stability Model (tools/discovery/lnp_shear_stability_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_lnp_shear_stability; python tools/discovery/lnp_shear_stability_model.py --check",
+      "notes": "Wave 30 Research Lane Replenishment. Biophysical shear stress, acoustic droplet formation, and PEG shedding model for nebulized mRNA LNPs.",
+      "spec_path": "tasks/specs/T-0364.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Critical formulation biophysics to prevent payload degradation during inhalation therapy delivery.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 7.8,
+        "roi_ratio": 2.2
+      },
+      "recommended_route": "local",
+      "route_rationale": "In silico biophysical shear stability model and test suite in cf-research.",
+      "source_evidence": "tasks/specs/T-0364.md; DOI: 10.1016/j.jconrel.2021.08.052",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0365",
+      "title": "Interactive Airway Epithelial CFTR Exon-Skipping (AON Antisense Oligonucleotide) In Silico Splice-Site Thermodynamic Optimization Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check",
+      "notes": "Wave 31 Showcase Lane Replenishment. Interactive splice-switching AON/ASO thermodynamic modeling, cryptic pseudoexon steric occlusion, and chloride restoration on /cf/ptc/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0365.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Directly empowers patients and researchers exploring antisense therapies for deep-intronic CFTR mutations.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.5,
+          "security_compliance": 6.0
+        },
+        "composite_score": 8.1,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive vanilla ES module simulation with SVG canvas on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0365.md; DOI: 10.1016/j.omtn.2020.08.012",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0366",
+      "title": "Interactive Inhaled Superparamagnetic Iron Oxide Nanoparticle (SPION) Magnetic Mucus Guidance & Magnetic Resonance Tracer Dynamics on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check",
+      "notes": "Wave 31 Showcase Lane Replenishment. Interactive aerosolized SPION external magnetic guidance vs mucus drag force simulator on /cf/delivery/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0366.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes non-invasive physical forces overcoming thickened mucus barrier for targeted pulmonary gene delivery.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.5,
+          "security_compliance": 6.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 2.4
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive vanilla ES module simulation with SVG canvas on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0366.md; DOI: 10.1016/j.jconrel.2018.11.018",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0367",
+      "title": "Automated Cross-Repo Agent Dynamic Import & __import__ Security Linter (tasks/check_dynamic_imports.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_dynamic_imports; python tasks/check_dynamic_imports.py --check",
+      "notes": "Delivered tasks/check_dynamic_imports.py and tasks/test_check_dynamic_imports.py (9/9 PASS). Scanned 516 Python files across all sibling repositories with zero unconstrained dynamic imports.",
+      "spec_path": "tasks/specs/T-0367.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces strict module registry boundaries and prohibits arbitrary module reflection in agent scripts.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0367.md; OWASP Top 10:2025 A03",
+      "executor": "agent",
+      "human_required": false,
+      "actual_hours": 1.5,
+      "completed_at": "2026-10-22"
+    },
+    {
+      "id": "T-0368",
+      "title": "Automated Multi-Repo Git Submodule & Unchecked External Git Dependency Linter (tasks/check_git_submodules.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_submodules; python tasks/check_git_submodules.py --check",
+      "notes": "Delivered tasks/check_git_submodules.py and tasks/test_check_git_submodules.py (10/10 PASS). Audited all 4 sibling repositories with zero rogue submodules or transport violations.",
+      "spec_path": "tasks/specs/T-0368.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces workspace architectural integrity and prevents rogue external submodule dependencies.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0368.md; CVE-2018-11235",
+      "executor": "agent",
+      "human_required": false,
+      "actual_hours": 1.5,
+      "completed_at": "2026-10-22"
+    },
+    {
+      "id": "T-0369",
+      "title": "Deep Airway Submucosal Gland Serous Acinar Cell Fluid Hydrodynamics & Aquaporin-5 Conductance Model (tools/discovery/submucosal_gland_fluid_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_submucosal_gland_fluid; python tools/discovery/submucosal_gland_fluid_model.py --check",
+      "notes": "Wave 31 Research Lane Replenishment. Models submucosal gland serous acini fluid secretion, AQP5 osmotic water conductivity, and ductal plugging in CF.",
+      "spec_path": "tasks/specs/T-0369.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Underpins primary submucosal gland dysfunction leading to thick mucus tethering and early bacterial infection.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 7.7,
+        "roi_ratio": 2.3
+      },
+      "recommended_route": "local",
+      "route_rationale": "In silico ODE electrochemical model and test suite in cf-research.",
+      "source_evidence": "tasks/specs/T-0369.md; DOI: 10.1152/physrev.00037.2006",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0370",
+      "title": "Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Dispersion Kinetics Model (tools/discovery/dpi_carrier_detachment_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_dpi_carrier_detachment; python tools/discovery/dpi_carrier_detachment_model.py --check",
+      "notes": "Wave 31 Research Lane Replenishment. Models carrier-API adhesion forces, patient peak inspiratory flow shear detachment, and peripheral lung aerosol deposition.",
+      "spec_path": "tasks/specs/T-0370.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Essential biophysical model for dry powder antibiotics and lyophilized nonviral gene vector delivery in CF.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 7.6,
+        "roi_ratio": 2.3
+      },
+      "recommended_route": "local",
+      "route_rationale": "In silico aerosol mechanics model and test suite in cf-research.",
+      "source_evidence": "tasks/specs/T-0370.md; DOI: 10.1016/j.ijpharm.2019.118679",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0371",
+      "title": "Interactive Deep Airway Submucosal Gland Serous Acinar Fluid & Aquaporin-5 Conductance Explorer on /cf/tree/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0369"
+      ],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check",
+      "notes": "Wave 32 Showcase Lane Replenishment. Interactive human airway submucosal gland serous acinar fluid secretion and AQP5 transcellular water permeability explorer on /cf/tree/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0371.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes submucosal gland hyposecretion and mucus plugging in human airways with interactive pharmacological rescue.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.4,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Client-side interactive visualization on .ai.",
+      "source_evidence": "tasks/specs/T-0371.md; DOI: 10.1152/ajplung.00164.2020",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0372",
+      "title": "Interactive Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Deposition Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0370"
+      ],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check",
+      "notes": "Wave 32 Showcase Lane Replenishment. Interactive dry powder inhaler carrier-lactose detachment and aerodynamic pulmonary deposition simulator on /cf/delivery/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0372.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models inhaled DPI particle aerodynamics and regional airway deposition profiles under variable patient inspiratory flows.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.4,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Client-side interactive visualization on .ai.",
+      "source_evidence": "tasks/specs/T-0372.md; DOI: 10.1016/j.ijpharm.2018.04.032",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0373",
+      "title": "Automated Multi-Repo Agent Asyncio & Thread Concurrency Deadlock Guard (tasks/check_concurrency_deadlocks.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_concurrency_deadlocks; python tasks/check_concurrency_deadlocks.py --check",
+      "notes": "Delivered tasks/check_concurrency_deadlocks.py and tasks/test_check_concurrency_deadlocks.py (10/10 PASS). Scanned 520 Python files across all sibling repositories with zero concurrency deadlocks or blocking coroutine calls.",
+      "spec_path": "tasks/specs/T-0373.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces concurrency invariants and prevents agent thread lockup and event loop crashes.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0373.md; OWASP Top 10:2025 A08 / CWE-833",
+      "executor": "agent",
+      "human_required": false,
+      "actual_hours": 1.5,
+      "completed_at": "2026-10-22"
+    },
+    {
+      "id": "T-0374",
+      "title": "Automated Cross-Repo Git Tag Annotation & Signing Invariant Linter (tasks/check_git_tag_signatures.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "done",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_tag_signatures; python tasks/check_git_tag_signatures.py --check",
+      "notes": "Delivered tasks/check_git_tag_signatures.py and tasks/test_check_git_tag_signatures.py (4/4 PASS). Audited all 4 sibling repositories with zero lightweight or invalid release tags.",
+      "spec_path": "tasks/specs/T-0374.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees release provenance and prohibits floating unannotated tags on public lab releases.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0374.md; OWASP Top 10:2025 A08 / CWE-347",
+      "executor": "agent",
+      "human_required": false,
+      "actual_hours": 1.5,
+      "completed_at": "2026-10-22"
+    },
+    {
+      "id": "T-0375",
+      "title": "Airway Surface Liquid (ASL) Sialic Acid & Sulfated Glycosaminoglycan (GAG) Electrostatic Binding Affinity Model (tools/discovery/asl_electrostatic_binding_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_asl_electrostatic_binding_model; python tools/discovery/asl_electrostatic_binding_model.py --check",
+      "notes": "Wave 32 Research Lane Replenishment. Mathematical model of cationic nanoparticle electrostatic binding to mucin sialic acid and sulfated GAGs in CF ASL.",
+      "spec_path": "tasks/specs/T-0375.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies charge-mediated mucosal vector immobilization thresholds and guides PEG/zwitterionic shielding design.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 7.5
+        },
+        "composite_score": 8.5,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical simulation in cf-research.",
+      "source_evidence": "tasks/specs/T-0375.md; DOI: 10.1021/acs.biomac.1c00452",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0376",
+      "title": "CFTR Delta-F508 ER Quality Control Chaperone (Hsp70/Hsp90/CHIP) Ubiquitin Ligase Kinetic Partitioning Model (tools/discovery/cftr_chaperone_ubiquitin_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_cftr_chaperone_ubiquitin_model; python tools/discovery/cftr_chaperone_ubiquitin_model.py --check",
+      "notes": "Wave 32 Research Lane Replenishment. Kinetic partitioning model of molecular chaperone triage vs CHIP E3 ligase ubiquitination and ERAD of Delta-F508 CFTR.",
+      "spec_path": "tasks/specs/T-0376.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models molecular chaperone triage dynamics and pharmacological corrector rescue of Delta-F508 CFTR ER export.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 7.5
+        },
+        "composite_score": 8.5,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical simulation in cf-research.",
+      "source_evidence": "tasks/specs/T-0376.md; DOI: 10.1016/j.cell.2006.09.043; PDB: 5UAK",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0377",
+      "title": "Interactive CFTR mRNA Secondary Structure Minimum Free Energy (MFE) Folding & Ribosome Translocation Velocity Explorer on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 33 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check",
+      "notes": "Wave 33 Showcase Lane Replenishment. Interactive CFTR mRNA secondary structure MFE folding, pseudoknot stability, and codon elongation velocity explorer on /cf/ptc/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0377.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes translational pausing and local RNA folding landscapes governing PTC readthrough efficiency.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.4,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Client-side interactive visualization on .ai.",
+      "source_evidence": "tasks/specs/T-0377.md; DOI: 10.1016/j.jmb.2021.167098",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0378",
+      "title": "Interactive Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretory Hyperviscosity Dynamics Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 33 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check",
+      "notes": "Wave 33 Showcase Lane Replenishment. Interactive airway goblet cell hyperplasia, MUC5AC/MUC5B crosslinking, and rheological yield stress simulator on /cf/delivery/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0378.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Simulates mucin crosslinking gelation and ciliary arrest under CF inflammation with mucolytic rescue.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.4,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Client-side interactive visualization on .ai.",
+      "source_evidence": "tasks/specs/T-0378.md; DOI: 10.1164/rccm.201809-1707OC",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0379",
+      "title": "Automated Multi-Repo Agent Async Task Zombie & Background Worker Leak Guard (tasks/check_async_task_leaks.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 33 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_async_task_leaks; python tasks/check_async_task_leaks.py --check",
+      "notes": "Wave 33 Security Lane Replenishment. Audits asyncio.create_task lifecycle retention and daemon thread invariants across agent tooling (CWE-404 / CWE-772).",
+      "spec_path": "tasks/specs/T-0379.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Prevents background zombie task accumulation and silent event loop crashes in autonomous agents.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0379.md; OWASP Top 10:2025 A08 / CWE-772",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0380",
+      "title": "Automated Cross-Repo Git Commit Email & Author Signature Whitelist Linter (tasks/check_git_author_whitelist.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 33 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_author_whitelist; python tasks/check_git_author_whitelist.py --check",
+      "notes": "Wave 33 Security Lane Replenishment. Audits commit author emails and git config identities across all sibling repositories (CWE-284 / CWE-290).",
+      "spec_path": "tasks/specs/T-0380.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces strict commit author provenance and prevents identity spoofing across workspace repos.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0380.md; OWASP Top 10:2025 A07 / CWE-290",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0381",
+      "title": "Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Model (tools/discovery/nanoparticle_partitioning_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 33 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_nanoparticle_partitioning_model",
+      "notes": "Wave 33 Research Lane Replenishment. Mechanistic ODE model of aerosolized nanoparticle mucociliary transit vs macrophage phagocytosis in CF lungs.",
+      "spec_path": "tasks/specs/T-0381.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies competitive vector clearance kinetics to maximize epithelial cell transfection before elimination.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 7.5
+        },
+        "composite_score": 8.5,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical simulation in cf-research.",
+      "source_evidence": "tasks/specs/T-0381.md; DOI: 10.1016/j.addr.2021.113904",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0382",
+      "title": "CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape Model (tools/discovery/nbd2_atp_hydrolysis_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 33 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_nbd2_atp_hydrolysis_model",
+      "notes": "Wave 33 Research Lane Replenishment. Biophysical model of NBD2 ATP Site 2 catalytic hydrolysis, dimer dissociation, and potentiator stabilization.",
+      "spec_path": "tasks/specs/T-0382.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models the chemical gating cycle terminating channel open bursts and evaluates allosteric potentiator coupling.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 7.5
+        },
+        "composite_score": 8.5,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical simulation in cf-research.",
+      "source_evidence": "tasks/specs/T-0382.md; DOI: 10.1085/jgp.202012678",
+      "executor": "agent",
+      "human_required": false
     }
   ],
   "updated": "2026-10-22"
