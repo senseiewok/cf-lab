@@ -19163,7 +19163,7 @@
       "repo": "cf-research",
       "area": "science",
       "lane": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -19180,7 +19180,7 @@
         "high": 5.5
       },
       "acceptance": "pytest tools/discovery/test_tmem16a_calcium_conductance_model.py -v; python tools/claims/check_anti_hallucination.py",
-      "notes": "Curative Discovery Council Track A Wave 16. Inhaled TMEM16A (ANO1) alternative apical chloride conductance, allosteric potentiator left-shifting, and ASL hydration osmotic coupling model.",
+      "notes": "Delivered in research sentinel PR senseiewok/cf-research#132. Implemented Inhaled TMEM16A Alternative Chloride Conductance & Intracellular Calcium Coupling Model in tools/discovery/tmem16a_calcium_conductance_model.py with 8/8 unit tests passing and check_anti_hallucination verified.",
       "spec_path": "tasks/specs/T-0392.md",
       "roi": {
         "benefit": 5,
@@ -19194,13 +19194,17 @@
           "security_compliance": 2.0
         },
         "composite_score": 7.5,
-        "roi_ratio": 1.76
+        "roi_ratio": 1.76,
+        "measured": true,
+        "actual_hours": 4.25
       },
       "recommended_route": "local",
       "route_rationale": "Deterministic Python biophysical model and unit tests in cf-research.",
       "source_evidence": "tasks/specs/T-0392.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6QP6, 5OYB; DOI 10.1172/JCI128564, 10.1183/13993003.congress-2020.4449; NCT04488705, NCT06478706",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-23",
+      "actual_hours": 4.25
     },
     {
       "id": "T-0393",
