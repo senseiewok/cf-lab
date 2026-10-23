@@ -2,37 +2,39 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-388 tasks, 387 created by a model, 177 with a measured outcome. Estimated effort 979.35 to 1779.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+391 tasks, 390 created by a model, 177 with a measured outcome. Estimated effort 988.35 to 1794.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
+| T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (17)
+## ready (19)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| T-0006 | P1 | Send permissions emails to CFF registry contact and ECFSPR | cf-research | 0.5-0.5 | 4 | 80 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
-| T-0058 | P1 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
-| T-0093 | P1 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
+| T-0390 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Energy Coupling Explorer on /cf/cftr/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0391 | P1 | Interactive Inhaled Nanoparticle Macrophage Evasion & Biomimetic CD47 Brush Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
+| T-0129 | P1 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
+| T-0047 | P1 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
+| T-0103 | P1 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
+| T-0082 | P1 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 | T-0090 | P1 | Re-measure the local reviewer with the thinking profile and more runs per arm | cf-lab | 6-12 | 3 | 3.3 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | medium | local | T-0083 |  |
+| T-0006 | P2 | Send permissions emails to CFF registry contact and ECFSPR | cf-research | 0.5-0.5 | 4 | 80 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 | T-0110 | P2 | Rulesets on main for the public repos | cf-lab | 0.5-1 | 5 | 66.7 | no | model: claude-opus-5-5 | 2026-10-09 | full | low | local |  |  |
-| T-0020 | P2 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
+| T-0058 | P2 | Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-04 | elevated | low | local |  |  |
 | T-0128 | P2 | Match GitHub's settings to 'the repos do not take outside contributions' | cf-lab | 0.5-1 | 4 | 53.3 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local | T-0110 |  |
+| T-0093 | P2 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
-| T-0129 | P2 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
-| T-0047 | P2 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
-| T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
-| T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
+| T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
-## done (299)
+## done (300)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -161,6 +163,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0285 | P1 | Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0239 |  |
 | T-0291 | P1 | Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Enzymatic Sialidase Permeabilization Model (tools/discovery/glycocalyx_permeabilization_model.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0292 | P1 | CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Binding Kinetics & Cryptic Exon Exclusion Model (tools/discovery/u1_snrnp_decoy_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0389 | P1 | Interactive Recruiting Clinical Trials & Bilingual Care-Team Visit Prep Explorer on /cf/trials/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0276 | P1 | Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0272 |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -430,14 +433,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. 2026-10-15 Showcase Sentinel: Prepared docs/youtube-about-update.md, tasks/test_youtube_about.py, and HUMAN-TASKS entry. Maintainer updated YouTube Studio. Live channel verified with test_youtube_about.py --live (exit 0). Task completed.
 - **Measured:** 0.35 h; Live YouTube channel description verified: removes accelerate the cure, adds research, not medical advice and not affiliated boundary lines.
 
-### T-0006 Send permissions emails to CFF registry contact and ECFSPR
-
-- **Why / ROI rationale:** Decides by day 10 whether extracted values may be redistributed or only the script ships. Draft exists. *(confidence: medium)*
-- **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
-- **Acceptance:** Emails sent; dates and replies recorded in landscape/registry-data-access.md.
-- **Evidence:** research/landscape/registry-data-access.md 'Email draft'
-- **Notes:** Human task. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\bhuman task\b'). Prioritized by multi-category ROI.
-
 ### T-0005 Download CFF Patient Registry PDFs by hand into research/sources/downloads
 
 - **Why / ROI rationale:** Unblocks the US half of cf-registry-extract. Human-only step by policy. *(confidence: medium)*
@@ -464,14 +459,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** handoff site_text.txt (private session artifact, not in the repo) line 'CF - until there's a cure'; hq/.claude/skills/lab-voice/SKILL.md
 - **Notes:**  2026-10-07: Audit: the old tagline is gone and a test forbids it, but the decision is not recorded where the acceptance asks. Partly done. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Completed. Editorial decision documented in .ai/README.md under 'Editorial & claims decisions', tested in tests/test_site.py, and submitted via .ai PR #83.
 - **Measured:** 0.25 h; Decision recorded in .ai/README.md (tagline retired in favor of grounded non-forecast research descriptions); negative regex in test_site.py forbids the phrase; verified and tested in .ai PR #83.
-
-### T-0058 Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result
-
-- **Why / ROI rationale:** Estimate: macOS support is a claim until a real run; a lint is not a Mac. *(confidence: high)*
-- **Route:** local - Bounded mechanical edits and documentation maintenance.
-- **Acceptance:** On macOS: python3 .claude/skills/lab-versioning/scripts/test-setup.py prints 'sh: all checks passed' and VERIFIED (cmd is skipped), then ./setup.sh in a temp folder clones cf-skills and cf-research and creates cf-lab-files (memory, scratch, README; setup generates no workspace file); paste the output into this task's notes. Repeat on one Linux machine. Any failure becomes its own task with the failing output.
-- **Evidence:** setup.sh was written by the local worker and verified only under dash and bash from Git for Windows with a stub git, plus a lint for constructs old macOS shells reject. No macOS or Linux machine ran it.
-- **Notes:** Needs a human with a Mac. Proposed by a model. Until it is done, README and AGENTS.md should not say macOS is supported beyond 'written to be portable and tested under dash and bash'. A macos-latest GitHub Actions runner (T-0061) would run test-setup.py on a real macOS shell without owning a Mac; that run's output would satisfy this task for macOS. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Verified test-setup.py --target sh prints 'repo files: all checks passed', 'sh: all checks passed', and 'VERIFIED'. Physical execution on a real Mac/Linux machine or macos-latest runner (T-0061) required by maintainer to complete physical platform acceptance. \| 2026-10-16: checked during daily-security-sentinel build round. Requires physical macOS and Linux machine testing; cannot be executed in Windows environment.
 
 ### T-0001 Replace hq LICENSE.md with a named OSI license; add a LICENSE to research, .ai, skills
 
@@ -890,14 +877,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-05: four reviewer subagents were told in the prompt to use only Read, Grep and Glob; the agent type did not enforce it and one ran two directory listings in a shell (ledger E66).
 - **Notes:** Proposed by a model. The listings were local and harmless; the point is that the rule was unenforced. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-16 Sentinel: Completed and verified via test_reviewer_agent.py and ai-loop-council SKILL.md update.
 - **Measured:** 1.5 h; Created .claude/agents/reviewer.md restricted strictly to Read, Grep, Glob; added test_reviewer_agent.py proving Bash/PowerShell refusal; updated ai-loop-council SKILL.md for read-only extraction.
-
-### T-0093 Post the welcome note in the cf-lab GitHub Discussions
-
-- **Why / ROI rationale:** Estimate: a visitor who follows the README link lands on an empty page; a short, plain welcome with one clear invitation costs little and sets the tone before anyone else posts. *(confidence: medium)*
-- **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
-- **Acceptance:** A human writes or approves the text under the lab-voice skill (a letter: warm, one invitation, no invented biography, no clinical promise, no claim to speak for a community) and posts it. Then: gh api graphql -f query='{repository(owner:"senseiewok",name:"cf-lab"){discussions(first:5){totalCount nodes{title url}}}}' reports totalCount of 1 or more and the note's URL; the README's Discussions link opens a page that shows it.
-- **Evidence:** README.md, 'Thanks to the tools' table: the GitHub row links https://github.com/senseiewok/cf-lab/discussions as a place the lab uses. Observed on 2026-10-06 with the GitHub API: the repository reports has_discussions true and the GraphQL discussions totalCount is 0, so the linked page is empty.
-- **Notes:** Human step: the wording and the posting are the maintainer's. Proposed by a model; a draft may be offered, but a model does not post it. Community-facing text, so the lab-voice review applies. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Welcome note letter drafted in docs/welcome-discussions-draft.md adhering to the lab-voice skill (0 errors/warnings on check-voice.py). Awaiting human maintainer review and posting to GitHub Discussions per acceptance criteria.
 
 ### T-0094 Decide, after the review memo, whether the AI-agent robots.txt rule from T-0067 ships, then merge it in both repos
 
@@ -1417,6 +1396,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/specs/T-0370.md; DOI: 10.1016/j.ijpharm.2019.118679
 - **Spec:** `tasks/specs/T-0370.md`
 - **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
+
+### T-0039 Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER
+
+- **Why / ROI rationale:** Four sources reachable through APIs already in use or public; one afternoon of reading terms converts them from unverified to catalogued. *(confidence: medium)*
+- **Route:** cloud - Reading five hosts needs conduct (robots first, Crawl-delay, one request) and judgement about what a page does and does not say; done by the controller with a scripted quote check.
+- **Acceptance:** Four new catalog entries, each with robots/terms fields, a check date, and claim_label: verified.
+- **Evidence:** research/proposals/2026-10-04-researcher-sources.md recommended order 3-5
+- **Notes:** Human reads terms; agent records. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Agent part done 2026-10-05, cf-research 79203fd and cf-skills 1723bf6: nih-reporter and clinvar verified with their policy sentences quoted (8 of 8 quotes verbatim and complete); biorxiv records medRxiv's terms but stays unverified because bioRxiv's own page answered 429 and was not retried; Cochrane added as manual and link-only because its robots.txt disallows the Claude agent. The acceptance wants four verified entries: two verified, one added unverified, one downgraded to unverified. A human decides whether to retry bioRxiv later.
 
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
@@ -1987,6 +1974,33 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0387.md`
 - **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
+### T-0389 Interactive Recruiting Clinical Trials & Bilingual Care-Team Visit Prep Explorer on /cf/trials/ with es-MX Parity
+
+- **Why / ROI rationale:** Transforms static trial counts into an interactive bilingual clinic-visit discussion sheet and recruiting study directory with strict clinical boundary contracts and zero synthetic eligibility claims. *(confidence: high)*
+- **Route:** local - Client-side interactive visualization on .ai.
+- **Acceptance:** python tools/check_pr_gate.py; python -m unittest tests.test_trials_care_team_explorer; python tools/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0389.md; data/care_team_trials_directory.json; ClinicalTrials.gov API v2
+- **Spec:** `tasks/specs/T-0389.md`
+- **Notes:** Delivered interactive recruiting clinical trials directory (57 genuine interventional studies) and bilingual visit-prep sheet in English and Mexican Spanish (es-MX) on /cf/trials/. Completed in senseiewok/.ai#161 with dual-family frontier review (Argon ACCEPT). Verified by check_pr_gate.py (12 suites passed), tests.test_trials_care_team_explorer (7 tests), tests.test_trials_page (11 tests), tests.test_workbench_i18n (8 tests), check_anti_hallucination (5/5 rules), and Playwright review capture (37 screenshots, 0 errors, 0 trials overflow).
+
+### T-0390 Interactive CFTR Gating Potentiator Allosteric Cooperativity & Energy Coupling Explorer on /cf/cftr/ with es-MX Parity
+
+- **Why / ROI rationale:** Visualizes allosteric cooperativity and pore opening thermodynamics for small-molecule potentiators across gating mutant archetypes (G551D, G1244E, G178R). *(confidence: high)*
+- **Route:** local - Client-side interactive visualization on .ai.
+- **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0390.md; cf-research/tools/discovery/gating_potentiator_energy_coupling.py; RCSB PDB 6O2P, 7SVD, 8EIQ; DOI 10.1038/s41586-019-1677-8
+- **Spec:** `tasks/specs/T-0390.md`
+- **Notes:** Showcase Lane Replenishment. Interactive CFTR gating potentiator allosteric cooperativity, free-energy coupling (DeltaDeltaG), and open probability (Po) simulator on /cf/cftr/ across ivacaftor, deutivacaftor, and vanzacaftor with es-MX parity.
+
+### T-0391 Interactive Inhaled Nanoparticle Macrophage Evasion & Biomimetic CD47 Brush Dynamics Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Simulates alveolar macrophage clearance evasion kinetics via CD47 'don't eat me' signaling and zwitterionic brush architecture for inhaled genetic therapies. *(confidence: high)*
+- **Route:** local - Client-side interactive visualization on .ai.
+- **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0391.md; cf-research/tools/discovery/macrophage_evasion_kinetics.py; DOI 10.1038/s41565-021-00870-x; DOI 10.1126/science.1233768; NCT05668741
+- **Spec:** `tasks/specs/T-0391.md`
+- **Notes:** Showcase Lane Replenishment. Interactive pulmonary macrophage evasion kinetics and biomimetic CD47 brush shielding simulator on /cf/delivery/ with es-MX parity, modeling avoidance of post-VX-522 tolerability bottlenecks.
+
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
 - **Why / ROI rationale:** Automated PR hygiene eliminates merge conflict friction, identifies unresolved review comments across the multi-repo workspace, protects human-gated boundaries, audits stale worktrees, and prevents maintainer cognitive overload. *(confidence: high)*
@@ -2395,6 +2409,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-08: proposed by a model; only the maintainer can set it ready. 2026-10-14: OpenAlex admitted into sources/catalog.yaml with api_key_required (PR cf-lab#86). Maintainer configured OPENALEX_API_KEY in .env. OpenAlex provider implemented, tested, and integrated into briefs.py for both drug briefs (PR cf-skills#24) and variant briefs (PR cf-skills#25). Live multi-source cross-checked briefs operationalized for drug regimens (TRIKAFTA, ALYFTREK) and variant loci (VCV004072070, CFTR[gene] AND F508del) across openFDA, ClinicalTrials.gov, PubMed, and OpenAlex with automated retraction surveillance. Step 1 and Step 2 operationalized. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. 2026-10-15: Completed by daily-research-sentinel. Implemented tools/variant_profile/myvariant.py, tools/variant_profile/variant_layer.py, tools/test_evidence_loop_cross_check.py (56 tests passing), documented deliverable evidence/2026-10-15-t0102-evidence-loop-run.md, decomposed T-0130 into 4 sub-tasks (proposals/2026-10-15-t0130-trial-atlas-decomposition.md), verified with Full-tier orthogonal frontier review by Argon (PASS), and merged in cf-research PR #65.
 - **Measured:** 3.5 h; Delivered Step 1 multi-source CF evidence cross-check run (evidence/2026-10-15-t0102-evidence-loop-run.md) and Step 2 unified variant layer combining ClinVar and MyVariant for CFTR R31L with tied source tags and negative controls, verified by full-tier frontier review (PASS) and merged via senseiewok/cf-research PR #65.
 
+### T-0129 A continuity note: what a second person needs to keep the lab running
+
+- **Why / ROI rationale:** Estimate: protects the lab's public pages and its security if the one person is away. *(confidence: medium)*
+- **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
+- **Acceptance:** A short document in the private lab files (never in a public repo, and with no secret in it) lists where each thing lives and who may do it: the deploy path and how to stop it, how to take the site down, how to rotate the deploy credential, which accounts matter, and what to tell visitors. A person other than the maintainer has read it and says whether it is enough. No credentials, no host details in any public file.
+- **Evidence:** 2026-10-10: one reviewer asked what a second person would need to merge, deploy or take down the site if the maintainer is unavailable.
+- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Security first: the document names places and steps, not secrets. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. Preserved docs/continuity-and-governance.md and tasks/test_continuity_note.py (2/2 PASS) in cf-lab covering deploy path, stopping deployment, emergency takedown, credential rotation, accounts, and visitor communications.
+
 ### T-0141 Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main
 
 - **Why / ROI rationale:** Estimate: removes a merge-order rule nobody can enforce by hand across two repos with squash merges, and the re-sync PR each time; the lock also records which research commit a public page was built from. A stranger may say the pin only moves the red check to 'behind'; the difference is that behind is a dated warning and differs-from-main is a skipped deploy. *(confidence: medium)*
@@ -2578,6 +2600,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: Maintainer requested an autonomous schedule to maintain and build the website, conducting a round of research and improving relevant skills on every run, exposing recent lab breakthroughs (Trial Atlas, delivery biophysics, 3D CFTR), and preparing verified PRs for the site with Playwright screenshots. Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Public platform showcase sentinel integrating Track A research into live site visualizers and Spanish copy with Playwright audit. Tier full. Recommended ready. \| 2026-10-12: Set in_progress on branch site/showcase-2026-10-12. \| 2026-10-13: Full 4-stage workflow executed; biophysical dossiers scanned, skills evolved, site localized and visual audit passed; passed elevated gate and merged in PR #56 (https://github.com/senseiewok/.ai/pull/56). \| 2026-10-13: Second scheduled showcase cycle executed: scanned biophysical dossiers (T-0147, T-0150, T-0151, T-0152), updated cf-research-context and webgl-threejs-graphics skills; exposed Cryo-EM rare-variant theratyping presets on 3D viewer (src/cf/cftr/index.html) and refined Mexican Spanish (es-MX) localization; all tests and Playwright visual audits passed; passed elevated gate on worktree showcase-curative-biophysics and prepared PR #57 (https://github.com/senseiewok/.ai/pull/57) with evidence screenshots published to pr-evidence. \| 2026-10-13: Third scheduled showcase cycle executed: scanned biophysical dossiers (T-0147, T-0150, T-0151, T-0152), updated frontend-design skill with biophysical evidence ledger guidelines; exposed primary biophysical research breakthroughs on the CF story page (src/cf/index.html) under #stewardship; updated table of contents and expanded Mexican Spanish (es-MX) localization across data/i18n/es-MX.json and src/scripts/i18n-resources.js with mandatory medical disclaimer; passed all 195 unit tests and Playwright visual audits; committed 533bbb0 via run-gate.ps1 on worktree showcase-curative-breakthroughs and prepared PR #58 (https://github.com/senseiewok/.ai/pull/58) with screenshot evidence published to pr-evidence. \| 2026-10-13: PR #58 merged into .ai main (commit 0269321) by maintainer; cycle 3 showcase and localization verified live. \| 2026-10-13: Cycle 4 executed and merged in PR #59 (commit 28a7872). \| 2026-10-13: Cycle 5 executed: exposed Cryo-EM 3D structural perturbation modeling (T-0150) under #stewardship on CF story page; expanded es-MX localization in data/i18n/es-MX.json and src/scripts/i18n-resources.js with mandatory medical disclaimer; passed all 195 unit tests and Playwright visual audits; committed 283f06a on worktree showcase-curative-frontiers and merged in PR #60 (commit 288c794). \| 2026-10-13: Hardened scheduled-site-showcase skill with explicit test timing discipline: strictly forbidding running test suites during Pre-flight or at the beginning of a run. \| 2026-10-14 Opus Frontier Council Review: Re-anchored cadence to canonical Weekly on Thursdays at 04:00 PT (CRON_TZ=America/Los_Angeles 0 4 * * 4). Added persistent research watermark check (.loop-logs/last-showcase-audit.json) to eliminate PR churn when no new research dossiers exist. \| 2026-10-14: Cycle 6 executed: scanned biophysical dossiers (T-0150, rare-variants-theratypes.md), updated webgl-threejs-graphics skill; exposed R347 and R1070 rare-variant presets on 3D CFTR viewer (src/cf/cftr/index.html) and expanded Mexican Spanish (es-MX) strings across data/i18n/es-MX.json and src/scripts/i18n-resources.js with mandatory medical disclaimer; passed unit tests, check-voice, and Playwright visual audits on worktree showcase-curative-theratypes; merged in PR #62 (https://github.com/senseiewok/.ai/pull/62).
 
+### T-0047 Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules
+
+- **Why / ROI rationale:** Smart Citations are the only paid capability that directly serves claim verification: whether later literature supported or contradicted a finding. Hosted MCP means the vendor's servers, not the lab's IP, make upstream requests. About $50/month for one Pro seat with a self-service API key; cancel after a 30-day evaluation if the provider does not change a verdict in the 60-claim set. *(confidence: medium)*
+- **Route:** local - Deterministic claims and source verification loop using local checkers.
+- **Acceptance:** security-runtime MCP checklist completed and what-leaves-the-machine documented; provider returns Evidence records with vendor-model limitation string; catalog entry with terms_url, max_rps and auth=api_key; fixtures and tests; 30-day evaluation note recording whether any claim verdict changed.
+- **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4b; docs.scite.ai pricing and MCP pages read 2026-10-04
+- **Notes:** Human decision: spend. Pricing figures must be re-read on the vendor page at purchase time. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Listed in tasks/HUMAN-TASKS.md). Prioritized by multi-category ROI.
+
 ### T-0207 CFTR Delta-R domain minigene packaging and single-channel patch-clamp conductance simulator (tools/discovery/cftr_minigene_model.py)
 
 - **Why / ROI rationale:** Validates single-AAV vector packaging by mapping the 52-residue R-domain deletion (residues 708-759) onto PDB 6MSM and 5UAK and simulating patch-clamp conductance. *(confidence: high)*
@@ -2639,6 +2669,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-05: the maintainer asked to improve the WebGL and SVG skills and to do research if needed. The public-skills survey found no Anthropic skill for three.js, WebGL or scientific figures; third-party three.js skills exist but were not read.
 - **Notes:** Requested by the maintainer in this session on 2026-10-05, so it is ready. 2026-10-05 progress: webgl-threejs-graphics/scripts/check-webgl.py (headless Chromium, software renderer, no network, probe element, console errors, non-blank screenshot) with 14 mutants caught. Measured: headless Chromium has no WebGL2 with --disable-gpu alone, needs --use-angle=swiftshader --enable-unsafe-swiftshader, and a fresh --user-data-dir hangs it. Playwright for Python 1.63.0 is installed in an isolated venv outside the repos and drives the Chromium already on disk. Sourced skill text is waiting on a research pass. \| 2026-10-07 progress: audited against the acceptance. Already met by earlier work: researched, dated sections with sources (accessibility, performance, no CDN and CSP, WebGL context loss), a runnable example per skill with a passing headless check, third-party skills read and attributed in THIRD_PARTY_SKILLS.md. Added now: webgl-threejs-graphics gains examples/lit-torus.html and svg-animation gains examples/draw-on.html (both tested by check-animated-page.py with 30 bad stubs); a drawElements-counts-indices section and a lit-mesh section in the WebGL skill (MDN re-read 2026-10-07; measured faults from 6 local-worker pages); a do-not-judge-free-running-animations-from-screenshots section in the SVG skill with the ?t= freeze hook (MDN animation-delay re-read 2026-10-07; the pause-plus-negative-delay behaviour is our measurement). check_source_overlap.py --quotes-only passes on both skills and the overlap check against the sentences read from the two new sources passes. Not re-runnable: the overlap check against the 2026-10-05 sources (their texts were not stored). The acceptance says a Playwright check; the examples are checked by headless Chromium helpers without Playwright, as the existing note records. \| 2026-10-07: the one acceptance clause met only in spirit, 'a Playwright check', now has real Playwright for Python checks for both skills with negative controls (cf-lab PR 19; they run with the optional browser-testing environment and print VERIFIED). The maintainer asked for that test when asked about the clause. Left ready for the maintainer to close once PR 19 is merged. \| 2026-10-12: Marked done in board cleanup (unblocks T-0077).
 
+### T-0103 Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts
+
+- **Why / ROI rationale:** Estimate: most care teams use one of these three products, and the grid still shows them as pending, so nobody should assume the boxes work there. *(confidence: low)*
+- **Route:** local - Bounded mechanical edits and documentation maintenance.
+- **Acceptance:** Someone with access to each product runs each skill's eval cases in a fresh chat with the STANDARD box, scores each reply against its expected and forbidden lines, and edits docs/tested-with.json; python scripts/make_tested_grid.py --check passes and the page shows counts, not Pending, for the cells run. Invented cases only.
+- **Evidence:** 2026-10-08: cf-skills docs/tested-with.md lists Gemini, GPT and Copilot as Pending; the boxes were run only on three Claude models (366 replies, blind judges).
+- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Needs a person with access to those products; an agent cannot run them from the lab's machine. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 6 hours; blocks nothing; needs a person with access to each assistant. \| 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
+
 ### T-0152 Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid
 
 - **Why / ROI rationale:** Universal curative potential: rehydrates mucus in any person with CF without needing gene correction. *(confidence: medium)*
@@ -2665,6 +2703,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-12: CFF committed $15M to Prime Medicine for G542X; Alltrna advancing suppressor tRNAs; nonsense mutations produce zero CFTR and lack approved therapies (Task T-0134). Detailed in gemini-cf-schedules-design.md.
 - **Notes:** 2026-10-12: proposed by Gemini on the maintainer instruction; only the maintainer can set it ready. \| Detailed architectural specs, cron cadences, and biophysical schemas defined in gemini-cf-schedules-design.md. \| 2026-10-12 CRO Grounding Audit: Grounded in RefSeq NM_000492.4, CFF Prime Medicine commitment, and Alltrna suppressor tRNAs; essential Track A milestone for non-modulator population (W1282X, G542X). Tier elevated. Recommended ready. \| 2026-10-13: Drafted and committed mechanistic dossier in cf-research/proposals/2026-10-nonsense-readthrough-nmd.md covering G542X and W1282X codon contexts, canonical vs penultimate EJC NMD kinetics, localized airway SMG1 window, and tri-modal synergy (tRNA + SMG1i + VX-770) surpassing the 10% WT Delta-Isc threshold. \| 2026-10-13 Midday CRO Audit: Mechanistic W1282X and G542X nonsense mutation dossier in cf-research/proposals/2026-10-nonsense-readthrough-nmd.md merged into cf-research via PR #47 and #48. Tri-modal synergy model verified. Recommended ready. \| 2026-10-14: maintainer approved moving to ready for automated execution. \| 2026-10-14: Marked done. Comprehensive biophysical landscape dossier published in landscape/ptc-readthrough-nmd-biophysics.md (PR cf-research#62), grounded in RefSeq NM_000492.4, Manfredi et al. (Biochemistry 2025), and Clarke et al. (PLoS ONE 2016). Tri-modal synergy models verified.
 - **Measured:** 6 h; Mechanistic landscape dossier and proposal completed in landscape/ptc-readthrough-nmd-biophysics.md and proposals/2026-10-nonsense-readthrough-nmd.md with RefSeq NM_000492.4 codon context, EJC distance, NMD kinetics, and tri-modal synergy model exceeding the 10% WT Delta-Isc threshold (PR cf-research#62).
+
+### T-0082 Try each agent's install path from the skills hub in a real client
+
+- **Why / ROI rationale:** Estimate: wrong paths in a public install guide send people to dead ends, and the guide's value is that it is right. *(confidence: medium)*
+- **Route:** local - Bounded mechanical edits and documentation maintenance.
+- **Acceptance:** For each agent the maintainer can run (Claude Code, Copilot, Codex, Gemini CLI, Cursor at least): the documented install step and the pasted prompt are run on a throwaway project; the result (folder written, skill listed, one call made) is recorded in docs/install.md with the agent version; every row that fails is corrected or relabelled; `python scripts/check_repo.py` passes.
+- **Evidence:** cf-skills/docs/install.md and docs/prompts.md rest on vendor pages read on 2026-10-05, partly through a summarising tool; nothing was run in a real client (research file agents-research.md, 'Things I could not verify').
+- **Notes:** Human steps: access to each client and its account. The prompts have a safe-fetch clause; check an agent actually asks first. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 7 hours of client trying; blocks nothing. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
 
 ### T-0148 Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools)
 
@@ -2717,6 +2763,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** handoff site_text.txt (private session artifact, not in the repo): zero matches for 'affiliat'
 - **Notes:** 2026-10-07: Audit: the not-affiliated line sits next to the donate link and in the footers. It now appears several times, where the acceptance says once; the maintainer decides the wording. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done (check): 'Not affiliated with the Cystic Fibrosis Foundation' is in the footer of every page on 2026-10-10. \| 2026-10-12: Marked done in board cleanup.
 
+### T-0006 Send permissions emails to CFF registry contact and ECFSPR
+
+- **Why / ROI rationale:** Decides by day 10 whether extracted values may be redistributed or only the script ships. Draft exists. *(confidence: medium)*
+- **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
+- **Acceptance:** Emails sent; dates and replies recorded in landscape/registry-data-access.md.
+- **Evidence:** research/landscape/registry-data-access.md 'Email draft'
+- **Notes:** Human task. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\bhuman task\b'). Prioritized by multi-category ROI.
+
 ### T-0110 Rulesets on main for the public repos
 
 - **Why / ROI rationale:** Estimate: the only control that holds whatever mode the agent runs in. *(confidence: medium)*
@@ -2725,13 +2779,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-09: gh api shows no ruleset on main; CODEOWNERS says it takes effect only with one. A mistaken or injected push to main is not blocked by GitHub.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. GitHub settings are human-only. The private site repo keeps its own list in its notes. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Listed in tasks/HUMAN-TASKS.md). Prioritized by multi-category ROI.
 
-### T-0020 Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md
+### T-0058 Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result
 
-- **Why / ROI rationale:** A model flagged roughly half the ideas as conflicting with cf-research-context. That judgement needs a human to confirm or overrule before it steers anything. *(confidence: medium)*
+- **Why / ROI rationale:** Estimate: macOS support is a claim until a real run; a lint is not a Mac. *(confidence: high)*
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
-- **Acceptance:** Each triage row has a human initial and date, or is edited.
-- **Evidence:** hq/cf-projects/CF-Project-Ideas.md 'Scope triage' section
-- **Notes:** Human task. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\bhuman task\b'). Prioritized by multi-category ROI.
+- **Acceptance:** On macOS: python3 .claude/skills/lab-versioning/scripts/test-setup.py prints 'sh: all checks passed' and VERIFIED (cmd is skipped), then ./setup.sh in a temp folder clones cf-skills and cf-research and creates cf-lab-files (memory, scratch, README; setup generates no workspace file); paste the output into this task's notes. Repeat on one Linux machine. Any failure becomes its own task with the failing output.
+- **Evidence:** setup.sh was written by the local worker and verified only under dash and bash from Git for Windows with a stub git, plus a lint for constructs old macOS shells reject. No macOS or Linux machine ran it.
+- **Notes:** Needs a human with a Mac. Proposed by a model. Until it is done, README and AGENTS.md should not say macOS is supported beyond 'written to be portable and tested under dash and bash'. A macos-latest GitHub Actions runner (T-0061) would run test-setup.py on a real macOS shell without owning a Mac; that run's output would satisfy this task for macOS. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Verified test-setup.py --target sh prints 'repo files: all checks passed', 'sh: all checks passed', and 'VERIFIED'. Physical execution on a real Mac/Linux machine or macos-latest runner (T-0061) required by maintainer to complete physical platform acceptance. \| 2026-10-16: checked during daily-security-sentinel build round. Requires physical macOS and Linux machine testing; cannot be executed in Windows environment.
 
 ### T-0118 Decide read and discard (cf-research #23)
 
@@ -2874,6 +2928,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** scratch/qwen-local/reviewer-eval.md, 'An 18th defect': with no --base-url and an absolute canonical the SEO008 path comparison is skipped (spec section 4); reproduced on 2026-10-06 in the original A3 and in shipped/seo_audit.py, while reference/seo_audit.py reports SEO008. Spec text in scratch/seo-skill/spec.md SEO008 row; fix notes in scratch/seo-skill/seo008-fix.md.
 - **Notes:** Does not duplicate T-0083 (the release review itself); it is the re-run after the fix. Human step: the merge and the publish decision stay with the maintainer. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: needs T-0083, so cannot start first. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
 
+### T-0093 Post the welcome note in the cf-lab GitHub Discussions
+
+- **Why / ROI rationale:** Estimate: a visitor who follows the README link lands on an empty page; a short, plain welcome with one clear invitation costs little and sets the tone before anyone else posts. *(confidence: medium)*
+- **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
+- **Acceptance:** A human writes or approves the text under the lab-voice skill (a letter: warm, one invitation, no invented biography, no clinical promise, no claim to speak for a community) and posts it. Then: gh api graphql -f query='{repository(owner:"senseiewok",name:"cf-lab"){discussions(first:5){totalCount nodes{title url}}}}' reports totalCount of 1 or more and the note's URL; the README's Discussions link opens a page that shows it.
+- **Evidence:** README.md, 'Thanks to the tools' table: the GitHub row links https://github.com/senseiewok/cf-lab/discussions as a place the lab uses. Observed on 2026-10-06 with the GitHub API: the repository reports has_discussions true and the GraphQL discussions totalCount is 0, so the linked page is empty.
+- **Notes:** Human step: the wording and the posting are the maintainer's. Proposed by a model; a draft may be offered, but a model does not post it. Community-facing text, so the lab-voice review applies. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15: Welcome note letter drafted in docs/welcome-discussions-draft.md adhering to the lab-voice skill (0 errors/warnings on check-voice.py). Awaiting human maintainer review and posting to GitHub Discussions per acceptance criteria.
+
 ### T-0096 Run the optional Playwright browser-testing setup on a real Mac and a Linux machine
 
 - **Why / ROI rationale:** Estimate: the README promises the optional step works on macOS and Linux; a virtual-environment path, a browser lookup and a Playwright install differ per system, and a stand-in cannot show that they work. *(confidence: medium)*
@@ -2978,14 +3040,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest passes; tests assert manual/forbidden/request entries never reach download(); manifest round-trip tested with a temp dir.
 - **Evidence:** research/tools/sources/fetch_sources.py
 - **Notes:**  Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Verified 2026-10-05: tools/sources/test_fetch_sources.py has 16 tests and they pass. \| Verified done 2026-10-07 (first-hand, then by a read-only audit), set done on the maintainer's instruction in session: pytest on tools/sources/test_fetch_sources.py and test_fetch_conduct.py gives 38 passed; forbidden, request and manual entries never reach download() (test_forbidden_request_and_manual_entries_are_never_downloaded_even_when_named); the manifest round-trip uses a temp dir. Caveat: running pytest on the whole tools/sources folder does not collect everything, because two test files there are plain scripts (T-0098 proposes fixing that). No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
-
-### T-0039 Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER
-
-- **Why / ROI rationale:** Four sources reachable through APIs already in use or public; one afternoon of reading terms converts them from unverified to catalogued. *(confidence: medium)*
-- **Route:** cloud - Reading five hosts needs conduct (robots first, Crawl-delay, one request) and judgement about what a page does and does not say; done by the controller with a scripted quote check.
-- **Acceptance:** Four new catalog entries, each with robots/terms fields, a check date, and claim_label: verified.
-- **Evidence:** research/proposals/2026-10-04-researcher-sources.md recommended order 3-5
-- **Notes:** Human reads terms; agent records. Taken 2026-10-05 on the maintainer's instruction ('complete the pending work from the task board'; scope confirmed: the full model-doable batch; work lands on the open PR branches, nothing pushed). A human sets done after seeing the acceptance output. \| Agent part done 2026-10-05, cf-research 79203fd and cf-skills 1723bf6: nih-reporter and clinvar verified with their policy sentences quoted (8 of 8 quotes verbatim and complete); biorxiv records medRxiv's terms but stays unverified because bioRxiv's own page answered 429 and was not retried; Cochrane added as manual and link-only because its robots.txt disallows the Claude agent. The acceptance wants four verified entries: two verified, one added unverified, one downgraded to unverified. A human decides whether to retry bioRxiv later.
 
 ### T-0088 Keep everything a verifier reads inside its temp copy
 
@@ -3235,14 +3289,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Follows the pattern of .ai #38 (tools/pin_evidence.py) and the Resources pin. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: all three reviewers named it: every catalog change needed a sync pull request in cf-skills (four in one day). 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. 2026-10-16: verified and delivered in PR cf-skills#31. Pinned catalog copy to research commit 79f23dd with catalog.lock.json, scripts/pin_catalog.py, and 14 unit tests. --status reports commits behind, and --check verifies against the pinned commit rather than main. Standalone checks and all 223 evidence loop tests pass.
 - **Measured:** 3.5 h; Delivered scripts/pin_catalog.py with --status, --check, and --verify CLI, catalog.lock.json in cf-evidence-loop, 14 unit tests in tests/test_pin_catalog.py with FakeGit fixtures, and CI workflow integration in senseiewok/cf-skills#31. Upstream catalog changes in cf-research no longer turn cf-skills red.
 
-### T-0129 A continuity note: what a second person needs to keep the lab running
-
-- **Why / ROI rationale:** Estimate: protects the lab's public pages and its security if the one person is away. *(confidence: medium)*
-- **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
-- **Acceptance:** A short document in the private lab files (never in a public repo, and with no secret in it) lists where each thing lives and who may do it: the deploy path and how to stop it, how to take the site down, how to rotate the deploy credential, which accounts matter, and what to tell visitors. A person other than the maintainer has read it and says whether it is enough. No credentials, no host details in any public file.
-- **Evidence:** 2026-10-10: one reviewer asked what a second person would need to merge, deploy or take down the site if the maintainer is unavailable.
-- **Notes:** 2026-10-10: proposed by a model; only the maintainer can set it ready. Security first: the document names places and steps, not secrets. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. Preserved docs/continuity-and-governance.md and tasks/test_continuity_note.py (2/2 PASS) in cf-lab covering deploy path, stopping deployment, emergency takedown, credential rotation, accounts, and visitor communications.
-
 ### T-0173 Trial Endpoint Atlas: zero-build interactive showcase compilation for /cf/trials/
 
 - **Why / ROI rationale:** Zero-build public atlas with reactive SVG PRISMA diagram, faceted filters, and persistent NLM disclaimers. *(confidence: high)*
@@ -3296,14 +3342,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 3
 - **Notes:** Update 2026-10-04: catalog entries gnomad and myvariant now exist (research/sources/catalog.yaml). gnomad is access manual: its robots.txt is 'Disallow: *' with an allowlist that has no API path, and no API usage terms were found on its policies page, so a gnomAD API provider is blocked until the gnomAD team states API terms (a human may ask them). myvariant is api but has no base_url yet and its rate limit is unstated (capped at 1/s); it is not reachable by the skill until a human admits it. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-15 Sentinel Research Build: Marked done. Deliverables verified with 220 passing tests in cf-skills PR #29; live F508del and HbS classification and gnomAD allele frequencies verified.
 - **Measured:** 4 h; gnomAD provider (gnomad.py) implemented with fail-closed catalog gate; MyVariant.info provider extended with ClinVar clinical significance and gnomAD aggregate allele frequency extraction; 220 unit tests and live F508del/HbS checks verified (PR #29).
-
-### T-0047 Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules
-
-- **Why / ROI rationale:** Smart Citations are the only paid capability that directly serves claim verification: whether later literature supported or contradicted a finding. Hosted MCP means the vendor's servers, not the lab's IP, make upstream requests. About $50/month for one Pro seat with a self-service API key; cancel after a 30-day evaluation if the provider does not change a verdict in the 60-claim set. *(confidence: medium)*
-- **Route:** local - Deterministic claims and source verification loop using local checkers.
-- **Acceptance:** security-runtime MCP checklist completed and what-leaves-the-machine documented; provider returns Evidence records with vendor-model limitation string; catalog entry with terms_url, max_rps and auth=api_key; fixtures and tests; 30-day evaluation note recording whether any claim verdict changed.
-- **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4b; docs.scite.ai pricing and MCP pages read 2026-10-04
-- **Notes:** Human decision: spend. Pricing figures must be re-read on the vendor page at purchase time. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Listed in tasks/HUMAN-TASKS.md). Prioritized by multi-category ROI.
 
 ### T-0049 Pilot Gemini Deep Research (collaborative planning) as the frontier-planning leg; verify every citation through cf-evidence-loop
 
@@ -3602,6 +3640,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** 2026-10-13: Gemini (Antigravity) opened cf-lab pull request 50, which copied the whole cf-evidence-loop skill and sources/catalog.yaml into cf-lab to make a clone 'self-contained'. A three-model council (Opus, Sonnet, Fable) and deterministic checks rejected the copy: 44 of 46 copied files were byte-identical to cf-skills and cf-research main, but the catalog copy had 59 sources against 67 upstream (missing the 8 added on 2026-10-09 and 10) and the skill's own generated catalog had 53, because the local sibling checkouts were behind origin/main; AGENTS.md says the evidence tool is 'not copied here, one maintained source' and the catalog 'Edit it there, nowhere else'; the PR also exempted the skill from the duplicate-name guard (check-workspace.py) and reversed the ownership text. The underlying wish (a clone that works without sibling checkouts) is reasonable and was not tested against how setup.cmd and setup.sh already clone the siblings.
 - **Notes:** 2026-10-13: proposed by a model; only the maintainer can set it ready. This is a decision first and work second: the rejected PR is cf-lab PR 50 (comment with the council's findings). Nothing here changes who owns cf-evidence-loop or the catalog until a human sets this row ready and decides. Supersedes nothing; related: the publication plan in AGENTS.md ('does not authorize a cross-repo move yet'), the workspace-siblings skill, and the single-catalog rule in security-browsing. \| 2026-10-13 CRO Grounding Audit: Audit pass. Governance and catalog provenance guardrail; enforces single-source-of-truth for catalog.yaml and rejects unverified local duplication rot; tier full. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
 
+### T-0020 Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md
+
+- **Why / ROI rationale:** A model flagged roughly half the ideas as conflicting with cf-research-context. That judgement needs a human to confirm or overrule before it steers anything. *(confidence: medium)*
+- **Route:** local - Bounded mechanical edits and documentation maintenance.
+- **Acceptance:** Each triage row has a human initial and date, or is edited.
+- **Evidence:** hq/cf-projects/CF-Project-Ideas.md 'Scope triage' section
+- **Notes:** Human task. \| 2026-10-15 ROI Triage: Approved to ready (human executor: Matched human gate pattern: '\bhuman task\b'). Prioritized by multi-category ROI.
+
 ### T-0023 Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy
 
 - **Why / ROI rationale:** The site cites CFF history and a DailyMed label. Approval years are the kind of claim a reader checks; worth a dated FDA-source citation per drug rather than a history page. *(confidence: medium)*
@@ -3796,22 +3842,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** Providers with tests; EVIDENCE_CONTACT used for Unpaywall only; no key committed; live check on 10.1038/ng.2745 returns an OA location and citation graph summary.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 3
 - **Notes:** 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment. \| 2026-10-17: Implemented Unpaywall and Semantic Scholar providers in cf-evidence-loop (.claude/skills/cf-evidence-loop/scripts/evidence/providers/unpaywall.py and semantic_scholar.py) with EVIDENCE_CONTACT used for Unpaywall only (redacted in record URLs), zero committed keys, fixtures, unit tests, and live check on 10.1038/ng.2745.
-
-### T-0103 Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts
-
-- **Why / ROI rationale:** Estimate: most care teams use one of these three products, and the grid still shows them as pending, so nobody should assume the boxes work there. *(confidence: low)*
-- **Route:** local - Bounded mechanical edits and documentation maintenance.
-- **Acceptance:** Someone with access to each product runs each skill's eval cases in a fresh chat with the STANDARD box, scores each reply against its expected and forbidden lines, and edits docs/tested-with.json; python scripts/make_tested_grid.py --check passes and the page shows counts, not Pending, for the cells run. Invented cases only.
-- **Evidence:** 2026-10-08: cf-skills docs/tested-with.md lists Gemini, GPT and Copilot as Pending; the boxes were run only on three Claude models (366 replies, blind judges).
-- **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. Needs a person with access to those products; an agent cannot run them from the lab's machine. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 6 hours; blocks nothing; needs a person with access to each assistant. \| 2026-10-15 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
-
-### T-0082 Try each agent's install path from the skills hub in a real client
-
-- **Why / ROI rationale:** Estimate: wrong paths in a public install guide send people to dead ends, and the guide's value is that it is right. *(confidence: medium)*
-- **Route:** local - Bounded mechanical edits and documentation maintenance.
-- **Acceptance:** For each agent the maintainer can run (Claude Code, Copilot, Codex, Gemini CLI, Cursor at least): the documented install step and the pasted prompt are run on a throwaway project; the result (folder written, skill listed, one call made) is recorded in docs/install.md with the agent version; every row that fails is corrected or relabelled; `python scripts/check_repo.py` passes.
-- **Evidence:** cf-skills/docs/install.md and docs/prompts.md rest on vendor pages read on 2026-10-05, partly through a summarising tool; nothing was run in a real client (research file agents-research.md, 'Things I could not verify').
-- **Notes:** Human steps: access to each client and its account. The prompts have a safe-fetch clause; check an agent actually asks first. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: 7 hours of client trying; blocks nothing. \| 2026-10-14 CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment.
 
 ### T-0052 Close the findings a frontier-model review deferred in cf-evidence-loop v0.1
 
