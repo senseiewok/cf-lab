@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -14248,7 +14248,7 @@
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
-      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
       "created_at": "2026-10-22T08:30:00Z",
       "updated_at": "2026-10-22",
       "created_by": {
@@ -17091,7 +17091,7 @@
         "high": 5.5
       },
       "acceptance": "python tools/discovery/mrna_secondary_structure_model.py --check",
-      "notes": "Wave 27 Research Lane Replenishment. Computational thermodynamic model of CFTR mRNA stem-loop folding free energies (ΔG) across Exons 10-12 (containing F508del and Class I mutations), quantifying ribosome pause duration and elongation kinetics.",
+      "notes": "Wave 27 Research Lane Replenishment. Computational thermodynamic model of CFTR mRNA stem-loop folding free energies (\u0394G) across Exons 10-12 (containing F508del and Class I mutations), quantifying ribosome pause duration and elongation kinetics.",
       "spec_path": "tasks/specs/T-0345.md",
       "roi": {
         "benefit": 5,
@@ -18472,7 +18472,7 @@
       "title": "Interactive CFTR mRNA Secondary Structure Minimum Free Energy (MFE) Folding & Ribosome Translocation Velocity Explorer on /cf/ptc/ with es-MX Parity",
       "repo": ".ai",
       "area": "showcase",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -18489,7 +18489,7 @@
         "high": 4.5
       },
       "acceptance": "python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check",
-      "notes": "Wave 33 Showcase Lane Replenishment. Interactive CFTR mRNA secondary structure MFE folding, pseudoknot stability, and codon elongation velocity explorer on /cf/ptc/ with es-MX parity.",
+      "notes": "Wave 33 Showcase Lane Replenishment. Interactive CFTR mRNA secondary structure MFE folding, pseudoknot stability, and codon elongation velocity explorer on /cf/ptc/ with es-MX parity. Completed 2026-10-23 by daily-security-sentinel in senseiewok/.ai#158. Delivered interactive CFTR mRNA MFE secondary structure folding & ribosome translocation velocity explorer on /cf/ptc/ with full es-MX parity. Verified by test_mrna_folding_velocity_explorer, tests.test_site (147 tests), check_i18n_parity (1152 uses, 0 missing, 0 orphans), and run-gate.ps1 -Tier elevated.",
       "spec_path": "tasks/specs/T-0377.md",
       "roi": {
         "benefit": 5,
@@ -18509,14 +18509,16 @@
       "route_rationale": "Client-side interactive visualization on .ai.",
       "source_evidence": "tasks/specs/T-0377.md; DOI: 10.1016/j.jmb.2021.167098",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-23",
+      "actual_hours": 3.5
     },
     {
       "id": "T-0378",
       "title": "Interactive Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretory Hyperviscosity Dynamics Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "showcase",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -18533,7 +18535,7 @@
         "high": 4.5
       },
       "acceptance": "python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check",
-      "notes": "Wave 33 Showcase Lane Replenishment. Interactive airway goblet cell hyperplasia, MUC5AC/MUC5B crosslinking, and rheological yield stress simulator on /cf/delivery/ with es-MX parity.",
+      "notes": "Wave 33 Showcase Lane Replenishment. Interactive airway goblet cell hyperplasia, MUC5AC/MUC5B crosslinking, and rheological yield stress simulator on /cf/delivery/ with es-MX parity. Completed 2026-10-23 by daily-security-sentinel in senseiewok/.ai#158. Delivered interactive airway goblet cell metaplasia & MUC5AC/MUC5B secretory hyperviscosity simulator on /cf/delivery/ with full es-MX parity. Verified by test_goblet_hyperviscosity_explorer, tests.test_site (147 tests), check_i18n_parity (1152 uses, 0 missing, 0 orphans), and run-gate.ps1 -Tier elevated.",
       "spec_path": "tasks/specs/T-0378.md",
       "roi": {
         "benefit": 5,
@@ -18553,7 +18555,9 @@
       "route_rationale": "Client-side interactive visualization on .ai.",
       "source_evidence": "tasks/specs/T-0378.md; DOI: 10.1164/rccm.201809-1707OC",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "completed_at": "2026-10-23",
+      "actual_hours": 3.5
     },
     {
       "id": "T-0379",

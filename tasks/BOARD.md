@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P2 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (75)
+## ready (73)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -53,8 +53,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0360 | P1 | Interactive CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0358 |  |
 | T-0371 | P1 | Interactive Deep Airway Submucosal Gland Serous Acinar Fluid & Aquaporin-5 Conductance Explorer on /cf/tree/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0369 |  |
 | T-0372 | P1 | Interactive Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Deposition Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0370 |  |
-| T-0377 | P1 | Interactive CFTR mRNA Secondary Structure Minimum Free Energy (MFE) Folding & Ribosome Translocation Velocity Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
-| T-0378 | P1 | Interactive Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretory Hyperviscosity Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0297 | P1 | Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Scavenger Receptor Kinetics Model (tools/discovery/macrophage_scavenger_kinetics.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0271 |  |
 | T-0303 | P1 | Airway Epithelial Club Cell Secretoglobin (SCGB1A1) Secretory Vesicle Trafficking & Apical Exosome Packaging Model (tools/discovery/club_cell_exosome_trafficking.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
@@ -90,7 +88,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0103 | P3 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
 | T-0082 | P3 | Try each agent's install path from the skills hub in a real client | cf-skills | 4-10 | 4 | 5.7 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local |  |  |
 
-## done (293)
+## done (295)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -195,6 +193,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0274 | P1 | Interactive Deep Intronic Splice Foundation Model & Pseudoexon Rescue Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0269 |  |
 | T-0280 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Simulator on /cf/cftr/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0270 |  |
 | T-0288 | P1 | Interactive Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0285 |  |
+| T-0377 | P1 | Interactive CFTR mRNA Secondary Structure Minimum Free Energy (MFE) Folding & Ribosome Translocation Velocity Explorer on /cf/ptc/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
+| T-0378 | P1 | Interactive Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretory Hyperviscosity Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
 | T-0180 | P1 | Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py) | cf-research | 2-4 | 4 | 13.3 | yes | model: gpt-5-frontier | 2026-10-17 | elevated | medium | local | T-0177, T-0178, T-0179 |  |
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
@@ -1670,7 +1670,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0377.md; DOI: 10.1016/j.jmb.2021.167098
 - **Spec:** `tasks/specs/T-0377.md`
-- **Notes:** Wave 33 Showcase Lane Replenishment. Interactive CFTR mRNA secondary structure MFE folding, pseudoknot stability, and codon elongation velocity explorer on /cf/ptc/ with es-MX parity.
+- **Notes:** Wave 33 Showcase Lane Replenishment. Interactive CFTR mRNA secondary structure MFE folding, pseudoknot stability, and codon elongation velocity explorer on /cf/ptc/ with es-MX parity. Completed 2026-10-23 by daily-security-sentinel in senseiewok/.ai#158. Delivered interactive CFTR mRNA MFE secondary structure folding & ribosome translocation velocity explorer on /cf/ptc/ with full es-MX parity. Verified by test_mrna_folding_velocity_explorer, tests.test_site (147 tests), check_i18n_parity (1152 uses, 0 missing, 0 orphans), and run-gate.ps1 -Tier elevated.
 
 ### T-0378 Interactive Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretory Hyperviscosity Dynamics Simulator on /cf/delivery/ with es-MX Parity
 
@@ -1679,7 +1679,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0378.md; DOI: 10.1164/rccm.201809-1707OC
 - **Spec:** `tasks/specs/T-0378.md`
-- **Notes:** Wave 33 Showcase Lane Replenishment. Interactive airway goblet cell hyperplasia, MUC5AC/MUC5B crosslinking, and rheological yield stress simulator on /cf/delivery/ with es-MX parity.
+- **Notes:** Wave 33 Showcase Lane Replenishment. Interactive airway goblet cell hyperplasia, MUC5AC/MUC5B crosslinking, and rheological yield stress simulator on /cf/delivery/ with es-MX parity. Completed 2026-10-23 by daily-security-sentinel in senseiewok/.ai#158. Delivered interactive airway goblet cell metaplasia & MUC5AC/MUC5B secretory hyperviscosity simulator on /cf/delivery/ with full es-MX parity. Verified by test_goblet_hyperviscosity_explorer, tests.test_site (147 tests), check_i18n_parity (1152 uses, 0 missing, 0 orphans), and run-gate.ps1 -Tier elevated.
 
 ### T-0061 Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows)
 
