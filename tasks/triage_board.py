@@ -52,15 +52,47 @@ WIDENING_WORDS = [
 
 # Curative mission keywords for Track A and Track B
 TRACK_A_KEYWORDS = re.compile(
-    r"\b(cryo-em|vx-522|lnp|aerosol|nonsense|w1282x|g542x|readthrough|nmd|enac|tmem16a|slc26a9|phage|conductance|theratype|missense|structural perturbation|folding|cftr2|ptc)\b",
+    r"\b(cryo-em|vx-522|lnp|aerosol|nonsense|w1282x|g542x|readthrough|nmd|enac|tmem16a|slc26a9|phage|conductance|theratype|missense|structural perturbation|folding|cftr2|ptc|esm-2|spliceai|variant predictor)\b",
     re.I,
 )
 TRACK_B_KEYWORDS = re.compile(
-    r"\b(atlas|trial endpoint|surrogate|3d viewer|cftr/|resources|spanish|es-mx|registry|65 roses|letter|evidence loop|population|datacommons)\b",
+    r"\b(atlas|trial endpoint|surrogate|3d viewer|cftr/|resources|spanish|es-mx|registry|65 roses|letter|evidence loop|population|datacommons|visit-prep|care-team question)\b",
     re.I,
 )
 INTEGRITY_KEYWORDS = re.compile(
-    r"\b(check_claims|claim checker|check_numbers|retraction watch|openfda|crossref|catalog|grounding|anti-hallucination|answer tier)\b",
+    r"\b(check_claims|claim checker|check_numbers|retraction watch|openfda|crossref|catalog|grounding|anti-hallucination|answer tier|evidence-discipline benchmark|claim-support critic)\b",
+    re.I,
+)
+CURATIVE_SECONDARY_RX = re.compile(
+    r"\b(cftr|f508del|variant|mutation|conductance|phage|delivery|cryo-em|readthrough)\b",
+    re.I,
+)
+TRANSLATION_SECONDARY_RX = re.compile(
+    r"\b(site|website|spanish|atlas|patient|clinical|endpoint|viewer)\b",
+    re.I,
+)
+INTEGRITY_SECONDARY_RX = re.compile(
+    r"\b(catalog|evidence|doi|nct|retraction|fda|openalex|registry)\b",
+    re.I,
+)
+VELOCITY_PRIMARY_RX = re.compile(
+    r"\b(pipeline|automation|test|speed|ci|worker|delegate|faster|benchmark)\b",
+    re.I,
+)
+VELOCITY_SECONDARY_RX = re.compile(
+    r"\b(tool|script|skill|setup|check)\b",
+    re.I,
+)
+SECURITY_PRIMARY_RX = re.compile(
+    r"\b(security|secret|phi|leak|gate|permission|license|cve)\b",
+    re.I,
+)
+SECURITY_SECONDARY_RX = re.compile(
+    r"\b(safety|disclaimer|privacy)\b",
+    re.I,
+)
+STANDALONE_LINTER_RX = re.compile(
+    r"\btasks/check_[a-z0-9_]+\.py\b",
     re.I,
 )
 
@@ -460,36 +492,41 @@ def compute_multi_category_roi(task: dict) -> dict:
     curative = 2.0
     if TRACK_A_KEYWORDS.search(text):
         curative = 9.5
-    elif any(k in text for k in ["cftr", "f508del", "variant", "mutation", "conductance", "phage", "delivery", "cryo-em", "readthrough"]):
+    elif CURATIVE_SECONDARY_RX.search(text):
         curative = 7.5
 
     # 2. Clinical & Public Translation (Track B)
     translation = 2.0
     if TRACK_B_KEYWORDS.search(text):
         translation = 9.0
-    elif any(k in text for k in ["site", "website", "spanish", "atlas", "patient", "clinical", "endpoint", "viewer"]):
+    elif TRANSLATION_SECONDARY_RX.search(text):
         translation = 7.0
 
     # 3. Scientific Integrity & Anti-Hallucination
     integrity = 3.0
     if INTEGRITY_KEYWORDS.search(text):
         integrity = 9.0
-    elif any(k in text for k in ["catalog", "evidence", "doi", "nct", "retraction", "fda", "openalex", "registry"]):
+    elif INTEGRITY_SECONDARY_RX.search(text):
         integrity = 7.0
 
     # 4. Operational & Agent Velocity
     velocity = 3.0
-    if any(k in text for k in ["pipeline", "automation", "test", "speed", "ci", "worker", "delegate", "faster", "benchmark"]):
+    if VELOCITY_PRIMARY_RX.search(text):
         velocity = 8.5
-    elif any(k in text for k in ["tool", "script", "skill", "setup", "check"]):
+    elif VELOCITY_SECONDARY_RX.search(text):
         velocity = 6.0
 
     # 5. Security, Privacy & Safety
     security = 2.0
-    if any(k in text for k in ["security", "secret", "phi", "leak", "gate", "permission", "license", "cve"]):
+    if SECURITY_PRIMARY_RX.search(text):
         security = 9.0
-    elif any(k in text for k in ["safety", "disclaimer", "privacy"]):
+    elif SECURITY_SECONDARY_RX.search(text):
         security = 6.5
+
+    # Dampen standalone cf-lab AST/regex linters (tasks/check_*.py) so they never outrank CF science or platform tasks
+    if task.get("repo") == "cf-lab" and STANDALONE_LINTER_RX.search(text):
+        velocity = min(velocity, 4.0)
+        security = min(security, 4.5)
 
     weights = {
         "curative_biophysics": 0.30,
@@ -540,14 +577,18 @@ def determine_roi_priority(task: dict, roi_meta: dict) -> str:
     score = roi_meta["composite_score"]
     effort = roi_meta["mean_effort_hours"]
     ratio = roi_meta["roi_ratio"]
-    high_mission_track = cats.get("curative_biophysics", 0.0) >= 8.0 or cats.get("clinical_translation", 0.0) >= 8.0
+    high_mission_track = (
+        cats.get("curative_biophysics", 0.0) >= 8.0
+        or cats.get("clinical_translation", 0.0) >= 8.0
+        or cats.get("scientific_integrity", 0.0) >= 8.0
+    )
 
-    # High mission impact (composite >= 6.5 or Track A/B >= 8.0 within the 12h single-run ceiling)
-    # OR high ROI ratio (>= 3.5) backed by meaningful impact (composite >= 5.0)
-    if (score >= 6.5 and effort <= 12.0) or (high_mission_track and effort <= 12.0) or (ratio >= 3.5 and score >= 5.0):
+    # High mission impact (composite >= 6.5 or Track A/B/Integrity >= 8.0 within 1.5h..12h)
+    # OR high ROI ratio (>= 3.5) backed by meaningful impact (composite >= 5.0) and effort floor (>= 1.5h)
+    if (score >= 6.5 and 1.5 <= effort <= 12.0) or (high_mission_track and 1.5 <= effort <= 12.0) or (ratio >= 3.5 and score >= 5.0 and effort >= 1.5):
         return "P1"
-    # Substantial ROI (>= 1.5) or strong composite score (>= 5.0)
-    elif ratio >= 1.5 or score >= 5.0:
+    # Substantial ROI backed by non-trivial score (>= 3.5) or strong composite score (>= 5.0)
+    elif (ratio >= 1.5 and score >= 3.5) or score >= 5.0 or high_mission_track:
         return "P2"
     else:
         return "P3"
@@ -560,6 +601,7 @@ def triage_board(
     prioritize: bool = False,
     all_approved: bool = False,
     roi_model: bool = False,
+    max_ready_backlog: int | None = None,
 ) -> tuple[dict, dict]:
     """Triage all tasks in board_data and return updated data and stats."""
     stats = {
@@ -570,6 +612,7 @@ def triage_board(
         "completed_to_done": [],
         "retained_proposed_human": [],
         "retained_proposed_ungrounded": [],
+        "retained_proposed_saturated": [],
         "curative_tracks": {
             "Track A": 0,
             "Track B": 0,
@@ -583,6 +626,10 @@ def triage_board(
 
     now_iso = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     today_str = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
+    agent_ready_count = sum(
+        1 for t in board_data["tasks"]
+        if t.get("status") == "ready" and not is_human_gated(t, human_ids)[0]
+    )
 
     for task in board_data["tasks"]:
         tid = task["id"]
@@ -639,12 +686,18 @@ def triage_board(
                     continue
 
                 if auto_approve:
+                    if max_ready_backlog is not None and agent_ready_count >= max_ready_backlog:
+                        stats["retained_proposed_saturated"].append(
+                            (tid, f"Backlog saturated ({agent_ready_count} >= {max_ready_backlog} agent-ready tasks)")
+                        )
+                        continue
                     task["status"] = "ready"
                     task["updated_at"] = now_iso
                     existing_notes = task.get("notes") or ""
                     approval_note = f"{today_str} CRO Auto-Triage: Approved to ready per maintainer instruction. Verified primary source grounding, acceptance criteria, and curative mission alignment."
                     task["notes"] = f"{existing_notes} | {approval_note}" if existing_notes else approval_note
                     stats["approved_to_ready"].append(tid)
+                    agent_ready_count += 1
         elif status == "ready" and (task.get("executor") == "human" or task.get("human_required") is True):
             is_hg, _ = is_human_gated(task, human_ids)
             if not is_hg:
