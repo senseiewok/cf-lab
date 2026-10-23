@@ -318,14 +318,14 @@ try {
     # ---- the real manifest ------------------------------------------------------------------------
     $real = Get-Content $realManifestPath -Raw | ConvertFrom-Json
     $names = @($real.sentinels.PSObject.Properties.Name)
-    Assert-Test "Real manifest lists the three sentinels" ($names.Count -eq 3) ($names -join ",")
+    Assert-Test "Real manifest lists the four sentinels" ($names.Count -eq 4) ($names -join ",")
     $minutes = @()
     foreach ($n in $names) {
         $c = $real.sentinels.$n
         $parts = @($c.cron -split '\s+')
         $minuteOk = $parts.Count -eq 5 -and ($parts[0] -match '^(\d+)(,\d+)*$')
-        $cadenceMin = if ($parts[0] -match '^(\d+),(\d+)') { [int]$Matches[2] - [int]$Matches[1] } elseif ($parts[1] -match '^\*/(\d+)$') { [int]$Matches[1] * 60 } else { 1440 }
-        Assert-Test "$n cron has 5 fields, valid minute offsets and runs every 30 minutes" ($minuteOk -and $cadenceMin -eq 30) "cron=$($c.cron) cadence=$cadenceMin"
+        $cadenceMin = if ($parts[0] -match '^(\d+),(\d+)') { [int]$Matches[2] - [int]$Matches[1] } elseif ($parts[1] -match '^\*/(\d+)$') { [int]$Matches[1] * 60 } elseif ($parts[0] -match '^\d+$' -and $parts[1] -eq '*') { 60 } else { 1440 }
+        Assert-Test "$n cron has 5 fields, valid minute offsets and runs every 30 or 60 minutes" ($minuteOk -and ($cadenceMin -in @(30, 60))) "cron=$($c.cron) cadence=$cadenceMin"
         $cMin = @($parts[0] -split ',')
         $minutes += $cMin
         $p = Join-Path $repoRoot $c.prompt_file
@@ -414,7 +414,7 @@ try {
 }
 finally {
     Remove-Item $lockPath, $markerPath, $bundlePath -Force -ErrorAction SilentlyContinue
-    foreach ($n in @("daily-security-sentinel", "daily-research-sentinel", "daily-site-showcase-sentinel")) {
+    foreach ($n in @("daily-security-sentinel", "daily-research-sentinel", "daily-site-showcase-sentinel", "hourly-site-design-architecture-steward")) {
         Remove-Item (Join-Path $lockDir "sentinel-lint-$n.lock") -Force -ErrorAction SilentlyContinue
     }
     Remove-Item $tmp -Recurse -Force -ErrorAction SilentlyContinue

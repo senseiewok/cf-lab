@@ -14,8 +14,7 @@
       "prompt_file": "tasks/sentinel-prompts/daily-security-sentinel.md",
       "watermark": ".loop-logs/last-security-audit.json",
       "watch_paths": [
-        "tasks",
-        ".claude",
+        ".claude/settings.json",
         "../cf-research/sources",
         "../cf-skills/.claude",
         "../.ai/src"
@@ -62,6 +61,25 @@
       "lock_timeout_minutes": 25,
       "build": {
         "lane": "showcase"
+      }
+    },
+    "hourly-site-design-architecture-steward": {
+      "sidecar_dir": "hourly-site-design-architecture-steward",
+      "display_name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+      "description": "Every hour at :15 past the hour (America/Los_Angeles). A wrapper syncs origin/main and runs the zero-token gate first; the agent starts only when .ai site source or cf-skills changed, or the 4-hour heartbeat is due.",
+      "cron": "15 * * * *",
+      "prompt_file": "tasks/sentinel-prompts/hourly-site-design-architecture-steward.md",
+      "watermark": ".loop-logs/last-steward-audit.json",
+      "watch_paths": [
+        "../.ai/src",
+        "../cf-skills/.claude"
+      ],
+      "max_idle_hours": 4,
+      "lock_timeout_minutes": 45,
+      "build": {
+        "lane": "showcase",
+        "probe": "exit 20",
+        "claim": "exit 20"
       }
     }
   }
