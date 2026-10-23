@@ -310,7 +310,7 @@ def pr_task_ids(pr: dict) -> list[str]:
 def is_sentinel_branch(branch: str) -> bool:
     """True when a branch follows one of the lab's autonomous sentinel naming conventions."""
     low = branch.lower()
-    return low.startswith(("work/sentinel-", "site/showcase-", "sec-fix-", "agent-improve-"))
+    return low == "feat/board-sync" or low.startswith(("work/sentinel-", "site/showcase-", "sec-fix-", "agent-improve-", "feat/hourly-steward-"))
 
 
 def is_companion_board_pr(pr: dict) -> bool:
@@ -318,7 +318,7 @@ def is_companion_board_pr(pr: dict) -> bool:
     if str(pr.get("repo", "")) != "cf-lab":
         return False
     low = str(pr.get("headRefName", "")).lower()
-    return low.endswith("-board") or "-board-" in low
+    return low == "feat/board-sync" or low.endswith("-board") or "-board-" in low
 
 
 def pr_lane_of(pr: dict, tasks_by_id: dict[str, dict]) -> str | None:
@@ -334,7 +334,7 @@ def pr_lane_of(pr: dict, tasks_by_id: dict[str, dict]) -> str | None:
         return m.group(1)
     if low.startswith("site/showcase-"):
         return "showcase"
-    if low.startswith(("sec-fix-", "agent-improve-")):
+    if low.startswith(("sec-fix-", "agent-improve-", "feat/hourly-steward-")):
         return "security"
     for tid in pr_task_ids(pr):
         if tid in tasks_by_id:
@@ -470,6 +470,8 @@ def main(argv: list[str] | None = None) -> int:
                     help="a single task estimated above this many mean hours is never handed out (split it on the board)")
     ap.add_argument("--attempt-limit", type=int, default=2)
     ap.add_argument("--attempt-window-hours", type=float, default=48.0)
+    ap.add_argument("--max-open-steward-prs", type=int, default=2,
+                    help="cap on open feat/hourly-steward-* PRs before pausing further autonomous builds")
     args = ap.parse_args(argv)
 
     now = datetime.fromisoformat(args.now.replace("Z", "+00:00")) if args.now else datetime.now(timezone.utc)
@@ -549,6 +551,15 @@ def main(argv: list[str] | None = None) -> int:
     # A lane with a healthy non-draft sentinel pull request still waiting for review builds nothing more.
     # Draft sentinel PRs (e.g. parked awaiting human sign-off on a licence or API key) do not freeze the lane,
     # and their task IDs are skipped in eligible() so they are not re-claimed.
+    steward_prs = [
+        p for p in prs
+        if str(p.get("headRefName", "")).lower().startswith("feat/hourly-steward-")
+        and not p.get("isDraft", False)
+    ]
+    if len(steward_prs) >= args.max_open_steward_prs:
+        print(f"steward wave backlog already has {len(steward_prs)} open pull requests (cap {args.max_open_steward_prs})")
+        return 21
+
     prefix = f"work/sentinel-{args.lane}-"
     lane_prs = [
         p for p in prs

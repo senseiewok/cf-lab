@@ -424,7 +424,7 @@ Claude Code supports scheduled autonomous runs through slash commands and local 
    ```
    For the security monitor:
    ```text
-   /schedule "Every 3 hours America/Los_Angeles, execute the scheduled-security-sentinel skill in .claude/skills/scheduled-security-sentinel/SKILL.md to audit background logs, transcripts, and git status for secrets, PHI, and prompt injection, submitting fix PRs for any regressions."
+   /schedule "Every 30 minutes at :00 and :30 America/Los_Angeles (3h heartbeat), execute the scheduled-security-sentinel skill in .claude/skills/scheduled-security-sentinel/SKILL.md to audit background logs, transcripts, and git status for secrets, PHI, and prompt injection, submitting fix PRs for any regressions."
    ```
 
 2. **Using crontab / system scheduler**:
@@ -433,7 +433,7 @@ Claude Code supports scheduled autonomous runs through slash commands and local 
    # Developer Schedule: Every 4 hours (all day)
    0 */4 * * * cd /path/to/cf-lab && claude -p "Read and execute .claude/skills/scheduled-site-showcase/SKILL.md"
 
-   # Security Sentinel: Every 3 hours (all day)
+   # Security Sentinel: Every 30 minutes at :00 and :30 PT (3h heartbeat)
    0 */3 * * * cd /path/to/cf-lab && claude -p "Read and execute .claude/skills/scheduled-security-sentinel/SKILL.md"
 
    # CRO Grounding Sentinel: Every 6 hours (lazy delta check, 0 tokens on idle)
