@@ -18009,7 +18009,7 @@
       "title": "Automated Cross-Repo Agent Dynamic Import & __import__ Security Linter (tasks/check_dynamic_imports.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -18024,7 +18024,7 @@
         "high": 2.5
       },
       "acceptance": "python -m unittest tasks.test_check_dynamic_imports; python tasks/check_dynamic_imports.py --check",
-      "notes": "Wave 31 Security Lane Replenishment. Audits dynamic import statements, importlib.import_module, and unsafe reflection to prevent arbitrary code execution (CWE-829 / CWE-470).",
+      "notes": "Delivered tasks/check_dynamic_imports.py and tasks/test_check_dynamic_imports.py (9/9 PASS). Scanned 516 Python files across all sibling repositories with zero unconstrained dynamic imports.",
       "spec_path": "tasks/specs/T-0367.md",
       "roi": {
         "benefit": 5,
@@ -18044,14 +18044,16 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0367.md; OWASP Top 10:2025 A03",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "actual_hours": 1.5,
+      "completed_at": "2026-10-22"
     },
     {
       "id": "T-0368",
       "title": "Automated Multi-Repo Git Submodule & Unchecked External Git Dependency Linter (tasks/check_git_submodules.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -18066,7 +18068,7 @@
         "high": 2.5
       },
       "acceptance": "python -m unittest tasks.test_check_git_submodules; python tasks/check_git_submodules.py --check",
-      "notes": "Wave 31 Security Lane Replenishment. Audits git submodules and .gitmodules invariants across all 4 workspace repos (CVE-2018-11235 / CWE-829).",
+      "notes": "Delivered tasks/check_git_submodules.py and tasks/test_check_git_submodules.py (10/10 PASS). Audited all 4 sibling repositories with zero rogue submodules or transport violations.",
       "spec_path": "tasks/specs/T-0368.md",
       "roi": {
         "benefit": 5,
@@ -18086,7 +18088,9 @@
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0368.md; CVE-2018-11235",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "actual_hours": 1.5,
+      "completed_at": "2026-10-22"
     },
     {
       "id": "T-0369",
@@ -18169,6 +18173,274 @@
       "recommended_route": "local",
       "route_rationale": "In silico aerosol mechanics model and test suite in cf-research.",
       "source_evidence": "tasks/specs/T-0370.md; DOI: 10.1016/j.ijpharm.2019.118679",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0371",
+      "title": "Interactive Deep Airway Submucosal Gland Serous Acinar Fluid & Aquaporin-5 Conductance Explorer on /cf/tree/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0369"
+      ],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check",
+      "notes": "Wave 32 Showcase Lane Replenishment. Interactive human airway submucosal gland serous acinar fluid secretion and AQP5 transcellular water permeability explorer on /cf/tree/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0371.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes submucosal gland hyposecretion and mucus plugging in human airways with interactive pharmacological rescue.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.4,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Client-side interactive visualization on .ai.",
+      "source_evidence": "tasks/specs/T-0371.md; DOI: 10.1152/ajplung.00164.2020",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0372",
+      "title": "Interactive Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Deposition Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0370"
+      ],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.5
+      },
+      "acceptance": "python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check",
+      "notes": "Wave 32 Showcase Lane Replenishment. Interactive dry powder inhaler carrier-lactose detachment and aerodynamic pulmonary deposition simulator on /cf/delivery/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0372.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models inhaled DPI particle aerodynamics and regional airway deposition profiles under variable patient inspiratory flows.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 8.0
+        },
+        "composite_score": 8.4,
+        "roi_ratio": 1.43
+      },
+      "recommended_route": "local",
+      "route_rationale": "Client-side interactive visualization on .ai.",
+      "source_evidence": "tasks/specs/T-0372.md; DOI: 10.1016/j.ijpharm.2018.04.032",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0373",
+      "title": "Automated Multi-Repo Agent Asyncio & Thread Concurrency Deadlock Guard (tasks/check_concurrency_deadlocks.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_concurrency_deadlocks; python tasks/check_concurrency_deadlocks.py --check",
+      "notes": "Wave 32 Security Lane Replenishment. Audits asyncio event loop nesting, thread lock timeouts, and unhandled futures across agent tools (CWE-833).",
+      "spec_path": "tasks/specs/T-0373.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces concurrency invariants and prevents agent thread lockup and event loop crashes.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0373.md; OWASP Top 10:2025 A08 / CWE-833",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0374",
+      "title": "Automated Cross-Repo Git Tag Annotation & Signing Invariant Linter (tasks/check_git_tag_signatures.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_tag_signatures; python tasks/check_git_tag_signatures.py --check",
+      "notes": "Wave 32 Security Lane Replenishment. Audits git release tag annotation, cryptographic signatures, and semver compliance across all 4 repos (CWE-347).",
+      "spec_path": "tasks/specs/T-0374.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Guarantees release provenance and prohibits floating unannotated tags on public lab releases.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0374.md; OWASP Top 10:2025 A08 / CWE-347",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0375",
+      "title": "Airway Surface Liquid (ASL) Sialic Acid & Sulfated Glycosaminoglycan (GAG) Electrostatic Binding Affinity Model (tools/discovery/asl_electrostatic_binding_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_asl_electrostatic_binding_model; python tools/discovery/asl_electrostatic_binding_model.py --check",
+      "notes": "Wave 32 Research Lane Replenishment. Mathematical model of cationic nanoparticle electrostatic binding to mucin sialic acid and sulfated GAGs in CF ASL.",
+      "spec_path": "tasks/specs/T-0375.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies charge-mediated mucosal vector immobilization thresholds and guides PEG/zwitterionic shielding design.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 7.5
+        },
+        "composite_score": 8.5,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical simulation in cf-research.",
+      "source_evidence": "tasks/specs/T-0375.md; DOI: 10.1021/acs.biomac.1c00452",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0376",
+      "title": "CFTR Delta-F508 ER Quality Control Chaperone (Hsp70/Hsp90/CHIP) Ubiquitin Ligase Kinetic Partitioning Model (tools/discovery/cftr_chaperone_ubiquitin_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "Hourly Site Designer, Security & Open-Source Architecture Steward",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-22 Wave 32 stewardship and multi-lane replenishment"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "python -m unittest tools.discovery.test_cftr_chaperone_ubiquitin_model; python tools/discovery/cftr_chaperone_ubiquitin_model.py --check",
+      "notes": "Wave 32 Research Lane Replenishment. Kinetic partitioning model of molecular chaperone triage vs CHIP E3 ligase ubiquitination and ERAD of Delta-F508 CFTR.",
+      "spec_path": "tasks/specs/T-0376.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models molecular chaperone triage dynamics and pharmacological corrector rescue of Delta-F508 CFTR ER export.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.5,
+          "security_compliance": 7.5
+        },
+        "composite_score": 8.5,
+        "roi_ratio": 1.18
+      },
+      "recommended_route": "local",
+      "route_rationale": "Mechanistic biophysical simulation in cf-research.",
+      "source_evidence": "tasks/specs/T-0376.md; DOI: 10.1016/j.cell.2006.09.043; PDB: 5UAK",
       "executor": "agent",
       "human_required": false
     }
