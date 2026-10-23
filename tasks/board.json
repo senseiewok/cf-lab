@@ -19156,6 +19156,141 @@
       "source_evidence": "tasks/specs/T-0391.md; cf-research/tools/discovery/macrophage_evasion_kinetics.py; DOI 10.1038/s41565-021-00870-x; DOI 10.1126/science.1233768; NCT05668741",
       "executor": "agent",
       "human_required": false
+    },
+    {
+      "id": "T-0392",
+      "title": "Inhaled TMEM16A Alternative Chloride Conductance & Intracellular Calcium Coupling Model (tools/discovery/tmem16a_calcium_conductance_model.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "lane": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-23 proactive research discovery & replenishment round"
+      },
+      "created_at": "2026-10-23",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "pytest tools/discovery/test_tmem16a_calcium_conductance_model.py -v; python tools/claims/check_anti_hallucination.py",
+      "notes": "Curative Discovery Council Track A Wave 16. Inhaled TMEM16A (ANO1) alternative apical chloride conductance, allosteric potentiator left-shifting, and ASL hydration osmotic coupling model.",
+      "spec_path": "tasks/specs/T-0392.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models mutation-agnostic apical chloride secretion and ASL hydration via TMEM16A potentiation under resting intracellular calcium.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 7.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 4.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.5,
+        "roi_ratio": 1.76
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic Python biophysical model and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0392.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6QP6, 5OYB; DOI 10.1172/JCI128564, 10.1183/13993003.congress-2020.4449; NCT04488705, NCT06478706",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0393",
+      "title": "Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "lane": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-23 proactive research discovery & replenishment round"
+      },
+      "created_at": "2026-10-23",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "pytest tools/discovery/test_split_intein_cftr_reconstitution.py -v; python tools/claims/check_anti_hallucination.py",
+      "notes": "Curative Discovery Council Track A Wave 16. Split-intein dual-AAV co-transduction, trans-splicing kinetics, and humoral neutralizing antibody redosing dynamics for full-length CFTR cDNA delivery.",
+      "spec_path": "tasks/specs/T-0393.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Solves the 4.7 kb AAV packaging barrier for full-length CFTR via trans-splicing inteins and models redosing constraints.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 4.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.3,
+        "roi_ratio": 1.72
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic Python biophysical model and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0393.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6MSM, 5UAK; DOI 10.1126/scitranslmed.aav4523, 10.1038/s41587-021-00943-7; NCT05248230",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0394",
+      "title": "Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model (tools/discovery/suppressor_trna_orthogonality.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "lane": "research",
+      "status": "ready",
+      "priority": "P2",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-23 proactive research discovery & replenishment round"
+      },
+      "created_at": "2026-10-23",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "pytest tools/discovery/test_suppressor_trna_orthogonality.py -v; python tools/claims/check_anti_hallucination.py",
+      "notes": "Curative Discovery Council Track A Wave 16. Engineered suppressor tRNA premature termination codon readthrough kinetics, ribosome A-site competition, and global transcriptome orthogonality index for Class I nonsense alleles.",
+      "spec_path": "tasks/specs/T-0394.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies translational readthrough and off-target stop codon suppression for high-unmet-need Class I nonsense variants (W1282X, G542X).",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 4.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.4,
+        "roi_ratio": 1.74
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic Python biophysical model and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0394.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6O2P, 7SVD; DOI 10.1038/s41467-019-09562-5, 10.1093/nar/gkad1220; NCT04135495, NCT04126473",
+      "executor": "agent",
+      "human_required": false
     }
   ],
   "updated": "2026-10-22"

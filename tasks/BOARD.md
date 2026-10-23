@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-391 tasks, 390 created by a model, 177 with a measured outcome. Estimated effort 988.35 to 1794.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+394 tasks, 393 created by a model, 177 with a measured outcome. Estimated effort 997.35 to 1810.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (19)
+## ready (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,6 +18,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0390 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Energy Coupling Explorer on /cf/cftr/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0391 | P1 | Interactive Inhaled Nanoparticle Macrophage Evasion & Biomimetic CD47 Brush Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0392 | P1 | Inhaled TMEM16A Alternative Chloride Conductance & Intracellular Calcium Coupling Model (tools/discovery/tmem16a_calcium_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0129 | P1 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P1 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
@@ -32,6 +34,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0093 | P2 | Post the welcome note in the cf-lab GitHub Discussions | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | cloud |  |  |
 | T-0096 | P2 | Run the optional Playwright browser-testing setup on a real Mac and a Linux machine | cf-lab | 0.5-1.5 | 2 | 20 | no | model: claude-sonnet-5-5 | 2026-10-06 | elevated | low | local | T-0058 |  |
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
+| T-0394 | P2 | Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model (tools/discovery/suppressor_trna_orthogonality.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
 ## done (300)
@@ -2254,6 +2257,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0388.md`
 - **Notes:** Dropped per 5-Model Multi-Family Council (2026-10-23: Claude Opus + Gemini Pro + Nemotron 74B + Gemma 4 31B + Qwen 3.8 27B): retired autonomous Wave 18-33 meta-linter, pure-CPU math.exp discovery script, and biophysical slider proliferation in favor of Council-Hardened Tracks T-0383..T-0386.
 
+### T-0392 Inhaled TMEM16A Alternative Chloride Conductance & Intracellular Calcium Coupling Model (tools/discovery/tmem16a_calcium_conductance_model.py)
+
+- **Why / ROI rationale:** Models mutation-agnostic apical chloride secretion and ASL hydration via TMEM16A potentiation under resting intracellular calcium. *(confidence: high)*
+- **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_tmem16a_calcium_conductance_model.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0392.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6QP6, 5OYB; DOI 10.1172/JCI128564, 10.1183/13993003.congress-2020.4449; NCT04488705, NCT06478706
+- **Spec:** `tasks/specs/T-0392.md`
+- **Notes:** Curative Discovery Council Track A Wave 16. Inhaled TMEM16A (ANO1) alternative apical chloride conductance, allosteric potentiator left-shifting, and ASL hydration osmotic coupling model.
+
+### T-0393 Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py)
+
+- **Why / ROI rationale:** Solves the 4.7 kb AAV packaging barrier for full-length CFTR via trans-splicing inteins and models redosing constraints. *(confidence: high)*
+- **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_split_intein_cftr_reconstitution.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0393.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6MSM, 5UAK; DOI 10.1126/scitranslmed.aav4523, 10.1038/s41587-021-00943-7; NCT05248230
+- **Spec:** `tasks/specs/T-0393.md`
+- **Notes:** Curative Discovery Council Track A Wave 16. Split-intein dual-AAV co-transduction, trans-splicing kinetics, and humoral neutralizing antibody redosing dynamics for full-length CFTR cDNA delivery.
+
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
 - **Why / ROI rationale:** Keeps the lab's flagship atlas perpetually synchronized with global CF clinical trial activity under catalog access rules. *(confidence: high)*
@@ -3218,6 +3239,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00996424; ClinicalTrials.gov:NCT06350474; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT00680316; ClinicalTrials.gov:NCT02088216; PDB:1DNK; PDB:4AWN; PDB:1ATN; DOI:10.1073/pnas.87.23.9188; DOI:10.1126/science.8108733; DOI:10.1126/scitranslmed.aaz1974; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1183/13993003.01358-2020
 - **Notes:** Completed in senseiewok/cf-research#118. Implemented tools/discovery/mucus_cleavage_kinetics.py & test_mucus_cleavage_kinetics.py (7/7 unit tests passing, AH-1..AH-5 PASS): models CF sputum interpenetrating eDNA-mucin hydrogel network, rhDNase I endonucleolytic cleavage with G-actin competitive inhibition (PDB 1ATN/1DNK), NAC disulfide reduction, affine rubber elasticity shear modulus G*(omega), King MCI clearability, and AAV/LNP Ogston pore diffusivity.
 - **Measured:**  h; 
+
+### T-0394 Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model (tools/discovery/suppressor_trna_orthogonality.py)
+
+- **Why / ROI rationale:** Quantifies translational readthrough and off-target stop codon suppression for high-unmet-need Class I nonsense variants (W1282X, G542X). *(confidence: high)*
+- **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_suppressor_trna_orthogonality.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0394.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6O2P, 7SVD; DOI 10.1038/s41467-019-09562-5, 10.1093/nar/gkad1220; NCT04135495, NCT04126473
+- **Spec:** `tasks/specs/T-0394.md`
+- **Notes:** Curative Discovery Council Track A Wave 16. Engineered suppressor tRNA premature termination codon readthrough kinetics, ribosome A-site competition, and global transcriptome orthogonality index for Class I nonsense alleles.
 
 ### T-0164 Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation)
 
