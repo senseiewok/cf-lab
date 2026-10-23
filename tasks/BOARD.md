@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-399 tasks, 398 created by a model, 182 with a measured outcome. Estimated effort 1011.35 to 1834.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+402 tasks, 401 created by a model, 182 with a measured outcome. Estimated effort 1020.35 to 1851.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (21)
+## ready (24)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -20,6 +20,9 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0398 | P1 | Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0399 | P1 | Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0400 | P1 | Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0401 | P1 | Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0402 | P1 | Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0129 | P1 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P1 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
@@ -2330,6 +2333,33 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/specs/T-0394.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6O2P, 7SVD; DOI 10.1038/s41467-019-09562-5, 10.1093/nar/gkad1220; NCT04135495, NCT04126473
 - **Spec:** `tasks/specs/T-0394.md`
 - **Notes:** Delivered in research sentinel PR senseiewok/cf-research#133. Implemented Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model in tools/discovery/suppressor_trna_orthogonality.py with 9/9 unit tests passing and check_anti_hallucination verified.
+
+### T-0400 Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py)
+
+- **Why / ROI rationale:** Models mucus mesh penetration and endosomal escape biophysics for inhaled aerosolized CFTR mRNA genetic therapies. *(confidence: high)*
+- **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_vx522_inhaled_lnp_mucus_diffusion.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0400.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; DOI 10.1073/pnas.1901667116, 10.1038/s41551-021-00724-5; NCT06237335
+- **Spec:** `tasks/specs/T-0400.md`
+- **Notes:** Curative Discovery Council Track A Wave 17. Inhaled mRNA LNP mucus mesh diffusion, steric sieving, surface charge neutralization, PEG shedding kinetics, and ionizable lipid pKa tuning for CFTR delivery.
+
+### T-0401 Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py)
+
+- **Why / ROI rationale:** Quantifies aminoglycoside-free nonsense readthrough kinetics and mature CFTR channel rescue for severe Class I alleles (W1282X, G542X). *(confidence: high)*
+- **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_ptc_erf_depletion_readthrough.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0401.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; RCSB PDB 6O2P; DOI 10.1038/s41589-020-00662-8, 10.1093/nar/gkaa728; NCT04135495
+- **Spec:** `tasks/specs/T-0401.md`
+- **Notes:** Curative Discovery Council Track A Wave 17. Eukaryotic release factor eRF1/eRF3 depletion, ribosomal A-site competition, stop codon context permissiveness, and Band C mature channel rescue for Class I CFTR nonsense mutations.
+
+### T-0402 Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py)
+
+- **Why / ROI rationale:** Models enzymatic exopolysaccharide stripping and multi-log bactericidal synergy to eradicate chronic antibiotic-resistant CF biofilm infections. *(confidence: high)*
+- **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_phage_depolymerase_biofilm_synergy.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0402.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; RCSB PDB 6QW8; DOI 10.1128/AAC.01413-20, 10.1038/s41467-020-18009-7; NCT04596319
+- **Spec:** `tasks/specs/T-0402.md`
+- **Notes:** Curative Discovery Council Track A Wave 17. Phage alginate depolymerase cleavage kinetics, dynamic biofilm diffusivity recovery, reaction-diffusion penetration, and bactericidal synergy with tobramycin in mucoid P. aeruginosa.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
