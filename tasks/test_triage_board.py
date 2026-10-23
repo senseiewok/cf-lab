@@ -272,6 +272,56 @@ class TestTriageBoard(unittest.TestCase):
         tiny_meta = tb.compute_multi_category_roi(tiny_routine)
         self.assertNotEqual(tb.determine_roi_priority(tiny_routine, tiny_meta), "P1")
 
+    def test_word_boundary_and_standalone_linter_dampening(self):
+        # Substrings like "specific" (contains "ci"), "aggregate" (contains "gate"), "latest" (contains "test")
+        # must not falsely trigger primary velocity or security scores.
+        false_substring_task = {
+            "id": "T-0991",
+            "title": "Aggregate specific latest notes",
+            "repo": "cf-lab",
+            "area": "docs",
+            "status": "ready",
+            "priority": "P3",
+            "effort_hours": {"low": 0.5, "high": 0.5},
+            "roi": {"benefit": 2, "rationale": "Aggregate specific latest decision"},
+            "acceptance": "Read specific notes",
+            "review_tier": "routine",
+        }
+        meta = tb.compute_multi_category_roi(false_substring_task)
+        self.assertEqual(meta["categories"]["operational_velocity"], 3.0)
+        self.assertEqual(meta["categories"]["security_compliance"], 2.0)
+        self.assertEqual(tb.determine_roi_priority(false_substring_task, meta), "P3")
+
+        # Standalone cf-lab AST/regex linter tasks (tasks/check_*.py) are dampened so they never outrank science as P1
+        linter_task = {
+            "id": "T-0992",
+            "title": "Unicode homoglyph security check linter (tasks/check_unicode_homoglyphs.py)",
+            "repo": "cf-lab",
+            "area": "security",
+            "status": "ready",
+            "priority": "P1",
+            "effort_hours": {"low": 0.5, "high": 1.0},
+            "roi": {"benefit": 4, "rationale": "Security check test script"},
+            "acceptance": "python tasks/check_unicode_homoglyphs.py --check",
+            "review_tier": "routine",
+        }
+        linter_meta = tb.compute_multi_category_roi(linter_task)
+        self.assertLessEqual(linter_meta["categories"]["security_compliance"], 4.5)
+        self.assertLessEqual(linter_meta["categories"]["operational_velocity"], 4.0)
+        self.assertEqual(tb.determine_roi_priority(linter_task, linter_meta), "P3")
+
+    def test_backlog_saturation_guard(self):
+        board_copy = copy.deepcopy(self.mock_board)
+        # With max_ready_backlog=1, T-0150 is already ready (1 agent-ready task), so T-0002 is retained in proposed
+        updated, stats = tb.triage_board(
+            board_copy, self.mock_human_ids, auto_approve=True, prioritize=True, max_ready_backlog=1
+        )
+        self.assertEqual(len(stats["approved_to_ready"]), 0)
+        self.assertEqual(len(stats["retained_proposed_saturated"]), 1)
+        self.assertEqual(stats["retained_proposed_saturated"][0][0], "T-0002")
+        t2 = next(t for t in updated["tasks"] if t["id"] == "T-0002")
+        self.assertEqual(t2["status"], "proposed")
+
     def test_council_approved_and_boilerplate_not_human_gated(self):
         import tempfile
         with tempfile.TemporaryDirectory() as d:
