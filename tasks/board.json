@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -14248,7 +14248,7 @@
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
-      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
       "created_at": "2026-10-22T08:30:00Z",
       "updated_at": "2026-10-22",
       "created_by": {
@@ -14804,7 +14804,7 @@
       "title": "Interactive Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Sialidase Permeabilization Simulator on /cf/delivery/ with es-MX Parity",
       "repo": ".ai",
       "area": "content",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -14812,6 +14812,7 @@
       "route_rationale": "Zero-build native ES module simulating periciliary brush glycocalyx meshwork steric exclusion and sialidase enzymatic permeabilization grounded in tools/discovery/glycocalyx_permeabilization_model.py (T-0291).",
       "created_at": "2026-10-22T11:00:00Z",
       "updated_at": "2026-10-22",
+      "completed_at": "2026-10-22T20:05:00Z",
       "created_by": {
         "kind": "model",
         "name": "Argon (Chief Researcher Officer Strategist)",
@@ -14827,6 +14828,7 @@
         "low": 2.5,
         "high": 4.0
       },
+      "actual_hours": 2.5,
       "source_evidence": "cf-research/tools/discovery/glycocalyx_permeabilization_model.py; DOI:10.1126/science.1223012; DOI:10.1038/s41565-021-00918-7; ClinicalTrials.gov:NCT05668741",
       "acceptance": "python -m unittest tests.test_glycocalyx_permeabilization_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py",
       "roi": {
@@ -14834,16 +14836,17 @@
         "confidence": "high",
         "rationale": "Models apical periciliary glycocalyx meshwork and sialidase digestion for viral and non-viral genetic vector penetration.",
         "categories": {
-          "curative_biophysics": 9.5,
-          "clinical_translation": 8.0,
-          "scientific_integrity": 8.0,
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 7.0,
           "operational_velocity": 8.5,
           "security_compliance": 2.0
         },
-        "composite_score": 7.65,
-        "roi_ratio": 2.35
+        "composite_score": 7.12,
+        "roi_ratio": 2.19,
+        "measured": 2.5
       },
-      "notes": "Wave 18 Track B Public Showcase Replenishment. Connects T-0291 glycocalyx barrier model to /cf/delivery/.",
+      "notes": "Delivered in senseiewok/.ai#156. Mounts #glycocalyx-permeabilization-explorer modeling Ogston sieving, Boltzmann charge exclusion, and sialidase/heparinase digestion with es-MX translation parity.",
       "spec_path": "tasks/specs/T-0294.md"
     },
     {
@@ -17076,7 +17079,7 @@
         "high": 5.5
       },
       "acceptance": "python tools/discovery/mrna_secondary_structure_model.py --check",
-      "notes": "Wave 27 Research Lane Replenishment. Computational thermodynamic model of CFTR mRNA stem-loop folding free energies (\u0394G) across Exons 10-12 (containing F508del and Class I mutations), quantifying ribosome pause duration and elongation kinetics.",
+      "notes": "Wave 27 Research Lane Replenishment. Computational thermodynamic model of CFTR mRNA stem-loop folding free energies (ΔG) across Exons 10-12 (containing F508del and Class I mutations), quantifying ribosome pause duration and elongation kinetics.",
       "spec_path": "tasks/specs/T-0345.md",
       "roi": {
         "benefit": 5,
