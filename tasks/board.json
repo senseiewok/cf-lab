@@ -2002,7 +2002,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8382,7 +8382,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8430,7 +8430,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -14248,7 +14248,7 @@
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
-      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
       "created_at": "2026-10-22T08:30:00Z",
       "updated_at": "2026-10-22",
       "created_by": {
@@ -19312,7 +19312,7 @@
       "area": "showcase",
       "priority": "P1",
       "review_tier": "elevated",
-      "status": "ready",
+      "status": "done",
       "effort_hours": {
         "low": 3.0,
         "high": 5.0
@@ -19326,7 +19326,7 @@
         "session_ref": "2026-10-23 proactive site showcase and replenishment round"
       },
       "acceptance": "python -m unittest tests.test_site; python tools/check_anti_hallucination.py",
-      "notes": "Showcase Lane Replenishment. Interactive U1 snRNP decoy oligonucleotide thermodynamic competition and splice-site blocking simulator on /cf/cftr/ across severe deep intronic splice variants (3849+10kb C->T, 1811+1.6kb A->G) with es-MX parity.",
+      "notes": "Delivered in senseiewok/.ai#164. Interactive Deep Intronic Splice U1 snRNP Decoy Oligonucleotide Competition & Pseudoexon Exclusion Explorer on /cf/cftr/ with complete Mexican Spanish (es-MX) parity, SantaLucia nearest-neighbor duplex thermodynamics, and Hill-Langmuir pseudoexon exclusion. All 21 check_pr_gate modules passed.",
       "roi": {
         "benefit": 5,
         "confidence": "high",
@@ -19339,7 +19339,8 @@
           "security_compliance": 2.0
         },
         "composite_score": 6.3,
-        "roi_ratio": 1.57
+        "roi_ratio": 1.57,
+        "measured": 4.0
       },
       "created_at": "2026-10-23",
       "spec_path": "tasks/specs/T-0395.md",
@@ -19347,7 +19348,11 @@
       "executor": "agent",
       "human_required": false,
       "route_rationale": "Client-side interactive visualization on .ai.",
-      "source_evidence": "tasks/specs/T-0395.md; cf-research/tools/discovery/u1_snrnp_decoy_thermodynamics.py; PDB 6QX9; DOI 10.1016/j.ajhg.2019.09.011, 10.1038/s41598-020-65842-8"
+      "source_evidence": "tasks/specs/T-0395.md; cf-research/tools/discovery/u1_snrnp_decoy_thermodynamics.py; PDB 6QX9; DOI 10.1016/j.ajhg.2019.09.011, 10.1038/s41598-020-65842-8",
+      "completed_at": "2026-10-23",
+      "actual_hours": 4.0,
+      "branch": "work/sentinel-security-t-0396",
+      "pull_request": "https://github.com/senseiewok/.ai/pull/164"
     },
     {
       "id": "T-0396",
@@ -19357,7 +19362,7 @@
       "area": "showcase",
       "priority": "P1",
       "review_tier": "elevated",
-      "status": "ready",
+      "status": "done",
       "effort_hours": {
         "low": 3.0,
         "high": 5.0
@@ -19371,7 +19376,7 @@
         "session_ref": "2026-10-23 proactive site showcase and replenishment round"
       },
       "acceptance": "python -m unittest tests.test_site; python tools/check_anti_hallucination.py",
-      "notes": "Showcase Lane Replenishment. Interactive promoter and 5'-UTR G-quadruplex folding equilibrium, thermal stability (DeltaTm), and small-molecule stabilization simulator on /cf/cftr/ with es-MX parity.",
+      "notes": "Delivered in senseiewok/.ai#164. Interactive CFTR G-Quadruplex (G4) Secondary Structure Stability & Transcriptional Ligand Potentiation Simulator on /cf/cftr/ with complete Mexican Spanish (es-MX) parity, G-quartet stacking thermodynamics, monovalent cation coordination (K+ vs Na+), Pyridostatin/TMPyP4 stabilization, and DHX36/RHAU helicase unwinding. All 21 check_pr_gate modules passed.",
       "roi": {
         "benefit": 4,
         "confidence": "high",
@@ -19384,7 +19389,8 @@
           "security_compliance": 2.0
         },
         "composite_score": 6.9,
-        "roi_ratio": 1.73
+        "roi_ratio": 1.73,
+        "measured": 4.0
       },
       "created_at": "2026-10-23",
       "spec_path": "tasks/specs/T-0396.md",
@@ -19392,7 +19398,11 @@
       "executor": "agent",
       "human_required": false,
       "route_rationale": "Client-side interactive visualization on .ai.",
-      "source_evidence": "tasks/specs/T-0396.md; cf-research/tools/discovery/cftr_gquadruplex_stability_model.py; DOI 10.1093/nar/gkw1157, 10.1021/acs.jmedchem.0c00827"
+      "source_evidence": "tasks/specs/T-0396.md; cf-research/tools/discovery/cftr_gquadruplex_stability_model.py; DOI 10.1093/nar/gkw1157, 10.1021/acs.jmedchem.0c00827",
+      "completed_at": "2026-10-23",
+      "actual_hours": 4.0,
+      "branch": "work/sentinel-security-t-0396",
+      "pull_request": "https://github.com/senseiewok/.ai/pull/164"
     },
     {
       "id": "T-0397",
@@ -19438,6 +19448,96 @@
       "human_required": false,
       "route_rationale": "Resources page expansion on .ai.",
       "source_evidence": "tasks/specs/T-0397.md; cf-research/resources/resources.yaml; cf-research/sources/catalog.yaml"
+    },
+    {
+      "id": "T-0398",
+      "title": "Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with es-MX Parity",
+      "description": "Interactive zero-build visualization modeling mutation-agnostic bypass of defective CFTR via calcium-activated chloride channel TMEM16A (Anoctamin-1 / ANO1) with complete es-MX translation parity.",
+      "repo": ".ai",
+      "area": "showcase",
+      "priority": "P1",
+      "review_tier": "elevated",
+      "status": "ready",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "complexity": "medium",
+      "recommended_route": "local",
+      "created_by": {
+        "kind": "model",
+        "name": "daily-security-sentinel",
+        "model_id": "gemini-2.5-flash",
+        "session_ref": "2026-10-23 proactive site showcase replenishment round"
+      },
+      "acceptance": "python -m unittest tests.test_site; python tools/check_anti_hallucination.py",
+      "notes": "Showcase Lane Replenishment. Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with complete Mexican Spanish (es-MX) parity, dual Ca2+ binding Hill cooperativity, and purinergic P2Y2R signaling.",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes alternative chloride conductance bypass kinetics for mutation-agnostic therapy across Class I/II null alleles.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 3.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.1,
+        "roi_ratio": 1.78
+      },
+      "created_at": "2026-10-23",
+      "spec_path": "tasks/specs/T-0398.md",
+      "depends_on": [],
+      "executor": "agent",
+      "human_required": false,
+      "route_rationale": "Client-side interactive visualization on .ai.",
+      "source_evidence": "tasks/specs/T-0398.md; cf-research/tools/discovery/tmem16a_calcium_conductance_model.py; RCSB PDB 5OYB; DOI 10.1038/nature23882; DOI 10.1073/pnas.1812832115"
+    },
+    {
+      "id": "T-0399",
+      "title": "Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with es-MX Parity",
+      "description": "Interactive zero-build visualization modeling dual AAV vector packaging, Npu DnaE split-intein protein trans-splicing, and full-length CFTR channel reconstitution with complete es-MX translation parity.",
+      "repo": ".ai",
+      "area": "showcase",
+      "priority": "P1",
+      "review_tier": "elevated",
+      "status": "ready",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "complexity": "medium",
+      "recommended_route": "local",
+      "created_by": {
+        "kind": "model",
+        "name": "daily-security-sentinel",
+        "model_id": "gemini-2.5-flash",
+        "session_ref": "2026-10-23 proactive site showcase replenishment round"
+      },
+      "acceptance": "python -m unittest tests.test_site; python tools/check_anti_hallucination.py",
+      "notes": "Showcase Lane Replenishment. Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with complete Mexican Spanish (es-MX) parity, Npu DnaE trans-splicing kinetics, and Poisson co-transduction modeling.",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Simulates dual-AAV capsid size limitation bypass and split-intein traceless protein ligation for durable gene replacement.",
+        "categories": {
+          "curative_biophysics": 8.0,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 3.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 6.95,
+        "roi_ratio": 1.74
+      },
+      "created_at": "2026-10-23",
+      "spec_path": "tasks/specs/T-0399.md",
+      "depends_on": [],
+      "executor": "agent",
+      "human_required": false,
+      "route_rationale": "Client-side interactive visualization on .ai.",
+      "source_evidence": "tasks/specs/T-0399.md; cf-research/tools/discovery/dual_aav_intein_model.py; RCSB PDB 1ZDE; DOI 10.1038/s41591-019-0465-5; NCT05248022"
     }
   ],
   "updated": "2026-10-22"
