@@ -17749,7 +17749,7 @@
       "title": "Automated Multi-Repo Agent Environment Variable Leakage & Canary Isolation Linter (tasks/check_env_canary_leakage.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -17778,20 +17778,24 @@
           "security_compliance": 9.5
         },
         "composite_score": 6.2,
-        "roi_ratio": 2.5
+        "roi_ratio": 2.5,
+        "measured": 33.3
       },
       "recommended_route": "local",
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0361.md; CWE-200 / CWE-214",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "outcome": "Automated multi-repo agent environment variable leakage & canary isolation linter (tasks/check_env_canary_leakage.py) and test suite (tasks/test_check_env_canary_leakage.py) with 7 unit tests passing deterministically.",
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5
     },
     {
       "id": "T-0362",
       "title": "Automated Cross-Repo Git Branch Naming & Semantic Convention Linter (tasks/check_git_branch_conventions.py)",
       "repo": "cf-lab",
       "area": "security",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "low",
       "review_tier": "routine",
@@ -17820,13 +17824,17 @@
           "security_compliance": 9.5
         },
         "composite_score": 6.2,
-        "roi_ratio": 2.5
+        "roi_ratio": 2.5,
+        "measured": 33.3
       },
       "recommended_route": "local",
       "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
       "source_evidence": "tasks/specs/T-0362.md; CWE-20",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "outcome": "Automated cross-repo git branch naming & semantic convention linter (tasks/check_git_branch_conventions.py) and test suite (tasks/test_check_git_branch_conventions.py) with 4 unit tests passing deterministically (518 branches scanned).",
+      "completed_at": "2026-10-22",
+      "measured_hours": 1.5
     },
     {
       "id": "T-0363",
@@ -17909,6 +17917,258 @@
       "recommended_route": "local",
       "route_rationale": "In silico biophysical shear stability model and test suite in cf-research.",
       "source_evidence": "tasks/specs/T-0364.md; DOI: 10.1016/j.jconrel.2021.08.052",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0365",
+      "title": "Interactive Airway Epithelial CFTR Exon-Skipping (AON Antisense Oligonucleotide) In Silico Splice-Site Thermodynamic Optimization Simulator on /cf/ptc/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check",
+      "notes": "Wave 31 Showcase Lane Replenishment. Interactive splice-switching AON/ASO thermodynamic modeling, cryptic pseudoexon steric occlusion, and chloride restoration on /cf/ptc/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0365.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Directly empowers patients and researchers exploring antisense therapies for deep-intronic CFTR mutations.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 7.5,
+          "security_compliance": 6.0
+        },
+        "composite_score": 8.1,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive vanilla ES module simulation with SVG canvas on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0365.md; DOI: 10.1016/j.omtn.2020.08.012",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0366",
+      "title": "Interactive Inhaled Superparamagnetic Iron Oxide Nanoparticle (SPION) Magnetic Mucus Guidance & Magnetic Resonance Tracer Dynamics on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check",
+      "notes": "Wave 31 Showcase Lane Replenishment. Interactive aerosolized SPION external magnetic guidance vs mucus drag force simulator on /cf/delivery/ with es-MX parity.",
+      "spec_path": "tasks/specs/T-0366.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Visualizes non-invasive physical forces overcoming thickened mucus barrier for targeted pulmonary gene delivery.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.5,
+          "security_compliance": 6.0
+        },
+        "composite_score": 7.9,
+        "roi_ratio": 2.4
+      },
+      "recommended_route": "local",
+      "route_rationale": "Interactive vanilla ES module simulation with SVG canvas on senseiewok.ai.",
+      "source_evidence": "tasks/specs/T-0366.md; DOI: 10.1016/j.jconrel.2018.11.018",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0367",
+      "title": "Automated Cross-Repo Agent Dynamic Import & __import__ Security Linter (tasks/check_dynamic_imports.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_dynamic_imports; python tasks/check_dynamic_imports.py --check",
+      "notes": "Wave 31 Security Lane Replenishment. Audits dynamic import statements, importlib.import_module, and unsafe reflection to prevent arbitrary code execution (CWE-829 / CWE-470).",
+      "spec_path": "tasks/specs/T-0367.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces strict module registry boundaries and prohibits arbitrary module reflection in agent scripts.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0367.md; OWASP Top 10:2025 A03",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0368",
+      "title": "Automated Multi-Repo Git Submodule & Unchecked External Git Dependency Linter (tasks/check_git_submodules.py)",
+      "repo": "cf-lab",
+      "area": "security",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "low",
+      "review_tier": "routine",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 1.5,
+        "high": 2.5
+      },
+      "acceptance": "python -m unittest tasks.test_check_git_submodules; python tasks/check_git_submodules.py --check",
+      "notes": "Wave 31 Security Lane Replenishment. Audits git submodules and .gitmodules invariants across all 4 workspace repos (CVE-2018-11235 / CWE-829).",
+      "spec_path": "tasks/specs/T-0368.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Enforces workspace architectural integrity and prevents rogue external submodule dependencies.",
+        "categories": {
+          "curative_biophysics": 2.0,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 7.0,
+          "operational_velocity": 8.5,
+          "security_compliance": 9.5
+        },
+        "composite_score": 6.2,
+        "roi_ratio": 2.5
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic security linter and unit tests in cf-lab.",
+      "source_evidence": "tasks/specs/T-0368.md; CVE-2018-11235",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0369",
+      "title": "Deep Airway Submucosal Gland Serous Acinar Cell Fluid Hydrodynamics & Aquaporin-5 Conductance Model (tools/discovery/submucosal_gland_fluid_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_submucosal_gland_fluid; python tools/discovery/submucosal_gland_fluid_model.py --check",
+      "notes": "Wave 31 Research Lane Replenishment. Models submucosal gland serous acini fluid secretion, AQP5 osmotic water conductivity, and ductal plugging in CF.",
+      "spec_path": "tasks/specs/T-0369.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Underpins primary submucosal gland dysfunction leading to thick mucus tethering and early bacterial infection.",
+        "categories": {
+          "curative_biophysics": 9.0,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 7.7,
+        "roi_ratio": 2.3
+      },
+      "recommended_route": "local",
+      "route_rationale": "In silico ODE electrochemical model and test suite in cf-research.",
+      "source_evidence": "tasks/specs/T-0369.md; DOI: 10.1152/physrev.00037.2006",
+      "executor": "agent",
+      "human_required": false
+    },
+    {
+      "id": "T-0370",
+      "title": "Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Dispersion Kinetics Model (tools/discovery/dpi_carrier_detachment_model.py)",
+      "repo": "cf-research",
+      "area": "discovery",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "model_id": "gemini-4-argon"
+      },
+      "created_at": "2026-10-22",
+      "effort_hours": {
+        "low": 2.5,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tools.discovery.test_dpi_carrier_detachment; python tools/discovery/dpi_carrier_detachment_model.py --check",
+      "notes": "Wave 31 Research Lane Replenishment. Models carrier-API adhesion forces, patient peak inspiratory flow shear detachment, and peripheral lung aerosol deposition.",
+      "spec_path": "tasks/specs/T-0370.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Essential biophysical model for dry powder antibiotics and lyophilized nonviral gene vector delivery in CF.",
+        "categories": {
+          "curative_biophysics": 8.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 7.0,
+          "security_compliance": 5.0
+        },
+        "composite_score": 7.6,
+        "roi_ratio": 2.3
+      },
+      "recommended_route": "local",
+      "route_rationale": "In silico aerosol mechanics model and test suite in cf-research.",
+      "source_evidence": "tasks/specs/T-0370.md; DOI: 10.1016/j.ijpharm.2019.118679",
       "executor": "agent",
       "human_required": false
     }
