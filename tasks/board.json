@@ -2122,7 +2122,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8874,7 +8874,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8925,7 +8925,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -15091,7 +15091,7 @@
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
-      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
       "created_at": "2026-10-22T08:30:00Z",
       "updated_at": "2026-10-22",
       "created_by": {
@@ -20928,7 +20928,7 @@
       "area": "showcase",
       "priority": "P1",
       "review_tier": "elevated",
-      "status": "ready",
+      "status": "done",
       "effort_hours": {
         "low": 3.0,
         "high": 5.0
@@ -20955,7 +20955,9 @@
           "security_compliance": 2.0
         },
         "composite_score": 6.9,
-        "roi_ratio": 1.73
+        "roi_ratio": 1.73,
+        "actual_hours": 3.5,
+        "measured_outcome": "Delivered in .ai PR #169. Implemented Interactive eRF1/eRF3 Depletion & Aminoglycoside-Free Readthrough Kinetic Simulator on /cf/ptc/ with full es-MX parity, passing check_pr_gate.py."
       },
       "created_at": "2026-10-23",
       "spec_path": "tasks/specs/T-0403.md",
@@ -20966,7 +20968,11 @@
       "source_evidence": "tasks/specs/T-0403.md; cf-research/tools/discovery/ptc_erf_depletion_readthrough.py; RCSB PDB 6O2P; DOI 10.1038/s41589-020-00662-8; DOI 10.1093/nar/gkaa728; NCT04135495",
       "persona": "researchers",
       "discipline": "rna_gene_editing",
-      "work_kind": "new"
+      "work_kind": "new",
+      "actual_hours": 3.5,
+      "completed_at": "2026-10-24",
+      "branch": "work/sentinel-showcase-t-0403",
+      "pull_request": "https://github.com/senseiewok/.ai/pull/169"
     },
     {
       "id": "T-0404",
@@ -21063,6 +21069,56 @@
       "persona": "researchers",
       "discipline": "microbiology_host",
       "work_kind": "new"
+    },
+    {
+      "id": "T-0406",
+      "title": "Interactive Cross-Scale Clinical Trial & Delivery Modality Coupling on /cf/cftr/ and /cf/delivery/ with es-MX Parity",
+      "description": "Client-side cross-scale synthesis bridges coupling CFTR molecular mutation mechanics on /cf/cftr/ with active interventional trials on /cf/trials/ and pulmonary delivery barriers on /cf/delivery/, respecting 14- and 19-module consolidation caps with full es-MX localization.",
+      "repo": ".ai",
+      "area": "showcase",
+      "priority": "P1",
+      "review_tier": "elevated",
+      "status": "ready",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "complexity": "medium",
+      "recommended_route": "local",
+      "created_by": {
+        "kind": "model",
+        "name": "daily-site-showcase-sentinel",
+        "model_id": "google/gemini-2.5-flash",
+        "session_ref": "2026-10-24 proactive site showcase cross-scale coupling"
+      },
+      "acceptance": "python -m unittest tests.test_cross_scale_coupling; python tools/check_pr_gate.py",
+      "notes": "Delivered in .ai PR on branch site/showcase-cross-scale-coupling. Added cross-scale bridges to /cf/cftr/ and /cf/delivery/ with dynamic filtering in nav-rail.js, 100% es-MX parity, and zero cap violations (14 and 19 sections).",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Directly couples molecular mutation mechanics to recruiting clinical trials and delivery barriers, empowering patients and clinicians to navigate from variant biology to visit prep.",
+        "categories": {
+          "curative_biophysics": 8.0,
+          "clinical_translation": 9.5,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 3.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 6.8,
+        "roi_ratio": 1.7
+      },
+      "created_at": "2026-10-24",
+      "spec_path": "tasks/specs/T-0406.md",
+      "depends_on": [],
+      "executor": "agent",
+      "human_required": false,
+      "route_rationale": "Client-side interactive visualization on .ai.",
+      "source_evidence": "tasks/specs/T-0406.md; src/cf/trials/data/endpoints.json; NCT05668741; NCT04135495; NCT06237335; NCT00843817; NCT05248230; NCT04596319; NCT04684641",
+      "persona": "researchers",
+      "discipline": "clinical_trials",
+      "work_kind": "new",
+      "pull_request": "https://github.com/senseiewok/.ai/pull/171",
+      "branch": "site/showcase-cross-scale-coupling"
     }
   ],
   "updated": "2026-10-22"
