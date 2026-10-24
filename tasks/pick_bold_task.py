@@ -44,7 +44,7 @@ GITHUB_REPOS = ["cf-lab", "cf-research", "cf-skills", ".ai"]
 LOCAL_GATE_ONLY_REPOS = {".ai"}
 
 LANES = ("security", "research", "showcase")
-SHOWCASE_AREAS = {"content", "web", "website", "site", "ai-in-care", "ui", "viewer", "frontend"}
+SHOWCASE_AREAS = {"content", "web", "website", "site", "ai-in-care", "ui", "viewer", "frontend", "showcase"}
 RESEARCH_AREAS = {"research", "science", "sources", "evidence", "grounding", "atlas"}
 
 # Wording that means a person must read, test on hardware/external UI, or decide something, which triage_board's approval patterns miss.
@@ -66,6 +66,9 @@ TASK_ID_TOKEN_RX = re.compile(r"\bt-?(\d{4})\b", re.I)
 
 
 def lane_of(task: dict) -> str:
+    explicit_lane = task.get("lane")
+    if explicit_lane in LANES:
+        return explicit_lane
     repo = task.get("repo")
     area = task.get("area")
     if area in SHOWCASE_AREAS:
@@ -359,7 +362,7 @@ def pr_failed_checks(pr: dict) -> list[dict]:
     return failed
 
 
-def pr_issues(pr: dict, done_ids: set[str]) -> list[str]:
+def pr_issues(pr: dict, done_ids: set[str], tasks_by_id: dict[str, dict] | None = None) -> list[str]:
     """Return actionable PR issues (merge_conflict, ci_failure, review_blocker, superseded_by_main)."""
     issues: list[str] = []
     mergeable = str(pr.get("mergeable") or "").upper()
@@ -379,7 +382,21 @@ def pr_issues(pr: dict, done_ids: set[str]) -> list[str]:
     tids = pr_task_ids(pr)
     branch = str(pr.get("headRefName", ""))
     if tids and done_ids and is_sentinel_branch(branch) and all(tid in done_ids for tid in tids):
-        issues.append("superseded_by_main")
+        # A PR is not superseded if it is the designated delivery PR cited in task notes/outcome waiting for review/merge
+        is_delivery_pr = False
+        if tasks_by_id and pr.get("number") is not None:
+            pr_num_str = str(pr["number"])
+            for tid in tids:
+                t = tasks_by_id.get(tid)
+                if not t:
+                    continue
+                notes = str(t.get("notes") or "")
+                measured = str(t.get("roi", {}).get("measured_outcome") or "")
+                if f"#{pr_num_str}" in notes or f"#{pr_num_str}" in measured or f"pull/{pr_num_str}" in notes or f"pull/{pr_num_str}" in measured:
+                    is_delivery_pr = True
+                    break
+        if not is_delivery_pr:
+            issues.append("superseded_by_main")
 
     return issues
 
@@ -505,7 +522,7 @@ def main(argv: list[str] | None = None) -> int:
     for p in prs:
         if pr_lane_of(p, tasks_by_id) != args.lane:
             continue
-        issues = pr_issues(p, done_ids)
+        issues = pr_issues(p, done_ids, tasks_by_id)
         if not issues:
             continue
         rkey = pr_attempt_key(p)

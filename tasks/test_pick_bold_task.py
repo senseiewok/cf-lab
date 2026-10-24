@@ -440,6 +440,27 @@ class PickerTests(unittest.TestCase):
         code, out = self.run_picker([], "security", "--check")
         self.assertEqual(code, 20, out)
 
+    def test_delivery_pr_cited_in_task_notes_is_not_flagged_as_superseded(self):
+        self.prs.write_text(
+            json.dumps([{
+                "repo": "cf-research",
+                "number": 133,
+                "headRefName": "work/sentinel-research-t-0394",
+                "title": "feat(discovery): suppressor tRNA (T-0394)",
+                "mergeable": "MERGEABLE",
+                "mergeStateStatus": "CLEAN",
+            }]),
+            encoding="utf-8",
+        )
+        task_done_with_pr = task(
+            "T-0394", repo="cf-research", area="science", status="done",
+            notes="Delivered in research sentinel PR senseiewok/cf-research#133 with tests passing."
+        )
+        code, out = self.run_picker([task_done_with_pr], "research", "--check")
+        # Delivery PR is awaiting merge, so lane is blocked with exit 21 (capacity) rather than flagged for repair
+        self.assertEqual(code, 21, out)
+        self.assertIn("already has an open sentinel pull request", out)
+
     def test_site_showcase_branch_convention_detects_superseded_and_blocks_when_clean(self):
         self.prs.write_text(
             json.dumps([{
