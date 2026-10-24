@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-409 tasks, 408 created by a model, 186 with a measured outcome. Estimated effort 1041.35 to 1887.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+412 tasks, 411 created by a model, 186 with a measured outcome. Estimated effort 1047.35 to 1899.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,11 +10,13 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (20)
+## ready (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
+| T-0411 | P1 | Interactive Engineered Suppressor tRNA Premature Termination Codon Readthrough Simulator on /cf/ptc/ with es-MX Parity | .ai | 2-4 | 5 | 16.7 | no | model: gemini-flash | 2026-10-24 | elevated | medium | local | T-0394 |  |
+| T-0412 | P1 | Interactive 52-Model Cross-Discipline Discovery Catalog & Curative Bottleneck Synthesis Explorer on /tools/ with Bilingual Support | .ai | 2-4 | 4 | 13.3 | no | model: gemini-flash | 2026-10-24 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0409 | P1 | Interactive Split-Intein Dual-AAV Reconstitution & Vector Redosing Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-24 | elevated | medium | local | T-0393 |  |
 | T-0407 | P1 | Inhaled Lentiviral Vector Epigenetic Silencing & Airway Basal Progenitor Integration Persistence Model (tools/discovery/lentiviral_basal_integration_persistence.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-24 | elevated | medium | local |  |  |
@@ -35,7 +37,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
-## done (317)
+## done (318)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -106,6 +108,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0181 | P1 | Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py) | .ai | 1.5-3 | 4 | 17.8 | yes | model: claude-3-opus | 2026-10-17 | elevated | low | local | T-0180 |  |
 | T-0108 | P1 | Block the agent web tool for catalog hosts marked manual, request or forbidden | cf-lab | 2-4 | 5 | 16.7 | yes | model: claude-opus-5-5 | 2026-10-09 | full | medium |  |  |  |
 | T-0167 | P1 | Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification | .ai | 2-4 | 5 | 16.7 | yes | model: gemini-3.8-flash | 2026-10-15 | elevated | medium | cloud |  |  |
+| T-0410 | P1 | Interactive 3-Engine Cross-Scale Discovery Synthesis & Care-Team Visit-Prep Printing on /cf/trials/ with es-MX Parity | .ai | 2-4 | 5 | 16.7 | no | model: gemini-flash | 2026-10-24 | elevated | medium | local |  |  |
 | T-0237 | P1 | Interactive Airway Epithelial Basal Stem Cell (KRT5+/TP63+) Clonal Lineage Plasticity & Long-Term Engraftment Simulator on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0220 |  |
 | T-0238 | P1 | Interactive CFTR Truncation 3D Backbone Trace & Cryptic Domain Stability Explorer on /cf/cftr/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0217 |  |
 | T-0242 | P1 | Interactive Inhaled CFTR mRNA Lipid Nanoparticle (LNP) Endosomal Escape Kinetics & Ionizable Lipid pKa Inversion Explorer on /cf/delivery/ with es-MX parity | .ai | 2-3 | 4 | 16 | yes | model: gemini-flash | 2026-10-19 | elevated | medium | local | T-0239 |  |
@@ -1176,6 +1179,26 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** 2026-10-15: Created and approved during schedule and website publishing audit. \| 2026-10-15: Completed and submitted via senseiewok/.ai PR #81.
 - **Measured:** 2.5 h; Submitted PR #81 on senseiewok/.ai. Pinned evidence snapshot to cf-research commit 601da99 (67 sources, 98 ledger rows), regenerated counts and ledger blocks, and updated es-MX localization.
 
+### T-0410 Interactive 3-Engine Cross-Scale Discovery Synthesis & Care-Team Visit-Prep Printing on /cf/trials/ with es-MX Parity
+
+- **Why / ROI rationale:** Unifies Trial Endpoint Atlas with CFTR and Delivery workbenches and provides printable 1-page visit-prep handouts. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
+- **Route:** local - Native ES module UI widget and unit tests in .ai.
+- **Acceptance:** python -m unittest tests.test_cross_scale_coupling tests.test_trial_atlas; python tools/check_pr_gate.py
+- **Evidence:** cf-research/tools/discovery/discovery_council.py; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; ClinicalTrials.gov API v2; DOI 10.1073/pnas.1901667116
+- **Spec:** `tasks/specs/T-0410.md`
+- **Notes:** Implemented 3-engine cross-scale discovery synthesis (Engine A, B, C), cross-discipline navigation, visit-prep sheet print button (#btn-print-sheet), and @media print responsive styling on /cf/trials/ with full es-MX dictionary parity in .ai PR #174.
+
+### T-0411 Interactive Engineered Suppressor tRNA Premature Termination Codon Readthrough Simulator on /cf/ptc/ with es-MX Parity
+
+- **Why / ROI rationale:** Visualizes mutation-agnostic suppressor tRNA readthrough kinetics for Class I nonsense variants (W1282X, G542X). *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
+- **Route:** local - Native ES module UI widget and unit tests in .ai.
+- **Acceptance:** python -m unittest tests.test_site tests.test_cross_scale_coupling tests.test_check_pr_gate; python tools/check_pr_gate.py
+- **Evidence:** cf-research/tools/discovery/suppressor_trna_model.py; cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; DOI 10.1038/s41467-023-38827-x; RCSB PDB 6O2P
+- **Spec:** `tasks/specs/T-0411.md`
+- **Notes:** Translates T-0394 suppressor tRNA readthrough & transcriptome orthogonality model into an interactive browser simulator on /cf/ptc/ with full Mexican Spanish (es-MX) parity, aminoacylation kinetics, and off-target amber suppression safety bounds.
+
 ### T-0237 Interactive Airway Epithelial Basal Stem Cell (KRT5+/TP63+) Clonal Lineage Plasticity & Long-Term Engraftment Simulator on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Models basal stem cell engraftment and ionocyte replenishment dynamics for curative gene addition. *(confidence: )*
@@ -1913,6 +1936,16 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0397.md`
 - **Notes:** Showcase Lane Replenishment. Expand resources directory and world compass map with 7 newly cataloged countries (Uruguay, Ecuador, Poland, Czech Republic, Greece, Israel, Turkey) across 21 attested care organizations. \| 2026-10-24 CRO Auto-Triage: Marked done. Delivered in senseiewok/.ai#168 (commit 0c54285). Expanded patient resources directory and world compass map across 22 countries and 21 attested care organizations with bilingual EN/es-MX support and passing tests.test_resources_page.
 - **Measured:** 3 h; Delivered in senseiewok/.ai#168 (commit 0c54285). Expanded patient resources directory and world compass map across 22 countries and 21 attested care organizations with bilingual EN/es-MX support and passing tests.test_resources_page.
+
+### T-0412 Interactive 52-Model Cross-Discipline Discovery Catalog & Curative Bottleneck Synthesis Explorer on /tools/ with Bilingual Support
+
+- **Why / ROI rationale:** Exposes all 52 verified biophysical discovery models to researchers and builders with complete provenance and equations. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: structural_biology | Kind: new
+- **Route:** local - Native ES module UI widget and unit tests in .ai.
+- **Acceptance:** python -m unittest tests.test_site tests.test_check_pr_gate; python tools/check_pr_gate.py
+- **Evidence:** cf-research/tools/discovery/catalog.json; cf-research/tools/discovery/discovery_council.py; cf-research/landscape/mission-grounding-2026-10-23-wave17.md
+- **Spec:** `tasks/specs/T-0412.md`
+- **Notes:** Builds interactive 52-model cross-discipline catalog and curative bottleneck synthesis explorer on /tools/ with discipline filters, biophysical equations, and bilingual English / Mexican Spanish (es-MX) support.
 
 ### T-0105 A CF clinician or social worker reads the safe-use box wording and the open questions
 
