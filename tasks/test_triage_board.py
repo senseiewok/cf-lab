@@ -181,6 +181,125 @@ class TestTriageBoard(unittest.TestCase):
         self.assertEqual(cls_atlas["priority"], "P1")
         self.assertEqual(cls_atlas["recommended_route"], "cloud")
 
+    def test_persona_discipline_work_kind_inference(self):
+        # 1. Patients persona (resources directory)
+        t_patients = {
+            "id": "T-0397",
+            "title": "Interactive Global 22-Country CF Patient Resource Navigator & Healthcare Equity Map Expansion on /resources/ with Bilingual Support",
+            "repo": ".ai",
+            "area": "showcase",
+        }
+        self.assertEqual(tb.infer_persona(t_patients), "patients")
+        self.assertEqual(tb.infer_discipline(t_patients), "clinical_trials")
+        self.assertEqual(tb.infer_work_kind(t_patients), "new")
+
+        # 2. Care teams persona (visit-prep / clinician)
+        t_care = {
+            "id": "T-0386",
+            "title": "Recruiting Clinical Trial Explorer & Visit-Prep Question Builder on /cf/trials/",
+            "repo": ".ai",
+            "area": "showcase",
+        }
+        self.assertEqual(tb.infer_persona(t_care), "care_teams")
+        self.assertEqual(tb.infer_discipline(t_care), "clinical_trials")
+
+        # 3. Researchers persona across scientific disciplines
+        t_struct = {
+            "id": "T-0150",
+            "title": "In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery",
+            "repo": "cf-research",
+            "area": "science",
+        }
+        self.assertEqual(tb.infer_persona(t_struct), "researchers")
+        self.assertEqual(tb.infer_discipline(t_struct), "structural_biology")
+
+        t_rna = {
+            "id": "T-0401",
+            "title": "Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR",
+            "repo": "cf-research",
+            "area": "science",
+        }
+        self.assertEqual(tb.infer_persona(t_rna), "researchers")
+        self.assertEqual(tb.infer_discipline(t_rna), "rna_gene_editing")
+
+        t_deliv = {
+            "id": "T-0400",
+            "title": "Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery",
+            "repo": "cf-research",
+            "area": "science",
+        }
+        self.assertEqual(tb.infer_persona(t_deliv), "researchers")
+        self.assertEqual(tb.infer_discipline(t_deliv), "airway_delivery")
+
+        t_micro = {
+            "id": "T-0402",
+            "title": "Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms",
+            "repo": "cf-research",
+            "area": "science",
+        }
+        self.assertEqual(tb.infer_persona(t_micro), "researchers")
+        self.assertEqual(tb.infer_discipline(t_micro), "microbiology_host")
+
+        # 4. Builders persona & repair/maintenance work_kind
+        t_linter = {
+            "id": "T-0301",
+            "title": "Automated Cross-Repo Markdown Link & Internal Anchor Integrity Linter (tasks/check_markdown_link_integrity.py)",
+            "repo": "cf-lab",
+            "area": "security",
+        }
+        self.assertEqual(tb.infer_persona(t_linter), "builders")
+        self.assertEqual(tb.infer_discipline(t_linter), "ai_verification")
+        self.assertEqual(tb.infer_work_kind(t_linter), "maintenance")
+
+        t_repair = {
+            "id": "T-0002",
+            "title": "Fix trailing-comma regression in i18n-resources.js",
+            "repo": ".ai",
+            "area": "site",
+        }
+        self.assertEqual(tb.infer_work_kind(t_repair), "repair")
+
+        # 5. Adversarial edge cases from Claude Opus blind review:
+        # - "second-family reviewer" in acceptance must not classify a cf-research task as "patients"
+        t_opus_family = {
+            "id": "T-0901",
+            "title": "W1282X readthrough kinetic model",
+            "repo": "cf-research",
+            "area": "science",
+            "acceptance": "pytest passes and second-family reviewer confirms",
+            "notes": "Uses tobramycin comparator in notes",
+            "roi": None,
+        }
+        self.assertEqual(tb.infer_persona(t_opus_family), "researchers")
+        # - "tobramycin comparator" in notes must not hijack an RNA readthrough title into microbiology_host
+        self.assertEqual(tb.infer_discipline(t_opus_family), "rna_gene_editing")
+
+        # - Stem matching for "inflammation" / "microbiology" / "endosomal"
+        t_inflamm = {
+            "id": "T-0902",
+            "title": "Airway inflammation IL-8 model in CF microbiology",
+            "repo": "cf-research",
+            "area": "science",
+        }
+        self.assertEqual(tb.infer_discipline(t_inflamm), "microbiology_host")
+
+        t_endosomal = {
+            "id": "T-0903",
+            "title": "Endosomal trafficking model in airway cells",
+            "repo": "cf-research",
+            "area": "science",
+        }
+        self.assertEqual(tb.infer_discipline(t_endosomal), "airway_delivery")
+
+        # - /resources/ without word boundary after space
+        t_resources_route = {
+            "id": "T-0904",
+            "title": "Update bilingual cards on /resources/ with es-MX links",
+            "repo": ".ai",
+            "area": "showcase",
+        }
+        self.assertEqual(tb.infer_persona(t_resources_route), "patients")
+
     def test_triage_board_approval_and_completion(self):
         board_copy = copy.deepcopy(self.mock_board)
         updated, stats = tb.triage_board(board_copy, self.mock_human_ids, auto_approve=True, prioritize=True)
@@ -189,6 +308,9 @@ class TestTriageBoard(unittest.TestCase):
         task_2 = next(t for t in updated["tasks"] if t["id"] == "T-0002")
         self.assertEqual(task_2["status"], "ready")
         self.assertIn("CRO Auto-Triage: Approved to ready", task_2["notes"])
+        self.assertIn(task_2["persona"], tb.VALID_PERSONAS)
+        self.assertIn(task_2["discipline"], tb.VALID_DISCIPLINES)
+        self.assertIn(task_2["work_kind"], tb.VALID_WORK_KINDS)
 
         self.assertIn("T-0158", stats["completed_to_done"])
         task_158 = next(t for t in updated["tasks"] if t["id"] == "T-0158")
@@ -450,4 +572,3 @@ class TestEvidencePackageAndUpdater(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

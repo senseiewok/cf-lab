@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-402 tasks, 401 created by a model, 184 with a measured outcome. Estimated effort 1020.35 to 1851.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+402 tasks, 401 created by a model, 186 with a measured outcome. Estimated effort 1020.35 to 1851.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,16 +10,14 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (22)
+## ready (20)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0397 | P1 | Interactive Global 22-Country CF Patient Resource Navigator & Healthcare Equity Map Expansion on /resources/ with Bilingual Support | .ai | 2-4 | 4 | 13.3 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0400 | P1 | Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
-| T-0401 | P1 | Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0402 | P1 | Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0129 | P1 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
@@ -37,7 +35,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
-## done (308)
+## done (310)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -149,6 +147,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0378 | P1 | Interactive Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretory Hyperviscosity Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
 | T-0180 | P1 | Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py) | cf-research | 2-4 | 4 | 13.3 | yes | model: gpt-5-frontier | 2026-10-17 | elevated | medium | local | T-0177, T-0178, T-0179 |  |
+| T-0397 | P1 | Interactive Global 22-Country CF Patient Resource Navigator & Healthcare Equity Map Expansion on /resources/ with Bilingual Support | .ai | 2-4 | 4 | 13.3 | yes | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
 | T-0168 | P1 | Author multi-registry modulator eligibility & ultra-rare variant landscape dossier from verified 2024 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports [T2] | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-15 | full | high | frontier | T-0005 |  |
 | T-0177 | P1 | Airway epithelial transcytosis receptor kinetics model for apical-to-basal delivery (tools/discovery/transcytosis_model.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local |  |  |
@@ -188,6 +187,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0352 | P1 | CFTR Cryptic Splice Site Pseudoexon U1 snRNP Steric Decoy Thermodynamics Model (tools/discovery/u1_snrnp_decoy_thermodynamics.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0392 | P1 | Inhaled TMEM16A Alternative Chloride Conductance & Intracellular Calcium Coupling Model (tools/discovery/tmem16a_calcium_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0394 | P1 | Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model (tools/discovery/suppressor_trna_orthogonality.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0401 | P1 | Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0187 | P1 | Interactive Splice-Switching ASO & Class V Pseudoexon Explorer panel on /cf/ptc/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0183 |  |
@@ -431,6 +431,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0004 Gate .github/loop-orchestrator/loop.py with a hard failure
 
 - **Why / ROI rationale:** AGENTS.md documents it as reporting success unconditionally. A verifier that always passes is worse than none. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** python .github/loop-orchestrator/loop.py exits non-zero; AGENTS.md mention updated.
 - **Evidence:** hq/AGENTS.md section 'AI loop and delegation'
 - **Notes:** Applied 2026-10-04 by claude-sonnet-5-5: .github/loop-orchestrator/loop.py exits non-zero on start with 'not implemented'; the AGENTS.md mention and the loop README status note were updated. A human sets done after seeing the acceptance output. \| Verified done 2026-10-07 (first-hand, then by a read-only audit), set done on the maintainer's instruction in session: python .github/loop-orchestrator/loop.py prints 'not implemented: this prototype reports success unconditionally' and exits 1; AGENTS.md says loop.py now exits non-zero on start; the loop README says 'Status: not functional'. No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
@@ -438,6 +439,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0002 Fix YouTube About text: remove 'accelerate the cure', add research-not-advice and independence lines
 
 - **Why / ROI rationale:** The only public text the channel has contradicts hq/README.md ('we do not claim a cure'). Cheapest high-visibility fix available. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: repair
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** About page text matches research/proposals/2026-10-04-youtube-about.md or a human-edited variant; contains 'not medical advice' and 'not affiliated'.
 - **Evidence:** research/proposals/2026-10-04-youtube-about.md
@@ -447,6 +449,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0005 Download CFF Patient Registry PDFs by hand into research/sources/downloads
 
 - **Why / ROI rationale:** Unblocks the US half of cf-registry-extract. Human-only step by policy. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** fetch_sources.py --verify reports the CFF files present with recorded SHA-256; Technical Supplement included.
 - **Evidence:** research/landscape/registry-data-access.md; research/sources/catalog.yaml (access: manual)
@@ -456,6 +459,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0057 Human edits to the protected .github folder after the rename: CODEOWNERS, copilot-instructions names, CI workflows
 
 - **Why / ROI rationale:** Estimate: without the new paths the setup scripts lose their required reviewer. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** grep -n 'setup' .github/CODEOWNERS shows /setup.cmd and /setup.sh owned by @senseiewok and no /setup.ps1; grep -rn -E 'hq\|Research Lab' .github returns nothing in cf-lab; the CI workflow drafts (kept by the maintainer outside the repos, one per repo) are in .github/workflows of each repo (see T-0061).
 - **Evidence:** .github/CODEOWNERS line 9 still lists /setup.ps1, which was replaced by setup.cmd and setup.sh on 2026-10-04. .github/copilot-instructions.md and .github/loop-orchestrator/README.md still say 'Sensei Ewok Research Lab (hq)'; the repos are now cf-lab, cf-research and cf-skills (GitHub renamed 2026-10-04). No repo has a .github/workflows folder (verified 2026-10-04). Files under .github/ are write-protected from automated agents here, so none of this was edited.
@@ -465,6 +469,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0014 Decide the 'CF - until there's a cure' site tagline against lab-voice
 
 - **Why / ROI rationale:** Not a claim the lab cures anything, but lab-voice says 'hope without a forecast'. A human call; either keep deliberately or replace. *(confidence: low)*
+- **Axis:** Persona: patients | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** Decision recorded in .ai/README.md; text unchanged or replaced accordingly.
 - **Evidence:** handoff site_text.txt (private session artifact, not in the repo) line 'CF - until there's a cure'; hq/.claude/skills/lab-voice/SKILL.md
@@ -474,6 +479,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0001 Replace hq LICENSE.md with a named OSI license; add a LICENSE to research, .ai, skills
 
 - **Why / ROI rationale:** Current LICENSE.md says 'released under an open source license' without naming one and has a placeholder contact. Without a named license, default copyright applies and nobody can legally reuse the code the site calls open source. Skills already use CC0-1.0; code needs MIT or Apache-2.0. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** Each of the four repos has a LICENSE file whose first line names a recognised license (MIT, Apache-2.0, CC0-1.0, or CC-BY-4.0 for notes); hq README and website link to it.
 - **Evidence:** hq/LICENSE.md read 2026-10-04; research, .ai, skills have no LICENSE file
@@ -482,6 +488,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0071 Put the ClinGen and gnomAD catalog conflicts into the BioMCP admission test
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** T-0042's acceptance text lists the wrapper's ClinGen and gnomAD tools as blocked until the catalog entries change, and says the wrapper's own requests must follow NETWORK-RULES R1-R9.
 - **Evidence:** 2026-10-05: the survey found that BioMCP, OpenCRAVAT and a gnomAD MCP call ClinGen or gnomAD, while the catalog records clingen as forbidden (robots.txt refuses other agents) and gnomad as manual (API paths disallowed).
@@ -490,6 +497,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0099 Add a reviewed lesson to ai-loop-council: appends to a log shared by parallel runs lose lines unless the file is opened exclusively
 
 - **Why / ROI rationale:** Estimate: any future script that several local tasks append to would repeat the loss silently; a short reviewed lesson with a failing repro and the check that catches it is cheap against that. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Branch:** work/frontier-lab-unbinding
 - **Acceptance:** A narrow edit to the owning skill (ai-loop-council) states the rule (open a shared log exclusively and retry on a sharing violation; test it with 24 or more parallel writers, because a sequential test cannot see the loss) and names the existing parallel tests as the check; the edit is read by a person; the observation is deleted afterwards as the lab process says.
@@ -500,6 +508,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0145 Decide the leftover git state from the 2026-10-11 to 13 session: one stale remote branch, two worktrees with unpushed commits, two worktrees that would not remove
 
 - **Why / ROI rationale:** Estimate: unpushed commits in a forgotten worktree are how a fix gets lost (T-0112's evidence); fifteen minutes of the maintainer's yes or no closes it. A stranger may say this is not board material; the board is the single list, and only a person may approve the deletes. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** The maintainer answers delete or keep for each of the five items; before any removal the superseding work is confirmed on the target main (git log origin/main for the PR's last commit, or the T-0112 check); then worktrees.py clean --yes and git push --delete for the agreed items; the cause of 'permission denied' (a process holding the folder) is named; git worktree list and git branch -r show none of the agreed items.
 - **Evidence:** 2026-10-13 (session record, names not re-listed): remote branch site/letter-on-home is stale (a force-push was refused by the harness; the work went to site/letter-on-home-v2); local worktrees ai-wt-evpin and cr-wt-atlas-build hold commits on no remote and are probably superseded; two other worktrees failed to remove with 'permission denied'. Standing rule: ask before deleting old worktrees; worktrees.py clean --github is a dry run by default.
@@ -508,6 +517,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0037 Add Retraction Watch (via Crossref) retraction check to the catalog and to the claim-check harness design
 
 - **Why / ROI rationale:** Crossref is already permitted and reachable; Retraction Watch data has been open through it since 2023. Every DOI the lab cites gets a mechanical retraction/correction lookup. Highest credibility gain per hour available. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Acceptance:** catalog.yaml has a retraction-watch entry with access: api; a script takes a DOI list and returns retraction/correction status for each; the 13 DOIs in the scoping memo are checked and the output committed.
 - **Evidence:** research/proposals/2026-10-04-researcher-sources.md layer 2
 - **Notes:** Built 2026-10-04 in skills/cf-evidence-loop (moved from research/tools/evidence 2026-10-04 at the user's request for a portable skill) (providers crossref, openfda); live-checked and unit-tested. Awaiting human review of the acceptance output before done. 2026-10-04 later: network-conduct rules R1-R9 enforced in the client with 37 tests; catalogs now carry terms_url/max_rps for every API source. \| 2026-10-12: Marked done in board cleanup.
@@ -515,6 +525,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0003 Apply the HQ skill-update proposal (security-browsing, cf-research-context, ai-loop-council, model-onboarding)
 
 - **Why / ROI rationale:** Turns tested access findings into agent policy so no future agent re-derives or evades them. Packet is already written. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** All acceptance checks in research/proposals/2026-10-04-implementation-packet.md pass with command output.
 - **Evidence:** research/proposals/2026-10-04-hq-skill-updates.md
 - **Notes:** Applied 2026-10-04 by claude-sonnet-5-5 (review tier elevated) from research/proposals/2026-10-04-hq-skill-updates.md. All 21 inserted proposal lines were checked verbatim by script; frontmatter validated with tasks/check-skill-frontmatter.py; an independent frontier-model review of the research side found no quotation false. A human sets done after seeing the acceptance output. \| 2026-10-12: Marked done in board cleanup.
@@ -522,6 +533,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0022 Adopt the task board: every new task carries created_by, evidence, and an ROI estimate; render BOARD.md in CI or pre-commit
 
 - **Why / ROI rationale:** Without provenance, model-generated tasks and human decisions become indistinguishable within a week. The board is only useful if it is the single list. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** hq/tasks/README.md adopted; render-board.ps1 runs clean; no task list exists elsewhere in hq.
 - **Evidence:** hq/tasks/ created 2026-10-04
 - **Notes:** Adopted 2026-10-04: tasks/README.md, board.json and render-board.ps1 are in place and the manual 'render-board.ps1 -Check' step is noted in copilot-instructions.md because the repo has no pre-commit hook or CI. A human sets done after seeing the acceptance output. \| Verified done 2026-10-07 (first-hand, then by a read-only audit), set done on the maintainer's instruction in session: tasks/README.md and tasks/render-board.ps1 exist; render-board.ps1 -Check prints 'BOARD.md is current'; the renderer requires created_by, source_evidence, roi, acceptance and review_tier; board.json is the only task list in cf-lab. Caveats: the repo has no pre-commit hook or CI step for the render (the manual -Check step is documented, as the earlier note says), and cf-research landscape/medical-ai-landscape.md holds a four-item research to-do checklist that the audit judged a survey list and not a task list; the maintainer may disagree. No actual hours were recorded, so roi.actual_hours stays null and roi.measured stays false.
@@ -529,6 +541,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0072 Decision: cloud-model use on reports with unread terms; permission requests to the CFF Registry and the CF Trust; the CC0 label on skills that carry quotations
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A human decides each of three points and the review's rules are adjusted to match: (1) whether sources with unread terms go only to local models, and the account's data-retention and training settings are confirmed; (2) whether to ask the Foundation and the Trust for permission to quote; (3) the licence wording for skills with quotations.
 - **Evidence:** 2026-10-05: proposals/2026-10-05-compliance-review.md. The UK report asks for permission before reproduction in publications, the CFF has a figure-permissions notice, the Canadian and ECFSPR terms are unread, and the CC0 header on the ECFSPR skill sits over third-party quotations.
@@ -538,6 +551,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0115 Record the agent's permission mode and deny GitHub settings commands
 
 - **Why / ROI rationale:** Estimate: makes the ask list's real effect known and closes settings changes to agents. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Branch:** work/frontier-lab-unbinding
 - **Acceptance:** security-runtime records the mode the lab runs in and what the ask list does under it, checked by a dated test; deny rules cover gh api -X PUT/PATCH/DELETE, gh secret and gh repo edit; check-workspace.py asserts them.
@@ -547,6 +561,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0109 A rule for questions about one real person: generalise before any search
 
 - **Why / ROI rationale:** Estimate: small CF cohorts re-identify; one combined query can identify a person. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** security-browsing and cf-research-context say: before any search or cloud call, rewrite the question in general terms, say so, and keep nothing about the person; a session-close scan lists web-tool inputs that combine a health term with age, origin, status, place or a date.
 - **Evidence:** 2026-10-07: after a question about one real person's care and coverage, web searches carried a combination of that person's attributes. Nothing reached a repo or a note (grep). security-browsing already says health data about individuals never goes into queries.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The maintainer decides the wording and whether such questions are in scope. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. \| 2026-10-15: Completed T-0109. Added rule across security-browsing and cf-research-context requiring generalization to broad scientific terms before any search/cloud call; built deterministic scanner tasks/scan_person_generalization.py and test_scan_person_generalization.py with full positive/negative controls; registered in check-all.ps1.
@@ -555,6 +570,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0227 Spec dossier integrity checker (tasks/check_task_specs.py) verifying spec_path dossiers for primary citations and test commands
 
 - **Why / ROI rationale:** Eliminates task context loss by deterministically verifying spec dossiers across board tasks. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic task spec validation utility.
 - **Acceptance:** python -m unittest tasks/test_check_task_specs.py
 - **Evidence:** tasks/board.json; tasks/render-board.ps1; tasks/triage_board.py; tasks/specs/T-0221.md
@@ -565,6 +581,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0235 Interactive Nonviral Minimal DNA (minidnacftr) TLR9 Evasion & Engineered EV Basal Stem Cell Tropism Explorer on /cf/ptc/ with es-MX parity
 
 - **Why / ROI rationale:** Translates nonviral minimal DNA TLR9 evasion and engineered EV basal stem cell tropism into an interactive bilingual public workbench. *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic zero-build ES module and es-MX translation workbench grounded in T-0233 and T-0234.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_minidna_ev_explorer tests.test_site.StaticTests
 - **Evidence:** DOI:10.1093/nar/gkag082 (Porter et al., Nucleic Acids Res 2026, PMID 41641696: nonviral minimal DNA ACE-tRNA vectors) DOI:10.3389/fbioe.2026.1855907 (Ivleva et al., Front Bioeng Biotechnol 2026, PMID 42529376: EV delivery to airway basal cells) DOI:10.1172/jci.insight.206375 (Vijaykumar et al., JCI Insight 2026, PMID 42611556: basal cell multilineage CFTR restoration) ClinicalTrials.gov:NCT05668741, NCT05248230
@@ -574,6 +591,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0236 Interactive Inhaled Bacteriophage-Antibiotic Synergy (PAS) & Biofilm Depolymerization Explorer on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Translates anti-resistance bacteriophage cocktail co-evolution dynamics, alginate lyase biofilm depolymerization, and MexAB-OprM efflux collapse into an interactive bilingual public workbench. *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Deterministic zero-build ES module and es-MX translation workbench grounded in T-0154 (phage_biofilm_kinetics.py and landscape/phage-coevolution-dynamics.md).
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_phage_biofilm_explorer tests.test_site.StaticTests
 - **Evidence:** DOI:10.1038/s41591-021-01659-5 (Dedrick et al., Nat Med 2022: Phage therapy in CF) DOI:10.1093/emph/eow012 (Chan et al., Evol Med Public Health 2016: Phage OMKO1 OprM trade-off) DOI:10.1016/j.chom.2019.01.014 (Kortright et al., Cell Host Microbe 2019: Phage-antibiotic synergy) DOI:10.3389/fmicb.2019.02087 (Cafora et al., Front Microbiol 2019: Alginate lyase biofilm dispersal) ClinicalTrials.gov:NCT04684641, NCT05453578, NCT05616221
@@ -583,6 +601,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0277 Automated Multi-Repo Agent Command Quoting Safety & Path Linter (tasks/check_agent_command_safety.py)
 
 - **Why / ROI rationale:** Eliminates syntax quoting hazards and fragile directory navigation traps across agent session prompts and CI scripts. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Static regex analysis of PowerShell and Python inline strings, user home paths, and brittle traversal across workspace scripts and skills.
 - **Acceptance:** python -m unittest tasks.test_check_agent_command_safety; python tasks/check_agent_command_safety.py --check
 - **Evidence:** .loop-logs/session-error-digest.json; tasks/audit_session_errors.py; AGENTS.md
@@ -592,6 +611,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0301 Automated Cross-Repo Markdown Link & Internal Anchor Integrity Linter (tasks/check_markdown_link_integrity.py)
 
 - **Why / ROI rationale:** Prevents broken documentation paths and missing anchor references across all workspace markdown files deterministically. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Automated cross-repo linter validating relative markdown links and GFM heading anchors to prevent documentation link rot.
 - **Acceptance:** python -m unittest tasks.test_check_markdown_link_integrity; python tasks/check_markdown_link_integrity.py --check
 - **Evidence:** CommonMark Specification 0.31.2 & GitHub Flavored Markdown (GFM) Spec section 4.5 (Links); .claude/skills/security-baseline/SKILL.md
@@ -601,6 +621,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0313 Automated Multi-Repo Git Hook & Pre-Commit Shell Invariant Linter (tasks/check_git_hooks_invariants.py)
 
 - **Why / ROI rationale:** Prevents unauthorized hook execution and validates pre-commit privacy scanning invariants. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_git_hooks_invariants; python tasks/check_git_hooks_invariants.py --check
 - **Evidence:** tasks/specs/T-0313.md; .claude/skills/security-git/SKILL.md
@@ -610,6 +631,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0314 Automated Cross-Repo Playwright Test Artifact & Server Port Hygiene Linter (tasks/check_playwright_test_hygiene.py)
 
 - **Why / ROI rationale:** Guarantees test server hygiene and prevents browser test binary bloat in git. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_playwright_test_hygiene; python tasks/check_playwright_test_hygiene.py --check
 - **Evidence:** tasks/specs/T-0314.md; .claude/skills/playwright-browser-testing/SKILL.md
@@ -619,6 +641,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0319 Automated Multi-Repo Git Submodule & External Dependency Supply Chain Linter (tasks/check_git_supply_chain_integrity.py)
 
 - **Why / ROI rationale:** Enforces zero-CDN architecture and protects against supply-chain compromises in third-party tooling. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_git_supply_chain_integrity; python tasks/check_git_supply_chain_integrity.py --check
 - **Evidence:** tasks/specs/T-0319.md; .claude/skills/security-baseline/SKILL.md
@@ -628,6 +651,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0320 Automated Cross-Repo Unicode Homoglyph & Invisible Character Injection Linter (tasks/check_unicode_homoglyphs.py)
 
 - **Why / ROI rationale:** Protects against CVE-2021-42574 Trojan Source attacks and invisible prompt injection artifacts. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_unicode_homoglyphs; python tasks/check_unicode_homoglyphs.py --check
 - **Evidence:** tasks/specs/T-0320.md; arXiv:2111.00169; .claude/skills/security-baseline/SKILL.md
@@ -637,6 +661,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0325 Automated Multi-Repo Agent Environment Variable Leak & Process Memory Sanitization Linter (tasks/check_env_sanitization_invariants.py)
 
 - **Why / ROI rationale:** Guarantees process isolation and prevents credential leakage in automated child process execution. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_env_sanitization_invariants; python tasks/check_env_sanitization_invariants.py --check
 - **Evidence:** tasks/specs/T-0325.md; .claude/skills/security-baseline/SKILL.md
@@ -646,6 +671,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0326 Automated Cross-Repo File Permission & Executable Bit Invariant Linter (tasks/check_file_permission_invariants.py)
 
 - **Why / ROI rationale:** Prevents cross-platform file permission discrepancies and ensures data files are strictly non-executable in git trees. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_file_permission_invariants; python tasks/check_file_permission_invariants.py --check
 - **Evidence:** tasks/specs/T-0326.md; .claude/skills/security-git/SKILL.md
@@ -655,6 +681,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0331 Automated Multi-Repo Agent AST Import Obfuscation & Dynamic Code Execution Linter (tasks/check_ast_obfuscation_invariants.py)
 
 - **Why / ROI rationale:** Prevents arbitrary code execution and sandbox escapes across multi-agent workflows. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_ast_obfuscation_invariants; python tasks/check_ast_obfuscation_invariants.py --check
 - **Evidence:** tasks/specs/T-0331.md; .claude/skills/security-baseline/SKILL.md
@@ -664,6 +691,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0332 Automated Cross-Repo Git Commit Author Signature & Identity Spoofing Linter (tasks/check_git_author_integrity.py)
 
 - **Why / ROI rationale:** Guarantees commit authorship integrity and enforces provenance across multi-agent committers. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_git_author_integrity; python tasks/check_git_author_integrity.py --check
 - **Evidence:** tasks/specs/T-0332.md; .claude/skills/security-git/SKILL.md
@@ -673,6 +701,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0337 Automated Multi-Repo Agent Prompt Template Injection & Unescaped Format String Invariant Linter (tasks/check_prompt_injection_invariants.py)
 
 - **Why / ROI rationale:** Prevents prompt injection attacks and ensures structural delimiter encapsulation across agent prompt pipelines. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_prompt_injection_invariants; python tasks/check_prompt_injection_invariants.py --check
 - **Evidence:** tasks/specs/T-0337.md; .claude/skills/security-browsing/SKILL.md
@@ -682,6 +711,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0338 Automated Cross-Repo GitHub Actions Workflow Token Permission & Least Privilege Linter (tasks/check_github_workflow_permissions.py)
 
 - **Why / ROI rationale:** Enforces least privilege CI tokens and immutable SHA pinning across GitHub Actions workflows. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_github_workflow_permissions; python tasks/check_github_workflow_permissions.py --check
 - **Evidence:** tasks/specs/T-0338.md; .claude/skills/security-baseline/SKILL.md
@@ -691,6 +721,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0343 Automated Multi-Repo Agent Shell Command Redirection & Process Pipe Safety Linter (tasks/check_shell_pipe_safety.py)
 
 - **Why / ROI rationale:** Prevents command injection and arbitrary file write via unsafe shell piping in agent command wrappers. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_shell_pipe_safety; python tasks/check_shell_pipe_safety.py --check
 - **Evidence:** tasks/specs/T-0343.md; .claude/skills/security-baseline/SKILL.md
@@ -700,6 +731,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0344 Automated Cross-Repo Python Import Shadowing & Standard Library Masquerading Linter (tasks/check_import_shadowing.py)
 
 - **Why / ROI rationale:** Guarantees python standard library integrity and prevents namespace hijacking across multi-repo tools. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_import_shadowing; python tasks/check_import_shadowing.py --check
 - **Evidence:** tasks/specs/T-0344.md; .claude/skills/security-runtime/SKILL.md
@@ -709,6 +741,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0349 Automated Multi-Repo Agent Temporary File Lifecycle & Insecure Mkdir/Mktemp Linter (tasks/check_tempfile_security.py)
 
 - **Why / ROI rationale:** Prevents symlink hijacking, predictable temp file vulnerabilities, and disk leaks in automated tasks. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_tempfile_security; python tasks/check_tempfile_security.py --check
 - **Evidence:** tasks/specs/T-0349.md; CWE-377 / CWE-379
@@ -718,6 +751,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0350 Automated Cross-Repo Git Config & Remote URL Protocol Whitelist Linter (tasks/check_git_remote_invariants.py)
 
 - **Why / ROI rationale:** Guarantees transport security, token leak protection in remotes, and official repository origin integrity. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_git_remote_invariants; python tasks/check_git_remote_invariants.py --check
 - **Evidence:** tasks/specs/T-0350.md; NIST SP 800-218
@@ -727,6 +761,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0355 Automated Cross-Repo Agent Path Traversal & Canonical Path Resolution Linter (tasks/check_path_traversal.py)
 
 - **Why / ROI rationale:** Prohibits arbitrary file read/write vulnerabilities escaping workspace bounds in agent tools and sidecars. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_path_traversal; python tasks/check_path_traversal.py --check
 - **Evidence:** tasks/specs/T-0355.md; .claude/skills/security-baseline/SKILL.md
@@ -736,6 +771,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0356 Automated Multi-Repo Git Commit GPG / SSH Signature Verification & Identity Invariant Linter (tasks/check_git_commit_signatures.py)
 
 - **Why / ROI rationale:** Enforces non-repudiation, trusted committer attribution, and cryptographic provenance on lab repositories. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_git_commit_signatures; python tasks/check_git_commit_signatures.py --check
 - **Evidence:** tasks/specs/T-0356.md; .claude/skills/security-git/SKILL.md
@@ -745,6 +781,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0361 Automated Multi-Repo Agent Environment Variable Leakage & Canary Isolation Linter (tasks/check_env_canary_leakage.py)
 
 - **Why / ROI rationale:** Prevents accidental secret and canary propagation to untrusted subshells and agent scripts. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_env_canary_leakage; python tasks/check_env_canary_leakage.py --check
 - **Evidence:** tasks/specs/T-0361.md; CWE-200 / CWE-214
@@ -755,6 +792,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0362 Automated Cross-Repo Git Branch Naming & Semantic Convention Linter (tasks/check_git_branch_conventions.py)
 
 - **Why / ROI rationale:** Prevents branch taxonomy drift, refspec collisions, and rogue branch sprawl across workspace clones. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_git_branch_conventions; python tasks/check_git_branch_conventions.py --check
 - **Evidence:** tasks/specs/T-0362.md; CWE-20
@@ -765,6 +803,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0367 Automated Cross-Repo Agent Dynamic Import & __import__ Security Linter (tasks/check_dynamic_imports.py)
 
 - **Why / ROI rationale:** Enforces strict module registry boundaries and prohibits arbitrary module reflection in agent scripts. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_dynamic_imports; python tasks/check_dynamic_imports.py --check
 - **Evidence:** tasks/specs/T-0367.md; OWASP Top 10:2025 A03
@@ -774,6 +813,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0368 Automated Multi-Repo Git Submodule & Unchecked External Git Dependency Linter (tasks/check_git_submodules.py)
 
 - **Why / ROI rationale:** Enforces workspace architectural integrity and prevents rogue external submodule dependencies. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_git_submodules; python tasks/check_git_submodules.py --check
 - **Evidence:** tasks/specs/T-0368.md; CVE-2018-11235
@@ -783,6 +823,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0373 Automated Multi-Repo Agent Asyncio & Thread Concurrency Deadlock Guard (tasks/check_concurrency_deadlocks.py)
 
 - **Why / ROI rationale:** Enforces concurrency invariants and prevents agent thread lockup and event loop crashes. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_concurrency_deadlocks; python tasks/check_concurrency_deadlocks.py --check
 - **Evidence:** tasks/specs/T-0373.md; OWASP Top 10:2025 A08 / CWE-833
@@ -792,6 +833,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0374 Automated Cross-Repo Git Tag Annotation & Signing Invariant Linter (tasks/check_git_tag_signatures.py)
 
 - **Why / ROI rationale:** Guarantees release provenance and prohibits floating unannotated tags on public lab releases. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_git_tag_signatures; python tasks/check_git_tag_signatures.py --check
 - **Evidence:** tasks/specs/T-0374.md; OWASP Top 10:2025 A08 / CWE-347
@@ -801,6 +843,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0379 Automated Multi-Repo Agent Async Task Zombie & Background Worker Leak Guard (tasks/check_async_task_leaks.py)
 
 - **Why / ROI rationale:** Prevents background zombie task accumulation and silent event loop crashes in autonomous agents. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_async_task_leaks; python tasks/check_async_task_leaks.py --check
 - **Evidence:** tasks/specs/T-0379.md; OWASP Top 10:2025 A08 / CWE-772
@@ -811,6 +854,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0380 Automated Cross-Repo Git Commit Email & Author Signature Whitelist Linter (tasks/check_git_author_whitelist.py)
 
 - **Why / ROI rationale:** Enforces strict commit author provenance and prevents identity spoofing across workspace repos. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_git_author_whitelist; python tasks/check_git_author_whitelist.py --check
 - **Evidence:** tasks/specs/T-0380.md; OWASP Top 10:2025 A07 / CWE-290
@@ -821,6 +865,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0385 Automated Multi-Repo Agent Subprocess Environment & Shell Argument Injection Guard (tasks/check_subprocess_argument_safety.py)
 
 - **Why / ROI rationale:** Prevents command injection and unconstrained process environment inheritance in multi-repo agent tooling. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_subprocess_argument_safety; python tasks/check_subprocess_argument_safety.py --check
 - **Evidence:** tasks/specs/T-0385.md; OWASP Top 10:2025 A03 / CWE-78
@@ -830,6 +875,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0386 Automated Cross-Repo Git Remote Refspec & Fetch/Push URL Tampering Guard (tasks/check_git_remote_refspecs.py)
 
 - **Why / ROI rationale:** Enforces strict remote URL containment and eliminates destructive push refspecs across workspace repos. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_git_remote_refspecs; python tasks/check_git_remote_refspecs.py --check
 - **Evidence:** tasks/specs/T-0386.md; OWASP Top 10:2025 A01 / CWE-284
@@ -839,6 +885,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0191 Eliminate sentinel view_file missing-bundle permission crashes & enforce proactive autonomous discovery when lane queue is empty
 
 - **Why / ROI rationale:** Prevents step execution permission errors on missing bundle files and ensures sentinels proactively replenish the board instead of idling. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Sentinel prompt and cadence hardening verified by test-run-sentinel.ps1.
 - **Acceptance:** pwsh -NoProfile -File tasks/test-run-sentinel.ps1
 - **Evidence:** tasks/sentinel-prompts/daily-research-sentinel.md; tasks/sentinel-prompts/daily-site-showcase-sentinel.md; tasks/sentinel-prompts/daily-security-sentinel.md; tasks/test-run-sentinel.ps1
@@ -848,6 +895,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0192 Aggressive sentinel cadence: reduce max_idle_hours from 8h/12h to 3h/4h in tasks/sentinels.json and replenish multi-lane ready backlog
 
 - **Why / ROI rationale:** Eliminates 8-12h idle gaps and ensures every 30-minute sentinel slot has high-ROI curative research and community showcase bundles ready to build. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Sentinel manifest cadence tightening and deterministic triage verification.
 - **Acceptance:** pwsh -NoProfile -File tasks/test-run-sentinel.ps1; python tasks/pick_bold_task.py --lane research --check; python tasks/pick_bold_task.py --lane showcase --check
 - **Evidence:** tasks/sentinels.json; tasks/pick_bold_task.py; tasks/triage_board.py; .loop-logs/sentinel-runs.jsonl
@@ -857,6 +905,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0307 Automated Multi-Repo Agent Environment Variable (.env) & Canary Isolation Linter (tasks/check_env_canary_isolation.py)
 
 - **Why / ROI rationale:** Eliminates credential leakage risk and ensures test canary tokens never cross into live production configurations. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_env_canary_isolation; python tasks/check_env_canary_isolation.py --check
 - **Evidence:** .claude/skills/security-baseline/SKILL.md; .claude/skills/security-git/SKILL.md
@@ -866,6 +915,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0308 Automated Cross-Repo Agent Tool Permission & Denial Rule Invariant Linter (tasks/check_tool_permission_invariants.py)
 
 - **Why / ROI rationale:** Guarantees that autonomous agents across all workspace tools adhere to strict execution denial rules and scope containment. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic security linter and unit tests in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_tool_permission_invariants; python tasks/check_tool_permission_invariants.py --check
 - **Evidence:** .claude/skills/security-runtime/SKILL.md; docs/instruction-loading.md; AGENTS.md
@@ -875,6 +925,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0067 Decision: treat robots.txt groups that name AI agents as applying to our fetch sources
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** A human decides. If yes: robots_allows also checks a fixed list of AI-agent tokens (Claude, ClaudeBot, anthropic-ai, GPTBot, ChatGPT-User, CCBot, Google-Extended, PerplexityBot) and refuses when any of them is disallowed; tests fail before and pass after; NETWORK-RULES R3 says so.
 - **Evidence:** 2026-10-05: Cochrane's robots.txt has a group 'User-agent: Claude' with 'Disallow: /'; the evidence package matches only its own product token, so it would fetch a Cochrane document if one were catalogued as fetch. I applied the refusal by hand.
@@ -883,6 +934,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0073 A tool-limited agent definition for read-only reviewers
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** A reviewer agent definition lists only Read, Grep and Glob; a test or a documented check proves a Bash call from it is refused; the ai-loop-council skill says to use it for read-only extraction.
 - **Evidence:** 2026-10-05: four reviewer subagents were told in the prompt to use only Read, Grep and Glob; the agent type did not enforce it and one ran two directory listings in a shell (ledger E66).
@@ -892,6 +944,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0094 Decide, after the review memo, whether the AI-agent robots.txt rule from T-0067 ships, then merge it in both repos
 
 - **Why / ROI rationale:** Estimate: the two repos should state one rule; today the one that fetches documents is published and the one that defines the rule is not, and the rule is policy, so a person should read the reviewer's memo before it is public. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** A human reads the review memo and records yes or no in T-0067. If yes: the cf-skills change is merged to its main with its tests (the evidence skill's unit tests pass, and one fails when a group for any of Claude, ClaudeBot, anthropic-ai, GPTBot, ChatGPT-User, CCBot, Google-Extended or PerplexityBot disallows the path); git grep -n AI_AGENT_TOKENS origin/main in cf-skills finds the list; NETWORK-RULES R3 and security-browsing say so; in cf-research python tools/sources/fetch_sources.py --audit-robots exits 0, or names each refused entry. If no: the cf-research use of the rule is reverted or documented as the project's own choice, and T-0067 says why.
 - **Evidence:** T-0067's notes record the decision to honour robots.txt groups that name AI agents and say the change was done in working trees, not yet committed. Checked on 2026-10-06 with git grep on each origin/main: cf-skills (commit 3844785) has no AI_AGENT_TOKENS and no mention of ClaudeBot or anthropic-ai; cf-research already calls ev.robots_allows in tools/sources/fetch_sources.py and ships the --audit-robots option, so the fetch tool is ahead of the shared rule it depends on.
@@ -900,6 +953,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0095 Make the website's footer and credit wording agree with the README's 'Thanks to the tools' section
 
 - **Why / ROI rationale:** Estimate: two public places that thank different vendors, or word the independence line differently, read as careless and can imply an endorsement that does not exist. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** A human compares the two texts and decides what each should say. Check: from the README run sed -n '/^### Thanks to the tools/,/^## Repositories/p' README.md \| grep -o -i -E 'Visual Studio Code\|GitHub Copilot\|GitHub\|PowerShell\|Playwright\|Microsoft Edge\|Ollama\|Python\|Git\|Anthropic' \| sort -u, run the same grep over the website's footer and credits text, and the two sorted lists are equal or each difference is listed with its reason; the footer carries the same non-endorsement sentence as the README or a shorter one that says the same.
 - **Evidence:** README.md, section 'Thanks to the tools' (the table of Visual Studio Code, GitHub, GitHub Copilot, PowerShell 7, Playwright and Microsoft Edge, Git, Python and Ollama, plus the line that no company has funded, reviewed or endorsed the lab) and the sentence above it crediting Anthropic's Claude models and stating the lab is independent. The website is a separate, private repository whose footer I did not read for this task, so whether the two agree is not known.
@@ -908,6 +962,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0106 Send the permission letters and record every reply in the source catalog
 
 - **Why / ROI rationale:** Estimate: the model page's own CFTR2 data and the neighbourhood-index guide both wait on written permission or a clear no. *(confidence: low)*
+- **Axis:** Persona: researchers | Discipline: ai_verification | Kind: new
 - **Route:** cloud - High-stakes biophysical science requiring frontier domain modeling and structural validation.
 - **Acceptance:** Each letter is sent from the lab address; every reply or its absence is recorded by pull request in sources/catalog.yaml with the date and exactly what is allowed; no source is used beyond what is allowed.
 - **Evidence:** 2026-10-09: cf-research #19 holds drafts for CFTR2, the Child Opportunity Index and a review invitation; nothing has been sent. The catalog marks CFTR2 manual and link-only.
@@ -916,6 +971,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0122 Decide whether the Evidence page's mistake count includes the second ledger file
 
 - **Why / ROI rationale:** Estimate: the page's headline number should say what it counts. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** The maintainer decides: count both files, or say plainly 'from the first session's ledger'. If both, the pin tool and the generator read both files, the lock records both hashes, and the page says '138 mistakes recorded as of <date>' from the data, not typed.
 - **Evidence:** 2026-10-10: the page counts mistakes from ledger/2026-10-04-first-session.md only (98 rows); cf-research/ledger/2026-10-07-second-session.md holds 40 more rows that the page has never counted (found by the evidence-pin builder).
@@ -924,6 +980,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0225 Automated worktree harvest & duplicate-PR preflight guard (tasks/check_worktree_drift.py) integrated into pick_bold_task.py and security sentinel
 
 - **Why / ROI rationale:** Prevents redundant re-implementation and duplicate PR creation by detecting unmerged worktree commits. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Workspace git worktree and task picker governance engine.
 - **Acceptance:** python -m unittest tasks/test_check_worktree_drift.py
 - **Evidence:** .claude/skills/workspace-siblings/scripts/worktrees.py; tasks/pick_bold_task.py; tasks/specs/T-0219.md
@@ -934,6 +991,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0257 Interactive Global Registry Variant Theratyping & Diagnostic Sweat Chloride / Nasal Potential Difference (NPD) Disparity Explorer on /cf/registries/ with es-MX parity
 
 - **Why / ROI rationale:** Brings our non-pooled multi-registry eligibility and diagnostic equity analysis (CFFPR, ECFSPR, UKCFR, CCFR, ACFDR) to /cf/registries/, helping families and clinicians compare newborn screening panel sensitivity, sweat chloride thresholds, and FIS organoid theratyping pathways across underrepresented ancestries in English and Mexican Spanish. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** local - Zero-build native ES module and SVG visual explorer grounded in cf-research/landscape/multi-registry-eligibility-2026.md and sources/catalog.yaml with strict non-pooling invariants.
 - **Branch:** work/sentinel-showcase-t-0257
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_registry_equity_explorer tests.test_site.StaticTests
@@ -944,6 +1002,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0266 Dual-Family Local Diff Review (Qwen 3.8 + Gemma 4 31B Thinking Challenger) in review-diff.ps1 & Biomedical Science Model Onboarding Harness (TxGemma) in model-onboarding
 
 - **Why / ROI rationale:**  *(confidence: )*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - PowerShell review-diff.ps1 enhancement, unit tests in test-review-diff.ps1, and biomedical model-onboarding benchmark fixtures.
 - **Acceptance:** pwsh -NoProfile -File .claude/skills/ai-loop-council/scripts/test-review-diff.ps1; python tasks/check-skill-frontmatter.py
 - **Evidence:** .claude/skills/ai-loop-council/scripts/review-diff.ps1; .claude/skills/model-gemma4-31b/SKILL.md; .claude/skills/model-onboarding/SKILL.md; ClinicalTrials.gov:NCT05668741; PDB:8EIQ; DOI:10.1056/NEJMoa1908639
@@ -954,6 +1013,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0282 Interactive Inhaled Micro-Aerosol Droplet Evaporation & Hygroscopic Growth Dynamics Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Models droplet evaporation and hygroscopic growth dynamics in humidified CF airways dictating tracheobronchial deposition on /cf/delivery/ with Mexican Spanish parity. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).
 - **Acceptance:** python -m unittest tests.test_aerosol_hygroscopic_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/mechano_acoustic_delivery.py; DOI:10.1016/B978-012256971-5/50004-9; DOI:10.1016/0021-8502(88)90212-0; PMID:2204543; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047
@@ -963,6 +1023,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0284 Automated Multi-Repo Worktree Leak & Stale Worktree Pruning Sentinel (tasks/prune_stale_worktrees.py)
 
 - **Why / ROI rationale:** Prevents disk bloat and worktree collision across multi-repo sentinel automation with zero data-loss guarantees. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Automated CLI daemon extending harvest_sentinel_worktrees.py to prune fully merged, clean worktrees across workspace repositories under --yes confirmation with strict invariant guards.
 - **Acceptance:** python -m unittest tasks.test_prune_stale_worktrees; python tasks/prune_stale_worktrees.py --dry-run
 - **Evidence:** tasks/harvest_sentinel_worktrees.py; .claude/skills/workspace-siblings/scripts/worktrees.py; AGENTS.md
@@ -972,6 +1033,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0286 Automated Cross-Repo Evidence Catalog Schema & External Source Lock Linter (tasks/check_catalog_schema_lock.py)
 
 - **Why / ROI rationale:** Ensures external medical evidence catalog schema validity, robots.txt compliance, and license integrity across sibling repos with zero drift. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic linter verifying evidence catalog YAML schemas, license compatibility, terms-of-use flags, and cryptographic pin integrity across cf-research and cf-skills.
 - **Acceptance:** python -m unittest tasks.test_check_catalog_schema_lock; python tasks/check_catalog_schema_lock.py --check
 - **Evidence:** cf-research/sources/catalog.yaml; cf-skills/.claude/skills/cf-evidence-loop/catalog.yaml; .claude/skills/security-browsing/SKILL.md; .claude/skills/security-baseline/SKILL.md
@@ -981,6 +1043,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0289 Automated Cross-Repo Agent Subprocess Argument Injection Guard & Shell Invariant Linter (tasks/check_subprocess_injection_guard.py)
 
 - **Why / ROI rationale:** Hardens autonomous agent scripting against command and argument injection across all multi-repo tool invocations. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Security automation tool in cf-lab with high integrity standards.
 - **Acceptance:** python -m unittest tasks.test_check_subprocess_injection_guard; python tasks/check_subprocess_injection_guard.py --check
 - **Evidence:** CWE-78; CWE-88; OWASP Top 10:2025 A03; .claude/skills/security-baseline/SKILL.md
@@ -990,6 +1053,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0290 Automated Multi-Repo Git Tag Cryptographic Integrity & Release Artifact Linter (tasks/check_git_release_integrity.py)
 
 - **Why / ROI rationale:** Guarantees release artifact cleanliness and tag integrity across all four public/private repositories. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Release security verification tool in cf-lab.
 - **Acceptance:** python -m unittest tasks.test_check_git_release_integrity; python tasks/check_git_release_integrity.py --check
 - **Evidence:** cf-lab/VERSION; .claude/skills/lab-versioning/SKILL.md; .claude/skills/security-git/SKILL.md
@@ -999,6 +1063,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0295 Automated Multi-Repo Worktree Lock & Concurrent Sentinel Collision Guard (tasks/check_sentinel_concurrency_guard.py)
 
 - **Why / ROI rationale:** Guarantees race-free scheduled sentinel concurrency and prevents stale lock collisions during automated PR cycles. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic AST and lock-file audit script verifying atomic sentinel concurrency leases, timeout expiration, and worktree isolation across all workspace repos.
 - **Acceptance:** python -m unittest tasks.test_check_sentinel_concurrency_guard; python tasks/check_sentinel_concurrency_guard.py --check
 - **Evidence:** tasks/sentinels.json; tasks/run-sentinel.ps1; tasks/prune_stale_worktrees.py; CWE-362; OWASP-A01
@@ -1008,6 +1073,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0296 Automated Cross-Repo Agent API Key & Token Entropy Linter (tasks/check_secret_entropy_linter.py)
 
 - **Why / ROI rationale:** Prevents secret and token leakage across agent workflows through mathematical Shannon entropy scanning. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic Shannon entropy scanner detecting high-entropy credentials across commits, working trees, and agent transcripts while allowing hashes and UUIDs.
 - **Acceptance:** python -m unittest tasks.test_check_secret_entropy_linter; python tasks/check_secret_entropy_linter.py --check
 - **Evidence:** .claude/skills/security-git/SKILL.md; .claude/skills/security-baseline/SKILL.md; DOI:10.1002/j.1538-7305.1948.tb01338.x; OWASP-A07
@@ -1017,6 +1083,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0302 Automated Cross-Repo Sentinel Watermark & Telemetry Cadence Linter (tasks/check_sentinel_telemetry_linter.py)
 
 - **Why / ROI rationale:** Enforces deterministic sentinel lifecycle invariants and eliminates deadlocks across scheduled runs. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Automated linter validating sentinel watermark commit hashes, lock durations, and cadence intervals to prevent lock contention.
 - **Acceptance:** python -m unittest tasks.test_check_sentinel_telemetry_linter; python tasks/check_sentinel_telemetry_linter.py --check
 - **Evidence:** tasks/sentinels.json; .claude/skills/scheduled-security-sentinel/SKILL.md; tasks/fast-sentinel-gate.ps1
@@ -1026,6 +1093,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0311 Interactive CFTR mRNA Secondary Structure & G-Quadruplex / Hairpin Ribosome Profiling Explorer on /cf/cftr/ with es-MX Parity
 
 - **Why / ROI rationale:** Exposes mRNA co-translational folding physics and synonymous mutation kinetics on CFTR translation. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Interactive HTML/Canvas/SVG site showcase component with Mexican Spanish parity.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_mrna_folding_explorer tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0311.md; cf-research/landscape/ptc-readthrough.md
@@ -1035,6 +1103,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0323 Interactive Airway Calu-3 Air-Liquid Interface (ALI) Transepithelial Resistance (TEER) & Drug Flux Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Empowers CF patients and researchers to explore aerosolized drug barrier dynamics in cultured airway epithelium. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Interactive UI showcase and unit test suite on .ai.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ali_teer_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0323.md; Pharm Res 23(7):1482-1490
@@ -1044,6 +1113,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0324 Interactive CFTR Premature Termination Codon (PTC) Readthrough Aminoglycoside & Non-Aminoglycoside Synergy Landscape Explorer on /cf/ptc/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes non-linear synergy between decoding-center mispairing agents and release factor antagonists for rare CF mutations. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Interactive UI showcase and unit test suite on .ai.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_synergy_explorer tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0324.md; Nat Commun 12:4358; J Cyst Fibros 19(6):1017-1024
@@ -1053,6 +1123,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0329 Interactive Airway Surface Liquid (ASL) Osmotic Collapse & Hypertonic Saline Rehydration Dynamics Simulator on /cf/tree/ with es-MX Parity
 
 - **Why / ROI rationale:** Translates hypertonic airway rehydration biophysics into clinical understanding with full Spanish parity. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - High-yield interactive educational module with verified Mexican Spanish parity.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_osmotic_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0329.md; Donaldson et al. (2006) DOI:10.1056/NEJMoa043891
@@ -1062,6 +1133,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0330 Interactive CFTR Premature Termination Codon (PTC) Ribosome Proofreading & Eukaryotic Release Factor (eRF1/eRF3) Termination Kinetics Simulator on /cf/ptc/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes the thermodynamic basis of nonsense readthrough modulators across stop codon contexts. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Core nonsense mutation theratyping showcase with verified Spanish localization.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_ribosome_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0330.md; Floquet et al. (2012) DOI:10.1371/journal.pgen.1002608
@@ -1071,6 +1143,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0181 Cryptographic delivery dataset lock contract and sync verification (data/delivery.lock.json + tools/pin_delivery_model.py)
 
 - **Why / ROI rationale:** Guarantees that public website visualizations never display unverified, modified, or out-of-sync simulation datasets by enforcing SHA-256 cryptographic parity against cf-research canonical outputs. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: airway_delivery | Kind: maintenance
 - **Route:** local - Cryptographic hash verification and unit test suite.
 - **Acceptance:** python tools/pin_delivery_model.py --check; python -m unittest tests.test_delivery_pin
 - **Evidence:** Single-source-of-truth invariant in AGENTS.md; cf-research PR #84 discovery models
@@ -1080,6 +1153,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0108 Block the agent web tool for catalog hosts marked manual, request or forbidden
 
 - **Why / ROI rationale:** Estimate: the catalog's permission field is then enforced by the tool, not by memory. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** Deny rules for the agent web tool cover every host of a manual, request or forbidden catalog entry, and a check-all row derived from ../cf-research/sources/catalog.yaml fails when one is missing.
 - **Evidence:** 2026-10-07: the agent web tool sent requests to one manual and one forbidden catalog host (no content returned); the tool does not read the catalog. Confirmed on the session transcript by the controller.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. The shared .claude/settings.json is a human-only edit; an agent may draft the host list and the check. 2026-10-14 Council Approval: Approved from proposed to ready for agent execution. 2026-10-15: Completed. Enforced 21 WebFetch deny rules covering every manual/request/forbidden catalog host; implemented dynamic check tool tasks/check_restricted_hosts.py with self-test and unit tests, and integrated rows into check-all.ps1.
@@ -1088,6 +1162,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0167 Synchronize /evidence/ and homepage source catalog & mistake ledger snapshots with cf-research main and expose multi-source drug/variant brief verification
 
 - **Why / ROI rationale:** Keeps the public /evidence/ page and homepage synchronized with cf-research main and showcases cross-checked multi-source drug/variant briefs (openFDA, ClinicalTrials.gov, PubMed, OpenAlex, Crossref Retraction Watch) in English and Mexican Spanish. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Public translation and zero-build web verification across cf-research and .ai.
 - **Acceptance:** python tools/make_evidence.py updates src/index.html and src/evidence/index.html to current cf-research main; python tools/make_evidence.py --check exits 0; Mexican Spanish localization in data/i18n/es-MX.json is updated with mandatory medical disclaimer; all site unit tests pass.
 - **Evidence:** tools/make_evidence.py in ../.ai and cf-research/sources/catalog.yaml (commit 601da99, admitting OpenAlex and updating catalog metadata); src/index.html and src/evidence/index.html still display static snapshot from 11 October 2026 (cf0ae72).
@@ -1097,6 +1172,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0237 Interactive Airway Epithelial Basal Stem Cell (KRT5+/TP63+) Clonal Lineage Plasticity & Long-Term Engraftment Simulator on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Models basal stem cell engraftment and ionocyte replenishment dynamics for curative gene addition. *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic zero-build ES module and SVG lineage diagram grounded in tools/discovery/basal_stem_persistence.py (T-0220).
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_basal_stem_explorer tests.test_site.StaticTests
 - **Evidence:** DOI:10.1038/s41586-018-0394-6 (Montoro et al., Nature 2018: Airway basal cells and ionocytes) DOI:10.1172/jci.insight.206375 (Vijaykumar et al., JCI Insight 2026: Basal cell transplantation in CF airways) DOI:10.1164/rccm.202505-1242oc (Yuan et al., Am J Respir Crit Care Med 2025: Ionocyte CFTR coordination)
@@ -1106,6 +1182,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0238 Interactive CFTR Truncation 3D Backbone Trace & Cryptic Domain Stability Explorer on /cf/cftr/ with es-MX parity
 
 - **Why / ROI rationale:** Connects Cryo-EM atomic coordinates with nonsense truncation stability for community understanding. *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - WebGL2 and SVG 3D residue backbone trace grounded in tools/discovery/cftr_truncation_3d_trace.json and ptc_cryoem_allostery.py (T-0217).
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_truncation_explorer tests.test_site.StaticTests
 - **Evidence:** PDB:6MSM, PDB:5UAK, PDB:7SVR DOI:10.1126/science.aaw4942 (Zhang & Chen, Science 2019: Human CFTR Cryo-EM structure) DOI:10.1016/j.jcf.2026.01.012 (Cryo-EM mapping of premature termination codons)
@@ -1115,6 +1192,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0242 Interactive Inhaled CFTR mRNA Lipid Nanoparticle (LNP) Endosomal Escape Kinetics & Ionizable Lipid pKa Inversion Explorer on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Models endosomal escape barriers for non-viral inhaled CFTR mRNA therapies. *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic zero-build ES module and SVG endosomal acidification schematic grounded in tools/discovery/mrna_lnp_escape_model.py (T-0239).
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mrna_escape_explorer tests.test_site.StaticTests
 - **Evidence:** DOI:10.1038/s41587-023-01809-5 (Sago et al., Nat Biotechnol: In-vivo LNP barcoding & organotropism) DOI:10.1016/j.jconrel.2025.10.042 (Ionizable lipid pKa inversion in airway mucus) ClinicalTrials.gov: NCT05668741 (VX-522), NCT06963008 (BMD003)
@@ -1124,6 +1202,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0243 Interactive TMEM16A/ANO1 Alternative Conductance Potentiation & Calcium-Activated Chloride Channel (CaCC) Synergistic Secretion Explorer on /cf/tree/ with es-MX parity
 
 - **Why / ROI rationale:** Visualizes non-CFTR ion conductance rescue for patients with non-responsive genotypes. *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic WebGL2/SVG alternative conductance schematic grounded in tools/discovery/tmem16a_conductance_model.py (T-0240) and PDB 5OYB.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_tmem16a_explorer tests.test_site.StaticTests
 - **Evidence:** PDB:5OYB, PDB:6QP6 (Cryo-EM structures of TMEM16A calcium-activated chloride channel) DOI:10.1038/s41586-019-1400-5 (Dang et al., Nature 2019: Structure and activation mechanism of TMEM16A) DOI:10.1165/rcmb.2025-0182oc (Danahay et al., Am J Respir Cell Mol Biol: Alternative chloride secretory pathways in CF)
@@ -1133,6 +1212,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0247 Interactive Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Ribosome Stall (+4 Context) Explorer on /cf/ptc/ with es-MX parity
 
 - **Why / ROI rationale:** Models NMD escape thresholds and tRNA synergy for Class I nonsense mutations. *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic zero-build ES module and SVG schematic grounded in tools/discovery/nmd_ptc_kinetics.py (T-0241).
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_nmd_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; tools/discovery/nmd_ptc_kinetics.py; DOI:10.1038/s41586-020-2444-5; DOI:10.1016/j.molcel.2024.08.019; ClinicalTrials.gov:NCT04135495
@@ -1142,6 +1222,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0248 Interactive Airway Mucus Viscoelastic Relaxation & Oscillatory Acoustic Shear (HFCWO) Thixotropic Permeability Matrix on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Optimizes timing window for aerosol genetic vector inhalation post-airway clearance. *(confidence: )*
+- **Axis:** Persona: patients | Discipline: airway_delivery | Kind: new
 - **Route:** local - Interactive rheology simulator modeling non-Newtonian yield stress, shear-thinning thixotropic recovery, and macromolecular mesh pore widening.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mucus_thixotropy tests.test_site.StaticTests
 - **Evidence:** DOI:10.1126/sciadv.aaw3507; DOI:10.1038/s41598-025-16178-z; ClinicalTrials.gov:NCT07175012
@@ -1151,6 +1232,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0249 Interactive Epithelial Sodium Channel (ENaC) Proteolytic Cleavage (Alpha/Gamma Tract Release) & Dual-Target ASL Rehydration Explorer on /cf/tree/ with es-MX parity
 
 - **Why / ROI rationale:** Models ENaC protease inhibition and dual-target ASL hydration across Class I/Class II severe CF phenotypes. *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic zero-build ES module and SVG schematic grounded in tools/discovery/enac_proteolysis_model.py (T-0245).
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_enac_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/enac_proteolysis_model.py; DOI:10.1085/jgp.201711910; DOI:10.1074/jbc.M111.233817; DOI:10.1016/j.jcf.2020.08.008; ClinicalTrials.gov:NCT03647228; ClinicalTrials.gov:NCT04375514
@@ -1160,6 +1242,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0250 Interactive CFTR NBD1 Thermal Denaturation Landscape (Delta Tm) & ICL4 Allosteric Coupling Explorer on /cf/cftr/ with es-MX parity
 
 - **Why / ROI rationale:** Exposes core thermodynamic misfolding biophysics and pharmacological rescue to community understanding. *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Interactive Gibbs-Helmholtz thermodynamic stability visualizer modeling NBD1 melting Delta Tm and corrector rescue.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_nbd1_thermo tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/nbd1_thermodynamics.py; PDB:8EIQ; PDB:6MSM; DOI:10.1016/j.cell.2019.01.033; DOI:10.1073/pnas.1903722116
@@ -1169,6 +1252,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0259 Multi-Family Discovery Council Dynamic Module Registry (discovery_council.py) & AH-5 Unregistered Model Guardrail in check_anti_hallucination.py
 
 - **Why / ROI rationale:** Eliminates the gap where newly added biophysical models in tools/discovery/ could bypass discovery_council.py by enforcing dynamic module discovery, physical bounds invariants, and an automated AH-5 check in check_anti_hallucination.py. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: clinical_trials | Kind: maintenance
 - **Route:** local - Upgrades tools/discovery/discovery_council.py and tools/claims/check_anti_hallucination.py to automatically discover and cross-verify every biophysical model in tools/discovery/ across multi-family verifiers.
 - **Acceptance:** pytest tools/discovery/test_discovery_council.py tools/claims/test_check_anti_hallucination.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/discovery_council.py; cf-research/tools/claims/check_anti_hallucination.py; ClinicalTrials.gov:NCT04684641; PDB:8EIQ; DOI:10.1056/NEJMoa1908639
@@ -1177,6 +1261,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0264 CFTR RefSeq (NM_000492.4) Full Coding Sequence & Intronic Splice-Flank Verifier + Arbitrary-Allele gRNA/pegRNA/ASO/CpG Scanner (tools/discovery/cftr_sequence_scanner.py)
 
 - **Why / ROI rationale:**  *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.
 - **Acceptance:** pytest tools/discovery/test_cftr_sequence_scanner.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/base_editing_cftr.py; cf-research/tools/discovery/prime_editing_cftr.py; cf-research/tools/discovery/aso_splice_kinetics.py; ClinicalTrials.gov:NCT05248230; ClinicalTrials.gov:NCT05668741; PDB:5UAK; PDB:6MSM; PDB:8EIQ; DOI:10.1038/s41586-020-2477-4; DOI:10.1038/s41587-020-0458-4
@@ -1187,6 +1272,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0265 Open-Source Protein & Genomic Science Model Benchmark & Zero-Shot CFTR Mutational Landscape Evaluator (ESM-2 / ThermoMPNN / Evo-2 vs Mechanistic Models in tools/discovery/science_model_benchmark.py)
 
 - **Why / ROI rationale:**  *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Deterministic zero-shot log-likelihood and structure-conditioned ddG calibration benchmark with offline unit tests.
 - **Acceptance:** pytest tools/discovery/test_science_model_benchmark.py tools/discovery/test_discovery_council.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/nbd1_thermodynamics.py; cf-research/tools/discovery/ptc_cryoem_allostery.py; ClinicalTrials.gov:NCT04684641; PDB:5UAK; PDB:6MSM; PDB:8EIQ; DOI:10.1126/science.ade2574; DOI:10.1126/science.add2187
@@ -1197,6 +1283,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0268 Interactive CFTR Sequence-Window & Open-Source Foundation Model Explorer Showcase on senseiewok.ai
 
 - **Why / ROI rationale:**  *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.
 - **Acceptance:** python -m unittest tests.test_site tests.test_resources_page
 - **Evidence:** T-0264 (tools/discovery/cftr_sequence_scanner.py) and T-0265 (tools/discovery/science_model_benchmark.py) in senseiewok/cf-research#117 Pruitt KD et al. (2014) RefSeq NM_000492.4 (PMID:24259432) Lin Z et al. (2023) ESM-2 protein language model (PMID:36927031) Dauparas J et al. (2022) ProteinMPNN structure-conditioned design (PMID:36108050) Fiedorczuk K & Chen J (2022) Cryo-EM structure of ETI-bound CFTR PDB:8EIQ (PMID:36227992)
@@ -1207,6 +1294,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0275 Interactive Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Airway Hydration Simulator on /cf/tree/ with es-MX Parity
 
 - **Why / ROI rationale:** Models apical chloride/sodium Goldman-Hodgkin-Katz flux, ASL volume regulation, and TMEM16A potentiator synergy on /cf/tree/ with Mexican Spanish parity. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build native ES module and SVG transepithelial electrophysiology simulator modeling Goldman-Hodgkin-Katz flux, ASL height, and TMEM16A potentiator synergy grounded in tools/discovery/enac_tmem16a_equilibrium.py (T-0252).
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_enac_tmem16a_equilibrium_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/enac_tmem16a_equilibrium.py; DOI:10.1073/pnas.96.12.6970; DOI:10.1085/jgp.200810152; DOI:10.1038/s41586-019-1284-1; ClinicalTrials.gov:NCT04488705; PDB:6B45
@@ -1217,6 +1305,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0283 Interactive Airway Epithelial Tight Junction (ZO-1 / Claudin-1) Macromolecule Permeability Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Simulates paracellular macromolecule transit and tight junction transient modulation for basal stem cell delivery on /cf/delivery/ with Mexican Spanish parity. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build native ES module simulating paracellular macromolecule transit and Claudin-1 pore-pathway modeling grounded in tools/discovery/transcytosis_model.py (T-0177).
 - **Acceptance:** python -m unittest tests.test_tight_junction_permeability_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/transcytosis_model.py; DOI:10.1165/ajrcmb.23.5.4216; DOI:10.1146/annurev.physiol.68.040104.131404; DOI:10.1146/annurev-physiol-012110-142150; ClinicalTrials.gov:NCT00004494
@@ -1226,6 +1315,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0287 Interactive CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Simulator on /cf/cftr/ with es-MX Parity
 
 - **Why / ROI rationale:** Simulates redox-dependent CFTR conformational stability and allosteric potentiator synergy. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Interactive biophysical redox explorer on /cf/cftr/ with es-MX parity.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_pdi_redox_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/pdi_redox_remodeling.py; PDB 8EIQ; DOI:10.1016/j.cell.2021.02.012; DOI:10.1074/jbc.M113.456897
@@ -1235,6 +1325,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0294 Interactive Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Sialidase Permeabilization Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Models apical periciliary glycocalyx meshwork and sialidase digestion for viral and non-viral genetic vector penetration. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build native ES module simulating periciliary brush glycocalyx meshwork steric exclusion and sialidase enzymatic permeabilization grounded in tools/discovery/glycocalyx_permeabilization_model.py (T-0291).
 - **Acceptance:** python -m unittest tests.test_glycocalyx_permeabilization_explorer tests.test_site.StaticTests; python tools/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/glycocalyx_permeabilization_model.py; DOI:10.1126/science.1223012; DOI:10.1038/s41565-021-00918-7; ClinicalTrials.gov:NCT05668741
@@ -1245,6 +1336,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0299 Interactive Deep-Intronic Splice-Switching ASO (SPL84) & U1 snRNP Thermodynamic Competition Explorer on /cf/ptc/ with es-MX Parity
 
 - **Why / ROI rationale:** Exposes breakthrough pre-mRNA spliceosome competition biophysics and SPL84 trial data on senseiewok.ai in EN and es-MX. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Interactive biophysical explorer simulating competitive displacement of U1 snRNP by splice-switching oligonucleotides (SPL84) and full-length CFTR mRNA recovery.
 - **Acceptance:** python -m unittest tests.test_u1_decoy_splice_explorer tests.test_site; python tools/check_anti_hallucination.py
 - **Evidence:** DOI:10.1093/hmg/ddh247; DOI:10.1016/j.omtn.2020.08.017; ClinicalTrials.gov:NCT06429176
@@ -1254,6 +1346,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0300 Interactive Sialidase-Mediated Apical Glycocalyx Permeabilization & Inhaled Vector Flux Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Translates glycocalyx permeabilization biophysics to public interactive visualizer with full es-MX localization. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Interactive biophysical delivery simulator modeling enzymatic cleavage of apical mucin brushes (MUC1/4/16) and enhanced LNP/AAV flux.
 - **Acceptance:** python -m unittest tests.test_glycocalyx_permeabilization_explorer tests.test_site; python tools/check_anti_hallucination.py
 - **Evidence:** DOI:10.1126/science.1224376; DOI:10.1038/s41467-024-45302-1; ClinicalTrials.gov:NCT05668741
@@ -1263,6 +1356,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0312 Interactive Airway Epithelial Ciliary Beat Frequency (CBF) & Metachronal Wave Synchronization Simulator on /cf/tree/ with es-MX Parity
 
 - **Why / ROI rationale:** Simulates mucociliary clearance biophysics and phase-locked ciliary wave mechanics on the public website. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** local - Interactive HTML/Canvas/SVG site showcase component with Mexican Spanish parity.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ciliary_metachronal_wave_explorer tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0312.md; cf-research/landscape/mucociliary-clearance.md
@@ -1273,6 +1367,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0315 Airway Epithelial Ciliary Metachronal Wave Dynamics & Mucociliary Clearance Velocity Model (tools/discovery/ciliary_wave_clearance_model.py)
 
 - **Why / ROI rationale:** Quantifies mucociliary clearance transport velocities and stasis thresholds under CF mucus dehydration. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Biophysical Python discovery tool and unit tests in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_ciliary_wave_clearance_model; python tools/discovery/ciliary_wave_clearance_model.py --check
 - **Evidence:** tasks/specs/T-0315.md; sources/catalog.yaml
@@ -1283,6 +1378,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0316 CFTR mRNA Coding Sequence G-Quadruplex Thermodynamic Stability & Ribosome Stalling Model (tools/discovery/cftr_gquadruplex_stability_model.py)
 
 - **Why / ROI rationale:** Identifies RNA structural bottlenecks regulating CFTR co-translational folding efficiency and elongation pause sites. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Biophysical Python discovery tool and unit tests in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_cftr_gquadruplex_stability_model; python tools/discovery/cftr_gquadruplex_stability_model.py --check
 - **Evidence:** tasks/specs/T-0316.md; sources/catalog.yaml
@@ -1293,6 +1389,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0327 Airway Calu-3 Epithelial Air-Liquid Interface (ALI) Biophysical Transmembrane Flux & TEER Transport Model (tools/discovery/ali_permeability_flux_model.py)
 
 - **Why / ROI rationale:** Provides computational grounding for airway drug permeability and tight junction modulation. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: ai_verification | Kind: new
 - **Route:** local - Computational biophysics script and unit tests in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_ali_permeability_flux_model
 - **Evidence:** tasks/specs/T-0327.md; Pharm Res 23(7):1482-1490; J Aerosol Med 15(2):173-181
@@ -1302,6 +1399,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0328 CFTR Premature Termination Codon (PTC) Translational Readthrough & Ribosome Release Factor Kinetic Model (tools/discovery/ptc_ribosome_readthrough_model.py)
 
 - **Why / ROI rationale:** Models codon context and release factor kinetics to identify optimal synergistic readthrough combinations. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Computational biophysics script and unit tests in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_ptc_ribosome_readthrough_model
 - **Evidence:** tasks/specs/T-0328.md; Nat Commun 12:4358; Nucleic Acids Res 44(8):3740-3755
@@ -1311,6 +1409,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0335 Interactive CFTR Apical Microvillar Dense Brush Barrier & MUC1/MUC4 Glycocalyx Diffusion Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Directly educates CF researchers on apical microvillar diffusion barriers for inhaled genetic therapies. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build modern web simulator on .ai.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_microvillar_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0335.md; DOI:10.1126/science.1223012
@@ -1321,6 +1420,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0336 Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer Decoy Kinetics Simulator on /cf/cftr/ with es-MX Parity
 
 - **Why / ROI rationale:** Models deep intronic splice-switching decoy mechanisms on /cf/cftr/ for class V mutations. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build modern web simulator on .ai.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_u1_snrnp_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0336.md; DOI:10.1128/MCB.06001-11
@@ -1330,6 +1430,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0341 Interactive CFTR mRNA Secondary Structure & Stem-Loop Unfolding Dynamics Simulator on /cf/cftr/ with es-MX Parity
 
 - **Why / ROI rationale:** Empowers researchers to explore CFTR mRNA secondary structure dynamics and co-translational folding bottlenecks. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - High-fidelity interactive biophysical canvas simulator on .ai site with es-MX parity.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0341.md; DOI 10.1073/pnas.1908856116
@@ -1339,6 +1440,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0347 Interactive Airway Epithelial Glycocalyx Sialylation & Mucus Mesh Steric Exclusion Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Illustrates periciliary brush and glycocalyx steric barrier to airway gene delivery and therapeutic desialylation on senseiewok.ai. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Interactive web component and bilingual copy on senseiewok.ai.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0347.md; DOI: 10.1038/s41467-022-31127-2
@@ -1348,6 +1450,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0348 Interactive CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Competition Simulator on /cf/ptc/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes splice-site decoy competition and full-length mature CFTR recovery for deep intronic mutations. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Interactive web component and bilingual copy on senseiewok.ai.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0348.md; DOI: 10.1016/j.ajhg.2019.09.008
@@ -1357,6 +1460,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0353 Interactive Airway Epithelial Ciliated vs Goblet Cell Density & Mucociliary Escalator Clearance Velocity Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes biophysical clearance thresholds and goblet-to-ciliated phenotypic ratio recovery for inhaled CF therapeutics on senseiewok.ai. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Interactive web component and bilingual copy on senseiewok.ai.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0353.md; DOI: 10.1165/rcmb.2021-0309OC
@@ -1366,6 +1470,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0354 Interactive CFTR Truncation Readthrough (ELX-02 / G418 / Ataluren) Concentration-Response & Toxic Off-Target Window Explorer on /cf/ptc/ with es-MX Parity
 
 - **Why / ROI rationale:** Explains the narrow therapeutic window between premature termination codon readthrough and global translation termination impairment on senseiewok.ai. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Interactive web component and bilingual copy on senseiewok.ai.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0354.md; DOI: 10.1038/s41467-020-18495-2
@@ -1375,6 +1480,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0365 Interactive Airway Epithelial CFTR Exon-Skipping (AON Antisense Oligonucleotide) In Silico Splice-Site Thermodynamic Optimization Simulator on /cf/ptc/ with es-MX Parity
 
 - **Why / ROI rationale:** Directly empowers patients and researchers exploring antisense therapies for deep-intronic CFTR mutations. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Interactive vanilla ES module simulation with SVG canvas on senseiewok.ai.
 - **Acceptance:** python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check
 - **Evidence:** tasks/specs/T-0365.md; DOI: 10.1016/j.omtn.2020.08.012
@@ -1384,6 +1490,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0366 Interactive Inhaled Superparamagnetic Iron Oxide Nanoparticle (SPION) Magnetic Mucus Guidance & Magnetic Resonance Tracer Dynamics on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes non-invasive physical forces overcoming thickened mucus barrier for targeted pulmonary gene delivery. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Interactive vanilla ES module simulation with SVG canvas on senseiewok.ai.
 - **Acceptance:** python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check
 - **Evidence:** tasks/specs/T-0366.md; DOI: 10.1016/j.jconrel.2018.11.018
@@ -1393,6 +1500,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0369 Deep Airway Submucosal Gland Serous Acinar Cell Fluid Hydrodynamics & Aquaporin-5 Conductance Model (tools/discovery/submucosal_gland_fluid_model.py)
 
 - **Why / ROI rationale:** Underpins primary submucosal gland dysfunction leading to thick mucus tethering and early bacterial infection. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: ai_verification | Kind: new
 - **Route:** local - In silico ODE electrochemical model and test suite in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_submucosal_gland_fluid; python tools/discovery/submucosal_gland_fluid_model.py --check
 - **Evidence:** tasks/specs/T-0369.md; DOI: 10.1152/physrev.00037.2006
@@ -1402,6 +1510,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0370 Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Dispersion Kinetics Model (tools/discovery/dpi_carrier_detachment_model.py)
 
 - **Why / ROI rationale:** Essential biophysical model for dry powder antibiotics and lyophilized nonviral gene vector delivery in CF. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: ai_verification | Kind: new
 - **Route:** local - In silico aerosol mechanics model and test suite in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_dpi_carrier_detachment; python tools/discovery/dpi_carrier_detachment_model.py --check
 - **Evidence:** tasks/specs/T-0370.md; DOI: 10.1016/j.ijpharm.2019.118679
@@ -1411,6 +1520,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0039 Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER
 
 - **Why / ROI rationale:** Four sources reachable through APIs already in use or public; one afternoon of reading terms converts them from unverified to catalogued. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** cloud - Reading five hosts needs conduct (robots first, Crawl-delay, one request) and judgement about what a page does and does not say; done by the controller with a scripted quote check.
 - **Acceptance:** Four new catalog entries, each with robots/terms fields, a check date, and claim_label: verified.
 - **Evidence:** research/proposals/2026-10-04-researcher-sources.md recommended order 3-5
@@ -1419,6 +1529,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0193 Expand tools/capture_site_review.py from 9 to all canonical desktop & mobile routes plus Library Drawer modal
 
 - **Why / ROI rationale:** Ensures scheduled security and showcase sentinels inspect every canonical route on desktop and mobile during visual audits. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: ai_verification | Kind: new
 - **Route:** local - Playwright visual review harness expansion and retention self-test.
 - **Acceptance:** python tools/capture_site_review.py --self-test; python tools/capture_site_review.py
 - **Evidence:** tools/capture_site_review.py; src/sitemap.xml; tests/test_site.py
@@ -1428,6 +1539,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0205 Automated data-i18n Spanish translation completeness & orphan key verifier across all .ai HTML routes (tasks/check_i18n_parity.py)
 
 - **Why / ROI rationale:** Ensures every data-i18n attribute across all 19 canonical .ai routes resolves to a verified non-empty Mexican Spanish (es-MX) translation. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic Python static verifier and unit tests for bilingual i18n parity.
 - **Acceptance:** pytest tasks/test_check_i18n_parity.py -v; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/audit_github_hygiene.py; ../.ai/src/data/i18n/es-MX.json; ../.ai/tools/sync_chrome.py
@@ -1437,6 +1549,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0258 Interactive Splice-Switching ASO Steric-Blocking & Cryptic Pseudoexon Rescue Explorer (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) on /cf/ptc/ with es-MX parity
 
 - **Why / ROI rationale:** Translates splice-switching oligonucleotide biophysics into an accessible interactive visual explainer on /cf/ptc/ with real-time ASO concentration sliders, canonical vs cryptic splice branching diagrams, and Mexican Spanish localization. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build native ES module and SVG pre-mRNA splicing schematic grounded in tools/discovery/aso_splice_kinetics.py (T-0254) and ClinicalTrials.gov NCT05014728.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_aso_splice_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/aso_splice_kinetics.py; ClinicalTrials.gov:NCT05014728; PDB:6FF4; PDB:7ABI; DOI:10.1164/rccm.202105-1155OC; DOI:10.1038/s41467-022-30495-1
@@ -1445,6 +1558,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0260 Interactive Pseudomonas Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Antibiotic Resensitization Explorer on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Exposes phage-antibiotic synergy and efflux-pump evolutionary trade-offs against multi-drug resistant Pseudomonas aeruginosa biofilms on /cf/delivery/ in English and Mexican Spanish. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Zero-build native ES module and SVG visualizer modeling OMKO1 phage adsorption to OprM, receptor mutations, and trade-off resensitization to ciprofloxacin/ceftazidime grounded in tools/discovery/phage_omko1_tradeoff.py (T-0246) and NCT04684641.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_phage_omko1_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/phage_omko1_tradeoff.py; ClinicalTrials.gov:NCT04684641; PDB:6TA6; PDB:7B8J; DOI:10.1016/j.cell.2016.05.040; DOI:10.1128/aac.00454-20
@@ -1454,6 +1568,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0261 Interactive Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling Simulator on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Translates nanoparticle steric filtration and PEG density surface energy biophysics into an interactive airway delivery calculator on /cf/delivery/ with Mexican Spanish parity. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build native ES module and SVG nanoparticle diffusion simulator modeling pore-size obstruction vs PEG corona shielding grounded in tools/discovery/mpp_obstruction_scaling.py (T-0244).
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_mpp_scaling_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/mpp_obstruction_scaling.py; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1073/pnas.0811598106; DOI:10.1002/anie.201407641; ClinicalTrials.gov:NCT00843817
@@ -1464,6 +1579,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0262 Interactive Alveolar Macrophage Efferocytosis & Neutrophil Extracellular Trap (NET) Degradation Kinetics Simulator on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Exposes chronic airway inflammation, efferocytosis failure, and NET degradation dynamics on /cf/delivery/ in English and Mexican Spanish. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Zero-build native ES module and SVG visualizer modeling alveolar macrophage efferocytosis of apoptotic neutrophils, NET degradation by rhDNase/dornase alfa, and ROS suppression grounded in tools/discovery/macrophage_efferocytosis_model.py (T-0251) and NCT00843817.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_macrophage_efferocytosis_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/macrophage_efferocytosis_model.py; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT02088216; ClinicalTrials.gov:NCT00506688; PDB:1HNE; PDB:2P0C; DOI:10.1172/JCI13554; DOI:10.3389/fimmu.2021.734608
@@ -1472,6 +1588,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0263 Interactive Apical Purinergic P2Y2R-Ca2+ Signal Transduction & Dual ENaC-TMEM16A Ion Equilibrium Simulator on /cf/tree/ with es-MX parity
 
 - **Why / ROI rationale:** Exposes alternative chloride conductance via TMEM16A and coupled ENaC inhibition through purinergic P2Y2R agonists (Denufosol/ATP) on /cf/tree/ in English and Mexican Spanish. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build native ES module and SVG visualizer modeling apical P2Y2R Gq signaling, IP3-mediated endoplasmic reticulum Ca2+ release, dual TMEM16A/ANO1 chloride secretagogue activation, and coupled ENaC sodium hyperabsorption inhibition grounded in tools/discovery/enac_tmem16a_equilibrium.py (T-0252), PDB:7L1V, PDB:6UJJ, and NCT00055276.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_enac_tmem16a_equilibrium_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/enac_tmem16a_equilibrium.py; ClinicalTrials.gov:NCT00055276; ClinicalTrials.gov:NCT00049023; PDB:7L1V; PDB:6UJJ; PDB:6B4E; DOI:10.1165/rcmb.2007-0097OC; DOI:10.1172/JCI118742
@@ -1480,6 +1597,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0188 Mobile navigation contextual subnav strip, accurate sub-route aria-current state, and 68ch prose readability measure
 
 - **Why / ROI rationale:** Eliminates mobile navigation dead-ends on sub-routes and improves long-form scientific readability across desktop and mobile viewports. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: ai_verification | Kind: new
 - **Route:** local - Mobile responsive CSS/JS navigation and typography enhancements verified via Playwright.
 - **Acceptance:** python -m unittest tests.test_site tests.test_site_cls; python tools/sync_chrome.py --check
 - **Evidence:** src/scripts/site.js; src/styles-library.css; src/styles.css; tests/test_site_playwright.py
@@ -1489,6 +1607,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0189 Unify /atlas/ and /atlas/classes/*/ with 4-Pillar Navigation, Library Drawer (Alt+L), Command Palette, and nav-rail.js (tools/make_trial_atlas.py)
 
 - **Why / ROI rationale:** Fixes the visual isolation of /atlas/ and /atlas/classes/*/ so visitors navigating to the 23-class Trial Endpoint Atlas keep full access to the 4-Pillar navigation and Library Drawer. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
 - **Route:** local - Static Trial Endpoint Atlas generator template integration and regeneration.
 - **Acceptance:** python tools/publish_trial_atlas.py --check; python -m unittest tests.test_site
 - **Evidence:** tools/make_trial_atlas.py; tools/publish_trial_atlas.py; src/atlas/index.html; tests/test_site_playwright.py
@@ -1498,6 +1617,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0204 Clinical Trial Endpoint Plain-Language Decoder (ppFEV1, Sweat Chloride, LCI2.5, CFQ-R) on /cf/trials/ with es-MX parity
 
 - **Why / ROI rationale:** Helps people with CF and families decode clinical trial endpoints (ppFEV1, sweat chloride, LCI2.5, CFQ-R respiratory domain) and understand why systemic vs inhaled trials measure different readouts. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
 - **Route:** local - Community-centered plain-language endpoint decoder cards with bilingual localization on /cf/trials/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_trials_page tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/endpoints-and-outcomes.md; ClinicalTrials.gov NCT00635141 (LCI2.5); NCT04043806 (ppFEV1 & sweat chloride); src/cf/trials/index.html
@@ -1506,6 +1626,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0212 Plain-language CF Genetic Testing & Variant Class (Class I-VII) Primer Cards on /cf/ with es-MX parity
 
 - **Why / ROI rationale:** Provides families and newly diagnosed individuals with a warm, plain-language visual guide to CFTR mutation classes (I-VII) and how each links to the specialized workbenches. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
 - **Route:** local - Community-centered plain-language educational cards with bilingual localization on /cf/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/cftr-biology-and-classes.md; cf-research/sources/catalog.yaml (cftr2, clinvar); src/cf/index.html
@@ -1515,6 +1636,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0222 Interactive Base Editing (ABE8e) Protospacer Window & Bystander Edit Simulator panel on /cf/ptc/ and /cf/cftr/ with es-MX parity
 
 - **Why / ROI rationale:** Provides patients with rare stop codons an intuitive visual simulator of genetic base editing, protospacer windows, and bystander safety. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build interactive SVG visualization and bilingual copy on senseiewok.ai.
 - **Acceptance:** python -m unittest tests.test_site tests.test_resources_page
 - **Evidence:** DOI 10.1038/s41587-020-0453-z; ClinicalTrials.gov NCT06237335; src/cf/index.html; tasks/specs/T-0216.md
@@ -1525,6 +1647,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0223 Interactive Clinical Trial Eligibility, Washout & Endpoint Plain-Language Decoder on /cf/trials/ with es-MX parity
 
 - **Why / ROI rationale:** Empowers individuals with CF and families to understand trial eligibility, washout periods, and endpoints without intimidation. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** local - Patient-facing educational cards, timeline diagrams, and Spanish translation on /cf/trials/.
 - **Acceptance:** python -m unittest tests.test_site tests.test_resources_page
 - **Evidence:** ClinicalTrials.gov NCT05248230; NCT05668741; NCT06429176; cf-research/tools/trial_atlas/snapshot.json; tasks/specs/T-0217.md
@@ -1535,6 +1658,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0224 Interactive Sweat Chloride vs. ppFEV1 Non-Linear Sigmoidal Concordance Explorer on /cf/registries/ with es-MX parity
 
 - **Why / ROI rationale:** Visualizes non-linear relationship between in vivo CFTR biomarker normalization and long-term lung function stabilization. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** local - Client-side non-linear trajectory visualizer and Spanish translation on /cf/registries/.
 - **Acceptance:** python -m unittest tests.test_site tests.test_resources_page
 - **Evidence:** DOI 10.1164/rccm.201909-1812OC; ClinicalTrials.gov NCT04043806; cf-research/sources/catalog.yaml; tasks/specs/T-0218.md
@@ -1545,6 +1669,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0229 Interactive Mechano-Acoustic Mucus Conditioning & 10-Year Basal Stem Cell Persistence Explorer (#mechano-stem-explorer) on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Translates cross-domain acoustic mucus shear-thinning, PIEZO1 ASL hydration, and 10-year KRT5+/TP63+ basal stem cell vs episomal persistence kinetics into an interactive bilingual workbench on /cf/delivery/. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build ES6 interactive simulation workbench and Mexican Spanish localization on /cf/delivery/.
 - **Acceptance:** python -m unittest tests.test_site tests.test_delivery_page tests.test_mechano_stem_explorer
 - **Evidence:** cf-research/landscape/frontier-discovery-2026-10-18.md; cf-research/tools/discovery/basal_stem_persistence.py; cf-research/tools/discovery/mechano_acoustic_delivery.py; src/cf/delivery/index.html
@@ -1554,6 +1679,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0274 Interactive Deep Intronic Splice Foundation Model & Pseudoexon Rescue Simulator on /cf/cftr/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes SpliceAI and Evo-2 donor/acceptor delta scores, 84-nt pseudoexon inclusion in 3849+10kbC->T, and SPL84 ASO steric-blocking rescue on /cf/cftr/ with Mexican Spanish parity. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build native ES module and SVG interactive splice foundation simulator modeling SpliceAI/Evo-2 delta scores and ASO steric blocking across 3849+10kbC->T grounded in tools/discovery/intronic_splice_foundation.py (T-0269).
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_intronic_splice_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/intronic_splice_foundation.py; DOI:10.1016/j.cell.2018.12.015; DOI:10.1016/j.jcf.2021.08.014; DOI:10.1101/2025.02.18.638918; ClinicalTrials.gov:NCT06429176; PDB:6FF4
@@ -1564,6 +1690,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0280 Interactive CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Simulator on /cf/cftr/ with es-MX Parity
 
 - **Why / ROI rationale:** Expands public educational simulation of dual-site CFTR potentiator energetic coupling for Class III/IV alleles. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Interactive allosteric cooperativity and free-energy coupling simulator on /cf/cftr/ with es-MX parity.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_gating_potentiator_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/gating_potentiator_energy_coupling.py; DOI:10.1073/pnas.0904709106; DOI:10.1016/j.cell.2019.03.049; ClinicalTrials.gov:NCT00909532
@@ -1574,6 +1701,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0288 Interactive Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Models the multi-barrier bottleneck of LNP endosomal escape and cytosolic mRNA uncoating in human airway basal stem cells. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Interactive biophysical delivery simulator on /cf/delivery/ with es-MX parity.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_lnp_escape_dynamics_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/lnp_escape_dynamics.py; DOI:10.1038/nbt.3298; DOI:10.1038/nbt.1602; ClinicalTrials.gov:NCT05668741
@@ -1583,6 +1711,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0293 Interactive Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Simulates macrophage phagocytic evasion and CD47 stealth passivation for inhaled genetic delivery on /cf/delivery/. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Zero-build native ES module simulating pulmonary macrophage phagocytosis evasion and scavenger receptor kinetics grounded in tools/discovery/macrophage_evasion_kinetics.py (T-0271).
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_macrophage_evasion_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/macrophage_evasion_kinetics.py; DOI:10.1016/j.biomaterials.2015.08.053; DOI:10.1126/science.1229568; ClinicalTrials.gov:NCT05668741
@@ -1592,6 +1721,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0305 Interactive Airway Surface Liquid (ASL) Osmotic Gradient & Hypertonic Saline Hydration Dynamics Simulator on /cf/tree/ with es-MX Parity
 
 - **Why / ROI rationale:** Direct mechanistic simulation of hypertonic saline transepithelial water restoration and mucociliary clearance recovery. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Interactive biophysical ASL hydration simulation on /cf/tree/ with es-MX parity.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_osmotic_hydration_explorer tests.test_site.StaticTests
 - **Evidence:** DOI:10.1016/S0092-8674(00)81635-4; DOI:10.1056/NEJMoa043891; DOI:10.1085/jgp.118.4.385
@@ -1601,6 +1731,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0306 Interactive CFTR Premature Termination Codon (PTC) Readthrough Ribosome Structural Kinetics & Aminoglycoside Toxicity Simulator on /cf/ptc/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes the critical balance between nonsense suppression efficacy and aminoglycoside safety thresholds for Class I CF. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Interactive PTC readthrough simulation on /cf/ptc/ with es-MX parity.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_readthrough_kinetics_explorer tests.test_site.StaticTests
 - **Evidence:** DOI:10.1038/nature05756; DOI:10.1186/2043-9113-4-24; DOI:10.1073/pnas.1517595113
@@ -1610,6 +1741,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0309 Airway Epithelial Hypertonic Saline Osmotic Mucus Dehydration & ASL Volume Restoration Model (tools/discovery/asl_osmotic_restoration_model.py)
 
 - **Why / ROI rationale:** Provides primary biophysical equations and parameterization of aerosolized osmotic hydration dynamics for the research pipeline. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Mechanistic biophysical modeling tool in cf-research.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tools.discovery.test_asl_osmotic_restoration_model
 - **Evidence:** DOI:10.1085/jgp.118.4.385; DOI:10.1146/annurev.med.58.071905.105316; DOI:10.1056/NEJMoa043891
@@ -1619,6 +1751,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0310 CFTR W1282X & G542X Ribosome Footprint Profiling & Aminoglycoside-Mediated Termination Suppression Model (tools/discovery/ptc_ribosome_profiling_model.py)
 
 - **Why / ROI rationale:** Establishes quantitative allele-specific readthrough rankings and compound synergy kinetics for curative Class I therapeutics. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Mechanistic biophysical modeling tool in cf-research.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tools.discovery.test_ptc_ribosome_profiling_model
 - **Evidence:** DOI:10.1016/j.bbrc.2004.08.136; DOI:10.1073/pnas.1517595113; DOI:10.1186/2043-9113-4-24
@@ -1628,6 +1761,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0317 Interactive Airway Surface Liquid (ASL) Acidification & ATP12A/V-ATPase Proton Pump Inhibition Simulator on /cf/tree/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes biophysical host defense restoration via ASL re-alkalization for CF patients and researchers. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Frontend visualization and Spanish parity in .ai repo.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_asl_ph_simulator tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0317.md; Nature 487:109-113; Science 351:503-507
@@ -1637,6 +1771,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0318 Interactive CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Synergy & Ribosome Translation Fidelity Simulator on /cf/ptc/ with es-MX Parity
 
 - **Why / ROI rationale:** Directly supports Class I nonsense mutation curative research and patient education. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Frontend visualization and Spanish parity in .ai repo.
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_ptc_readthrough_synergy_explorer tests.test_site.StaticTests
 - **Evidence:** tasks/specs/T-0318.md; AJRCCM 203:1254-1264
@@ -1646,6 +1781,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0342 Interactive Airway Epithelial Ciliary Beat Frequency & Metachronal Wave Coordination Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Provides intuitive exploration of mucociliary clearance mechanics under healthy vs CF dehydrated mucus loads. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - High-fidelity interactive biophysical canvas simulator on .ai site with es-MX parity.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_task_specs.py --check
 - **Evidence:** tasks/specs/T-0342.md; DOI 10.1152/physrev.00015.2015
@@ -1655,6 +1791,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0359 Interactive Airway Goblet Cell Metaplasia & Mucus Hypersecretion Stoichiometry Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Empowers CF patients and clinicians to visualize mucus thickening and delivery barrier dynamics under airway inflammation. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build frontend component and unit test additions in .ai.
 - **Acceptance:** python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check
 - **Evidence:** tasks/specs/T-0359.md; DOI: 10.1164/rccm.201703-0574OC
@@ -1664,6 +1801,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0360 Interactive CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Explorer on /cf/ptc/ with es-MX Parity
 
 - **Why / ROI rationale:** Explores therapeutic window between chloride channel rescue and proteome error toxicity for nonsense mutations. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build frontend component and unit test additions in .ai.
 - **Acceptance:** python -m unittest tests.test_site tests.test_site_cls; pwsh -NoProfile -File tasks/render-board.ps1 -Check
 - **Evidence:** tasks/specs/T-0360.md; DOI: 10.1073/pnas.1909673116
@@ -1673,6 +1811,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0371 Interactive Deep Airway Submucosal Gland Serous Acinar Fluid & Aquaporin-5 Conductance Explorer on /cf/tree/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes submucosal gland hyposecretion and mucus plugging in human airways with interactive pharmacological rescue. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0371.md; DOI: 10.1152/ajplung.00164.2020
@@ -1682,6 +1821,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0372 Interactive Inhaled Dry Powder Inhaler (DPI) Carrier Particle Detachment & Aerodynamic Deposition Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Models inhaled DPI particle aerodynamics and regional airway deposition profiles under variable patient inspiratory flows. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0372.md; DOI: 10.1016/j.ijpharm.2018.04.032
@@ -1691,6 +1831,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0377 Interactive CFTR mRNA Secondary Structure Minimum Free Energy (MFE) Folding & Ribosome Translocation Velocity Explorer on /cf/ptc/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes translational pausing and local RNA folding landscapes governing PTC readthrough efficiency. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0377.md; DOI: 10.1016/j.jmb.2021.167098
@@ -1700,6 +1841,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0378 Interactive Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretory Hyperviscosity Dynamics Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Simulates mucin crosslinking gelation and ciliary arrest under CF inflammation with mucolytic rescue. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0378.md; DOI: 10.1164/rccm.201809-1707OC
@@ -1709,6 +1851,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0383 Interactive Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes competitive vector clearance kinetics to maximize epithelial cell transfection before elimination. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Zero-build vanilla ES module and canvas component bounded by site test suite.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0383.md; DOI: 10.1016/j.addr.2021.113904
@@ -1718,6 +1861,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0384 Interactive CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape on /cf/cftr/ with es-MX Parity
 
 - **Why / ROI rationale:** Models the chemical gating cycle terminating channel open bursts and evaluates allosteric potentiator coupling. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Zero-build vanilla ES module and canvas component bounded by site test suite.
 - **Acceptance:** python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check_i18n_parity.py --check
 - **Evidence:** tasks/specs/T-0384.md; DOI: 10.1085/jgp.202012678
@@ -1727,6 +1871,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0061 Add GitHub Actions CI to cf-lab, cf-research and cf-skills (drafts are outside the repos; a human adds them under .github/workflows)
 
 - **Why / ROI rationale:** Estimate: a public repo that accepts pull requests should show whether its own tests pass; one matrix job also verifies setup.sh on macOS and Linux. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** Each repo has a workflow that runs on pull_request and on pushes to main and is green on a pull request: cf-lab runs test-setup.py on windows-latest, ubuntu-latest and macos-latest plus the frontmatter check and render-board -Check; cf-skills runs pytest; cf-research runs the fetcher tests, the catalog parse, the sync self-check and the ledger tally self-check. Every workflow sets permissions: contents: read, uses pull_request (not pull_request_target), and pins actions/checkout and actions/setup-python at a major version or commit SHA. Paste the three run URLs into the task notes.
 - **Evidence:** 2026-10-04: none of the three repos has a .github/workflows folder, so every test and gate runs only on the maintainer's machine; a pull request shows no check. The setup scripts, the evidence skill (44 tests) and the board checks are all deterministic and cheap to run. T-0058 (real macOS run) needs a macOS runner.
 - **Notes:** Proposed by a model; only a human moves it to ready. The workflow drafts, kept by the maintainer outside the repos, are UNTESTED: they have not run on GitHub. Adding a workflow adds a third-party service dependency (GitHub Actions and the actions/* actions), which AGENTS.md asks to flag. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P2 to P1: same gap as T-0114; one of the two should absorb the other (check). T-0057 (a 10-minute .github edit) blocks it. \| 2026-10-12: Dropped in board cleanup per 2026-10-10 council review (CI workflows now tracked under T-0114).
@@ -1734,6 +1879,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0158 Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance
 
 - **Why / ROI rationale:** Prevents live site regressions, broken headers, tone drift, or task board desynchronization without requiring manual human checks. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Local deterministic PowerShell and Python scripts.
 - **Acceptance:** Daily scheduled check runs tools/check_live.py, check-voice.py, and render-board.ps1 -Check; alerts the maintainer only when a regression is detected; zero unbudgeted network calls.
 - **Evidence:** 2026-10-12: Maintaining daily automated checks of live HTTP headers (HSTS, CSP, X-Robots-Tag per T-0139), 301 redirects, 65 roses count (T-0016), lab-voice tone, and board rendering ensures unbroken operational excellence. Detailed in gemini-cf-schedules-design.md.
@@ -1743,6 +1889,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0180 Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py)
 
 - **Why / ROI rationale:** Provides single-source-of-truth JSON/TSV data exports with cryptographic SHA-256 hashes, DataCite/Zenodo JSON-LD metadata, and reproducible terminal commands for computational biologists and web visualization. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic serialization, hash generation, and unit tests.
 - **Acceptance:** python tools/discovery/export_delivery_web_data.py --check; pytest tools/discovery/test_export_delivery_web_data.py -v
 - **Evidence:** Discovery tools tools/discovery/{transcytosis_model,epithelial_plasticity,cross_domain_miner}.py; PR senseiewok/cf-research#84
@@ -1752,15 +1899,18 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0397 Interactive Global 22-Country CF Patient Resource Navigator & Healthcare Equity Map Expansion on /resources/ with Bilingual Support
 
 - **Why / ROI rationale:** Expands global resource navigator across 7 newly cataloged countries and 21 attested care organizations with bilingual support. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
 - **Route:** local - Resources page expansion on .ai.
 - **Acceptance:** python -m unittest tests.test_resources_page; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0397.md; cf-research/resources/resources.yaml; cf-research/sources/catalog.yaml
 - **Spec:** `tasks/specs/T-0397.md`
-- **Notes:** Showcase Lane Replenishment. Expand resources directory and world compass map with 7 newly cataloged countries (Uruguay, Ecuador, Poland, Czech Republic, Greece, Israel, Turkey) across 21 attested care organizations.
+- **Notes:** Showcase Lane Replenishment. Expand resources directory and world compass map with 7 newly cataloged countries (Uruguay, Ecuador, Poland, Czech Republic, Greece, Israel, Turkey) across 21 attested care organizations. \| 2026-10-24 CRO Auto-Triage: Marked done. Delivered in senseiewok/.ai#168 (commit 0c54285). Expanded patient resources directory and world compass map across 22 countries and 21 attested care organizations with bilingual EN/es-MX support and passing tests.test_resources_page.
+- **Measured:** 3 h; Delivered in senseiewok/.ai#168 (commit 0c54285). Expanded patient resources directory and world compass map across 22 countries and 21 attested care organizations with bilingual EN/es-MX support and passing tests.test_resources_page.
 
 ### T-0105 A CF clinician or social worker reads the safe-use box wording and the open questions
 
 - **Why / ROI rationale:** Estimate: no clinician has read the wording that tells people what to do in an emergency; it is the biggest gap for the highest-risk text. *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A named-or-anonymous clinician or social worker returns the reply form for cf-ai-safe-use; each answer is recorded in a pull request or the private notes; any change they ask for is made through a pull request with the evidence file updated.
 - **Evidence:** 2026-10-09: the wording was decided by a council of models plus one caregiver's request; no clinician has read it. cf-research proposals/2026-10-09-permission-and-review-letters.md has an invitation letter and reply form.
@@ -1769,6 +1919,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0156 Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring)
 
 - **Why / ROI rationale:** Guarantees zero citation rot or reliance on retracted studies across the live site, research proposals, and evidence ledger. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Automated deterministic API lookups and JSON diffing.
 - **Acceptance:** Skill scheduled-evidence-integrity operationalized; automated bi-weekly execution queries Crossref/Retraction Watch and openFDA; flags unverified changes directly into the evidence ledger and tasks/board.json.
 - **Evidence:** 2026-10-12: Maintainer affirmed high utility of operational sentinel schedules alongside discovery engines; continuous automated lookup protects scientific credibility by flagging retracted DOIs and regulator indication changes. Detailed in gemini-cf-schedules-design.md.
@@ -1778,6 +1929,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0168 Author multi-registry modulator eligibility & ultra-rare variant landscape dossier from verified 2024 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports
 
 - **Why / ROI rationale:** Unlocks the newly verified national registry downloads (T-0005) into a quote-verified, non-pooled multi-registry eligibility and variant denominator dossier with a showcase_targets entry for /cf/. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** frontier - High-stakes multi-registry scientific synthesis requiring strict non-pooling and exact quote verification.
 - **Acceptance:** landscape/multi-registry-eligibility-2026.md committed in cf-research with exact page-cited denominator rules across CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR and openFDA label dates; zero cross-registry arithmetic; check_claims.py and check_numbers.py pass; showcase_targets metadata ready for daily-site-showcase-sentinel.
 - **Evidence:** cf-research/sources/downloads/ verified via fetch_sources.py --verify (29 match, 0 missing: CFFPR_Annual_Data_Report_2024.pdf, ECFSPR_Annual_Report_2024_v1.0.pdf, UKCFR_Annual_Data_Report_2024_v2.pdf, CCFR_Annual_Data_Report_2024.pdf, ACFDR_Annual_Report_2025.pdf) and openFDA SPL labels for TRIKAFTA and ALYFTREK.
@@ -1788,6 +1940,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0177 Airway epithelial transcytosis receptor kinetics model for apical-to-basal delivery (tools/discovery/transcytosis_model.py)
 
 - **Why / ROI rationale:** Apical aerosol vectors cannot penetrate tight junctions to access basal stem cells. Modeling FcRn/TfR/pIgR receptor transcytosis kinetics establishes the biophysical feasibility of bypassing junctional barriers non-destructively. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic biophysical ODE modeling and offline pytest suite.
 - **Acceptance:** pytest tools/discovery/test_transcytosis_model.py -v
 - **Evidence:** Conner & Schmid 2003 Nature; Roopenian & Akilesh 2007 Nat Rev Immunol; Su et al. 2021 Mol Ther; PR senseiewok/cf-research#84
@@ -1797,6 +1950,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0178 Secretory-to-basal epithelial dedifferentiation plasticity simulation (tools/discovery/epithelial_plasticity.py)
 
 - **Why / ROI rationale:** Circumvents the intractable basal stem cell delivery bottleneck by targeting readily accessible apical secretory/club cells, then simulating transient Notch inhibition (4-5 day pulse) to induce dedifferentiation into permanent KRT5+/TP63+ basal stem cells. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: ai_verification | Kind: new
 - **Route:** local - Mathematical biology ODE simulation and offline pytest suite.
 - **Acceptance:** pytest tools/discovery/test_epithelial_plasticity.py -v
 - **Evidence:** Tata et al. 2013 Nature 503:272-277; Rock et al. 2011 PNAS; Lynch et al. 2018; PR senseiewok/cf-research#84
@@ -1806,6 +1960,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0179 Cross-domain delivery innovation miner and biophysical feasibility scoring (tools/discovery/cross_domain_miner.py)
 
 - **Why / ROI rationale:** Mines physical and cellular barrier solutions across oncology, neurobiology, and immunology. Computes Biophysical Feasibility Index (BFI) across mucus penetration, protease resistance, and basal stem cell tropism to prioritize high-yield vectors. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Algorithmic multi-domain scoring and offline pytest suite.
 - **Acceptance:** pytest tools/discovery/test_cross_domain_miner.py -v
 - **Evidence:** Discovery Landscape Dossier landscape/discovery-cross-domain-stem-cell-delivery.md; PR senseiewok/cf-research#84
@@ -1815,6 +1970,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0194 Care-team & family plain-language question cards for each workbench (/cf/ptc/, /cf/delivery/, /cf/trials/, /cf/registries/)
 
 - **Why / ROI rationale:** Helps people with CF and families translate complex biophysical and trial registry charts into concrete, respectful questions to ask their accredited CF care center. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Plain-language CF community question prompts grounded in cf-research-context and lab-voice.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check-voice.py; python tools/check_anti_hallucination.py
 - **Evidence:** src/cf/ptc/index.html; src/cf/delivery/index.html; src/cf/trials/index.html; src/cf/registries/index.html; .claude/skills/lab-voice/SKILL.md
@@ -1823,6 +1979,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0200 Epithelial sodium channel (ENaC / SCNN1A) RNAi & small-molecule knockdown dose-response model for ASL rehydration (tools/discovery/enac_knockdown_model.py)
 
 - **Why / ROI rationale:** Models SCNN1A mRNA RISC cleavage vs small-molecule pore block, airway clearance half-life, and systemic hyperkalemia safety margin for genotype-agnostic CF rehydration. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic apical sodium absorption and renal potassium-sparing therapeutic index model.
 - **Acceptance:** pytest tools/discovery/test_enac_knockdown_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** ClinicalTrials.gov NCT04375514 (ARO-ENaC inhaled RNAi); NCT02343445 (ENaC inhibition in CF); DOI 10.1152/ajplung.00350.2020; cf-research/landscape/alternative-conductance.md
@@ -1832,6 +1989,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0201 Rare CFTR frameshift, large deletion & splicing allele theratyping decision matrix across global registry cohorts (tools/discovery/rare_allele_matrix.py)
 
 - **Why / ROI rationale:** Maps underserved Class I/V/VII alleles (frameshifts, canonical splice site mutations, large deletions like CFTRdele2,3) to mechanistic eligibility across readthrough, ASO, mRNA, and gene editing. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic genotype-to-modality eligibility matrix with unit test suite.
 - **Acceptance:** pytest tools/discovery/test_rare_allele_matrix.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/sources/catalog.yaml (cftr2, gnomad, ecfspr-adr-2024); ClinicalTrials.gov NCT06429176; NCT05668741; DOI 10.1016/j.jcf.2023.09.006
@@ -1841,6 +1999,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0213 Interactive Aerosolized AAV Capsid Lung Tropism & Neutralizing Antibody (NAb) Neutralization Titer Calculator on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Exposes directed evolution capsid tropism (4D-A101 vs wild-type serotypes), mucin adhesion kinetics, and mucosal NAb evasion to the public research community. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build ES6 interactive panel and bilingual localization on /cf/delivery/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests tests.test_delivery_page
 - **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; cf-research/tools/discovery/aav_tropism_model.py; ClinicalTrials.gov NCT05248230; Hill et al. Sci Adv 2019 (DOI 10.1126/sciadv.aaw3507)
@@ -1850,6 +2009,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0214 Interactive Airway Surface Liquid (ASL) Rehydration & Alternative Conductance (ENaC/TMEM16A/SLC26A9) Simulator on /cf/ with es-MX parity
 
 - **Why / ROI rationale:** Empowers people with CF producing zero functional CFTR (Class I/VII) with an interactive biophysical explorer of mutation-agnostic bypass rehydration via ENaC blockade and TMEM16A/SLC26A9 activation. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Mutation-agnostic alternative conductance biophysical simulation and bilingual cards on /cf/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/alternative-conductance.md; Enterprise Therapeutics PubMed 33177112, 34588145; Nature 2017 PubMed 28959951; JCI 2012 PubMed 22446184; src/cf/index.html
@@ -1859,6 +2019,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0228 Mechano-acoustic mucus conditioning, PIEZO1/TMEM16A ASL hydration, and EV/nanoparticle delivery flux model (tools/discovery/mechano_acoustic_delivery.py)
 
 - **Why / ROI rationale:** Quantifies how 12-25 Hz OEP acoustic conditioning, ultrasound microbubble mucolysis, and PIEZO1/ATP/TMEM16A ASL hydration expand mucin pore size and rescue nanoparticle/EV diffusion to basal stem cells. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** frontier - Cross-domain biophysical synthesis coupling thixo-viscoelastoplastic mucus rheology, acoustic microbubble mucolysis, PIEZO1 mechanotransduction, and basal stem niche access.
 - **Acceptance:** pytest tools/discovery/test_mechano_acoustic_delivery.py -v
 - **Evidence:** cf-research/landscape/frontier-discovery-2026-10-18.md; DOI 10.1038/s41598-025-16178-z; DOI 10.1016/j.biomaterials.2026.124585; DOI 10.3389/fbioe.2026.1855907; DOI 10.1093/nar/gkag082; ClinicalTrials.gov NCT07175012; NCT06515002; NCT05248230; NCT06237335; NCT06963008
@@ -1868,6 +2029,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0254 Splice-Switching Antisense Oligonucleotide (ASO) Steric-Blocking Kinetics & Cryptic Pseudoexon Competition Model (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G) (tools/discovery/aso_splice_kinetics.py)
 
 - **Why / ROI rationale:** Quantifies steric-blocking ASO dose-response (SPL84, NCT05014728) across Class V/I splicing mutations (3849+10kbC->T, 2789+5G->A, 1811+1.6kbA->G), predicting canonical exon inclusion f_canon, NMD escape, and functional CFTR current restoration. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Biophysical thermodynamic competition modeling of 2'-MOE/PMO splice-switching ASO hybridization against U1/U2AF spliceosomal recognition at cryptic donor/acceptor sites, coupled to NMD escape and apical chloride conductance recovery.
 - **Acceptance:** pytest tools/discovery/test_aso_splice_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT05014728; ClinicalTrials.gov:NCT04072887; PDB:6FF4; PDB:7ABI; DOI:10.1164/rccm.202105-1155OC; DOI:10.1038/s41467-022-30495-1; DOI:10.1016/j.ymthe.2020.09.017
@@ -1876,6 +2038,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0256 Constitutive SLC26A9 Chloride/Bicarbonate Conductance & TMEM16A Dual-Channel Bypass Model for CFTR-Null Airway Epithelia (tools/discovery/slc26a9_tmem16a_bypass.py)
 
 - **Why / ROI rationale:** Explains why transient purinergic TMEM16A agonists (Denufosol, NCT00846781) desensitize and quantifies how pairing constitutive SLC26A9 apical trafficking rescue with sustained TMEM16A potentiation restores basal ASL height (>= 7 um) and pH (>= 7.1) in genotype-agnostic CFTR-null airways. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Coupled electrochemical and Henderson-Hasselbalch ASL pH buffering model comparing transient Ca2+-activated TMEM16A (ANO1) secretion with constitutive SLC26A9 basal Cl-/HCO3- transport in CFTR-null epithelia.
 - **Acceptance:** pytest tools/discovery/test_slc26a9_tmem16a_bypass.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00846781; ClinicalTrials.gov:NCT04375514; PDB:7CH1; PDB:5OYB; DOI:10.1038/s41467-019-11866-7; DOI:10.1172/JCI38662; DOI:10.1183/13993003.02116-2019
@@ -1885,6 +2048,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0271 Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Evasion & Scavenger Receptor Kinetics (tools/discovery/macrophage_evasion_kinetics.py)
 
 - **Why / ROI rationale:** Models competitive uptake kinetics between alveolar macrophage phagocytosis and apical airway epithelial endocytosis post-mucus transit. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Biophysical modeling of biomimetic CD47 self-peptide display and dense PEG brush shielding to evade class A scavenger receptor (SR-A/CD204, MARCO) phagocytosis by resident airway macrophages.
 - **Acceptance:** pytest tools/discovery/test_macrophage_evasion_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT05248230; DOI:10.1126/science.1234568; DOI:10.1016/j.addr.2015.09.006; DOI:10.3390/pharmaceutics12040347
@@ -1895,6 +2059,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0285 Airway Epithelial Basal Stem Cell LNP Endosomal Escape & Cytosolic Uncoating Dynamics Model (tools/discovery/lnp_escape_dynamics.py)
 
 - **Why / ROI rationale:** Quantifies cytosolic intact mRNA bioavailability and uncoating kinetics in airway basal stem cells for long-term genetic persistence. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Quantitative ordinary differential equation model simulating proton sponge buffering, ionizable lipid pKa inversion, and galectin-3 rupture kinetics in primary basal stem cells (KRT5+/TP63+).
 - **Acceptance:** pytest tools/discovery/test_lnp_escape_dynamics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/tools/discovery/mrna_lnp_escape_model.py; DOI:10.1038/nbt.3298; DOI:10.1038/nbt.2612; DOI:10.1016/j.ymthe.2017.05.013; ClinicalTrials.gov:NCT05668741
@@ -1905,6 +2070,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0291 Airway Epithelial Ciliated Cell Apical Glycocalyx Steric Exclusion & Enzymatic Sialidase Permeabilization Model (tools/discovery/glycocalyx_permeabilization_model.py)
 
 - **Why / ROI rationale:** Models the periciliary brush barrier to inhaled vector transfection in primary human CF airway epithelia. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Biophysical discovery simulation in cf-research.
 - **Acceptance:** pytest tools/discovery/test_glycocalyx_permeabilization_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1126/science.1223012; DOI:10.1073/pnas.2003349117; DOI:10.1165/rcmb.2012-0296OC; ClinicalTrials.gov:NCT05668741
@@ -1915,6 +2081,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0292 CFTR Pre-mRNA U1 snRNP / Intronic Splicing Silencer (ISS) Decoy Binding Kinetics & Cryptic Exon Exclusion Model (tools/discovery/u1_snrnp_decoy_kinetics.py)
 
 - **Why / ROI rationale:** Calculates dose-dependent restoration of full-length functional CFTR mRNA for deep-intronic splicing mutations. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Biophysical discovery simulation in cf-research.
 - **Acceptance:** pytest tools/discovery/test_u1_snrnp_decoy_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1093/hmg/ddh247; DOI:10.1016/j.omtn.2020.08.017; DOI:10.1056/NEJM199410133311503; ClinicalTrials.gov:NCT04802876
@@ -1925,6 +2092,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0297 Inhaled Lipid-Polymer Hybrid Nanoparticle (LPN) Airway Macrophage Scavenger Receptor Kinetics Model (tools/discovery/macrophage_scavenger_kinetics.py)
 
 - **Why / ROI rationale:** Models scavenger receptor clearance kinetics and stealth peptide engineering to prolong airway retention of inhaled therapies. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Mathematical and biophysical model of competitive macrophage scavenger receptor uptake and nanoparticle stealth passivation.
 - **Acceptance:** pytest tools/discovery/test_macrophage_scavenger_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1126/science.1229568; DOI:10.1016/j.biomaterials.2015.08.053; DOI:10.1038/nri978; ClinicalTrials.gov:NCT05668741
@@ -1934,6 +2102,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0303 Airway Epithelial Club Cell Secretoglobin (SCGB1A1) Secretory Vesicle Trafficking & Apical Exosome Packaging Model (tools/discovery/club_cell_exosome_trafficking.py)
 
 - **Why / ROI rationale:** Models club cell secretory vesicle biogenesis and exosome packaging kinetics for inhaled CF therapy. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Biophysical model simulating club cell secretoglobin (SCGB1A1) vesicle dynamics and therapeutic exosome packaging for airway anti-inflammation.
 - **Acceptance:** pytest tools/discovery/test_club_cell_exosome_trafficking.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1016/j.biocel.2009.09.002; DOI:10.1016/j.stem.2009.04.002; ClinicalTrials.gov:NCT04207983
@@ -1943,6 +2112,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0304 CFTR NBD2 / NBD1 ATP Hydrolysis Gating Cycle & Catalytic Water Coordination Energy Model (tools/discovery/atp_catalytic_water_model.py)
 
 - **Why / ROI rationale:** Simulates catalytic water dipole activation and allosteric channel open probability across rare gating mutations. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Biophysical and structural model of asymmetric NBD1/NBD2 ATP hydrolysis gating, catalytic water coordination, and pore opening kinetics.
 - **Acceptance:** pytest tools/discovery/test_atp_catalytic_water_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1016/j.cell.2016.11.014; DOI:10.1016/j.cell.2017.02.024; PDB:6MSM; ClinicalTrials.gov:NCT00909532
@@ -1952,6 +2122,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0333 Airway Surface Liquid (ASL) Osmotic Depth & Transepithelial Water Flux Biophysical Model (tools/discovery/asl_osmotic_flux_model.py)
 
 - **Why / ROI rationale:** Provides rigorous mathematical grounding for airway hydration and mucociliary transport restoration. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic mathematical biophysics model in cf-research.
 - **Acceptance:** python tools/discovery/test_asl_osmotic_flux_model.py; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0333.md; Goralski et al. (2010) DOI:10.1016/j.coph.2010.04.004
@@ -1961,6 +2132,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0334 CFTR Premature Termination Codon (PTC) Release Factor eRF1-eRF3 Termination vs Readthrough Thermodynamic Model (tools/discovery/ptc_termination_flux_model.py)
 
 - **Why / ROI rationale:** Quantitative prediction of functional CFTR recovery across genetic stop codon contexts. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic mathematical biophysics model in cf-research.
 - **Acceptance:** python tools/discovery/test_ptc_termination_flux_model.py; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0334.md; Roy et al. (2016) DOI:10.1146/annurev-genom-090314-050032
@@ -1970,6 +2142,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0339 CFTR Apical Microvillar Surface Density & MUC1/MUC4 Glycocalyx Diffusion Barrier Model (tools/discovery/microvillar_glycocalyx_model.py)
 
 - **Why / ROI rationale:** Calculates transport resistance through the apical glycocalyx to guide inhaled therapeutic nanoparticle design. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic biophysical modeling tool and unit tests in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_microvillar_glycocalyx_model; python tools/discovery/microvillar_glycocalyx_model.py --check
 - **Evidence:** tasks/specs/T-0339.md; DOI:10.1126/science.1223012
@@ -1979,6 +2152,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0340 Class I Nonsense Allele (G542X, W1282X) Ribosome Profiling & A-Site Codon Decoding Speed Model (tools/discovery/ribosome_profiling_decoding_model.py)
 
 - **Why / ROI rationale:** Models translational stall and decoding kinetics at CFTR nonsense codons to guide small-molecule readthrough strategies. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic biophysical modeling tool and unit tests in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_ribosome_profiling_decoding_model; python tools/discovery/ribosome_profiling_decoding_model.py --check
 - **Evidence:** tasks/specs/T-0340.md; DOI:10.1073/pnas.1523356113
@@ -1988,6 +2162,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0387 Airway Calu-3 Epithelial Sialic Acid & MUC1/MUC4 Glycocalyx Electrostatic Charge Barrier Model (tools/discovery/glycocalyx_charge_barrier_model.py)
 
 - **Why / ROI rationale:** Quantifies the negative electrostatic charge and steric exclusion barrier opposing inhaled CFTR delivery vectors. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Mechanistic biophysical simulation in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_glycocalyx_charge_barrier_model
 - **Evidence:** tasks/specs/T-0387.md; DOI: 10.1021/acs.biomac.1c00428
@@ -1997,6 +2172,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0389 Interactive Recruiting Clinical Trials & Bilingual Care-Team Visit Prep Explorer on /cf/trials/ with es-MX Parity
 
 - **Why / ROI rationale:** Transforms static trial counts into an interactive bilingual clinic-visit discussion sheet and recruiting study directory with strict clinical boundary contracts and zero synthetic eligibility claims. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
 - **Acceptance:** python tools/check_pr_gate.py; python -m unittest tests.test_trials_care_team_explorer; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0389.md; data/care_team_trials_directory.json; ClinicalTrials.gov API v2
@@ -2006,6 +2182,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0390 Interactive CFTR Gating Potentiator Allosteric Cooperativity & Energy Coupling Explorer on /cf/cftr/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes allosteric cooperativity and pore opening thermodynamics for small-molecule potentiators across gating mutant archetypes (G551D, G1244E, G178R). *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0390.md; cf-research/tools/discovery/gating_potentiator_energy_coupling.py; RCSB PDB 6O2P, 7SVD, 8EIQ; DOI 10.1038/s41586-019-1677-8
@@ -2016,6 +2193,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0391 Interactive Inhaled Nanoparticle Macrophage Evasion & Biomimetic CD47 Brush Dynamics Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Simulates alveolar macrophage clearance evasion kinetics via CD47 'don't eat me' signaling and zwitterionic brush architecture for inhaled genetic therapies. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
 - **Branch:** work/sentinel-showcase-t-0391
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
@@ -2027,6 +2205,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0395 Interactive Deep Intronic Splice U1 snRNP Decoy Oligonucleotide Competition & Pseudoexon Exclusion Explorer on /cf/cftr/ with es-MX Parity
 
 - **Why / ROI rationale:** Simulates U1 snRNP decoy competition and pseudoexon exclusion thermodynamics across deep intronic variants (3849+10kb C->T, 1811+1.6kb A->G). *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
 - **Branch:** work/sentinel-security-t-0396
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
@@ -2038,6 +2217,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0398 Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes alternative chloride conductance bypass kinetics for mutation-agnostic therapy across Class I/II null alleles. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
 - **Branch:** work/sentinel-security-t-0398
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
@@ -2049,6 +2229,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0399 Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Simulates dual-AAV capsid size limitation bypass and split-intein traceless protein ligation for durable gene replacement. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
 - **Branch:** work/sentinel-security-t-0398
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
@@ -2060,6 +2241,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
 - **Why / ROI rationale:** Automated PR hygiene eliminates merge conflict friction, identifies unresolved review comments across the multi-repo workspace, protects human-gated boundaries, audits stale worktrees, and prevents maintainer cognitive overload. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: repair
 - **Route:** local - Deterministic git/gh inspection, offline unit tests, and fast-gate preflight.
 - **Acceptance:** python tasks/audit_github_hygiene.py --check; python -m unittest tasks.test_audit_github_hygiene; pwsh -NoProfile -File tasks/test-run-sentinel.ps1; pwsh -NoProfile -File tasks/render-sentinel-sidecars.ps1 -Check
 - **Evidence:** tasks/sentinels.json, tasks/HUMAN-TASKS.md, .claude/skills/workspace-siblings/scripts/worktrees.py, and multi-repo PR state
@@ -2069,6 +2251,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0276 Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Models TASEP ribosome dynamics, poly(A) tail length 100-120 nt, and codon elongation balancing co-translational CFTR folding on /cf/delivery/ with Mexican Spanish parity. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build native ES module and SVG ribosome translation velocity simulator modeling TASEP dynamics and poly(A) tail length 100-120 nt grounded in tools/discovery/mrna_translation_velocity.py (T-0272).
 - **Acceptance:** python tools/check_anti_hallucination.py; python -m unittest tests.test_mrna_velocity_explorer tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/mrna_translation_velocity.py; DOI:10.1038/mt.2008.200; DOI:10.1016/j.cell.2015.02.029; DOI:10.1038/nature13007; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047
@@ -2079,6 +2262,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0190 Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches
 
 - **Why / ROI rationale:** Extends complete Mexican Spanish (es-MX) translation parity and COFEPRIS/NOM-012-SSA3-2012 clinical disclaimers across all 5 newly split canonical workbench pages. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Client-side i18n dictionary and data-i18n attribute coverage with deterministic unit tests.
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py; python tasks/check-voice.py
 - **Evidence:** src/data/i18n/es-MX.json; src/scripts/i18n.js; src/cf/tree/index.html; src/cf/ptc/index.html; src/cf/registries/index.html
@@ -2088,6 +2272,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0240 TMEM16A/ANO1 Allosteric Potentiation & Calcium-Activated Chloride Channel (CaCC) Conductance Cooperativity Model (tools/discovery/tmem16a_conductance_model.py)
 
 - **Why / ROI rationale:** Models genotype-agnostic ASL rehydration via allosteric CaCC activation, restoring airway hydration above 7.0 um for Class I-III CFTR null mutations. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Biophysical MWC/Hill cooperativity and voltage-dependent gating simulation parameterized against Cryo-EM structures PDB:5OYB and PDB:6QP6.
 - **Acceptance:** pytest tools/discovery/test_tmem16a_conductance_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; ClinicalTrials.gov:NCT06478706; PDB:5OYB; PDB:6QP6; DOI:10.1038/nature24652; DOI:10.1038/s41598-020-73905-2; DOI:10.1016/j.jcf.2019.06.004
@@ -2097,6 +2282,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0245 Epithelial Sodium Channel (ENaC) Proteolytic Activation Kinetics & Dual-Target ASL Homeostasis (tools/discovery/enac_proteolysis_model.py)
 
 - **Why / ROI rationale:** Quantifies the hyperactivation of ENaC driven by excessive airway proteases in CF sputum and evaluates dual-targeting (protease inhibition/antisense ENaC block combined with CFTR/CaCC activation) to rescue collapsed ASL depth above 7.0 um. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Biophysical modeling of multi-site proteolytic cleavage (neutrophil elastase, furin, prostasin/PRSS8) of ENaC alpha/gamma inhibitory tracts, open probability gating, and coupled ASL volume recovery.
 - **Acceptance:** pytest tools/discovery/test_enac_proteolysis_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-20.md; ClinicalTrials.gov:NCT03647228; ClinicalTrials.gov:NCT04375514; PDB:6BQN; PDB:6WTH; DOI:10.1085/jgp.201711910; DOI:10.1074/jbc.M111.233817; DOI:10.1016/j.jcf.2020.08.008
@@ -2106,6 +2292,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0246 Pseudomonas aeruginosa Phage OMKO1 Evolutionary Trade-off & MexAB-OprM Efflux Resensitization Dynamics (tools/discovery/phage_omko1_tradeoff.py)
 
 - **Why / ROI rationale:** Models the evolutionary trade-off where phage selection forces loss or alteration of OprM, resensitizing multi-drug resistant Pseudomonas aeruginosa to standard antibiotics and preventing treatment escape. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - ODE modeling of lytic bacteriophage OMKO1 receptor binding (OprM), phage-host Lotka-Volterra population dynamics, fitness trade-off selection, and antibiotic (ciprofloxacin) resensitization.
 - **Acceptance:** pytest tools/discovery/test_phage_omko1_tradeoff.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-20.md; ClinicalTrials.gov:NCT04684641; ClinicalTrials.gov:NCT05010577; DOI:10.1038/s41598-018-24541-1; DOI:10.1016/j.jcf.2021.03.013
@@ -2114,6 +2301,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0251 Alveolar & Airway Macrophage Efferocytosis Impairment & Neutrophil Extracellular Trap (NET) Degradation Kinetics in CF Airways (tools/discovery/macrophage_efferocytosis_model.py)
 
 - **Why / ROI rationale:** Quantifies the inflammatory trap where NE-mediated efferocytosis shutdown forces PMN secondary necrosis, generating a dense NET hydrogel that physically impedes gene therapy vectors (LNPs, AAVs); models therapeutic reversal via elastase inhibition, rhDNase, and CFTR rescue. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Biophysical modeling of neutrophil elastase (NE) mediated cleavage of macrophage efferocytosis scavenger receptors (MerTK/CD36), phagolysosomal acidification failure (v-ATPase/CFTR counter-ion loss), and secondary necrotic NET debris accumulation.
 - **Acceptance:** pytest tools/discovery/test_macrophage_efferocytosis_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT02088216; ClinicalTrials.gov:NCT00506688; PDB:1HNE; PDB:2P0C; PDB:1AOI; DOI:10.1172/JCI13554; DOI:10.3389/fimmu.2021.734608; DOI:10.1038/ncb1490; DOI:10.1126/science.1092385
@@ -2122,6 +2310,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0252 Coupled ENaC-TMEM16A Transepithelial Ion Equilibrium & Purinergic (P2Y2R-Ca2+) Fluid Homeostasis Model (tools/discovery/enac_tmem16a_equilibrium.py)
 
 - **Why / ROI rationale:** Unifies apical electrophysiology into a self-consistent transepithelial circuit; directly grounds the clinical results of Phase 3 Denufosol trials (NCT00846781, NCT00425165, NCT00625612) and antisense/RNAi ENaC trials (NCT03647228, NCT04375514) to evaluate alternative ion transport strategies for Class I/premature termination mutations. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Unified transepithelial electrophysiological circuit modeling of apical TMEM16A calcium-activated chloride conductance, ENaC sodium hyperabsorption under protease cleavage, and purinergic P2Y2R-Ca2+ feedback regulation.
 - **Acceptance:** pytest tools/discovery/test_enac_tmem16a_equilibrium.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00846781; ClinicalTrials.gov:NCT00425165; ClinicalTrials.gov:NCT00625612; ClinicalTrials.gov:NCT03647228; ClinicalTrials.gov:NCT04375514; PDB:5OYB; PDB:6BQN; PDB:6WTH; PDB:7L1V; DOI:10.3389/fphar.2019.00517; DOI:10.1016/S1097-2765(01)00344-3; DOI:10.1016/j.jcf.2011.06.012; DOI:10.1007/s00424-021-02534-1; DOI:10.1085/jgp.201711910
@@ -2130,6 +2319,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0255 Class I Nonsense Allele (G542X, W1282X, R553X, R1162X) Adenine Base Editing (ABE8e) & Prime Editing (PE3) PAM Window & Basal Stem Cell Delivery Model (tools/discovery/class1_prime_base_editing.py)
 
 - **Why / ROI rationale:** Directly targets durable genetic correction for the remaining 10% of people with CF carrying Class I premature stop codons (G542X, W1282X, R553X, R1162X), comparing SpCas9-NG/SpRY ABE8e editing windows, silent/missense bystander rates, PE3 pegRNA efficiency, and basal progenitor expansion. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Quantitative sequence-window accessibility, bystander A-to-G deamination probability, pegRNA PBS/RTT folding free energy, and KRT5+/TP63+ airway basal stem cell LNP/RNP transduction modeling.
 - **Acceptance:** pytest tools/discovery/test_class1_prime_base_editing.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT05228836; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT06237335; PDB:6VPC; PDB:7Z4L; DOI:10.1038/s41587-020-0453-z; DOI:10.1038/s41586-019-1711-4; DOI:10.1038/s41551-024-01233-z
@@ -2138,6 +2328,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0270 CFTR Gating Potentiator Allosteric Cooperativity & Free-Energy Coupling Model (tools/discovery/gating_potentiator_energy_coupling.py)
 
 - **Why / ROI rationale:** Establishes allosteric energetic coupling DeltaDeltaG between ivacaftor/deutivacaftor binding and pore opening across severe gating alleles (G551D, G1244E, S549N). *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Quantitative thermodynamic mutant cycle and energetic coupling analysis between CFTR TM8 potentiator binding, TM4/5 hinge, and NBD dimerization across gating mutations (PDB:6O2P, 7SVD, 8EIQ).
 - **Acceptance:** pytest tools/discovery/test_gating_potentiator_energy_coupling.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT00909532; ClinicalTrials.gov:NCT02858843; PDB:6O2P; PDB:7SVD; PDB:8EIQ; PDB:8EJ1; DOI:10.1126/science.aaw7611; DOI:10.1085/jgp.202012676; DOI:10.1016/j.cell.2021.02.012
@@ -2148,6 +2339,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0272 Inhaled CFTR Synthetic mRNA 3' UTR Polyadenylation & Ribosome Load Translation Velocity Model (tools/discovery/mrna_translation_velocity.py)
 
 - **Why / ROI rationale:** Maximizes full-length functional CFTR channel translation efficiency from synthetic inhaled mRNA while preventing no-go decay (NGD). *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - TASEP ribosome elongation modeling and poly(A) deadenylation kinetics across full-length 4,443 nt CFTR mRNA to maximize protein translation without ribosome collisions.
 - **Acceptance:** pytest tools/discovery/test_mrna_translation_velocity.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-22.md; ClinicalTrials.gov:NCT05668741; ClinicalTrials.gov:NCT03375047; DOI:10.1038/mt.2008.200; DOI:10.1016/j.cell.2015.02.029; DOI:10.1038/nature13007
@@ -2158,6 +2350,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0281 CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Remodeling Model (tools/discovery/pdi_redox_remodeling.py)
 
 - **Why / ROI rationale:** Quantifies ERAD escape kinetics for misfolded CFTR alleles regulated by PDI redox remodeling and S-nitrosylation. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Biophysical ERAD escape kinetics via S-nitrosylation and PDI chaperoning across misfolded CFTR alleles.
 - **Acceptance:** pytest tools/discovery/test_pdi_redox_remodeling.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1073/pnas.241383898; DOI:10.3389/fphar.2012.00201; PDB:6MSM; PDB:5W81; ClinicalTrials.gov:NCT00057278
@@ -2167,6 +2360,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0298 CFTR DeltaF508 / NBD1-TMD Coupling Allosteric Rescuing Pharmacophore Model (tools/discovery/nbd1_tmd_pharmacophore.py)
 
 - **Why / ROI rationale:** Simulates multi-corrector pharmacological chaperone cooperativity and thermodynamic rescue of DeltaF508 CFTR. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Biophysical and structural pharmacophore model evaluating allosteric rescue of the DeltaF508 folding defect at the NBD1-TMD interface and Band C maturation.
 - **Acceptance:** pytest tools/discovery/test_nbd1_tmd_pharmacophore.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** DOI:10.1042/BJ20130541; DOI:10.1016/j.cell.2011.11.024; DOI:10.1016/j.cell.2011.11.023; ClinicalTrials.gov:NCT03525444
@@ -2176,6 +2370,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0321 Airway Surface Liquid pH Regulation, ATP12A/V-ATPase Proton Flux & Bicarbonate Secretion Biophysical Model (tools/discovery/asl_ph_regulation_model.py)
 
 - **Why / ROI rationale:** Grounds host defense antimicrobial activity in quantitative ion transport biophysics. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Pure Python biophysical model and unit tests in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_asl_ph_regulation_model; python tools/discovery/asl_ph_regulation_model.py --check
 - **Evidence:** tasks/specs/T-0321.md; Nature 487:109-113; JCI Insight 3:e123616
@@ -2185,6 +2380,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0322 CFTR Premature Termination Codon (PTC) Dual-Agent Readthrough Cooperativity & Ribosome Translation Fidelity Model (tools/discovery/ptc_readthrough_cooperativity_model.py)
 
 - **Why / ROI rationale:** Direct biophysical modeling for non-modulator eligible Class I CFTR nonsense alleles. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Pure Python biophysical model and unit tests in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_ptc_readthrough_cooperativity_model; python tools/discovery/ptc_readthrough_cooperativity_model.py --check
 - **Evidence:** tasks/specs/T-0322.md; AJRCCM 203:1254-1264
@@ -2194,6 +2390,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0345 CFTR mRNA Exon 10-12 Secondary Structure & Translation Elongation Kinetic Barrier Model (tools/discovery/mrna_secondary_structure_model.py)
 
 - **Why / ROI rationale:** Provides thermodynamic quantification of CFTR mRNA secondary structures for targeted ASO and readthrough design. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Deterministic biophysical modeling tool in cf-research.
 - **Acceptance:** python tools/discovery/mrna_secondary_structure_model.py --check
 - **Evidence:** tasks/specs/T-0345.md; DOI 10.1073/pnas.1908856116
@@ -2203,6 +2400,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0346 Mucociliary Clearance Metachronal Coordination & Viscoelastic Damping Model (tools/discovery/metachronal_wave_damping_model.py)
 
 - **Why / ROI rationale:** Quantifies hydrodynamic coupling and transport failure in dehydrated airway mucus, guiding mucolytic dose modeling. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic hydrodynamic modeling tool in cf-research.
 - **Acceptance:** python tools/discovery/metachronal_wave_damping_model.py --check
 - **Evidence:** tasks/specs/T-0346.md; DOI 10.1152/physrev.00015.2015
@@ -2212,6 +2410,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0351 Airway Epithelial Glycocalyx Barrier Sialic Acid Charge Density & Enzymatic Permeabilization Model (tools/discovery/glycocalyx_charge_barrier_model.py)
 
 - **Why / ROI rationale:** Provides rigorous mathematical framework for overcoming the dense glycocalyx steric barrier to aerosol delivery. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Mathematical model and validation tests in cf-research.
 - **Acceptance:** python tools/discovery/glycocalyx_charge_barrier_model.py --check
 - **Evidence:** tasks/specs/T-0351.md; DOI: 10.1038/s41467-022-31127-2
@@ -2222,6 +2421,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0352 CFTR Cryptic Splice Site Pseudoexon U1 snRNP Steric Decoy Thermodynamics Model (tools/discovery/u1_snrnp_decoy_thermodynamics.py)
 
 - **Why / ROI rationale:** Quantifies binding free energies and Hill cooperativity for steric-blocking ASOs and engineered U1 snRNAs in deep intronic CFTR alleles. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Mathematical model and validation tests in cf-research.
 - **Acceptance:** python tools/discovery/u1_snrnp_decoy_thermodynamics.py --check
 - **Evidence:** tasks/specs/T-0352.md; DOI: 10.1016/j.ajhg.2019.09.008
@@ -2232,6 +2432,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0357 Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretion Stoichiometry Model (tools/discovery/goblet_cell_mucus_stoichiometry.py)
 
 - **Why / ROI rationale:** Quantifies mucus plug formation thresholds and anti-IL-13 / anti-mucolytic therapeutic intervention points. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Mathematical model and validation tests in cf-research.
 - **Acceptance:** python tools/discovery/goblet_cell_mucus_stoichiometry.py --check
 - **Evidence:** tasks/specs/T-0357.md; DOI: 10.1172/JCI127771
@@ -2241,6 +2442,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0358 CFTR PTC Readthrough Aminoglycoside / Synthetic Macrolide Ribosome Misincorporation & Translation Fidelity Model (tools/discovery/ptc_readthrough_fidelity_model.py)
 
 - **Why / ROI rationale:** Models amino acid substitution distributions at W1282X and G542X premature stop codons and resulting channel gating kinetics. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Mathematical model and validation tests in cf-research.
 - **Acceptance:** python tools/discovery/ptc_readthrough_fidelity_model.py --check
 - **Evidence:** tasks/specs/T-0358.md; DOI: 10.1073/pnas.2001407117
@@ -2250,6 +2452,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0363 Airway Epithelial Club Cell (SCGB1A1+) Secretoglobins & Anti-Inflammatory Surfactant Protein Secretion Model (tools/discovery/club_cell_secretoglobin_model.py)
 
 - **Why / ROI rationale:** Addresses distal airway mucosal defense, innate immune impairment, and mucosal repair in CF lungs. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - In silico ODE kinetic model and test suite in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_club_cell_secretoglobin; python tools/discovery/club_cell_secretoglobin_model.py --check
 - **Evidence:** tasks/specs/T-0363.md; DOI: 10.1165/rcmb.2019-0139TR
@@ -2259,6 +2462,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0364 CFTR Inhaled Lipid Nanoparticle (LNP) Nebulization Shear Stress & Poly(ethylene glycol) (PEG) Shielding Stability Model (tools/discovery/lnp_shear_stability_model.py)
 
 - **Why / ROI rationale:** Critical formulation biophysics to prevent payload degradation during inhalation therapy delivery. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - In silico biophysical shear stability model and test suite in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_lnp_shear_stability; python tools/discovery/lnp_shear_stability_model.py --check
 - **Evidence:** tasks/specs/T-0364.md; DOI: 10.1016/j.jconrel.2021.08.052
@@ -2268,6 +2472,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0375 Airway Surface Liquid (ASL) Sialic Acid & Sulfated Glycosaminoglycan (GAG) Electrostatic Binding Affinity Model (tools/discovery/asl_electrostatic_binding_model.py)
 
 - **Why / ROI rationale:** Quantifies charge-mediated mucosal vector immobilization thresholds and guides PEG/zwitterionic shielding design. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Mechanistic biophysical simulation in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_asl_electrostatic_binding_model; python tools/discovery/asl_electrostatic_binding_model.py --check
 - **Evidence:** tasks/specs/T-0375.md; DOI: 10.1021/acs.biomac.1c00452
@@ -2277,6 +2482,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0376 CFTR Delta-F508 ER Quality Control Chaperone (Hsp70/Hsp90/CHIP) Ubiquitin Ligase Kinetic Partitioning Model (tools/discovery/cftr_chaperone_ubiquitin_model.py)
 
 - **Why / ROI rationale:** Models molecular chaperone triage dynamics and pharmacological corrector rescue of Delta-F508 CFTR ER export. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Mechanistic biophysical simulation in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_cftr_chaperone_ubiquitin_model; python tools/discovery/cftr_chaperone_ubiquitin_model.py --check
 - **Evidence:** tasks/specs/T-0376.md; DOI: 10.1016/j.cell.2006.09.043; PDB: 5UAK
@@ -2286,6 +2492,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0381 Inhaled Nanoparticle Mucociliary Clearance vs. Macrophage Phagocytosis Kinetic Partitioning Model (tools/discovery/nanoparticle_partitioning_model.py)
 
 - **Why / ROI rationale:** Quantifies competitive vector clearance kinetics to maximize epithelial cell transfection before elimination. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Mechanistic biophysical simulation in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_nanoparticle_partitioning_model
 - **Evidence:** tasks/specs/T-0381.md; DOI: 10.1016/j.addr.2021.113904
@@ -2295,6 +2502,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0382 CFTR Nucleotide-Binding Domain 2 (NBD2) ATP Hydrolysis & Dimer Dissociation Free-Energy Landscape Model (tools/discovery/nbd2_atp_hydrolysis_model.py)
 
 - **Why / ROI rationale:** Models the chemical gating cycle terminating channel open bursts and evaluates allosteric potentiator coupling. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Mechanistic biophysical simulation in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_nbd2_atp_hydrolysis_model
 - **Evidence:** tasks/specs/T-0382.md; DOI: 10.1085/jgp.202012678
@@ -2304,6 +2512,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0388 CFTR Cryptic Transmembrane S-Nitrosylation & Protein Disulfide Isomerase (PDI) Redox Coupling Model (tools/discovery/cftr_snitrosylation_pdi_model.py)
 
 - **Why / ROI rationale:** Models redox regulation of DeltaF508 misfolding and ERAD escape to identify novel pharmacological co-therapies. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Mechanistic biophysical simulation in cf-research.
 - **Acceptance:** python -m unittest tools.discovery.test_cftr_snitrosylation_pdi_model
 - **Evidence:** tasks/specs/T-0388.md; DOI: 10.1074/jbc.M111.235945
@@ -2313,6 +2522,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0392 Inhaled TMEM16A Alternative Chloride Conductance & Intracellular Calcium Coupling Model (tools/discovery/tmem16a_calcium_conductance_model.py)
 
 - **Why / ROI rationale:** Models mutation-agnostic apical chloride secretion and ASL hydration via TMEM16A potentiation under resting intracellular calcium. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
 - **Acceptance:** pytest tools/discovery/test_tmem16a_calcium_conductance_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0392.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6QP6, 5OYB; DOI 10.1172/JCI128564, 10.1183/13993003.congress-2020.4449; NCT04488705, NCT06478706
@@ -2323,6 +2533,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0393 Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py)
 
 - **Why / ROI rationale:** Solves the 4.7 kb AAV packaging barrier for full-length CFTR via trans-splicing inteins and models redosing constraints. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
 - **Acceptance:** pytest tools/discovery/test_split_intein_cftr_reconstitution.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0393.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6MSM, 5UAK; DOI 10.1126/scitranslmed.aav4523, 10.1038/s41587-021-00943-7; NCT05248230
@@ -2332,6 +2543,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0394 Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model (tools/discovery/suppressor_trna_orthogonality.py)
 
 - **Why / ROI rationale:** Quantifies translational readthrough and off-target stop codon suppression for high-unmet-need Class I nonsense variants (W1282X, G542X). *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
 - **Acceptance:** pytest tools/discovery/test_suppressor_trna_orthogonality.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0394.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6O2P, 7SVD; DOI 10.1038/s41467-019-09562-5, 10.1093/nar/gkad1220; NCT04135495, NCT04126473
@@ -2341,6 +2553,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0400 Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py)
 
 - **Why / ROI rationale:** Models mucus mesh penetration and endosomal escape biophysics for inhaled aerosolized CFTR mRNA genetic therapies. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
 - **Acceptance:** pytest tools/discovery/test_vx522_inhaled_lnp_mucus_diffusion.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0400.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; DOI 10.1073/pnas.1901667116, 10.1038/s41551-021-00724-5; NCT06237335
@@ -2350,15 +2563,18 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0401 Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py)
 
 - **Why / ROI rationale:** Quantifies aminoglycoside-free nonsense readthrough kinetics and mature CFTR channel rescue for severe Class I alleles (W1282X, G542X). *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
 - **Acceptance:** pytest tools/discovery/test_ptc_erf_depletion_readthrough.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0401.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; RCSB PDB 6O2P; DOI 10.1038/s41589-020-00662-8, 10.1093/nar/gkaa728; NCT04135495
 - **Spec:** `tasks/specs/T-0401.md`
-- **Notes:** Curative Discovery Council Track A Wave 17. Eukaryotic release factor eRF1/eRF3 depletion, ribosomal A-site competition, stop codon context permissiveness, and Band C mature channel rescue for Class I CFTR nonsense mutations.
+- **Notes:** Curative Discovery Council Track A Wave 17. Eukaryotic release factor eRF1/eRF3 depletion, ribosomal A-site competition, stop codon context permissiveness, and Band C mature channel rescue for Class I CFTR nonsense mutations. \| 2026-10-24 CRO Auto-Triage: Marked done. Delivered in senseiewok/cf-research#135 (commit 87b221f). Implemented tools/discovery/ptc_erf_depletion_readthrough.py and test_ptc_erf_depletion_readthrough.py modeling eRF1/eRF3 depletion and aminoglycoside-free nonsense readthrough kinetics for W1282X/G542X CFTR.
+- **Measured:** 4 h; Delivered in senseiewok/cf-research#135 (commit 87b221f). Implemented tools/discovery/ptc_erf_depletion_readthrough.py and test_ptc_erf_depletion_readthrough.py modeling eRF1/eRF3 depletion and aminoglycoside-free nonsense readthrough kinetics for W1282X/G542X CFTR.
 
 ### T-0402 Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py)
 
 - **Why / ROI rationale:** Models enzymatic exopolysaccharide stripping and multi-log bactericidal synergy to eradicate chronic antibiotic-resistant CF biofilm infections. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
 - **Acceptance:** pytest tools/discovery/test_phage_depolymerase_biofilm_synergy.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0402.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; RCSB PDB 6QW8; DOI 10.1128/AAC.01413-20, 10.1038/s41467-020-18009-7; NCT04596319
@@ -2368,6 +2584,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
 - **Why / ROI rationale:** Keeps the lab's flagship atlas perpetually synchronized with global CF clinical trial activity under catalog access rules. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Structured parsing of clinical trial protocol fields under security-browsing rules.
 - **Acceptance:** Skill scheduled-trial-surveillance operationalized; weekly automated check scans ClinicalTrials.gov API v2; outputs structured delta snapshots for the atlas generator; passes check_claims.py.
 - **Evidence:** 2026-10-12: ClinicalTrials.gov regular polling feeds directly into the flagship Trial Endpoint Atlas (T-0130), capturing new trial starts, terminations (e.g. VX-522), and completion updates. Detailed in gemini-cf-schedules-design.md.
@@ -2377,6 +2594,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0169 Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification
 
 - **Why / ROI rationale:** Establishes cryptographic snapshot manifest, query parameters, and PRISMA audit counts for the 1,478 ClinicalTrials.gov CF studies. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** local - Deterministic test suite and offline JSON schema validation.
 - **Acceptance:** python -m unittest discover -s tools/trial_atlas -p 'test_*.py'
 - **Evidence:** ClinicalTrials.gov API v2 query term 'cystic fibrosis'; PRISMA 2020 screening protocol
@@ -2386,6 +2604,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0187 Interactive Splice-Switching ASO & Class V Pseudoexon Explorer panel on /cf/ptc/ with es-MX parity
 
 - **Why / ROI rationale:** Translates Class V splice-switching ASO biophysics (3849+10kb C->T, NCT06429176) into an accessible, bilingual (EN + es-MX) interactive workbench with strict clinical disclaimers. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build ES6 interactive panel and bilingual localization on /cf/ptc/.
 - **Acceptance:** python -m unittest tests.test_site tests.test_cftr_hero; python tools/check_anti_hallucination.py; python tools/sync_chrome.py --check
 - **Evidence:** ClinicalTrials.gov NCT06429176; cf-research/landscape/discovery-ptc-trimodal-kinetics.md; src/cf/ptc/index.html
@@ -2394,6 +2613,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0195 Expand verified international CF community resources intake (Latin America & Southern Europe official organizations) in cf-research/sources/catalog.yaml and /resources/
 
 - **Why / ROI rationale:** Expands the global CF community help directory beyond the initial 6 countries with verified national CF associations, emergency disclaimers, and bilingual support. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
 - **Route:** local - Verified official CF organization resource expansion with tests.test_resources_page.
 - **Acceptance:** python -m unittest tests.test_site tests.test_resources_page; python tasks/check-voice.py
 - **Evidence:** src/resources/index.html; tests/test_resources_page.py; cf-research/sources/catalog.yaml
@@ -2402,6 +2622,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0197 Bacteriophage-antibiotic synergy & biofilm penetration kinetics model for chronic CF Pseudomonas aeruginosa (tools/discovery/phage_biofilm_kinetics.py)
 
 - **Why / ROI rationale:** Models lytic phage replication, biofilm alginate/EPS depolymerization, MexAB-OprM efflux fitness trade-off, and sub-MIC antibiotic resensitization for chronic CF Pseudomonas infections. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Deterministic differential reaction-diffusion and sub-MIC synergy modeling with unit test verification.
 - **Acceptance:** pytest tools/discovery/test_phage_biofilm_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** ClinicalTrials.gov NCT04684641 (CYPHY Yale bacteriophage study); NCT05453578 (BX004-A inhaled phage cocktail); NCT05616221 (AP-PA02); DOI 10.1038/s41591-021-01659-5; cf-research/sources/catalog.yaml
@@ -2411,6 +2632,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0198 Inhaled viral vs non-viral vector repeat-dosing neutralizing antibody & epithelial turnover decay model (tools/discovery/vector_redosing_kinetics.py)
 
 - **Why / ROI rationale:** Quantifies ciliated vs basal progenitor transduction durability and mucosal IgA/IgG anti-capsid neutralization across AAV, lentiviral, HSV-1, and LNP mRNA redosing schedules. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** local - Deterministic multi-compartment mucosal immunity and ciliated cell turnover model with unit tests.
 - **Acceptance:** pytest tools/discovery/test_vector_redosing_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** ClinicalTrials.gov NCT05248230 (4D-710 aerosolized AAV); NCT06515002 (BI 3720931 lentiviral vector); NCT05504837 (KB407 HSV-1); NCT05668741 (VX-522 mRNA LNP); NCT06237335 (RCT2100 mRNA)
@@ -2420,6 +2642,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0199 CFTR NBD1 thermal unfolding (dTm) & allosteric domain-interface free energy landscape model across rare missense variants (tools/discovery/nbd1_thermodynamics.py)
 
 - **Why / ROI rationale:** Models coupled NBD1 thermal melting (dTm) and ICL4-NBD1 interface free energy rescue for F508del, N1303K, and R560T under dual and triple correctors. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Deterministic thermodynamic folding & allosteric coupling model with unit tests.
 - **Acceptance:** pytest tools/discovery/test_nbd1_thermodynamics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** RCSB PDB 6MSM; PDB 8EIQ; ClinicalTrials.gov NCT04043806 (ETI); NCT06468527; DOI 10.1056/NEJMoa1908639; cf-research/sources/catalog.yaml
@@ -2429,6 +2652,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0202 Interactive Mucociliary Clearance & Airway Surface Liquid (ASL) Rheology Workbench panel on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Translates T-0185 viscoelastic mucus mesh pore scaling and mucolytic rescue into an interactive, bilingual (EN + es-MX) workbench panel on /cf/delivery/. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build ES6 interactive panel and bilingual localization on /cf/delivery/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_delivery_page tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/mucus_rheology.py; DOI 10.1126/sciadv.aaw3507; DOI 10.1073/pnas.1910397116; ClinicalTrials.gov NCT05668741; src/cf/delivery/index.html
@@ -2437,6 +2661,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0203 Interactive Alternative Ion Channel & Modifier Epistasis (SLC26A9 / TMEM16A / ENaC) Explorer on /cf/tree/ with es-MX parity
 
 - **Why / ROI rationale:** Translates T-0186 modifier epistasis and ASL height restoration into an interactive bypass conductance explorer on /cf/tree/. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build ES6 interactive panel and bilingual localization on /cf/tree/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/modifier_interactome.py; DOI 10.1038/s41467-020-19255-2; DOI 10.1152/ajplung.00350.2020; ClinicalTrials.gov NCT04375514; src/cf/tree/index.html
@@ -2445,6 +2670,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0209 Interactive Prime Editing (F508del & W1282X pegRNA/nicking-sgRNA) Feasibility Explorer panel on /cf/cftr/ with es-MX parity
 
 - **Why / ROI rationale:** Translates T-0184 prime editing pegRNA PBS/RTT thermodynamics and PE3/PE3b flap resolution for F508del and W1282X into a bilingual interactive workbench on /cf/cftr/. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build ES6 interactive panel and bilingual localization on /cf/cftr/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests
 - **Evidence:** cf-research/tools/discovery/prime_editing_cftr.py; RCSB PDB 6MSM; PDB 8EIQ; ClinicalTrials.gov NCT05668741; src/cf/cftr/index.html
@@ -2454,6 +2680,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0210 Interactive Dual-AAV Split-Intein & Delta-R Minigene Packaging Explorer panel on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Translates the 4.7-kb AAV capsid packaging limit, Delta-R minigene truncation, and split-intein trans-splicing kinetics into an interactive explorer on /cf/delivery/. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build ES6 interactive panel and bilingual localization on /cf/delivery/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_delivery_page tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; DOI 10.1038/s41467-019-11246-8; DOI 10.1073/pnas.1901174116; ClinicalTrials.gov NCT05248230; src/cf/delivery/index.html
@@ -2462,6 +2689,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0211 Interactive Genotype-to-Modality Eligibility & Clinical Trial Pathway Finder on /cf/registries/ with es-MX parity
 
 - **Why / ROI rationale:** Helps people with CF and families understand how variant classes (Class I-VII) map to approved modulator coverage vs investigational mRNA, ASO, and gene-editing trials across global registries. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** local - Zero-build ES6 interactive panel and bilingual localization on /cf/registries/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/sources/catalog.yaml (cftr2, ecfspr-adr-2024); ClinicalTrials.gov NCT04043806; NCT06429176; NCT05668741; src/cf/registries/index.html
@@ -2470,6 +2698,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0215 Interactive Aerosol SORT-LNP Mucin Penetration & Organotropism Matrix Explorer on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Visualizes the post-VX-522 biophysical delivery frontier: aerodynamic size restriction (MMAD 2.8-3.2 um), zwitterionic polysarcosine shielding, and selective organ targeting for genetic CFTR inhalation. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Aerosol LNP biophysical parameters and delivery matrix explorer on /cf/delivery/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; ClinicalTrials.gov NCT05668741; DOI 10.1038/s41565-021-00870-x; DOI 10.1073/pnas.1916113117; src/cf/delivery/index.html
@@ -2479,6 +2708,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0239 Inhaled CFTR mRNA Lipid Nanoparticle (LNP) Endosomal Escape Kinetics, Ionizable Lipid pKa Inversion & Nebulization Shear Stability Model (tools/discovery/mrna_lnp_escape_model.py)
 
 - **Why / ROI rationale:** Overcomes the double bottleneck of nebulization shear stress and endosomal entrapment that limited BEACON-CF (NCT05668741), establishing quantitative formulation rules for inhaled mRNA delivery. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Quantitative biophysical ODE modeling of pH-dependent ionizable lipid protonation, inverted hexagonal H_II phase membrane fusion, and vibrating mesh nebulizer shear stability.
 - **Acceptance:** pytest tools/discovery/test_mrna_lnp_escape_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; ClinicalTrials.gov:NCT05668741; DOI:10.1038/s41467-019-12503-4; DOI:10.1038/s41565-021-01040-4; DOI:10.1021/acs.nanolett.0c03387
@@ -2488,6 +2718,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0241 Nonsense-Mediated mRNA Decay (NMD) UPF1-SMG1 Phosphorylation Branch Kinetics & Premature Termination Codon (PTC) Escape Matrix (tools/discovery/nmd_ptc_kinetics.py)
 
 - **Why / ROI rationale:** Resolves the severe substrate depletion barrier of CFTR PTCs, modeling SMG1 kinase inhibition and readthrough synergy to exceed 10% WT transepithelial current. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic kinetic modeling of SURF complex assembly, UPF1 phosphorylation branches, and +4 context decoding competition at W1282X and G542X.
 - **Acceptance:** pytest tools/discovery/test_nmd_ptc_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-19.md; ClinicalTrials.gov:NCT04135495; DOI:10.1038/s41580-019-0126-2; DOI:10.1016/j.molcel.2012.08.018; DOI:10.1074/jbc.M112.390815
@@ -2497,6 +2728,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0011 External review round: registry scientist on comparability, person with CF/caregiver on wording
 
 - **Why / ROI rationale:** The highest-impact error available is placing non-comparable numbers side by side; only a domain reviewer catches it. *(confidence: low)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** Two written reviews on file; every comparability finding either fixed or recorded in comparability_notes.
 - **Evidence:** cf-first-project-scoping-memo.md (private session document, not in the repo) section 7
@@ -2505,6 +2737,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0042 Admission review of BioMCP as a discovery tool alongside cf-evidence-loop
 
 - **Why / ROI rationale:** BioMCP reaches ~30 biomedical sources through one MCP server and overlaps most of our providers. If it passes provenance, injection and MCP-runtime review it saves building providers; if not, we know why. Either outcome is worth the hours. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** model-onboarding section 1 and 6 outputs on a pinned release; security-runtime MCP checklist completed; written complement-or-not decision with the rule that shipped citations still come from cf-evidence-loop records. Plus: BioMCP's rate limiting, robots handling, retry and user-agent behaviour documented against NETWORK-RULES.md R1-R9; any rule it cannot demonstrate is listed as a condition of use. The wrapper's ClinGen and gnomAD tools are blocked until the catalog entries change, and the wrapper's own requests must follow NETWORK-RULES R1-R9.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 1
@@ -2513,6 +2746,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0102 Bring the lab's sources together: one question, one cross-checked record, then the variant layer
 
 - **Why / ROI rationale:** Estimate: the lab's differentiator is answering one CF question from several checked sources at once; the approved sources already exist, so most of the value is wiring and tests, not new access. *(confidence: low)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** Step 1: a documented, tested run of one fixed CF question through the evidence loop returns records from at least four catalogued sources, each with its source id, URL, retrieval date and a 'not stated' where a source is silent; a test with a deliberately wrong record shows the cross-check flags it. Step 2: the variant layer (the variant_profile tool, MyVariant, and AlphaMissense only if the catalog entry is admitted) gives one profile for a fixed public variant with every number tied to a source field. Each new key gets a slot in .env.example (names only) and is read only through run-with-env.ps1; no agent reads .env. Every pull request names each new external network call and dependency. The maintainer does every sign-up, licence acceptance and permission request in the proposal's table; no source becomes reachable until the maintainer admits it in the catalog. A Full-tier review applies where a key or a licence is involved.
 - **Evidence:** 2026-10-08: the maintainer said the lab's strength is bringing sources together and asked for a list of APIs, MCP servers and data in order of impact. cf-research/sources/catalog.yaml already holds 14 sources with access: api and six more are drafted (two api, four manual) (cf-research proposals/2026-10-07-api-candidates.md, draft pull request). The ranked plan and the sign-up steps only the maintainer can do are in cf-research proposals/2026-10-08-source-plan-and-signups.md. The catalog marks OpenAlex and Data Commons as key-required and NCBI and openFDA as optional-key; of the keys, only DC_API_KEY has a slot in .env.example today.
@@ -2523,6 +2757,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0129 A continuity note: what a second person needs to keep the lab running
 
 - **Why / ROI rationale:** Estimate: protects the lab's public pages and its security if the one person is away. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** A short document in the private lab files (never in a public repo, and with no secret in it) lists where each thing lives and who may do it: the deploy path and how to stop it, how to take the site down, how to rotate the deploy credential, which accounts matter, and what to tell visitors. A person other than the maintainer has read it and says whether it is enough. No credentials, no host details in any public file.
 - **Evidence:** 2026-10-10: one reviewer asked what a second person would need to merge, deploy or take down the site if the maintainer is unavailable.
@@ -2531,6 +2766,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0141 Site: pin the byte copies of cf-research data (CFTR files) to a recorded commit, so site CI compares with the pin, not with cf-research main
 
 - **Why / ROI rationale:** Estimate: removes a merge-order rule nobody can enforce by hand across two repos with squash merges, and the re-sync PR each time; the lock also records which research commit a public page was built from. A stranger may say the pin only moves the red check to 'behind'; the difference is that behind is a dated warning and differs-from-main is a skipped deploy. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: structural_biology | Kind: new
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A lock file records the cf-research commit SHA and a hash per copied file; CI compares the copies with the pinned commit and fails on a one-byte difference (tested with a perturbed fixture); a status command prints how far the pin is behind cf-research main; moving the pin is one PR in the site repo; merging a cf-research change alone no longer turns site main red. Reuse the shape of the existing pin tools; no second pin mechanism.
 - **Evidence:** 2026-10-12 to 13 (session record): the site's CI compares its byte-copied CFTR files with cf-research main; merging the site PR before the cf-research PR made site main CI fail ('src/cf/cftr/index.html differs from the data') and the deploy step was skipped until a re-sync PR (site PR 49) merged. Same class as T-0121 (a copy checked against a moving source). The existing pattern to reuse: tools/pin_evidence.py and tools/pin_resources.py in the site repo (listed 2026-10-13).
@@ -2540,6 +2776,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0155 Implement and schedule the autonomous Gemini discovery engine sidecars (scheduled-* skills)
 
 - **Why / ROI rationale:** Activates autonomous recurring discovery research across the lab without requiring manual intervention. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - PowerShell 7 automation and Antigravity configuration.
 - **Branch:** feat/turbo-sentinel-cadence
 - **Acceptance:** Skills created under .claude/skills/scheduled-*/ matching check-skill-frontmatter.py; .agents/skills/ symlinks established; sidecar.json configurations authored with bounded permissions.
@@ -2550,6 +2787,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0170 Trial Endpoint Atlas: 8-class primary outcome lexicon & verbatim span extraction
 
 - **Why / ROI rationale:** Extracts exact character spans for 8 canonical outcome classes with zero invented substrings. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** local - Deterministic regex and span verification tests.
 - **Acceptance:** python -m unittest tools/trial_atlas/test_lexicon.py tools/trial_atlas/test_propose_tags.py
 - **Evidence:** Canonical CF outcome measures and PRISMA 2020 outcome class taxonomy
@@ -2559,6 +2797,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0230 Interactive Adenine Base Editing (ABE8e) & Splice Rescue Multi-Allele Explorer on /cf/ptc/ with es-MX parity
 
 - **Why / ROI rationale:** Translates base editing deamination profile, bystander missense risk, and SpRY/SpCas9 PAM accessibility into an interactive public explorer on /cf/ptc/. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build ES6 interactive simulation panel and bilingual localization on /cf/ptc/ connecting base editing and splice rescue.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_website_wave9_ptc_tree
 - **Evidence:** cf-research/tools/discovery/base_editing_cftr.py; cf-research/tools/discovery/base_editing_cftr_designs.json; DOI 10.1038/s41587-020-0453-z; RCSB PDB 6MSM; NCT06237335
@@ -2568,6 +2807,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0232 Interactive SORT-LNP Mucin Penetration & Airway Basal Cell Tropism Matrix Explorer on /cf/delivery/ with es-MX parity
 
 - **Why / ROI rationale:** Translates aerosol SORT-LNP biophysical parameters, crosslinked mucin pore mesh penetration, and basal stem cell tropism into an interactive explorer on /cf/delivery/. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build ES6 interactive aerosol delivery simulation and bilingual localization on /cf/delivery/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/discovery-sort-lnp-aerosol-matrix.md; cf-research/landscape/delivery-biophysics.md; DOI 10.1038/s41565-021-00870-1; DOI 10.1073/pnas.2001532117
@@ -2577,6 +2817,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0396 Interactive CFTR G-Quadruplex (G4) Secondary Structure Stability & Transcriptional Ligand Potentiation Simulator on /cf/cftr/ with es-MX Parity
 
 - **Why / ROI rationale:** Visualizes non-canonical G-quadruplex folding equilibrium and transcriptional ligand potentiation in CFTR promoter. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
 - **Branch:** work/sentinel-security-t-0396
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
@@ -2588,6 +2829,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0185 Airway mucociliary clearance viscoelastic shear rheology & mucin mesh hindrance model (tools/discovery/mucus_rheology.py)
 
 - **Why / ROI rationale:** Quantifies the dehydrated CF airway mucus barrier across solids concentrations to guide aerosolized LNP (NCT05668741) and AAV (NCT05248230, NCT06526923) vector engineering. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Biophysical Stokes-Einstein pore hindrance and viscoelastic modulus modeling.
 - **Acceptance:** pytest tools/discovery/test_mucus_rheology.py -v verifies complex modulus G*(omega), mucin pore size distribution across 2% to 8% solids content, and PEG-brush diffusive permeability.
 - **Evidence:** DOI 10.1126/sciadv.aaw3507; DOI 10.1073/pnas.1910397116; ClinicalTrials.gov NCT05668741; cf-research/landscape/delivery-biophysics.md
@@ -2596,6 +2838,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0182 Zero-build In Silico Delivery Hypothesis Explorer UI with Dignity Boundary Card (src/cf/delivery/)
 
 - **Why / ROI rationale:** Empowers researchers, clinicians, and community members to explore cross-domain stem cell delivery hypotheses with interactive controls, while upholding strict dignity boundaries and zero-build accessibility. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Client-side ES6 canvas and DOM manipulation tests.
 - **Acceptance:** python -m unittest tests.test_site tests.test_delivery_page; python tasks/check-voice.py
 - **Evidence:** Discovery models T-0177, T-0178, T-0179; cf-research-context dignity rules; 65 roses convention
@@ -2605,6 +2848,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0183 Splice-switching antisense oligonucleotide (ASO) steric blocking model for CFTR 3849+10kb C->T pseudoexon exclusion (tools/discovery/aso_splice_model.py)
 
 - **Why / ROI rationale:** Models antisense oligonucleotide steric blocking of the 3849+10kb C->T cryptic 84-bp pseudoexon (NCT06429176), expanding Track A curative biophysics to Class V splicing variants. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic thermodynamic and splicing kinetics modeling with unit test verification.
 - **Acceptance:** pytest tools/discovery/test_aso_splice_model.py -v passes 100% assertion coverage across 2-O-MOE/PMO steric hybridization free energy, pseudoexon exclusion dose-response, and zero hallucinated identifiers.
 - **Evidence:** ClinicalTrials.gov NCT06429176 (SPL84 in CF 3849+10kb C->T); DOI 10.1016/j.jcf.2021.08.014; RCSB PDB 6MSM; cf-research/sources/catalog.yaml
@@ -2613,6 +2857,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0206 Dual-AAV split-intein trans-splicing biophysical reconstitution model for CFTR (tools/discovery/dual_aav_intein_model.py)
 
 - **Why / ROI rationale:** Models split-intein reconstitution kinetics, Poisson co-infection probabilities, and mature CFTR Band C yield across the 4.7-kb AAV packaging limit. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Track A biophysical delivery modeling and multi-vector kinetics.
 - **Acceptance:** pytest tools/discovery/test_dual_aav_intein_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; DOI 10.1038/s41467-019-11246-8; DOI 10.1016/j.omtm.2020.10.007; ClinicalTrials.gov NCT05248230
@@ -2622,6 +2867,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0219 Base Editing (ABE8e / CBE) bystander deamination window & PAM accessibility model for CFTR nonsense and canonical splice alleles (W1282X, R553X, G542X, 2789+5G->A)
 
 - **Why / ROI rationale:** Enables precise in silico screening of base editor gRNAs and bystander mutation risk for refractory nonsense mutations (W1282X, R553X) and splice variants. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** frontier - High-stakes biophysical deaminase window and structural perturbation modeling requiring frontier verification.
 - **Acceptance:** pytest tools/discovery/test_base_editing_cftr.py
 - **Evidence:** DOI 10.1038/s41587-020-0453-z; ClinicalTrials.gov NCT06237335; PDB 6MSM; tasks/specs/T-0213.md
@@ -2632,6 +2878,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0221 CFTR potentiator + triple-corrector cooperative allosteric gating thermodynamic cycle (VX-445 / VX-661 / VX-121 / VX-561 open-channel stabilization)
 
 - **Why / ROI rationale:** Models multi-ligand thermodynamic synergy between TMD1, TMD2, and gating hinge pockets to explain next-generation vanzacaftor regimen superiority. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** frontier - Thermodynamic cycle and multi-state linkage biophysics requiring Cryo-EM coordinate integration.
 - **Acceptance:** pytest tools/discovery/test_allosteric_potentiator_model.py
 - **Evidence:** DOI 10.1126/science.ade2216; PDB 8EIQ; PDB 6MSM; ClinicalTrials.gov NCT04043806; NCT06468527; tasks/specs/T-0215.md
@@ -2642,6 +2889,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0184 Prime editing pegRNA & nicking sgRNA biophysical feasibility scorer for CFTR F508del and W1282X (tools/discovery/prime_editing_cftr.py)
 
 - **Why / ROI rationale:** Establishes a reproducible in-silico prime editing design and biophysical constraint model for permanent F508del and W1282X correction without double-strand DNA breaks. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - In-silico pegRNA PBS/RTT thermodynamic scoring and deterministic pytest verification.
 - **Acceptance:** pytest tools/discovery/test_prime_editing_cftr.py -v verifies pegRNA primer binding site (PBS) melting temperature bounds (30-37C), reverse transcriptase template (RTT) length constraints, and PEmax/epegRNA packaging limits.
 - **Evidence:** DOI 10.1038/s41587-023-01851-6; DOI 10.1016/j.omtn.2022.04.025; RCSB PDB 6MSM; cf-research/sources/catalog.yaml
@@ -2651,6 +2899,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0186 CFTR modifier gene epistatic conductance model: SLC26A9, TMEM16A (ANO1), and ENaC interplay (tools/discovery/modifier_interactome.py)
 
 - **Why / ROI rationale:** Models genotype-agnostic bypass anion channels (SLC26A9, TMEM16A) that modulate clinical severity and provide therapeutic targets for null/deletion CF genotypes. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Epithelial ion transport coupled ODE modeling and unit tests.
 - **Acceptance:** pytest tools/discovery/test_modifier_interactome.py -v verifies apical chloride/bicarbonate flux compensation equations and airway surface liquid height restoration bounds.
 - **Evidence:** DOI 10.1038/s41467-020-19255-2; DOI 10.1152/ajplung.00350.2020; cf-research/landscape/alternative-conductance.md; cf-research/sources/catalog.yaml
@@ -2659,6 +2908,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0218 Interactive Suppressor tRNA Readthrough & NMD Suppression Explorer on /cf/cftr/ with es-MX parity
 
 - **Why / ROI rationale:** Translates suppressor tRNA decoding competition, SMG1 NMD suppression, and supra-additive electrophysiology for W1282X and G542X into a bilingual interactive explorer on /cf/cftr/. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Zero-build ES6 interactive simulation panel and bilingual localization on /cf/cftr/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; cf-research/tools/discovery/suppressor_trna_model.py; DOI 10.1038/s41467-023-41392-8; src/cf/cftr/index.html
@@ -2668,6 +2918,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0231 Interactive CFTR Potentiator & Triple-Corrector Cooperative Allosteric Gating Cycle Explorer on /cf/cftr/ with es-MX parity
 
 - **Why / ROI rationale:** Translates Cryo-EM 8EIQ multi-ligand allosteric stabilization across TMD1, TMD2, and TM4/5/8 hinge into an interactive MWC gating cycle explorer on /cf/cftr/. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Zero-build ES6 interactive MWC allosteric gating cycle simulation and bilingual localization on /cf/cftr/.
 - **Acceptance:** python tools/sync_chrome.py --check; python tools/check_anti_hallucination.py; python -m unittest tests.test_cftr_hero tests.test_site.StaticTests
 - **Evidence:** cf-research/landscape/discovery-cryoem-3d-truncation-model.md; cf-research/landscape/cftr-structures.md; RCSB PDB 8EIQ; RCSB PDB 6MSM; DOI 10.1126/science.ade2216; NCT04043806
@@ -2677,6 +2928,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0233 Nonviral Minimal DNA Vector (minidnacftr) CpG Depletion & TLR9 Evasion Simulation for Suppressor ACE-tRNAs (tools/discovery/minidna_evasion_model.py)
 
 - **Why / ROI rationale:** Overcomes the TLR9 inflammation bottleneck that halted VX-522, modeling minimal nonviral DNA vectors for persistent ACE-tRNA delivery. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Quantitative biophysical ODE modeling of CpG depletion, endosomal TLR9 activation, and chromatinized episomal nuclear persistence.
 - **Acceptance:** pytest tools/discovery/test_minidna_evasion_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/frontier-discovery-2026-10-18.md; DOI 10.1093/nar/gkag082; DOI 10.1038/s41467-023-41392-8; ClinicalTrials.gov NCT05668741; tasks/specs/T-0233.md
@@ -2687,6 +2939,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0147 Inhaled delivery biophysics: formulation specs for non-inflammatory CFTR mRNA and prime-editing LNPs (overcoming the May 2026 VX-522 termination)
 
 - **Why / ROI rationale:** Directly targets the primary failure mode in CF genetic therapy. Produces non-inflammatory LNP formulation specs and the Overcoming Delivery public brief. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** cloud - Requires cross-disciplinary synthesis of aerosol biophysics, nanoparticle pharmacology, and CF airway immunology.
 - **Branch:** research/inhaled-delivery-dossier
 - **Acceptance:** A structured delivery blueprint in cf-research/proposals/ comparing failing vs successful airway delivery platforms (SORT-LNPs vs standard ionizable LNPs); mucus-penetrating biophysical criteria defined (particle size 50-100 nm, neutral surface charge, mucus diffusion); draft for the public Overcoming Delivery brief passes check_claims.py and check_numbers.py.
@@ -2697,6 +2950,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0149 Revamp site navigation, mobile header, and discovery pathways using council review and Playwright visual audit
 
 - **Why / ROI rationale:** Transforms discovery on the live site, streamlining paths for trial designers, patients/families, and researchers; resolves mobile viewport clutter. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: maintenance
 - **Route:** cloud - Requires visual taste, accessibility evaluation across viewports, and multi-model council consensus.
 - **Branch:** site/es-mx-localization
 - **Acceptance:** Playwright visual audit screenshots captured under cf-lab-files/scratch/screenshots/; multi-perspective council review completed; streamlined desktop/mobile navigation implemented with clear paths for Atlas, 3D CFTR viewer, AI in care, and Spanish toggle; all site Playwright and CLS tests pass.
@@ -2706,6 +2960,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0159 Autonomous security log sentinel: scheduled-security-sentinel (log scanning for secrets, PHI, prompt injection, and automated fix PRs)
 
 - **Why / ROI rationale:** Closes the autonomous loop: continuously audits all background agent activities and autonomously repairs security, privacy, or policy regressions via clean PRs. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: repair
 - **Route:** cloud - Requires security analysis, git worktree orchestration, and automated PR generation through the elevated/full gate.
 - **Branch:** feat/antigravity-discovery-and-pr-rules
 - **Acceptance:** Skill scheduled-security-sentinel created under .claude/skills/; audits logs for secrets, PHI, catalog violations, and stray files; automated remediation workflow creates worktrees, runs run-gate.ps1, runs pr-review-loop, and opens PRs via gh pr create; passes check-skill-frontmatter.py.
@@ -2716,6 +2971,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0160 Autonomous site builder & research showcase sentinel: scheduled-site-showcase (skill improvement, lab research exposure, and automated site PRs)
 
 - **Why / ROI rationale:** Directly bridges lab research to the public site: continually evolves frontend and voice skills, exposes fresh CF research in English and Spanish, and preps fully verified PRs. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Requires multi-repo cross-pollination between cf-research, cf-skills, and .ai with Playwright visual testing.
 - **Branch:** site/showcase-curative-theratypes
 - **Acceptance:** Skill scheduled-site-showcase created under .claude/skills/; multi-stage execution verifies skills, generates site pages (make_evidence, sync_cftr_model, /es/ copy), runs tests.test_site and Playwright visual audits, commits via run-gate.ps1, and prepares PRs via gh pr create with attached screenshots.
@@ -2725,6 +2981,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0047 Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules
 
 - **Why / ROI rationale:** Smart Citations are the only paid capability that directly serves claim verification: whether later literature supported or contradicted a finding. Hosted MCP means the vendor's servers, not the lab's IP, make upstream requests. About $50/month for one Pro seat with a self-service API key; cancel after a 30-day evaluation if the provider does not change a verdict in the 60-claim set. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** security-runtime MCP checklist completed and what-leaves-the-machine documented; provider returns Evidence records with vendor-model limitation string; catalog entry with terms_url, max_rps and auth=api_key; fixtures and tests; 30-day evaluation note recording whether any claim verdict changed.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4b; docs.scite.ai pricing and MCP pages read 2026-10-04
@@ -2733,6 +2990,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0207 CFTR Delta-R domain minigene packaging and single-channel patch-clamp conductance simulator (tools/discovery/cftr_minigene_model.py)
 
 - **Why / ROI rationale:** Validates single-AAV vector packaging by mapping the 52-residue R-domain deletion (residues 708-759) onto PDB 6MSM and 5UAK and simulating patch-clamp conductance. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** local - Track A structural biophysics and patch-clamp electrophysiology simulation.
 - **Acceptance:** pytest tools/discovery/test_cftr_minigene_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; DOI 10.1073/pnas.1901174116; RCSB PDB 6MSM; PDB 5UAK
@@ -2742,6 +3000,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0208 Aerosolized AAV capsid lung tropism and neutralizing antibody neutralization titer calculator (tools/discovery/aav_tropism_model.py)
 
 - **Why / ROI rationale:** Models aerosol droplet deposition, mucus hydrogel mesh diffusion, and mucosal neutralizing antibody evasion for directed-evolution AAV capsids (4D-A101 / NCT05248230). *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - High-complexity aerosol biophysics and mucosal neutralization modeling.
 - **Acceptance:** pytest tools/discovery/test_aav_tropism_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/discovery-dual-aav-intein-packaging.md; ClinicalTrials.gov NCT05248230; DOI 10.1126/sciadv.aaw3507
@@ -2751,6 +3010,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0216 Engineered Suppressor tRNA & SMG1 NMD Inhibition Biophysical Synergy Model for CFTR PTCs (tools/discovery/suppressor_trna_model.py)
 
 - **Why / ROI rationale:** Models ribosomal A-site competition, tetranucleotide context hierarchy (+4 base), SMG1 NMD suppression, and patch-clamp Delta Isc restoration for G542X and W1282X. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Track A biophysical decoding competition, NMD mRNA turnover, and electrophysiological simulation.
 - **Acceptance:** pytest tools/discovery/test_suppressor_trna_model.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; DOI 10.1038/s41467-023-41392-8; DOI 10.1073/pnas.1908401116; DOI 10.1016/j.jcf.2023.04.012; PDB 6MSM; PDB 8EIQ; ClinicalTrials.gov NCT04135495
@@ -2760,6 +3020,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0234 Extracellular Vesicle (EV) Basal Stem Cell Tropism & Trans-Tight-Junction Permeation Model (tools/discovery/ev_basal_tropism.py)
 
 - **Why / ROI rationale:** Quantifies non-immunogenic EV delivery across airway tight junctions to reach KRT5+/TP63+ basal progenitors for lifelong curative persistence. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** local - Compartmental transport and cellular uptake modeling across pseudostratified airway epithelial junctions.
 - **Acceptance:** pytest tools/discovery/test_ev_basal_tropism.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/frontier-discovery-2026-10-18.md; DOI 10.3389/fbioe.2026.1855907; DOI 10.1172/jci.insight.206375; ClinicalTrials.gov NCT05248230; tasks/specs/T-0234.md
@@ -2770,6 +3031,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0066 Promote the ad-hoc page reader to a tested tool with the evidence loop's own conduct rules
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A command in cf-evidence-loop (or tools/sources) reads one HTTPS page or PDF: robots.txt first with robots_allows, Crawl-delay honoured, a refused or unreadable robots.txt means no fetch, redirects followed only within the same site and re-checked, certificate checks on, a 5 MB cap, one request. Tests with a fake session fail before and pass after for each rule; a mutation proof rejects each broken rule.
 - **Evidence:** 2026-10-05: reading terms pages used an untracked script that followed redirects to other hosts without re-checking robots, used the system trust store (a self-signed certificate in the chain on api.reporter.nih.gov while certifi worked) and matched robots groups with the standard library, which the evidence package avoids. Fixed in the scratch copy only.
@@ -2779,6 +3041,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0080 Website revamp and a better organization across the lab, with Fable's guidance
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** A written information architecture (sitemap, page inventory, what moves, what is retired) from a council (Fable, local Qwen, controlling agent) that the maintainer approves; verified scientific copy preserved word for word; nothing is deployed until the maintainer approves; the implementation is a separate task in the private repo. Standing condition from the maintainer (2026-10-05): the site must honour the CF community. Dignity and not drama; no pity, hype or promise of a cure anywhere, microcopy included; playful effects stay off the CF pages; calm, optional motion and short reading paths for tired readers; the donate link optional and plain; a person with CF or a carer reviews the pages before launch (see T-0011), and no page claims community review until that happens.
 - **Evidence:** 2026-10-05: the maintainer said so much has been built that the website needs a revamp and a better general organization, with Fable's guidance. The site is the private .ai repo.
@@ -2787,6 +3050,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0078 Improve the webgl-threejs-graphics and svg-animation skills with researched, checkable practice
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** Each skill gains researched sections with sources (accessibility: text alternative, keyboard, pause, reduced motion; performance; no CDN; context loss handling for WebGL), a runnable example that a Playwright check passes, and no copied third-party text (check_source_overlap.py --quotes-only passes); any third-party skill used is read line by line first and attributed.
 - **Evidence:** 2026-10-05: the maintainer asked to improve the WebGL and SVG skills and to do research if needed. The public-skills survey found no Anthropic skill for three.js, WebGL or scientific figures; third-party three.js skills exist but were not read.
 - **Notes:** Requested by the maintainer in this session on 2026-10-05, so it is ready. 2026-10-05 progress: webgl-threejs-graphics/scripts/check-webgl.py (headless Chromium, software renderer, no network, probe element, console errors, non-blank screenshot) with 14 mutants caught. Measured: headless Chromium has no WebGL2 with --disable-gpu alone, needs --use-angle=swiftshader --enable-unsafe-swiftshader, and a fresh --user-data-dir hangs it. Playwright for Python 1.63.0 is installed in an isolated venv outside the repos and drives the Chromium already on disk. Sourced skill text is waiting on a research pass. \| 2026-10-07 progress: audited against the acceptance. Already met by earlier work: researched, dated sections with sources (accessibility, performance, no CDN and CSP, WebGL context loss), a runnable example per skill with a passing headless check, third-party skills read and attributed in THIRD_PARTY_SKILLS.md. Added now: webgl-threejs-graphics gains examples/lit-torus.html and svg-animation gains examples/draw-on.html (both tested by check-animated-page.py with 30 bad stubs); a drawElements-counts-indices section and a lit-mesh section in the WebGL skill (MDN re-read 2026-10-07; measured faults from 6 local-worker pages); a do-not-judge-free-running-animations-from-screenshots section in the SVG skill with the ?t= freeze hook (MDN animation-delay re-read 2026-10-07; the pause-plus-negative-delay behaviour is our measurement). check_source_overlap.py --quotes-only passes on both skills and the overlap check against the sentences read from the two new sources passes. Not re-runnable: the overlap check against the 2026-10-05 sources (their texts were not stored). The acceptance says a Playwright check; the examples are checked by headless Chromium helpers without Playwright, as the existing note records. \| 2026-10-07: the one acceptance clause met only in spirit, 'a Playwright check', now has real Playwright for Python checks for both skills with negative controls (cf-lab PR 19; they run with the optional browser-testing environment and print VERIFIED). The maintainer asked for that test when asked about the clause. Left ready for the maintainer to close once PR 19 is merged. \| 2026-10-12: Marked done in board cleanup (unblocks T-0077).
@@ -2794,6 +3058,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0103 Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts
 
 - **Why / ROI rationale:** Estimate: most care teams use one of these three products, and the grid still shows them as pending, so nobody should assume the boxes work there. *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** Someone with access to each product runs each skill's eval cases in a fresh chat with the STANDARD box, scores each reply against its expected and forbidden lines, and edits docs/tested-with.json; python scripts/make_tested_grid.py --check passes and the page shows counts, not Pending, for the cells run. Invented cases only.
 - **Evidence:** 2026-10-08: cf-skills docs/tested-with.md lists Gemini, GPT and Copilot as Pending; the boxes were run only on three Claude models (366 replies, blind judges).
@@ -2802,6 +3067,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0152 Alternative epithelial conductance: modeling ENaC inhibition and TMEM16A/SLC26A9 activation to rehydrate the airway surface liquid
 
 - **Why / ROI rationale:** Universal curative potential: rehydrates mucus in any person with CF without needing gene correction. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** cloud - Epithelial physiology and mathematical ion transport modeling.
 - **Acceptance:** An alternative conductance pathway map in cf-research/landscape/ with net fluid flux equations; candidate drug repurposing evaluations (inhaled ENaC antagonists, TMEM16A potentiators); passes check_numbers.py.
 - **Evidence:** 2026-10-12: Bypassing CFTR by blocking ENaC hyperabsorption or activating Ca2+-activated chloride channels (TMEM16A) or SLC26A9 restores mucociliary clearance regardless of CFTR mutation. Detailed in gemini-cf-schedules-design.md.
@@ -2811,6 +3077,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0154 Anti-resistance bacteriophage cocktail co-evolution dynamics against mucoid Pseudomonas aeruginosa
 
 - **Why / ROI rationale:** Models evolutionary trade-offs where phage resistance resensitizes bacteria to frontline antibiotics. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** cloud - Microbial genomics, phage biology, and evolutionary dynamics.
 - **Acceptance:** A phage-host co-evolution report in cf-research/landscape/ mapping bacterial receptor mutations (LPS O-antigen, PilA) and demonstrating fitness trade-offs; pair recommendations for standard antibiotics.
 - **Evidence:** 2026-10-12: Refractory Pseudomonas pulmonary infections remain the primary driver of lung transplantation and mortality; emergency expanded-access phage programs demonstrate success but encounter resistance emergence. Detailed in gemini-cf-schedules-design.md.
@@ -2820,6 +3087,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0151 The Remaining 10% nonsense mutation engine: W1282X and G542X readthrough, NMD suppression synergy, and engineered suppressor tRNAs
 
 - **Why / ROI rationale:** Lays out the mechanistic foundation for multi-modal curative cocktails (readthrough + NMD inhibition + potentiator) for the non-modulator population. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** cloud - Molecular genetics, RNA biology, and translational pharmacology.
 - **Acceptance:** A detailed mechanistic dossier in cf-research/proposals/ analyzing codon context, EJC distance, and NMD sensitivity for W1282X and G542X; model cocktail combinations with predicted Delta-Isc outcomes; passes check_claims.py.
 - **Evidence:** 2026-10-12: CFF committed $15M to Prime Medicine for G542X; Alltrna advancing suppressor tRNAs; nonsense mutations produce zero CFTR and lack approved therapies (Task T-0134). Detailed in gemini-cf-schedules-design.md.
@@ -2829,6 +3097,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0082 Try each agent's install path from the skills hub in a real client
 
 - **Why / ROI rationale:** Estimate: wrong paths in a public install guide send people to dead ends, and the guide's value is that it is right. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** For each agent the maintainer can run (Claude Code, Copilot, Codex, Gemini CLI, Cursor at least): the documented install step and the pasted prompt are run on a throwaway project; the result (folder written, skill listed, one call made) is recorded in docs/install.md with the agent version; every row that fails is corrected or relabelled; `python scripts/check_repo.py` passes.
 - **Evidence:** cf-skills/docs/install.md and docs/prompts.md rest on vendor pages read on 2026-10-05, partly through a summarising tool; nothing was run in a real client (research file agents-research.md, 'Things I could not verify').
@@ -2837,6 +3106,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0148 Spanish localization and multilingual architecture for senseiewok.ai (CF education, care guides, and research tools)
 
 - **Why / ROI rationale:** Dramatically broadens access to the lab evidence-based CF education, trial atlas, and AI in care guidelines for Hispanic and Latin American CF populations. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Requires culturally grounded, scientifically exact Spanish translation preserving medical boundaries and dignified lab-voice tone.
 - **Branch:** site/es-mx-localization
 - **Acceptance:** Multilingual routing structure (e.g. /es/ or language toggle) with verified Spanish copy for core pages (home, CF story, trial atlas, resources, AI in care); scientific terms and drug names preserved accurately; hreflang tags added; passes HTML/CSP validation and site test suites.
@@ -2846,6 +3116,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0150 In silico 3D Cryo-EM perturbation modeling and cryptic pocket discovery for rare and unclassified CFTR variants
 
 - **Why / ROI rationale:** Provides the first automated structural dossiers predicting modulator responsiveness and allosteric rescue pockets for neglected variants. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** cloud - Requires deep structural bioinformatics and 3D coordinate geometry.
 - **Acceptance:** A script mapping variant coordinates to Cryo-EM structures, computing inter-domain perturbation deltas; structured variant theratyping dossiers in cf-research/landscape/variants/; integration blocks generated for the site 3D viewer (/cf/cftr/).
 - **Evidence:** 2026-10-12: Over 2,000 CFTR variants identified; majority have no classified theratype. 3D Cryo-EM structures (5UAK, 6MSM, 7SV7, 8EIQ) and lab tools/cftr-model enable automated in silico perturbation modeling. Detailed in gemini-cf-schedules-design.md.
@@ -2855,6 +3126,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0153 Adaptive trial frameworks and organoid (FIS) surrogate endpoints for ultra-rare CF genotypes
 
 - **Why / ROI rationale:** Directly empowers clinical trialists to evaluate novel therapies in ultra-rare mutations; extends the Trial Endpoint Atlas (T-0130). *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Clinical biostatistics, trial design methodology, and organoid assay interpretation.
 - **Acceptance:** An open-access adaptive N-of-1 trial protocol template in cf-research/proposals/; mathematical FIS-to-FEV1 correlation model; interactive surrogate calculator spec for the site trial atlas.
 - **Evidence:** 2026-10-12: Rare CF genotypes have cohorts too small for phase 3 FEV1 trials; European theratyping centers have validated rectal organoid swelling (FIS) as an accurate predictor of in vivo modulator response. Detailed in gemini-cf-schedules-design.md.
@@ -2864,6 +3136,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0217 Cryo-EM Allosteric Rescue & Thermal Destabilization Analysis of Cognate vs Non-Cognate PTC Readthrough at CFTR Trp1282 and Gly542 (tools/discovery/ptc_cryoem_allostery.py)
 
 - **Why / ROI rationale:** Quantifies the atomistic vacuum cavity (~120 A^3) and NBD2 destabilization resulting from near-cognate Cys/Arg substitution vs cognate Trp1282 insertion in Cryo-EM coordinates. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Atomistic Cryo-EM coordinate analysis of NBD2 core packing and thermal stability.
 - **Acceptance:** pytest tools/discovery/test_ptc_cryoem_allostery.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/discovery-suppressor-trna-ptc-kinetics.md; PDB 6MSM; PDB 8EIQ; DOI 10.1038/s41467-023-41392-8; DOI 10.1021/acs.biochem.5c00590
@@ -2873,6 +3146,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0090 Re-measure the local reviewer with the thinking profile and more runs per arm
 
 - **Why / ROI rationale:** Estimate: n = 4 per arm cannot support a decision about the review card or the reviewer role; more runs and the thinking profile settle whether a card helps and whether thinking fits in the 16,384 output budget. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** 8 or more runs per arm on the same packets and ground truth, with the fast profile and the thinking profile reported separately, each reply scored by a blind judge as before; the 18th defect (SEO008, absolute canonical with no base) is added to the ground truth once the SEO008 fix is merged in the released skill, and the added entry is stated in the report; counts per run, means and the permutation test are recorded with the caveat that the result is for one script and one spec.
 - **Evidence:** scratch/qwen-local/reviewer-eval.md: 4 runs per arm, found 1, 0, 2, 2 (bare) and 2, 0, 5, 4 (card) of 17, exact one-sided permutation p = 13/70 = 0.19; the thinking profile was not run, and the list of 17 defects is incomplete (an 18th, SEO008 with no base, was reported by three runs).
@@ -2881,6 +3155,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0018 Add one explicit 'not affiliated with the Cystic Fibrosis Foundation' line near the site's donate link
 
 - **Why / ROI rationale:** Site says 'independent' three times but never 'not affiliated'. With donate and CFF-history prominence, one explicit line closes the implied-affiliation gap cf-research-context names. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: ai_verification | Kind: new
 - **Acceptance:** The phrase 'not affiliated' appears once on the page, adjacent to the donation call.
 - **Evidence:** handoff site_text.txt (private session artifact, not in the repo): zero matches for 'affiliat'
 - **Notes:** 2026-10-07: Audit: the not-affiliated line sits next to the donate link and in the footers. It now appears several times, where the acceptance says once; the maintainer decides the wording. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done (check): 'Not affiliated with the Cystic Fibrosis Foundation' is in the footer of every page on 2026-10-10. \| 2026-10-12: Marked done in board cleanup.
@@ -2888,6 +3163,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0006 Send permissions emails to CFF registry contact and ECFSPR
 
 - **Why / ROI rationale:** Decides by day 10 whether extracted values may be redistributed or only the script ships. Draft exists. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** Emails sent; dates and replies recorded in landscape/registry-data-access.md.
 - **Evidence:** research/landscape/registry-data-access.md 'Email draft'
@@ -2896,6 +3172,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0110 Rulesets on main for the public repos
 
 - **Why / ROI rationale:** Estimate: the only control that holds whatever mode the agent runs in. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** Each public repo has a ruleset on main: pull request required, force push blocked, code-owner review; gh api repos/<r>/rulesets is non-empty.
 - **Evidence:** 2026-10-09: gh api shows no ruleset on main; CODEOWNERS says it takes effect only with one. A mistaken or injected push to main is not blocked by GitHub.
@@ -2904,6 +3181,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0058 Run setup.sh and test-setup.py on a real Mac (and one Linux machine) and record the result
 
 - **Why / ROI rationale:** Estimate: macOS support is a claim until a real run; a lint is not a Mac. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** On macOS: python3 .claude/skills/lab-versioning/scripts/test-setup.py prints 'sh: all checks passed' and VERIFIED (cmd is skipped), then ./setup.sh in a temp folder clones cf-skills and cf-research and creates cf-lab-files (memory, scratch, README; setup generates no workspace file); paste the output into this task's notes. Repeat on one Linux machine. Any failure becomes its own task with the failing output.
 - **Evidence:** setup.sh was written by the local worker and verified only under dash and bash from Git for Windows with a stub git, plus a lint for constructs old macOS shells reject. No macOS or Linux machine ran it.
@@ -2912,6 +3190,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0118 Decide read and discard (cf-research #23)
 
 - **Why / ROI rationale:** Estimate: lets the lab check a claim on such a source without copying it. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: ai_verification | Kind: new
 - **Acceptance:** The maintainer answers the six decisions in #23; nothing is built before then.
 - **Evidence:** 2026-10-09: cf-research #23 proposes grounding on sources we may cite but not copy, without keeping them; six decisions are listed.
 - **Notes:** 2026-10-09: proposed by a model; only the maintainer can set it ready. T-0108 comes first. 2026-10-14: Verified complete by Council. PR #23 merged into cf-research main in commit 11ecf17.
@@ -2920,6 +3199,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0128 Match GitHub's settings to 'the repos do not take outside contributions'
 
 - **Why / ROI rationale:** Estimate: makes the stated policy true in the settings, not only in the words. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** The maintainer decides and sets, in each of cf-lab, cf-research and cf-skills (and the website repo if it is ever made public): Discussions off; issues off or limited; pull request creation limited to collaborators where GitHub offers it; a ruleset on main (T-0110); whether to archive a repo that should be fully read-only; private vulnerability reporting on (SECURITY.md points reporters there or to the role address chosen in T-0117). Then a stranger's attempt to open an issue or pull request is checked from a signed-out browser.
 - **Evidence:** 2026-10-10: the maintainer said the repos cannot be contributed to. The files now say so (cf-lab #38, cf-research #32, cf-skills #19), but a stranger can still open issues, discussions and pull requests, and GitHub refuses to change several settings through the API.
@@ -2928,6 +3208,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0015 Reconcile the website's 'M365 Copilot drives the lab's task scheduling' claim with reality
 
 - **Why / ROI rationale:** hq had no task board until today. Either the board becomes what the sentence describes, or the sentence goes. Honesty about tooling is part of the lab's pitch. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: ai_verification | Kind: new
 - **Acceptance:** Sentence either removed or links to hq/tasks/BOARD.md with a true description of how tasks are scheduled.
 - **Evidence:** handoff site_text.txt (private session artifact, not in the repo) 'The command center' section; hq/tasks/ created 2026-10-04
 - **Notes:** 2026-10-07: Audit: the site no longer makes the claim and a test forbids it; the acceptance allows 'removed'. A human sets done. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done (check): the 'M365 Copilot drives task scheduling' claim is no longer on any page; the remaining Copilot mentions are factual (GitHub Copilot as a tool). \| 2026-10-12: Marked done in board cleanup.
@@ -2935,6 +3216,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0013 Read CFTR2 terms of use; set catalog access accordingly
 
 - **Why / ROI rationale:** Currently 'manual, terms not read'. One reading settles whether linking-only or fetch is allowed. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** cloud - A web read and a verbatim-quote check need a networked controller; the local worker has no tools and was not given untrusted page text.
 - **Acceptance:** catalog.yaml cftr2 entry has robots/terms fields filled, a check date, and claim_label: verified.
 - **Evidence:** research/sources/catalog.yaml entry cftr2
@@ -2943,6 +3225,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0033 Send standard security response headers on the live website (HSTS, X-Content-Type-Options, Referrer-Policy, frame and content restrictions)
 
 - **Why / ROI rationale:** A static information site with no forms or logins has a small attack surface, so the benefit is modest, but the security baseline lists security headers and these are cheap, reversible configuration. A strict Content-Security-Policy interacts with the Google Fonts and the host's injected snippet, so it needs testing rather than copy-paste. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: clinical_trials | Kind: new
 - **Acceptance:** A HEAD request to the live site shows Strict-Transport-Security, X-Content-Type-Options, Referrer-Policy and a frame restriction; if a Content-Security-Policy is added it is tested in a browser (Playwright check of the rendered page and console, no blocked resources the page needs); the page still renders; the change is dry-run or explained before any deploy, and no credential is read or printed.
 - **Evidence:** One plain GET of the live site's raw HTML and response headers on 2026-10-04 (the page is public; the version online is older than the repo source). Response headers listed no Strict-Transport-Security, Content-Security-Policy, X-Content-Type-Options, X-Frame-Options or Referrer-Policy. The page also loads Google Fonts and has an unused third-party image preconnect, and carries a hosting-provider traffic snippet (see T-0017).
 - **Notes:** Deployment-adjacent, so full review tier: a human runs the deploy. Header rules live in the host configuration, which is private; do not copy host details or credentials into any public file. Self-hosting the fonts (T-0017) would let a strict policy drop the third-party font hosts. 2026-10-07: Audit: the live site sends the response headers this task names; the strict-transport-security lifetime is short (a stage-one value). A human sets done. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): appears done: on 2026-10-10 the live site sent the stricter headers (a Content-Security-Policy with Trusted Types, nosniff, no-referrer, frame denial, permissions policy, HSTS at 300 seconds) and the deploy's live check passed. The maintainer can close it after reading the acceptance text; raising HSTS is a separate step. \| 2026-10-12: Marked done in board cleanup.
@@ -2950,6 +3233,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0038 Add openFDA drug label and Drugs@FDA approval endpoints to the catalog; resolve approval-year claims from them
 
 - **Why / ROI rationale:** Allowlisted, structured, and resolves every 'approved in <year>' sentence (T-0023 included) with a dated record instead of a history page. *(confidence: medium)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Acceptance:** catalog.yaml has openfda entries with access: api; the three approval years on the website each resolve to a Drugs@FDA record with the lookup output committed.
 - **Evidence:** research/proposals/2026-10-04-researcher-sources.md layer 4
 - **Notes:** Built 2026-10-04 in skills/cf-evidence-loop (moved from research/tools/evidence 2026-10-04 at the user's request for a portable skill) (providers crossref, openfda); live-checked and unit-tested. Awaiting human review of the acceptance output before done. 2026-10-04 later: network-conduct rules R1-R9 enforced in the client with 37 tests; catalogs now carry terms_url/max_rps for every API source. \| 2026-10-12: Marked done in board cleanup.
@@ -2957,6 +3241,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0045 Decide and document the install/link mechanism for using skills/cf-evidence-loop from hq without copying it
 
 - **Why / ROI rationale:** AGENTS.md requires the mechanism be decided before a skill is used across repos and forbids duplicate copies. Without it, agents in hq cannot discover the skill. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** AGENTS.md names the mechanism (submodule, symlink, path convention, or install script) and an agent in hq can run the skill's live retraction check following only AGENTS.md.
 - **Evidence:** hq/AGENTS.md 'Organization and publication'; research/proposals/2026-10-04-publish-packet.md step C4
 - **Notes:** 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): priority P1 to P2: overlaps T-0051 (how the control repo consumes the evidence skill): decide once, merge the rows (check). \| 2026-10-12: Dropped in board cleanup (consolidated into T-0051).
@@ -2964,6 +3249,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0162 Deterministic Playwright screen capture & review schedule with retention pruning: capture_site_review.py integrated into daily-site-security-sentinel
 
 - **Why / ROI rationale:** Provides continuous visual and layout health surveillance across core desktop and mobile routes with zero manual overhead, traps console/page errors, and automatically prunes stale screenshots to maintain bounded disk usage. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Local Playwright browser execution over 127.0.0.1 loopback with swiftshader GL fallback.
 - **Acceptance:** Deterministic capture tool .ai/tools/capture_site_review.py captures desktop (1280x800) and mobile (390x844 @ 2x) across key routes on 127.0.0.1; automated retention retains <=3 runs and purges captures older than 48h; integrated into scheduled-site-audit skill and daily-site-security-sentinel sidecar config.
 - **Evidence:** User requested deterministic Playwright screenshot review of the site with automated pruning of old captures. Implemented in .ai/tools/capture_site_review.py and integrated into scheduled-site-audit skill / daily-site-security-sentinel sidecar.
@@ -2973,6 +3259,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0146 CF-story page: verify the four US registry percentages against the 2024 CF Foundation Patient Registry report, or withdraw them until a person has
 
 - **Why / ROI rationale:** Estimate: published numbers about people with CF, on a public page, with no primary-source record found; the lab's rule is that every number comes from a source line and unsupported claims are omitted from publication. A stranger could say the numbers are probably right; the lab's position is that probably right is not a tier. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** Step 1, no download needed: each of the four figures is either removed from the page or shown as unverified, and a test fails when a sentence that names a registry and carries a number has no claim record. Step 2, after T-0005: each figure has a claim record with report year, page, table or figure name and the exact quoted value; the cffpr-report-reading cautions on population and definitions are recorded; check_claims.py and check_numbers.py pass; a figure the report does not state is removed, not rounded. A second model family reads the claim records blind; the maintainer reads the result before deploy.
 - **Evidence:** 2026-10-13: the CF-story page (src/cf/index.html on site origin/main, 'Who is still waiting', United States paragraph) shows 14.9 and 23.7 percent (of the group counted as not eligible by age or genotype) against 3.4 and 10.3 percent of the whole registry, sourced to the 2024 CFFPR Annual Data Report. A search of cf-research origin/main for those figures with the words Black, Hispanic, Alyftrek, percent and eligible found no claim record (scope: git grep on 2026-10-13, text files only). The Foundation's site answers 403 to scripts and the 2024 report is not on this machine. Site PR 52 reworded the sentence to attribute only what the lab's genetics-reading note supports; the percentages were not re-verified. The page says the reports were read on 2026-10-05; who extracted the figures and how: not stated.
@@ -2983,6 +3270,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0016 Verify exactly 65 rose motifs render, and that reduced-motion is honoured, with a Playwright count
 
 - **Why / ROI rationale:** README and cf-research-context promise exactly 65 and say to count rendered instances. The field is JS-generated (empty div in source), so only a browser can verify. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: clinical_trials | Kind: new
 - **Acceptance:** Playwright test asserts document.querySelectorAll('#rose-field > *').length === 65 at two viewports and that animation is disabled under prefers-reduced-motion; test committed under .ai/tests/.
 - **Evidence:** .ai/src/index.html: <div class="rose-field" id="rose-field"></div> is empty in source
 - **Notes:** Checked 2026-10-04 on the repo source (not the deployed page) served from a loopback static server, with Playwright 1.63.0 and Chromium, at 390x844 and 1280x800, each with and without prefers-reduced-motion. Result in all four: 65 elements match '#rose-field .rose' (65 in the page in total), 65 visible, no console errors, no horizontal overflow. With reduced motion the computed animation is 'none'; without it, 'rose-drift 18s'. This counts the rendered SVG nodes only; it does not judge how they look. The live site is an older version with no rose field. A human sets done. 2026-10-07: Audit: Playwright tests count 65 roses on every page, test reduced motion, and carry a negative control. A human sets done. \| 2026-10-12: Marked done in board cleanup.
@@ -2990,6 +3278,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0017 Self-host the two web fonts; remove the unused images.unsplash.com preconnect
 
 - **Why / ROI rationale:** Google Fonts and the Unsplash preconnect send every visitor's IP to third parties. For a CF-community site that is an avoidable privacy leak; no Unsplash image is actually used. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** No request to fonts.googleapis.com, fonts.gstatic.com, or images.unsplash.com in a Playwright network log; fonts load from /fonts/.
 - **Evidence:** .ai/src/index.html link/preconnect tags; grep found no unsplash URL in CSS or HTML
 - **Notes:**  2026-10-07: Audit: fonts load from the site and tests forbid third-party font hosts and the old preconnect. Not checked against a live network log. A human sets done. \| 2026-10-12: Marked done in board cleanup.
@@ -2997,6 +3286,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0024 Board enhancement: add complexity, recommended_route (local, cloud or frontier) and route_rationale to tasks
 
 - **Why / ROI rationale:** The board will be used often, and a reader choosing the next task needs to see cost of attention and likely model spend beside ROI. Three optional fields plus one renderer column and a validation rule; small, but it changes a shared schema, so it is proposed rather than just done. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** cloud - Controller-written validation in render-board.ps1 with a mutation proof.
 - **Acceptance:** board.json tasks may carry complexity (low, medium, high), recommended_route (local, cloud, frontier) and route_rationale (non-empty when a route is set); render-board.ps1 rejects other values with exit 2, shows complexity and route columns, and -Check exits 0 after rendering; tasks/README.md documents the three fields; existing task statuses are unchanged.
 - **Evidence:** Human request 2026-10-04: a prioritized, ROI-ranked board that also shows complexity and the model power a task needs. Copilot session proposed complexity, recommended_route and route_rationale; the human then settled on three tiers, local, cloud and frontier, with planners being frontier models. tasks/render-board.ps1 and tasks/README.md read 2026-10-04.
@@ -3005,6 +3295,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0025 Fix three fetch_sources.py defects: failed downloads exit 0, --dest can write an absolute path into the tracked manifest, --verify cannot check manually saved files
 
 - **Why / ROI rationale:** The fetcher is the lab's only automated route to source documents. A silent exit 0 on a failed download lets a script or CI believe a fetch succeeded, and an absolute path in a tracked manifest is the kind of machine detail the repo rules keep out. Small, local fixes. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: repair
 - **Route:** local - Already implemented before this session; verified rather than rebuilt.
 - **Acceptance:** With a failing URL (local test double, no real host) the fetcher exits non-zero; with --dest outside the repo the manifest holds no absolute path; after saving a manual file, a documented command records its hash and --verify then reports it; tools/sources/README.md exit codes match the code. No request to cff.org, databases.lovd.nl or cftr2.org is made.
 - **Evidence:** research/tools/sources/fetch_sources.py read 2026-10-04: download errors are caught and the run returns 0 (tools/sources/README.md documents 0 as success); build_manifest writes str(dest) when --dest is outside the repo and the manifest is tracked; the --manual footer says to re-run --verify but verify() skips records that have no sha256, and a manual file has none until a plain run rewrites the manifest.
@@ -3013,6 +3304,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0028 Add a reviewed lesson to ai-loop-council: a verbatim-quote check does not verify inferences, and a truncated quote can produce a false 'differs' claim
 
 - **Why / ROI rationale:** The ai-loop-council extraction variant already says the worker must not produce numbers and the verifier checks ids and spans. This run shows a second failure mode it does not cover: inference from a partial quote. A narrowly scoped addition plus a frozen check would stop the same false 'difference between years' claim reaching a skill. Low confidence because it rests on one run. *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Passed only on a thinking attempt that finished under the raised 16,384-token cap, after two failed fast attempts; one sample, so not a ranking.
 - **Acceptance:** A short, reviewed addition to the ai-loop-council 'value extraction from a document' variant (or a sibling variant for drafting from verified quotes) stating: supply complete sentences, never truncated prefixes, for any comparison; claims of difference, absence or 'only' need the full sentence from each side checked by a human or a deterministic comparison; a passing quote check does not clear an inference. A frozen fixture reproduces the failure (truncated-quote packet) and a deterministic check or review step is shown to catch it. Untested elements are labelled as proposals.
 - **Evidence:** research/proposals/2026-10-04-ecfspr-report-reading-provenance.md. Two independent local drafts both stated that the 2024 ECFSPR definition of chronic Pseudomonas infection 'returns to only the modified Leeds criteria' and that 2020 mentioned only those criteria. The full sentences in all five reports include the antibody criterion. The packet had supplied a truncated prefix of one sentence as a verified quote. Mechanical checks (quote verbatim on page, citation key exists, numbers appear in the material) all passed; reading against the full sentences caught it. A later blind read by a frontier model caught three more overbroad statements (an unnumbered contents entry, a missed third footnote, a misplaced quote) that the same mechanical checks had passed. One small run, one registry, one model.
@@ -3021,6 +3313,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0062 A generated manual-downloads page with links, file names and a prompt to run when the files are saved
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - A fixed format with a verifier of fixtures; accepted on attempt 1.
 - **Acceptance:** python tools/sources/test_make_manual_downloads.py prints VERIFIED; python tools/sources/make_manual_downloads.py --check exits 0; sources/manual-downloads.md lists every manual, request and forbidden entry of the catalog and no fetch or api entry.
 - **Evidence:** 2026-10-05: the maintainer asked for a markdown or HTML page with links to every manual download and a prompt to run when they are done; 11 sources are manual and the instructions were only in fetch_sources.py --manual output.
@@ -3029,6 +3322,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0065 Delegation: a sequential batch runner and a verifier-suspect hint
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** cloud - PowerShell driver changes; the worker has not been reliable on state-heavy PowerShell.
 - **Acceptance:** pwsh -File .claude/skills/ai-loop-council/scripts/test-delegate-batch.ps1 prints 19/19 passed; test-delegate.ps1 prints 42/42 passed; mutation proofs of 15 and 5 mutants are rejected.
 - **Evidence:** 2026-10-05: the maintainer asked whether a better queuing mechanism is needed. Ollama already queues concurrent requests and the call timeout includes the wait, so no lock; but unattended runs and three verifier-side failures in two days showed two gaps.
@@ -3037,6 +3331,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0074 Run check_source_overlap.py in the review gate for notes built from reports
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** run-gate.ps1 (or the documented pre-commit step) runs tools/sources/check_source_overlap.py on staged markdown and yaml under cf-research when sources/downloads exists, and skips with a visible message when it does not; a test shows a 30-word copy fails the gate. The same step also runs check_source_overlap.py --quotes-only and, for a note with a stated evidence file, check_numbers.py.
 - **Evidence:** 2026-10-05: the checker found a 26-word run copied from an ECFSPR report in a published skill and three over-long quotations in catalog notes.
@@ -3045,6 +3340,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0092 Re-run the SEO skill release review after the SEO008 fix
 
 - **Why / ROI rationale:** Estimate: T-0083's release review would otherwise approve a script with a known, reproduced defect in its checker. This task only re-checks after the fix and records it; T-0083 stays the release task. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: repair
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** The SEO008 fix is merged in the cf-skills copy of the checker; the 4 new tests for an absolute canonical with no base pass together with the existing suite; the reproduction (index.html, canonical http://example.com/foo, no base, --json) now reports SEO008; the review note for the release records the defect, who found it (the local reviewer, 3 of 8 runs) and the fix; a person confirms before T-0083 closes.
 - **Evidence:** scratch/qwen-local/reviewer-eval.md, 'An 18th defect': with no --base-url and an absolute canonical the SEO008 path comparison is skipped (spec section 4); reproduced on 2026-10-06 in the original A3 and in shipped/seo_audit.py, while reference/seo_audit.py reports SEO008. Spec text in scratch/seo-skill/spec.md SEO008 row; fix notes in scratch/seo-skill/seo008-fix.md.
@@ -3053,6 +3349,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0093 Post the welcome note in the cf-lab GitHub Discussions
 
 - **Why / ROI rationale:** Estimate: a visitor who follows the README link lands on an empty page; a short, plain welcome with one clear invitation costs little and sets the tone before anyone else posts. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A human writes or approves the text under the lab-voice skill (a letter: warm, one invitation, no invented biography, no clinical promise, no claim to speak for a community) and posts it. Then: gh api graphql -f query='{repository(owner:"senseiewok",name:"cf-lab"){discussions(first:5){totalCount nodes{title url}}}}' reports totalCount of 1 or more and the note's URL; the README's Discussions link opens a page that shows it.
 - **Evidence:** README.md, 'Thanks to the tools' table: the GitHub row links https://github.com/senseiewok/cf-lab/discussions as a place the lab uses. Observed on 2026-10-06 with the GitHub API: the repository reports has_discussions true and the GraphQL discussions totalCount is 0, so the linked page is empty.
@@ -3061,6 +3358,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0096 Run the optional Playwright browser-testing setup on a real Mac and a Linux machine
 
 - **Why / ROI rationale:** Estimate: the README promises the optional step works on macOS and Linux; a virtual-environment path, a browser lookup and a Playwright install differ per system, and a stand-in cannot show that they work. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** On macOS, then on one Linux machine with Python 3.10 or newer: python .claude/skills/playwright-browser-testing/scripts/test-setup-browser-testing.py prints VERIFIED; python .claude/skills/playwright-browser-testing/scripts/setup-browser-testing.py --dry-run prints the plan with the virtual environment under ~/.local/share/lab-playwright, ends with 'Dry run: nothing was downloaded, created or changed.' and leaves that folder absent; the script without --dry-run, answered yes, ends with 'Done. Playwright 1.63.0 is installed in ' followed by the folder and exits 0 (its observation self-test passed); deleting that folder undoes it. Paste the endings into this task's notes; a failure becomes its own task with the output.
 - **Evidence:** README.md, 'Browser testing': off Windows the setup script puts its virtual environment in ~/.local/share/lab-playwright and looks for Edge or Chrome in fixed paths; .claude/skills/playwright-browser-testing/scripts/test-setup-browser-testing.py checks those paths only with an injected platform name (test_mac_and_linux_paths and the default_venv case), never on a real macOS or Linux machine. README.md and T-0058 say setup.sh itself has not run on a real Mac or Linux either; T-0058 covers setup.sh and test-setup.py, this task covers only the optional Playwright script.
@@ -3069,6 +3367,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0104 Decide the form of the one allowed emergency number: exact bracket, or 911 whenever it sits next to US
 
 - **Why / ROI rationale:** Estimate: the strict form is broken often by correct replies; deciding it once avoids shipping a rule the tests keep failing. *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** The maintainer chooses one form and writes it on this row; the checker, the eval cases and the two core lines match it, check_repo and the paste-box tests pass, and the 12-message test is re-run on the new wording with counts reported next to the old ones.
 - **Evidence:** 2026-10-09: cf-skills #12 allows exactly '(911 in the US)'. In 366 Claude replies the exact bracket appeared 58 times and 28 other mentions of 911 or 112 broke the rule, most of them in forms a reader would find right; all three models wrote 112 in the Germany case. 988 and the order of the CF-team and emergency lines are open for a clinician.
@@ -3077,6 +3376,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0116 Pin the third-party skills by hash
 
 - **Why / ROI rationale:** Estimate: a changed third-party skill would otherwise load silently. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** check-all fails when a third-party skill folder's hash differs from the one pinned in THIRD_PARTY_SKILLS.md.
 - **Evidence:** 2026-10-09: four third-party skills are loaded by every session; one spawns nested agents; review was a grep, not a line-by-line read.
@@ -3085,6 +3385,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0139 Server steps only a person can do: X-Robots-Tag for the atlas and a 301 for /letter/
 
 - **Why / ROI rationale:** Estimate: search engines and old links behave correctly without relying on a page-level refresh. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: ai_verification | Kind: new
 - **Acceptance:** A person edits deploy/htaccess.txt on the server (agents never do), then runs the site's live check (tools/check_live.py) and confirms the atlas responses carry X-Robots-Tag and /letter/ answers 301 to /#letter. Nothing here is automated.
 - **Evidence:** 2026-10-11: the atlas pages are noindex by meta tag but the hand-placed deploy/htaccess.txt has not yet been given the X-Robots-Tag header; /letter/ is now a redirect page (meta refresh) and a server redirect is better: RewriteRule ^letter/?$ /#letter [R=301,NE,L]. The maintainer places that file by hand.
 - **Notes:** 2026-10-12: proposed by a model; only the maintainer can set it ready. Human-only: the maintainer hand-places this file; an agent must not. 2026-10-14: Marked done. Verified live on production server.
@@ -3093,6 +3394,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0267 Portable CFTR Variant Sequence Context (NM_000492.4 / P13569 Exon & Domain Lookup) in cf-evidence-loop & Automated catalog.lock.json Verification in check_repo.py
 
 - **Why / ROI rationale:**  *(confidence: )*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Self-contained Python CLI enhancement and unit tests in cf-skills.
 - **Acceptance:** python scripts/check_repo.py; python scripts/pin_catalog.py --check; python -m unittest discover tests
 - **Evidence:** cf-research/sources/catalog.yaml; ClinicalTrials.gov:NCT05248230; PDB:6MSM; PDB:8EIQ; DOI:10.1056/NEJMoa1908639
@@ -3103,6 +3405,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0278 Stale Sentinel Worktree Harvest & Automated Branch Hygiene Daemon (tasks/harvest_sentinel_worktrees.py)
 
 - **Why / ROI rationale:** Automates cleanup of merged/closed worktrees with zero uncommitted changes, preserving machine disk space and preventing branch sprawl. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Autonomous harvest and cleanup of merged or closed sentinel worktrees across all 4 repos, preventing branch drift and git lock contention.
 - **Acceptance:** python tasks/harvest_sentinel_worktrees.py --dry-run; python -m unittest tasks.test_harvest_sentinel_worktrees
 - **Evidence:** tasks/check_worktree_drift.py; .claude/skills/workspace-siblings/scripts/worktrees.py; tasks/audit_github_hygiene.py; AGENTS.md
@@ -3113,6 +3416,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0279 Automated Sentinel PR Repair & Superseded Branch Cleaner Daemon (tasks/repair_sentinel_prs.py)
 
 - **Why / ROI rationale:** Prevents sentinel lane starvation caused by dirty or conflicting PRs in sentinel watch lanes by automatically remediating the repair queue. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: repair
 - **Route:** local - Automates remediation of repair_queue items from audit_github_hygiene.py, safely closing superseded sentinel PRs and resolving title task mismatches.
 - **Acceptance:** python -m unittest tasks.test_repair_sentinel_prs; python tasks/repair_sentinel_prs.py --dry-run
 - **Evidence:** tasks/audit_github_hygiene.py; tasks/pick_bold_task.py; AGENTS.md
@@ -3122,6 +3426,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0008 Freeze the cf-registry-extract row schema (incl. value_low/value_high or median_iqr, source_sha256)
 
 - **Why / ROI rationale:** Everything downstream (extraction, harness, fixture) encodes the schema; changing it later multiplies cost. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** tools/registry-extract/SCHEMA.md exists; a JSON Schema validates a 20-row hand-extracted gold sample from ECFSPR 2022 p.8.
 - **Evidence:** cf-first-project-scoping-memo.md (private session document, not in the repo) section 4 and section 8
@@ -3131,6 +3436,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0046 Sickle cell disease coverage: HBB variant checks, ASH guideline source terms, and an SCD worked example in SKILL.md
 
 - **Why / ROI rationale:** The user states SCD matters to this community. The loop already runs for SCD; this makes it visible, adds the guideline source once terms are read, and keeps the CF-SCD funding comparison paper as a sourced example. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** SKILL.md example section runs clean; catalog has an ASH guidelines entry with access value and check date; ledger shows the Farooq 2020 DOI resolved with no retraction notice.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4
 - **Notes:** 2026-10-12: Dropped in board cleanup per 2026-10-10 council and 2026-10-12 CRO grounding audit (Sickle cell disease is outside the Cystic Fibrosis lab mission scope).
@@ -3138,6 +3444,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0112 A merge check: catch commits a squash merge dropped
 
 - **Why / ROI rationale:** Estimate: replaces many hand checks and catches a lost fix before a worktree is removed. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Branch:** work/frontier-lab-unbinding
 - **Acceptance:** check-merged.ps1 -Repo -Pr confirms the PR's last commit and files are on origin/main; workspace-siblings says to run it after every merge and before removing a worktree; a pre-push check refuses a branch whose PR is merged.
@@ -3148,6 +3455,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0269 Deep Intronic Cryptic Exon & Splice Foundation Model Benchmark (3849+10kbC>T, 2789+5G>A, 1811+1.6kbA>G) (tools/discovery/intronic_splice_foundation.py)
 
 - **Why / ROI rationale:**  *(confidence: )*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic nucleotide sequence scanning, PAM/bystander window calculation, ASO walk thermodynamics, and TLR9 CpG counting in Python.
 - **Acceptance:** python -m pytest tools/discovery/test_intronic_splice_foundation.py -v
 - **Evidence:** Jaganathan K et al. (2019) Predicting Splicing from Primary Sequence with Deep Learning (SpliceAI, PMID:30661751) Oren YS et al. (2022) Antisense oligonucleotide splicing modulation for 3849+10kb C->T (PMID:34972643) Brixi G et al. (2025) Genome modeling and design across all domains of life with Evo 2 (DOI:10.1101/2025.02.18.638918)
@@ -3158,6 +3466,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0012 Unit tests for tools/sources/fetch_sources.py
 
 - **Why / ROI rationale:** The fetcher is the enforcement point for access policy; the 'forbidden is never fetched' property should be a test, not a reading. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Already implemented before this session; verified rather than rebuilt.
 - **Acceptance:** pytest passes; tests assert manual/forbidden/request entries never reach download(); manifest round-trip tested with a temp dir.
 - **Evidence:** research/tools/sources/fetch_sources.py
@@ -3166,6 +3475,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0088 Keep everything a verifier reads inside its temp copy
 
 - **Why / ROI rationale:** Estimate: avoids wasted attempts and false failures during a long unattended run. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - A small change to a Python verifier helper.
 - **Acceptance:** The shared site verifier copies the pieces of the research repo it needs; a run started before an edit of the sibling repo gives the same result as one started after.
 - **Evidence:** A verifier for site edits read the sibling research repo through a link; editing that repo during the run (new ledger entries) made the evidence-page check fail on two otherwise correct attempts and cost a thinking attempt (scratch/site-updates/qwen-results.md).
@@ -3175,6 +3485,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0117 Identity in public files: one role address, one way to sign
 
 - **Why / ROI rationale:** Estimate: keeps the lab separate from the maintainer's identity. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** One role address in public files, letters signed by the lab, the catalog names 'the contact in the terms' instead of addresses, a recorded decision on vendor credit, and commit author addresses checked by the gate.
 - **Evidence:** 2026-10-09: public files use a first-name address; the two letter drafts disagree on signing and on where replies go; organisation contact addresses sit in the catalog; READMEs credit an AI vendor; commit author addresses are mixed.
@@ -3184,6 +3495,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0120 An intermittent WebKit failure in the site's policy test
 
 - **Why / ROI rationale:** Estimate: a flaky check teaches people to ignore red; fixing it keeps the browser suite trustworthy. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Branch:** work/frontier-showcase-t0173-t0077-t0120
 - **Acceptance:** Run the test 30 times in a clean worktree of main and record the failure rate and the failure message; find the cause (a race between the policy violation event and the assertion is the first thing to check); make the test deterministic or fix the page; 30 consecutive passes in WebKit and Chromium.
@@ -3194,6 +3506,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0144 Observe what Antigravity loads from cf-lab, then state only that: a declared mirror under its documented paths, or no claim
 
 - **Why / ROI rationale:** Estimate: if Antigravity loads none of the lab's skills, every session there runs without security-browsing, security-git and the review loop, which fits how PR 50 looked; if it does load them, AGENTS.md can say so with a date. Either answer is worth an hour; an unobserved claim is worth less than nothing. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** A person starts Antigravity in cf-lab and records (a listing or screenshot kept in cf-lab-files, no private paths in a repo) which skills and rule files it reports loading, with the Antigravity version and date. Then one of: (a) AGENTS.md and docs/instruction-loading.md state exactly what was observed and nothing more; or (b) a .agents/skills/ mirror is added as a declared mirror (junction, symlink, or a generated copy with a manifest naming the source commit), check-workspace.py's duplicate-name guard passes only when the trees are byte-identical, and a test fails on a one-byte difference. No skills.json claim remains unless the docs or the observation show it.
 - **Evidence:** 2026-10-12 (session record): Antigravity's official docs describe skills at <workspace-root>/.agents/skills/<folder>/ (also .agent/skills/), global folders under ~/.gemini/, and rules from AGENTS.md or GEMINI.md; they describe no skills.json. cf-lab keeps skills in .claude/skills/ only. Nobody has listed the skills an Antigravity session actually loads; the skills.json claim was removed from cf-lab PR 50 before it merged.
@@ -3202,6 +3515,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0226 Deterministic SVG/WebGL2 ?t=SECONDS visual visibility & mobile zero-overflow verifier (tasks/test_svg_freeze_contract.py)
 
 - **Why / ROI rationale:** Guards against invisible paused SVG curves (stroke-dashoffset: 1) and broken mobile slider layouts. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Automated test suite verifying SVG stroke offset contracts and mobile 375px zero-overflow.
 - **Acceptance:** python -m unittest tasks/test_svg_freeze_contract.py
 - **Evidence:** .claude/skills/svg-animation/SKILL.md; .claude/skills/webgl-threejs-graphics/SKILL.md; tasks/specs/T-0220.md
@@ -3212,6 +3526,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0081 Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public
 
 - **Why / ROI rationale:** Estimate: the page is the lab's most visible scientific claim set; one wrong sentence costs more trust than the page earns. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: structural_biology | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** A blind read by a model of a different family against the checked-facts packet (flags confirmed on the source, never by vote); the three statements marked 'to confirm' in the packet (nucleotide-binding wording, 'most common variant', Trikafta wording) read on their sources; a person with CF or a carer reads the page and their changes are made; the maintainer decides to publish. Nothing is deployed before all four.
 - **Evidence:** The page's captions were checked by the controlling agent against the structure files and UniProt, and a storyboard came from Fable; no other model family and no person has read the final wording.
@@ -3220,6 +3535,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0048 Admission review of Google's Data Commons MCP server for population denominators (layer 5)
 
 - **Why / ROI rationale:** Prevalence and carrier-frequency sentences need a population base with provenance; Data Commons is Google-published, open, free, and MCP-native. Does not replace registry extraction. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** security-runtime MCP checklist done on a pinned release; one query returning US and one state population with source and date, recorded as an evidence record; written note on whether any CF or SCD indicator exists in the graph.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4c
 - **Notes:** User selected this on 2026-10-04 ('let's go for this one for now'); moved to ready on that instruction. Steps in research/proposals/2026-10-04-publish-packet.md section D. PyPI facts: datacommons-mcp 1.4.0, Apache-2.0, py>=3.11<3.14, DC_API_KEY required, stdio or HTTP. Steps 1 to 4 done 2026-10-04 and recorded in research/proposals/2026-10-04-datacommons-admission.md: the four queries ran over stdio from a scripted client, not an interactive agent client (deviation, disclosed). US and Washington population came back with a Census source and date 2025 (stored as verbatim response fields in the note, not yet as a formal evidence record: that needs the provider in T-0053). No CF or SCD indicator exists in the graph. Query (d) started 52 s after (c), not 60 (disclosed). No 429/403 or cooldown. 2026-10-14: Maintainer explicitly authorized Step 5 admission ('letsa do 1 and 2'). Admitted for general statistics and population denominators only. base_url declared in sources/catalog.yaml, synced to cf-skills, and datacommons provider implemented in cf-evidence-loop with live population query returning US (341,784,857) and WA (8,001,020) 2025 Census PEP observations.
@@ -3227,6 +3543,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0059 delegate.ps1: let a model-only setup run fast, and make the token budget and thinking mode explicit
 
 - **Why / ROI rationale:** Estimate: the README tells a contributor to set only LOCAL_WORKER_MODEL; that setup silently wastes every attempt on long tasks. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** cloud - Controller-written PowerShell in the delegation driver; the change was to the driver itself, which the worker cannot test.
 - **Acceptance:** test-delegate.ps1 gains cases that fail before and pass after: (a) with only a model set, the first attempts send think=false; (b) a -MaxOutputTokens parameter is passed through to the invoke script; (c) the cap error message names the cap and how to raise it. pwsh -File test-delegate.ps1 exits 0 and a mutation of each change makes a case fail.
 - **Evidence:** 2026-10-04: with only LOCAL_WORKER_MODEL set (no profiles) all three delegate attempts for a 130-line shell script stopped with 'Generated-token limit reached' at the hard-coded 8192 tokens, so the model had been thinking; with the fast profile (think false) the same task returned in 12 to 16 seconds. The thinking profile also hit the cap on the one task tried. MaxOutputTokens is fixed at 8192 inside delegate.ps1.
@@ -3235,6 +3552,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0143 A pull request template and a body check: every PR carries its review-loop record, a size line and a declaration of files copied from another repo
 
 - **Why / ROI rationale:** Estimate: the lab now takes PRs from more than one agent tool, and the local commit gate (T-0111) is not on their path; a template plus a body check is the one control that meets every PR in the same place. A stranger may say a template is theater; it is, unless the check fails the PR, which is the acceptance. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** .github/PULL_REQUEST_TEMPLATE.md in cf-lab asks for: the checks run with their output lines, the reviewer(s) and rounds (pr-review-loop), the diff size, 'files copied from another repo: none, or a list with the source commit', and 'agent instructions changed: yes/no'. A check (a check-all row, or a CI job with a read-only token) fails a PR whose body lacks the record headings, or whose diff exceeds a size the maintainer sets with no stated reason; a test proves it fails on a body without the record and passes with it. The same template is proposed to cf-research and cf-skills in their own PRs.
 - **Evidence:** 2026-10-13 (session record): cf-lab PR 50, opened by another agent (Gemini in the Antigravity IDE), had 58 files and +7,470 lines at its first head: copies of the evidence skill and a stale catalog (59 sources against 67 upstream, per T-0140), an allowlist that silenced the duplicate-skill guard, a reversed ownership sentence, an unverified .agents/skills.json claim, and a push rule changed from 'stop and ask' to 'submit'. Deterministic checks passed; a council and a byte comparison found the problems. AGENTS.md requires the pr-review-loop record in every PR body, but there is no PR template and nothing checks the body (as of origin/main 2026-10-13).
@@ -3243,6 +3561,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0161 Frugal Chief Researcher Officer grounding sentinel: scheduled-chief-researcher (lazy delta audit of board grounding, curative mission focus, zero idle token burn)
 
 - **Why / ROI rationale:** Prevents agent drift and hallucinations on the task board; enforces grounding against primary literature for all proposed tasks; burns zero tokens when the board is idle. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** cloud - Requires multi-repo board synthesis, mission alignment verification, and lazy execution gating.
 - **Branch:** feat/cro-surveillance-grounding-sync
 - **Acceptance:** Skill scheduled-chief-researcher created under .claude/skills/; implements lazy delta check (exits 0 with zero LLM calls if tasks/board.json and cf-research/proposals/ are unchanged); runs deterministic checks (check_claims.py, check_numbers.py); emits 1-page Mission Grounding Brief in cf-research/landscape/; passes check-skill-frontmatter.py.
@@ -3253,6 +3572,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0165 Public exposure & localization of Rare Variant Cryo-EM Theratyping Atlas & Universal Curative Mission Charter
 
 - **Why / ROI rationale:** Exposes computational geometry theratyping metrics for rare and unclassified CFTR mutations to patients and researchers on /cf/ with declarative research cards, dynamic nav, and Mexican Spanish localization. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: structural_biology | Kind: new
 - **Route:** cloud - Cross-repo synthesis connecting Cryo-EM biophysics in cf-research, frontend ES modules in .ai, and Mexican Spanish localization.
 - **Branch:** site/showcase-rare-variants
 - **Acceptance:** Declarative research card #rare-variants with ARIA landmarks and data-i18n attributes on /cf/; anchor jump link #rare-variants added to nav-rail.js and subnavMap; complete Mexican Spanish translation in data/i18n/es-MX.json and src/scripts/i18n-resources.js with mandatory clinical boundary disclaimer; all site tests pass.
@@ -3263,6 +3583,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0166 Public exposure & localization of Adaptive N-of-1 Organoid Theratyping Protocol & Multi-Registry DILI Surveillance
 
 - **Why / ROI rationale:** Exposes adaptive N-of-1 organoid surrogate trial frameworks for 1,000+ ultra-rare CFTR variants and openFDA DILI boxed warning monitoring on /cf/ with declarative research cards, dynamic nav, and Mexican Spanish localization. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Cross-repo synthesis connecting organoid surrogate biostatistics in cf-research, frontend ES modules in .ai, and Mexican Spanish localization.
 - **Branch:** site/showcase-adaptive-trials
 - **Acceptance:** Declarative research card #adaptive-organoids with ARIA landmarks and data-i18n attributes on /cf/; anchor jump link #adaptive-organoids added to nav-rail.js and subnavMap; complete Mexican Spanish translation in data/i18n/es-MX.json and src/scripts/i18n-resources.js with mandatory clinical boundary disclaimer; all site tests pass.
@@ -3273,6 +3594,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0174 Mexican Spanish (es-MX) localization and medical disclaimers for the Cryo-EM 3D Nonsense Truncation simulator on senseiewok.ai
 
 - **Why / ROI rationale:** Delivers dignified Spanish translation for the Cryo-EM 3D nonsense mutation simulator with complete medical boundaries. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Static i18n JSON translation and unit tests.
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check-voice.py
 - **Evidence:** Live Cryo-EM PTC simulator deployed in PR #89/#90 and data/i18n/es-MX.json
@@ -3282,6 +3604,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0175 Interactive allosteric rescue and nonsense readthrough kinetics simulator on senseiewok.ai/cf/cftr/
 
 - **Why / ROI rationale:** Bridges Discovery Round 3 biophysical rescue models to the interactive front door with real-time slider controls. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Client-side ES6 canvas and DOM manipulation tests.
 - **Acceptance:** python -m unittest tests.test_site tests.test_cftr_hero; python tasks/check-voice.py
 - **Evidence:** Discovery Council Round 3 (cf-research PR #74) Cryo-EM 3D Nonsense Truncation & Allosteric Rescue findings
@@ -3291,6 +3614,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0007 Add [verified]/[unverified]/[hypothesis] labels to cystic-fibrosis.md, cff-goals.md, landscape/cf-repositories.md
 
 - **Why / ROI rationale:** README requires labels on every checkable claim; three of five notes have zero labels. The convention is only credible if applied. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** grep count of claim labels > 0 in each file; every [verified] has an inline URL and date.
 - **Evidence:** grep of research/*.md on 2026-10-04: labels={verified:0, unverified:0} in the three files
@@ -3300,6 +3624,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0030 Docs tier 3: make AGENTS.md the only rule source; shrink copilot-instructions.md; fix the skill-authoring skill's internal contradictions
 
 - **Why / ROI rationale:** Two always-loaded instruction files that overlap will drift. The authoring skill is the binding rule document for every other skill but has duplicate section numbers, a .skills/ tree that contradicts its own location rule, and a generic section that is not about skills. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: repair
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** copilot-instructions.md is at most 40 lines and holds no rule that is not also in AGENTS.md; the authoring skill has unique section numbers and no .skills/ tree; check-skill-frontmatter.py --against main passes; lab-versioning/scripts/test-setup.py passes; VERSION is bumped as a PATCH.
 - **Evidence:** research/proposals/2026-10-04-docs-organization-and-memory-design.md; the findings for this tier were re-checked against the files on 2026-10-04.
@@ -3308,6 +3633,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0050 Development-tooling MCPs: admission review of the GitHub MCP server (repo-scoped token) and Microsoft Learn Docs MCP for the hq workflow
 
 - **Why / ROI rationale:** The board and PR workflow this week created is manual; a repo-scoped GitHub MCP lets agents read issues and PRs through the API instead of scraping. Learn Docs MCP keeps Copilot current on the PowerShell and VS Code APIs the lab's scripts use. Neither is a research source. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** security-runtime MCP checklist for each; GitHub token scoped to senseiewok repos only and stored outside the repos; one read-only query per server recorded; AGENTS.md names both and their permitted uses.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4d; github.com/microsoft/mcp catalog read 2026-10-04
@@ -3317,6 +3643,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0069 Provider for the UKRI Gateway to Research API in cf-evidence-loop
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Branch:** work/frontier-skills-t0055-t0069
 - **Acceptance:** A providers/ukri_gtr.py with a fixture, shape checks, tests that fail before and pass after, a live check of one search, and an evidence record that states the Open Government Licence and the limitations.
@@ -3327,6 +3654,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0076 Make the skills repo installable as a Claude Code plugin marketplace
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** A .claude-plugin/marketplace.json (and the plugin layout it needs) makes `/plugin marketplace add` of the local folder list cf-evidence-loop; the README says GitHub Copilot still reads .claude/skills; no skill text changes; the format is checked against the Claude Code plugin documentation.
 - **Evidence:** 2026-10-05: cf-skills has no .claude/skills and no plugin manifest, so cf-evidence-loop does not load by being a workspace folder; the council ranked a marketplace.json for our own skills as a separate, useful task.
@@ -3335,6 +3663,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0253 CF Airway Mucus Micro-Rheology & Polymer Cross-Linking Cleavage Kinetics Under Dornase Alfa (rhDNase) and Thiol-Reducing Mucolytics (tools/discovery/mucus_cleavage_kinetics.py)
 
 - **Why / ROI rationale:** Couples eDNA enzymatic cleavage and mucin thiol reduction with polymer micro-rheology; provides mathematical grounding for the SIMPLIFY trial (NCT06350474) and inhaled NAC trials (NCT00996424), directly resolving the physical hydrogel obstruction that blocks genetic vector diffusion. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Biophysical modeling of the interpenetrating eDNA-mucin polymer network in CF sputum, combining rhDNase I endonucleolytic cleavage (with G-actin competitive inhibition) and N-acetylcysteine thiol-disulfide reduction.
 - **Acceptance:** pytest tools/discovery/test_mucus_cleavage_kinetics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-21.md; ClinicalTrials.gov:NCT00996424; ClinicalTrials.gov:NCT06350474; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT00680316; ClinicalTrials.gov:NCT02088216; PDB:1DNK; PDB:4AWN; PDB:1ATN; DOI:10.1073/pnas.87.23.9188; DOI:10.1126/science.8108733; DOI:10.1126/scitranslmed.aaz1974; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1183/13993003.01358-2020
@@ -3344,6 +3673,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0164 Overall lab security, session error mining, and continuous improvement sentinel: scheduled-security-sentinel (audit_session_errors.py & auto-remediation)
 
 - **Why / ROI rationale:** Prevents repeated agent session failures by continuously mining conversation transcripts, classifying error patterns (PowerShell quoting, Python tracebacks, lock contention), and driving concrete system improvements. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Local transcript parsing and log auditing with full review gate.
 - **Acceptance:** tasks/audit_session_errors.py mines recent agent session transcripts under brain/ and task logs for command failures, tracebacks, and lock contention; outputs .loop-logs/session-error-digest.json with actionable improvement recommendations; scheduled-security-sentinel operationalized across all 4 repos with alias daily-security-sentinel.
 - **Evidence:** 2026-10-14: Maintainer directive expanding site security into overall lab security, continuous improvement, and forensic session error mining across agent transcripts and logs.
@@ -3353,6 +3683,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0171 Trial Endpoint Atlas: dual-agent consensus audit against 50-study ground truth census
 
 - **Why / ROI rationale:** Enforces dual-family model consensus (Argon + Qwen) achieving precision >= 0.90, recall >= 0.85. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: maintenance
 - **Route:** cloud - Orthogonal dual-family model evaluation.
 - **Branch:** work/frontier-trial-atlas-t0171-t0172
 - **Acceptance:** python tools/trial_atlas/check_atlas.py --snapshot sources/downloads/trial_atlas/cf-snapshot-1 --tags sources/downloads/trial_atlas/tags-consensus.json --key sealed/key.json
@@ -3363,6 +3694,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0027 Design an opt-in setting that lets the controlling agent delegate bounded drafts to a usable local worker automatically
 
 - **Why / ROI rationale:** Routine drafting and first-pass review is already assigned to the local worker by policy, but the controlling agent has to remember to do it. A documented, default-off setting would make the intended behaviour repeatable and cheaper. Risk: a setting that silently sends work to a model changes what is in context for a task, so the default must be off and the data boundary and approval rules must not weaken. *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A written design names the setting (for example an environment variable next to LOCAL_WORKER_PROFILE, not skill frontmatter, since skills are not read as configuration by every client), its default (off), when 'helpful' applies (bounded, tool-free, verifiable tasks only), and what it never does (no untrusted text without the data boundary, no secrets, no model self-approval, no model downloads). select-work-route.ps1 gains self-tests for it, and the routing self-test still passes with the setting unset.
 - **Evidence:** Human request 2026-10-04 while drafting registry skills with the local Qwen3.8 27B 64k alias: a setting in the skills that, when set, delegates to local models automatically when helpful. Existing pieces read 2026-10-04: AGENTS.md 'Local-first escalation' (COUNCIL_CROSS_PROVIDER_DELEGATION is opt-in for cloud only), ai-loop-council 'Delegation setting' and select-work-route.ps1 (52 self-tests, no model execution), invoke-local-model.ps1 (LOCAL_WORKER_PROFILE, LOCAL_WORKER_MODEL).
@@ -3372,6 +3704,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0035 Tier table and loop housekeeping: elevated challenger rule, slim ai-loop-council, retire the loop-orchestrator prototype
 
 - **Why / ROI rationale:** The gate design recommends a blind different-family challenger at the elevated tier for public-facing artifacts and changed factual claims, a council skill about 7,300 words against a 500-line cap, and deleting a prototype whose config names one model as worker, challenger and council. All three change agent instructions. *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** AGENTS.md tier table states the elevated challenger condition and stays under 2,500 words; ai-loop-council/SKILL.md is under 500 lines with the moved sections kept as research proposals that carry Status lines; .github/loop-orchestrator/ is removed and no file still links to it; check-skill-frontmatter.py passes; the setup self-test passes; no rule changes meaning except the one decided.
 - **Evidence:** research/proposals/2026-10-04-ai-loop-gate-design.md and research/ledger/2026-10-04-first-session.md (23 logged errors from one session by one agent).
 - **Notes:** Human gate: AGENTS.md, .claude/ and .github/ (CODEOWNERS-protected). Decisions 1 and 3 of the design note are the human's. Do not do this before they are answered. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check). \| 2026-10-12: Dropped in board cleanup per 2026-10-10 council review (consolidated under T-0030).
@@ -3379,6 +3712,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0041 Website section for the evidence loop: how the lab answers a research question, with the seven layers and a live example record
 
 - **Why / ROI rationale:** The site explains the AI loop but not the research loop it serves. A section showing question -> source -> record -> limitation, with one real retraction-check record, is the clearest public statement of what 'claim verification' means here and sets the standard every video and note is held to. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: ai_verification | Kind: new
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** Section live on senseiewok.ai in lab-voice register; every number in it resolves to a record in research/evidence/; Playwright check confirms the section renders and the disclaimer block is present; human sign-off per lab-voice review list.
 - **Evidence:** skills/cf-evidence-loop/references/ARCHITECTURE.md; research/proposals/2026-10-04-evidence-loop-site-section.md
@@ -3388,6 +3722,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0070 Read the terms and robots.txt of Ensembl REST, NCBI Variation Services, UniProt and ClinVar bulk files with the lab's reader; propose catalog entries
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** For each of the four: robots.txt and the terms page read with the hardened reader (one request each), the catalog entry proposed with access, redistribute, terms_url and claim_label; python tools/sources/check_catalog_fields.py exits 0; a human reads uniprot.org's licence page once.
 - **Evidence:** 2026-10-05: proposals/2026-10-05-dna-sources-survey.md lists these as the first four sources for a read-only CFTR variant helper; every term there is unverified because the pages were read through a summarising fetch tool and some did not render.
@@ -3397,6 +3732,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0079 Measure whether the local models can write WebGL and SVG: a verifier-first test
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** Three bounded tasks (for example a lit rotating mesh, a morph between two shapes, an animated SVG path) each with a Playwright pixel and console verifier proven on a bad stub; fast and thinking attempts recorded; a results table added to model-qwen3-8-27b with the cases the model failed; cloud fallback used where it failed.
 - **Evidence:** 2026-10-05: the maintainer wondered whether local models can be good at OpenGL; the local worker is Qwen3.8 27B and a cloud fallback is always allowed.
 - **Notes:** Requested by the maintainer in this session on 2026-10-05, so it is ready. Small n; the result is evidence, not a ranking. 2026-10-05 progress: the Playwright-free verifier for WebGL tasks exists (check-webgl.py); the three tasks and the model runs are not started. 2026-10-05 later: one of the three tasks was run for real. A 20-item WebGL2 viewer page, two runs of the delegate loop (fast, fast, thinking), a verifier that renders the page in headless Chromium and checks the source: 0 of 6 attempts accepted; the faults a plain 'does it draw' test would miss (no first frame under reduced motion, a console error, a missing required element) were the ones found. Cloud fallback wrote the page. Results table is in model-qwen3-8-27b. The lit-mesh and SVG-path tasks are still to run. \| 2026-10-07 progress: the lit-mesh and SVG-path tasks were run (10 delegation runs, fast, fast, thinking). Verifier: webgl-threejs-graphics/scripts/check-animated-page.py with a ?t= freeze hook, proved on 30 bad stubs and a reference page of each kind; it was strengthened twice because reading and rendering the accepted pages found faults it had missed. Results table in model-qwen3-8-27b (section: Two small animated pages). SVG path: 4 of 4 accepted and correct. Lit mesh: 1 of 6 runs meets the whole specification by the final verifier; two runs not accepted, the controlling agent's own page is the cloud fallback. Not closed: the acceptance asks for a pixel verifier per task and a table of failures, which now exist; whether that is enough, and whether the morph task should also be run, is for the maintainer. \| 2026-10-07: the maintainer chose 'set done' when asked in this session (the measurement and the verifier are merged in cf-lab PR 13; the morph task was not run and stays recorded as not run). Closed on that instruction, with no actual hours recorded.
@@ -3405,6 +3741,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0121 Stop the evidence tool's catalog copy needing a pull request after every catalog change
 
 - **Why / ROI rationale:** Estimate: removes a recurring manual step and the red checks between merges, while the public skill keeps a standalone copy. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** The copy is pinned like the site's data: a pin tool records the research commit and hashes, a status command says how far behind the pin is, and the check in cf-skills compares the copy with the PINNED commit (not with main), so a catalog change in cf-research no longer turns cf-skills red. Moving the pin is one pull request. Tests with fakes; the skill still works standalone.
 - **Evidence:** 2026-10-10: every change to cf-research's sources/catalog.yaml needed a follow-up pull request in cf-skills to sync the evidence tool's generated copy (sync_skill_catalog.py --check reports DRIFT until it lands): four such pull requests in one day, with the site's counts needing the same until the evidence pin (.ai #38).
@@ -3414,6 +3751,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0173 Trial Endpoint Atlas: zero-build interactive showcase compilation for /cf/trials/
 
 - **Why / ROI rationale:** Zero-build public atlas with reactive SVG PRISMA diagram, faceted filters, and persistent NLM disclaimers. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Frontier browser UI and visual inspection.
 - **Branch:** work/frontier-showcase-t0173-t0077-t0120
 - **Acceptance:** python -m unittest tests.test_site; python tasks/check-voice.py
@@ -3424,6 +3762,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0089 Mechanical filter for local review findings: reproduce each failing input in a temp copy
 
 - **Why / ROI rationale:** Estimate: the evaluation's judges ran every input by hand, one site folder and one run per finding. A tool does that step and leaves the controller only the spec reading, which the 8-of-14 figure shows cannot be skipped. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - A small script with a test-shaped verifier; the depth probe was written by the local worker and accepted on the first attempt with 12 of 12 tests (model-qwen3-8-27b profile). The controller still reads the spec check.
 - **Acceptance:** A tool takes a local worker's review findings, each with a runnable failing input, runs the input against the candidate inside a temp copy (nothing read outside it) and keeps only findings whose claimed output appears; a test with recorded findings from the reviewer evaluation separates reproducing from non-reproducing ones, treats a finding with no input as a lead and not a finding, and its output tells the controller to check the quoted spec sentence of each kept finding. The tool never ranks or accepts a finding by itself.
 - **Evidence:** scratch/qwen-local/reviewer-eval.md, 'What an accept a review rule should be' and 'False positives, by kind': 14 false-positive claims in 8 runs; running the given input against the unpatched candidate removed 5 of 14 and 2 matched findings whose inputs went through a path the script never reads; 8 of 14 reproduced exactly and were still wrong about the spec (7 of them one rule misread), so reproduction alone is not acceptance.
@@ -3433,6 +3772,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0131 Skip guard: make skipped tests visible and budgeted in CI, and discover every test
 
 - **Why / ROI rationale:** Estimate: keeps a green build meaning something without a person reading logs. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** Each repo's CI prints a skip summary (test id and reason) in the job summary and compares the set of skipped test ids with a committed expected-skip list, failing when it grows or when an entry no longer skips (so the list cannot go stale). The cf-research workflow discovers its cftr-model tests instead of naming modules. A test proves the guard fails on an added skip and on a removed one. By-design skips (symlink and platform) are listed with a reason. No new third-party dependency.
 - **Evidence:** 2026-10-10: the first CI runs showed OK with skips (cf-research 28, cf-lab 6 by design, cf-skills 3), and unittest and check-all treat a skip as success, so a test that starts skipping by accident looks green. cf-research's workflow lists four cftr-model modules by hand, which is how test_viewer and test_research were left out. Both reviewers (Opus, Sonnet) ranked this first.
@@ -3442,6 +3782,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0142 Site: run the render tests where a failure is seen (CI sets SITE_SKIP_RENDER=1 and a failing hero test went unseen)
 
 - **Why / ROI rationale:** Estimate: the render tests exist to catch layout regressions on public pages and today run only when a person remembers; one did regress on main. A stranger may say a browser in CI is slow and flaky (T-0120 records WebKit flakiness); that is why the job may be scheduled rather than per PR, but a skip must be visible either way. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** The site's CI runs the render tests with a browser on pull requests or on main before the deploy step, with a flag that turns a missing browser into a failure (reuse T-0133's design: Playwright pinned with hashes, the runner's Chrome or Edge, local pages only, read-only token, no secrets). If the maintainer chooses a scheduled job instead, the deploy job prints skipped test ids against a committed expected-skip list (T-0131's pattern) and fails when the list grows. Proof: a PR that reintroduces the 809.5 px banner state goes red.
 - **Evidence:** 2026-10-12 (session record): tests/test_cftr_hero.py::test_the_protein_is_on_the_first_screen_of_a_desktop failed on clean site main (the two buttons ended at 809.5 px against an 800 px line, caused by the conference banner). .github/workflows/deploy.yml sets SITE_SKIP_RENDER: "1" (seen 2026-10-13), so nothing saw it; a local Playwright run found it and site PR 52 fixed it.
@@ -3451,6 +3792,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0051 Decide and implement how the control repo consumes the evidence skill
 
 - **Why / ROI rationale:** A second copy of the skill or catalog would drift and mislead agents; a single maintained source avoids that. The mechanism (sibling-checkout launcher vs installable package) is cheap to document and test, but choosing it wrong means rework. The drift check in the pre-commit gate catches the main failure mode (catalog divergence), which is high-value for a small cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** From the hq folder one documented command runs a retraction check through the skill without copying it: `python scripts/evidence_cli.py retractions 10.1016/S0140-6736(97)11096-0` (path to the skill in the skills repo) exits 0 and prints a 2004 correction and a 2010 retraction. The drift check runs in the tier gate (run-gate.ps1) when either catalog is staged: staging a deliberate one-line edit to cf-evidence-loop/catalog.yaml makes `research/tools/sources/sync_skill_catalog.py --check` exit 1 and the gate fail; reverting the edit lets it pass.
 - **Evidence:** The cf-evidence-loop skill lives in the skills repo; hq must not hold a second copy. The source catalog research/sources/catalog.yaml is canonical; the skill ships a generated copy cf-evidence-loop/catalog.yaml kept equal by research/tools/sources/sync_skill_catalog.py (--check exits 1 on drift). Agents in hq need to run scripts/evidence_cli.py from the skill, which needs Python with requests and PyYAML. A tested virtual environment exists outside the repos. Open question: link or install mechanism. The drift check is not yet part of any commit gate.
@@ -3459,6 +3801,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0043 Variant layer: MyVariant.info and gnomAD providers (aggregate frequencies only)
 
 - **Why / ROI rationale:** Carrier-frequency and classification claims for CFTR and HBB variants need a population denominator; both APIs are public and aggregate. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** Two providers with parse tests and fixtures; catalog entries with read terms and check dates; live check on F508del and HbS returns classification plus allele frequency with limitations.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 3
@@ -3468,6 +3811,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0049 Pilot Gemini Deep Research (collaborative planning) as the frontier-planning leg; verify every citation through cf-evidence-loop
 
 - **Why / ROI rationale:** The website promises frontier planning with local execution; Deep Research is that leg as a managed agent, browsing from Google's infrastructure rather than the lab's IP. The pilot adds the verification step the website does not yet mention. Usage-priced on the Gemini API the lab already pays for. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** One research question run with collaborative_planning; plan reviewed by a human before execution; report saved; every cited DOI/NCT/approval run through cf-evidence-loop with the ledger committed; count of citations that were clean, flagged, or unresolvable reported. No private material in the prompt.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 4c; ai.google.dev Deep Research docs read 2026-10-04
@@ -3476,6 +3820,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0172 Trial Endpoint Atlas: PRISMA screening flow & surrogate-to-registrational endpoint evolution
 
 - **Why / ROI rationale:** Traces transition from physiological surrogates (sweat chloride, FIS) to registrational endpoints (ppFEV1, exacerbations). *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** local - Offline dataset analysis and claim verification.
 - **Branch:** work/frontier-trial-atlas-t0171-t0172
 - **Acceptance:** python tools/trial_atlas/check_atlas.py; python tools/claims/check_claims.py landscape/trial-endpoint-evolution-2026.md
@@ -3486,6 +3831,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0021 Claim-mapping fixture for model-onboarding from extracted ECFSPR indicators (design only until T-0008)
 
 - **Why / ROI rationale:** A public, aggregate, unambiguous fixture for 'map claim to source or abstain', which is the exact job the local worker must do well. *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** Fixture JSON with 30/20/10 split committed; at least one model scored with abstention reported separately from accuracy.
 - **Evidence:** research/proposals/2026-10-04-hq-skill-updates.md item 5
@@ -3495,6 +3841,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0034 Claim checker for the elevated tier: quote, absence and count claims with a mandatory positive control
 
 - **Why / ROI rationale:** Ledger entries E12 and E13 are the most expensive class: inferences beyond the evidence and a verifier with a blind spot. A checker that settles quote, absence and count claims against raw text, and refuses to report 'none found' until it has found a planted instance, closes the gap a verbatim-quote check leaves. *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** A claims file (id, type, text, evidence location) is checked by a script: a truncated-prefix quote fails; an unnumbered contents entry defeats an absence claim made from parsed structure; a count claim is compared with a counted value; a verifier that cannot find its planted instance exits non-zero. Fixtures reproduce E12 and E13 and fail without the guard.
 - **Evidence:** research/proposals/2026-10-04-ai-loop-gate-design.md and research/ledger/2026-10-04-first-session.md (23 logged errors from one session by one agent).
@@ -3504,6 +3851,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0056 check-lab-files.ps1: a deterministic check that the cf-lab-files folder holds nothing it must not
 
 - **Why / ROI rationale:** Estimate: a folder that agents can read and that collects notes is where a key or a patient detail would end up unseen. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** cloud - The worker failed three attempts on PowerShell scoping and return values; the controller wrote it. Local is not yet reliable for PowerShell with a state-heavy spec.
 - **Acceptance:** pwsh -File .claude/skills/security-git/scripts/check-lab-files.ps1 -SelfTest exits 0, and the self-test proves (a) a seeded violation is caught for each rule and (b) a clean folder passes. Rules: no file named .env* or with a key/cert extension, no private-key header or token-shaped string or email address in memory/, no .git inside, at most 3 files directly in memory/, and any private terms taken from a LAB_PRIVATE_TERMS line in .env (never committed). Run once on the real folder and report the output.
 - **Evidence:** A frontier design review on 2026-10-04 (read-only) judged the Files folder safe only with one check: the folder sits inside the agents' workspace, is not a git repo, and has no history. AGENTS.md lists the never-store items; nothing enforces them.
@@ -3512,6 +3860,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0064 More sources: UKRI Gateway to Research, CORDIS, EU Clinical Trials Register, WHO ICTRP, PubPeer, ClinGen, and the CFF 2025 highlights link
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Web reading with conduct and quote verification needs a networked controller.
 - **Acceptance:** fields ok: 27 keys documented; sync_skill_catalog --check in sync; each quoted sentence verbatim and complete (11 of 11 checked); fetch_sources.py --manual and sources/manual-downloads.md list the manual, request and forbidden ones.
 - **Evidence:** 2026-10-05: the maintainer asked to bring more sources; the researcher-sources proposal listed integrity, funding, trial-register and curation gaps. The CFF highlights URL was given by the maintainer.
@@ -3520,6 +3869,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0075 Trial Anthropic's public skills (frontend-design, skill-creator) against our own checks
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: clinical_trials | Kind: new
 - **Acceptance:** A note records, for each of the two skills: what was run, the with-and-without outputs judged by named checks that run (accessibility, no new dependency, verified copy untouched; for skill-creator only gains an existing deterministic check confirms), every script read before it was run, the token cost of the descriptions per turn, and one reproducible check of whether Claude Code discovers skills in an added workspace folder; the maintainer decides adopt, adapt or drop for each.
 - **Evidence:** 2026-10-05: the maintainer asked to add anthropics/skills to the workspace and test whether it is useful, with our own additions kept thin. A council (Fable, local Qwen, controlling agent) ranked read-only trial first and vendoring last: proposals/2026-10-05-public-skills-decision.md. The repo is a marketplace of bundles, so a plugin install loads twelve skills at once.
 - **Notes:** Requested by the maintainer in this session on 2026-10-05, so it is ready. Nothing from the clone is copied into a public repo. 2026-10-05: the maintainer decided the lab's skills are layered on top of Anthropic's in the lab's own repos (nothing copied; base named, labelled third party, layer works alone): THIRD_PARTY_SKILLS.md lists the pairs and ai-provider-compatible-skills section 11 holds the rule. The trial still decides whether to adapt any idea. 2026-10-07 progress: the trial note and its tools are merged in cf-research (PR 5): proposals/2026-10-07-public-skills-trial.md, status proposed. It covers what was run, the with-and-without results from checks that run, the description and body token costs, the reproducible discovery check, and which scripts were read or run. Left for the maintainer: adopt, adapt or drop for each skill (suggested: adapt both, install neither). Not done: a blind different-family review of the note. The task stays ready until the maintainer decides. \| 2026-10-07 later: both adapt steps are merged (svg-animation restraint section, cf-lab PR 17; three frontmatter rules in the skills repo's check, cf-skills PR 3). The maintainer asked for a blind review of the trial note first: Opus, Fable and the local Qwen read it against the saved results and found one disagreeing figure (the seconds column) and several statements resting on the author's own reading; corrections are in cf-research PR 6 (open). Left ready until that is merged and the maintainer decides to close. \| 2026-10-12: Marked done in board cleanup.
@@ -3527,6 +3877,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0125 A public review record for each page (reviewer role, version reviewed, date, open issues)
 
 - **Why / ROI rationale:** Estimate: makes the review status of each page checkable, which the lab already promises in words. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** A data file lists each page, its review status, the reviewer's ROLE (no names unless the identity decision T-0117 allows it), the version or date reviewed, issues raised and not yet resolved, and the next review date; a page (or a section of About) renders it from the data; tests refuse a page marked reviewed with no entry. Nothing is marked reviewed until the clinician reading (T-0105) has happened.
 - **Evidence:** 2026-10-10: a Gemini strategy report the maintainer shared (an AI-written, unsourced triage reviewed by the controlling agent) asked for formal review records and visible accountability; the site already stamps pages 'Draft, in review' but records no reviewer.
@@ -3535,6 +3886,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0010 Claim-check harness + frozen 60-claim evaluation set
 
 - **Why / ROI rationale:** Turns the table into something a person or local model can be checked against; abstention-by-construction is the safety property. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** >=90% correct verdicts; all 10 out-of-scope claims return out_of_scope; set frozen before any model sees it.
 - **Evidence:** cf-first-project-scoping-memo.md (private session document, not in the repo) section 4 and 6
@@ -3544,6 +3896,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0019 Add model profile skills for Gemma 4 31B and Laguna XS 2.1, or remove them from the site's field guide
 
 - **Why / ROI rationale:** The website presents three installed models; hq has profile skills only for Qwen variants and DeepSeek-R1. Public claims about the cast should match the skills that govern it. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** Either .claude/skills/model-gemma-4-31b and model-laguna-xs-2-1 exist with onboarding results, or the field guide lists only models with profiles.
 - **Evidence:** hq/AGENTS.md skills list vs .ai/README.md 'three models'
 - **Notes:** 2026-10-12: Dropped in board cleanup per 2026-10-10 council review and 2026-10-12 CRO grounding audit (unprofiled model creep; revisit via model-onboarding only when a specific task requires it).
@@ -3551,6 +3904,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0053 Data Commons provider in cf-evidence-loop for population denominators (if the admission is accepted)
 
 - **Why / ROI rationale:** Estimate: prevalence and carrier-frequency sentences need a population base with provenance. A provider under the catalog gate carries source and vintage into limitations, which the MCP server alone does not (an MCP server bypasses the pacing the gate applies). *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** After a human sets base_url and admits the source: offline tests on a saved response fixture pass, including a positive control (a fixture with no observation returns not_found); EVIDENCE_DRY_RUN=1 prints only the catalogued host; the record's limitations name the underlying Census method and date; DC_API_KEY appears in git grep only as a placeholder or documentation.
 - **Evidence:** research/proposals/2026-10-04-datacommons-admission.md section 4: Count_Person for country/USA and geoId/53 returned date 2025 with measurementMethod CensusPEPSurvey and a provenanceUrl; no CF or SCD indicator found. The catalog entry has api_root but no base_url, so the skill cannot reach it until a human admits it.
@@ -3560,6 +3914,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0055 EMA medicines provider: read the downloaded JSON report as evidence records (marketing authorisation date, status)
 
 - **Why / ROI rationale:** Estimate: answers 'approved where, for whom' for the EU, which openFDA cannot. The legal notice requires EMA to be acknowledged as the source, so every record's limitations must say so. *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Branch:** work/frontier-skills-t0055-t0069
 - **Acceptance:** Offline tests on a saved slice of the JSON: a known authorised product returns its marketing authorisation date; a missing product returns not_found (positive control: delete the record from the fixture and the test must fail); every record's limitations name EMA as the source and the file's own last-updated timestamp. The skill reads only a file the fetcher placed under sources/downloads; it opens no network connection. A human decides how the skill locates the file (design question, not settled here).
@@ -3569,6 +3924,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0063 ascii-art skill: a craft process, a canvas library, a rendering and accessibility checker, one new piece, and the research behind them
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Both scripts have exact verifiers; the checker needed a thinking attempt after fast attempts failed on my spec errors.
 - **Acceptance:** python .claude/skills/ascii-art/scripts/test-asciicanvas.py and test-check-ascii.py print VERIFIED; check-ascii.py on GALLERY.md reports 0 errors; SKILL.md sections 6 to 10 name each source and how far it was read; a human reads gallery piece 7 before any CF-facing use.
 - **Evidence:** 2026-10-05: the maintainer asked for the ascii-art skill to become truly creative and artistic, researched online, with the READMEs updated. The skill covered tone and tools but not how to make a good piece, and models read ASCII better than they draw it (arXiv 2604.14641).
@@ -3577,6 +3933,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0083 Release review of the site-seo-review skill
 
 - **Why / ROI rationale:** Estimate: a reusable honest SEO review is useful to other small and health-related sites, but a public skill must be read by a person before it ships. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** A person reads SKILL.md, references and the checker; check_repo.py passes; the checker passes its tests under Python 3.9 and 3.13 on Windows and Linux; the licence is confirmed by the maintainer; a different model family reads the health-site section for overclaims.
 - **Evidence:** scratch/seo-skill: spec, 72 tests, a reference solution passing 72 of 72 and 8 of 8 planted faults rejected; the checker script was written by the local worker (see the bare-versus-card record in scratch/site-updates/qwen-results.md).
@@ -3585,6 +3942,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0085 Delegation loop: answer-first contract, grouped verifier feedback and a PowerShell AST lint
 
 - **Why / ROI rationale:** Estimate: the two most frequent failure causes in the logs; cheap and testable offline. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Offline script changes with an existing test file; the controller reads the diff.
 - **Acceptance:** test-delegate.ps1 gains cases for grouped feedback with expected/actual on the first failure, and for an answer-first reminder in thinking attempts; the lint rejects the three observed PowerShell causes before the verifier runs; delegations.jsonl before/after on two replayed tasks.
 - **Evidence:** scratch/site-updates/log-assessment.md sections 3 and 5; scratch/qwen-local/design.md section 4; observed this session: 12 identical FAIL lines, cap exhaustion with the answer already in the thinking text, a non-compiling reply ranked best (fixed).
@@ -3594,6 +3952,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0123 Decide how the Resources page grows: per-country pages, or count only the scripts a page loads
 
 - **Why / ROI rationale:** Estimate: keeps the page fast on a phone and the size guard honest as rows are added. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A choice is made and recorded: (a) split into /resources/ (map, jump list, filters) plus /resources/<country>/ pages with the filters per country; or (b) change the weight test to count only the scripts a page loads. The chosen option is built with tests; no limit is raised by hand again without a dated reason.
 - **Evidence:** 2026-10-10: the Resources page measured 239,778 bytes against its limit (raised from 224 KB to 236 KB for 36 rows; the page HTML alone is 76,912 bytes and grows about 2 KB per row); the proposal planned /resources/<code>/ pages when a page passes 80 percent of its cap.
@@ -3602,6 +3961,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0132 Make the 11 skipped cftr-model data tests run: commit the five hashed structure files
 
 - **Why / ROI rationale:** Estimate: turns 11 dead tests into live ones with no network call. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: structural_biology | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** A person confirms the attribution wording for each file (RCSB entries, UniProt record) before anything is committed. The five files sit under a tracked path with their attribution; CI verifies them against the manifest sha256 and the 11 tests run offline; the skip guard (T-0131) lists no test_data skip.
 - **Evidence:** 2026-10-10: test_data skips 11 tests because sources/downloads (git-ignored) is absent in CI. sources/manifest.json already records size and sha256 for all five files (about 1.3 MB). The catalog lists them access: fetch, redistribute: true. Opus recommended committing them under a tracked fixtures path; Sonnet preferred small fixtures plus a monthly real-file check (it had not checked sizes). Fetching on every run was rejected by both.
@@ -3610,6 +3970,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0138 Site: one date style for generated pages (10 October 2026 versus October 10, 2026)
 
 - **Why / ROI rationale:** Estimate: a small consistency win; test lines to change are listed in the editor's memo. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** One date style chosen by the maintainer; the generators and the tests that pin the old form change together; every page uses the same form; the voice checker and all site tests pass.
 - **Evidence:** 2026-10-11 editorial pass: generated pages (Evidence, Resources, the atlas) print dates as '10 October 2026' (make_evidence.long_date, make_resources, make_trial_atlas) while hand-written pages and the American English reference use 'October 10, 2026'. The editor left Evidence alone rather than mix styles on one page.
@@ -3619,6 +3980,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0009 ECFSPR extraction pipeline v0.1 (5 report years, ~15 indicators)
 
 - **Why / ROI rationale:** The core deliverable. ECFSPR is fully fetchable, so this is unblocked today. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** >=99% extraction accuracy on a 100-cell random audit (Wilson 95% CI reported); 100% rows carry url+page; disagreement log committed.
 - **Evidence:** cf-first-project-scoping-memo.md (private session document, not in the repo) sections 5-6
@@ -3628,6 +3990,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0100 Loop v2.1 V2-02: freeze the verifier with a manifest hash and a safe re-verify path
 
 - **Why / ROI rationale:** Estimate: an accepted result is only worth what its verifier is worth; hashing everything the verifier uses makes a changed verifier visible and blocks the run, and a recorded safe path keeps legitimate fixes possible. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** delegate.ps1 copies the verifier's manifest (the verifier, its directory tree minus caches, and any -VerifierFiles; the layout is kept relative to their common ancestor), hashes the copy (raw bytes, plus a line-ending-normalised hash for comparing across checkouts) and compares it with the live files before every verifier run, after it, and immediately before writing accepted. The candidate is hashed per attempt and is not part of the frozen set, so a changing candidate never blocks. A change mid-run exits 3 with state blocked, no accepted row and the output file restored (tests: a fixture, a -VerifierFiles file, a new file, and a line-ending-only change). Before the first model call a pre-flight runs the verifier in the copy on an empty stub: exit 0 is refused (it cannot fail); a missing-file or import error is refused and names the path; any other failure passes (a test with a verifier that raises on an empty stub). A -ReverifyOf <run id> path re-proves the new verifier on the empty stub (must fail), the unchanged original (must pass; skipped and recorded if there is none) and the previously rejected candidate (must still fail; skipped and recorded if there is none), records the old and new hashes and a diff of path and hash lists (never contents), ends only in accepted-after-verifier-edit, and a person reads the diff. Refused at start: an output file inside the verifier tree, symlinks or junctions in it, and a manifest above the stated caps. Negative tests pin the limits: an absolute-path read, and a loop over a missing directory, are NOT refused. The only claim made anywhere is: it detects changes to the declared verifier files between the proof and acceptance, and refuses before the first call a verifier whose empty-stub run reaches a relative path outside its manifest; it is not a sandbox. lint-powershell.ps1 is clean on delegate.ps1 and every existing test passes.
 - **Evidence:** The Loop v2.1 design (private notes) counts 5 incidents in 2 days where a verifier or a fixture it reads changed during a run and the run still passed unrecorded. delegate.ps1 hashes nothing today: a verifier edited mid-run, or a fixture it imports, changes what accepted means with no trace. V2-01 (cf-lab PR 9) added per-attempt rows and reserved the states blocked and accepted-after-verifier-edit for this task.
 - **Notes:** Proposed by a model; only a human moves it to ready. Full tier: a blind different-family challenger on the hashing logic, then a person reads the diff. Open design decision for the maintainer: how a read outside the manifest is detected (run the verifier in a copy of its manifest, as verify-in-copy.py does, is the candidate). Controller-built, not delegated: it edits the harness. \| Design reviewed by a blind council on 2026-10-07 (Opus, Fable, Qwen3.8 27B, Gemma 4 31B; the controller's own view was written first): all four said adopt with changes. Flags were confirmed by reproduction, including a vacuous-pass case the controller had missed: an incomplete manifest copy plus a verifier that loops over a missing directory is accepted although the full verifier would fail it, and the empty-stub pre-flight cannot see it. The acceptance above is the revised one. Still for the maintainer: approve moving to ready; the caps (proposal: 500 files, 20 MB); and that verifiers which reach into sibling folders must name them with -VerifierFiles. \| 2026-10-07 later: the maintainer answered yes ("Yeah, go for it") to the question whether to set this ready with the council's caps (500 files, 20 MB), so it was built the same day in cf-lab on branch loop/v2-02-verifier-freeze; it stays in_progress until the pull request is merged and a person has read the diff (Full tier). Verifiers that reach sibling folders must name them with -VerifierFiles. Review: a blind challenger pass by two cloud models (Opus, Fable) and the local Qwen; each finding was reproduced or refuted before anything was changed, and the fixes have tests. For the maintainer to approve, three places where the build differs from the revised acceptance above: (1) the pre-flight does not refuse every missing-file, import or command error on the empty stub, because "The term is not recognized" and "cannot import name" are how ordinary verifiers fail on an empty file; it refuses exit 0, a path that exists beside the live verifier but is not in the copy, a Python module that cannot be imported, and an interpreter that cannot start. (2) A verifier that writes to or removes the candidate blocks the run (candidate-changed); a candidate that differs from one attempt to the next never blocks. (3) -ReverifyOf also needs the earlier run's manifest, the same verifier file and at least one earlier output to re-prove against; the output file from before the run must get the same verdict the old verifier gave it (recorded at the start of that run), not a pass; and an edit that loosens the verifier (accepts what it rejected) has no safe path by design. Mutation proof: 40 one-line mutants of the new code, each run against the new tests; 35 were caught. The five that survived: the two looks immediately before accepted and before accepted-after-verifier-edit (each repeats the look just before it, so removing it changes no result a test can see), a path on another drive counted as a hole, a path beside the candidate counted as a hole (the stub now sits in a folder of its own, which makes the check redundant), and hash sets that fold case on every platform (only visible on Linux, where the tests were not run). \| 2026-10-07 later: merged as cf-lab PR 18 (squash). Follow-ups from the same work: delegate-batch improvements (dry run, resume, priority, dependencies; cf-lab PR 20) and a loop-report line for the two new states (in PR 18). \| Closed 2026-10-12 during board audit: merged in cf-lab PR #18 and active on main.
@@ -3635,6 +3998,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0101 A Gemini adapter for the cloud handoff: one approved packet per call through Google's Python SDK
 
 - **Why / ROI rationale:** Estimate: a second frontier family for blind reviews and bounded plans when other limits are used up; the lab's rule of one reviewed packet per cloud call stays. *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** A script (for example delegate-cloud-gemini.ps1 or .py) that takes a handoff packet and its detached approval exactly as new-cloud-handoff.ps1 defines them, refuses without a matching approval hash, calls Google's Python SDK (google-genai) for one bounded plan or review with no tools, reads the key only from the environment through run-with-env.ps1 (agents never read .env), enforces and records the call budget and the output cap, writes a usage row that holds counts and hashes only, and returns the reply as data. Tests run against a stub transport with no network: no approval, a stale hash, an over-size packet, a missing key, an over-budget call, and a reply that tries to carry an instruction. The new dependency and the outside network call are named in the pull request, the SDK is pinned, and the maintainer confirms first that their licence covers API use (an AI Studio key is separate from an IDE licence, not verified here). A Full-tier review applies: credentials and an external service.
 - **Evidence:** 2026-10-07: the maintainer asked whether Gemini can be used by adding it to Ollama or by calling it through an SDK, and has Google's Antigravity IDE installed with a Pro licence. Checked on the machine: Gemini is not an open-weight model, so Ollama cannot run it (Gemma, its open relative, can); the IDE's command line only opens files and manages extensions and MCP servers and has no way to give its agent a prompt; no Gemini command-line tool is installed. ai-loop-council has a manual cloud handoff (new-cloud-handoff.ps1) and a routing helper but no live provider adapter.
@@ -3644,6 +4008,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0060 Refresh the private .ai website for the first release: new repo names, evidence loop, setup, claim fixes
 
 - **Why / ROI rationale:** Estimate: the website is the public face of three public repos; stale names and unresolved claims (T-0014, T-0015, T-0018) are the first thing a visitor or reviewer meets. *(confidence: low)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: maintenance
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** In the site's built output a grep finds links to github.com/senseiewok/cf-lab, cf-research and cf-skills and none to the old names (senseiewok/lab, /research, /skills); the evidence-loop section from T-0041 renders; the tagline, the Copilot scheduling claim and the not-affiliated-with-CFF line (T-0014, T-0015, T-0018) are each resolved or recorded as declined; a Playwright run (read-only, with route, viewport and source revision recorded) confirms the page renders and the 65 rose motifs still count 65 (T-0016). Paste the command output into the task notes.
 - **Evidence:** The maintainer said on 2026-10-04 that the website is outdated; the GitHub organisation page shows the private .ai repo last updated two days before the three public repos were renamed. Open website tasks already exist (T-0002, T-0014 to T-0018, T-0033, T-0041) and cf-research/proposals has 2026-10-04-website-review.md and 2026-10-04-evidence-loop-site-section.md. The site was not opened for this task (it is private and was not requested).
@@ -3653,6 +4018,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0084 Local worker playbook cards v0 and the bare-versus-card measurement
 
 - **Why / ROI rationale:** Estimate: if cards beat bare packets on the same verifiers the lab can run longer local-only; if they do not, that is worth knowing too. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - The tasks and verifiers are deterministic and the worker's attempts are logged to .loop-logs/delegations.jsonl.
 - **Acceptance:** check-card validation for at least two cards; the same three tasks run bare and with the card, three runs each, counts per cell and defects found by reading recorded in the model profile skill with the small-n caveat; a card is marked validated only where it beat the bare packet.
 - **Evidence:** scratch/qwen-local/design.md (cards, loop, benchmark); scratch/seo-skill/ab and scratch/site-updates/qwen-results.md hold the first runs: exact-patch packets with a test-shaped verifier were accepted on attempt 1 in 25 to 35 s; a 150-line script from a bare spec was not.
@@ -3662,6 +4028,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0087 Faster site and package test suites with the same assertions
 
 - **Why / ROI rationale:** Estimate: shorter feedback while editing; no change in coverage. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** The same test counts pass; the nested package suites run concurrently; fixed sleeps replaced by state polling; wall time before and after recorded; the mutation harness still catches all 44 faults and treats an unapplied mutant as a failed proof.
 - **Evidence:** scratch/site-updates/log-assessment.md section 2: the site suite took about 290 s, 137 s of it re-running 60 package browser tests serially, plus fixed sleeps.
@@ -3671,6 +4038,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0124 A reusable intake tool so local agents can propose Resources rows from any permitted site
 
 - **Why / ROI rationale:** Estimate: turns a one-off manual process into a tested, conduct-safe tool; a person still confirms every row. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: clinical_trials | Kind: new
 - **Route:** local - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A tool takes a host whose catalog entry says fetch and a list of addresses; reads robots.txt first (every agent group, unreadable means stop); loads one page at a time under the project user agent, same-host only, three seconds apart, with a size cap; keeps screenshots and text only in a scratch folder outside every repository and deletes them on request; asks the local worker (inside a data boundary, no tools) for a draft row; drops any draft that breaks the checker's rules (word cap, no digits or contact details); writes lead_only rows. Offline tests with fake pages cover robots and redirect cases, the user agent, the size cap and the data boundary; a dry run on one real host is described. A person confirms; the tool never writes confirmed_by.
 - **Evidence:** 2026-10-10: the 25 rows for the UK, Canada, Australia and Ireland were drafted by hand-written scripts (robots.txt read, one page at a time with the project user agent, same-host only, screenshots, a local model's wording checked blind); the maintainer wants the list filled over time by local agents.
@@ -3680,6 +4048,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0135 Atlas accuracy story: state the threshold, add an interval, say whether model-sorted entries are in the accuracy sample
 
 - **Why / ROI rationale:** Estimate: readers (a physician lens and an evidence lens) both read 1.00 from 43 entries as exact. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: ai_verification | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** From the run record and the gate code, not memory: the threshold (S1 to S4 values) is printed on the front page; each class page shows an interval for the precision and recall it prints (computed by a named method from the sample counts, verified by a test); a sentence says whether model-sorted entries are in the accuracy sample (and a check fails if the answer changes); 'weighted estimate', 'few checked' and 'synthetic marker' are each defined once in plain words; the prose ledger and banned-claims scan pass.
 - **Evidence:** 2026-10-11 role-played evidence-expert review of the atlas pages (T0, model): the front page says classes fell below 'the lab's accuracy threshold' without a number; the class page shows 'Precision 1.00 ... 43 entries checked' without an interval; it is not said whether the 70 model-sorted entries sit inside the accuracy sample (a possible model-scored-against-model circularity); 'weighted estimate', 'few checked' and 'synthetic marker' are not explained.
@@ -3689,6 +4058,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0077 Interactive 3D CFTR channel animation: normal gating and chloride flow versus F508del misfolding
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Branch:** work/frontier-showcase-t0173-t0077-t0120
 - **Acceptance:** One standalone page with no CDN and no network call: a schematic CFTR in a membrane, a normal state (phosphorylation and ATP gating, chloride passing) and an F508del state (misfolded protein held back so fewer channels reach the surface), a toggle, keyboard control, a pause control, reduced-motion respected, a text alternative and a caption labelled 'schematic, not a structure'; every scientific caption has a claim record with a primary source and its limits; a Playwright run proves load, toggle and no console errors; no medical advice or treatment claim.
@@ -3698,6 +4068,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0137 AI in care: read the four preprints and papers in full and re-rate the topics honestly
 
 - **Why / ROI rationale:** Estimate: turns an honest 'Limited' into a measured rating, topic by topic. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** For each source, read the full text under security-browsing rules (robots.txt, honest user agent, the open-access terms), record exact quotes in the claims file and run the claims checker; then re-rate each topic by the page's own legend (Strong needs a source that answers the question directly and that we read in full) and update the notes; any rating change is reviewed by a second model family and listed in the pull request. No rating goes up on a summary.
 - **Evidence:** 2026-10-12 council decision: four topics were re-rated from Strong to Limited because each rests on an abstract-only or partly read source (Liu and others, Walters and Wilder, Bean and others, Sharma and others; the APA advisory read in part). Walters and Wilder has a PubMed Central id; the preprints are on arXiv.
@@ -3706,6 +4077,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0097 Re-run the local reviewer evaluation on a second, different script
 
 - **Why / ROI rationale:** Estimate: a reviewer measured on one script may be good or bad at that script only; a second script with its own ground truth shows whether the pattern (what it finds, and which kinds of false positive it claims) carries over before the lab relies on the reviewer role. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** A second script of similar size, written by the local worker and accepted by its verifier, is chosen and named in the report. Its ground truth is a list of defects found by a stronger review reading the script against its spec, each defect confirmed by a failing test before any local run, with at least 8 defects. The same design as the first evaluation is run: bare and card arms, identical packet format, the same profile and temperature, runs alternated, each reply scored by a blind judge from a different model family than the worker. The report gives per-run counts, means, an exact permutation test, the false-positive claims by kind, and a section that says which findings of the first evaluation repeat and which do not; no change to the review card or to the reviewer role in the skills is made from one script.
 - **Evidence:** scratch/qwen-local/reviewer-eval.md, 'Design' and the caveats: one task, one script (an 808-line SEO checker the worker had written and the verifier had accepted), one spec, 4 runs per arm; the ground truth of 17 defects came from one stronger-model review of that script. T-0090's own acceptance says the result holds 'for one script and one spec'. T-0090 repeats the same script with more runs; no task yet tests a different script.
 - **Notes:** Human step: the maintainer picks the moment (it occupies the local worker for hours) and the second script. Related to T-0090 (same script, more runs and the thinking profile) and T-0089 (filter for false positives); neither covers a second script. Do not run while another Ollama experiment is using the worker. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0090 into one re-measurement plan (check). \| Dropped 2026-10-12: merged into T-0090 per 2026-10-10 council recommendation.
@@ -3713,6 +4085,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0126 A small public benchmark of the lab's own checks (20 to 30 frozen tasks)
 
 - **Why / ROI rationale:** Estimate: replaces demonstrations with measured results, including negative ones, on lawful public data. *(confidence: medium)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** 20 to 30 tasks with fixed inputs and expected outputs built from public data the catalog permits (for example evidence-record lookups, quote-checking, claim-to-source matching); a runner; results for the local worker with and without the lab's checks, including failures; a short note on what the numbers do not show. The set is frozen with hashes. No patient data, no invented expected answers (each expected output has a source line).
 - **Evidence:** 2026-10-10: the same shared report noted, fairly, that nothing published shows the AI loop helps; the lab has small measurements (an injection probe, the findings verifier, six fixture diffs for the local review) but no frozen public set.
@@ -3723,6 +4096,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0133 Opt-in browser-test job for the lab's graphics and viewer tests
 
 - **Why / ROI rationale:** Estimate: covers the web-graphics skills' browser checks; worth it only if those skills change often. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Branch:** work/sentinel-security-t-0133
 - **Acceptance:** A person approves the new third-party dependency first (the lab rule). Then: a workflow_dispatch plus weekly job on a pinned runner image, read-only token, no secrets, hashed requirements file, tests load only local pages; run once as non-blocking for about a week and record flakiness. Remove the row if ten scheduled runs are green and have never caught anything.
@@ -3733,6 +4107,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0134 Which 10 percent? A definitions ledger for modulator-eligibility denominators, after the April 2026 label change
 
 - **Why / ROI rationale:** Estimate: one place that says what each registry and label counts, with dates. *(confidence: medium)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** First, the maintainer or an agent reads the current regulator labels (primary sources) and records the exact eligibility wording with date. Then one quote-checked row per registry report (base population, age rule, variant list and date, page, short quote); the claims checker and the source-overlap checker pass; a test asserts that no field holds a value computed across rows. Fetchable reports only (the Foundation's is manual: a person saves it). No cross-registry arithmetic and nothing about any person's eligibility; a registry scientist reviews before publication (T-0011). Posters are never cited.
 - **Evidence:** 2026-10-10: several NACFC posters (private leads, T0) use 'about 10%' for different groups; a news search (T0) says the FDA widened the Trikafta and Alyftrek labels on 2026-04-01 to about 95% of US people with CF. The FDA label itself has not been read. Second of the reviewers' candidates; extends the cf-genetics-reading skill.
@@ -3741,6 +4116,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0130 CF trial endpoint atlas from a dated ClinicalTrials.gov snapshot (flagship showcase)
 
 - **Why / ROI rationale:** Estimate: a reproducible, checkable table a trialist can cite and re-run; shows deterministic code, a local worker held to exact quotes and a blind reviewer working together. *(confidence: medium)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** One condition query is snapshotted once and hashed (query, date and hash recorded; the raw snapshot is committed only if the catalog entry allows redistribution). Endpoints are tagged into about 8 classes plus 'other / not stated'. A person labels a frozen set of 50 rows before any model runs. An offline script (a) recomputes every committed count from the snapshot and fails on drift, (b) fails any model tag whose quote is not an exact substring of its record, (c) prints precision and recall against the 50 frozen rows, (d) fails a deliberately perturbed fixture. Every count is worded as 'registered text in snapshot D, query Q, mentions X': no claim about efficacy, about which endpoint is better, or about anyone's eligibility. Nothing is published until the maintainer has read it.
 - **Evidence:** 2026-10-10: the maintainer asked for a showcase that proves the lab can do advanced research for researchers and clinicians (inspired by NACFC posters, which stay private leads). A read-only scan of the three repos ranked this first: it answers a question researchers hand-code today, uses only the catalog entry clinicaltrials-gov (access: api), and shows the whole loop. It overlaps the 'living map of therapy trials' scenario in cf-research/proposals/2026-10-09-research-leader-brief-and-pilot.md section B and partly T-0102 and T-0126.
@@ -3749,6 +4125,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0136 Atlas for care teams: a care-team path, withheld classes named in the measures list, and a stated FEV1 definition
 
 - **Why / ROI rationale:** Estimate: clearer for the people who would use the atlas most; needs a clinician's reading of the definitions (T-0011 gate). *(confidence: medium)*
+- **Axis:** Persona: care_teams | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Trial Endpoint Atlas and public translation requiring zero-build web verification and data integrity.
 - **Acceptance:** A 'care team' reader path that says what the atlas can and cannot answer; the withheld classes listed in the measures list marked 'counted, not shown (below the agreement bar)'; one sentence on whether the FEV1 class includes FEV1 used as a safety check, backed by the lexicon rules and a test; plain-language class notes stay unpublished until a clinician has read them (a person, not a model).
 - **Evidence:** 2026-10-11 role-played care-team and physician reviews (T0, models): the front page has tabs for trial designers, readers of results and people living with CF, but none for a care team; withheld classes (microbiology, healthcare use, survival and transplant, gastrointestinal and pancreatic) appear only in the 'Not shown' box, so a trialist may read them as rare; the FEV1 class has no definition and may mix efficacy use with FEV1 measured as a safety check after dosing.
@@ -3757,6 +4134,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0140 Decide whether cf-lab should run on its own: a standalone clone with a generated, checked snapshot of the source catalog and the evidence tool, never a hand copy
 
 - **Why / ROI rationale:** Estimate: a standalone clone helps a contributor who will not clone the siblings, but setup scripts already do; the risk of a wrong catalog is larger than the benefit unless it is generated and checked. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** First the maintainer decides, in this row's notes, whether a standalone cf-lab clone is wanted at all (setup.cmd and setup.sh already clone cf-skills and cf-research beside cf-lab). If yes, one of two designs, never a hand copy: (a) a generated snapshot: a script writes cf-lab/sources/catalog.snapshot.yaml from a pinned cf-research commit, with a header naming the source repository, commit SHA and date and the words 'generated, do not edit', and a check-all.ps1 row that fails when the snapshot differs from the pinned commit or is older than a limit the maintainer sets (skipped when no sibling is present); EVIDENCE_CATALOG keeps ../cf-research/sources/catalog.yaml as its default and the snapshot is only a documented fallback that fails closed with a 'refresh the catalog' message when stale; or (b) a true move of the canonical owner in one reviewed pull request per repo (delete upstream in the linked PR set, update every reference), which AGENTS.md's publication plan does not yet authorize. In either design the evidence skill is installed by a declared mechanism (a pinned vendoring script with the SHA, or a plugin), with a byte-equality check; the duplicate-name guard stays unconditional or passes a duplicate only when the two trees are byte-identical and a manifest names the source commit. A test fails on a one-byte change to a copied file. Reviewed at the Full tier with a blind challenger from a different model family, and quoted command output in the pull request.
 - **Evidence:** 2026-10-13: Gemini (Antigravity) opened cf-lab pull request 50, which copied the whole cf-evidence-loop skill and sources/catalog.yaml into cf-lab to make a clone 'self-contained'. A three-model council (Opus, Sonnet, Fable) and deterministic checks rejected the copy: 44 of 46 copied files were byte-identical to cf-skills and cf-research main, but the catalog copy had 59 sources against 67 upstream (missing the 8 added on 2026-10-09 and 10) and the skill's own generated catalog had 53, because the local sibling checkouts were behind origin/main; AGENTS.md says the evidence tool is 'not copied here, one maintained source' and the catalog 'Edit it there, nowhere else'; the PR also exempted the skill from the duplicate-name guard (check-workspace.py) and reversed the ownership text. The underlying wish (a clone that works without sibling checkouts) is reasonable and was not tested against how setup.cmd and setup.sh already clone the siblings.
@@ -3765,6 +4143,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0020 Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md
 
 - **Why / ROI rationale:** A model flagged roughly half the ideas as conflicting with cf-research-context. That judgement needs a human to confirm or overrule before it steers anything. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: maintenance
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** Each triage row has a human initial and date, or is edited.
 - **Evidence:** hq/cf-projects/CF-Project-Ideas.md 'Scope triage' section
@@ -3773,6 +4152,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0023 Website: confirm 2024 Alyftrek and 2019 Trikafta approval dates against FDA records before next deploy
 
 - **Why / ROI rationale:** The site cites CFF history and a DailyMed label. Approval years are the kind of claim a reader checks; worth a dated FDA-source citation per drug rather than a history page. *(confidence: medium)*
+- **Axis:** Persona: patients | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** Each approval year on the page links to an FDA or DailyMed record with a checked date.
 - **Evidence:** handoff site_text.txt (private session artifact, not in the repo) 'Modulators and drug development'
@@ -3782,6 +4162,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0026 Docs and privacy tidy in research: complete the sources/README.md field table; decide the website domain and deploy detail in the proposals
 
 - **Why / ROI rationale:** A field reference that omits fields invites a wrong entry in the catalog that agents treat as a permission record. The privacy items are low risk (no host, credential or path) but leave the repo inconsistent with its own rule until a human decides whether the domain is public. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Worker draft of the field checker passed its verifier; the controller tidied it and wrote the privacy tidy by hand.
 - **Acceptance:** Every key used in sources/catalog.yaml appears in the sources/README.md Fields table (a short script can diff them), and no key listed there is unused or it is marked optional; the two proposals are consistent about naming the public domain, and website-review.md carries no private-repo file names or deploy-mechanism detail beyond what a human keeps on purpose.
 - **Evidence:** research/sources/README.md Fields table omits pages, text_layer, priority, reference_doi, base_url, auth and etiquette, all used in catalog.yaml, while the catalog header names the README as the field reference. proposals/2026-10-04-youtube-about.md names the website domain twice; proposals/2026-10-04-website-review.md describes the deploy mechanism and names two private-repo files. AGENTS.md says to keep private project identities, domains and deployment details out of public repos.
@@ -3790,6 +4171,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0029 Docs tier 2: hq housekeeping outside .claude (README tree, loop README status line, retire committed PR descriptions)
 
 - **Why / ROI rationale:** Small fixes to documents that currently mislead: the README structure tree omits tasks/ and Modelfile, and the loop-orchestrator README still advertises consensus voting that AGENTS.md forbids. Committed PR descriptions go stale at merge. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** grep -c 'tasks/' README.md is 1 or more; the first five lines of .github/loop-orchestrator/README.md contain 'not functional'; render-board.ps1 -Check exits 0; after merge no .github/PR-*.md is tracked and its provenance is in the notes of the tasks it completed.
 - **Evidence:** research/proposals/2026-10-04-docs-organization-and-memory-design.md; the findings for this tier were re-checked against the files on 2026-10-04.
 - **Notes:** Human gate: .github/ is CODEOWNERS-protected, so a human commits. Do not touch loop.py, settings or skills. Human decided 2026-10-04: stop committing PR descriptions; delete .github/PR-2026-10-04.md (and the research one) at merge after copying their provenance into the notes of T-0003, T-0004 and T-0022. README tree edit and loop README status note were prepared on branch chore/docs-org-tier2; the .github change is staged for a human to commit. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check). \| 2026-10-12: Dropped in board cleanup per 2026-10-10 council review (pre-rename hq 5-tier doc chain superseded by cf-lab docs; remaining scope consolidated under T-0030).
@@ -3797,6 +4179,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0032 Docs tier 5: tidy per-user agent memory outside the repos
 
 - **Why / ROI rationale:** Per-user memory lives in a home-folder project unrelated to the lab repos and is partly misfiled. The design limits that layer to machine-specific operational facts and bars model-identity claims and lab lessons. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** A listing of the memory folder shows files only under the lab's own project folder, none holding lab rules, task state, model-identity claims or secrets.
 - **Evidence:** research/proposals/2026-10-04-docs-organization-and-memory-design.md; the findings for this tier were re-checked against the files on 2026-10-04.
 - **Notes:** Human only and private: nothing is committed. The author of the design did not read the contents, so this task starts with the human reading them. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check). \| 2026-10-12: Dropped in board cleanup per 2026-10-10 council review (superseded by cf-lab-files memory structure).
@@ -3804,6 +4187,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0107 Take the conference banner down after NACFC 2026
 
 - **Why / ROI rationale:** Estimate: the banner is dated and its copy would become wrong after the event. *(confidence: low)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
 - **Branch:** site/nacfc-and-es-mx-2026-10-13
 - **Acceptance:** The marked block and its CSS are deleted, the generator and its checks pass, and no page names the conference (a test already forbids it on the AI-in-care page).
 - **Evidence:** 2026-10-09: the banner is a marked block in the site's chrome generator and a CSS block, labelled REMOVE AFTER THE CONFERENCE.
@@ -3813,6 +4197,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0068 review-diff.ps1: the gate's local-worker review row as one command
 
 - **Why / ROI rationale:** Estimate: a small gain in reliability or reach for the cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** A script builds a packet from git diff (range or staged), sends it with findings.schema.json for N samples, prints one line per finding and the reminder that a worker review is a prompt, not a gate; a test with a stub worker and a throwaway repository covers range, staged, paths, context, empty diff, oversize diff and bad revision, with a mutation proof.
 - **Evidence:** 2026-10-05: the full-tier gate lists a local-worker review row, and it was not run for any of the week's commits until I built a packet by hand for the T-0052 diff; the worker's two samples gave three findings, none true. A helper makes the row cheap and keeps the packet text the same.
 - **Notes:** Proposed by a model after the maintainer interrupted an attempt to add it; only a human moves it to ready. 2026-10-14: Marked done. review-diff.ps1 active and operational.
@@ -3821,6 +4206,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0273 Interactive Airway Mucus Polymer Cross-Linking Cleavage & Sputum Liquefaction Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Translates coupled enzymatic eDNA scission and mucin disulfide reduction biophysics into an interactive airway delivery calculator on /cf/delivery/ with Mexican Spanish parity. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Zero-build native ES module and SVG mucus liquefaction simulator modeling coupled rhDNase I eDNA scission and NAC thiol reduction grounded in tools/discovery/mucus_cleavage_kinetics.py (T-0253).
 - **Acceptance:** python tools/check_pr_gate.py --fast; python -m unittest tests.test_mucus_cleavage_explorer tests.test_workbench_i18n
 - **Evidence:** cf-research/tools/discovery/mucus_cleavage_kinetics.py; DOI:10.1073/pnas.87.23.9188; DOI:10.1126/science.8108733; DOI:10.1126/scitranslmed.aaz1974; DOI:10.1016/j.biomaterials.2009.01.052; DOI:10.1183/13993003.01358-2020; PDB:1DNK; PDB:4AWN; PDB:1ATN; ClinicalTrials.gov:NCT06350474; ClinicalTrials.gov:NCT00843817; ClinicalTrials.gov:NCT00996424
@@ -3829,6 +4215,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0031 Docs tier 4: move the idea inventory to research, make the first commit in skills, decide the private-repo naming boundary
 
 - **Why / ROI rationale:** Two idea inventories live in two repos, and lab-versioning already says the hq copy is outside the lab contract. The skills repo has no commits, and whether the private website repo's identity is private is undecided, which affects public board text. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** CF-Project-Ideas.md exists in exactly one repo with one commit per repo; links to it resolve in hq and research; the skills repo has at least one commit; tasks/README.md states that board text carries no site domain, local paths or deploy details.
 - **Evidence:** research/proposals/2026-10-04-docs-organization-and-memory-design.md; the findings for this tier were re-checked against the files on 2026-10-04.
 - **Notes:** Human only. Human decided 2026-10-04: move after the human review of the scope-triage table (T-0020), and keep the website repo's board key while writing the no-domain, no-paths, no-deploy-detail rule into tasks/README.md. One commit per repo. Publishing any skill package is not part of this task. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): a five-tier docs chain written before the repo renames (it still says hq): collapse into one row or drop (check). \| 2026-10-12: Dropped in board cleanup per 2026-10-10 council review (cf-skills already published and pre-rename hq doc chain superseded; remaining scope consolidated under T-0030).
@@ -3836,6 +4223,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0040 Read terms and record access values for UK, Canadian, Australian, and Irish CF registry annual reports
 
 - **Why / ROI rationale:** Extends the registry table beyond US and EU. Each is either fetchable like ECFSPR or manual like CFF; the fetcher already handles both. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: clinical_trials | Kind: new
 - **Route:** cloud - Same as T-0039, plus fetching three PDFs through fetch_sources.py and reading their first pages.
 - **Acceptance:** Four catalog entries with tested access values; fetch_sources.py --manual lists the manual ones correctly.
 - **Evidence:** research/proposals/2026-10-04-researcher-sources.md layer 5
@@ -3844,6 +4232,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0054 fetch_sources.py: make --verify honour --only
 
 - **Why / ROI rationale:** Estimate: a small clarity fix so a restricted verify matches what its flags say. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: clinical_trials | Kind: new
 - **Route:** local - Worker drafted it on attempt 1 in 17 s against a verifier of 16 unit tests; the controller tidied it.
 - **Acceptance:** A unit test in tools/sources/test_fetch_sources.py fails before the change and passes after: with two files in the manifest, --only ID --verify reports '1 match, 0 changed, 0 missing'; without --only it still reports 2. python -m unittest test_fetch_sources exits 0.
 - **Evidence:** Running python tools/sources/fetch_sources.py --only ecfspr-adr-2022 --verify on 2026-10-04 printed '6 match, 0 changed, 0 missing': --verify re-hashed all six local files and ignored --only. The publish packet expected '1 match'.
@@ -3852,6 +4241,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0098 cf-research: make the script-style tests in tools/sources collectable by python -m unittest
 
 - **Why / ROI rationale:** Estimate: one documented command that runs every test removes a recurring false alarm for contributors and for any agent that runs the README command. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded edit with a deterministic check (the command and a planted failure).
 - **Acceptance:** From tools/sources, python -m unittest discovers every test file and exits 0 on a clean checkout (including a CRLF checkout), or the README names one command that runs all of them and that command exits 0; the two script-style files keep their current checks (a planted failure in either still fails the run); no dependency is added.
 - **Evidence:** Observed 2026-10-06 in cf-research tools/sources: python -m unittest reports 40 tests and 2 errors, because test_check_catalog_fields.py and test_make_manual_downloads.py are plain scripts that call sys.exit at import (the README says to run python -m unittest -v, which therefore cannot pass). Run directly (python test_<name>.py) both are fine. The CRLF fix in cf-research PR 3 touched the second file but not this.
@@ -3861,6 +4251,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0111 Harden the commit gate: commit only on pass, fail on stray files, show open rows
 
 - **Why / ROI rationale:** Estimate: the gate is the main control between agents and public commits. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** run-gate.ps1 takes -MessageFile and commits only on exit 0, fails when git status shows files outside -Expected, and ends with OPEN ROWS: n; the skill says -Expected comes from the plan; a self-test with a stray file fails.
 - **Evidence:** 2026-10-09 log review: -Expected was built from git diff --cached after git add -A, so the scope check always passed, and a filter hid the rows a model or a person must do. The privacy scan still ran on every staged file.
@@ -3870,6 +4261,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0196 Automated sentinel health & backlog depth telemetry check in tasks/audit_github_hygiene.py
 
 - **Why / ROI rationale:** Monitors ready task depth per sentinel lane (research, showcase, security) and flags lane starvation (<2 ready tasks) in github-hygiene-digest.json before sentinels go idle. *(confidence: high)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic Python telemetry check with unit tests in tasks/test_audit_github_hygiene.py.
 - **Acceptance:** pytest tasks/test_audit_github_hygiene.py -v; python tasks/audit_github_hygiene.py --check
 - **Evidence:** tasks/audit_github_hygiene.py; tasks/pick_bold_task.py; .loop-logs/sentinel-runs.jsonl
@@ -3879,6 +4271,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0244 Airway Mucus-Penetrating Particle (MPP) Steric & Adhesive Obstruction Scaling (tools/discovery/mpp_obstruction_scaling.py)
 
 - **Why / ROI rationale:** Models dense PEG brush coating and steric pore scaling to overcome the mucosal hydrogel obstacle for inhaled genetic vectors, predicting effective diffusion ratios D_eff / D_0 across normal vs CF purulent sputum. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
 - **Route:** local - Quantitative biophysical modeling of dense PEG brush shielding (Flory radius, mushroom-to-brush transition), mucin MUC5AC/MUC5B mesh steric filtering, and eDNA viscoelastic hindrance scaling.
 - **Acceptance:** pytest tools/discovery/test_mpp_obstruction_scaling.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** cf-research/landscape/mission-grounding-2026-10-20.md; DOI:10.1016/j.addr.2008.09.009; DOI:10.1073/pnas.0811566106; DOI:10.1016/j.addr.2015.09.006
@@ -3888,6 +4281,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0163 Front-door architectural unification & dedicated showcase schedule: dynamic ES6 navigation, declarative research cards, and reactive i18n
 
 - **Why / ROI rationale:** Directly eliminates multi-agent git collisions and anchor drift across monolithic HTML files; unifies the public front door into a high-value, accessible, localized patient/researcher experience. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** cloud - Cross-repo architecture connecting cf-lab scheduled skills, .ai frontend ES modules, and Mexican Spanish localization.
 - **Branch:** site/showcase-phage-dynamics
 - **Acceptance:** scheduled-site-showcase decoupled into dedicated sidecar daily-site-showcase-sentinel running at :30 on odd hours; nav-rail.js provides dynamic IntersectionObserver-driven subnav navigation; research cards render declaratively with automated es-MX localization and ARIA landmarks; all site unit tests (195/195) and sync_chrome.py --check pass.
@@ -3898,6 +4292,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0086 Depth probe for the 64K local alias
 
 - **Why / ROI rationale:** Estimate: every long-note task depends on it. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - A fixed prompt generator with an exact-match check.
 - **Acceptance:** depth-probe.ps1 -SelfTest passes; counts per depth for the fast and thinking profiles are recorded in the profile skill with a negative control.
 - **Evidence:** scratch/qwen-local/design.md section 5: no controlled measurement exists of whether a fact placed deep in a 64K prompt is used; nine prompts over 12K tokens in the usage log, none a probe.
@@ -3907,6 +4302,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0091 Depth probe on realistic text with a second fact at a different depth
 
 - **Why / ROI rationale:** Estimate: every long-note task relies on a fact being found in a long real document; the synthetic result does not say that. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Extends a script the local worker already wrote and had accepted on the first attempt with 12 of 12 tests; exact-match scoring is the verifier.
 - **Acceptance:** depth-probe.py (or a sibling) runs on real prose with two facts at different depths, both asked in separate prompts, with a control and a distractor sentence of the same shape; samples are independent (varied seed or temperature) and counts per cell are recorded in the profile skill with counted prompt tokens; the entry makes no general claim about long-context accuracy; its tests pass.
 - **Evidence:** model-qwen3-8-27b SKILL.md, 'Depth of a fact in a 64K prompt': synthetic repetitive filler, one fact, one question, one code format, one seed; every cell 2/2 up to 62,764 counted prompt tokens (depth-probe-3), and the skill itself says a real document with many similar facts is a harder task and that fast-mode samples at temperature 0 are not independent.
@@ -3915,6 +4311,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0114 Test CI for the three public repos
 
 - **Why / ROI rationale:** Estimate: a red check is visible to everyone, not only the agent. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Acceptance:** Each public repo runs its standard-library tests on pull requests with read-only permissions and actions pinned by SHA.
 - **Evidence:** 2026-10-09: the public repos run only CodeQL and dependency graph in Actions; every test behind a merge is the agent's local run.
@@ -3923,6 +4320,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0127 A board consistency check in render-board
 
 - **Why / ROI rationale:** Estimate: keeps the board true without a person reading 126 rows. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic test suite, fast-gate preflight, and operational sentinel hygiene.
 - **Branch:** work/frontier-lab-unbinding
 - **Acceptance:** tasks/render-board.ps1 -Check fails (or warns, where a rule needs a decision) when: an in_progress row needs a task that is not done; a row's notes say Done and it is not closed; a task has a higher priority than a task it depends on; the number of proposed P1 rows passes a cap the maintainer sets. Tests with fixtures; existing rows may need a one-time fix, listed in the pull request.
@@ -3933,6 +4331,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0220 Airway basal stem cell (KRT5+/TP63+) niche turnover, asymmetric division, and self-renewal persistence kinetics model for integrative vs episomal CF gene therapy
 
 - **Why / ROI rationale:** Establishes quantitative criteria for curative durability, determining redosing intervals for aerosolized mRNA vs lifelong persistence of basal stem gene editing. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
 - **Route:** frontier - Dynamical systems modeling of stem cell kinetics and vector persistence across clinical multi-year horizons.
 - **Acceptance:** pytest tools/discovery/test_basal_stem_persistence.py
 - **Evidence:** DOI 10.1038/s41586-018-0394-6; DOI 10.1164/rccm.202505-1242oc; DOI 10.1172/jci.insight.206375; DOI 10.3389/fbioe.2026.1855907; ClinicalTrials.gov NCT06515002; NCT05248230; tasks/specs/T-0214.md
@@ -3943,6 +4342,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0113 Eval tallies as data: commit verdict rows, recount the grid, state judge drift
 
 - **Why / ROI rationale:** Estimate: public pass counts then come from data a script can recount. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** Verdict rows per run are committed (invented cases only), make_tested_grid.py --check recomputes every cell, the grid note states the judge drift, and check_repo.py fails a case that refers to pasted text with an empty message.
 - **Evidence:** 2026-10-09: the published grid counts match the verdict files (recounted by script), but those files sit only in a temporary folder; re-judging the same old replies moved one count from 14 to 19 passes, more than the gain reported; three translation cases send no text.
@@ -3951,6 +4351,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0119 A local AI review of a diff in the gate, so the lab does not depend on GitHub's quota-limited AI check
 
 - **Why / ROI rationale:** Estimate: every pull request gets the same bounded review without a quota, and the review's findings are checked against the diff before anyone reads them; today the open rows are ticked from memory or skipped. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Bounded mechanical edits and documentation maintenance.
 - **Acceptance:** A script (for example review-diff.ps1 in the ai-loop-council skill) builds a packet from the staged diff inside a data boundary, gives it to the local worker (two fast samples, a findings schema), drops every finding whose quote is not an exact line of the packet with check-findings-evidence.py, prints the survivors and the count, and the gate prints that count on its 'local worker review' row. A fixture diff with a planted defect is found, and a fixture with none yields no invented finding. For Full-tier changes it also writes the packet for a blind cloud challenger with new-cloud-handoff.ps1 and the gate says the row stays open until a challenger's answer is recorded. Nothing is sent to any service by the script itself. The GitHub AI findings workflow is switched off by the maintainer in each repository (one action each; it can be switched back on) and nothing requires it.
 - **Evidence:** 2026-10-10: the dynamic workflow 'Code scanning AI findings on PR' failed on cf-research #28 and .ai #32 with 'You have exceeded your monthly quota' (HTTP 402) while every required check passed. The gate (run-gate.ps1) leaves rows open for a local-worker review of the diff and a blind review, which people and agents have been doing by hand each time.
@@ -3960,6 +4361,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0044 Paper-trail layer: Unpaywall and Semantic Scholar providers
 
 - **Why / ROI rationale:** Turns a cited DOI into a legally readable copy and shows who built on a result. Both need a contact or key, which catalog auth already models. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Deterministic claims and source verification loop using local checkers.
 - **Acceptance:** Providers with tests; EVIDENCE_CONTACT used for Unpaywall only; no key committed; live check on 10.1038/ng.2745 returns an OA location and citation graph summary.
 - **Evidence:** research/proposals/2026-10-04-mcp-and-api-survey.md section 3
@@ -3968,6 +4370,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0052 Close the findings a frontier-model review deferred in cf-evidence-loop v0.1
 
 - **Why / ROI rationale:** Crash-on-unexpected-shape and missing body-size cap are reliability defects that will surface in production runs. Unstripped escape sequences and unvalidated --contact are low-severity but cheap to fix. The dry-run reporting gap and robots.txt prefix-match limitation reduce trust in the tool's output. Correct terms_url values are a data-quality fix that a human must confirm. Overall moderate benefit for moderate cost. *(confidence: medium)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Route:** local - Isolated functions with a precise verifier were accepted on attempt 1 (contact, escape cleaner, robots groups); design edits across providers were done by the controller.
 - **Acceptance:** Each finding gets a test that fails before the fix and passes after: parser rejects a list, missing key, or non-numeric total with a clear error; body-size cap rejects oversized input; Evidence.one_line strips ANSI escapes; --contact rejects non-email values; dry run prints all planned URLs; robots.txt selects the correct group. Run the offline suite; it exits 0. The three terms_url values point at pages a human confirmed state the API usage policy.
 - **Evidence:** Three catalog terms_url entries (crossref, biorxiv, nih-reporter) point at landing pages, not usage-policy pages. Provider parsers crash on unexpected shapes (list vs object, non-numeric total, missing key) and have no body-size cap. Evidence.one_line prints raw API strings without stripping escape sequences. --contact is not validated as an email. A dry run reports only the first planned URL of multi-request commands. Robots.txt group matching uses a prefix match and only the first matching group.
@@ -3976,6 +4379,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 ### T-0036 Admission run for the two installed local models (Gemma 4 31B, Laguna XS 2.1) as reviewers
 
 - **Why / ROI rationale:** A different model family would give real diversity, but neither model is admitted: lineage and licence are unread here and no injection probe or review-diversity run exists for them. Admission follows model-onboarding; until then they are benchmark subjects only. *(confidence: low)*
+- **Axis:** Persona: builders | Discipline: ai_verification | Kind: new
 - **Acceptance:** Per model-onboarding: provenance and licence read from the model card, fit with a pinned context size, thinking and JSON behaviour, the injection probe, and review-diversity on a fresh held-out set against an equal-budget Qwen baseline with a pre-registered threshold. Results recorded with sample sizes. No default is changed.
 - **Evidence:** research/proposals/2026-10-04-ai-loop-gate-design.md and research/ledger/2026-10-04-first-session.md (23 logged errors from one session by one agent).
 - **Notes:** Local compute; no cloud, no downloads. Depends on a human choosing the held-out set. Shadow review of real work only after the injection probe passes, never counted as the challenger. 2026-10-10 council (Opus, Fable and the local Gemma, blind; checked by the controlling agent): merge with T-0019 (same two models) or drop both and remove the models from the site's field guide (check). \| 2026-10-12: Dropped in board cleanup per 2026-10-10 council review and 2026-10-12 CRO grounding audit (unprofiled model creep).

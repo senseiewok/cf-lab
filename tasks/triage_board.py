@@ -96,6 +96,17 @@ STANDALONE_LINTER_RX = re.compile(
     re.I,
 )
 
+VALID_PERSONAS = ("patients", "care_teams", "researchers", "builders")
+VALID_DISCIPLINES = (
+    "structural_biology",
+    "rna_gene_editing",
+    "airway_delivery",
+    "microbiology_host",
+    "clinical_trials",
+    "ai_verification",
+)
+VALID_WORK_KINDS = ("new", "repair", "maintenance")
+
 # Completed sentinel tasks whose deliverables are merged and active on main
 COMPLETED_SENTINELS = {
     "T-0156": {
@@ -126,6 +137,14 @@ COMPLETED_SENTINELS = {
         "actual_hours": 3.0,
         "measured_outcome": "Showcase PR #80 merged into .ai main (commit b024bc4). Exposed T-0153 Adaptive Bayesian N-of-1 organoid theratyping protocol and openFDA DILI surveillance on /cf/ (#adaptive-organoids) with nav-rail.js and Mexican Spanish localization.",
     },
+    "T-0397": {
+        "actual_hours": 3.0,
+        "measured_outcome": "Delivered in senseiewok/.ai#168 (commit 0c54285). Expanded patient resources directory and world compass map across 22 countries and 21 attested care organizations with bilingual EN/es-MX support and passing tests.test_resources_page.",
+    },
+    "T-0401": {
+        "actual_hours": 4.0,
+        "measured_outcome": "Delivered in senseiewok/cf-research#135 (commit 87b221f). Implemented tools/discovery/ptc_erf_depletion_readthrough.py and test_ptc_erf_depletion_readthrough.py modeling eRF1/eRF3 depletion and aminoglycoside-free nonsense readthrough kinetics for W1282X/G542X CFTR.",
+    },
 }
 
 HUMAN_GATE_PATTERNS = [
@@ -150,6 +169,156 @@ BOILERPLATE_STRIP_PATTERNS = [
     r"Human-only: downloading the 2024 report \(T-0005\)\.?",
     r"\d{4}-\d{2}-\d{2} (?:ROI|CRO) (?:Auto-)?Triage:.*",
 ]
+
+
+def _combined_task_text(task: dict) -> str:
+    raw_ev = task.get("source_evidence") or ""
+    ev_str = " ".join(raw_ev) if isinstance(raw_ev, list) else str(raw_ev)
+    roi_obj = task.get("roi") if isinstance(task.get("roi"), dict) else {}
+    return " ".join([
+        task.get("title") or "",
+        task.get("description") or "",
+        task.get("acceptance") or "",
+        ev_str,
+        task.get("area") or "",
+        roi_obj.get("rationale") or "",
+        task.get("notes") or "",
+    ]).lower()
+
+
+def infer_persona(task: dict) -> str:
+    """Deterministically infer the primary target persona (Opus One-Primary-Axis rule).
+
+    - builders: cf-lab / cf-skills tooling, linters, CI, benchmarks, security gates, site infra.
+    - care_teams: visit-prep, care-team question builders, clinician/social-worker workflows, DILI/monitoring, clinical trial eligibility/endpoint comparisons.
+    - patients: patient resources directory (/resources/), 65 roses story, plain-language family explainers, bilingual equity navigators.
+    - researchers: CF biophysical models, structural biology, ODE/kinetic simulators, RNA/gene editing, airway delivery & microbiology models.
+    """
+    existing = task.get("persona")
+    if existing in VALID_PERSONAS:
+        return existing
+
+    repo = (task.get("repo") or "").strip()
+    area = (task.get("area") or "").strip().lower()
+    title = (task.get("title") or "").lower()
+    text = _combined_task_text(task)
+
+    if repo in ("cf-lab", "cf-skills") or area in ("security", "infra", "ci", "governance", "skills", "tooling"):
+        return "builders"
+
+    if re.search(
+        r"\b(visit-prep|care-team|clinician|social worker|dili|hepatotoxicity|openfda|sweat chloride surrogate|trial endpoint atlas|eligibility|nct\d{8}.*recruiting)\b",
+        title,
+        re.I,
+    ) or re.search(r"\b(visit-prep|care-team question|clinician review)\b", text, re.I):
+        return "care_teams"
+
+    if re.search(
+        r"(?:/resources/|\b(?:patient resource|healthcare equity|65 roses|community letter|plain-language|patient-facing|living with cf)\b|(?<!second-)(?<!multi-)\bfamil(?:y|ies)\b(?!-))",
+        title,
+        re.I,
+    ):
+        return "patients"
+
+    if repo == "cf-research" or re.search(
+        r"\b(simulator|explorer|kinetics|thermodynamics|biophysical|cryo-em|pdb|lnp|mrna|intein|aav|readthrough|tmem16a|enac|slc26a9|phage|biofilm|splicing|allosteric|conductance|organoid|discovery/)\b",
+        text,
+        re.I,
+    ):
+        return "researchers"
+
+    if repo == ".ai":
+        if re.search(r"\b(lighthouse|cls|csp|header|playwright|sync_chrome|check_live|worktree|refactor)\b", title, re.I):
+            return "builders"
+        return "patients"
+
+    return "builders"
+
+
+def infer_discipline(task: dict) -> str:
+    """Deterministically infer the primary scientific or engineering discipline."""
+    existing = task.get("discipline")
+    if existing in VALID_DISCIPLINES:
+        return existing
+
+    repo = (task.get("repo") or "").strip()
+    title = (task.get("title") or "").lower()
+    text = _combined_task_text(task)
+
+    if repo in ("cf-lab", "cf-skills") and not re.search(
+        r"\b(cryo-em|vx-522|w1282x|g542x|tmem16a|phage|biofilm|clinicaltrials\.gov)\b",
+        title,
+        re.I,
+    ):
+        return "ai_verification"
+
+    # 1. Microbiology & Host Defense (matched on title first so "tobramycin comparator" in notes doesn't hijack RNA tasks)
+    if re.search(
+        r"\b(phage\w*|biofilm\w*|pseudomonas|aeruginosa|alginate|depolymerase|tobramycin|antibiotic\w*|macrophage\w*|scavenger|cd47|neutrophil\w*|elastase|inflamm\w*|pyocyanin|lasr|quorum|microbi\w*|efferocytosis)\b",
+        title,
+        re.I,
+    ):
+        return "microbiology_host"
+
+    # 2. RNA, Nonsense & Gene Editing
+    if re.search(
+        r"\b(ptc|nonsense|w1282x|g542x|readthrough|erf1|erf3|upf1|nmd|trna|suppressor|splice\w*|splicing|u1 snrnp|aso|spl84|3849\+10kb|1811\+1\.6kb|intein\w*|dual-aav|aav|prime edit\w*|base edit\w*|crispr|cas9|g-quadruplex|g4|mrna.*ribosome|tasep|codon\w*|poly\(a\))\b",
+        title,
+        re.I,
+    ):
+        return "rna_gene_editing"
+
+    # 3. Airway Delivery, Mucus & Alternative Ion Transport
+    if re.search(
+        r"\b(delivery|lnp\w*|vx-522|aerosol\w*|mucus|mucin\w*|muc5ac|muc5b|periciliary|glycocalyx|sialidase|endosom\w*|escape|tight junction|zo-1|claudin|transcytosis|club cell|exosome\w*|asl|hypertonic|osmotic|cilia\w*|mucociliary|tmem16a|ano1|enac|slc26a9|atp12a|bicarbonate)\b",
+        title,
+        re.I,
+    ):
+        return "airway_delivery"
+
+    # 4. Structural Biology & CFTR Biophysics
+    if re.search(
+        r"\b(cryo-em|pdb|6msm|5uak|8eiq|8ej1|nbd1|nbd2|tmd\w*|r-domain|f508del|deltaf508|elexacaftor|tezacaftor|ivacaftor|vanzacaftor|corrector\w*|potentiator\w*|allosteric|gating|folding|erad|ubiquitin\w*|pdi|redox|nitrosylation|atp hydrolysis|pore|vestibule|lipidated|membrane|cftr)\b",
+        title,
+        re.I,
+    ):
+        return "structural_biology"
+
+    # 5. Clinical Trials, Registries & Care Equity
+    if re.search(
+        r"\b(trial\w*|nct\d{8}|endpoint\w*|fev1|lci|sweat chloride|registr\w*|cffpr|ecfspr|organoid\w*|theratyp\w*|resources|country|countries|equity|spanish|es-mx|openfda|dili|visit-prep|care-team|patient\w*|65 roses)\b",
+        title + " " + text,
+        re.I,
+    ):
+        return "clinical_trials"
+
+    return "ai_verification"
+
+
+def infer_work_kind(task: dict) -> str:
+    """Deterministically infer whether a task is 'new', 'repair', or 'maintenance'."""
+    existing = task.get("work_kind")
+    if existing in VALID_WORK_KINDS:
+        return existing
+
+    title = (task.get("title") or "").lower()
+    notes = (task.get("notes") or "").lower()
+
+    if re.search(
+        r"\b(fix|bug|repair|regression|broken|hotfix|conflict|remediate|restore|syntaxerror|corrupt)\b",
+        title,
+        re.I,
+    ):
+        return "repair"
+
+    if re.search(
+        r"\b(prune|harvest|clean|cleanup|hygiene|sync|refresh|bump|triage|audit|linter|check_[a-z0-9_]+\.py|de-bloat|refactor|reorganize|archive)\b",
+        title,
+        re.I,
+    ) or ("repair" in notes and "superseded" in notes):
+        return "maintenance"
+
+    return "new"
 
 
 def load_human_gated_ids(path: Path) -> set[str]:
@@ -192,9 +361,10 @@ def is_human_gated(task: dict, human_ids: set[str]) -> tuple[bool, str]:
     for bp in BOILERPLATE_STRIP_PATTERNS:
         cleaned_notes = re.sub(bp, "", cleaned_notes, flags=re.I)
 
+    roi_obj = task.get("roi") if isinstance(task.get("roi"), dict) else {}
     text = " ".join([
         cleaned_notes,
-        task.get("roi", {}).get("rationale") or "",
+        roi_obj.get("rationale") or "",
         task.get("title") or "",
         task.get("acceptance") or "",
     ])
@@ -402,8 +572,8 @@ def is_grounded_executable(task: dict, repo_root: Path = REPO_ROOT) -> tuple[boo
         return False, spec_reason
 
     acc = task.get("acceptance", "").strip()
-    roi = task.get("roi", {})
-    eff = task.get("effort_hours", {})
+    roi = task.get("roi") if isinstance(task.get("roi"), dict) else {}
+    eff = task.get("effort_hours") if isinstance(task.get("effort_hours"), dict) else {}
 
     if len(acc) < 15:
         return False, "acceptance criteria is too brief or missing"
@@ -419,12 +589,13 @@ def classify_curative_mission(task: dict) -> dict:
     """Classify task into curative mission track and determine recommended priority and route."""
     raw_ev = task.get("source_evidence") or ""
     ev_str = " ".join(raw_ev) if isinstance(raw_ev, list) else str(raw_ev)
+    roi_obj = task.get("roi") if isinstance(task.get("roi"), dict) else {}
     text = " ".join([
         task.get("title") or "",
         task.get("acceptance") or "",
         ev_str,
         task.get("area") or "",
-        task.get("roi", {}).get("rationale") or "",
+        roi_obj.get("rationale") or "",
     ])
 
     if TRACK_A_KEYWORDS.search(text):
@@ -479,12 +650,13 @@ def compute_multi_category_roi(task: dict) -> dict:
     """Calculate multi-dimensional ROI across curative, translation, integrity, velocity, and security."""
     raw_ev = task.get("source_evidence") or ""
     ev_str = " ".join(raw_ev) if isinstance(raw_ev, list) else str(raw_ev)
+    roi_obj = task.get("roi") if isinstance(task.get("roi"), dict) else {}
     text = " ".join([
         task.get("title") or "",
         task.get("acceptance") or "",
         ev_str,
         task.get("area") or "",
-        task.get("roi", {}).get("rationale") or "",
+        roi_obj.get("rationale") or "",
         task.get("notes") or "",
     ]).lower()
 
@@ -620,6 +792,9 @@ def triage_board(
             "Infrastructure": 0,
             "Routine": 0,
         },
+        "personas": {p: 0 for p in VALID_PERSONAS},
+        "disciplines": {d: 0 for d in VALID_DISCIPLINES},
+        "work_kinds": {k: 0 for k in VALID_WORK_KINDS},
         "prioritized_tasks": [],
         "warnings": [],
     }
@@ -635,6 +810,17 @@ def triage_board(
         tid = task["id"]
         status = task["status"]
 
+        # 0. Populate dual-axis taxonomy (persona + discipline + work_kind)
+        persona = infer_persona(task)
+        discipline = infer_discipline(task)
+        work_kind = infer_work_kind(task)
+        task["persona"] = persona
+        task["discipline"] = discipline
+        task["work_kind"] = work_kind
+        stats["personas"][persona] = stats["personas"].get(persona, 0) + 1
+        stats["disciplines"][discipline] = stats["disciplines"].get(discipline, 0) + 1
+        stats["work_kinds"][work_kind] = stats["work_kinds"].get(work_kind, 0) + 1
+
         # 1. Check for verified completed sentinels
         if tid in COMPLETED_SENTINELS and status in ("proposed", "ready", "in_progress"):
             meta = COMPLETED_SENTINELS[tid]
@@ -644,13 +830,16 @@ def triage_board(
                 "kind": "model",
                 "name": "Gemini (Antigravity)",
                 "model_id": "gemini-3.8-flash",
-                "session_ref": "2026-10-14 session: automated sentinel verification and board triage",
+                "session_ref": f"{today_str} session: automated sentinel verification and board triage",
             }
+            if not isinstance(task.get("roi"), dict):
+                task["roi"] = {}
             task["roi"]["measured"] = True
             task["roi"]["actual_hours"] = meta["actual_hours"]
             task["roi"]["measured_outcome"] = meta["measured_outcome"]
+            task["actual_hours"] = meta["actual_hours"]
             existing_notes = task.get("notes") or ""
-            completion_note = f"{today_str} CRO Auto-Triage: Marked done. Deliverables verified merged into main with all tests passing."
+            completion_note = f"{today_str} CRO Auto-Triage: Marked done. {meta['measured_outcome']}"
             task["notes"] = f"{existing_notes} | {completion_note}" if existing_notes else completion_note
             stats["completed_to_done"].append(tid)
             continue
@@ -786,7 +975,7 @@ def run_council_audit(board_data: dict, human_ids: set[str]) -> dict:
         "date": today_str,
         "council_members": {
             "orchestrator": "Gemini Flash (Antigravity)",
-            "frontier_challenger": "Argon (Gemini 4 Argon / pro subagent)",
+            "frontier_challenger": "Argon (Gemini 4 Argon / pro subagent) + Claude Opus",
             "local_worker": "qwen3.8:27b-64k (via Ollama loopback)",
             "deterministic_verifiers": [
                 "tasks/test_triage_board.py",
@@ -796,6 +985,9 @@ def run_council_audit(board_data: dict, human_ids: set[str]) -> dict:
             ],
         },
         "curative_alignment_breakdown": stats["curative_tracks"],
+        "persona_breakdown": stats["personas"],
+        "discipline_breakdown": stats["disciplines"],
+        "work_kind_breakdown": stats["work_kinds"],
         "summary_metrics": {
             "total_tasks": stats["total_tasks"],
             "ready_tasks": len(ready_tasks),
@@ -854,6 +1046,9 @@ def main(argv=None) -> int:
         report = run_council_audit(board_data, human_ids)
         print(json.dumps(report["summary_metrics"], indent=2))
         print(f"Curative Mission Breakdown: {report['curative_alignment_breakdown']}")
+        print(f"Persona Breakdown: {report['persona_breakdown']}")
+        print(f"Discipline Breakdown: {report['discipline_breakdown']}")
+        print(f"Work Kind Breakdown: {report['work_kind_breakdown']}")
         print(f"P1 Ready Tasks Queue: {report['p1_curative_ready_queue']}")
         print(f"Audit ledger written to .loop-logs/council-triage-audit-{report['date']}.json")
 
@@ -879,6 +1074,9 @@ def main(argv=None) -> int:
     print(f"Curative Tracks Alignment:")
     for track, count in stats["curative_tracks"].items():
         print(f"  - {track}: {count} tasks")
+    print(f"Persona Distribution:      {stats['personas']}")
+    print(f"Discipline Distribution:   {stats['disciplines']}")
+    print(f"Work Kind Distribution:    {stats['work_kinds']}")
     if stats["prioritized_tasks"]:
         print(f"Prioritized Tasks Repositioned: {len(stats['prioritized_tasks'])} tasks")
         for tid, old_p, new_p, track in stats["prioritized_tasks"][:5]:
