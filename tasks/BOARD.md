@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-402 tasks, 401 created by a model, 184 with a measured outcome. Estimated effort 1020.35 to 1851.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+405 tasks, 404 created by a model, 184 with a measured outcome. Estimated effort 1029.35 to 1866.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,17 +10,20 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (20)
+## ready (23)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
+| T-0403 | P1 | Interactive Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Simulator on /cf/ptc/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
+| T-0404 | P1 | Interactive Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0400 | P1 | Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0402 | P1 | Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0129 | P1 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
+| T-0405 | P1 | Interactive Phage Alginate Depolymerase Exopolysaccharide Stripping & Biofilm Penetration Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 4 | 10 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0047 | P1 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
 | T-0080 | P1 | Website revamp and a better organization across the lab, with Fable's guidance | cf-lab | 4-10 | 5 | 7.1 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local |  |  |
 | T-0103 | P1 | Try the five paste-ready boxes on Gemini, ChatGPT and Microsoft Copilot and record the counts | cf-skills | 4-8 | 4 | 6.7 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | medium | local |  |  |
@@ -2058,6 +2061,24 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Notes:** Delivered in senseiewok/.ai#166. Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with complete Mexican Spanish (es-MX) parity, Npu DnaE trans-splicing kinetics (ksplice=0.011 s^-1), and Poisson co-transduction modeling. All acceptance tests passed (test_site 147/147, test_tmem16a_and_dual_aav_reconstitution 7/7, check_anti_hallucination 5/5).
 - **Measured:**  h; 
 
+### T-0403 Interactive Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Simulator on /cf/ptc/ with es-MX Parity
+
+- **Why / ROI rationale:** Visualizes non-aminoglycoside release factor depletion and near-cognate readthrough kinetics across Class I nonsense alleles. *(confidence: high)*
+- **Route:** local - Client-side interactive visualization on .ai.
+- **Acceptance:** python -m unittest tests.test_erf_depletion_explorer tests.test_workbench_i18n; python tools/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0403.md; cf-research/tools/discovery/ptc_erf_depletion_readthrough.py; RCSB PDB 6O2P; DOI 10.1038/s41589-020-00662-8; DOI 10.1093/nar/gkaa728; NCT04135495
+- **Spec:** `tasks/specs/T-0403.md`
+- **Notes:** Showcase Lane Replenishment. Interactive zero-build visualization modeling ribosomal decoding competition, small-molecule release factor depletion (SRI-37240 / SRI-41315), and Band C CFTR rescue on /cf/ptc/ with es-MX parity. PR #169 opened on senseiewok/.ai.
+
+### T-0404 Interactive Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Simulates aerosolized mRNA-LNP mucus barrier penetration and endosomal escape kinetics for nonviral gene therapy. *(confidence: high)*
+- **Route:** local - Client-side interactive visualization on .ai.
+- **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0404.md; cf-research/tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py; DOI 10.1126/sciadv.aaw3507; DOI 10.1073/pnas.1910397116; NCT05668741
+- **Spec:** `tasks/specs/T-0404.md`
+- **Notes:** Showcase Lane Replenishment. Interactive visualization modeling inhaled mRNA-LNP mucus diffusion, steric sieving across CF viscoelastic pore mesh, and surface charge neutralization on /cf/delivery/ with es-MX parity.
+
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
 - **Why / ROI rationale:** Automated PR hygiene eliminates merge conflict friction, identifies unresolved review comments across the multi-repo workspace, protects human-gated boundaries, audits stale worktrees, and prevents maintainer cognitive overload. *(confidence: high)*
@@ -2586,6 +2607,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0396.md`
 - **Notes:** Delivered in senseiewok/.ai#164. Interactive CFTR G-Quadruplex (G4) Secondary Structure Stability & Transcriptional Ligand Potentiation Simulator on /cf/cftr/ with complete Mexican Spanish (es-MX) parity, G-quartet stacking thermodynamics, monovalent cation coordination (K+ vs Na+), Pyridostatin/TMPyP4 stabilization, and DHX36/RHAU helicase unwinding. All 21 check_pr_gate modules passed.
 - **Measured:**  h; 
+
+### T-0405 Interactive Phage Alginate Depolymerase Exopolysaccharide Stripping & Biofilm Penetration Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Simulates enzymatic degradation of mucoid biofilm matrix and antibiotic penetration dynamics in refractory airway infections. *(confidence: high)*
+- **Route:** local - Client-side interactive visualization on .ai.
+- **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0405.md; cf-research/tools/discovery/phage_depolymerase_biofilm_synergy.py; DOI 10.1038/s41564-017-0034-0; RCSB PDB 6O2P; NCT04596319
+- **Spec:** `tasks/specs/T-0405.md`
+- **Notes:** Showcase Lane Replenishment. Interactive visualization modeling phage alginate lyase EPS degradation and antibiotic penetration synergy on /cf/delivery/ with es-MX parity.
 
 ### T-0185 Airway mucociliary clearance viscoelastic shear rheology & mucin mesh hindrance model (tools/discovery/mucus_rheology.py)
 
