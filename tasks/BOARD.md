@@ -10,12 +10,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (21)
+## ready (20)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
-| T-0397 | P1 | Interactive Global 22-Country CF Patient Resource Navigator & Healthcare Equity Map Expansion on /resources/ with Bilingual Support | .ai | 2-4 | 4 | 13.3 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0400 | P1 | Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
@@ -36,7 +35,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
-## done (309)
+## done (310)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -148,6 +147,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0378 | P1 | Interactive Airway Epithelial Goblet Cell Metaplasia & MUC5AC/MUC5B Secretory Hyperviscosity Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4.5 | 5 | 14.3 | no | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0158 | P1 | Public site health & dignity sentinel: automated scheduled-site-audit and scheduled-board-maintenance | cf-lab | 2-4 | 4 | 13.3 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local |  |  |
 | T-0180 | P1 | Deterministic delivery discovery dataset exporter with SHA-256 and JSON-LD schema (tools/discovery/export_delivery_web_data.py) | cf-research | 2-4 | 4 | 13.3 | yes | model: gpt-5-frontier | 2026-10-17 | elevated | medium | local | T-0177, T-0178, T-0179 |  |
+| T-0397 | P1 | Interactive Global 22-Country CF Patient Resource Navigator & Healthcare Equity Map Expansion on /resources/ with Bilingual Support | .ai | 2-4 | 4 | 13.3 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  | work/sentinel-showcase-t-0397 |
 | T-0156 | P1 | Scientific integrity sentinel: automated scheduled-evidence-integrity (Crossref / Retraction Watch and openFDA drug label monitoring) | cf-skills | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-12 | routine | low | local | T-0037, T-0038 |  |
 | T-0168 | P1 | Author multi-registry modulator eligibility & ultra-rare variant landscape dossier from verified 2024 CFFPR, ECFSPR, UKCFR, CCFR, and ACFDR reports [T2] | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-3.8-flash | 2026-10-15 | full | high | frontier | T-0005 |  |
 | T-0177 | P1 | Airway epithelial transcytosis receptor kinetics model for apical-to-basal delivery (tools/discovery/transcytosis_model.py) | cf-research | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-17 | full | medium | local |  |  |
@@ -1753,10 +1753,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 - **Why / ROI rationale:** Expands global resource navigator across 7 newly cataloged countries and 21 attested care organizations with bilingual support. *(confidence: high)*
 - **Route:** local - Resources page expansion on .ai.
+- **Branch:** work/sentinel-showcase-t-0397
 - **Acceptance:** python -m unittest tests.test_resources_page; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0397.md; cf-research/resources/resources.yaml; cf-research/sources/catalog.yaml
 - **Spec:** `tasks/specs/T-0397.md`
-- **Notes:** Showcase Lane Replenishment. Expand resources directory and world compass map with 7 newly cataloged countries (Uruguay, Ecuador, Poland, Czech Republic, Greece, Israel, Turkey) across 21 attested care organizations.
+- **Notes:** Delivered in showcase sentinel PR senseiewok/.ai#168. Expanded /resources/ international directory with 7 newly cataloged national patient organizations (Uruguay, Ecuador, Poland, Czech Republic, Greece, Israel, Turkey; 10 total) and interactive 22-country World Compass Map with newborn screening (NBS) coverage and CFTR modulator reimbursement indicators across 5 continental regions. 100% Mexican Spanish (es-MX) parity verified with zero missing keys and zero orphans. 27/27 resources tests passing, 147/147 site tests passing, check_pr_gate.py clean.
 
 ### T-0105 A CF clinician or social worker reads the safe-use box wording and the open questions
 
