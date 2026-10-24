@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-399 tasks, 398 created by a model, 182 with a measured outcome. Estimated effort 1011.35 to 1834.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+402 tasks, 401 created by a model, 184 with a measured outcome. Estimated effort 1020.35 to 1851.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,16 +10,17 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (21)
+## ready (22)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0397 | P1 | Interactive Global 22-Country CF Patient Resource Navigator & Healthcare Equity Map Expansion on /resources/ with Bilingual Support | .ai | 2-4 | 4 | 13.3 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0398 | P1 | Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
-| T-0399 | P1 | Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0400 | P1 | Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0401 | P1 | Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0402 | P1 | Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0129 | P1 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P1 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
@@ -36,7 +37,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
-## done (306)
+## done (308)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -169,6 +170,8 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0390 | P1 | Interactive CFTR Gating Potentiator Allosteric Cooperativity & Energy Coupling Explorer on /cf/cftr/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0391 | P1 | Interactive Inhaled Nanoparticle Macrophage Evasion & Biomimetic CD47 Brush Dynamics Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  | work/sentinel-showcase-t-0391 |
 | T-0395 | P1 | Interactive Deep Intronic Splice U1 snRNP Decoy Oligonucleotide Competition & Pseudoexon Exclusion Explorer on /cf/cftr/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  | work/sentinel-security-t-0396 |
+| T-0398 | P1 | Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  | work/sentinel-security-t-0398 |
+| T-0399 | P1 | Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  | work/sentinel-security-t-0398 |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0276 | P1 | Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0272 |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -2036,19 +2039,23 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 - **Why / ROI rationale:** Visualizes alternative chloride conductance bypass kinetics for mutation-agnostic therapy across Class I/II null alleles. *(confidence: high)*
 - **Route:** local - Client-side interactive visualization on .ai.
+- **Branch:** work/sentinel-security-t-0398
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0398.md; cf-research/tools/discovery/tmem16a_calcium_conductance_model.py; RCSB PDB 5OYB; DOI 10.1038/nature23882; DOI 10.1073/pnas.1812832115
 - **Spec:** `tasks/specs/T-0398.md`
-- **Notes:** Showcase Lane Replenishment. Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with complete Mexican Spanish (es-MX) parity, dual Ca2+ binding Hill cooperativity, and purinergic P2Y2R signaling.
+- **Notes:** Delivered in senseiewok/.ai#166. Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with complete Mexican Spanish (es-MX) parity, dual Ca2+ binding Hill cooperativity (nH=2.1, EC50=420nM), and purinergic P2Y2R signaling. All acceptance tests passed (test_site 147/147, test_tmem16a_and_dual_aav_reconstitution 7/7, check_anti_hallucination 5/5).
+- **Measured:**  h; 
 
 ### T-0399 Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with es-MX Parity
 
 - **Why / ROI rationale:** Simulates dual-AAV capsid size limitation bypass and split-intein traceless protein ligation for durable gene replacement. *(confidence: high)*
 - **Route:** local - Client-side interactive visualization on .ai.
+- **Branch:** work/sentinel-security-t-0398
 - **Acceptance:** python -m unittest tests.test_site; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0399.md; cf-research/tools/discovery/dual_aav_intein_model.py; RCSB PDB 1ZDE; DOI 10.1038/s41591-019-0465-5; NCT05248022
 - **Spec:** `tasks/specs/T-0399.md`
-- **Notes:** Showcase Lane Replenishment. Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with complete Mexican Spanish (es-MX) parity, Npu DnaE trans-splicing kinetics, and Poisson co-transduction modeling.
+- **Notes:** Delivered in senseiewok/.ai#166. Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with complete Mexican Spanish (es-MX) parity, Npu DnaE trans-splicing kinetics (ksplice=0.011 s^-1), and Poisson co-transduction modeling. All acceptance tests passed (test_site 147/147, test_tmem16a_and_dual_aav_reconstitution 7/7, check_anti_hallucination 5/5).
+- **Measured:**  h; 
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
@@ -2330,6 +2337,33 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/specs/T-0394.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6O2P, 7SVD; DOI 10.1038/s41467-019-09562-5, 10.1093/nar/gkad1220; NCT04135495, NCT04126473
 - **Spec:** `tasks/specs/T-0394.md`
 - **Notes:** Delivered in research sentinel PR senseiewok/cf-research#133. Implemented Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model in tools/discovery/suppressor_trna_orthogonality.py with 9/9 unit tests passing and check_anti_hallucination verified.
+
+### T-0400 Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py)
+
+- **Why / ROI rationale:** Models mucus mesh penetration and endosomal escape biophysics for inhaled aerosolized CFTR mRNA genetic therapies. *(confidence: high)*
+- **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_vx522_inhaled_lnp_mucus_diffusion.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0400.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; DOI 10.1073/pnas.1901667116, 10.1038/s41551-021-00724-5; NCT06237335
+- **Spec:** `tasks/specs/T-0400.md`
+- **Notes:** Curative Discovery Council Track A Wave 17. Inhaled mRNA LNP mucus mesh diffusion, steric sieving, surface charge neutralization, PEG shedding kinetics, and ionizable lipid pKa tuning for CFTR delivery.
+
+### T-0401 Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py)
+
+- **Why / ROI rationale:** Quantifies aminoglycoside-free nonsense readthrough kinetics and mature CFTR channel rescue for severe Class I alleles (W1282X, G542X). *(confidence: high)*
+- **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_ptc_erf_depletion_readthrough.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0401.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; RCSB PDB 6O2P; DOI 10.1038/s41589-020-00662-8, 10.1093/nar/gkaa728; NCT04135495
+- **Spec:** `tasks/specs/T-0401.md`
+- **Notes:** Curative Discovery Council Track A Wave 17. Eukaryotic release factor eRF1/eRF3 depletion, ribosomal A-site competition, stop codon context permissiveness, and Band C mature channel rescue for Class I CFTR nonsense mutations.
+
+### T-0402 Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py)
+
+- **Why / ROI rationale:** Models enzymatic exopolysaccharide stripping and multi-log bactericidal synergy to eradicate chronic antibiotic-resistant CF biofilm infections. *(confidence: high)*
+- **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_phage_depolymerase_biofilm_synergy.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0402.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; RCSB PDB 6QW8; DOI 10.1128/AAC.01413-20, 10.1038/s41467-020-18009-7; NCT04596319
+- **Spec:** `tasks/specs/T-0402.md`
+- **Notes:** Curative Discovery Council Track A Wave 17. Phage alginate depolymerase cleavage kinetics, dynamic biofilm diffusivity recovery, reaction-diffusion penetration, and bactericidal synergy with tobramycin in mucoid P. aeruginosa.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
