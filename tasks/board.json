@@ -20878,7 +20878,7 @@
       "repo": "cf-research",
       "area": "science",
       "lane": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -20895,7 +20895,7 @@
         "high": 5.5
       },
       "acceptance": "pytest tools/discovery/test_phage_depolymerase_biofilm_synergy.py -v; python tools/claims/check_anti_hallucination.py",
-      "notes": "Curative Discovery Council Track A Wave 17. Phage alginate depolymerase cleavage kinetics, dynamic biofilm diffusivity recovery, reaction-diffusion penetration, and bactericidal synergy with tobramycin in mucoid P. aeruginosa.",
+      "notes": "Delivered in research sentinel PR senseiewok/cf-research#138. Implemented Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in tools/discovery/phage_depolymerase_biofilm_synergy.py with 7/7 unit tests passing (0.56s), 52 modules verified in discovery_council.py, and check_anti_hallucination verified.",
       "spec_path": "tasks/specs/T-0402.md",
       "roi": {
         "benefit": 5,
@@ -20909,7 +20909,9 @@
           "security_compliance": 2.0
         },
         "composite_score": 5.45,
-        "roi_ratio": 1.28
+        "roi_ratio": 1.28,
+        "actual_hours": 4.25,
+        "measured_outcome": "Delivered in research sentinel PR senseiewok/cf-research#138. Demonstrated 5.00 log10 CFU synergistic bactericidal reduction (>= 3.0 log10 CFU) for depolymerase + tobramycin combination therapy, recovery of diffusivity from D_eff/D0 = 0.0206 to 0.951 (>= 0.70), and verified across 7 unit tests."
       },
       "recommended_route": "local",
       "route_rationale": "Deterministic Python biophysical model and unit tests in cf-research.",
@@ -20918,7 +20920,11 @@
       "human_required": false,
       "persona": "researchers",
       "discipline": "microbiology_host",
-      "work_kind": "new"
+      "work_kind": "new",
+      "actual_hours": 4.25,
+      "completed_at": "2026-10-24",
+      "branch": "work/sentinel-research-t-0402",
+      "pull_request": "https://github.com/senseiewok/cf-research/pull/138"
     },
     {
       "id": "T-0403",
