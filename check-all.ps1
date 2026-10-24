@@ -71,6 +71,8 @@ $Checks = @(
     @{ name = 'test-check-third-party-skills'; exe = 'python'; args = @('tasks/test_check_third_party_skills.py');                                         needs = @('python') }
     @{ name = 'check-biomcp-admission';   exe = 'python';     args = @('tasks/check_biomcp_admission.py');                                                 needs = @('python') }
     @{ name = 'test-check-biomcp-admission'; exe = 'python';  args = @('tasks/test_check_biomcp_admission.py');                                            needs = @('python') }
+    @{ name = 'check-scite-mcp-admission';   exe = 'python';  args = @('tasks/check_scite_mcp_admission.py');                                              needs = @('python') }
+    @{ name = 'test-check-scite-mcp-admission'; exe = 'python'; args = @('tasks/test_check_scite_mcp_admission.py');                                        needs = @('python') }
     @{ name = 'test-svg-freeze-contract'; exe = 'python';     args = @('tasks/test_svg_freeze_contract.py');                                                needs = @('python') }
     @{ name = 'skill-frontmatter';        exe = 'python';     args = @('tasks/check-skill-frontmatter.py');                                                needs = @('python', 'pyyaml') }
     # setup and the workspace

@@ -21,7 +21,7 @@
    - **CF Medical Devices & Diagnostics (`search_device510k`, `get_device510k`, `search_510k_summaries`, `get_510k_summary`, `search_maude`, `get_maude_report`):** Enables auditing of FDA 510(k) clearances and MAUDE adverse event reports for CF nebulizers (e.g., PARI eFlow), airway clearance devices, and sweat chloride diagnostic systems.
    - **FDA Orange Book, SPL & FAERS Deep Inspection (`search_drugs`, `get_drug`, `search_faers`, `get_faers_report`):** Complements `openfda` and `opentargets` with Orange Book patent/exclusivity records and individual FAERS safety report lookups.
 
-2. **Invariant Citation & Grounding Rule (`R5` & `AH-6`):**
+2. **Invariant Citation & Grounding Rule (`R5` & `AH-8`):**
    - Every primary DOI, PMID, NCT trial ID, drug approval date, or quantitative bioactivity value shipped in a lab note, proposal, or website page **must still resolve through `cf-evidence-loop`** (`doi`, `paper-trail`, `pubmed`, `trial`, `approval`, `chembl`, `chembl-activity`, `opentargets`).
    - Scite's `supporting`, `contrasting`, and `mentioning` classifications are outputs of Scite's machine-learning classifier and must always be labelled as **`[observed: Scite ML citation classification, accessed YYYY-MM-DD]`**—never treated as unverified clinical truth or a substitute for reading the primary study.
 
