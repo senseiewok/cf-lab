@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-405 tasks, 404 created by a model, 186 with a measured outcome. Estimated effort 1029.35 to 1866.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+406 tasks, 405 created by a model, 186 with a measured outcome. Estimated effort 1032.35 to 1871.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,16 +10,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (22)
+## ready (21)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0403 | P1 | Interactive Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Simulator on /cf/ptc/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
 | T-0404 | P1 | Interactive Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
+| T-0406 | P1 | Interactive Cross-Scale Clinical Trial & Delivery Modality Coupling on /cf/cftr/ and /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: google/gemini-2.5-flash | 2026-10-24 | elevated | medium | local |  | site/showcase-cross-scale-coupling |
 | T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
-| T-0402 | P1 | Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0129 | P1 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0405 | P1 | Interactive Phage Alginate Depolymerase Exopolysaccharide Stripping & Biofilm Penetration Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 4 | 10 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  |  |
@@ -37,7 +36,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
-## done (311)
+## done (313)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -173,6 +172,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0395 | P1 | Interactive Deep Intronic Splice U1 snRNP Decoy Oligonucleotide Competition & Pseudoexon Exclusion Explorer on /cf/cftr/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  | work/sentinel-security-t-0396 |
 | T-0398 | P1 | Interactive Inhaled TMEM16A Alternative Chloride Conductance & Calcium-Coupled Secretion Simulator on /cf/tree/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  | work/sentinel-security-t-0398 |
 | T-0399 | P1 | Interactive Dual AAV Split-Intein Trans-Splicing & CFTR Full-Length Reconstitution Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | yes | model: gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  | work/sentinel-security-t-0398 |
+| T-0403 | P1 | Interactive Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Simulator on /cf/ptc/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: google/gemini-2.5-flash | 2026-10-23 | elevated | medium | local |  | work/sentinel-showcase-t-0403 |
 | T-0176 | P1 | Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel | cf-lab | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-17 | elevated | medium | local |  |  |
 | T-0276 | P1 | Interactive Inhaled Synthetic mRNA Ribosome Load & Translation Velocity Simulator on /cf/delivery/ with es-MX Parity | .ai | 2.5-4 | 4 | 12.3 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local | T-0272 |  |
 | T-0190 | P1 | Mexican Spanish (es-MX) full translation coverage for /cf/tree/, /cf/ptc/, /cf/delivery/, /cf/trials/, and /cf/registries/ workbenches | .ai | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-18 | elevated | medium | local |  |  |
@@ -191,6 +191,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0394 | P1 | Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model (tools/discovery/suppressor_trna_orthogonality.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0400 | P1 | Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  | work/sentinel-research-t-0400 |
 | T-0401 | P1 | Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0402 | P1 | Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  | work/sentinel-research-t-0402 |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0187 | P1 | Interactive Splice-Switching ASO & Class V Pseudoexon Explorer panel on /cf/ptc/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0183 |  |
@@ -2246,6 +2247,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Visualizes non-aminoglycoside release factor depletion and near-cognate readthrough kinetics across Class I nonsense alleles. *(confidence: high)*
 - **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Client-side interactive visualization on .ai.
+- **Branch:** work/sentinel-showcase-t-0403
 - **Acceptance:** python -m unittest tests.test_erf_depletion_explorer tests.test_workbench_i18n; python tools/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0403.md; cf-research/tools/discovery/ptc_erf_depletion_readthrough.py; RCSB PDB 6O2P; DOI 10.1038/s41589-020-00662-8; DOI 10.1093/nar/gkaa728; NCT04135495
 - **Spec:** `tasks/specs/T-0403.md`
@@ -2260,6 +2262,17 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/specs/T-0404.md; cf-research/tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py; DOI 10.1126/sciadv.aaw3507; DOI 10.1073/pnas.1910397116; NCT05668741
 - **Spec:** `tasks/specs/T-0404.md`
 - **Notes:** Showcase Lane Replenishment. Interactive visualization modeling inhaled mRNA-LNP mucus diffusion, steric sieving across CF viscoelastic pore mesh, and surface charge neutralization on /cf/delivery/ with es-MX parity.
+
+### T-0406 Interactive Cross-Scale Clinical Trial & Delivery Modality Coupling on /cf/cftr/ and /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Directly couples molecular mutation mechanics to recruiting clinical trials and delivery barriers, empowering patients and clinicians to navigate from variant biology to visit prep. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: clinical_trials | Kind: new
+- **Route:** local - Client-side interactive visualization on .ai.
+- **Branch:** site/showcase-cross-scale-coupling
+- **Acceptance:** python -m unittest tests.test_cross_scale_coupling; python tools/check_pr_gate.py
+- **Evidence:** tasks/specs/T-0406.md; src/cf/trials/data/endpoints.json; NCT05668741; NCT04135495; NCT06237335; NCT00843817; NCT05248230; NCT04596319; NCT04684641
+- **Spec:** `tasks/specs/T-0406.md`
+- **Notes:** Delivered in .ai PR on branch site/showcase-cross-scale-coupling. Added cross-scale bridges to /cf/cftr/ and /cf/delivery/ with dynamic filtering in nav-rail.js, 100% es-MX parity, and zero cap violations (14 and 19 sections).
 
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
@@ -2600,10 +2613,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Models enzymatic exopolysaccharide stripping and multi-log bactericidal synergy to eradicate chronic antibiotic-resistant CF biofilm infections. *(confidence: high)*
 - **Axis:** Persona: researchers | Discipline: microbiology_host | Kind: new
 - **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Branch:** work/sentinel-research-t-0402
 - **Acceptance:** pytest tools/discovery/test_phage_depolymerase_biofilm_synergy.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0402.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; RCSB PDB 6QW8; DOI 10.1128/AAC.01413-20, 10.1038/s41467-020-18009-7; NCT04596319
 - **Spec:** `tasks/specs/T-0402.md`
-- **Notes:** Curative Discovery Council Track A Wave 17. Phage alginate depolymerase cleavage kinetics, dynamic biofilm diffusivity recovery, reaction-diffusion penetration, and bactericidal synergy with tobramycin in mucoid P. aeruginosa.
+- **Notes:** Delivered in research sentinel PR senseiewok/cf-research#138. Implemented Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in tools/discovery/phage_depolymerase_biofilm_synergy.py with 7/7 unit tests passing (0.56s), 52 modules verified in discovery_council.py, and check_anti_hallucination verified.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
