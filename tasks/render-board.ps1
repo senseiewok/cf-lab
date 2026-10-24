@@ -10,7 +10,9 @@
   can serve as a pre-commit or CI guard.
 
   Optional per-task fields: complexity (low, medium, high), recommended_route (local, cloud, frontier), route_rationale
-  (required, non-empty, when a route is set), branch (git branch name for active worktree/branch coordination), and
+  (required, non-empty, when a route is set), branch (git branch name for active worktree/branch coordination),
+  persona (patients, care_teams, researchers, builders), discipline (structural_biology, rna_gene_editing, airway_delivery,
+  microbiology_host, clinical_trials, ai_verification), work_kind (new, repair, maintenance), and
   evidence_package (structured object linking durable primary evidence packet, claims JSON, catalog sources, and answer tier).
   Other values are rejected with exit 2. Case-sensitive.
 
@@ -43,6 +45,9 @@ if ($rawBytes.Length -ge 3 -and $rawBytes[0] -eq 0xEF -and $rawBytes[1] -eq 0xBB
 $board = Get-Content -Raw -Path $BoardPath -Encoding UTF8 | ConvertFrom-Json
 
 $requiredFields = 'id','title','repo','status','priority','created_at','created_by','source_evidence','effort_hours','roi','acceptance','review_tier'
+$validPersonas = 'patients','care_teams','researchers','builders'
+$validDisciplines = 'structural_biology','rna_gene_editing','airway_delivery','microbiology_host','clinical_trials','ai_verification'
+$validWorkKinds = 'new','repair','maintenance'
 $errors = @()
 $ids = @{}
 $byId = @{}
@@ -60,6 +65,21 @@ foreach ($t in $board.tasks) {
     if ($t.PSObject.Properties.Name -contains 'recommended_route' -and $null -ne $t.recommended_route) {
         if ($t.recommended_route -cnotin 'local', 'cloud', 'frontier') { $errors += "$($t.id): recommended_route must be local, cloud or frontier" }
         elseif ([string]::IsNullOrWhiteSpace([string]$t.route_rationale)) { $errors += "$($t.id): route_rationale is required when recommended_route is set" }
+    }
+    if ($t.PSObject.Properties.Name -contains 'persona' -and $null -ne $t.persona -and [string]$t.persona -ne '') {
+        if ([string]$t.persona -cnotin $validPersonas) {
+            $errors += "$($t.id): persona must be patients, care_teams, researchers or builders"
+        }
+    }
+    if ($t.PSObject.Properties.Name -contains 'discipline' -and $null -ne $t.discipline -and [string]$t.discipline -ne '') {
+        if ([string]$t.discipline -cnotin $validDisciplines) {
+            $errors += "$($t.id): discipline must be one of $($validDisciplines -join ', ')"
+        }
+    }
+    if ($t.PSObject.Properties.Name -contains 'work_kind' -and $null -ne $t.work_kind -and [string]$t.work_kind -ne '') {
+        if ([string]$t.work_kind -cnotin $validWorkKinds) {
+            $errors += "$($t.id): work_kind must be new, repair or maintenance"
+        }
     }
     if ($t.PSObject.Properties.Name -contains 'branch' -and $null -ne $t.branch -and [string]$t.branch -ne '') {
         $b = [string]$t.branch
@@ -181,6 +201,11 @@ foreach ($t in $sorted) {
     [void]$sb.AppendLine("### $($t.id) $(Esc $t.title)")
     [void]$sb.AppendLine()
     [void]$sb.AppendLine("- **Why / ROI rationale:** $(Esc $t.roi.rationale) *(confidence: $($t.roi.confidence))*")
+    $axisParts = @()
+    if ($t.PSObject.Properties.Name -contains 'persona' -and $t.persona) { $axisParts += "Persona: $($t.persona)" }
+    if ($t.PSObject.Properties.Name -contains 'discipline' -and $t.discipline) { $axisParts += "Discipline: $($t.discipline)" }
+    if ($t.PSObject.Properties.Name -contains 'work_kind' -and $t.work_kind) { $axisParts += "Kind: $($t.work_kind)" }
+    if ($axisParts.Count -gt 0) { [void]$sb.AppendLine("- **Axis:** $($axisParts -join ' | ')") }
     if ($t.recommended_route) { [void]$sb.AppendLine("- **Route:** $($t.recommended_route) - $(Esc $t.route_rationale)") }
     if ($t.PSObject.Properties.Name -contains 'branch' -and $t.branch) { [void]$sb.AppendLine("- **Branch:** $(Esc $t.branch)") }
     [void]$sb.AppendLine("- **Acceptance:** $(Esc $t.acceptance)")
