@@ -10,7 +10,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (22)
+## ready (21)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -19,7 +19,6 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0400 | P1 | Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
-| T-0401 | P1 | Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0402 | P1 | Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0129 | P1 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
@@ -37,7 +36,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
-## done (308)
+## done (309)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -188,6 +187,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0352 | P1 | CFTR Cryptic Splice Site Pseudoexon U1 snRNP Steric Decoy Thermodynamics Model (tools/discovery/u1_snrnp_decoy_thermodynamics.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0392 | P1 | Inhaled TMEM16A Alternative Chloride Conductance & Intracellular Calcium Coupling Model (tools/discovery/tmem16a_calcium_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0394 | P1 | Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model (tools/discovery/suppressor_trna_orthogonality.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0401 | P1 | Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  | work/sentinel-research-t-0401 |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0187 | P1 | Interactive Splice-Switching ASO & Class V Pseudoexon Explorer panel on /cf/ptc/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0183 |  |
@@ -2351,10 +2351,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
 - **Why / ROI rationale:** Quantifies aminoglycoside-free nonsense readthrough kinetics and mature CFTR channel rescue for severe Class I alleles (W1282X, G542X). *(confidence: high)*
 - **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Branch:** work/sentinel-research-t-0401
 - **Acceptance:** pytest tools/discovery/test_ptc_erf_depletion_readthrough.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0401.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; RCSB PDB 6O2P; DOI 10.1038/s41589-020-00662-8, 10.1093/nar/gkaa728; NCT04135495
 - **Spec:** `tasks/specs/T-0401.md`
-- **Notes:** Curative Discovery Council Track A Wave 17. Eukaryotic release factor eRF1/eRF3 depletion, ribosomal A-site competition, stop codon context permissiveness, and Band C mature channel rescue for Class I CFTR nonsense mutations.
+- **Notes:** Delivered in research sentinel PR senseiewok/cf-research#135. Implemented Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR in tools/discovery/ptc_erf_depletion_readthrough.py with 8/8 unit tests passing and check_anti_hallucination verified.
 
 ### T-0402 Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py)
 

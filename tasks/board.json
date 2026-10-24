@@ -19602,7 +19602,7 @@
       "repo": "cf-research",
       "area": "science",
       "lane": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -19619,7 +19619,7 @@
         "high": 5.5
       },
       "acceptance": "pytest tools/discovery/test_ptc_erf_depletion_readthrough.py -v; python tools/claims/check_anti_hallucination.py",
-      "notes": "Curative Discovery Council Track A Wave 17. Eukaryotic release factor eRF1/eRF3 depletion, ribosomal A-site competition, stop codon context permissiveness, and Band C mature channel rescue for Class I CFTR nonsense mutations.",
+      "notes": "Delivered in research sentinel PR senseiewok/cf-research#135. Implemented Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR in tools/discovery/ptc_erf_depletion_readthrough.py with 8/8 unit tests passing and check_anti_hallucination verified.",
       "spec_path": "tasks/specs/T-0401.md",
       "roi": {
         "benefit": 5,
@@ -19633,13 +19633,19 @@
           "security_compliance": 2.0
         },
         "composite_score": 6.7,
-        "roi_ratio": 1.58
+        "roi_ratio": 1.58,
+        "actual_hours": 4.25,
+        "measured_outcome": "Delivered in research sentinel PR senseiewok/cf-research#135. Implemented Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR in tools/discovery/ptc_erf_depletion_readthrough.py with 8/8 unit tests passing and check_anti_hallucination verified."
       },
       "recommended_route": "local",
       "route_rationale": "Deterministic Python biophysical model and unit tests in cf-research.",
       "source_evidence": "tasks/specs/T-0401.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; RCSB PDB 6O2P; DOI 10.1038/s41589-020-00662-8, 10.1093/nar/gkaa728; NCT04135495",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "actual_hours": 4.25,
+      "completed_at": "2026-10-23",
+      "branch": "work/sentinel-research-t-0401",
+      "pull_request": "https://github.com/senseiewok/cf-research/pull/135"
     },
     {
       "id": "T-0402",
