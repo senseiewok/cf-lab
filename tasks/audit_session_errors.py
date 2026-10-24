@@ -43,7 +43,9 @@ def redact_sensitive(text: str) -> str:
 ERROR_PATTERNS = [
     (re.compile(r"Traceback \(most recent call last\):", re.I), "Python Traceback"),
     (re.compile(r"SyntaxError:", re.I), "Python SyntaxError"),
+    (re.compile(r'File "<string>", line \d+', re.I), "Inline Python -c Error"),
     (re.compile(r"ParserError:", re.I), "PowerShell ParserError"),
+    (re.compile(r"The term '(?:grep|rg)' is not recognized", re.I), "Missing Shell Utility (grep/rg)"),
     (re.compile(r"The command exited with code [1-9]\d*", re.I), "Non-Zero Exit Code"),
     (re.compile(r"ScriptBlock should only be specified", re.I), "PowerShell ScriptBlock Syntax"),
     (re.compile(r"cannot find path|file not found|no such file", re.I), "Path Not Found"),
@@ -51,6 +53,22 @@ ERROR_PATTERNS = [
     (re.compile(r"JSONDecodeError|Expecting value", re.I), "JSON Parsing Error"),
     (re.compile(r"PermissionDenied|Access is denied", re.I), "Permission Error"),
 ]
+
+READONLY_VIEW_RX = re.compile(
+    r"^\s*(?:Created At:[^\n]*\r?\n\s*Completed At:[^\n]*\r?\n\s*)?(?:File Path:|Showing lines \d+|Partial read \(lines \d+)",
+    re.I,
+)
+NONZERO_EXIT_RX = re.compile(r"(?:The )?command exited with code [1-9]\d*", re.I)
+ZERO_EXIT_RX = re.compile(r"(?:The )?command exited with code 0\b", re.I)
+STRONG_RUNTIME_ERROR_RX = re.compile(
+    r"(?:^Traceback \(most recent call last\):|\bSyntaxError:|File \"<string>\", line \d+|The term '(?:grep|rg)' is not recognized|\bParserError:)",
+    re.I | re.M,
+)
+
+
+def is_readonly_file_view(content: str) -> bool:
+    """Return True if tool output is a read_file view (with or without Created/Completed At timestamps)."""
+    return bool(READONLY_VIEW_RX.match(content or ""))
 
 
 def scan_transcript(transcript_path: Path) -> List[Dict[str, Any]]:
@@ -75,16 +93,19 @@ def scan_transcript(transcript_path: Path) -> List[Dict[str, Any]]:
                 step_type = step.get("type", "")
 
                 # Ignore user/system prompt steps, read-only file views, and successful (exit 0) self-audit/test runs
-                # unless the step itself explicitly failed with status == "ERROR".
+                # unless the step itself explicitly failed with status == "ERROR" or contains a strong runtime error.
                 if step_status != "ERROR":
                     if step_type in ("USER_INPUT", "SYSTEM_MESSAGE", "USER_MESSAGE"):
                         continue
-                    stripped = content.lstrip()
-                    if stripped.startswith(("File Path:", "Showing lines ")):
+                    if is_readonly_file_view(content):
                         continue
                     if "Sensei Ewok CF Lab - Session Error & Improvement Audit" in content:
                         continue
-                    if "Command exited with code 0" in content or "The command exited with code 0." in content:
+                    if (
+                        ZERO_EXIT_RX.search(content)
+                        and not NONZERO_EXIT_RX.search(content)
+                        and not STRONG_RUNTIME_ERROR_RX.search(content)
+                    ):
                         continue
 
                 matched_categories = []
@@ -118,8 +139,12 @@ def scan_task_logs(session_dir: Path) -> List[Dict[str, Any]]:
     for log_file in tasks_dir.glob("*.log"):
         try:
             content = log_file.read_text(encoding="utf-8", errors="replace")
-            if "Sensei Ewok CF Lab - Session Error & Improvement Audit" in content and (
-                "Command exited with code 0" in content or "The command exited with code 0." in content
+            if "Sensei Ewok CF Lab - Session Error & Improvement Audit" in content:
+                continue
+            if (
+                ZERO_EXIT_RX.search(content)
+                and not NONZERO_EXIT_RX.search(content)
+                and not STRONG_RUNTIME_ERROR_RX.search(content)
             ):
                 continue
             matched_categories = []
@@ -149,6 +174,8 @@ def audit_sessions(brain_dir: Path, max_age_hours: float = 24.0) -> Dict[str, An
 
     sessions_audited = 0
     total_error_steps = 0
+    python_error_steps = 0
+    inline_python_steps = 0
     category_counts: Dict[str, int] = {}
     session_reports = []
 
@@ -173,6 +200,11 @@ def audit_sessions(brain_dir: Path, max_age_hours: float = 24.0) -> Dict[str, An
             if step_errors or task_errors:
                 total_error_steps += len(step_errors)
                 for err in step_errors:
+                    cats = set(err.get("categories", []))
+                    if cats & {"Python Traceback", "Python SyntaxError", "Inline Python -c Error"}:
+                        python_error_steps += 1
+                    if "Inline Python -c Error" in cats:
+                        inline_python_steps += 1
                     for cat in err.get("categories", []):
                         category_counts[cat] = category_counts.get(cat, 0) + 1
 
@@ -195,10 +227,18 @@ def audit_sessions(brain_dir: Path, max_age_hours: float = 24.0) -> Dict[str, An
             "action": "Hardened tasks/ scripts with structured argument parsing and documented PowerShell quoting guardrails in windows-powershell-commands skill."
         })
 
-    if category_counts.get("Python SyntaxError", 0) > 0 or category_counts.get("Python Traceback", 0) > 0:
+    if category_counts.get("Missing Shell Utility (grep/rg)", 0) > 0:
+        recommended_improvements.append({
+            "area": "shell_search_utilities",
+            "observation": f"Detected {category_counts.get('Missing Shell Utility (grep/rg)', 0)} calls to missing 'grep' or 'rg' binaries in PowerShell.",
+            "recommendation": "Use the native Grep tool, 'git grep', or PowerShell 'Select-String' instead of bare 'grep' or 'rg' in run_command.",
+            "action": "Enforced PowerShell search equivalents across sentinel instructions and windows-powershell-commands skill."
+        })
+
+    if python_error_steps > 0:
         recommended_improvements.append({
             "area": "python_execution",
-            "observation": f"Detected {category_counts.get('Python SyntaxError', 0) + category_counts.get('Python Traceback', 0)} Python script/command tracebacks.",
+            "observation": f"Detected {python_error_steps} Python error step(s) ({inline_python_steps} from inline python -c).",
             "recommendation": "Use dedicated CLI scripts with argparse and unit tests rather than raw inline command string execution.",
             "action": "Author and run dedicated helper scripts under tasks/ or tools/."
         })

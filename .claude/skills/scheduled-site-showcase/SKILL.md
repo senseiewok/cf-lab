@@ -84,8 +84,14 @@ Before touching any `.ai` or skill files:
      ```powershell
      python tools/sync_cftr_model.py
      ```
-2. **Website Enhancements (`.ai/src/`)**:
-   - Update HTML, CSS, and interactive visualizers on target pages (`/cf/`, `/cf/cftr/`, `/tools/`, `/evidence/`).
+2. **Website Enhancements & Consolidation Over Widget Sprawl (`.ai/src/`)**:
+   - **One-Primary-Axis Architecture & Workbench Section Caps**:
+     - Top-level entryways (`/`, `/cf/`, `/resources/`) organize strictly by **Reader Persona** (`patients`, `clinicians`, `researchers`, `builders`).
+     - Technical workbenches organize strictly by **Scientific Discipline** (`data-discipline` attribute + `#workbench-discipline-bar`) and enforce hard module caps: `/cf/delivery/index.html` is capped at **19** `section[data-discipline]` modules (`mucus_rheology`, `lnp_mrna`, `viral_stem`, `microbiology_host`) and `/cf/cftr/index.html` is capped at **14** `section[data-discipline]` modules (`structural_biology`, `rna_gene_editing`).
+     - **Consolidation Rule**: Never append new standalone `<section>` calculators to `/cf/delivery/` or `/cf/cftr/` above these caps. Instead, showcase runs must **consolidate, deepen, unify, and polish existing workbenches and community surfaces**:
+       - Unifying `/atlas/*` (`23-class census & 102-pair co-occurrence matrix`) with `/cf/trials/` (`940-study explorer & 79-study care-team visit-prep pinboard`);
+       - Adding cross-scale coupling across existing tools (connecting variant theratyping on `/cf/cftr/` to recruiting trials on `/cf/trials/` and delivery calculators on `/cf/delivery/`);
+       - Improving care-team printable visit-prep sheets, mobile (`390x844`) ergonomics, and complete Mexican Spanish (`es-MX`) localization parity across all routes including `/atlas/*`.
    - Maintain the two-tier header navigation and right-hand secondary sub-nav rail (`aside.subnav-rail`) on content pages.
    - Preserve the 65-Roses visual motif counter and semantic structure.
 3. **Mexican Spanish Localization (`/es/...`, `es-MX`) (Local Worker Delegation)**:

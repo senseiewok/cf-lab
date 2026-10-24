@@ -1,5 +1,5 @@
 #Requires -Version 7
-# Test for render-board.ps1 (board T-0024: complexity, recommended_route, route_rationale). Throwaway boards only: it never touches
+# Test for render-board.ps1 (board T-0024: complexity, recommended_route, route_rationale, persona, discipline, work_kind). Throwaway boards only: it never touches
 # tasks/board.json or tasks/BOARD.md. No network, no model. Prints PASS/FAIL per check; exit 0 only when all pass.
 param([string] $Script = (Join-Path $PSScriptRoot 'render-board.ps1'))
 $ErrorActionPreference = 'Stop'
@@ -62,6 +62,16 @@ try {
     Check 'a blank rationale counts as none' ($r.Code -eq 2) $r.Out
     $r = Run-Render @((New-Task @{ recommended_route = 'Local'; route_rationale = 'x' }))
     Check 'values are case-sensitive (Local is rejected)' ($r.Code -eq 2) $r.Out
+
+    # persona, discipline, and work_kind fields
+    $r = Run-Render @((New-Task @{ persona = 'patients'; discipline = 'clinical_trials'; work_kind = 'new' }))
+    Check 'persona, discipline, and work_kind render in detail' ($r.Code -eq 0 -and $r.Md -match '\*\*Axis:\*\* Persona: patients \| Discipline: clinical_trials \| Kind: new') $r.Out
+    $r = Run-Render @((New-Task @{ persona = 'invalid_persona' }))
+    Check 'invalid persona is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'persona must be') $r.Out
+    $r = Run-Render @((New-Task @{ discipline = 'invalid_discipline' }))
+    Check 'invalid discipline is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'discipline must be') $r.Out
+    $r = Run-Render @((New-Task @{ work_kind = 'busywork' }))
+    Check 'invalid work_kind is rejected with exit 2' ($r.Code -eq 2 -and $r.Out -match 'work_kind must be') $r.Out
 
     # optional branch coordination field
     $r = Run-Render @((New-Task @{ status = 'in_progress'; branch = 'site/showcase-2026-10-12' }))

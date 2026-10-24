@@ -64,8 +64,12 @@ python tasks/triage_board.py --apply
     - Flags "agent scope creep" or recursive meta-tooling tasks that do not advance patient-facing translation or biophysical science.
     - Verifies that every `status: "in_progress"` task records its active git `"branch"` (cross-checked against `git worktree list` across `cf-lab`, `cf-research`, `cf-skills`, and `.ai`) so concurrent agents never collide, and flags tasks whose PRs have already merged or been superseded.
 
-### 3. Curative Mission Alignment Evaluation & Top-Task Escalation (Argon)
+### 3. Curative Mission Alignment Evaluation & Cross-Scale Discovery Synthesis (Argon)
 - For evaluating deep curative alignment and synthesizing the strategic Mission Grounding Brief (top task), **delegate to Argon (Gemini 4 Argon / `pro` model via `invoke_subagent` with `Model: 'pro'`)**:
+  - **Cross-Scale Synthesis Mandate (Beyond Isolated 1-Paper Toy Scripts)**: Rather than proposing isolated single-paper ODE calculators, proactive discovery rounds and new Track A/B task proposals must cross-join at least 2 locked workspace datasets across biological scales (`python tools/discovery/discovery_council.py --cross-scale-report` in `cf-research`):
+    1. **Engine A — Genotype $\times$ Recruiting Trial $\times$ Registry Gap Matrix**: Cross-joining the 209 CFTR2 variants (`4 Cryo-EM structures`) against the 79 active/recruiting interventional studies (`57 recruiting + 22 active`) and 5-registry epidemiology (`54,043 ECFSPR`) to identify underserved Class I/VII genotypes, age-eligibility gaps, and washout protocol barriers.
+    2. **Engine B — Modality $\times$ Endpoint Co-Occurrence & Compartmentalization Synthesis**: Cross-joining the 102 non-zero primary outcome pairs (`/atlas/co-occurrence/`) with therapeutic delivery route (systemic small-molecule modulators vs. airway-restricted inhaled mRNA LNPs `NCT05668741` and AAV `NCT05248230`) to quantify why pulmonary spirometry ($\text{FEV}_1$), small-airway ventilation ($\text{LCI}_{2.5}$), and safety decouple from systemic sweat chloride.
+    3. **Engine C — Chained 5-Discipline Curative Bottleneck Pipeline**: Chaining parameters across all 5 scientific disciplines (`Structural Biology` $\to$ `RNA & Gene Editing` $\to$ `Mucus & Airway Biophysics` $\to$ `LNP & mRNA Delivery` $\to$ `Viral, Stem Cell & Gene Therapy` + `Microbiology & Host Defense`) to identify the rate-limiting step from molecular rescue to durable clinical endpoint power.
   - Cross-references ongoing and queued efforts against the lab's two foundational tracks:
     - **Track A (Biophysical Science & Cure Discovery)**:
       - Overcoming the VX-522 delivery barrier (aerosolized & mucus-penetrating LNP formulation).
