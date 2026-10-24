@@ -2122,7 +2122,7 @@
         "confidence": "medium",
         "measured": true,
         "actual_hours": 3.5,
-        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB · Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
+        "measured_outcome": "Submitted PR #81 on senseiewok/.ai. Implemented The Evidence Loop (SE-LAB \u00b7 Vol. 02) 5-panel showcase section on /ai-loop/ (#evidence-loop) with mandatory medical disclaimer, homepage cross-link, and Mexican Spanish dictionary and live DOM bindings.",
         "categories": {
           "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
@@ -8874,7 +8874,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (Δd) for unclassified missense mutations.",
+      "source_evidence": "cf-research/landscape/variants/rare-variants-theratypes.md and landscape/mission-grounding-2026-10-15.md detailing 2,000+ variants, 4 Cryo-EM models (6MSM, 5UAK, 8EIQ, 8EJ1), and atomistic perturbation metrics (\u0394d) for unclassified missense mutations.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -8925,7 +8925,7 @@
         "model_id": "gemini-3.8-flash",
         "session_ref": "2026-10-15 session: daily-site-showcase-sentinel execution"
       },
-      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (ΔAUC120 ≥ 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and ΔppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
+      "source_evidence": "cf-research/proposals/2026-10-adaptive-n-of-1-organoid-framework.md (T-0153) and cf-research/landscape/mission-grounding-2026-10-15.md detailing Adaptive Bayesian N-of-1 trial design, Forskolin-Induced Swelling (FIS) Area Under the Curve (\u0394AUC120 \u2265 1000), correlation transfer functions with sweat chloride (r = -0.71, p < 0.0001) and \u0394ppFEV1 (r = 0.62, p < 0.001), and openFDA SPL DILI boxed warning surveillance across 5 modulators.",
       "effort_hours": {
         "low": 2,
         "high": 4
@@ -15091,7 +15091,7 @@
       "complexity": "medium",
       "review_tier": "elevated",
       "recommended_route": "local",
-      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and Köhler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
+      "route_rationale": "Zero-build native ES module and SVG aerosol evaporation simulator modeling Mason droplet heat/mass transfer and K\u00f6hler equilibrium in 99% RH airway grounded in tools/discovery/mechano_acoustic_delivery.py (T-0228).",
       "created_at": "2026-10-22T08:30:00Z",
       "updated_at": "2026-10-22",
       "created_by": {
@@ -20396,7 +20396,7 @@
       "repo": "cf-research",
       "area": "science",
       "lane": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -20413,7 +20413,7 @@
         "high": 5.5
       },
       "acceptance": "pytest tools/discovery/test_split_intein_cftr_reconstitution.py -v; python tools/claims/check_anti_hallucination.py",
-      "notes": "Curative Discovery Council Track A Wave 16. Split-intein dual-AAV co-transduction, trans-splicing kinetics, and humoral neutralizing antibody redosing dynamics for full-length CFTR cDNA delivery.",
+      "notes": "Delivered in research sentinel PR senseiewok/cf-research#139. Implemented Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model in tools/discovery/split_intein_cftr_reconstitution.py with 18/18 unit tests passing (0.11s), 53 modules verified in discovery_council.py, and check_anti_hallucination verified.",
       "spec_path": "tasks/specs/T-0393.md",
       "roi": {
         "benefit": 5,
@@ -20427,7 +20427,9 @@
           "security_compliance": 2.0
         },
         "composite_score": 4.85,
-        "roi_ratio": 1.14
+        "roi_ratio": 1.14,
+        "actual_hours": 4.25,
+        "measured_outcome": "Delivered in research sentinel PR senseiewok/cf-research#139. Implemented Poisson co-transduction kinetics (>70% dual-positive at MOI 3.0), thermodynamic association (Delta G = -29.49 to -41.6 kJ/mol, Kd ~ 96 nM), mature Band C 170 kDa CFTR reconstitution (>25% WT), and longitudinal redosing neutralizing antibody attenuation across 18 unit tests."
       },
       "recommended_route": "local",
       "route_rationale": "Deterministic Python biophysical model and unit tests in cf-research.",
@@ -20436,7 +20438,11 @@
       "human_required": false,
       "persona": "researchers",
       "discipline": "rna_gene_editing",
-      "work_kind": "new"
+      "work_kind": "new",
+      "actual_hours": 4.25,
+      "completed_at": "2026-10-24",
+      "branch": "work/sentinel-research-t-0393",
+      "pull_request": "https://github.com/senseiewok/cf-research/pull/139"
     },
     {
       "id": "T-0394",
@@ -20622,7 +20628,7 @@
         "confidence": "high",
         "rationale": "Expands global resource navigator across 7 newly cataloged countries and 21 attested care organizations with bilingual support.",
         "categories": {
-          "curative_biophysics": 7.5,
+          "curative_biophysics": 2.0,
           "clinical_translation": 9.0,
           "scientific_integrity": 9.0,
           "operational_velocity": 3.0,
@@ -20844,7 +20850,7 @@
         "rationale": "Quantifies aminoglycoside-free nonsense readthrough kinetics and mature CFTR channel rescue for severe Class I alleles (W1282X, G542X).",
         "categories": {
           "curative_biophysics": 9.5,
-          "clinical_translation": 2.0,
+          "clinical_translation": 7.0,
           "scientific_integrity": 9.0,
           "operational_velocity": 3.0,
           "security_compliance": 2.0
@@ -21116,14 +21122,14 @@
         "confidence": "high",
         "rationale": "Directly couples molecular mutation mechanics to recruiting clinical trials and delivery barriers, empowering patients and clinicians to navigate from variant biology to visit prep.",
         "categories": {
-          "curative_biophysics": 8.0,
-          "clinical_translation": 9.5,
-          "scientific_integrity": 8.5,
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 3.0,
           "operational_velocity": 3.0,
           "security_compliance": 2.0
         },
-        "composite_score": 6.8,
-        "roi_ratio": 1.7,
+        "composite_score": 5.7,
+        "roi_ratio": 1.43,
         "actual_hours": 4.0,
         "measured_outcome": "Delivered in .ai PR #171 (merged). Mounted #cftr-cross-scale-bridge and #delivery-cross-scale-bridge coupling molecular mutation mechanics, clinical trials, and airway delivery routes with full es-MX parity."
       },
@@ -21141,6 +21147,152 @@
       "branch": "site/showcase-cross-scale-coupling",
       "completed_at": "2026-10-24",
       "actual_hours": 4.0
+    },
+    {
+      "id": "T-0407",
+      "title": "Inhaled Lentiviral Vector Epigenetic Silencing & Airway Basal Progenitor Integration Persistence Model (tools/discovery/lentiviral_basal_integration_persistence.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "lane": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-24 Wave 18 proactive discovery round"
+      },
+      "created_at": "2026-10-24",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "pytest tools/discovery/test_lentiviral_basal_integration_persistence.py -v; python tools/claims/check_anti_hallucination.py",
+      "notes": "Curative Discovery Council Track A Wave 18. Models lentiviral proviral integration in airway basal stem cells (KRT5+/TP63+), long-term CpG methylation epigenetic silencing kinetics across epithelial differentiation cycles, and durable CFTR expression persistence.",
+      "spec_path": "tasks/specs/T-0407.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models lifetime epigenetic persistence in airway stem cells to prevent loss of transgene expression following viral gene delivery.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 3.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 4.85,
+        "roi_ratio": 1.14
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic Python biophysical model and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0407.md; cf-research/landscape/mission-grounding-2026-10-24.md; RCSB PDB 6MSM; DOI 10.1016/S2213-2600(15)00245-3, 10.1172/jci.insight.206375; NCT06515002",
+      "executor": "agent",
+      "human_required": false,
+      "persona": "researchers",
+      "discipline": "airway_delivery",
+      "work_kind": "new"
+    },
+    {
+      "id": "T-0408",
+      "title": "Aerosol Droplet Aerodynamic Size Distribution & Mucociliary Impaction Mechanics for Inhaled Gene Therapies (tools/discovery/aerosol_droplet_deposition_mechanics.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "lane": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [],
+      "created_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-24 Wave 18 proactive discovery round"
+      },
+      "created_at": "2026-10-24",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.5
+      },
+      "acceptance": "pytest tools/discovery/test_aerosol_droplet_deposition_mechanics.py -v; python tools/claims/check_anti_hallucination.py",
+      "notes": "Curative Discovery Council Track A Wave 18. Fluid dynamic impaction and sedimentation modeling of aerosolized LNPs and viral vectors across Weibel airway generations (0 to 16) as a function of MMAD and inspiratory flow rate.",
+      "spec_path": "tasks/specs/T-0408.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Determines optimal aerodynamic particle sizing (MMAD 1-3 um) to maximize bronchial and bronchiolar target deposition while avoiding alveolar dissipation.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 2.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 3.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 5.45,
+        "roi_ratio": 1.28
+      },
+      "recommended_route": "local",
+      "route_rationale": "Deterministic Python biophysical model and unit tests in cf-research.",
+      "source_evidence": "tasks/specs/T-0408.md; cf-research/landscape/mission-grounding-2026-10-24.md; DOI 10.1038/s41551-021-00724-5, 10.3389/fbioe.2026.1855907; NCT05668741, NCT05248230",
+      "executor": "agent",
+      "human_required": false,
+      "persona": "researchers",
+      "discipline": "airway_delivery",
+      "work_kind": "new"
+    },
+    {
+      "id": "T-0409",
+      "title": "Interactive Split-Intein Dual-AAV Reconstitution & Vector Redosing Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "web",
+      "lane": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0393"
+      ],
+      "created_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-4-argon",
+        "session_ref": "2026-10-24 Wave 18 proactive discovery round"
+      },
+      "created_at": "2026-10-24",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "python -m unittest tests.test_site tests.test_resources_page tests.test_cftr_hero tests.test_site_cls -v; python tests/check-voice.py",
+      "notes": "Translates T-0393 split-intein dual-AAV reconstitution and vector redosing biophysical model into an interactive browser simulator on /cf/delivery/ with full Spanish (es-MX) parity, NLM disclaimer, and dignity boundaries.",
+      "spec_path": "tasks/specs/T-0409.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Bridges complex dual-vector reconstitution biophysics to community, patient, and clinician understanding.",
+        "categories": {
+          "curative_biophysics": 7.5,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 9.0,
+          "operational_velocity": 6.0,
+          "security_compliance": 6.5
+        },
+        "composite_score": 7.72,
+        "roi_ratio": 1.93
+      },
+      "recommended_route": "local",
+      "route_rationale": "Native ES module UI widget and unit tests in .ai.",
+      "source_evidence": "tasks/specs/T-0409.md; cf-research/landscape/mission-grounding-2026-10-23.md; DOI 10.1126/scitranslmed.aav4523, 10.1038/s41587-021-00943-7; NCT05248230; RCSB PDB 6MSM",
+      "executor": "agent",
+      "human_required": false,
+      "persona": "patients",
+      "discipline": "clinical_trials",
+      "work_kind": "new"
     }
   ],
   "updated": "2026-10-22"
