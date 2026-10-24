@@ -36,7 +36,7 @@
 | **OAuth 2.0 Discovery** | `https://api.scite.ai/.well-known/oauth-authorization-server` (`HTTP 200`, `robots: 404 allowed=True`, verified 2026-10-24 via `read-page`) |
 | **OAuth 2.0 Endpoints** | Authorization: `https://api.scite.ai/mcp/oauth/authorize` \| Token/Refresh: `https://api.scite.ai/mcp/oauth/token` \| Dynamic Client Registration: `https://api.scite.ai/mcp/oauth/register` (`S256` PKCE, scope `mcp offline_access`) |
 | **Documentation & Terms** | `https://scite.ai/mcp` (`HTTP 200`, `robots: 200 allowed=True`, verified 2026-10-24 via `read-page`) |
-| **Rate Limit Headers** | `RateLimit-Limit: 600` requests/minute observed on `api.scite.ai`; capped at `max_rps: 1.0` in `sources/catalog.yaml` (`scite-mcp`) |
+| **Rate Limit Headers & Monthly Quota** | `RateLimit-Limit: 600` req/min; Scite Pro Plan (`$40 USD/month` billed annually, verified 2026-10-24) includes **2,500 MCP tool uses/month** + **750 REST API calls/month**. Pay-as-you-go (`~$0.08/call`) is disabled and `manage_subscription` is hard-blocked in `scite_mcp_bridge.py`. Enforced daily cap: **60 MCP tool calls/day** (`SCITE_MCP_DAILY_CAP=60`, logged to `~/.gemini/config/scite_mcp_usage.jsonl`) so scheduled sentinels can never exhaust the monthly quota. |
 | **Local Bridge & Token Storage** | `~/.gemini/config/mcp_config.json`, `~/.gemini/config/scite_mcp_bridge.py`, and `~/.gemini/config/scite_mcp_oauth.json` — stored **strictly outside all git repositories** |
 
 ---
