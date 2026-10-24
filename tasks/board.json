@@ -21202,7 +21202,7 @@
       "repo": "cf-research",
       "area": "science",
       "lane": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -21219,7 +21219,7 @@
         "high": 5.5
       },
       "acceptance": "pytest tools/discovery/test_aerosol_droplet_deposition_mechanics.py -v; python tools/claims/check_anti_hallucination.py",
-      "notes": "Curative Discovery Council Track A Wave 18. Fluid dynamic impaction and sedimentation modeling of aerosolized LNPs and viral vectors across Weibel airway generations (0 to 16) as a function of MMAD and inspiratory flow rate.",
+      "notes": "Delivered biophysical model and unit test suite in tools/discovery/aerosol_droplet_deposition_mechanics.py modeling Weibel Model A conducting airway morphology, Stokes impaction (G0-G6), gravitational settling (G7-G12), and Brownian diffusion (G13-G16), log-normal aerodynamic sizing (MMAD in [1.0, 5.0] um, GSD in [1.5, 2.5]), and Bronchial Delivery Index (BDI) metric. All 11 unit tests passed; AH-1..AH-6 anti-hallucination verified; 54 discovery modules registered. PR senseiewok/cf-research#141 opened.",
       "spec_path": "tasks/specs/T-0408.md",
       "roi": {
         "benefit": 5,
@@ -21242,7 +21242,8 @@
       "human_required": false,
       "persona": "researchers",
       "discipline": "airway_delivery",
-      "work_kind": "new"
+      "work_kind": "new",
+      "actual_hours": 3.5
     },
     {
       "id": "T-0409",
@@ -21439,6 +21440,156 @@
       "human_required": false,
       "persona": "builders",
       "discipline": "structural_biology",
+      "work_kind": "new"
+    },
+    {
+      "id": "T-0413",
+      "title": "Aerosol Nebulizer Mesh Pore Shear Stress & Inhaled Lipid Nanoparticle Integrity Dynamics (tools/discovery/nebulizer_shear_stress_integrity.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "lane": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0408"
+      ],
+      "created_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-flash",
+        "session_ref": "2026-10-24 Wave 18 replenishment"
+      },
+      "created_at": "2026-10-24",
+      "effort_hours": {
+        "low": 3.0,
+        "high": 5.0
+      },
+      "acceptance": "pytest tools/discovery/test_nebulizer_shear_stress_integrity.py -v; python tools/claims/check_anti_hallucination.py",
+      "notes": "Delivers biophysical model and unit test suite in tools/discovery/nebulizer_shear_stress_integrity.py modeling micro-aperture shear stress (tau_wall = 4*mu*Q/(pi*r^3)), capillary deformation number (Ca_crit), and mRNA vesicle leakage under high-frequency mesh vibration (NCT05668741).",
+      "spec_path": "tasks/specs/T-0413.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Quantifies mechanical stability thresholds for aerosolized mRNA LNPs during vibrating mesh vs jet nebulizer extrusion.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 3.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.45,
+        "roi_ratio": 2.48
+      },
+      "recommended_route": "local",
+      "route_rationale": "Standard library biophysical ODE and transport equations in cf-research.",
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-24.md; DOI 10.1038/s41551-021-00724-5; DOI 10.3389/fbioe.2026.1855907; NCT05668741",
+      "executor": "agent",
+      "human_required": false,
+      "persona": "researchers",
+      "discipline": "airway_delivery",
+      "work_kind": "new"
+    },
+    {
+      "id": "T-0414",
+      "title": "Airway Epithelial Basal Stem Cell Quiescence Exit & Retrograde Lineage Commitment Dynamics for Durable Gene Editing (tools/discovery/basal_stem_quiescence_kinetics.py)",
+      "repo": "cf-research",
+      "area": "science",
+      "lane": "research",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0407"
+      ],
+      "created_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-flash",
+        "session_ref": "2026-10-24 Wave 18 replenishment"
+      },
+      "created_at": "2026-10-24",
+      "effort_hours": {
+        "low": 3.5,
+        "high": 5.5
+      },
+      "acceptance": "pytest tools/discovery/test_basal_stem_quiescence_kinetics.py -v; python tools/claims/check_anti_hallucination.py",
+      "notes": "Delivers biophysical model and unit test suite in tools/discovery/basal_stem_quiescence_kinetics.py modeling basal stem cell turnover, symmetric vs asymmetric division rates, and lifelong clonal persistence following integrating gene addition or prime editing.",
+      "spec_path": "tasks/specs/T-0414.md",
+      "roi": {
+        "benefit": 5,
+        "confidence": "high",
+        "rationale": "Models multi-year persistence of apical CFTR chloride conductance following permanent genetic modification of airway basal stem cells.",
+        "categories": {
+          "curative_biophysics": 9.5,
+          "clinical_translation": 8.5,
+          "scientific_integrity": 8.0,
+          "operational_velocity": 3.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 7.55,
+        "roi_ratio": 2.52
+      },
+      "recommended_route": "local",
+      "route_rationale": "Biophysical clonal retention models and unit tests in cf-research.",
+      "source_evidence": "cf-research/landscape/mission-grounding-2026-10-24.md; DOI 10.1073/pnas.1901667116; DOI 10.3389/fbioe.2026.1855907; NCT05248230; RCSB PDB 6MSM",
+      "executor": "agent",
+      "human_required": false,
+      "persona": "researchers",
+      "discipline": "airway_delivery",
+      "work_kind": "new"
+    },
+    {
+      "id": "T-0415",
+      "title": "Interactive Aerosol Droplet Aerodynamic Sizing & Bronchial Deposition Simulator on /cf/delivery/ with es-MX Parity",
+      "repo": ".ai",
+      "area": "web",
+      "lane": "showcase",
+      "status": "ready",
+      "priority": "P1",
+      "complexity": "medium",
+      "review_tier": "elevated",
+      "depends_on": [
+        "T-0408"
+      ],
+      "created_by": {
+        "kind": "model",
+        "name": "daily-research-sentinel",
+        "model_id": "gemini-flash",
+        "session_ref": "2026-10-24 Wave 18 replenishment"
+      },
+      "created_at": "2026-10-24",
+      "effort_hours": {
+        "low": 2.0,
+        "high": 4.0
+      },
+      "acceptance": "python -m unittest tests.test_site tests.test_check_pr_gate; python tools/check_pr_gate.py",
+      "notes": "Translates T-0408 aerosol droplet aerodynamic mechanics into an interactive visual simulator on /cf/delivery/ with Weibel generation curve, CF obstruction slider, and bilingual English / Mexican Spanish (es-MX) parity.",
+      "spec_path": "tasks/specs/T-0415.md",
+      "roi": {
+        "benefit": 4,
+        "confidence": "high",
+        "rationale": "Visualizes aerosol particle sizing and bronchial delivery fractions for patients, care teams, and researchers.",
+        "categories": {
+          "curative_biophysics": 3.0,
+          "clinical_translation": 9.0,
+          "scientific_integrity": 8.5,
+          "operational_velocity": 3.0,
+          "security_compliance": 2.0
+        },
+        "composite_score": 5.45,
+        "roi_ratio": 1.82
+      },
+      "recommended_route": "local",
+      "route_rationale": "Native ES module UI widget and unit tests in .ai.",
+      "source_evidence": "cf-research/tools/discovery/aerosol_droplet_deposition_mechanics.py; cf-research/landscape/mission-grounding-2026-10-24.md; DOI 10.1038/s41551-021-00724-5; DOI 10.1513/pats.200409-046ta; NCT05668741",
+      "executor": "agent",
+      "human_required": false,
+      "persona": "care_teams",
+      "discipline": "airway_delivery",
       "work_kind": "new"
     }
   ],

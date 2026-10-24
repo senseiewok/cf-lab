@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-412 tasks, 411 created by a model, 186 with a measured outcome. Estimated effort 1047.35 to 1899.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+415 tasks, 414 created by a model, 186 with a measured outcome. Estimated effort 1055.85 to 1913.75 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,17 +10,19 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (22)
+## ready (24)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0411 | P1 | Interactive Engineered Suppressor tRNA Premature Termination Codon Readthrough Simulator on /cf/ptc/ with es-MX Parity | .ai | 2-4 | 5 | 16.7 | no | model: gemini-flash | 2026-10-24 | elevated | medium | local | T-0394 |  |
 | T-0412 | P1 | Interactive 52-Model Cross-Discipline Discovery Catalog & Curative Bottleneck Synthesis Explorer on /tools/ with Bilingual Support | .ai | 2-4 | 4 | 13.3 | no | model: gemini-flash | 2026-10-24 | elevated | medium | local |  |  |
+| T-0415 | P1 | Interactive Aerosol Droplet Aerodynamic Sizing & Bronchial Deposition Simulator on /cf/delivery/ with es-MX Parity | .ai | 2-4 | 4 | 13.3 | no | model: gemini-flash | 2026-10-24 | elevated | medium | local | T-0408 |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
 | T-0409 | P1 | Interactive Split-Intein Dual-AAV Reconstitution & Vector Redosing Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-24 | elevated | medium | local | T-0393 |  |
+| T-0413 | P1 | Aerosol Nebulizer Mesh Pore Shear Stress & Inhaled Lipid Nanoparticle Integrity Dynamics (tools/discovery/nebulizer_shear_stress_integrity.py) | cf-research | 3-5 | 5 | 12.5 | no | model: gemini-flash | 2026-10-24 | elevated | medium | local | T-0408 |  |
 | T-0407 | P1 | Inhaled Lentiviral Vector Epigenetic Silencing & Airway Basal Progenitor Integration Persistence Model (tools/discovery/lentiviral_basal_integration_persistence.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-24 | elevated | medium | local |  |  |
-| T-0408 | P1 | Aerosol Droplet Aerodynamic Size Distribution & Mucociliary Impaction Mechanics for Inhaled Gene Therapies (tools/discovery/aerosol_droplet_deposition_mechanics.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-24 | elevated | medium | local |  |  |
+| T-0414 | P1 | Airway Epithelial Basal Stem Cell Quiescence Exit & Retrograde Lineage Commitment Dynamics for Durable Gene Editing (tools/discovery/basal_stem_quiescence_kinetics.py) | cf-research | 3.5-5.5 | 5 | 11.1 | no | model: gemini-flash | 2026-10-24 | elevated | medium | local | T-0407 |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0129 | P1 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P1 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
@@ -37,7 +39,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
-## done (318)
+## done (319)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -197,6 +199,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0400 | P1 | Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  | work/sentinel-research-t-0400 |
 | T-0401 | P1 | Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0402 | P1 | Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in Resistant P. aeruginosa Biofilms (tools/discovery/phage_depolymerase_biofilm_synergy.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  | work/sentinel-research-t-0402 |
+| T-0408 | P1 | Aerosol Droplet Aerodynamic Size Distribution & Mucociliary Impaction Mechanics for Inhaled Gene Therapies (tools/discovery/aerosol_droplet_deposition_mechanics.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-24 | elevated | medium | local |  |  |
 | T-0157 | P1 | Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas | cf-research | 3-6 | 5 | 11.1 | yes | model: gemini-3.8-flash | 2026-10-12 | elevated | medium | cloud | T-0130 |  |
 | T-0169 | P1 | Trial Endpoint Atlas: ClinicalTrials.gov API v2 ingestion & PRISMA manifest verification | cf-research | 4-5 | 5 | 11.1 | yes | model: gemini-4-argon | 2026-10-16 | elevated | low | local |  |  |
 | T-0187 | P1 | Interactive Splice-Switching ASO & Class V Pseudoexon Explorer panel on /cf/ptc/ with es-MX parity | .ai | 3.5-6 | 5 | 10.5 | no | model: gemini-4-argon | 2026-10-18 | elevated | medium | local | T-0183 |  |
@@ -1947,6 +1950,16 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0412.md`
 - **Notes:** Builds interactive 52-model cross-discipline catalog and curative bottleneck synthesis explorer on /tools/ with discipline filters, biophysical equations, and bilingual English / Mexican Spanish (es-MX) support.
 
+### T-0415 Interactive Aerosol Droplet Aerodynamic Sizing & Bronchial Deposition Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Visualizes aerosol particle sizing and bronchial delivery fractions for patients, care teams, and researchers. *(confidence: high)*
+- **Axis:** Persona: care_teams | Discipline: airway_delivery | Kind: new
+- **Route:** local - Native ES module UI widget and unit tests in .ai.
+- **Acceptance:** python -m unittest tests.test_site tests.test_check_pr_gate; python tools/check_pr_gate.py
+- **Evidence:** cf-research/tools/discovery/aerosol_droplet_deposition_mechanics.py; cf-research/landscape/mission-grounding-2026-10-24.md; DOI 10.1038/s41551-021-00724-5; DOI 10.1513/pats.200409-046ta; NCT05668741
+- **Spec:** `tasks/specs/T-0415.md`
+- **Notes:** Translates T-0408 aerosol droplet aerodynamic mechanics into an interactive visual simulator on /cf/delivery/ with Weibel generation curve, CF obstruction slider, and bilingual English / Mexican Spanish (es-MX) parity.
+
 ### T-0105 A CF clinician or social worker reads the safe-use box wording and the open questions
 
 - **Why / ROI rationale:** Estimate: no clinician has read the wording that tells people what to do in an emergency; it is the biggest gap for the highest-risk text. *(confidence: low)*
@@ -2321,6 +2334,16 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0409.md`
 - **Notes:** Translates T-0393 split-intein dual-AAV reconstitution and vector redosing biophysical model into an interactive browser simulator on /cf/delivery/ with full Spanish (es-MX) parity, NLM disclaimer, and dignity boundaries.
 
+### T-0413 Aerosol Nebulizer Mesh Pore Shear Stress & Inhaled Lipid Nanoparticle Integrity Dynamics (tools/discovery/nebulizer_shear_stress_integrity.py)
+
+- **Why / ROI rationale:** Quantifies mechanical stability thresholds for aerosolized mRNA LNPs during vibrating mesh vs jet nebulizer extrusion. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
+- **Route:** local - Standard library biophysical ODE and transport equations in cf-research.
+- **Acceptance:** pytest tools/discovery/test_nebulizer_shear_stress_integrity.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-24.md; DOI 10.1038/s41551-021-00724-5; DOI 10.3389/fbioe.2026.1855907; NCT05668741
+- **Spec:** `tasks/specs/T-0413.md`
+- **Notes:** Delivers biophysical model and unit test suite in tools/discovery/nebulizer_shear_stress_integrity.py modeling micro-aperture shear stress (tau_wall = 4*mu*Q/(pi*r^3)), capillary deformation number (Ca_crit), and mRNA vesicle leakage under high-frequency mesh vibration (NCT05668741).
+
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
 - **Why / ROI rationale:** Automated PR hygiene eliminates merge conflict friction, identifies unresolved review comments across the multi-repo workspace, protects human-gated boundaries, audits stale worktrees, and prevents maintainer cognitive overload. *(confidence: high)*
@@ -2685,7 +2708,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Acceptance:** pytest tools/discovery/test_aerosol_droplet_deposition_mechanics.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0408.md; cf-research/landscape/mission-grounding-2026-10-24.md; DOI 10.1038/s41551-021-00724-5, 10.3389/fbioe.2026.1855907; NCT05668741, NCT05248230
 - **Spec:** `tasks/specs/T-0408.md`
-- **Notes:** Curative Discovery Council Track A Wave 18. Fluid dynamic impaction and sedimentation modeling of aerosolized LNPs and viral vectors across Weibel airway generations (0 to 16) as a function of MMAD and inspiratory flow rate.
+- **Notes:** Delivered biophysical model and unit test suite in tools/discovery/aerosol_droplet_deposition_mechanics.py modeling Weibel Model A conducting airway morphology, Stokes impaction (G0-G6), gravitational settling (G7-G12), and Brownian diffusion (G13-G16), log-normal aerodynamic sizing (MMAD in [1.0, 5.0] um, GSD in [1.5, 2.5]), and Bronchial Delivery Index (BDI) metric. All 11 unit tests passed; AH-1..AH-6 anti-hallucination verified; 54 discovery modules registered. PR senseiewok/cf-research#141 opened.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
@@ -2706,6 +2729,16 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** ClinicalTrials.gov API v2 query term 'cystic fibrosis'; PRISMA 2020 screening protocol
 - **Notes:** Decomposed from T-0130 (Sub-Task 1). Ingestion and manifest verification with SHA-256 integrity. \| 2026-10-16 daily-research-sentinel: Completed and verified acceptance criteria in senseiewok/cf-research PR #81 (python -m unittest discover -s tools/trial_atlas -p 'test_*.py': 458 passed in 11.2s).
 - **Measured:** 4 h; Delivered ClinicalTrials.gov API v2 ingestion, polite pacing, SHA-256 partition manifest validation, and NLM disclaimer invariants. Verified via 458 passing tests across tools/trial_atlas in senseiewok/cf-research PR #81.
+
+### T-0414 Airway Epithelial Basal Stem Cell Quiescence Exit & Retrograde Lineage Commitment Dynamics for Durable Gene Editing (tools/discovery/basal_stem_quiescence_kinetics.py)
+
+- **Why / ROI rationale:** Models multi-year persistence of apical CFTR chloride conductance following permanent genetic modification of airway basal stem cells. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
+- **Route:** local - Biophysical clonal retention models and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_basal_stem_quiescence_kinetics.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** cf-research/landscape/mission-grounding-2026-10-24.md; DOI 10.1073/pnas.1901667116; DOI 10.3389/fbioe.2026.1855907; NCT05248230; RCSB PDB 6MSM
+- **Spec:** `tasks/specs/T-0414.md`
+- **Notes:** Delivers biophysical model and unit test suite in tools/discovery/basal_stem_quiescence_kinetics.py modeling basal stem cell turnover, symmetric vs asymmetric division rates, and lifelong clonal persistence following integrating gene addition or prime editing.
 
 ### T-0187 Interactive Splice-Switching ASO & Class V Pseudoexon Explorer panel on /cf/ptc/ with es-MX parity
 
