@@ -19563,7 +19563,7 @@
       "repo": "cf-research",
       "area": "science",
       "lane": "research",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "complexity": "medium",
       "review_tier": "elevated",
@@ -19580,7 +19580,7 @@
         "high": 5.5
       },
       "acceptance": "pytest tools/discovery/test_vx522_inhaled_lnp_mucus_diffusion.py -v; python tools/claims/check_anti_hallucination.py",
-      "notes": "Curative Discovery Council Track A Wave 17. Inhaled mRNA LNP mucus mesh diffusion, steric sieving, surface charge neutralization, PEG shedding kinetics, and ionizable lipid pKa tuning for CFTR delivery.",
+      "notes": "Delivered in research sentinel PR senseiewok/cf-research#136. Implemented Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery in tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py with 10/10 unit tests passing and check_anti_hallucination verified.",
       "spec_path": "tasks/specs/T-0400.md",
       "roi": {
         "benefit": 5,
@@ -19594,13 +19594,19 @@
           "security_compliance": 2.0
         },
         "composite_score": 5.45,
-        "roi_ratio": 1.28
+        "roi_ratio": 1.28,
+        "actual_hours": 4.25,
+        "measured_outcome": "Delivered in research sentinel PR senseiewok/cf-research#136. Implemented Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery in tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py with 10/10 unit tests passing and check_anti_hallucination verified."
       },
       "recommended_route": "local",
       "route_rationale": "Deterministic Python biophysical model and unit tests in cf-research.",
       "source_evidence": "tasks/specs/T-0400.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; DOI 10.1073/pnas.1901667116, 10.1038/s41551-021-00724-5; NCT06237335",
       "executor": "agent",
-      "human_required": false
+      "human_required": false,
+      "actual_hours": 4.25,
+      "completed_at": "2026-10-23",
+      "branch": "work/sentinel-research-t-0400",
+      "pull_request": "https://github.com/senseiewok/cf-research/pull/136"
     },
     {
       "id": "T-0401",
