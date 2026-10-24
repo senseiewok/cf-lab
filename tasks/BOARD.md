@@ -2,7 +2,7 @@
 
 Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 
-406 tasks, 405 created by a model, 186 with a measured outcome. Estimated effort 1032.35 to 1871.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
+409 tasks, 408 created by a model, 186 with a measured outcome. Estimated effort 1041.35 to 1887.25 hours in total. ROI index is benefit x 10 / midpoint hours: a ranking aid from estimates, not a result.
 
 ## in progress (1)
 
@@ -10,13 +10,15 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0039 | P1 | Read terms and record access values for medRxiv, ClinVar, Cochrane CF reviews, NIH RePORTER | cf-research | 1.5-2.5 | 3 | 15 | no | model: claude-fable-5-1 | 2026-10-04 | routine | medium | cloud |  |  |
 
-## ready (18)
+## ready (20)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | T-0106 | P1 | Send the permission letters and record every reply in the source catalog | cf-research | 1-2 | 3 | 20 | no | model: claude-sonnet-5-5 | 2026-10-09 | elevated | low | cloud |  |  |
 | T-0105 | P1 | A CF clinician or social worker reads the safe-use box wording and the open questions | cf-skills | 2-6 | 5 | 12.5 | no | model: claude-sonnet-5-5 | 2026-10-09 | full | low | cloud |  |  |
-| T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0409 | P1 | Interactive Split-Intein Dual-AAV Reconstitution & Vector Redosing Simulator on /cf/delivery/ with es-MX Parity | .ai | 3-5 | 5 | 12.5 | no | model: gemini-4-argon | 2026-10-24 | elevated | medium | local | T-0393 |  |
+| T-0407 | P1 | Inhaled Lentiviral Vector Epigenetic Silencing & Airway Basal Progenitor Integration Persistence Model (tools/discovery/lentiviral_basal_integration_persistence.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-24 | elevated | medium | local |  |  |
+| T-0408 | P1 | Aerosol Droplet Aerodynamic Size Distribution & Mucociliary Impaction Mechanics for Inhaled Gene Therapies (tools/discovery/aerosol_droplet_deposition_mechanics.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-24 | elevated | medium | local |  |  |
 | T-0011 | P1 | External review round: registry scientist on comparability, person with CF/caregiver on wording | cf-research | 4-6 | 5 | 10 | no | model: claude-fable-5-1 | 2026-10-04 | full | medium | cloud | T-0009 |  |
 | T-0129 | P1 | A continuity note: what a second person needs to keep the lab running | cf-lab | 2-4 | 3 | 10 | no | model: claude-sonnet-5-5 | 2026-10-10 | full | low | local |  |  |
 | T-0047 | P1 | Trial one Scite Pro seat; build a supporting/contrasting/mentioning provider for cf-evidence-loop behind the same conduct rules | cf-skills | 4-6 | 4 | 8 | no | model: claude-fable-5-1 | 2026-10-04 | full | low | local | T-0042 |  |
@@ -33,7 +35,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0081 | P2 | Outside scientific review and a CF-community read of the CFTR structure page before it goes anywhere public | .ai | 2-5 | 5 | 14.3 | no | model: claude-sonnet-5-5 | 2026-10-05 | full | low | local | T-0077 |  |
 | T-0020 | P3 | Human review of the scope-triage table in cf-projects/CF-Project-Ideas.md | cf-lab | 0.5-0.5 | 3 | 60 | no | model: claude-fable-5-1 | 2026-10-04 | routine | low | local |  |  |
 
-## done (316)
+## done (317)
 
 | ID | P | Task | Repo | Hours | Benefit | ROI idx | Measured | Created by | Created | Review | Complexity | Route | Depends on | Branch |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -187,6 +189,7 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 | T-0351 | P1 | Airway Epithelial Glycocalyx Barrier Sialic Acid Charge Density & Enzymatic Permeabilization Model (tools/discovery/glycocalyx_charge_barrier_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0352 | P1 | CFTR Cryptic Splice Site Pseudoexon U1 snRNP Steric Decoy Thermodynamics Model (tools/discovery/u1_snrnp_decoy_thermodynamics.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-22 | elevated | medium | local |  |  |
 | T-0392 | P1 | Inhaled TMEM16A Alternative Chloride Conductance & Intracellular Calcium Coupling Model (tools/discovery/tmem16a_calcium_conductance_model.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
+| T-0393 | P1 | Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model (tools/discovery/split_intein_cftr_reconstitution.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  | work/sentinel-research-t-0393 |
 | T-0394 | P1 | Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model (tools/discovery/suppressor_trna_orthogonality.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
 | T-0400 | P1 | Inhaled mRNA Lipid Nanoparticle Mucus Mesh Diffusion & Surface Charge Neutralization Model for VX-522 Aerosol Delivery (tools/discovery/vx522_inhaled_lnp_mucus_diffusion.py) | cf-research | 3-5.5 | 5 | 11.8 | no | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  | work/sentinel-research-t-0400 |
 | T-0401 | P1 | Eukaryotic Release Factor eRF1/eRF3 Depletion & Aminoglycoside-Free Nonsense Readthrough Kinetic Model for W1282X CFTR (tools/discovery/ptc_erf_depletion_readthrough.py) | cf-research | 3-5.5 | 5 | 11.8 | yes | model: gemini-4-argon | 2026-10-23 | elevated | medium | local |  |  |
@@ -2275,6 +2278,16 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Spec:** `tasks/specs/T-0406.md`
 - **Notes:** Delivered in .ai PR on branch site/showcase-cross-scale-coupling. Added cross-scale bridges to /cf/cftr/ and /cf/delivery/ with dynamic filtering in nav-rail.js, 100% es-MX parity, and zero cap violations (14 and 19 sections).
 
+### T-0409 Interactive Split-Intein Dual-AAV Reconstitution & Vector Redosing Simulator on /cf/delivery/ with es-MX Parity
+
+- **Why / ROI rationale:** Bridges complex dual-vector reconstitution biophysics to community, patient, and clinician understanding. *(confidence: high)*
+- **Axis:** Persona: patients | Discipline: clinical_trials | Kind: new
+- **Route:** local - Native ES module UI widget and unit tests in .ai.
+- **Acceptance:** python -m unittest tests.test_site tests.test_resources_page tests.test_cftr_hero tests.test_site_cls -v; python tests/check-voice.py
+- **Evidence:** tasks/specs/T-0409.md; cf-research/landscape/mission-grounding-2026-10-23.md; DOI 10.1126/scitranslmed.aav4523, 10.1038/s41587-021-00943-7; NCT05248230; RCSB PDB 6MSM
+- **Spec:** `tasks/specs/T-0409.md`
+- **Notes:** Translates T-0393 split-intein dual-AAV reconstitution and vector redosing biophysical model into an interactive browser simulator on /cf/delivery/ with full Spanish (es-MX) parity, NLM disclaimer, and dignity boundaries.
+
 ### T-0176 Multi-repo GitHub hygiene, merge conflict detection, review triage, and worktree audit engine (tasks/audit_github_hygiene.py) integrated into daily-security-sentinel
 
 - **Why / ROI rationale:** Automated PR hygiene eliminates merge conflict friction, identifies unresolved review comments across the multi-repo workspace, protects human-gated boundaries, audits stale worktrees, and prevents maintainer cognitive overload. *(confidence: high)*
@@ -2572,10 +2585,11 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Why / ROI rationale:** Solves the 4.7 kb AAV packaging barrier for full-length CFTR via trans-splicing inteins and models redosing constraints. *(confidence: high)*
 - **Axis:** Persona: researchers | Discipline: rna_gene_editing | Kind: new
 - **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Branch:** work/sentinel-research-t-0393
 - **Acceptance:** pytest tools/discovery/test_split_intein_cftr_reconstitution.py -v; python tools/claims/check_anti_hallucination.py
 - **Evidence:** tasks/specs/T-0393.md; cf-research/landscape/mission-grounding-2026-10-23.md; RCSB PDB 6MSM, 5UAK; DOI 10.1126/scitranslmed.aav4523, 10.1038/s41587-021-00943-7; NCT05248230
 - **Spec:** `tasks/specs/T-0393.md`
-- **Notes:** Curative Discovery Council Track A Wave 16. Split-intein dual-AAV co-transduction, trans-splicing kinetics, and humoral neutralizing antibody redosing dynamics for full-length CFTR cDNA delivery.
+- **Notes:** Delivered in research sentinel PR senseiewok/cf-research#139. Implemented Split-Intein Dual-AAV CFTR Reconstitution Thermodynamics & Vector Redosing Model in tools/discovery/split_intein_cftr_reconstitution.py with 18/18 unit tests passing (0.11s), 53 modules verified in discovery_council.py, and check_anti_hallucination verified.
 
 ### T-0394 Engineered Suppressor tRNA Premature Termination Codon Readthrough & Transcriptome Orthogonality Model (tools/discovery/suppressor_trna_orthogonality.py)
 
@@ -2619,6 +2633,26 @@ Generated from `board.json` by `render-board.ps1`. Edit the JSON, not this file.
 - **Evidence:** tasks/specs/T-0402.md; cf-research/landscape/mission-grounding-2026-10-23-wave17.md; RCSB PDB 6QW8; DOI 10.1128/AAC.01413-20, 10.1038/s41467-020-18009-7; NCT04596319
 - **Spec:** `tasks/specs/T-0402.md`
 - **Notes:** Delivered in research sentinel PR senseiewok/cf-research#138. Implemented Phage Alginate Depolymerase Exopolysaccharide Stripping & Tobramycin Penetration Dynamics in tools/discovery/phage_depolymerase_biofilm_synergy.py with 7/7 unit tests passing (0.56s), 52 modules verified in discovery_council.py, and check_anti_hallucination verified.
+
+### T-0407 Inhaled Lentiviral Vector Epigenetic Silencing & Airway Basal Progenitor Integration Persistence Model (tools/discovery/lentiviral_basal_integration_persistence.py)
+
+- **Why / ROI rationale:** Models lifetime epigenetic persistence in airway stem cells to prevent loss of transgene expression following viral gene delivery. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
+- **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_lentiviral_basal_integration_persistence.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0407.md; cf-research/landscape/mission-grounding-2026-10-24.md; RCSB PDB 6MSM; DOI 10.1016/S2213-2600(15)00245-3, 10.1172/jci.insight.206375; NCT06515002
+- **Spec:** `tasks/specs/T-0407.md`
+- **Notes:** Curative Discovery Council Track A Wave 18. Models lentiviral proviral integration in airway basal stem cells (KRT5+/TP63+), long-term CpG methylation epigenetic silencing kinetics across epithelial differentiation cycles, and durable CFTR expression persistence.
+
+### T-0408 Aerosol Droplet Aerodynamic Size Distribution & Mucociliary Impaction Mechanics for Inhaled Gene Therapies (tools/discovery/aerosol_droplet_deposition_mechanics.py)
+
+- **Why / ROI rationale:** Determines optimal aerodynamic particle sizing (MMAD 1-3 um) to maximize bronchial and bronchiolar target deposition while avoiding alveolar dissipation. *(confidence: high)*
+- **Axis:** Persona: researchers | Discipline: airway_delivery | Kind: new
+- **Route:** local - Deterministic Python biophysical model and unit tests in cf-research.
+- **Acceptance:** pytest tools/discovery/test_aerosol_droplet_deposition_mechanics.py -v; python tools/claims/check_anti_hallucination.py
+- **Evidence:** tasks/specs/T-0408.md; cf-research/landscape/mission-grounding-2026-10-24.md; DOI 10.1038/s41551-021-00724-5, 10.3389/fbioe.2026.1855907; NCT05668741, NCT05248230
+- **Spec:** `tasks/specs/T-0408.md`
+- **Notes:** Curative Discovery Council Track A Wave 18. Fluid dynamic impaction and sedimentation modeling of aerosolized LNPs and viral vectors across Weibel airway generations (0 to 16) as a function of MMAD and inspiratory flow rate.
 
 ### T-0157 Clinical trial surveillance sentinel: automated scheduled-trial-surveillance for the Trial Endpoint Atlas
 
